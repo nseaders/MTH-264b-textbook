@@ -18,17 +18,15 @@
   // 		"protocol": "https"
   // 	}
   // },
-  "onCreateCommand": "pip install pretext && pretext new -d .",
+  "onCreateCommand": "pip install pretext",
   // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "sudo bash ./.devcontainer/postCreateCommand.sh",
+  "postCreateCommand": "sudo bash ./.devcontainer/postCreateCommand.sh",
 
   // Configure tool-specific properties.
   "customizations": {
     "codespaces": {
       "openFiles": [
-        "source/main.ptx",
-        "project.ptx",
-        "publication/publication.ptx"
+        "source/main.ptx"
       ]
     },
     "vscode": {
