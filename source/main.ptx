@@ -62,10 +62,10 @@
 
     </chapter>
 
-        <chapter xml:id="prologue">
+        <chapter xml:id="chapter2">
       <title>Practice with Sage</title>
 
-      <section xml:id="section1">
+      <section xml:id="section21">
         <title>Section 1</title>
         <p>How would I break chapters out and not input them all in github at once?</p>
           
