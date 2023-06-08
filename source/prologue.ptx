@@ -1,4 +1,6 @@
-<chapter xml:id="prologue">
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="prologue">
       <title>Prologue</title>
 
       <section xml:id="section1">

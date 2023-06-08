@@ -1,4 +1,5 @@
-<chapter xml:id="chapter1">
+<?xml version="1.0" encoding="UTF-8" ?>
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="chapter1">
       <title>Practice with Sage</title>
 
       <section xml:id="section21">
