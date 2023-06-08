@@ -47,19 +47,9 @@
     </frontmatter>
 
   <xi:include href="./prologue.ptx"/>
+  <xi:include href="./chapter1.ptx"/>
 
-    <chapter xml:id="chapter1">
-      <title>Practice with Sage</title>
-
-      <section xml:id="section21">
-        <title>Section 1</title>
-        <p>How would I break chapters out and not input them all in github at once?</p>
-        
-          
-          
-      </section>
-
-    </chapter>
+    
 
     <backmatter xml:id="backmatter">
       <title>Backmatter</title>
