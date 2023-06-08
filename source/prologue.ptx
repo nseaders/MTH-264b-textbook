@@ -1,0 +1,14 @@
+<chapter xml:id="prologue">
+      <title>Prologue</title>
+
+      <section xml:id="section1">
+        <title>Section 1</title>
+        <p>When authoring an OER textbook, I can start with example code like this. </p>
+        <p> Let's talk Mathematics. </p>
+        <p> When we have an integral like <m> \int_a^b f(t)\, dt </m> we can see that the dummy variable <m> t</m> is in math type. 
+        </p>
+        <p> What happens if I add to this and try to refresh one more time.</p>
+          
+      </section>
+
+    </chapter>
