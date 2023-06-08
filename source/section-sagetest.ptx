@@ -14,12 +14,13 @@
     </sage>
 
     <!--wow, isn't this sage example cool? I don't even know what it is doing. I just copied and pasted-->
+    <!--but watch out for spaces and tabs, it can ruin the sage-->
     <sage>
-      <input>@interact
+        <input>@interact
 def _(n=[1..200]):
-print("Sum is {}".format(sigma(n)))
-print("Divide by n and you get {}".format(sigma(n)/n.n()))</input>
-      <output></output>
+    print("Sum is {}".format(sigma(n)))
+    print("Divide by n and you get {}".format(sigma(n)/n.n()))</input>
+        <output></output>
     </sage>
 
 </section>
