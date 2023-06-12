@@ -1,0 +1,8 @@
+    <backmatter xml:id="backmatter">
+      <title>Backmatter</title>
+
+      <colophon>
+        <p> This book was authored in <pretext />. </p>
+      </colophon>
+
+    </backmatter>

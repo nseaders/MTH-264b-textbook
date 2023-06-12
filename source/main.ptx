@@ -11,54 +11,19 @@
     </latex-image-preamble>
   </docinfo>
 
-  <book xml:id="my-great-book">
-    <title>PreTeXt Example</title>
-    <subtitle>An example to get you started</subtitle>
+  <book xml:id="Matrix-Computations">
+    <title>Introduction to Matrix Computations in Python</title>
+    <subtitle>Just the very basics</subtitle>
 
-    <frontmatter xml:id="frontmatter">
-      <titlepage>
-        <author>
-          <personname>Nicole Seaders and Claire Burke</personname>
-          <department>Mathematics Department</department>
-          <institution>Linn Benton Community College</institution>
-        </author>
-        <date>
-          <today />
-        </date>
-      </titlepage>
-
-      <colophon>
-
-        <website>
-          <name>
-            <c>example.org</c>
-          </name>
-          <address>https://example.org</address>
-        </website>
-
-        <copyright>
-          <year>2020<ndash />2023</year>
-          <holder>You</holder>
-          <shortlicense> 
-            This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit <url href="http://creativecommons.org/licenses/by-sa/4.0/" visual="creativecommons.org/licenses/by-sa/4.0"> CreativeCommons.org</url>
-          </shortlicense>
-        </copyright>
-      </colophon>
-    </frontmatter>
-
+ 
+  <xi:include href="./frontmatter.ptx"/>
   <xi:include href="./prologue.ptx"/>
-  <xi:include href="./chapter1.ptx"/>
+  <xi:include href="./chapter2.ptx"/>
+  <xi:include href="./chapter3.ptx"/>
+  <xi:include href="./backmatter.ptx"/>
 
     
 
-    <backmatter xml:id="backmatter">
-      <title>Backmatter</title>
-
-      <colophon>
-        <p> This book was authored in <pretext />. </p>
-      </colophon>
-
-    </backmatter>
 
   </book>
 </pretext>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="chapter3">
+      <title>Matrix Algebra in Python</title>
+
+      <xi:include href="./section3-2.ptx"/>
+    
+    </chapter>

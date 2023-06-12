@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="chapter2">
+      <title>Python Commands in SageMathCell</title>
+
+      <xi:include href="./section-sagetest.ptx"/>
+    
+    </chapter>
