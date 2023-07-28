@@ -7,11 +7,6 @@
         <ul>
           <li>
             <p>
-              Use arithmetic commands in Python
-            </p>
-          </li>
-          <li>
-            <p>
               Create a variable in Python
             </p>
           </li>
@@ -30,20 +25,12 @@
 
       <subsection xml:id="subsec-1-1-1-first-program">
         <title> First Program </title>
-        <p> Let's try out some basic arithmetic first. 
+        <p> A traditional first program displays the text <q>Hello, world.</q> or some variation. 
+          Depending on the complexity of the language, this can take several lines of code or be really simple. 
+          In Python, it is one line (see below)
         </p>
         
-        <sage language='python'>
-          <input>
-            2+3
-          </input>
-          <output>
-            (for static output)
-          </output>
-        </sage>
         
-        <p> Go ahead and play with different calculations above and click evaluate to see their output.  
-        </p>
 
         <sage language='python'>
           <input>

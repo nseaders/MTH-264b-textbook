@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="examples">
+    <title>Samples of various pretext formats </title>
+<!-- A basic paragraph-->
+    <p>
+        Here is a paragraph. With <q>quotations</q> and <sq> single quotes </sq>, <em> emphasis </em> and <angles> angles </angles>.
+    </p>
+
+    <p>
+
+
+
+ <!-- a numbered list-->       
+    <ol>
+        <li>
+            <p>
+                Here is a part of an ordered list 
+            </p>
+        </li>
+        <li> 
+            <p>
+                next part
+            </p>
+        </li>
+    </ol>
+
+    <ol marker="(A)">
+        <li>
+            <p>
+                try again
+            </p>
+        </li>
+    </ol>
+
+
+
+
+
+    <!-- a bulleted list--> 
+    <ul>
+        <li>
+            <p>
+                Here is an itemized list
+            </p>
+        </li>
+    </ul>
+
+    <ul marker="circle">
+        <li>
+            <p>
+                Here is an itemized list
+            </p>
+        </li>
+    </ul>
+
+
+    </p>
+
+    <p>
+        <objectives> 
+
+        </objectives>
+    </p>
+
+    <!-- definitions-->
+    <p>
+        <definition xml:id="def-integral">
+            <title> integral </title>
+            <statement>
+                <p>
+                    An <term>integral</term> is a sum. 
+                </p>
+            </statement>
+        </definition>
+
+        A <term> variable </term> is a container for information.
+    </p>
+
+    <aside>
+        <title> How to do an aside </title>
+        <p> here is an aside.<fn> can you footnote an aside? </fn>
+        </p>
+        <p> with two paragraphs and <m>2^2</m> </p>
+    </aside>
+
+    <p>
+        It seems that asides get lost a little on the right, so I think I should use them sparingly. How in the heck do you write a paragraph that is readable?
+    </p>
+
+
+
+
+
+
+
+
+</section>
