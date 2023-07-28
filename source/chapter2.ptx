@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="chapter2">
-      <title>Python Commands in SageMathCell</title>
+      <title>Basic Python Commands and MatPlotLib</title>
 
       <xi:include href="./sec-1-1-variables.ptx"/>
 
-      <xi:include href="./section-sagetest.ptx"/>
     
     </chapter>
