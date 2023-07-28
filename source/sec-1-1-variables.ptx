@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-variables">
+
+    <title> Getting Started: Basic Commands </title>
+    <objectives>
+        <ul>
+          <li>
+            <p>
+              Use arithmetic commands in Python
+            </p>
+          </li>
+          <li>
+            <p>
+              Create a variable in Python
+            </p>
+          </li>
+          <li>
+            <p>
+              Display a variable in Python
+            </p>
+          </li>
+        </ul>
+      </objectives>
+
+      <introduction>
+        Python comes pre-packaged with some basic commands. 
+
+      </introduction>
+
+      <subsection xml:id="subsec-1-1-1-first-program">
+        <title> First Program </title>
+        <p> Let's try out some basic arithmetic first. 
+        </p>
+        
+        <sage language='python'>
+          <input>
+            2+3
+          </input>
+          <output>
+            (for static output)
+          </output>
+        </sage>
+        
+        <p> Go ahead and play with different calculations above and click evaluate to see their output.  
+        </p>
+
+        <sage language='python'>
+          <input>
+            2+3
+          </input>
+          <output>
+            (for static output)
+          </output>
+        </sage>
+
+
+      </subsection>
+
+
+      <subsection xml:id="subsec-1-1-9-variable-summary">
+        <title>variable-summary</title>
+        <p>
+          A variable can be used to label or store information. You can think of a variable as a container that holds information or data. 
+        </p>
+      </subsection>
+
+
+
+</section>
