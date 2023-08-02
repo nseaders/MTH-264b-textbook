@@ -89,6 +89,7 @@
             print(arithmetic)
           </input>
         </sage>
+      </subsection>
 
         <subsection>
           <title>You Try It</title>
