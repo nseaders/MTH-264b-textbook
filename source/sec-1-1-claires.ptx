@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<section xml:id="section-variables">
+
+    <title> Getting Started: Python Basics</title>
+
+    <introduction>
+      In this section we will learn how to assign values to a variable in Python and display results. 
+
+    </introduction>
+
+    <objectives>
+        <ul>
+          <li>
+            <p>
+              Create a variable in Python using <c>=</c>
+            </p>
+          </li>
+          <li>
+            <p>
+              Display a variable in Python using <c>print()</c>
+            </p>
+          </li>
+        </ul>
+      </objectives>
+        
+
+        <p>
+          A <term> variable </term> is like a container that can be used to store information or data. 
+          In Python you assign a variable using <c> = </c>.            
+          For example run the Python code below by clicking the <em> evaluate</em> button. 
+        </p>
+
+        <sage language='python'>
+          <input>
+            a = 2*3
+            print(a)
+          </input>
+        </sage>
+
+        <p>
+          Note that the function <c>print()</c> was needed to display the value of the variable. 
+          Now change the value of the variable <em>a</em> by adding 5 in the above code and see how the output changes.
+        </p>
+
+        <subsection xml:id="subsec-more-variables">
+          <title>More About Variables</title>
+          <p>
+           Variables can be named using letters, underscores, numbers, etc. 
+            Just be sure to use the exact same name to call your variable. 
+            For example, the following code has a syntax error. 
+          </p>
+
+          <p> !!!! Try to run the code as is and see what happens. </p>
+
+          <sage language='python'>
+            <input>
+            Intro = "Hello again, world!"
+            print(intro)
+            </input>
+         </sage>
+
+          <p> Did you find the error? Edit the above code to fix the bug so the code runs correctly. </p>
+        </subsection>
+
+        <subsection>
+          <title>Arithmetic in Python</title>
+          <p>
+            Python recognizes simple arithmetic symbols like <c>+ -, *, /</c>.  
+          </p>
+
+          <sage language='python'>
+            <input>
+              sum_and_product = (3+4+5)*2
+              print(sum_and_product)
+
+              nine_cubed = 9**3
+              print(nine_cubed)
+           </input>
+          </sage>
+
+          <p> Change the value of the variable to try out some basic calculations in the box below. 
+            You can use the standard order of operations and parentheses (PEMDAS) for your input. 
+          </p>
+
+        <sage language='python'>
+          <input>
+            arithmetic = (9+3)/3
+            print(arithmetic)
+          </input>
+        </sage>
+
+        <subsection>
+          <title>You Try It</title>
+          
+      
+        
+        <p> Just like in math variables can be helpful when the information will change.  
+          Fill in the formula for the area of the circle in the code below using the given variable names. 
+          Try different values for the radius and approximately compute the circle's area. 
+        </p>
+
+        <sage language='python'>
+          <input>
+            radius = 4
+            pi = 3.14
+            circle_area = 
+            print(circle_area)
+          </input>
+        </sage>
+
+      </subsection>
+
+
+      <subsection xml:id="subsec-1-1-9-variable-summary">
+        <title>variable-summary</title>
+        <p>
+          A variable can be used to label or store information. You can think of a variable as a container that holds information or data. 
+        </p>
+      </subsection>
+
+</section>
