@@ -38,6 +38,8 @@
 
   <numbering>
     <!-- the divisions element describes the numbering of divisions.  -->
+        <!--divisions part-structure="decorative"/-->
+
     <!-- @part-structure should be "decorative" or "structural",      -->
     <!-- were the latter would restart numbering chapters within each -->
     <!-- part (this only matters if your book has parts).             -->
@@ -50,10 +52,11 @@
     <!-- The next elements say how the levels deep to break up the    -->
     <!-- numbering of the respective elements. Can't be more than the -->
     <!-- @level on divisions above.                                   -->
-    <blocks level="2" />
-    <projects level="2" />
-    <equations level="2" />
-    <footnotes level="2" />
+    <divisions chapter-start="0" level="2"/>
+    <blocks level="1" />
+    <projects level="1" />
+    <equations level="1" />
+    <footnotes level="1" />
   </numbering>
 
   <!-- LaTeX specific options: set @print="yes" to get pdf set up   -->
@@ -81,7 +84,7 @@
       theorem="no"
       proof="yes"
       definition="no"
-      example="yes"
+      example="no"
       example-solution="yes"
       project="no"
       task="no"
@@ -92,7 +95,7 @@
       table="no"
       listing="no"
       list="no"
-      exercise-inline="yes"
+      exercise-inline="no"
       exercise-divisional="no"
       exercise-worksheet="no"
       exercise-readingquestion="no"
@@ -103,7 +106,7 @@
     <!-- @colors now implemented                               -->
     <!-- also @knowls, @toc, and @banner, although no          -->
     <!-- alternative styles exist yet for those.               -->
-    <css style="default" colors="blue_red" />
+    <css style="oscarlevin" colors="blue_red" />
     <!-- Search can be default or none, or you can use a Google-cx number to use google's search
     feature (but then variant should be set to none to avoid conflict) -->
     <search variant="default" />

@@ -31,21 +31,32 @@
 
         <p>
           A <term> variable </term> is like a container that can be used to store information or data. 
-          In Python you assign a variable using <c> = </c>.            
-          For example run the Python code below by clicking the <em> evaluate</em> button. 
+          In Python you assign a variable using <c> = </c>. 
         </p>
 
-        <sage language='python'>
-          <input>
-            a = 2*3
-            print(a)
-          </input>
-        </sage>
+          <example xml:id="example-FP" acro="FP">
+            <p> For example run the Python code below by clicking the <em> evaluate</em> button. </p>
+            <sage language='python'>
+              <input>
+                a = 2*3
+                print(a)
+              </input>
+            </sage>
 
-        <p>
-          Note that the function <c>print()</c> was needed to display the value of the variable. 
-          Now change the value of the variable <em>a</em> by adding 5 in the above code and see how the output changes.
-        </p>
+            <p>Note that the function <c>print()</c> was needed to display the value of the variable. </p>
+
+            <p>
+              Now change the value of the variable <em>a</em> by adding 5 in the above code and run the code again see how the output changes.
+            </p>
+
+          </example>
+
+        
+
+        
+        
+        
+
 
         <p>
           Variables can be named using letters, underscores, numbers, etc. 
@@ -53,18 +64,22 @@
           For example, the following code has a syntax error. 
         </p>
 
-        <p> Can you see it? </p>
+        <example> 
+         
+            <p>Try to run the code as is and see what happens. </p>
+  
+          <sage language='python'>
+            <input>
+              Intro = "Hello again, world!"
+              print(intro)
+            </input>
+          </sage>
+          <p> Edit the above code to fix the bug so the code runs correctly. </p>
+        </example>
 
-        <p> Try to run the code as is and see what happens. </p>
+        
 
-        <sage language='python'>
-          <input>
-            Intro = "Hello again, world!"
-            print(intro)
-          </input>
-        </sage>
-
-        <p> Edit the above code to fix the bug so the code runs correctly. </p>
+      
 
         <p>
           Python recognizes simple arithmetic symbols like <c>+ -, *, /</c>.  
