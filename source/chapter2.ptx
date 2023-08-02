@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="chapter2">
-      <title>Basic Python Commands and MatPlotLib</title>
+      <title>Basics and Modules for Matrix Algebra</title>
+      <introduction>
+
+      <p> In this chapter we will introduce just enough about Python to get started then introduce
+        a Python package <c>NumPy</c> and a library <c>MatPlotLib</c> needed for mathematics and graphing. 
+        Note that we will skip over a lot of information you would learn in a typical Computer Science <em>Introduction to Python</em> class. 
+        Python is much more useful than you will see here, but our purpose is to get you familiar with the kinds of commands
+        available in Python to compute matrix algebra.  
+      </p> 
+        
+        
+       <p> 
+        To start, a traditional first program displays the text <c>Hello world.</c> or some variation. 
+        Python uses the function <c> print() </c> to display output, making the program simple.
+      </p>
+      
+      
+
+      <sage language='python'>
+        <input>
+          print("Hello world!")
+        </input>
+      </sage>
+
+      <p> Click the <q> evaluate </q> button above to run the embedded Python code. 
+        Note that snippets of Python code embedded in the textbook will always have a similar formatting, with the option to <q>evaluate</q>, 
+        that is <em>run</em>, the program at the end. 
+      </p>
+    </introduction>
 
       <xi:include href="./sec-1-1-variables.ptx"/>
 

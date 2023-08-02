@@ -2,7 +2,13 @@
 
 <section xml:id="section-variables">
 
-    <title> Getting Started: Basic Commands </title>
+    <title> Getting Started: Python Basics</title>
+
+    <introduction>
+      In this section we will learn how to assign values to a variable in Python and display results. 
+
+    </introduction>
+
     <objectives>
         <ul>
           <li>
@@ -18,35 +24,15 @@
         </ul>
       </objectives>
 
-      <introduction>
-        Python comes pre-packaged with some basic commands. 
 
-      </introduction>
 
-      <subsection xml:id="subsec-1-1-1-first-program">
-        <title> First Program </title>
-        <p> A traditional first program displays the text <c>Hello world.</c> or some variation. 
-          Python uses the function <c> print() </c> to display output, making the program simple.
-        </p>
+ 
         
-        
-
-        <sage language='python'>
-          <input>
-            print("Hello world!")
-          </input>
-        </sage>
-
-        <p> Click the <q> evaluate </q> button above to run the embedded Python code. 
-          Note that snippets of Python code embedded in the textbook will always have a similar formatting, with the option to <q>evaluate</q>, 
-          that is <em>run</em>, the program at the end. 
-        </p>
 
         <p>
           A <term> variable </term> is like a container that can be used to store information or data. 
-          In Python you assign a variable using <c> = </c>.  
-          The same function <c>print()</c> can be used to display the value of a variable. 
-          For example run the Python code below. 
+          In Python you assign a variable using <c> = </c>.            
+          For example run the Python code below by clicking the <em> evaluate</em> button. 
         </p>
 
         <sage language='python'>
@@ -57,6 +43,7 @@
         </sage>
 
         <p>
+          Note that the function <c>print()</c> was needed to display the value of the variable. 
           Now change the value of the variable <em>a</em> by adding 5 in the above code and see how the output changes.
         </p>
 
@@ -126,7 +113,7 @@
 
 
 
-      </subsection>
+
 
 
       <subsection xml:id="subsec-1-1-9-variable-summary">

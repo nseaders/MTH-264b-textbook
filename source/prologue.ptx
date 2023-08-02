@@ -6,6 +6,5 @@
 <!--I can comment-->
 <xi:include href="./pretextguide.ptx"/>
 
-<xi:include href="./section1-1test.ptx"/>
 
     </chapter>
