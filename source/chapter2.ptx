@@ -31,6 +31,6 @@
     </introduction>
 
       <xi:include href="./sec-1-1-variables.ptx"/>
-
+      <xi:include href="./sec-1-1-claires.ptx"/>
     
     </chapter>
