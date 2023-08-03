@@ -15,6 +15,8 @@
     </p>
 
     <p>
+        Here are examples of the OscarLevin css style.
+        <url href="https://pretextbook.org/examples/sample-article/oscar/interesting-corollary.html" />
 
 
 
@@ -124,6 +126,7 @@
             </p>
         </exercise>
 
+    
 
         A <term> variable </term> is a container for information.
     </p>
@@ -138,6 +141,15 @@
     <p>
         It seems that asides get lost a little on the right, so I think I should use them sparingly. How in the heck do you write a paragraph that is readable?
     </p>
+
+    <exercise text="title">
+        <title> Exercise What </title>
+        <statement>
+        <p>
+                Does this work at all? 
+        </p>
+        </statement>
+    </exercise>
 
 <subsection>
 <title>What happens if I do this? </title>

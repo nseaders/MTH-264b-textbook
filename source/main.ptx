@@ -9,11 +9,12 @@
     <latex-image-preamble>
       \usepackage{tikz}
     </latex-image-preamble>
+    <rename element="inlineexercise" xml:lang="en-US">You Try</rename>
   </docinfo>
 
   <book xml:id="Matrix-Computations">
-    <title>A Basic Introduction to Matrix Computations in Python</title>
-    <subtitle>Just the very basics</subtitle>
+    <title>An Introduction to Matrix Computations in Python</title>
+    <subtitle>Just the basics</subtitle>
 
  
   <xi:include href="./frontmatter.ptx"/>

@@ -2,7 +2,7 @@
 
 <section xml:id="section-claires">
 
-    <title> Getting Started: Python Basics</title>
+    <title> Variables - subsections</title>
 
     <introduction>
       In this section we will learn how to assign values to a variable in Python and display results. 
@@ -27,8 +27,10 @@
 
         <p>
           A <term> variable </term> is like a container that can be used to store information or data. 
-          In Python you assign a variable using <c> = </c>.            
-          For example run the Python code below by clicking the <em> evaluate</em> button. 
+          In Python you assign a variable using <c> = </c>. 
+        </p>
+        <p>           
+          Run the Python code below by clicking the <em>Evaluate (Python)</em> button. 
         </p>
 
         <sage language='python'>
@@ -40,18 +42,21 @@
 
         <p>
           Note that the function <c>print()</c> was needed to display the value of the variable. 
-          Now change the value of the variable <em>a</em> by adding 5 in the above code and see how the output changes.
+        </p>
+        <p>
+          Change the value of the variable <em>a</em> by adding 5 after the 2*3 above and run the code again to see how the output changes.
         </p>
 
         <subsection xml:id="subsec-more-variables">
-          <title>More About Variables</title>
+          <title>Naming Variables</title>
           <p>
            Variables can be named using letters, underscores, numbers, etc. 
             Just be sure to use the exact same name to call your variable. 
             For example, the following code has a syntax error. 
           </p>
 
-          <p> !!!! Try to run the code as is and see what happens. </p>
+          <p>Run the code as is and see what happens. </p>
+      
 
           <sage language='python'>
             <input>
@@ -60,7 +65,18 @@
             </input>
          </sage>
 
-          <p> Did you find the error? Edit the above code to fix the bug so the code runs correctly. </p>
+        
+          <exercise>
+            <statement>
+              <p> Can you fix the bug in the above code so it runs correctly? </p>
+            </statement>
+            <hint>
+              <p>
+                Variables are case sensitive and must be exactly the same to be recognized.
+              </p>
+            </hint>
+          </exercise>
+        
         </subsection>
 
         <subsection>
@@ -79,8 +95,9 @@
            </input>
           </sage>
 
-          <p> Change the value of the variable to try out some basic calculations in the box below. 
-            You can use the standard order of operations and parentheses (PEMDAS) for your input. 
+          <p> 
+            In the box below, change the value of the variable <c>arithmetic</c> to try out some basic calculations. 
+            You can use the standard order of operations and parentheses (PEMDAS). 
           </p>
 
         <sage language='python'>
@@ -92,14 +109,32 @@
       </subsection>
 
         <subsection>
-          <title>You Try It</title>
+          <title>More about Variables</title>
           
       
         
-        <p> Just like in math variables can be helpful when the information will change.  
-          Fill in the formula for the area of the circle in the code below using the given variable names. 
-          Try different values for the radius and approximately compute the circle's area. 
+        <p> Just like in math, variables can be helpful when the information will change. 
+          Recall the formula for the area of a circle <m>A=\pi r^2</m>. 
         </p>
+        <p>In the code below, </p>
+          <ul>
+            <li>
+                <p>
+                  fill in the formula for the area of the circle using the appropriate variable names and arithmetic operations.
+                </p>
+            </li>
+          </ul>
+          <ul>
+            <li>
+                <p>
+                  Use the code to approximately compute the area of a circle with radius 5 and a circle with radius 13.
+                </p>
+            </li>
+          </ul>
+
+           
+           
+       
 
         <sage language='python'>
           <input>
@@ -112,12 +147,26 @@
 
       </subsection>
 
-
-      <subsection xml:id="subsec-1-1-9-variable-summary">
-        <title>variable-summary</title>
+      <assemblage><!--to assemble or summarize important connected ideas-->
+        <title> Summary </title>
         <p>
-          A variable can be used to label or store information. You can think of a variable as a container that holds information or data. 
-        </p>
-      </subsection>
+        <ul>
+          <li>
+            <p>
+              A variable can be used as a container to store data or information. 
+            </p>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <p>
+              Use <c>print(variable_name)</c> to display the information stored in the variable.
+            </p>
+          </li>
+        </ul>
+      </p>
+      </assemblage>
+
+
 
 </section>
