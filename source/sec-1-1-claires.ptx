@@ -43,9 +43,11 @@
         <p>
           Note that the function <c>print()</c> was needed to display the value of the variable. 
         </p>
-        <p>
-          Change the value of the variable <em>a</em> by adding 5 after the 2*3 above and run the code again to see how the output changes.
-        </p>
+        <exercise>
+          <p>
+            Change the value of the variable <em>a</em> by adding 5 after the 2*3 above and run the code again to see how the output changes.
+          </p>
+        </exercise>
 
         <subsection xml:id="subsec-more-variables">
           <title>Naming Variables</title>
