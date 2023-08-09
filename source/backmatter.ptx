@@ -1,3 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- This file is part of the book                      -->
+<!--                                                    -->
+<!-- An Introduction to Matrix Computations in Python   -->
+<!--                                                    -->
+<!-- Copyright (C) 2023  LBCC                           -->
+<!-- See the file copyright.txt for copying conditions. -->
+    
     <backmatter xml:id="backmatter">
       <title>Backmatter</title>
 

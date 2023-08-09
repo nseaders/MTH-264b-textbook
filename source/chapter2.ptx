@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!-- This file is part of the book                      -->
+<!--                                                    -->
+<!-- An Introduction to Matrix Computations in Python   -->
+<!--                                                    -->
+<!-- Copyright (C) 2023  LBCC                           -->
+<!-- See the file copyright.txt for copying conditions. -->
+
+
+
 <chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="chapter2">
       <title>Basics and Modules for Matrix Algebra</title>
       <introduction>
@@ -9,25 +18,27 @@
         Python is much more useful than you will see here, but our purpose is to get you familiar with the kinds of commands
         available in Python to compute matrix algebra.  
       </p> 
-        
-        
-       <p> 
+
+      <p> 
         To start, a traditional first program displays the text <c>Hello world.</c> or some variation. 
         Python uses the function <c> print() </c> to display output, making the program simple.
       </p>
+        
+        <p> Click the <q><em>Evaluate (Python)</em></q> button below to run the embedded Python code.
+        </p>
       
-      
-
-      <sage language='python'>
+       <sage language='python'>
         <input>
           print("Hello world!")
         </input>
       </sage>
 
-      <p> Click the <q> evaluate </q> button above to run the embedded Python code. 
+      <p>
         Note that snippets of Python code embedded in the textbook will always have a similar formatting, with the option to <q>evaluate</q>, 
         that is <em>run</em>, the program at the end. 
       </p>
+       
+      
     </introduction>
 
       <xi:include href="./sec-1-1-variables.ptx"/>
