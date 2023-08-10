@@ -88,20 +88,32 @@
         </subsection>
 
         <subsection>
-          <title>Arithmetic in Python</title>
+          <title>Arithmetic and Comments in Python</title>
           <p>
-            Python recognizes simple arithmetic symbols like <c>+ -, *, /</c>.  
+            Python recognizes simple arithmetic symbols like <c>+ -, *, /</c>.
+          </p>
+          <p>
+            Meanwhile a hashtag <c>#</c> can be used to tell Python to ignore code, 
+            reading what follows as a comment by the author rather than a Python command.   
           </p>
 
           <sage language='python'>
             <input>
+              #compute a sum and product 
               sum_and_product = (3+4+5)*2
               print(sum_and_product)
-
-              nine_cubed = 9**3
+              
+              #compute 9 cubed and display the result
+              nine_cubed = 9**3 # the symbol for exponentiation is ** 
               print(nine_cubed)
            </input>
           </sage>
+
+          <p>
+            Comments can help anyone reading your code understand what that section of the code is doing. 
+            You can also <em>comment out</em> portions of code to isolate a bug. 
+          </p>
+
 
           <p> 
             In the box below, change the value of the variable <c>arithmetic</c> to try out some basic calculations. 
@@ -110,6 +122,7 @@
 
         <sage language='python'>
           <input>
+            #Performs basic arithmetic and displays the result
             arithmetic = (9+3)/3
             print(arithmetic)
           </input>
@@ -147,8 +160,11 @@
         <sage language='python'>
           <input>
             radius = 4
-            pi = 3.14
+            pi = 3.14 
+            
+            #fill in the formula for the calculation here
             circle_area = 
+
             print(circle_area)
           </input>
         </sage>
@@ -169,6 +185,13 @@
           <li>
             <p>
               Use <c>print(variable_name)</c> to display the information stored in the variable.
+            </p>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <p>
+              Use <c>#</c> to comment and make your code more readable
             </p>
           </li>
         </ul>
