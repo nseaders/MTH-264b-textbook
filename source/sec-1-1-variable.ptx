@@ -8,7 +8,7 @@
 
 <section xml:id="section-claires">
 
-    <title> Variables - subsections</title>
+    <title>Variables</title>
 
     <introduction>
       In this section we will learn how to assign values to a variable in Python and display results. 
