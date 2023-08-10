@@ -6,7 +6,7 @@
 <!-- Copyright (C) 2023  LBCC                           -->
 <!-- See the file copyright.txt for copying conditions. -->
 
-<section xml:id="section-claires">
+<section xml:id="section-variables">
 
     <title>Variables</title>
 
@@ -16,109 +16,106 @@
     </introduction>
 
     <objectives>
-        <ul>
-          <li>
-            <p>
-              Create a variable in Python using <c>=</c>
-            </p>
-          </li>
-          <li>
-            <p>
-              Display a variable in Python using <c>print()</c>
-            </p>
-          </li>
-        </ul>
-      </objectives>
-        
+      <ul>
+        <li>
+          <p>
+            Create a variable in Python using <c>=</c>
+          </p>
+        </li>
+        <li>
+          <p>
+            Display a variable in Python using <c>print()</c>
+          </p>
+        </li>
+      </ul>
+    </objectives>
 
+    <p>
+      A <term> variable </term> is like a container that can be used to store information or data. 
+      In Python you assign a variable using <c> = </c>. 
+    </p>
+    <p>           
+      Run the Python code below by clicking the <em>Evaluate (Python)</em> button. 
+    </p>
+
+    <sage language='python'>
+      <input>
+        a = 2*3
+        print(a)
+      </input>
+    </sage>
+
+    <p>
+      Note that the function <c>print()</c> was needed to display the value of the variable. 
+    </p>
+
+    <exercise>
+      <p>
+        Change the value of the variable <em>a</em> by adding 5 after the 2*3 above and run the code again to see how the output changes.
+      </p>
+    </exercise>
+
+    <subsection xml:id="subsec-more-variables">
+      <title>Naming Variables</title>
+      <p>
+        Variables can be named using letters, underscores, numbers, etc. 
+        Just be sure to use the exact same name to call your variable. 
+        For example, the following code has a syntax error. 
+      </p>
+
+      <p>Run the code as is and see what happens. </p>
+      
+      <sage language='python'>
+        <input>
+          Intro = "Hello again, world!"
+          print(intro)
+        </input>
+      </sage>
+      
+      <exercise>
+        <statement>
+          <p> Can you fix the bug in the above code so it runs correctly? </p>
+        </statement>
+        <hint>
+          <p>
+            Variables are case sensitive and must be exactly the same to be recognized.
+          </p>
+        </hint>
+      </exercise>
+        
+      </subsection>
+
+      <subsection>
+        <title>Arithmetic and Comments in Python</title>
         <p>
-          A <term> variable </term> is like a container that can be used to store information or data. 
-          In Python you assign a variable using <c> = </c>. 
+          Python recognizes simple arithmetic symbols like <c>+ -, *, /</c>.
         </p>
-        <p>           
-          Run the Python code below by clicking the <em>Evaluate (Python)</em> button. 
+        <p>
+          Meanwhile a hashtag <c>#</c> can be used to tell Python to ignore code, 
+          reading what follows as a comment by the author rather than a Python command.   
         </p>
 
         <sage language='python'>
           <input>
-            a = 2*3
-            print(a)
-          </input>
+            #compute a sum and product 
+            sum_and_product = (3+4+5)*2
+            print(sum_and_product)
+              
+            #compute 9 cubed and display the result
+            nine_cubed = 9**3 # the symbol for exponentiation is ** 
+            print(nine_cubed)
+         </input>
         </sage>
 
         <p>
-          Note that the function <c>print()</c> was needed to display the value of the variable. 
+          Comments can help anyone reading your code understand what that section of the code is doing. 
+          You can also <em>comment out</em> portions of code to isolate a bug. 
         </p>
-        <exercise>
-          <p>
-            Change the value of the variable <em>a</em> by adding 5 after the 2*3 above and run the code again to see how the output changes.
-          </p>
-        </exercise>
-
-        <subsection xml:id="subsec-more-variables">
-          <title>Naming Variables</title>
-          <p>
-           Variables can be named using letters, underscores, numbers, etc. 
-            Just be sure to use the exact same name to call your variable. 
-            For example, the following code has a syntax error. 
-          </p>
-
-          <p>Run the code as is and see what happens. </p>
-      
-
-          <sage language='python'>
-            <input>
-            Intro = "Hello again, world!"
-            print(intro)
-            </input>
-         </sage>
-
         
-          <exercise>
-            <statement>
-              <p> Can you fix the bug in the above code so it runs correctly? </p>
-            </statement>
-            <hint>
-              <p>
-                Variables are case sensitive and must be exactly the same to be recognized.
-              </p>
-            </hint>
-          </exercise>
-        
-        </subsection>
-
-        <subsection>
-          <title>Arithmetic and Comments in Python</title>
-          <p>
-            Python recognizes simple arithmetic symbols like <c>+ -, *, /</c>.
-          </p>
-          <p>
-            Meanwhile a hashtag <c>#</c> can be used to tell Python to ignore code, 
-            reading what follows as a comment by the author rather than a Python command.   
-          </p>
-
-          <sage language='python'>
-            <input>
-              #compute a sum and product 
-              sum_and_product = (3+4+5)*2
-              print(sum_and_product)
-              
-              #compute 9 cubed and display the result
-              nine_cubed = 9**3 # the symbol for exponentiation is ** 
-              print(nine_cubed)
-           </input>
-          </sage>
-
-          <p>
-            Comments can help anyone reading your code understand what that section of the code is doing. 
-            You can also <em>comment out</em> portions of code to isolate a bug. 
-          </p>
-
-
-          <p> 
-            In the box below, change the value of the variable <c>arithmetic</c> to try out some basic calculations. 
-            You can use the standard order of operations and parentheses (PEMDAS). 
-          </p>
+        <p> 
+          In the box below, change the value of the variable <c>arithmetic</c> to try out some basic calculations. 
+          You can use the standard order of operations and parentheses (PEMDAS). 
+        </p>
 
         <sage language='python'>
           <input>
@@ -127,17 +124,18 @@
             print(arithmetic)
           </input>
         </sage>
+
       </subsection>
 
-        <subsection>
-          <title>More about Variables</title>
-          
-      
+      <subsection>
+        <title>More about Variables</title>
         
         <p> Just like in math, variables can be helpful when the information will change. 
           Recall the formula for the area of a circle <m>A=\pi r^2</m>. 
         </p>
-        <p>In the code below, </p>
+        
+        <p>In the code below, 
+        </p>
           <ul>
             <li>
                 <p>
@@ -151,12 +149,8 @@
                   Use the code to approximately compute the area of a circle with radius 5 and a circle with radius 13.
                 </p>
             </li>
-          </ul>
-
-           
-           
+          </ul>  
        
-
         <sage language='python'>
           <input>
             radius = 4
@@ -191,7 +185,7 @@
         <ul>
           <li>
             <p>
-              Use <c>#</c> to comment and make your code more readable
+              Use <c>#</c> to comment and make your code more readable.
             </p>
           </li>
         </ul>
