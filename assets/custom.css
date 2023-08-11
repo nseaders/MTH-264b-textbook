@@ -73,6 +73,7 @@ Reference for colors or making our own styles
 .ptx-content article.outcomes.goal-like, .ptx-content article.objectives.goal-like {
     border: 3px solid var(--chaptertoc);
     background-color: var(--lbccyellowfaint);
+    margin-top: 35px;
 }
 
 .ptx-content article.outcomes.goal-like .heading, .ptx-content article.objectives.goal-like .heading {
