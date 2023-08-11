@@ -59,11 +59,11 @@ Reference for colors or making our own styles
 }
 
 /* Hide numbering on section/subsection exercises */
-.section article.exercise .codenumber {
+.section > article.exercise .codenumber {
     display: none;
 }
 
-.subsection article.exercise .codenumber {
+.subsection > article.exercise .codenumber {
     display: none;
 }
 /* hides the period */
