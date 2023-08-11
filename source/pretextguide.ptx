@@ -3,6 +3,21 @@
 <section xml:id="examples">
     <title>Samples of various pretext formats </title>
 
+    <objectives>
+        <ul>
+          <li>
+            <p>
+              C
+            </p>
+          </li>
+          <li>
+            <p>
+              D
+            </p>
+          </li>
+        </ul>
+      </objectives>
+
     <introduction>
         <investigation>
             <p>Does this make a difference?</p>
@@ -155,6 +170,21 @@
 <title>What happens if I do this? </title>
 Blah blah blah
 </subsection>
+
+<outcomes>
+    <ul>
+      <li>
+        <p>
+          C
+        </p>
+      </li>
+      <li>
+        <p>
+          D
+        </p>
+      </li>
+    </ul>
+</outcomes>
 
     <reading-questions>
 
