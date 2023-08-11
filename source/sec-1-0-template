@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- This file is part of the book                      -->
+<!--                                                    -->
+<!-- An Introduction to Matrix Computations in Python   -->
+<!--                                                    -->
+<!-- Copyright (C) 2023  LBCC                           -->
+<!-- See the file copyright.txt for copying conditions. -->
+
+<section xml:id="section-modules">
+    
+    <title>Python Modules</title>
+
+    <introduction>
+        In this section we will learn how to  
+    </introduction>
+
+    <objectives>
+        <ul>
+          <li>
+            <p>
+              C
+            </p>
+          </li>
+          <li>
+            <p>
+              D
+            </p>
+          </li>
+        </ul>
+      </objectives>
+
+      <p>
+        what
+      </p>
+
+      <assemblage><!--to assemble or summarize important connected ideas-->
+        <title> Summary </title>
+        <p>
+        <ul>
+          <li>
+            <p>
+              blah 
+            </p>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <p>
+                blah
+            </p>
+          </li>
+        </ul>
+      </p>
+      </assemblage>
+
+
+
+</section>
