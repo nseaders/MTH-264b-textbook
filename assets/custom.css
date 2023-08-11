@@ -1,0 +1,18 @@
+.section article.exercise .codenumber {
+    display: none;
+}
+
+.subsection article.exercise .codenumber {
+    display: none;
+}
+/* .subsection article.exercise .period */ /* hides the period */
+
+/*
+
+Reference for colors or making our own styles
+- https://github.com/PreTeXtBook/CSS_core
+- https://github.com/PreTeXtBook/CSS_core/blob/main/colors_default.css
+- https://github.com/PreTeXtBook/CSS_core/blob/main/style_oscarlevin.css
+
+
+*/

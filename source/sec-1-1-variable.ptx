@@ -192,6 +192,13 @@
       </p>
       </assemblage>
 
+      <exercises xml:id="exercises-">
+        <exercise>
+          <p> test it out </p>
+        </exercise>
+        
+      </exercises>
+
 
 
 </section>
