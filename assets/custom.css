@@ -60,11 +60,11 @@ Reference for colors or making our own styles
 
 /* Hide numbering on section/subsection exercises */
 .section > article.exercise .codenumber {
-    display: none;
+    display:none;
 }
 
 .subsection > article.exercise .codenumber {
-    display: none;
+    display:none;
 }
 /* hides the period */
 /* .subsection article.exercise .period */
