@@ -8,30 +8,107 @@
 
 <section xml:id="section-modules">
     
-    <title>Python Modules</title>
+    <title>Python Packages and NumPy</title>
 
     <introduction>
-        In this section we will learn how to  
+        Python packages and Python libraries are a collection of functions and modules centered around a common theme. 
+        (For example, NumPy is the standard open source scientific computing package.)
+        In this section we will learn how to import a Python package or library and use functions from that package.    
     </introduction>
 
     <objectives>
         <ul>
           <li>
             <p>
-              C
+              Import a Python package or library (our example NumPy).
             </p>
           </li>
           <li>
             <p>
-              D
+              Use functions from a Python package.
             </p>
           </li>
         </ul>
       </objectives>
 
       <p>
-        what
+        NumPy is an open source scientific computing package that allows you to use standard
+        mathematical functions and constants like sine or pi. 
+        NumPy also allows you to work with arrays of numbers so you can efficiently perform computations. 
       </p>
+
+      <sage language='python'>
+        <input>
+          #first import the package numpy
+          import numpy
+
+          #compute sin(2) 
+          x = numpy.sin(2)
+          print(x)
+        </input>
+      </sage>
+
+
+      <p>
+        Note to call a function from an imported package you must use the syntax <c>package.function</c>.
+        To avoid retyping the name of the package every time, you can rename the package as you import.  
+      </p>
+
+      <exercise>
+        <p>
+          Replace the import line in the above code with <c>import numpy as np</c>. 
+          Then rename the function <c>np.sin()</c> and re-run.
+        </p>
+      </exercise>
+
+
+      <sage language='python'>
+        <input>
+          #first import the package numpy
+          import numpy
+
+          #decide the radius of the circle
+          radius = 4
+          
+          #compute the area using the actual value of pi
+          circle_area = numpy.pi*radius**2
+
+          print(circle_area)
+        </input>
+      </sage>
+
+      <remark>
+        Note that you first need to import the package. 
+        Note also to call a variable or function from an imported package 
+        you use package.variable or package.function to tell Python where to find that variable or function. 
+      </remark>
+
+      <p>
+        Renaming a package 
+      </p>
+
+
+      <sage language='python'>
+        <input>
+          import numpy 
+          X = numpy.array([1,2,3,4])
+          print(2*X)
+        </input>
+      </sage>
+
+
+      <p>
+        Do something with arrays here 
+      </p>
+
+
+      <sage language='python'>
+        <input>
+          import numpy 
+          X = numpy.array([1,2,3,4])
+          print(2*X)
+        </input>
+      </sage>
 
       <assemblage><!--to assemble or summarize important connected ideas-->
         <title> Summary </title>
