@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- This file is part of the book                      -->
+<!--                                                    -->
+<!-- An Introduction to Matrix Computations in Python   -->
+<!--                                                    -->
+<!-- Copyright (C) 2023  LBCC                           -->
+<!-- See the file copyright.txt for copying conditions. -->
+
+<section xml:id="section-modules">
+    
+    <title>MatPlotLib and 2D graphing</title>
+
+    <introduction>
+        In this section we will learn how to use the library MatPlotLib to graph in 2D.  
+    </introduction>
+
+    <objectives>
+        <ul>
+          <li>
+            <p>
+              C
+            </p>
+          </li>
+          <li>
+            <p>
+              D
+            </p>
+          </li>
+        </ul>
+    </objectives>
+
+    <p>
+        what
+    </p>
+
+    <sage language='python'>
+        <input>
+            import numpy as np
+            import matplotlib as mpl
+            import matplotlib.pyplot as plt
+            
+            fig = plt.figure()
+            ax = plt.axes()
+
+            plt.show()
+
+        </input>
+    </sage>
+
+    <subsection xml:id="twoDgraphs">
+        <title>Basic Graphs</title>
+        
+      
+
+        <sage language='python'>
+            <input>
+                import numpy as np
+                import matplotlib as mpl
+                import matplotlib.pyplot as plt
+            
+                fig = plt.figure()
+                ax = plt.axes()
+
+                x=np.array([1,2,3,4])
+                y=3*x+6
+
+                plt.plot(x,y)
+
+                plt.show()
+
+            </input>
+        </sage>
+
+        <sage language='python'>
+            <input>
+                import numpy as np
+                import matplotlib as mpl
+                import matplotlib.pyplot as plt
+            
+                fig = plt.figure()
+                ax = plt.axes()
+            
+                x=np.array([1,4])
+                y=np.sin(x)
+            
+                plt.plot(x,y)
+                plt.show()   
+            </input>
+        </sage>
+
+
+        <sage language='python'>
+            <input>
+                import numpy as np
+                import matplotlib as mpl
+                import matplotlib.pyplot as plt
+            
+                fig = plt.figure()
+                ax = plt.axes()
+            
+                x=np.linspace(1,4,100)
+                y=np.sin(x)
+            
+                plt.plot(x,y)
+                plt.show()   
+            </input>
+        </sage>
+        
+        <p> what went wrong? It just always connects the dots... </p>
+    
+    </subsection>
+    
+    <subsection xml:id="axes">
+        <title>Axes and Labels</title>
+    </subsection>
+
+    <assemblage><!--to assemble or summarize important connected ideas-->
+        <title> Summary </title>
+        <p>
+        <ul>
+          <li>
+            <p>
+              blah 
+            </p>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <p>
+                blah
+            </p>
+          </li>
+        </ul>
+      </p>
+      </assemblage>
+
+</section>

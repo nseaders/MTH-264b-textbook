@@ -165,6 +165,12 @@
 
       </subsection>
 
+      <subsection>
+        <title>Syntax errors vs. Symantic errors</title>
+      </subsection>
+
+      <p>Say stuff here about errors - blah blah blah.</p>
+
       <assemblage><!--to assemble or summarize important connected ideas-->
         <title> Summary </title>
         <p>

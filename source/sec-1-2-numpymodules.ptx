@@ -108,6 +108,16 @@
         </input>
       </sage>
 
+      <p> You can find more information about the package NumPy at 
+        <url href="https://numpy.org/" visual="numpy.org"/>. 
+        Python's wiki has a list of other commonly used <url href="https://wiki.python.org/moin/UsefulModules" visual="wiki.python.org/moin/UsefulModules">modules and packages</url>.
+      </p>
+
+      <subsection>
+        <title>Debugging revisited</title>
+        <p>Add another exercise that they need to debug.</p>
+      </subsection>
+
 
 
 
@@ -117,14 +127,14 @@
         <ul>
           <li>
             <p>
-              blah 
+              You can import a Python package and rename it by using <c>import package as name</c>. 
             </p>
           </li>
         </ul>
         <ul>
           <li>
             <p>
-                blah
+                You can call a function from a package using <c>packagename.function</c>
             </p>
           </li>
         </ul>
