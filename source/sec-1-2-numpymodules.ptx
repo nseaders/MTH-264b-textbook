@@ -57,8 +57,7 @@
       <exercise>
         <p>
           Rename the package numpy in the above code by
-          replacing the import line with <c>import numpy as np</c>. Next 
-          rename the function <c>np.sin()</c> and re-run.
+          replacing the import line with <c>import numpy as np</c>. Next use the new name of the package to call the function <c>np.sin()</c> and re-run.
         </p>
       </exercise>
 
@@ -68,16 +67,25 @@
         as well as the standard mathematical constants like <c>pi</c> and <c>e</c>.
       </p>
 
+      <exercise>
+        <p> Use the NumPy package to compute the area of a circle using pi.  
+        </p>
+
+        <hint> If you import numpy as np, you will use np.pi
+        </hint>
+
+      </exercise>
+
 
       <sage language='python'>
         <input>
-          import numpy as np
+          #import the package numpy first - you fill in
 
           #decide the radius of the circle
           radius = 4
           
-          #compute the area using the actual value of pi
-          circle_area = np.pi*radius**2
+          #fill in the formula for the calculation here
+          circle_area = 
 
           print(circle_area)
         </input>
@@ -86,6 +94,7 @@
       <p>
         NumPy arrays are an efficient way to do computations with a list of numbers. 
         You can also represent vectors or matrices using NumPy arrays. 
+        Run the code below to see how it works.
       </p>
 
 
@@ -94,6 +103,7 @@
         <input>
           import numpy as np
           X = np.array([1,2,3,4])
+          print(X)
           print(2*X)
         </input>
       </sage>
