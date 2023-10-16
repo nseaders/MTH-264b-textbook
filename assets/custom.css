@@ -30,11 +30,11 @@ Reference for colors or making our own styles
     --chaptertoc: var(--lbccblue);
     --chaptertoctext: white;
     --chaptertocactive: var(--lbccyellow);   /* often the same as documenttitle */
-    --chaptertoctextactive: white;
+    --chaptertoctextactive: black;
     --sectiontoc: white;   /* can also write it as #ffffff  */
     --sectiontoctext: var(--lbccdarkblue);
     --sectiontocactive: var(--lbccyellow);   /* often the same as documenttitle */
-    --sectiontoctextactive: white;
+    --sectiontoctextactive: black;
     --tocborder: var(--lbcclightblue);
 
     --highlighttoc: #003b60;   /* often a dark version of documenttitle */

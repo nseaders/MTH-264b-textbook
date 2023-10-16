@@ -67,8 +67,8 @@
       
       <sage language='python'>
         <input>
-          Intro = "Hello again, world!"
-          print(intro)
+          Intro_world = "Hello again, world!"
+          print(intro_world)
         </input>
       </sage>
       
@@ -78,7 +78,7 @@
         </statement>
         <hint>
           <p>
-            Variables are case sensitive and must be exactly the same to be recognized.
+            Variables are case sensitive and must be exactly the same for Python to recognize them.
           </p>
         </hint>
       </exercise>
@@ -112,14 +112,20 @@
           You can also <em>comment out</em> portions of code to isolate a bug. 
         </p>
         
-        <p> 
-          In the box below, change the value of the variable <c>arithmetic</c> to try out some basic calculations. 
-          You can use the standard order of operations and parentheses (PEMDAS). 
-        </p>
+        <exercise>
+          <statement>
+            <p> 
+              In the box below, change the value of the variable <c>arithmetic</c> to try out some basic calculations.
+              Add a comment using <c>#</c> to explain what your code is doing.    
+            </p>
+          </statement>
+          <hint>
+            <p> You can use the standard order of operations and parentheses (PEMDAS).</p>
+          </hint>
+        </exercise>
 
         <sage language='python'>
           <input>
-            #Performs basic arithmetic and displays the result
             arithmetic = (9+3)/3
             print(arithmetic)
           </input>
@@ -166,10 +172,12 @@
       </subsection>
 
       <subsection>
-        <title>Syntax errors vs. Symantic errors</title>
+        <title>Syntax and Semantic errors</title>
       </subsection>
 
-      <p>Say stuff here about errors - blah blah blah.</p>
+      <p> One error we can make when creating and editing code is to mis-type a command and Python will not understand a word or syntax of our program. 
+        Another error is when we make our meaning unclear. For example you can add numbers to numbers or strings of letters to strings of letters in Python but if we try to add a number to a string of letters, Python will not know what we mean by adding. 
+      </p>
 
       <assemblage><!--to assemble or summarize important connected ideas-->
         <title> Summary </title>
