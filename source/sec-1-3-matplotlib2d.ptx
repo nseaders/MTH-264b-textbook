@@ -29,23 +29,27 @@
         </ul>
     </objectives>
 
-    <p>
-        what
-    </p>
+    <subsection>
 
-    <sage language='python'>
-        <input>
-            import numpy as np
-            import matplotlib as mpl
-            import matplotlib.pyplot as plt
-            
-            fig = plt.figure()
-            ax = plt.axes()
+      <p>
+          what
+      </p>
 
-            plt.show()
+      <sage language='python'>
+          <input>
+              import numpy as np
+              import matplotlib as mpl
+              import matplotlib.pyplot as plt
+              
+              fig = plt.figure()
+              ax = plt.axes()
 
-        </input>
-    </sage>
+              plt.show()
+
+          </input>
+      </sage>
+
+  </subsection>
 
     <subsection xml:id="twoDgraphs">
         <title>Basic Graphs</title>
