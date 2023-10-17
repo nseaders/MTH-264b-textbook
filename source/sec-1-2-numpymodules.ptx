@@ -12,7 +12,6 @@
 
     <introduction>
         Python packages and libraries are collections of functions and modules centered around a common theme. 
-        (For example, NumPy is a scientific computing package.)
         In this section we will learn how to import a Python package and use functions from that package.    
     </introduction>
 
@@ -31,94 +30,110 @@
         </ul>
       </objectives>
 
-      <p>
-        NumPy is an open source scientific computing package that allows you to use standard
-        mathematical functions and constants like sine or pi. 
-        NumPy also allows you to work with arrays of numbers so you can efficiently perform computations. 
-      </p>
+      <subsection>
+        <title>Importing the package NumPy</title>
 
-      <sage language='python'>
-        <input>
-          #first import the package numpy
-          import numpy
-
-          #compute sin(2) 
-          x = numpy.sin(2)
-          print(x)
-        </input>
-      </sage>
-
-
-      <p>
-        Note to call a function from an imported package you must use the syntax <c>package.function</c>.
-        To avoid retyping the long name of a package every time, it is standard practice to rename the package as you import.  
-      </p>
-
-      <exercise>
         <p>
-          Rename the package numpy in the above code by
-          replacing the import line with <c>import numpy as np</c>. Next use the new name of the package to call the function <c>np.sin()</c> and re-run.
-        </p>
-      </exercise>
-
-      <p>
-        In addition to the standard trigonometric functions, 
-        NumPy also contains <m>e^x</m> as <c>exp()</c> and natural log as <c>log()</c>, 
-        as well as the standard mathematical constants like <c>pi</c> and <c>e</c>.
-      </p>
-
-      <exercise>
-        <p> Use the NumPy package to compute the area of a circle using pi.  
+          NumPy is an open source scientific computing package that allows you to use standard 
+          mathematical functions and constants like sine or pi. 
+          NumPy also allows you to work with arrays of numbers so you can efficiently perform computations. 
         </p>
 
-        <hint> If you import numpy as np, you will use np.pi
-        </hint>
+        <sage language='python'>
+          <input>
+            #first import the package numpy
+            import numpy
 
-      </exercise>
-
-
-      <sage language='python'>
-        <input>
-          #import the package numpy first - you fill in
-
-          #decide the radius of the circle
-          radius = 4
-          
-          #fill in the formula for the calculation here
-          circle_area = 
-
-          print(circle_area)
-        </input>
-      </sage>
-
-      <p>
-        NumPy arrays are an efficient way to do computations with a list of numbers. 
-        You can also represent vectors or matrices using NumPy arrays. 
-        Run the code below to see how it works.
-      </p>
+            #compute sin(2) 
+            x = numpy.sin(2)
+            print(x)
+          </input>
+        </sage>
 
 
+        <p>
+          Note to call a function from an imported package you must use the syntax <c>package.function</c>.
+          To avoid retyping the long name of a package every time, it is standard practice to rename the package as you import.  
+        </p>
 
-      <sage language='python'>
-        <input>
-          import numpy as np
-          X = np.array([1,2,3,4])
-          print(X)
-          print(2*X)
-        </input>
-      </sage>
+        <exercise>
+          <p>
+            Rename the package numpy in the above code by
+            replacing the import line with <c>import numpy as np</c>. Next use the new name of the package to call the function <c>np.sin()</c> and re-run.
+          </p>
+        </exercise>
 
-      <p> You can find more information about the package NumPy at 
-        <url href="https://numpy.org/" visual="numpy.org"/>. 
-        Python's wiki has a list of other commonly used <url href="https://wiki.python.org/moin/UsefulModules" visual="wiki.python.org/moin/UsefulModules">modules and packages</url>.
-      </p>
+      </subsection>
+
+      <subsection>
+        <title>Standard functions in NumPy</title>
+
+        <p>
+          In addition to the standard trigonometric functions, 
+          NumPy also contains <m>e^x</m> as <c>exp()</c> and natural log as <c>log()</c>, 
+          as well as the standard mathematical constants like <c>pi</c> and <c>e</c>.
+        </p>
+
+        <exercise>
+          <p> Use the NumPy package to compute the area of a circle using pi.  
+          </p>
+
+          <hint> If you import numpy as np, you will use np.pi
+          </hint>
+
+        </exercise>
+
+
+        <sage language='python'>
+          <input>
+            #import the package numpy first - you fill in
+
+            #decide the radius of the circle
+            radius = 4
+            
+            #fill in the formula for the calculation here
+            circle_area = 
+
+            print(circle_area)
+          </input>
+        </sage>
+
+      </subsection>
+
+      <subsection>
+        <title>NumPy arrays</title>
+
+        <p>
+          NumPy arrays are an efficient way to do computations with a list of numbers. 
+          You can also represent vectors or matrices using NumPy arrays. 
+          Run the code below to see how it works.
+        </p>
+
+
+
+        <sage language='python'>
+          <input>
+            import numpy as np
+            X = np.array([1,2,3,4])
+            print(X)
+            print(2*X)
+          </input>
+        </sage>
+
+      </subsection>
+
 
       <subsection>
         <title>Debugging revisited</title>
         <p>Add another exercise that they need to debug.</p>
       </subsection>
 
-
+      <conclusion>
+        <p> You can find more information about the package NumPy at 
+          <url href="https://numpy.org/" visual="numpy.org"/>. 
+          Python's wiki has a list of other commonly used <url href="https://wiki.python.org/moin/UsefulModules" visual="wiki.python.org/moin/UsefulModules">modules and packages</url>.
+        </p>
+      </conclusion>
 
 
       <assemblage><!--to assemble or summarize important connected ideas-->

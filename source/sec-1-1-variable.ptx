@@ -12,9 +12,8 @@
 
     <introduction>
       In this section we will learn how to assign values to a variable in Python and display results. 
-
     </introduction>
-
+  
     <objectives>
       <ul>
         <li>
@@ -30,40 +29,42 @@
       </ul>
     </objectives>
 
-    <p>
-      A <term> variable </term> is like a container that can be used to store information or data. 
-      In Python you assign a variable using <c> = </c>. 
-    </p>
-    <p>           
-      Run the Python code below by clicking the <em>Evaluate (Python)</em> button. 
-    </p>
-
-    <sage language='python'>
-      <input>
-        a = 2*3
-        print(a)
-      </input>
-    </sage>
-
-    <p>
-      Note that the function <c>print()</c> was needed to display the value of the variable. 
-    </p>
-
-    <exercise>
+    <subsection>
       <p>
-        Change the value of the variable <em>a</em> by adding 5 after the 2*3 above and run the code again to see how the output changes.
+        A <term> variable </term> is like a container that can be used to store information or data. 
+        In Python you assign a variable using <c> = </c>. 
       </p>
-    </exercise>
+      <p>           
+        Run the Python code below by clicking the <em>Evaluate (Python)</em> button. 
+      </p>
 
-    <subsection xml:id="subsec-more-variables">
-      <title>Naming Variables</title>
+      <sage language='python'>
+        <input>
+          a = 2*3
+          print(a)
+        </input>
+      </sage>
+
       <p>
+        Note that the function <c>print()</c> was needed to display the value of the variable. 
+      </p>
+
+      <exercise>
+        <p>
+          Change the value of the variable <em>a</em> by adding 5 after the 2*3 above and run the code again to see how the output changes.
+        </p>
+      </exercise>
+
+    </subsection>
+
+    <subsection xml:id="subsec-naming-variables">
+      <title>Naming Variables</title>
+      <introduction>
         Variables can be named using letters, underscores, numbers, etc. 
         Just be sure to use the exact same name to call your variable. 
-        For example, the following code has a syntax error. 
-      </p>
+      </introduction>
 
-      <p>Run the code as is and see what happens. </p>
+      <p>For example, the following code has a syntax error. Run the code as is and see what happens. </p>
       
       <sage language='python'>
         <input>
@@ -85,15 +86,17 @@
         
       </subsection>
 
-      <subsection>
+      <subsection xml:id="subsec_comments_in_Python">
         <title>Arithmetic and Comments in Python</title>
-        <p>
+       
+          <p>
           Python recognizes simple arithmetic symbols like <c>+ -, *, /</c>.
-        </p>
-        <p>
-          Meanwhile a hashtag <c>#</c> can be used to tell Python to ignore code, 
-          reading what follows as a comment by the author rather than a Python command.   
-        </p>
+          </p>
+          <p>
+            Meanwhile a hashtag <c>#</c> can be used to tell Python to ignore code, 
+            reading what follows as a comment by the author rather than a Python command.   
+          </p>
+       
 
         <sage language='python'>
           <input>
@@ -133,7 +136,7 @@
 
       </subsection>
 
-      <subsection>
+      <subsection xml:id="subsec_more_vars">
         <title>More about Variables</title>
         
         <p> Just like in math, variables can be helpful when the information will change. 
@@ -171,13 +174,13 @@
 
       </subsection>
 
-      <subsection>
+      <subsection xml:id="subsec_errors">
         <title>Syntax and Semantic errors</title>
+        
+        <p> One error we can make when creating and editing code is to mis-type a command and Python will not understand a word or syntax of our program. 
+          Another error is when we make our meaning unclear. For example you can add numbers to numbers or strings of letters to strings of letters in Python but if we try to add a number to a string of letters, Python will not know what we mean by adding. 
+        </p>
       </subsection>
-
-      <p> One error we can make when creating and editing code is to mis-type a command and Python will not understand a word or syntax of our program. 
-        Another error is when we make our meaning unclear. For example you can add numbers to numbers or strings of letters to strings of letters in Python but if we try to add a number to a string of letters, Python will not know what we mean by adding. 
-      </p>
 
       <assemblage><!--to assemble or summarize important connected ideas-->
         <title> Summary </title>
