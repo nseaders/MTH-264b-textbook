@@ -104,7 +104,7 @@
         <title>NumPy arrays</title>
 
         <p>
-          NumPy arrays are an efficient way to do computations with a list of numbers. 
+          NumPy arrays are an efficient way to do computations with a collection of numbers all at once. 
           You can also represent vectors or matrices using NumPy arrays. 
           Run the code below to see how it works.
         </p>
@@ -118,24 +118,30 @@
           </input>
         </sage>
 
-      </subsection>
-
-      <subsection xml:id="subsec-linspace">
-        <title>Numpy linspace</title>
         <p>
-          A helpful function we will use from NumPy is called <c>linspace</c>, which 
-          takes a given interval and sets up evenly spaced numbers throughout that interval. 
-          For example, if you want an array of 11 numbers between 1 and 5 that are evenly spaced...
+          NumPy also has built in functions to automatically create an array with certain conditions.
+          For example <c>linspace</c> takes a given interval and sets up an array of evenly spaced numbers on that interval. 
         </p>
 
         <sage language='python'>
           <input>
             import numpy as np
-            X = np.linspace(0,5,11)
+            #create array of 11 evenly spaced numbers between 1 and 5
+            X = np.linspace(0,5,num=11) 
+             
             print(X)
             print(2*X)
           </input>
         </sage>
+
+        <exercise>
+          Edit the above code to create an array of numbers between 0 and 5 that are one-quarter apart. 
+          When you evaluate your code should print the list 0, 0.25, 0.5, 0.75, etc.
+        </exercise>
+
+        <p>
+          Meanwhile 
+        </p>
         
       </subsection>
 
