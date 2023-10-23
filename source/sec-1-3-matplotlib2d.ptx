@@ -18,7 +18,7 @@
         <ul>
           <li>
             <p>
-              C
+              Use 
             </p>
           </li>
           <li>
@@ -37,17 +37,26 @@
 
       <sage language='python'>
           <input>
-              import numpy as np
-              import matplotlib as mpl
-              import matplotlib.pyplot as plt
+              import matplotlib.pyplot as plt 
               
               fig = plt.figure()
               ax = plt.axes()
-
+              
               plt.show()
 
           </input>
       </sage>
+
+      <sage language='python'>
+        <input>
+            import matplotlib.pyplot as plt 
+            
+            fig, ax = plt.subplots()
+            
+            plt.show()
+
+        </input>
+    </sage>
 
   </subsection>
 
@@ -61,15 +70,15 @@
                 import numpy as np
                 import matplotlib as mpl
                 import matplotlib.pyplot as plt
-            
+                
                 fig = plt.figure()
                 ax = plt.axes()
-
+                
                 x=np.array([1,2,3,4])
                 y=3*x+6
-
+                
                 plt.plot(x,y)
-
+                
                 plt.show()
 
             </input>
@@ -80,13 +89,13 @@
                 import numpy as np
                 import matplotlib as mpl
                 import matplotlib.pyplot as plt
-            
+                
                 fig = plt.figure()
                 ax = plt.axes()
-            
+                
                 x=np.array([1,4])
                 y=np.sin(x)
-            
+                
                 plt.plot(x,y)
                 plt.show()   
             </input>
@@ -98,13 +107,12 @@
                 import numpy as np
                 import matplotlib as mpl
                 import matplotlib.pyplot as plt
-            
                 fig = plt.figure()
                 ax = plt.axes()
-            
+                
                 x=np.linspace(1,4,100)
                 y=np.sin(x)
-            
+                
                 plt.plot(x,y)
                 plt.show()   
             </input>

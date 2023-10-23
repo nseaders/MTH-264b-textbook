@@ -109,8 +109,6 @@
           Run the code below to see how it works.
         </p>
 
-
-
         <sage language='python'>
           <input>
             import numpy as np
@@ -120,6 +118,25 @@
           </input>
         </sage>
 
+      </subsection>
+
+      <subsection xml:id="subsec-linspace">
+        <title>Numpy linspace</title>
+        <p>
+          A helpful function we will use from NumPy is called <c>linspace</c>, which 
+          takes a given interval and sets up evenly spaced numbers throughout that interval. 
+          For example, if you want an array of 11 numbers between 1 and 5 that are evenly spaced...
+        </p>
+
+        <sage language='python'>
+          <input>
+            import numpy as np
+            X = np.linspace(0,5,11)
+            print(X)
+            print(2*X)
+          </input>
+        </sage>
+        
       </subsection>
 
 
