@@ -106,13 +106,16 @@
         <p>
           NumPy arrays are an efficient way to do computations with a collection of numbers all at once. 
           You can also represent vectors or matrices using NumPy arrays. 
-          Run the code below to see how it works.
+          Run the code below that calls the NumPy function <c>array</c> to see how it works.
         </p>
 
         <sage language='python'>
           <input>
             import numpy as np
+            
+            #create an array containing the numbers 1, 2, 3, 4
             X = np.array([1,2,3,4])
+            
             print(X)
             print(2*X)
           </input>
@@ -126,22 +129,25 @@
         <sage language='python'>
           <input>
             import numpy as np
+
             #create array of 11 evenly spaced numbers between 1 and 5
             X = np.linspace(0,5,num=11) 
              
             print(X)
-            print(2*X)
           </input>
         </sage>
 
+        <p>
+          Note that the array includes 5, so it takes 11 evenly spaced numbers to get numbers 0.5 apart.
+        </p>
+
         <exercise>
-          Edit the above code to create an array of numbers between 0 and 5 that are one-quarter apart. 
-          When you evaluate your code should print the list 0, 0.25, 0.5, 0.75, etc.
+          <p>
+            Edit the above code to use linspace to create an array of numbers between 0 and 5 that are one-quarter apart. 
+            When you evaluate your code should print the list 0, 0.25, 0.5, 0.75, etc.
+          </p>
         </exercise>
 
-        <p>
-          Meanwhile 
-        </p>
         
       </subsection>
 
