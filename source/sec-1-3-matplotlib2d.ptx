@@ -11,117 +11,102 @@
     <title>MatPlotLib and 2D graphing</title>
 
     <introduction>
-        In this section we will learn how to use the library MatPlotLib to graph in 2D.  
+      Matplotlib is a Python library that uses NumPy arrays (<xref ref="section-modules"/>) to create static or interactive graphs and data visualizations. 
+      In this section we will learn how to use the MatPlotLib to graph curves and plot points in 2D.  
     </introduction>
 
     <objectives>
         <ul>
           <li>
             <p>
-              Use 
+              Use Matplotlib to graph curves.
             </p>
           </li>
           <li>
             <p>
-              D
+              Use Matplotlib to make a scatterplot.
+            </p>
+          </li>
+          <li>
+            <p>
+              Label the axes on a graph.
             </p>
           </li>
         </ul>
     </objectives>
 
     <subsection>
+      <title> Matplotlib Basics </title>
 
       <p>
-          what
+        Matplotlib graphs curves by plotting points and connecting the dots.
+        A function called <c>pyplot</c> is used to create the figure and axes. 
+        The inputs and outputs are given by NumPy arrays.
+        Run both sets of code below to use <c>matplotlib.pyplot</c> to graph a line and a sine curve.     
       </p>
 
       <sage language='python'>
           <input>
-              import matplotlib.pyplot as plt 
+              import matplotlib.pyplot as plt #import pyplot
+              import numpy as np 
               
-              fig = plt.figure()
-              ax = plt.axes()
-              
-              plt.show()
+              fig = plt.figure() #create a figure
+              ax = plt.axes() #add an axis
+              x=np.array([0,1,2,3,4,5,6]) #determine inputs
+              y=2*x #determine outputs for y=2x
 
+              ax.plot(x,y) #plot the connected dots on your axes
+              plt.show() #display the result
           </input>
       </sage>
 
+
       <sage language='python'>
         <input>
-            import matplotlib.pyplot as plt 
+            import matplotlib.pyplot as plt #import pyplot
+            import numpy as np 
             
-            fig, ax = plt.subplots()
-            
-            plt.show()
+            fig = plt.figure() #create a figure
+            ax = plt.axes() #add an axis
+            x=np.linspace(0,6,num=100) #determine inputs
+            y=np.sin(x) #determine outputs for y=sin(x)
 
+            ax.plot(x,y) #plot the connected dots on your axes
+            plt.show() #display the result
         </input>
     </sage>
 
+    <p>
+      Note you need enough `dots' to graph a smooth curve. 
+    </p>
+    <exercise>
+      <p>Change the above code to only plot whole number inputs from 0 to 6.  
+        What happens to your line? What happens to your sine curve?
+      </p>
+    </exercise>
+
+    <exercise>
+      <p>Change the above code to graph <m> y=x^2 </m> with a traditional input window (say [-10,10]). 
+      </p>
+    </exercise>
+
+
+
   </subsection>
 
-    <subsection xml:id="twoDgraphs">
-        <title>Basic Graphs</title>
-        
-      
+              
 
-        <sage language='python'>
-            <input>
-                import numpy as np
-                import matplotlib.pyplot as plt
-                
-                fig = plt.figure()
-                ax = plt.axes()
-                
-                x=np.array([1,2,3,4])
-                y=3*x+6
-                
-                plt.plot(x,y)
-                
-                plt.show()
-
-            </input>
-        </sage>
-
-        <sage language='python'>
-            <input>
-                import numpy as np
-                import matplotlib.pyplot as plt
-                
-                fig = plt.figure()
-                ax = plt.axes()
-                
-                x=np.array([1,2,3,4,5,6])
-                y=np.sin(x)
-                
-                plt.plot(x,y)
-                plt.show()   
-            </input>
-        </sage>
-
-
-        <sage language='python'>
-            <input>
-                import numpy as np
-                import matplotlib.pyplot as plt
-                fig = plt.figure()
-                ax = plt.axes()
-                
-                x=np.linspace(1,6,100)
-                y=np.sin(x)
-                
-                plt.plot(x,y)
-                plt.show()   
-            </input>
-        </sage>
-        
-        <p> what went wrong? It just always connects the dots... </p>
-    
-    </subsection>
+ 
     
     <subsection xml:id="axes">
         <title>Axes and Labels</title>
     </subsection>
+
+    <conclusion>
+      <p>There are other commands to set up your figure and your axes. 
+        This approach is very explicit which makes it easier to understand how to control each feature as you get started.  
+      </p>
+    </conclusion>
 
     <assemblage><!--to assemble or summarize important connected ideas-->
         <title> Summary </title>
