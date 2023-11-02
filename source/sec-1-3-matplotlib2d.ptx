@@ -7,125 +7,205 @@
 <!-- See the file copyright.txt for copying conditions. -->
 
 <section xml:id="section-matplotlib">
-    
-    <title>MatPlotLib and 2D graphing</title>
+  
+  <title>Matplotlib and 2D graphing</title>
 
-    <introduction>
-      Matplotlib is a Python library that uses NumPy arrays (<xref ref="section-modules"/>) to create static or interactive graphs and data visualizations. 
-      In this section we will learn how to use the MatPlotLib to graph curves and plot points in 2D.  
-    </introduction>
+  <introduction>
+    Matplotlib is a Python library that uses NumPy arrays (<xref ref="section-modules"/>) to create static or interactive graphs and data visualizations. 
+    In this section we will learn how to use the MatPlotLib to graph curves and plot points in 2D.  
+  </introduction>
 
-    <objectives>
-        <ul>
-          <li>
-            <p>
-              Use Matplotlib to graph curves.
-            </p>
-          </li>
-          <li>
-            <p>
-              Use Matplotlib to make a scatterplot.
-            </p>
-          </li>
-          <li>
-            <p>
-              Label the axes on a graph.
-            </p>
-          </li>
-        </ul>
-    </objectives>
+  <objectives>
+    <ul>
+      <li>
+        <p>
+          Use Matplotlib to graph curves.
+        </p>
+      </li>
+      <li>
+        <p>
+          Use Matplotlib to make a scatterplot.
+        </p>
+      </li>
+      <li>
+        <p>
+          Label the axes on a graph.
+        </p>
+      </li>
+    </ul>
+  </objectives>
 
-    <subsection>
-      <title> Matplotlib Basics </title>
+  <subsection>
+    <title> Basic 2D graphs </title>
 
-      <p>
-        Matplotlib graphs curves by plotting points and connecting the dots.
-        A function called <c>pyplot</c> is used to create the figure and axes. 
-        The inputs and outputs are given by NumPy arrays.
-        Run both sets of code below to use <c>matplotlib.pyplot</c> to graph a line and a sine curve.     
-      </p>
+    <p>
+      Matplotlib graphs curves by plotting points and connecting the dots.
+      A Matplotlib function called <c>pyplot</c> is used to create the figure and axes. 
+      The inputs and outputs are given by NumPy arrays and then plotted on the axes.
+      Run both sets of code below that uses matplotlib to graph a line and a sine curve.     
+    </p>
 
-      <sage language='python'>
-          <input>
-              import matplotlib.pyplot as plt #import pyplot
-              import numpy as np 
-              
-              fig = plt.figure() #create a figure
-              ax = plt.axes() #add an axis
-              x=np.array([0,1,2,3,4,5,6]) #determine inputs
-              y=2*x #determine outputs for y=2x
+    <sage language='python'>
+      <input>
+        import matplotlib.pyplot as plt #import pyplot
+        import numpy as np 
+        
+        fig = plt.figure() #create a figure
+        ax = plt.axes() #add an axis
+        X=np.array([0,3,6]) #determine inputs
+        Y=2*X #determine outputs for y=2x
 
-              ax.plot(x,y) #plot the connected dots on your axes
-              plt.show() #display the result
-          </input>
-      </sage>
+        ax.plot(X,Y) #plot the connected dots on your axes
+        plt.show() #display the result
+      </input>
+    </sage>
 
 
-      <sage language='python'>
-        <input>
-            import matplotlib.pyplot as plt #import pyplot
-            import numpy as np 
-            
-            fig = plt.figure() #create a figure
-            ax = plt.axes() #add an axis
-            x=np.linspace(0,6,num=100) #determine inputs
-            y=np.sin(x) #determine outputs for y=sin(x)
-
-            ax.plot(x,y) #plot the connected dots on your axes
-            plt.show() #display the result
-        </input>
+    <sage language='python'>
+      <input>
+        import matplotlib.pyplot as plt #import pyplot
+        import numpy as np 
+        
+        fig = plt.figure() #create a figure
+        ax = plt.axes() #add an axis
+        X=np.linspace(0,6,num=100) #determine inputs
+        Y=np.sin(X) #determine outputs for y=sin(x)
+        
+        ax.plot(X,Y) #plot the connected dots on your axes
+        plt.show() #display the result
+      </input>
     </sage>
 
     <p>
-      Note you need enough `dots' to graph a smooth curve. 
+      Note when `connecting the dots' you need enough points to get a smooth curve. 
     </p>
     <exercise>
-      <p>Change the above code to only plot whole number inputs from 0 to 6.  
-        What happens to your line? What happens to your sine curve?
+      <p>Change the above code to whole number inputs from 0 to 6. 
+        <ul>
+          <li>
+            <p>
+              What happens to your line?
+            </p>
+          </li> 
+          <li>
+            <p>
+              What happens to your sine curve?
+            </p>
+          </li>
+        </ul>  
       </p>
     </exercise>
 
     <exercise>
-      <p>Change the above code to graph <m> y=x^2 </m> with a traditional input window (say [-10,10]). 
+      <p>Change the above code to graph <m> y=x^2 </m> with a traditional input window like [-10,10]. 
       </p>
     </exercise>
 
+    <p>
+      You can plot more than one graph in the same figure using the same inputs but more than one set of outputs. 
+      Run the code below to that graphs <m> y_1 = \sin(x) </m> and <m>y_2=\cos(x)</m> on the same graph. 
+    </p>
+
+    <sage language='python'>
+      <input>
+          import matplotlib.pyplot as plt #import pyplot
+          import numpy as np 
+          
+          fig = plt.figure() #create a figure
+          ax = plt.axes() #add an axis
+          X=np.linspace(0,6,num=100) #determine inputs
+          Y1=np.sin(X) #determine outputs for y=sin(x)
+          Y2=np.cos(X) #determine outputs for y=cos(x)
+          
+          ax.plot(X,Y1,X,Y2) #Note: list inputs for both
+          plt.show() #display the result
+      </input>
+    </sage>
+
+    <exercise>
+      <p> Notice that if you don't specify the inputs, pyplot uses a default set instead.
+        Change the above code and remove the second call for the inputs X in ax.plot(). 
+        What is the default input window pyplot uses for Y2?  
+      </p>
+    </exercise>
+
+    <exercise>
+      <p>Change the above code to add a third function on the same graph.  
+      </p>
+    </exercise>
+
+  </subsection>
+  
+  <subsection xml:id="axes">
+    <title>Axes and Labels</title>
+
+    <p>
+      You can easily add titles or labels to your axes using the commands <c>ax.set_title("title_here")</c>, 
+      <c>ax.set_xlabel("label_here")</c>, <c>ax.set_ylabel("label_here")</c>. 
+      Since the code is longer you might need to scroll down to see all of the commands below. 
+    </p>
+
+    <sage language='python'>
+      <input>
+        import matplotlib.pyplot as plt #import pyplot
+        import numpy as np 
+        
+        fig = plt.figure() #create a figure
+        ax = plt.axes() #add an axis
+        X=np.linspace(0,4,num=100) #determine inputs
+        Y=-9.8*X**2+100 #determine outputs for y=-9.8x^2+3
+        
+        ax.plot(X,Y) #Plot the connected dots
+        ax.set_title("Falling Body") #title
+        ax.set_xlabel("Time (s)") #input label
+        ax.set_ylabel("Height (m)") #output label
+        plt.show() #display the result
+      </input>
+    </sage>
+
+    <p>
+      You can also adjust the tick marks on the axes, but it takes a little more work,
+      and there are multiple approaches. 
+    </p>
+
+    <exercise>
+      <p>Search online for a way to change the tick labels in Matplotlib. 
+        Try and adjust the "Falling Body" graph to have tickmarks every quarter of a second.  
+      </p>
+    </exercise>    
 
 
   </subsection>
 
-              
-
- 
+  <subsection xml:id="custom-graphs">
+    <title>Customizing</title>
     
-    <subsection xml:id="axes">
-        <title>Axes and Labels</title>
-    </subsection>
+  </subsection>
 
-    <conclusion>
-      <p>There are other commands to set up your figure and your axes. 
-        This approach is very explicit which makes it easier to understand how to control each feature as you get started.  
-      </p>
-    </conclusion>
+  <conclusion>
+    <p>There are other commands to set up your figure and your axes. 
+      This approach is very explicit which makes it easier to understand how to control each feature as you get started.  
+    </p>
+  </conclusion>
 
-    <assemblage><!--to assemble or summarize important connected ideas-->
-        <title> Summary </title>
-        <p>
-        <ul>
-          <li>
-            <p>
-              blah 
-            </p>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <p>
-                blah
-            </p>
-          </li>
-        </ul>
-      </p>
-      </assemblage>
+  <assemblage><!--to assemble or summarize important connected ideas-->
+    <title> Summary </title>
+    <p>
+      <ul>
+        <li>
+          <p>
+            blah 
+          </p>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <p>
+              blah
+          </p>
+        </li>
+      </ul>
+    </p>
+  </assemblage>
 
 </section>
