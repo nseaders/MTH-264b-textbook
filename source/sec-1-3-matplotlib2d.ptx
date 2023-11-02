@@ -135,14 +135,25 @@
     </exercise>
 
   </subsection>
-  
-  <subsection xml:id="axes">
-    <title>Axes and Labels</title>
 
+  <subsection xml:id="subsec-scatterplots">
+    <title>Scatter Plots in 2D</title>
     <p>
-      You can easily add titles or labels to your axes using the commands <c>ax.set_title("title_here")</c>, 
-      <c>ax.set_xlabel("label_here")</c>, <c>ax.set_ylabel("label_here")</c>. 
-      Since the code is longer you might need to scroll down to see all of the commands below. 
+      To graph a scatterplot, use the command <c>scatter</c> instead of <c>plot</c>. 
+    </p>
+
+    <exercise>
+      <p>Adjust the code in any plot above to make it into a scatter plot instead.   
+      </p>
+      <hint>
+        <p>
+          Replace <c>ax.plot()</c> with <c>ax.scatter()</c> in the code. 
+        </p>
+      </hint>
+    </exercise> 
+
+    <p> For scatter plots sometimes you get the data from an experiment instead of a formula.
+      Either way the outputs are given as a NumPy array.
     </p>
 
     <sage language='python'>
@@ -152,13 +163,41 @@
         
         fig = plt.figure() #create a figure
         ax = plt.axes() #add an axis
+        X=np.array([1,2,3,4]) #determine inputs
+        Y=np.array([4,2,0,1]) #determine outputs 
+        
+        ax.scatter(X,Y) #plot the scatter plot on your axes
+        plt.show() #display the result
+      </input>
+    </sage> 
+
+  </subsection>
+  
+  <subsection xml:id="axes">
+    <title>Axes and Labels</title>
+
+    <p>
+      You can easily add titles or labels to your axes using the commands <c>set_title("title_here")</c>, 
+      <c>set_xlabel("label_here")</c>, <c>set_ylabel("label_here")</c>. 
+      Since the code below is longer, you might need to scroll to see all of the commands. 
+    </p>
+
+    <sage language='python'>
+      <input>
+        import matplotlib.pyplot as plt #import pyplot
+        import numpy as np 
+        
+        fig = plt.figure() #create a figure
+        ax = plt.axes() #axis name used for plots and labels
+
         X=np.linspace(0,4,num=100) #determine inputs
         Y=-9.8*X**2+100 #determine outputs for y=-9.8x^2+3
         
-        ax.plot(X,Y) #Plot the connected dots
         ax.set_title("Falling Body") #title
         ax.set_xlabel("Time (s)") #input label
         ax.set_ylabel("Height (m)") #output label
+
+        ax.plot(X,Y) #Plot the connected dots
         plt.show() #display the result
       </input>
     </sage>
@@ -177,14 +216,59 @@
 
   </subsection>
 
+
+
   <subsection xml:id="custom-graphs">
     <title>Customizing</title>
+
+    <p>
+      You can customize pretty much everything in the plot: colors, markers, line width and styles, etc.
+      Below are a few examples.   
+    </p>
+
+    <sage language='python'>
+      <input>
+        import matplotlib.pyplot as plt #import pyplot
+        import numpy as np 
+        
+        fig = plt.figure() #create a figure
+        ax = plt.axes() #add an axis
+        X=np.array([1,2,3,4]) #determine inputs
+        Y=np.array([4,2,0,1]) #determine outputs 
+        
+        ax.scatter(X,Y, marker="x") #scatterplot with x
+        plt.show() #display the result
+      </input>
+    </sage> 
+    <sage language='python'>
+      <input>
+        import matplotlib.pyplot as plt #import pyplot
+        import numpy as np 
+        
+        fig = plt.figure() #create a figure
+        ax = plt.axes() #add an axis
+        X=np.linspace(0,6,num=100) #determine inputs
+        Y=np.sin(X) #determine outputs for y=sin(x)
+        
+        ax.plot(X,Y, color="orange", linestyle="--") #plot the connected dots on your axes
+        plt.show() #display the result
+      </input>
+    </sage>
+
+    <p>
+      The comma separated list of possible commands inside the parentheses of a function like <c>plot()</c>
+      are called the <em>arguments</em> of the function. The functions <c>plot</c> and <c>scatter</c>
+      can take arguments like <c>color="color_here"</c>, <c>linestyle="style_here"</c>, <c>linewidth=number_here</c>,
+      <c>marker="markertype_here"</c>. 
+    </p>
     
   </subsection>
 
   <conclusion>
-    <p>There are other commands to set up your figure and your axes. 
-      This approach is very explicit which makes it easier to understand how to control each feature as you get started.  
+    <p>There are other ways to set up your figure and your axes in Matplotlib. 
+      Some are shortcuts and Matplotlib will use default settings. 
+      (For example, if you did not explicitly give inputs for the function you wanted to graph.) 
+      The approach in this section is very explicit, which makes it easier to understand how to control each feature as you get started.  
     </p>
   </conclusion>
 
@@ -194,14 +278,25 @@
       <ul>
         <li>
           <p>
-            blah 
+            First you set up your figure and your axes using Matplotlib. 
+            Then you can graph a curve or a scatterplot on your axes.
           </p>
         </li>
-      </ul>
-      <ul>
         <li>
           <p>
-              blah
+              You graph a connected curve on your axes using <c>axes_name.plot(input array,output array)</c> 
+              and a scatterplot using <c>axes_name.scatter(input array, output array)</c>.
+          </p>
+        </li>
+        <li>
+          <p>
+            You can add titles and labels using <c>axes_name.set_title("Title")</c> or <c>axes_name.set_xlabel("input_label")</c>.
+          </p>
+        </li>
+        <li>
+          <p>
+            You can customize color, linestyles, plotting styles, thickness, tickmarks, font sizes, etc.
+            to make your graph exactly what you need for publication. 
           </p>
         </li>
       </ul>
