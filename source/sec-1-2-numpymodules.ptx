@@ -104,8 +104,8 @@
         <title>NumPy arrays</title>
 
         <p>
-          NumPy arrays are an efficient way to do computations with a collection of numbers all at once. 
-          You can also represent vectors or matrices using NumPy arrays. 
+          NumPy arrays can help us efficiently do computations with a collection of numbers all at once. 
+          We can also represent vectors or matrices using NumPy arrays. 
           Run the code below that calls the NumPy function <c>array</c> to see how it works.
         </p>
 
@@ -123,14 +123,14 @@
 
         <p>
           NumPy also has built in functions to automatically create an array with certain conditions.
-          For example <c>linspace</c> takes a given interval and sets up an array of evenly spaced numbers on that interval. 
+          For example <c>linspace()</c> takes a given interval and sets up an array of evenly spaced numbers on that interval. 
         </p>
 
         <sage language='python'>
           <input>
             import numpy as np
 
-            #create array of 11 evenly spaced numbers between 1 and 5
+            #create array of 11 evenly spaced numbers between 0 and 5
             X = np.linspace(0,5,num=11) 
              
             print(X)
@@ -146,6 +146,32 @@
             Edit the above code to use linspace to create an array of numbers between 0 and 5 that are one-quarter apart. 
             When you evaluate your code should print the list 0, 0.25, 0.5, 0.75, etc.
           </p>
+        </exercise>
+
+        <p>
+          Another way to create an array of values for a given interval is <c>arange()</c>, which uses a step value to 
+          set up a sequence of numbers within that interval. 
+        </p>
+
+        <sage language='python'>
+          <input>
+            import numpy as np
+
+            #create array of numbers between 0 and 5 with step size 2 
+            X = np.arange(0,5,step=2) 
+             
+            print(X)
+          </input>
+        </sage>
+
+        <p>
+          Note that the array gets cut off before the right endpoint of the interval if your stepsize doesn't divide the interval evenly. 
+        </p>
+
+        <exercise>
+          <p>
+            Edit the above code to use arange to create an array of numbers between 0 and 5 that are one-quarter apart. 
+            When you evaluate your code should print the list 0, 0.25, 0.5, 0.75, etc.          </p>
         </exercise>
 
         
@@ -174,11 +200,19 @@
               You can import a Python package and rename it by using <c>import package as name</c>. 
             </p>
           </li>
-        </ul>
-        <ul>
           <li>
             <p>
                 You can call a function from a package using <c>packagename.function</c>
+            </p>
+          </li>
+          <li>
+            <p>
+                Numpy arrays can help us efficiently do computations. 
+            </p>
+          </li>
+          <li>
+            <p>
+                The Numpy functions <c>linspace()</c> and <c>arange()</c> set up an array of values over an interval.
             </p>
           </li>
         </ul>

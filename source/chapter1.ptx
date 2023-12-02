@@ -12,15 +12,16 @@
       <title>Basics and Modules for Matrix Algebra</title>
       <introduction>
 
-      <p> In this chapter we will introduce just enough about Python to get started then introduce
+      <p> In this chapter we will introduce just enough about Python to get started before introducing
         a Python package <c>NumPy</c> and a library <c>MatPlotLib</c> needed for mathematics and graphing. 
-        Note that we will skip over a lot of information you would learn in a typical Computer Science <em>Introduction to Python</em> class. 
-        Python is much more useful than you will see here, but our purpose is to get you familiar with the kinds of commands
+        Note that Python is much more useful than you will see here and 
+        we will skip over a lot of information you would learn in a typical Computer Science <em>Introduction to Python</em> class. 
+        Our purpose is to merely get you familiar with the kinds of commands
         available in Python to compute matrix algebra.  
       </p> 
 
       <p> 
-        To start, a traditional first program displays the text <c>Hello world.</c> or some variation. 
+        To start, a traditional first program displays the text <q>Hello world.</q> or some variation. 
         Python uses the function <c> print() </c> to display output, making the program simple.
       </p>
         
@@ -35,7 +36,7 @@
 
       <p>
         Note that snippets of Python code embedded in the textbook will always have a similar formatting, with the option to <q>evaluate</q>, 
-        that is <em>run</em>, the program at the end. 
+        that is, <em>run</em> or <em>excecute</em> the code at the end. 
       </p>
        
       
@@ -45,5 +46,6 @@
       <xi:include href="./sec-1-1-variable.ptx"/>
       <xi:include href="./sec-1-2-numpymodules.ptx"/>
       <xi:include href="./sec-1-3-matplotlib2d.ptx"/>
+      <xi:include href="./sec-1-4-matplotlib3d.ptx"/>
     
     </chapter>

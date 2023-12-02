@@ -36,7 +36,7 @@
   </objectives>
 
   <subsection>
-    <title> Basic 2D graphs </title>
+    <title> Curves in 2D </title>
 
     <p>
       Matplotlib graphs curves by plotting points and connecting the dots.
@@ -97,13 +97,21 @@
     </exercise>
 
     <exercise>
+      <p>
+        Change the above code to use <c>arange()</c> instead of <c>linspace()</c> to set up your inputs. 
+        What is the smallest step size that makes the curve look smooth? 
+      </p>
+    </exercise>
+
+    <exercise>
       <p>Change the above code to graph <m> y=x^2 </m> with a traditional input window like [-10,10]. 
       </p>
     </exercise>
 
+
     <p>
       You can plot more than one graph in the same figure using the same inputs but more than one set of outputs. 
-      Run the code below to that graphs <m> y_1 = \sin(x) </m> and <m>y_2=\cos(x)</m> on the same graph. 
+      Run the code below to graph <m> y_1 = \sin(x) </m> and <m>y_2=\cos(x)</m> on the same graph. 
     </p>
 
     <sage language='python'>
@@ -278,14 +286,23 @@
       <ul>
         <li>
           <p>
-            First you set up your figure and your axes using Matplotlib. 
-            Then you can graph a curve or a scatterplot on your axes.
+            Every graph needs a figure and an axes. 
           </p>
         </li>
         <li>
           <p>
-              You graph a connected curve on your axes using <c>axes_name.plot(input array,output array)</c> 
-              and a scatterplot using <c>axes_name.scatter(input array, output array)</c>.
+              You graph a connected curve on your axes using <c>axes_name.plot(input array,output array)</c>. 
+          </p>
+        </li>
+        <li>
+          <p>
+              You graph a scatterplot on your axes using <c>axes_name.scatter(input array,output array)</c>. 
+          </p>
+        </li>
+        <li>
+          <p>
+              You can use <c>numpy.linspace()</c> to efficiently create enough points for 
+              <c>plot()</c> to connect the dots into a smooth-looking curve. 
           </p>
         </li>
         <li>

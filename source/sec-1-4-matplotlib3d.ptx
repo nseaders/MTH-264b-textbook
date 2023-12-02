@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- This file is part of the book                      -->
+<!--                                                    -->
+<!-- An Introduction to Matrix Computations in Python   -->
+<!--                                                    -->
+<!-- Copyright (C) 2023  LBCC                           -->
+<!-- See the file copyright.txt for copying conditions. -->
+
+<section xml:id="section-matplotlib3d">
+    
+    <title>Matplotlib and 3D graphing</title>
+
+    <introduction>
+        Now that we have some experience making 2D graphs, let's learn how to make 3D graphs.  
+        If you have taken a multivariable class hopefully you remember that an equation with three variables defines a surface, 
+        where we think of two of the variables as inputs and the remaining variable as the output. 
+        Meanwhile to graph a line or a space curve in 3D we need a vector-valued function or a set of three parametric equations.  
+    </introduction>
+
+    <objectives>
+        <ul>
+          <li>
+            <p>
+              Use Matplotlib to graph surfaces in 3D. 
+            </p>
+          </li>
+          <li>
+            <p>
+              Use Matplotlib to graph parametric curves in 3D.
+            </p>
+          </li>
+        </ul>
+      </objectives>
+
+      <subsection xml:id="subsec-Graphing-a-surface">
+        <title>Graphing a surface</title>
+        
+        <p>
+          Just like you need enough inputs to get a curve that looks smooth in 2D, 
+          we will need enough inputs to get a surface that looks smooth in 3D. 
+          We can use Numpy's function <c>meshgrid()</c> to create a coordinate grid.
+        </p>
+
+        <sage language='python'>
+          <input>
+              import matplotlib.pyplot as plt #import pyplot
+              import numpy as np 
+              
+              fig = plt.figure() #create a figure
+              ax = plt.axes(projection='3d') #add a 3D axis
+              X = np.arange(-6,6,step=0.25) #determine x-inputs
+              Y = np.arange(-3,3,step=0.25) #determine y-inputs
+              X,Y = np.meshgrid(X,Y) #coordinate grid with both inputs
+              Z = np.sin(X*Y) #determine outputs sin(xy)
+
+              
+              ax.plot_surface(X,Y,Z) #plot surface
+              plt.show() #display the result
+          </input>
+        </sage>
+
+
+
+      </subsection>
+
+      <p>
+        what
+      </p>
+
+      <assemblage><!--to assemble or summarize important connected ideas-->
+        <title> Summary </title>
+        <p>
+        <ul>
+          <li>
+            <p>
+              blah 
+            </p>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <p>
+              You can use <c>numpy.meshgrid()</c> to efficiently create enough input coordinates
+              for <c>plot()</c> or <c>plot()</c> to make a nice looking surface. 
+            </p>
+          </li>
+        </ul>
+      </p>
+      </assemblage>
+
+
+
+</section>
