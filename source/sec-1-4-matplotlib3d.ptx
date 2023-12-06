@@ -14,25 +14,25 @@
         Now that we have some experience making 2D graphs, let's learn how to make 3D graphs. 
         Note that you can graph both curves and surfaces in 3D, depending on what you are trying to describe.  
         If you have taken a multivariable class hopefully you remember that surfaces arise as solutions to equations of three variables,
-        while points on a space curve are either traced out by a vector-valued function or plotted by a set of three parametric equations. 
-        The code for the points on a space curve is a little more straightforward so we will start with those examples in this section. 
-         
+        while points on a space curve are parametric equations or vector-valued functions. 
+        The code for the points on a space curve is a little more straightforward so we will start with those examples in this section.   
     </introduction>
 
     <objectives>
         <ul>
           <li>
             <p>
-              Use Matplotlib to graph surfaces in 3D. 
+              Use Matplotlib to graph parametric curves in 3D.
             </p>
           </li>
           <li>
             <p>
-              Use Matplotlib to graph parametric curves in 3D.
+              Use Matplotlib to graph surfaces in 3D. 
             </p>
           </li>
         </ul>
-      </objectives>
+    </objectives>
+
 
       <subsection xml:id="subsec-3Daxes">
         <title>3D axes</title>
@@ -61,7 +61,7 @@
 
         <p>
           Matplotlib graphs 3D curves by plotting points and connecting the dots.
-          The <m>x</m>, <m>y</m>, and <m>z-</m>coordinates are still given by NumPy arrays and then plotted on the axes.
+          The <m>x</m>, <m>y</m>, and <m>z-</m>coordinates are still given by numpy arrays and then plotted on the axes.
         </p>
 
         <p>
@@ -193,7 +193,8 @@
         
         <p>
           To graph a surface or 3D scatterplot, we will need two-dimensional numpy arrays for all of our inputs and outputs.
-          As a shortcut we can create 1-d arrays for the <m>x</m> and <m>y</m> inputs first, then use NumPy's function <c>meshgrid()</c> to create a coordinate grid of inputs. Last we define our outputs on that grid.
+          As a shortcut we can create 1D arrays for the <m>x</m> and <m>y</m> inputs first, then use NumPy's function <c>meshgrid()</c> to create a coordinate grid of inputs (two 2D arrays). 
+          Last we define our outputs on that coordinate grid.
         </p>
         <p>
           The function <c>scatter()</c> will plot a scatterplot just like in 2D.
@@ -203,7 +204,7 @@
         </p>
 
         <exercise>
-          <p> Run the code below trying both the command <c>plot_surface()</c> (given) and <c>scatter()</c> to see the difference.  
+          <p> Run the code below trying both the command <c>plot_surface()</c> (current default) and <c>scatter()</c> to see the difference.  
           </p>
         </exercise>
 
@@ -215,9 +216,9 @@
 
               fig = plt.figure() #create a figure
               ax = plt.axes(projection='3d') #add a 3D axis
-              X = np.arange(-2,2,step=0.25) #determine x-inputs
-              Y = np.arange(-2,2,step=0.25) #determine y-inputs
-              X,Y = np.meshgrid(X,Y) #make coordinate grid of inputs
+              X = np.arange(-2,2,step=0.25) #1D x-inputs
+              Y = np.arange(-2,2,step=0.25) #1D y-inputs
+              X,Y = np.meshgrid(X,Y) #2D coordinate input grid
               Z = X**2+Y**2 #determine outputs x^2+y^2
 
               ax.plot_surface(X,Y,Z) #plot surface
@@ -251,15 +252,97 @@
 
       <subsection xml:id="subsec-3DAxesandLabels">
         <title>Axes and Labels</title>
+
+        <p>
+          Adding titles or labels to your 3D axes uses the same commands as in 2D. the commands <c>set_title("title_here")</c>, 
+          <c>set_xlabel("label_here")</c>, <c>set_ylabel("label_here")</c>. 
+          Since the code below is longer, you might need to scroll to see all of the commands. 
+        </p>
+
+        <sage language='python'>
+          <input>
+              import matplotlib.pyplot as plt #import pyplot
+              import numpy as np 
+
+              fig = plt.figure() #create a figure
+              ax = plt.axes(projection='3d') #add a 3D axis
+              X = np.arange(-2,2,step=0.25) #1D x-inputs
+              Y = np.arange(-2,2,step=0.25) #1D y-inputs
+              X,Y = np.meshgrid(X,Y) #2D grid of inputs
+              Z = X**2+Y**2 #determine outputs 
+
+              ax.set_xlabel('X') #label x-axis
+              ax.set_ylabel('Y') #label y-axis
+
+              ax.set_title("My surface") #title my graph
+
+              ax.plot_surface(X,Y,Z) #plot surface
+              plt.show() #display the result
+          </input>
+        </sage>
+
+        <exercise>
+          <p> In the above code, use parallel syntax to add a label to the <m>z</m>-axis. 
+          </p>
+        </exercise>
+
+        <p>
+          Note that the default viewing window makes the <m>x</m>-axis positive left to right and <m>y</m>-axis positive front to back.
+          Something new in the 3D setting, however, is the ability to choose your viewing angle for the 3D axes using <c>view_init(elev= , azim=, roll=)</c>. 
+        </p>
+
+        <exercise>
+          <p> In the code below, play with the values for <c>elev</c>, <c>azim</c> and <c>roll</c>.
+          </p>
+          <ul>
+            <li>
+              What does each change?
+            </li>
+            <li> 
+              What custom viewing angle do you think showcases this particular surface the best? 
+            </li> 
+          </ul>
+        </exercise>
+
+        <sage language='python'>
+          <input>
+              import matplotlib.pyplot as plt #import pyplot
+              import numpy as np 
+
+              fig = plt.figure() #create a figure
+              ax = plt.axes(projection='3d') #add a 3D axis
+              X = np.arange(-2,2,step=0.25) #1D x-inputs
+              Y = np.arange(-2,2,step=0.25) #1D y-inputs
+              X,Y = np.meshgrid(X,Y) #2D grid of inputs
+              Z = X**2+Y**2 #determine outputs 
+
+              ax.set_xlabel('X') #label x-axis
+              ax.set_ylabel('Y') #label y-axis
+              ax.set_ylabel('Z') #label z-axis
+
+              # Customize the view angle 
+              ax.view_init(elev=20, azim=30, roll=0)
+
+              ax.plot_surface(X,Y,Z) #plot surface
+              plt.show() #display the result
+          </input>
+        </sage>
         
+      </subsection>
+
+      <subsection>
+        <title>Customizing</title>
+
+        <p> Custom colors, meshes, contours, etc? What else should go here? 
+        </p>
+
       </subsection>
 
 
 
-
-      <p>
-        what
-      </p>
+      <conclusion>
+        Add conclusion here.
+      </conclusion>
 
       <assemblage><!--to assemble or summarize important connected ideas-->
         <title> Summary </title>

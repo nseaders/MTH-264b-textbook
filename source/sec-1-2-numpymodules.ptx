@@ -138,7 +138,9 @@
         </sage>
 
         <p>
-          Note that the array includes 5, so it takes 11 evenly spaced numbers to get numbers 0.5 apart.
+          Note that the array includes 5, so it takes 11 evenly spaced numbers to get numbers 0.5 apart. 
+          Note also that although the number values are evenly spaced, the printed array is not. 
+          Namely the default is to space out the entries by the maximum number of decimal places with blank spaces instead of extra zeroes. 
         </p>
 
         <exercise>

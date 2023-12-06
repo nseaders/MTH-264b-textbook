@@ -96,7 +96,7 @@
       Note when `connecting the dots' you need enough points to get a smooth curve. 
     </p>
     <exercise>
-      <p>Change the above code to whole number inputs from 0 to 6. 
+      <p>Change both of the above sets of code to whole number inputs from 0 to 6. 
         <ul>
           <li>
             <p>
@@ -160,6 +160,7 @@
 
   </subsection>
 
+
   <subsection xml:id="subsec-scatterplots">
     <title>Scatter Plots in 2D</title>
     <p>
@@ -194,6 +195,76 @@
         plt.show() #display the result
       </input>
     </sage> 
+
+  </subsection>
+
+  <subsection>
+    <title> Parametric Curves in 2D </title>
+
+    <p>
+      In mathematics and the sciences we sometimes introduce a parameter (or new input variable), e.g. <m>t</m>,
+      and write our <m>x</m> and <m>y</m> coordinates in terms of that new parameter.
+      This is common for curves that aren't truly functions of <m>x</m>, like circles or ellipses. 
+      If you haven't seen this in a Trigonometry class, or if you need a refresher, check out <em>insert appendix stuff here</em>. 
+      In mathematics these are often written as a set of two parametric equations or a vector-valued function. 
+    </p>
+
+    <p>
+      For example, we can graph a circle using <m>\vec{r}(t)=\langle \cos(t), \sin(t)\rangle</m> or, equivalently,
+      <ul>
+        <li>
+          <m>x=\cos(t)</m>
+        </li>
+        <li>
+          <m>y=\sin(t)</m>
+        </li>
+      </ul>
+      for values of <m>t</m> in <m>[0,2\pi]</m>
+    </p>
+
+    <p>
+      Matplotlib still graphs these curves by plotting points <m>(x,y)</m> using <c>plot</c> and connecting the dots, 
+      which will make it easy to generalize these curves to 3D.
+    </p>
+
+
+    <sage>
+      <input>
+        import matplotlib.pyplot as plt
+        import numpy as np
+    
+        fig = plt.figure() #create a figure
+        ax = plt.axes() #add an axis
+        
+        T=np.linspace(0,2*np.pi, num=25) #25 input parameter values
+        X = np.cos(T) #corresponding x-values
+        Y = np.sin(T) #corresponding y-values 
+
+        ax.plot(X,Y,)
+        plt.show()
+          
+      </input>
+    </sage>
+
+    <exercise>
+      <p>
+        Play with the above functions for <m>x</m> and <m>y</m> to see what other interesting curves you can create.  
+      </p>
+      <p>
+        In particular, when you have the parameter <m>t</m>, can you create 
+        <ul>
+          <li>
+            a line?
+          </li>
+          <li>
+            a different circle?
+          </li>
+          <li>
+            a parabola?
+          </li>
+        </ul> 
+      </p>
+    </exercise>
 
   </subsection>
   
@@ -307,7 +378,8 @@
         </li>
         <li>
           <p>
-              You graph a connected curve on your axes using <c>axes_name.plot(input array,output array)</c>. 
+              You graph a connected curve on your axes using <c>axes_name.plot(input array,output array)</c> for both 
+              standard equations and parametric curves. 
           </p>
         </li>
         <li>
