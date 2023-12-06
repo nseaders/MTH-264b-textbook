@@ -42,7 +42,23 @@
       Matplotlib graphs curves by plotting points and connecting the dots.
       A Matplotlib function called <c>pyplot</c> is used to create the figure and axes. 
       The inputs and outputs are given by NumPy arrays and then plotted on the axes.
-      Run both sets of code below that uses matplotlib to graph a line and a sine curve.     
+    </p>
+    <!--p-->
+    <!--  Note that graphing uses matplotlibs function pyplot and the main steps are:-->
+      <!--ol-->
+        <!--<li>create a figure and add axes,</li>-->
+        <!-- <li>determine an input array, </li>-->
+        <!--<li>determine an output array, </li>-->
+        <!--<li>plot those inputs and outputs (which pyplot connects piecewise into a curve), and</li>-->
+        <!--<li>display the result. </li>-->
+      <!--/ol-->
+
+    <!--/p-->
+
+    <p> 
+      Read through both sets of code below that uses matplotlib to graph a line and a sine curve to see the syntax for these steps.
+      <em> Do you see the difference in how the numpy arrays were created for the inputs and outputs?  </em>
+      Run both sets of code to see the result.      
     </p>
 
     <sage language='python'>
@@ -161,7 +177,7 @@
     </exercise> 
 
     <p> For scatter plots sometimes you get the data from an experiment instead of a formula.
-      Either way the outputs are given as a NumPy array.
+      Either way the outputs should be given as a NumPy array.
     </p>
 
     <sage language='python'>
