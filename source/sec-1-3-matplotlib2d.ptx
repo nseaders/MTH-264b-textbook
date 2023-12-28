@@ -68,8 +68,8 @@
         
         fig = plt.figure() #create a figure
         ax = plt.axes() #add an axis
-        X=np.array([0,3,6]) #determine inputs
-        Y=2*X #determine outputs for y=2x
+        X = np.array([0,3,6]) #determine inputs
+        Y = 2*X #determine outputs for y=2x
 
         ax.plot(X,Y) #plot the connected dots on your axes
         plt.show() #display the result
@@ -84,8 +84,8 @@
         
         fig = plt.figure() #create a figure
         ax = plt.axes() #add an axis
-        X=np.linspace(0,6,num=100) #determine inputs
-        Y=np.sin(X) #determine outputs for y=sin(x)
+        X = np.linspace(0,6,num=100) #determine inputs
+        Y = np.sin(X) #determine outputs for y=sin(x)
         
         ax.plot(X,Y) #plot the connected dots on your axes
         plt.show() #display the result
@@ -137,9 +137,9 @@
           
           fig = plt.figure() #create a figure
           ax = plt.axes() #add an axis
-          X=np.linspace(0,6,num=100) #determine inputs
-          Y1=np.sin(X) #determine outputs for y=sin(x)
-          Y2=np.cos(X) #determine outputs for y=cos(x)
+          X = np.linspace(0,6,num=100) #determine inputs
+          Y1 = np.sin(X) #determine outputs for y=sin(x)
+          Y2 = np.cos(X) #determine outputs for y=cos(x)
           
           ax.plot(X,Y1,X,Y2) #Note: list inputs for both
           plt.show() #display the result
@@ -188,8 +188,8 @@
         
         fig = plt.figure() #create a figure
         ax = plt.axes() #add an axis
-        X=np.array([1,2,3,4]) #determine inputs
-        Y=np.array([4,2,0,1]) #determine outputs 
+        X = np.array([1,2,3,4]) #determine inputs
+        Y = np.array([4,2,0,1]) #determine outputs 
         
         ax.scatter(X,Y) #plot the scatter plot on your axes
         plt.show() #display the result
@@ -202,23 +202,26 @@
     <title> Parametric Curves in 2D </title>
 
     <p>
-      In mathematics and the sciences we sometimes introduce a parameter (or new input variable), e.g. <m>t</m>,
-      and write our <m>x</m> and <m>y</m> coordinates in terms of that new parameter.
-      This is common for curves that aren't truly functions of <m>x</m>, like circles or ellipses. 
+      In mathematics and the sciences we sometimes introduce a new parameter <m>t</m>
+      and write coordinates <m>x</m> and <m>y</m> in terms of that parameter.
+      This is common for curves that are not functions of <m>x</m>, like circles or ellipses, or a nice way
+      to model motion, where the <m>x</m> and <m>y</m> coordinate location of an object is the output at each input time <m>t</m>. 
       If you haven't seen this in a Trigonometry class, or if you need a refresher, check out <em>insert appendix stuff here</em>. 
-      In mathematics these are often written as a set of two parametric equations or a vector-valued function. 
+     
+      In mathematics these <em>parametric curves</em> or <em>space curves</em> are often written as a set of two parametric equations or a vector-valued function. 
     </p>
 
     <p>
-      For example, we can graph a circle using <m>\vec{r}(t)=\langle \cos(t), \sin(t)\rangle</m> or, equivalently,
-      <ul>
-        <li>
-          <m>x=\cos(t)</m>
-        </li>
-        <li>
-          <m>y=\sin(t)</m>
-        </li>
-      </ul>
+      For example, we can graph a circle using 
+      <me>\vec{r}(t)=\langle \cos(t), \sin(t)\rangle</me> or, equivalently,
+      <md> 
+        <mrow>
+          x \amp= \cos(t)
+        </mrow>
+        <mrow>
+          y \amp= \sin(t)
+        </mrow>
+      </md>
       for values of <m>t</m> in <m>[0,2\pi]</m>
     </p>
 
@@ -232,23 +235,22 @@
       <input>
         import matplotlib.pyplot as plt
         import numpy as np
-    
         fig = plt.figure() #create a figure
         ax = plt.axes() #add an axis
         
-        T=np.linspace(0,2*np.pi, num=25) #25 input parameter values
-        X = np.cos(T) #corresponding x-values
-        Y = np.sin(T) #corresponding y-values 
-
-        ax.plot(X,Y,)
+        T = np.linspace(0,2*np.pi, num=25) #parameter values
+        X = np.cos(T) #x-values
+        Y = np.sin(T) #y-values
+        
+        ax.plot(X,Y)
         plt.show()
-          
       </input>
     </sage>
 
     <exercise>
       <p>
-        Play with the above functions for <m>x</m> and <m>y</m> to see what other interesting curves you can create.  
+        Note that the above code graphs the unit circle. 
+        Play with the above functions for <m>x</m> and <m>y</m> to see what other interesting curves you can graph.  
       </p>
       <p>
         In particular, when you have the parameter <m>t</m>, can you create 
@@ -285,8 +287,8 @@
         fig = plt.figure() #create a figure
         ax = plt.axes() #axis name used for plots and labels
 
-        X=np.linspace(0,4,num=100) #determine inputs
-        Y=-9.8*X**2+100 #determine outputs for y=-9.8x^2+3
+        X = np.linspace(0,4,num=100) #determine inputs
+        Y = -9.8*X**2+100 #determine outputs for y=-9.8x^2+3
         
         ax.set_title("Falling Body") #title
         ax.set_xlabel("Time (s)") #input label
@@ -328,8 +330,8 @@
         
         fig = plt.figure() #create a figure
         ax = plt.axes() #add an axis
-        X=np.array([1,2,3,4]) #determine inputs
-        Y=np.array([4,2,0,1]) #determine outputs 
+        X = np.array([1,2,3,4]) #determine inputs
+        Y = np.array([4,2,0,1]) #determine outputs 
         
         ax.scatter(X,Y, marker="x") #scatterplot with x
         plt.show() #display the result
@@ -342,8 +344,8 @@
         
         fig = plt.figure() #create a figure
         ax = plt.axes() #add an axis
-        X=np.linspace(0,6,num=100) #determine inputs
-        Y=np.sin(X) #determine outputs for y=sin(x)
+        X = np.linspace(0,6,num=100) #determine inputs
+        Y = np.sin(X) #determine outputs for y=sin(x)
         
         ax.plot(X,Y, color="orange", linestyle="--") #plot the connected dots on your axes
         plt.show() #display the result
@@ -361,9 +363,9 @@
 
   <conclusion>
     <p>There are other ways to set up your figure and your axes in Matplotlib. 
-      Some are shortcuts and Matplotlib will use default settings. 
-      (For example, if you did not explicitly give inputs for the function you wanted to graph.) 
-      The approach in this section is very explicit, which makes it easier to understand how to control each feature as you get started.  
+      Some are shortcuts and Matplotlib will use default settings 
+      (e.g. if we do not explicitly give inputs for the function we want to graph.) 
+      The approach in this section is very explicit, which makes it easier to understand how to control each feature as we get started.  
     </p>
   </conclusion>
 
@@ -378,30 +380,35 @@
         </li>
         <li>
           <p>
-              You graph a connected curve on your axes using <c>axes_name.plot(input array,output array)</c> for both 
+              We graph a connected curve on our axes using <c>axes_name.plot(array x,array y)</c> for both 
               standard equations and parametric curves. 
           </p>
         </li>
         <li>
           <p>
-              You graph a scatterplot on your axes using <c>axes_name.scatter(input array,output array)</c>. 
+              We graph a scatterplot on our axes using <c>axes_name.scatter(array x, array y)</c>. 
           </p>
         </li>
         <li>
           <p>
-              You can use <c>numpy.linspace()</c> to efficiently create enough points for 
+              We graph a parametric curve on our axes using <c>axes_name.plot(array x, array y)</c>. 
+          </p>
+        </li>
+        <li>
+          <p>
+              We can use <c>numpy.linspace()</c> to efficiently create enough points for 
               <c>plot()</c> to connect the dots into a smooth-looking curve. 
           </p>
         </li>
         <li>
           <p>
-            You can add titles and labels using <c>axes_name.set_title("Title")</c> or <c>axes_name.set_xlabel("input_label")</c>.
+            We can add titles and labels using <c>axes_name.set_title("Title")</c> or <c>axes_name.set_xlabel("input_label")</c>.
           </p>
         </li>
         <li>
           <p>
-            You can customize color, linestyles, plotting styles, thickness, tickmarks, font sizes, etc.
-            to make your graph exactly what you need for publication. 
+            We can customize color, linestyles, plotting styles, thickness, tickmarks, font sizes, etc.
+            to make our graph exactly what we need for publication. 
           </p>
         </li>
       </ul>

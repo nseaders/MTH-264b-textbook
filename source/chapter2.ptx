@@ -6,7 +6,7 @@
 <!-- Copyright (C) 2023  LBCC                           -->
 <!-- See the file copyright.txt for copying conditions. -->
 
-<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="chapter3">
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="chapter2">
       <title>Matrix Algebra in Python</title>
 
       <!--xi:include href="./section2-1-system.ptx"/-->
