@@ -9,8 +9,6 @@
 <chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="chapter2">
       <title>Matrix Algebra in Python</title>
 
-      <!--xi:include href="./section2-1-system.ptx"/-->
-
-      <xi:include href="./section3-2.ptx"/>
+      <xi:include href="./sec-2-1-system.ptx"/>
     
     </chapter>
