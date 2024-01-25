@@ -178,7 +178,9 @@
     </exercise> 
 
     <p> For scatter plots sometimes you get the data from an experiment instead of a formula.
-      Either way the outputs should be given as a NumPy array.
+      As long as the outputs are given as a NumPy array, 
+      either from manipulating your input array, or by creating a completely new array, 
+      Matplotlib will still connect the dots. 
     </p>
 
     <sage language='python'>
@@ -274,7 +276,7 @@
     <p>
       You can easily add titles or labels to your axes using the commands <c>set_title("title_here")</c>, 
       <c>set_xlabel("label_here")</c>, <c>set_ylabel("label_here")</c>. 
-      Since the code below is longer, you might need to scroll to see all of the commands. 
+      <em>Since the code below is longer, you might need to scroll to see all of the commands.</em> 
     </p>
 
     <sage language='python'>
@@ -361,8 +363,8 @@
 
   <conclusion>
     <p>There are other ways to set up your figure and your axes in Matplotlib. 
-      Some are shortcuts and Matplotlib will use default settings. 
-      (For example, if you did not explicitly give inputs for the function you wanted to graph.) 
+      Some are shortcuts and Matplotlib will use default settings 
+      (e.g. if you did not explicitly give inputs for your function). 
       The approach in this section is very explicit, which makes it easier to understand how to control each feature as you get started.  
     </p>
   </conclusion>

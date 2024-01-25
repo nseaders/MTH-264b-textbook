@@ -177,8 +177,8 @@
       <subsection xml:id="subsec_errors">
         <title>Syntax and Semantic errors</title>
         
-        <p> One error we can make when creating and editing code is to mis-type a command and Python will not understand a word or syntax of our program. 
-          Another error is when we make our meaning unclear. For example you can add numbers to numbers or strings of letters to strings of letters in Python but if we try to add a number to a string of letters, Python will not know what we mean by adding. 
+        <p> One error we can make when creating and editing code is to mis-type a command causing Python to not understand the <em>syntax</em>, that is the chosen command, in our program. 
+          Another error is when we make our meaning unclear, more of a <em>semantic</em> issue. For example you can add numbers to numbers or strings of letters to strings of letters in Python but if we try to add a number to a string of letters, Python will not know what is meant by adding. 
         </p>
       </subsection>
 

@@ -248,6 +248,7 @@
           As in the 2D case, the function <c>scatter()</c> plots the points without connecting the dots. 
         </p>
 
+
       </subsection>
 
       <subsection xml:id="subsec-3DAxesandLabels">
@@ -256,7 +257,6 @@
         <p>
           Adding titles or labels to your 3D axes uses the same commands as in 2D. the commands <c>set_title("title_here")</c>, 
           <c>set_xlabel("label_here")</c>, <c>set_ylabel("label_here")</c>. 
-          Since the code below is longer, you might need to scroll to see all of the commands. 
         </p>
 
         <sage language='python'>
@@ -333,15 +333,44 @@
       <subsection>
         <title>Customizing</title>
 
-        <p> Custom colors, meshes, contours, etc? What else should go here? 
+        <p>
+          Like in 2D, we can customize our plots: 
+          the style, colors, markers, meshes, contours, line width, etc. 
+          There are many features available that we didn't cover here, 
+          but hopefully you have enough to get you started with 3D graphing using Matplotlib in Python.
         </p>
+        <p>
+          So how do you learn more? 
+        </p>
+        <p> 
+          Look up Matplotlib's documentation on the web and find their page of <em>examples, 3D plotting</em>. 
+          Pick a 3D graph you want to learn to code and use the cell below to try it out. 
+          How is what you found different than what you learned in this section? 
+          Experiment by adjusting Matplotlib's example code to see what happens.  
+        </p>
+
+        <sage language='python'>
+          <input>
+            #try out your example here
+            #
+            #
+            #
+            #
+            #
+            #
+            #
+            #
+            #
+          </input>
+        </sage>
 
       </subsection>
 
 
 
       <conclusion>
-        Add conclusion here. More.
+        This section gave us just an introduction to 3D graphing possibilities using Matplotlib in Python.
+        There are many other opportunities
       </conclusion>
 
       <assemblage><!--to assemble or summarize important connected ideas-->
@@ -350,7 +379,7 @@
         <ul>
           <li>
             <p>
-              blah 
+              You still graph a connected curve on your axes using <c>axes_name.plot(array,array, array)</c>.  
             </p>
           </li>
         </ul>
