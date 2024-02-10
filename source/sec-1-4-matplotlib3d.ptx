@@ -11,11 +11,13 @@
     <title>Matplotlib and 3D graphing</title>
 
     <introduction>
+      <p>
         Now that we have some experience making 2D graphs, let's learn how to make 3D graphs. 
         Note that we can graph both curves and surfaces in 3D.  
         If you have taken a multivariable class hopefully you remember that surfaces arise as solutions to equations of three variables,
         while points on a space curve are parametric equations or vector-valued functions. 
-        The code for the points on a space curve is a little more straightforward so we will start with those examples.   
+        The code for the points on a space curve is a little more straightforward so we will start with those examples.
+      </p>   
     </introduction>
 
     <objectives>
@@ -188,7 +190,7 @@
         <title>Surfaces and scatterplots in 3D</title>
         
         <p>
-          To graph a surface or 3D scatterplot, message:%3C50e01ad67844753009c9c73ad.0e9370b65c.20231227234403.88b23917cf.2628a78c@mail33.atl91.mcsv.net%3Ewe will need two-dimensional numpy arrays for all of our inputs and outputs.
+          To graph a surface or 3D scatterplot, we will need two-dimensional numpy arrays for all of our inputs and outputs.
           As a shortcut we can create 1D arrays for the <m>x</m> and <m>y</m> inputs first, then use NumPy's function <c>meshgrid()</c> to create a coordinate grid of inputs (two 2D arrays). 
           Last we define our outputs on that coordinate grid.
         </p>
@@ -290,14 +292,16 @@
         <exercise>
           <p> In the code below, play with the values for <c>elev</c>, <c>azim</c> and <c>roll</c>.
           </p>
-          <ul>
-            <li>
-              What does each change?
-            </li>
-            <li> 
-              What custom viewing angle do you think showcases this particular surface the best? 
-            </li> 
-          </ul>
+          <p>
+            <ul>
+              <li>
+                What does each change?
+              </li>
+              <li> 
+                What custom viewing angle do you think showcases this particular surface the best? 
+              </li> 
+            </ul>
+          </p>
         </exercise>
 
         <sage language='python'>
@@ -365,10 +369,12 @@
 
 
       <conclusion>
+        <p>
         This section gave us just an introduction to 3D graphing possibilities using Matplotlib in Python.
         There are many other opportunities
 
         Add conclusion here. More. and more. And more.
+        </p>
       </conclusion>
 
       <assemblage><!--to assemble or summarize important connected ideas-->
