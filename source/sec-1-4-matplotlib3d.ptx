@@ -12,10 +12,10 @@
 
     <introduction>
         Now that we have some experience making 2D graphs, let's learn how to make 3D graphs. 
-        Note that you can graph both curves and surfaces in 3D, depending on what you are trying to describe.  
+        Note that we can graph both curves and surfaces in 3D.  
         If you have taken a multivariable class hopefully you remember that surfaces arise as solutions to equations of three variables,
         while points on a space curve are parametric equations or vector-valued functions. 
-        The code for the points on a space curve is a little more straightforward so we will start with those examples in this section.   
+        The code for the points on a space curve is a little more straightforward so we will start with those examples.   
     </introduction>
 
     <objectives>
@@ -27,7 +27,7 @@
           </li>
           <li>
             <p>
-              Use Matplotlib to graph surfaces in 3D. 
+              Use Matplotlib to graph surfaces and scatterplots in 3D. 
             </p>
           </li>
         </ul>
@@ -39,7 +39,7 @@
 
         <p>
           First, for 3D graphs we will need to add 3D axes to our figure using the keyword <c>projection='3d'</c>.
-          Run the code below to see the default 3D axes. 
+          Read through and run the code below to see the default 3D axes. 
         </p>
 
         <sage language='python'>
@@ -113,7 +113,7 @@
 
             X = np.linspace(-6,6, num=10) #10 x-values
             Y = X #corresponding y-values along y=x
-            Z = X**2 #corresponding z-values
+            Z = X**2 #corresponding z-values above y=x
 
             ax.plot(X,Y,Z)
             plt.show()
@@ -122,11 +122,10 @@
         </sage>
 
         <p>
-          As before, you might need more inputs to get a smooth curve. 
+          As before, we need enough input points to get a smooth curve. 
         </p>
         <p>
-          Last, we sometimes introduce a parameter (or new input variable), <m>t</m>,
-          and write all three coordinates in terms of that new parameter. Hence the term <q>parametric curves</q>.
+          Parametric curves in 3D are just like 2D (see (<xref ref="section-matplotlib"/>)) with an added <m>z</m>-coordinate. 
           For example, we can graph a horizontal circle at <m>z=1</m> using 
           <ul>
             <li>
@@ -149,7 +148,7 @@
             fig = plt.figure() #create a figure
             ax = plt.axes(projection='3d') #add a 3D axis
 
-            T=np.linspace(0,2*np.pi, num=25) #25 input parameter values
+            T = np.linspace(0,2*np.pi, num=25) #25 input parameter values
             X = np.cos(T) #corresponding x-values
             Y = np.sin(T) #corresponding y-values 
             Z = 1 #corresponding z-values
@@ -165,16 +164,13 @@
             Play with the above code for <m>x</m>, <m>y</m>, and <m>z</m> to see what other interesting curves you can create.  
           </p>
           <p>
-            In particular, when you have the parameter <m>t</m>, can you create 
+            In 3-space can you graph
             <ul>
               <li>
                 a line?
               </li>
               <li>
                 a spiral?
-              </li>
-              <li>
-                a parabola?
               </li>
               <li>
                 a different circle?
@@ -192,14 +188,14 @@
         <title>Surfaces and scatterplots in 3D</title>
         
         <p>
-          To graph a surface or 3D scatterplot, we will need two-dimensional numpy arrays for all of our inputs and outputs.
+          To graph a surface or 3D scatterplot, message:%3C50e01ad67844753009c9c73ad.0e9370b65c.20231227234403.88b23917cf.2628a78c@mail33.atl91.mcsv.net%3Ewe will need two-dimensional numpy arrays for all of our inputs and outputs.
           As a shortcut we can create 1D arrays for the <m>x</m> and <m>y</m> inputs first, then use NumPy's function <c>meshgrid()</c> to create a coordinate grid of inputs (two 2D arrays). 
           Last we define our outputs on that coordinate grid.
         </p>
         <p>
           The function <c>scatter()</c> will plot a scatterplot just like in 2D.
           The function <c>plot_surface()</c> plots the points and connect those dots with a surface.  
-          Just like you need enough points to get a curve that looks smooth, 
+          Just like we need enough points to get a curve that looks smooth, 
           we will need enough points to get a surface that looks smooth.
         </p>
 
@@ -255,7 +251,7 @@
         <title>Axes and Labels</title>
 
         <p>
-          Adding titles or labels to your 3D axes uses the same commands as in 2D. the commands <c>set_title("title_here")</c>, 
+          Adding titles or labels to our 3D axes uses the same commands as in 2D. the commands <c>set_title("title_here")</c>, 
           <c>set_xlabel("label_here")</c>, <c>set_ylabel("label_here")</c>. 
         </p>
 
@@ -288,7 +284,7 @@
 
         <p>
           Note that the default viewing window makes the <m>x</m>-axis positive left to right and <m>y</m>-axis positive front to back.
-          Something new in the 3D setting, however, is the ability to choose your viewing angle for the 3D axes using <c>view_init(elev= , azim=, roll=)</c>. 
+          Something new in the 3D setting, however, is the ability to choose our viewing angle for the 3D axes using <c>view_init(elev= , azim=, roll=)</c>. 
         </p>
 
         <exercise>
@@ -371,6 +367,8 @@
       <conclusion>
         This section gave us just an introduction to 3D graphing possibilities using Matplotlib in Python.
         There are many other opportunities
+
+        Add conclusion here. More. and more. And more.
       </conclusion>
 
       <assemblage><!--to assemble or summarize important connected ideas-->
@@ -379,19 +377,18 @@
         <ul>
           <li>
             <p>
-              You still graph a connected curve on your axes using <c>axes_name.plot(array,array, array)</c>.  
-            </p>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <p>
-              You can use <c>numpy.meshgrid()</c> to create  input coordinates on a grid.
+              We can add 3D axes using the argument <c>projection='3d'</c> inside pyplot's <c>axes</c> command.
             </p>
           </li>
           <li>
             <p>
-              As before you need enough points for <c>plot_surface()</c> or <c>plot()</c> to make smooth graphs. 
+              We can use <c>numpy.meshgrid()</c> to create input coordinates on a grid and then use <c>plot_surface()</c> or <c>scatter()</c> 
+              to plot a surface or scatter plot on 3D axes. 
+            </p>
+          </li>
+          <li>
+            <p>
+              As before we need enough points for <c>plot_surface()</c> or <c>plot()</c> to make smooth graphs. 
             </p>
           </li>
         </ul>
