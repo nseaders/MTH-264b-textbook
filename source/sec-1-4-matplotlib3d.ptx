@@ -188,7 +188,7 @@
         <title>Surfaces and scatterplots in 3D</title>
         
         <p>
-          To graph a surface or 3D scatterplot, message:%3C50e01ad67844753009c9c73ad.0e9370b65c.20231227234403.88b23917cf.2628a78c@mail33.atl91.mcsv.net%3Ewe will need two-dimensional numpy arrays for all of our inputs and outputs.
+          To graph a surface or 3D scatterplot, we will need two-dimensional numpy arrays for all of our inputs and outputs.
           As a shortcut we can create 1D arrays for the <m>x</m> and <m>y</m> inputs first, then use NumPy's function <c>meshgrid()</c> to create a coordinate grid of inputs (two 2D arrays). 
           Last we define our outputs on that coordinate grid.
         </p>
