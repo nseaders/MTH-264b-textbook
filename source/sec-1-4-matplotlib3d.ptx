@@ -11,11 +11,13 @@
     <title>Matplotlib and 3D graphing</title>
 
     <introduction>
+      <p>
         Now that we have some experience making 2D graphs, let's learn how to make 3D graphs. 
         Note that we can graph both curves and surfaces in 3D.  
         If you have taken a multivariable class hopefully you remember that surfaces arise as solutions to equations of three variables,
         while points on a space curve are parametric equations or vector-valued functions. 
-        The code for the points on a space curve is a little more straightforward so we will start with those examples.   
+        The code for the points on a space curve is a little more straightforward so we will start with those examples.
+      </p>   
     </introduction>
 
     <objectives>
@@ -290,14 +292,16 @@
         <exercise>
           <p> In the code below, play with the values for <c>elev</c>, <c>azim</c> and <c>roll</c>.
           </p>
-          <ul>
-            <li>
-              What does each change?
-            </li>
-            <li> 
-              What custom viewing angle do you think showcases this particular surface the best? 
-            </li> 
-          </ul>
+          <p>
+            <ul>
+              <li>
+                What does each change?
+              </li>
+              <li> 
+                What custom viewing angle do you think showcases this particular surface the best? 
+              </li> 
+            </ul>
+          </p>
         </exercise>
 
         <sage language='python'>
@@ -365,10 +369,12 @@
 
 
       <conclusion>
+        <p>
         This section gave us just an introduction to 3D graphing possibilities using Matplotlib in Python.
         There are many other opportunities
 
         Add conclusion here. More. and more. And more.
+        </p>
       </conclusion>
 
       <assemblage><!--to assemble or summarize important connected ideas-->
