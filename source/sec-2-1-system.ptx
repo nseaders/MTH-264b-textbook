@@ -17,7 +17,7 @@
         <ul>
           <li>
             <p>
-              Row reduce matrices in Python.
+              Row reduce matrices representing systems of linear equations using the Python library Sympy.
             </p>
           </li>
           <li>
@@ -28,9 +28,40 @@
         </ul>
       </objectives>
 
-      <p>
-        what
-      </p>
+      <subsection xml:id="rref">
+        <title>Gaussian Elimination</title>
+
+        <p>
+          Something about how NumPy doesn't have rref() or ref() and need SymPy instead
+        </p>
+        <p>
+          Numpy does computational math and will use numerical methods to solve systems of linear equations.
+          There are commands in Numpy to solve square systems that have unique solutions,
+          but if you have infinite solutions Sympy is a better bet. 
+          SymPy is a Python library that will do symbolic mathematics, including row reducing systems of equations.
+          These are not the same libraries, however, and so you will need to either enter your 
+          system as a Sympy matrix, or convert your numpy array into a sympy matrix in order to 
+          call the row reducing function in Sympy. 
+          
+          Essentially, Numpy will do speedy number crunching. Sympy will do symbolic manipulation. 
+        </p>
+
+        <sage language='python'>
+          <input>
+            import numpy as np
+            from sympy import Matrix
+
+            npMatrix = np.random.randn(4,3); #Create a numpy matrix
+            A = Matrix(npMatrix) #convert to a sympy matrix
+            REF = A.echelon_form() #Get REF
+            RREF = A.rref()[0] #Get RREF ??why 0?
+
+            print(np.array(RREF))
+
+          </input>
+        </sage>
+        
+      </subsection>
 
       <assemblage><!--to assemble or summarize important connected ideas-->
         <title> Summary </title>
