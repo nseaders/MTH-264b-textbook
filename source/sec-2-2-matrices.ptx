@@ -6,9 +6,9 @@
 <!-- Copyright (C) 2023  LBCC                           -->
 <!-- See the file copyright.txt for copying conditions. -->
 
-<section xml:id="section-modules">
+<section xml:id="section-matrices">
     
-    <title>Python Modules</title>
+    <title>Matrix Arithmetic</title>
 
     <introduction>
         In this section we will learn how to  
@@ -18,12 +18,17 @@
         <ul>
           <li>
             <p>
-              C
+              Add, subtract, scale, and multiply matrices in Numpy
             </p>
           </li>
           <li>
             <p>
-              D
+              Find matrix inverses 
+            </p>
+          </li>
+          <li>
+            <p>
+              Use matrix inverses to solve systems of linear equations
             </p>
           </li>
         </ul>

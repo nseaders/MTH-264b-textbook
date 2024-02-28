@@ -13,7 +13,7 @@
         Systems of linear equations can be solved using multiple methods. 
         In this section we will learn how to solve systems of linear equations using a process called row reduction.
         <fn>
-          Row reduction is sometimes called Gaussian elimination, after the mathematician Gauss, who wrote about it. 
+          Row reduction is sometimes called Gaussian elimination, after the mathematician Gauss. 
           Long before Gauss, Chinese scholars demonstrated this method of solving systems of linear equations in chapter 8 of 
           <emph>The Nine Chapters on the Mathematical Art.</emph>.
         </fn> 
@@ -29,21 +29,32 @@
           </li>
           <li>
             <p>
-              Graph systems of linear equations.
+              Graph systems of linear equations of two or three variables.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use the pivots of a reduced augmented matrix to determine if a system has no solution, 
+              a unique solution, or infinitely many solutions
+            </p>
+          </li>
+          <li>
+            <p>
+              Something about using linalgsolve()? or wait until later?
             </p>
           </li>
         </ul>
       </objectives>
 
       <subsection xml:id="rref">
-        <title>Gaussian Elimination</title>
+        <title>Row Reduction</title>
 
 
         <p>
-          Note that row reduction involves symbolic manipulation (while Numpy is focused on number crunching)
-          so we will need a different Python library called Sympy that contains the functions 
-          <code>ref()</code> and <code>rref()</code> to row reduce respectively to 
-          reduced echelon form and row reduced echelon form. 
+          Note that row reduction involves symbolic manipulation. Since Numpy is focused on number crunching,
+          so we will need a different Python library called Sympy to do the symbolic manipulation of 
+          row reduction to reduced echelon form and row reduced echelon form using the 
+          functions <code>ref()</code> and <code>rref()</code> respectively. 
         </p>
         <p>
           In order to row reduce a system of linear equations we convert our system into an augmented matrix. 
@@ -88,8 +99,8 @@
 
         <exercise>
           <p>
-            Edit the code below to print the augmented matrix, the reduced echelon form, and the row reduced echelon
-            form for our example system of linear equations. 
+            Edit the code below to print the reduced echelon form and the row reduced echelon
+            form for the augmented matrix from our example system of linear equations. 
           </p>
         </exercise>
 
@@ -100,11 +111,8 @@
             #define your sympy matrix
             A = Matrix([ [2,-3,4], [1,4,2]]) 
 
-            refA = A.echelon_form() #Get REF
-            rrefA = A.rref() #Get RREF
-
-            print(refA)
-            print(rrefA)
+            print(A.echelon_form()) #print REF of A
+            print(A.rref()) #print RREF of A
 
           </input>
         </sage>
@@ -121,6 +129,11 @@
         </exercise>
 
         <p>
+          Things left to do here: (1) something about unique solutions, infinitely many solutions or no solutions, 
+          (2) graphing solutions to systems 
+        </p>
+
+        <p>
           Since Numpy and Sympy are different libraries, we will need to either enter our augmented matrix 
           as a Sympy matrix, or convert a numpy array into a sympy matrix in order to 
           call the row reducing function in Sympy. 
@@ -132,10 +145,10 @@
             import numpy as np
             from sympy import Matrix
 
-            npMatrix = np.random.randn(4,3); #Create a numpy matrix
-            A = Matrix(npMatrix) #convert to a sympy matrix
-            REF = A.echelon_form() #Get REF
-            RREF = A.rref()[0] #Get RREF ??why 0?
+            npA = np.matrix([[1, 2], [3, 4]]) #Create a numpy matrix
+            spA = Matrix(npA) #convert to a sympy matrix
+            REF = spA.echelon_form() #Get REF
+            RREF = spA.rref()[0] #Get RREF ??why 0?
 
             print(np.array(RREF))
 

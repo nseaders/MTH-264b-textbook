@@ -10,5 +10,6 @@
       <title>Matrix Algebra in Python</title>
 
       <xi:include href="./sec-2-1-system.ptx"/>
+      <xi:include href="./sec-2-2-matrices.ptx"/>
     
     </chapter>
