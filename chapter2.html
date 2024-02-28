@@ -8,7 +8,7 @@
 <html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Basics and Modules for Matrix Algebra</title>
+<title>Matrix Algebra in Python</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -240,7 +240,7 @@ sagecell.makeSagecell({
 <span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
 </ol>
 </li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="examples.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="Matrix-Computations.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="section-variables.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="section-matplotlib3d.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="Matrix-Computations.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="section-systems.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\lt}{&lt;}
@@ -262,8 +262,8 @@ sagecell.makeSagecell({
 </ul>
 </li></ul>
 </li>
-<li class="active">
-<div class="toc-item"><a href="chapter2.html" class="internal"><span class="codenumber">1</span> <span class="title">Basics and Modules for Matrix Algebra</span></a></div>
+<li>
+<div class="toc-item"><a href="chapter1.html" class="internal"><span class="codenumber">1</span> <span class="title">Basics and Modules for Matrix Algebra</span></a></div>
 <ul class="structural">
 <li>
 <div class="toc-item"><a href="section-variables.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Variables</span></a></div>
@@ -307,24 +307,31 @@ sagecell.makeSagecell({
 </li>
 </ul>
 </li>
+<li class="active">
+<div class="toc-item"><a href="chapter2.html" class="internal"><span class="codenumber">2</span> <span class="title">Matrix Algebra in Python</span></a></div>
+<ul class="structural">
 <li>
-<div class="toc-item"><a href="chapter3.html" class="internal"><span class="codenumber">2</span> <span class="title">Matrix Algebra in Python</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="section3-2.html" class="internal"><span class="codenumber">2.1</span> <span class="title">And so it begins...</span></a></div></li></ul>
+<div class="toc-item"><a href="section-systems.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Solving Systems of Linear Equations via Row Reduction</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="section-systems.html#rref" class="internal"><span class="title">Row Reduction</span></a></div></li></ul>
 </li>
+<li>
+<div class="toc-item"><a href="section-matrices.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix Arithmetic</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="section-matrices.html#subsection-22" class="internal"><span class="title">Title</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="appendix.html" class="internal"><span class="codenumber">3</span> <span class="title">Appendix</span></a></div></li>
 <li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="chapter2"><h2 class="heading">
-<span class="type">Chapter</span> <span class="codenumber">1</span> <span class="title">Basics and Modules for Matrix Algebra</span>
+<span class="type">Chapter</span> <span class="codenumber">2</span> <span class="title">Matrix Algebra in Python</span>
 </h2>
-<section class="introduction" id="introduction-2"><div class="para" id="p-25">In this chapter we will introduce just enough about Python to get started before introducing a Python package <code class="code-inline tex2jax_ignore">NumPy</code> and a library <code class="code-inline tex2jax_ignore">MatPlotLib</code> needed for mathematics and graphing. Note that Python is much more useful than you will see here and we will skip over a lot of information you would learn in a typical Computer Science <em class="emphasis">Introduction to Python</em> class. Our purpose is to merely get you familiar with the kinds of commands available in Python to compute matrix algebra.</div> <div class="para" id="p-26">To start, a traditional first program displays the text “Hello world.” or some variation. Python uses the function <code class="code-inline tex2jax_ignore"> print() </code> to display output, making the program simple.</div> <div class="para" id="p-27">Click the “<em class="emphasis">Evaluate (Python)</em>” button below to run the embedded Python code.</div> <pre class="ptx-sagecell sagecell-python" id="sage-1"><script type="text/x-sage">print("Hello world!")
-</script></pre> <div class="para" id="p-28">Note that snippets of Python code embedded in the textbook will always have a similar formatting, with the option to “evaluate”, that is, <em class="emphasis">run</em> or <em class="emphasis">excecute</em> the code at the end.</div></section><nav class="summary-links"><ul>
-<li><a href="section-variables.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Variables</span></a></li>
-<li><a href="section-modules.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Python Packages and NumPy</span></a></li>
-<li><a href="section-matplotlib.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Matplotlib and 2D graphing</span></a></li>
-<li><a href="section-matplotlib3d.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Matplotlib and 3D graphing</span></a></li>
+<nav class="summary-links"><ul>
+<li><a href="section-systems.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Solving Systems of Linear Equations via Row Reduction</span></a></li>
+<li><a href="section-matrices.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix Arithmetic</span></a></li>
 </ul></nav></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="examples.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="section-variables.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+<a class="previous-button button" href="section-matplotlib3d.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="section-systems.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
