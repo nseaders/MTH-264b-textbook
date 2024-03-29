@@ -158,7 +158,7 @@
                   Use the code to approximately compute the area of a circle with radius 5 and a circle with radius 13.
                 </p>
             </li>
-          </ul>  
+          </ul>
        
         <sage language='python'>
           <input>
@@ -168,10 +168,14 @@
             #fill in the formula for the calculation here
             circle_area = 
 
-            print(circle_area)
+            print("The area of the circle is:", circle_area)
           </input>
         </sage>
-
+        <p>
+          Note that <c>print</c> will display comma separted items one right after the other. 
+          In the code above we first displayed the string <q>The area of a circle is</q> followed by the current value of our variable <c>circle_area</c>.
+        </p>
+        
       </subsection>
 
       <subsection xml:id="subsec_errors">
@@ -209,7 +213,7 @@
       </p>
       </assemblage>
 
-      <exercises xml:id="exercises-">
+      <exercises xml:id="exercises-variable">
         <exercise>
           <p> test it out </p>
         </exercise>

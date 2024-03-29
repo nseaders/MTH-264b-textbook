@@ -327,7 +327,85 @@
               plt.show() #display the result
           </input>
         </sage>
+
         
+      </subsection>
+      
+      <subsection xml:id="subsec-multiplesurfaces">
+        <title>Plotting Multiple Surfaces</title>
+        <p>
+          Unfortunately Matplotlib does NOT actually graph in 3D, 
+          but paints each surface in a 2D projection, one on top of the other, 
+          which can cause the resulting graphs to look weird.
+          Sometimes it is enough to change the viewing angle.
+        </p>
+        <exercise>
+          <p>
+            In the above code add a second surface to your graph using <c>Z2</c> for the new outputs and <c>ax.plot_surface(X,Y,Z2)</c>.
+            <ul>
+              <li>
+                <p>
+                  Can you find a viewing angle where both surfaces look good?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Can you find a viewing angle where they don't quite look right?
+                </p>
+              </li>
+            </ul> 
+          </p>
+        </exercise> 
+        <p>
+          A possible workaround involves making the surfaces transparent and plotting their intersection as well. 
+          If you find another workaround that is fairly simple and doesn't involve <q>dark magic and paying with programmer souls</q> 
+          as one stack overflow user suggested, let us know and we can include it in future iterations of this book.
+        </p>
+        <exercise>
+          <p>
+            Run the code below to see a Matplotlib 3D fail.
+          </p>
+        </exercise>
+
+
+        <sage language='python'>
+          <input>
+            import matplotlib.pyplot as plt #import pyplot
+            import numpy as np 
+              
+            fig = plt.figure() #create a figure
+            ax = plt.axes(projection='3d') #add a 3D axis
+            X = np.arange(-2,2,step=0.25) #1D x-inputs
+            Y = np.arange(-2,2,step=0.25) #1D y-inputs
+            X,Y = np.meshgrid(X,Y) #2D grid of inputs
+            Z1 = 1-X-Y #determine outputs 
+            Z2 = 1+Y #determine other outputs
+            Z3 = Y-X #determine other outputs
+              
+            ax.set_xlabel('X') #label x-axis
+            ax.set_ylabel('Y') #label y-axis
+            ax.set_title("Matplotlib 3D Fail") 
+              
+            ax.plot_surface(X,Y,Z1) #plot one surface
+            ax.plot_surface(X,Y,Z2) #plot second surface
+            ax.plot_surface(X,Y,Z3) #plot third surface
+            plt.show() #display the result
+          </input>
+        </sage>
+
+        <p> You can make your graphs transparent using the argument <c>alpha = </c> inside <c>plot_surface</c>.   
+        </p>
+
+        <exercise>
+          <p>
+            In the code above add <c>alpha=0.5</c> after each of Z1, Z2, and Z3 inside <c>plot_surface</c> to see a partial fix. 
+            Play with values of alpha to see which transparency setting you prefer.
+          </p>
+          <p> 
+            You can also graph the lines of intersection for each plane, which we will do later in the term. 
+          </p>
+        </exercise>
+
       </subsection>
 
       <subsection>
@@ -345,7 +423,7 @@
         <p> 
           Look up Matplotlib's documentation on the web and find their page of <em>examples, 3D plotting</em>. 
           Pick a 3D graph you want to learn to code and use the cell below to try it out. 
-          How is what you found different than what you learned in this section? 
+          <em>How is what you found different than what you learned in this section?</em> 
           Experiment by adjusting Matplotlib's example code to see what happens.  
         </p>
 

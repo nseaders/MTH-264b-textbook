@@ -161,7 +161,7 @@
       </subsection>
 
       <subsection xml:id="graphsolution">
-        <title>Graphing solutions to systems of equations of two and three variables</title>
+        <title>Graphing solutions to systems of equations</title>
 
         <p>
           In order to graph solutions in 2D and 3D you merely need to graph the corresponding lines, planes, or coordinates. 
@@ -181,6 +181,7 @@
             <input>
               import matplotlib.pyplot as plt
               import numpy as np
+
               fig = plt.figure() #create a figure
               ax = plt.axes() #create an axis
               ax.grid() #add a grid
@@ -207,21 +208,160 @@
         </exercise>
 
         <p>
-          Systems of equations with three variables must be graphed on a 3D axis. 
+          Systems of equations with three variables must be graphed in 3D. 
+          As mentioned in <xref ref="section-matplotlib3d"/>, Matplotlib paints 2D projections of each surface on top 
+          of the other which can make it hard to see their intersections. 
+          We can partially fix this by making the surfaces transparent and explicitly plotting their intersections. 
+          The intersection of any two, non-parallel planes is a line which can be found
+          by solving the system of the two plane equations and writing the solution in parametric form. 
         </p>
 
         <example xml:id="threedsolutions1">
-          <p> The system
+          <p> Graph solutions to the system
             <md>
-              <mrow>x \amp +2y \amp= 6 </mrow>
-              <mrow>  \frac{1}{2}x \amp -y \amp =1</mrow>
+              <mrow>x +y +z \amp= 1 </mrow>
+              <mrow> -y +z \amp =1</mrow>
+              <mrow>-x  +y -z\amp =0</mrow>
             </md>
-            has solutions <m>x=4</m> and <m>y=1</m>. 
+            by finding the equations of the lines of intersection of the planes and plotting the planes, the lines, and the point of intersection.
           </p>
-          <p> Linear equations with two variables can be graphed as lines, 
-            either by plotting two points on the line or solving for <m>y</m>.</p>
+          <p>
+            Solution 1 below walks through the process, followed by a Python implementation of the row reduction. 
+          </p>
+          <solution>
+            <p>
+              First row reducing the augmented matrix for the system of all three equations we obtain
+              a unique solution <m>x=-1</m>, <m>y=1/2</m>, <m>z=3/2</m>. 
+            </p>
+            <p>
+              Row reducing the augmented matrix for the first two equations we obtain
+              <md>
+                <mrow>x +2z \amp= 2 </mrow>
+                <mrow> y -z \amp =-1</mrow>
+              </md>
+              which can be written in parametric form,
+              <me>
+                \left[ \begin{matrix} x\\ y\\z \end{matrix} \right] =
+                \left[\begin{matrix} 2-2z\\ -1+z\\z \end{matrix} \right]=
+                \left[\begin{matrix} 2\\ -1\\0 \end{matrix} \right] +z\left[\begin{matrix} -2\\ 1\\1 \end{matrix} \right].
+              </me> 
+            </p>
+            <p>
+              Row reducing the augmented matrix for the last two equations we obtain
+              <md>
+                <mrow>x \amp= -1 </mrow>
+                <mrow> y -z \amp =-1</mrow>
+              </md>
+              which can be written in parametric form,
+              <me>
+                \left[ \begin{matrix} x\\ y\\z \end{matrix} \right] =
+                \left[\begin{matrix} -1\\ -1+z\\z \end{matrix} \right]=
+                \left[\begin{matrix} -1\\ -1\\0 \end{matrix} \right] +z\left[\begin{matrix} 0\\ 1\\1 \end{matrix} \right].
+              </me> 
+            </p>
+            <p>
+              Row reducing the augmented matrix for the first and last equations we obtain
+              <md>
+                <mrow>x +z\amp= 1/2 </mrow>
+                <mrow> y  \amp =1/2</mrow>
+              </md>
+              which can be written in parametric form,
+              <me>
+                \left[ \begin{matrix} x\\ y\\z \end{matrix} \right] =
+                \left[\begin{matrix} 1/2-z\\ 1/2\\z \end{matrix} \right]=
+                \left[\begin{matrix} 1/2\\ 1/2\\0 \end{matrix} \right] +z\left[\begin{matrix} -1\\ 0\\1 \end{matrix} \right].
+              </me> 
+            </p>
+          </solution>
+          <sage language='python'>
+            <input>
+              from sympy import Matrix
+
+              A = Matrix([ [1,1,1,1], [0,-1,1,1],[-1,1,-1,0]
+              ]) #all three equations
+
+              I1 = Matrix([ [1,1,1,1], [0,-1,1,1]
+              ]) #intersection first two equations
+
+              I2 = Matrix([ [0,-1,1,1],[-1,1,-1,0]
+              ]) #intersection last two other equations
+
+              I3 = Matrix([ [1,1,1,1], [-1,1,-1,0]
+              ]) #intersection first and last equations
+
+              print("A=", A.rref())
+              print("I1=", I1.rref())
+              print("I2=", I2.rref())
+              print("I3=", I3.rref())
+            </input>
+          </sage>
+          <p>
+            Next we will use Matplotlib to graph these results. 
+            First note that if we are careless with our input domains for the planes and lines, our graph will not be consistent. 
+          </p>
+
+          <sage language='python'>
+            <input>
+              import matplotlib.pyplot as plt
+              import numpy as np
+
+              fig = plt.figure() #create a figure
+              ax = plt.axes(projection='3d') #add a 3D axis
+
+              #plot the solution
+              ax.scatter(-1,1/2,3/2)
+
+              #plot the 3 plane equations
+              X = np.arange(-2,2,step=0.25) #1d x inputs
+              Y = np.arange(-2,2,step=0.25) #1d y inputs
+              X,Y = np.meshgrid(X,Y) #2D grid of inputs
+              Z1 = 1-X-Y
+              Z2 = 1+Y
+              Z3 = Y-X
+              ax.plot_surface(X,Y,Z1, alpha=0.5)
+              ax.plot_surface(X,Y,Z2, alpha=0.5)
+              ax.plot_surface(X,Y,Z3, alpha=0.5)
+
+              #plot the 3 line equations
+              Z = np.arange(-2,2,step=0.25)
+              X1 = 2-2*Z
+              Y1 = -1+Z
+              X2 = -1+0*Z
+              Y2 = -1+0*Z
+              X3 = 0.5-Z
+              Y3 = 0.5+0*Z
+              ax.plot(X1,Y1,Z)
+              ax.plot(X2,Y2,Z)
+              ax.plot(X3,Y3,Z)
+
+              #plot the 3 line equations
+              Xvalues = [-1,2]
+              Yvalues = [1/2,-1]
+              Zvalues = [3/2,0]
+              Xvalues2 = [-1,-2]
+              Yvalues2 = [1/2,1]
+              Zvalues2 = [3/2,2]
+              ax.plot(Xvalues,Yvalues,Zvalues)
+              ax.plot(Xvalues2,Yvalues2,Zvalues2)
+              
+              plt.show()
+            </input>
+          </sage>
+          <solution>
+            <p>The problem in the code above is we are graphing <m>-2\leq x \leq 2</m> and <m>-2\leq y\leq 2</m> for our surfaces, 
+              but using <m>-2\leq z\leq 2</m> for the parametric equation of our lines. There are multiple fixes to this. 
+            </p>
+            <p>
+              One fix is to use <m>z</m> as one. 
+            </p>
+            <p>
+              
+            </p>
+          </solution>
+      
           
         </example>
+
 
       </subsection>
 
@@ -300,6 +440,27 @@
         </ul>
       </p>
       </assemblage>
+
+      <exercises xml:id="exercises-systems">
+        <exercise>
+          <p> The system
+            <md>
+              <mrow>x  +2y  +z \amp= 6 </mrow>
+              <mrow>x  -y  \amp =3</mrow>
+              <mrow>-x  +y  -z\amp =0</mrow>
+            </md>
+            has a unique solution.  
+          </p>
+          <p>
+            Use Python code to find the solution. 
+            Graph the system of equations and the solution using Matplot3D. Lable your axes. 
+            <em>Note: part of the challenge is making sure you have a good viewing window and perspective
+              so the graph helps illuminate the solution.
+            </em>
+          </p>
+        </exercise>
+        
+      </exercises>
 
 
 
