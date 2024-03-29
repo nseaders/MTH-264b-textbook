@@ -312,11 +312,16 @@ sagecell.makeSagecell({
 <ul class="structural">
 <li>
 <div class="toc-item"><a href="section-systems.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Solving Systems of Linear Equations via Row Reduction</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="section-systems.html#rref" class="internal"><span class="title">Row Reduction</span></a></div></li></ul>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-systems.html#rref" class="internal"><span class="title">Row Reduction</span></a></div></li>
+<li><div class="toc-item"><a href="section-systems.html#graphsolution" class="internal"><span class="title">Graphing solutions to systems of equations of two and three variables</span></a></div></li>
+<li><div class="toc-item"><a href="section-systems.html#subsection-23" class="internal"><span class="title">Graphing vector equations</span></a></div></li>
+<li><div class="toc-item"><a href="section-systems.html#subsec-" class="internal"><span class="title">Converting between Numpy arrays and Sympy Matrices</span></a></div></li>
+</ul>
 </li>
 <li>
 <div class="toc-item"><a href="section-matrices.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix Arithmetic</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="section-matrices.html#subsection-22" class="internal"><span class="title">Title</span></a></div></li></ul>
+<ul class="structural"><li><div class="toc-item"><a href="section-matrices.html#subsection-25" class="internal"><span class="title">Title</span></a></div></li></ul>
 </li>
 </ul>
 </li>
@@ -502,6 +507,7 @@ import numpy as np
 
 fig = plt.figure() #create a figure
 ax = plt.axes() #add an axis
+ax.grid() #add a grid
 X = np.linspace(0,6,num=100) #determine inputs
 Y = np.sin(X) #determine outputs for y=sin(x)
 

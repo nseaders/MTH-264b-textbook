@@ -312,11 +312,16 @@ sagecell.makeSagecell({
 <ul class="structural">
 <li class="active">
 <div class="toc-item"><a href="section-systems.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Solving Systems of Linear Equations via Row Reduction</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="section-systems.html#rref" class="internal"><span class="title">Row Reduction</span></a></div></li></ul>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-systems.html#rref" class="internal"><span class="title">Row Reduction</span></a></div></li>
+<li><div class="toc-item"><a href="section-systems.html#graphsolution" class="internal"><span class="title">Graphing solutions to systems of equations of two and three variables</span></a></div></li>
+<li><div class="toc-item"><a href="section-systems.html#subsection-23" class="internal"><span class="title">Graphing vector equations</span></a></div></li>
+<li><div class="toc-item"><a href="section-systems.html#subsec-" class="internal"><span class="title">Converting between Numpy arrays and Sympy Matrices</span></a></div></li>
+</ul>
 </li>
 <li>
 <div class="toc-item"><a href="section-matrices.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix Arithmetic</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="section-matrices.html#subsection-22" class="internal"><span class="title">Title</span></a></div></li></ul>
+<ul class="structural"><li><div class="toc-item"><a href="section-matrices.html#subsection-25" class="internal"><span class="title">Title</span></a></div></li></ul>
 </li>
 </ul>
 </li>
@@ -331,12 +336,17 @@ sagecell.makeSagecell({
 <ul class="disc">
 <li id="li-51"><div class="para" id="p-144">Row reduce matrices representing systems of linear equations using the Python library Sympy.</div></li>
 <li id="li-52"><div class="para" id="p-145">Graph systems of linear equations of two or three variables.</div></li>
+<li id="li-53"><div class="para" id="p-146">Use the pivots of a reduced augmented matrix to determine if a system has no solution, a unique solution, or infinitely many solutions</div></li>
 </ul></article><section class="subsection" id="rref"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Row Reduction</span>
 </h3>
-<div class="para" id="p-146">Note that row reduction involves symbolic manipulation. Since Numpy is focused on number crunching, so we will need a different Python library called Sympy to do the symbolic manipulation of row reductin to reduced echelon form and row reduced echelon form using the functions ref() and rref() respectively.</div>
-<div class="para logical" id="p-147">
-<div class="para">In order to row reduce a system of linear equations we convert our system into an augmented matrix. For example</div>
+<div class="para" id="p-147">Note that row reduction involves symbolic manipulation. Since Numpy is focused on number crunching, we will need a different Python library called Sympy to do the symbolic manipulation of row reduction to reduced echelon form and row reduced echelon form.</div>
+<div class="para" id="p-148">In order to row reduce a system of linear equations we convert our system into an augmented matrix.</div>
+<article class="example example-like" id="augmatrix"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Augmented Matrix.</span>
+</h4>
+<div class="para logical" id="p-149">
+<div class="para">For example, the system</div>
 <div class="displaymath process-math" id="md-2">
 \begin{align*}
 2x \amp -3y \amp= 4 \\
@@ -354,8 +364,7 @@ x \amp +4y \amp =2
 \right].
 \end{equation*}
 </div>
-</div>
-<div class="para" id="p-148">In Sympy, matrices are entered using the function Matrix.</div>
+</div></article><div class="para" id="p-150">In Sympy, matrices are entered using the function <code class="code-inline tex2jax_ignore">Matrix</code>.</div>
 <pre class="ptx-sagecell sagecell-python" id="sage-28"><script type="text/x-sage">from sympy import Matrix
 
 #define your sympy matrix
@@ -366,12 +375,13 @@ A = Matrix([
 print(A)
 </script></pre>
 <article class="exercise exercise-like" id="exercise-29"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.1</span><span class="period">.</span>
-</h4>
-<div class="para" id="p-149">Edit the above code to print the augmented matrix for our example system of linear equations.</div></article><article class="exercise exercise-like" id="exercise-30"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.2</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-150">Edit the code below to print the reduced echelon form and the row reduced echelon form for the augmented matrix from our example system of linear equations.</div></article><pre class="ptx-sagecell sagecell-python" id="sage-29"><script type="text/x-sage">from sympy import Matrix
+<div class="para" id="p-151">Edit the above code to print the augmented matrix for the system of linear equations in <a href="" class="xref" data-knowl="./knowl/augmatrix.html" title="Example 2.1: Augmented Matrix">Example 2.1</a>.</div></article><div class="para" id="p-152">The Sympy functions <code class="code-inline tex2jax_ignore">echelon_form()</code> and <code class="code-inline tex2jax_ignore">ref()</code> can be used to row reduce a matrix to reduced echelon form and row reduced echelon form, respectively. If you need a refresher on these two forms, read section (insert reference here).</div>
+<article class="exercise exercise-like" id="exercise-30"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.3</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-153">Edit the code below to print the reduced echelon form and the row reduced echelon form for the augmented matrix of the system of linear equations from <a href="" class="xref" data-knowl="./knowl/augmatrix.html" title="Example 2.1: Augmented Matrix">Example 2.1</a>.</div></article><pre class="ptx-sagecell sagecell-python" id="sage-29"><script type="text/x-sage">from sympy import Matrix
 
 #define your sympy matrix
 A = Matrix([ [2,-3,4], [1,4,2]]) 
@@ -379,13 +389,98 @@ A = Matrix([ [2,-3,4], [1,4,2]])
 print(A.echelon_form()) #print REF of A
 print(A.rref()) #print RREF of A
 </script></pre>
-<div class="para" id="p-151">Note that rref() returns not only the row reduced echelon form of a matrix, but also a tuple that tells you which columns are pivot columns, that is have leading values of 1.</div>
+<div class="para" id="p-154">Note that <code class="code-inline tex2jax_ignore">rref()</code> returns not only the row reduced echelon form of a matrix, but also a tuple that tells you which columns have leading values of 1. These columns are called pivot columns, and give you a quick way to see any free variables (which are non-pivot columns).</div>
 <article class="exercise exercise-like" id="exercise-31"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.3</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.4</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-152">Edit the code above for various augmented matrices to see how the tuple relates to the pivot columns.</div></article><div class="para" id="p-153">Things left to do here: (1) something about unique solutions, infinitely many solutions or no solutions, (2) graphing solutions to systems</div>
-<div class="para" id="p-154">Since Numpy and Sympy are different libraries, we will need to either enter our augmented matrix as a Sympy matrix, or convert a numpy array into a sympy matrix in order to call the row reducing function in Sympy.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-30"><script type="text/x-sage">import numpy as np
+<div class="para" id="p-155">Edit the code above for various augmented matrices to see how the tuple returned by <code class="code-inline tex2jax_ignore">rref()</code> relates to the pivot columns.</div></article><div class="para logical" id="p-156">
+<div class="para">Recall that a system of linear equations either has</div>
+<ol class="decimal">
+<li id="li-54"><div class="para" id="p-157">no solution,</div></li>
+<li id="li-55"><div class="para" id="p-158">a unique solution, or</div></li>
+<li id="li-56"><div class="para" id="p-159">infinitely many solutions.</div></li>
+</ol>
+<div class="para">If you need a refresher on how to interpret the reduced echelon form of an augmented matrix to determine if there is no solution, write down the unique solution, or give the infinitely many solutions in parametric form, see section (insert section here).</div>
+</div></section><section class="subsection" id="graphsolution"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Graphing solutions to systems of equations of two and three variables</span>
+</h3>
+<div class="para" id="p-160">In order to graph solutions in 2D and 3D you merely need to graph the corresponding lines, planes, or coordinates.</div>
+<article class="example example-like" id="twodsolutions"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-161">
+<div class="para">The system</div>
+<div class="displaymath process-math" id="md-3">
+\begin{align*}
+x \amp +2y \amp= 6 \\
+\frac{1}{2}x \amp -y \amp =1
+\end{align*}
+</div>
+<div class="para">has solutions <span class="process-math">\(x=4\)</span> and <span class="process-math">\(y=1\text{.}\)</span>
+</div>
+</div> <div class="para" id="p-162">Linear equations with two variables can be graphed as lines in the xy-plane, either by plotting two points on the line or solving for <span class="process-math">\(y\text{.}\)</span>
+</div> <pre class="ptx-sagecell sagecell-python" id="sage-30"><script type="text/x-sage">import matplotlib.pyplot as plt
+import numpy as np
+fig = plt.figure() #create a figure
+ax = plt.axes() #create an axis
+ax.grid() #add a grid
+
+X = np.linspace(0,10,num=100) #inputs
+Y1 = (6-X)/2 #outputs for first equation
+Y2 = 0.5*X-1 #outputs for second equation
+
+ax.set_title("Solutions to 2D System") #title
+ax.set_xlabel("x") #input label
+ax.set_ylabel("y") #output label
+
+ax.plot(X,Y1,X,Y2) #plot both equations
+plt.show() #display result
+</script></pre></article><article class="exercise exercise-like" id="exercise-32"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.6</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-163">Edit the code in <a href="" class="xref" data-knowl="./knowl/twodsolutions.html" title="Example 2.5">Example 2.5</a> to clearly indicate the solution <span class="process-math">\(x=4\)</span> and <span class="process-math">\(y=1\)</span> on the graph.</div></article><div class="para" id="p-164">Systems of equations with three variables must be graphed on a 3D axis.</div>
+<article class="example example-like" id="threedsolutions1"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.7</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-165">
+<div class="para">The system</div>
+<div class="displaymath process-math" id="md-4">
+\begin{align*}
+x \amp +2y \amp= 6 \\
+\frac{1}{2}x \amp -y \amp =1
+\end{align*}
+</div>
+<div class="para">has solutions <span class="process-math">\(x=4\)</span> and <span class="process-math">\(y=1\text{.}\)</span>
+</div>
+</div> <div class="para" id="p-166">Linear equations with two variables can be graphed as lines, either by plotting two points on the line or solving for <span class="process-math">\(y\text{.}\)</span>
+</div></article></section><section class="subsection" id="subsection-23"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Graphing vector equations</span>
+</h3>
+<pre class="ptx-sagecell sagecell-python" id="sage-31"><script type="text/x-sage">import matplotlib.pyplot as plt\
+plt.figure()
+plt.xlim(-10, 10)
+plt.ylim(-10, 10)
+plt.axhline(0, color='black',linewidth=0.5)
+plt.axvline(0, color='black',linewidth=0.5)
+plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
+u_a = 1
+v_a = 2
+u_b = 2
+v_b = -1
+# -3a
+plt.quiver(0,0,-3*u_a,-3*v_a,angles='xy', scale_units='xy', scale=1, label='-3a' # 2b
+plt.quiver(0,0,u_b*2,(2)*v_b,angles='xy', scale_units='xy', scale=1,label='2b'
+#a
+# X,Y U,V
+plt.quiver(0,0,u_a,v_a,angles='xy', scale_units='xy', scale=1, label='a',color #b
+plt.quiver(0,0,2,-1,angles='xy', scale_units='xy', scale=1,label='b',color='g' # c from -3a + 2b
+plt.quiver(0,0,-3*u_a+2*u_b,-3*v_a+2*v_b,angles='xy', scale_units='xy', scale
+plt.legend() #Makes labels show up plt.show()
+</script></pre></section><section class="subsection" id="subsec-"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Converting between Numpy arrays and Sympy Matrices</span>
+</h3>
+<div class="para" id="p-167">Since Numpy and Sympy are different libraries, we will need to either enter our augmented matrix as a Sympy matrix, or convert a numpy array into a sympy matrix in order to call the row reducing function in Sympy.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-32"><script type="text/x-sage">import numpy as np
 from sympy import Matrix
 
 npA = np.matrix([[1, 2], [3, 4]]) #Create a numpy matrix
@@ -395,9 +490,9 @@ RREF = spA.rref()[0] #Get RREF ??why 0?
 
 print(np.array(RREF))
 </script></pre></section><article class="assemblage assemblage-like" id="assemblage-6"><h3 class="heading"><span class="title">Summary.</span></h3>
-<div class="para logical" id="p-155">
-<ul class="disc"><li id="li-53"><div class="para" id="p-156">blah</div></li></ul>
-<ul class="disc"><li id="li-54"><div class="para" id="p-157">blah</div></li></ul>
+<div class="para logical" id="p-168">
+<ul class="disc"><li id="li-57"><div class="para" id="p-169">blah</div></li></ul>
+<ul class="disc"><li id="li-58"><div class="para" id="p-170">blah</div></li></ul>
 </div></article></section><div class="hidden-content tex2jax_ignore" id="hk-fn-4"><div class="fn">Row reduction is sometimes called Gaussian elimination, after the mathematician Gauss. Long before Gauss, Chinese scholars demonstrated this method of solving systems of linear equations in chapter 8 of The Nine Chapters on the Mathematical Art..</div></div>
 </div>
 <div class="ptx-content-footer">

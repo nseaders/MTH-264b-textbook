@@ -88,7 +88,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.1",
   "title": "Variables",
-  "body": " Variables  In this section we will learn how to assign values to a variable in Python and display results.     Create a variable in Python using =     Display a variable in Python using print()       A variable is like a container that can be used to store information or data. In Python you assign a variable using = .  Run the Python code below by clicking the Evaluate (Python) button.   Note that the function print() was needed to display the value of the variable.  Change the value of the variable a by adding 5 after the 2*3 above and run the code again to see how the output changes.    Naming Variables  Variables can be named using letters, underscores, numbers, etc. Just be sure to use the exact same name to call your variable.  For example, the following code has a syntax error. Run the code as is and see what happens.    Can you fix the bug in the above code so it runs correctly?   Variables are case sensitive and must be exactly the same for Python to recognize them.     Arithmetic and Comments in Python  Python recognizes simple arithmetic symbols like + -, *, \/ .  Meanwhile a hashtag # can be used to tell Python to ignore code, reading what follows as a comment by the author rather than a Python command.   Comments can help anyone reading your code understand what that section of the code is doing. You can also comment out portions of code to isolate a bug.   In the box below, change the value of the variable arithmetic to try out some basic calculations. Add a comment using # to explain what your code is doing.   You can use the standard order of operations and parentheses (PEMDAS).      More about Variables  Just like in math, variables can be helpful when the information will change. Recall the formula for the area of a circle .  In the code below,    fill in the formula for the area of the circle using the appropriate variable names and arithmetic operations.      Use the code to approximately compute the area of a circle with radius 5 and a circle with radius 13.       Syntax and Semantic errors  One error we can make when creating and editing code is to mis-type a command causing Python to not understand the syntax , that is the chosen command, in our program. Another error is when we make our meaning unclear, more of a semantic issue. For example you can add numbers to numbers or strings of letters to strings of letters in Python but if we try to add a number to a string of letters, Python will not know what is meant by adding.    Summary     A variable can be used as a container to store data or information.      Use print(variable_name) to display the information stored in the variable.      Use # to comment and make your code more readable.       test it out   "
+  "body": " Variables  In this section we will learn how to assign values to a variable in Python and display results.     Create a variable and assign it a value in Python using =     Display the value of a variable in Python using print()       A variable is like a container that can be used to store information or data. In Python you assign a value to a variable using = .  Run the Python code below by clicking the Evaluate (Python) button.   Note that the function print() was needed to display the value of the variable.  Change the value of the variable a by adding 5 after the 2*3 above and run the code again to see how the output changes.    Naming Variables  Variables can be named using letters, underscores, numbers, etc. Just be sure to use the exact same name to call your variable.  For example, the following code has a syntax error. Run the code as is and see what happens.    Can you fix the bug in the above code so it runs correctly?   Variables are case sensitive and must be exactly the same for Python to recognize them.     Arithmetic and Comments in Python  Python recognizes simple arithmetic symbols like + -, *, \/ .  Meanwhile a hashtag # can be used to tell Python to ignore code, reading what follows as a comment by the author rather than a Python command.   Comments can help anyone reading your code understand what that section of the code is doing. You can also comment out portions of code to isolate a bug.   In the box below, change the value of the variable arithmetic to try out some basic calculations. Add a comment using # to explain what your code is doing.   You can use the standard order of operations and parentheses (PEMDAS).      More about Variables  Just like in math, variables can be helpful when the information will change. Recall the formula for the area of a circle .  In the code below,    fill in the formula for the area of the circle using the appropriate variable names and arithmetic operations.      Use the code to approximately compute the area of a circle with radius 5 and a circle with radius 13.       Syntax and Semantic errors  One error we can make when creating and editing code is to mis-type a command causing Python to not understand the syntax , that is the chosen command, in our program. Another error is when we make our meaning unclear, more of a semantic issue. For example you can add numbers to numbers or strings of letters to strings of letters in Python but if we try to add a number to a string of letters, Python will not know what is meant by adding.    Summary     A variable can be used as a container to store data or information.      Use print(variable_name) to display the information stored in the variable.      Use # to comment and make your code more readable.       test it out   "
 },
 {
   "id": "objectives-3",
@@ -97,7 +97,7 @@ var ptx_lunr_docs = [
   "type": "Objectives",
   "number": "1.1",
   "title": "",
-  "body": "   Create a variable in Python using =     Display a variable in Python using print()     "
+  "body": "   Create a variable and assign it a value in Python using =     Display the value of a variable in Python using print()     "
 },
 {
   "id": "p-31",
@@ -295,7 +295,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.4",
   "title": "Matplotlib and 3D graphing",
-  "body": " Matplotlib and 3D graphing   Now that we have some experience making 2D graphs, let's learn how to make 3D graphs. Note that we can graph both curves and surfaces in 3D. If you have taken a multivariable class hopefully you remember that surfaces arise as solutions to equations of three variables, while points on a space curve are parametric equations or vector-valued functions. The code for the points on a space curve is a little more straightforward so we will start with those examples.      Use Matplotlib to graph parametric curves in 3D.    Use Matplotlib to graph surfaces and scatterplots in 3D.      3D axes  First, for 3D graphs we will need to add 3D axes to our figure using the keyword projection='3d' . Read through and run the code below to see the default 3D axes.     Parametric Curves in 3D  Matplotlib graphs 3D curves by plotting points and connecting the dots. The , , and coordinates are still given by numpy arrays and then plotted on the axes.  Run the code below to graph the equation of a line between the points and .   Edit the above code to graph the equation of a line between the points and .  Edit the above code to add a third number to each numpy array. What happens? Can you explain what plot() just graphed?  We can also graph curves by making coordinates dependent on another. For example, the curve below looks like a parabola in the -direction above the shadow    As before, we need enough input points to get a smooth curve.  Parametric curves in 3D are just like 2D (see ( )) with an added -coordinate. For example, we can graph a horizontal circle at using              Play with the above code for , , and to see what other interesting curves you can create. In 3-space can you graph  a line?  a spiral?  a different circle?      Surfaces and scatterplots in 3D  To graph a surface or 3D scatterplot, we will need two-dimensional numpy arrays for all of our inputs and outputs. As a shortcut we can create 1D arrays for the and inputs first, then use NumPy's function meshgrid() to create a coordinate grid of inputs (two 2D arrays). Last we define our outputs on that coordinate grid.  The function scatter() will plot a scatterplot just like in 2D. The function plot_surface() plots the points and connect those dots with a surface. Just like we need enough points to get a curve that looks smooth, we will need enough points to get a surface that looks smooth.  Run the code below trying both the command plot_surface() (current default) and scatter() to see the difference.   For the surface, increase the step in each input and run the above code again. When does the surface start to look polygonal instead of smooth?  Modify the above code to graph the surface . Choose a reasonable range of inputs that shows the important features of the graph.  Change the surface to . What step size is needed to make the input window [-2,2] and [-2,2] display a smooth surface?  As in the 2D case, the function scatter() plots the points without connecting the dots.    Axes and Labels  Adding titles or labels to our 3D axes uses the same commands as in 2D. the commands set_title(\"title_here\") , set_xlabel(\"label_here\") , set_ylabel(\"label_here\") .   In the above code, use parallel syntax to add a label to the -axis.  Note that the default viewing window makes the -axis positive left to right and -axis positive front to back. Something new in the 3D setting, however, is the ability to choose our viewing angle for the 3D axes using view_init(elev= , azim=, roll=) .  In the code below, play with the values for elev , azim and roll .   What does each change?  What custom viewing angle do you think showcases this particular surface the best?       Customizing  Like in 2D, we can customize our plots: the style, colors, markers, meshes, contours, line width, etc. There are many features available that we didn't cover here, but hopefully you have enough to get you started with 3D graphing using Matplotlib in Python.  So how do you learn more?  Look up Matplotlib's documentation on the web and find their page of examples, 3D plotting . Pick a 3D graph you want to learn to code and use the cell below to try it out. How is what you found different than what you learned in this section? Experiment by adjusting Matplotlib's example code to see what happens.     This section gave us just an introduction to 3D graphing possibilities using Matplotlib in Python. There are many other opportunities Add conclusion here. More. and more. And more.    Summary     We can add 3D axes using the argument projection='3d' inside pyplot's axes command.    We can use numpy.meshgrid() to create input coordinates on a grid and then use plot_surface() or scatter() to plot a surface or scatter plot on 3D axes.    As before we need enough points for plot_surface() or plot() to make smooth graphs.      "
+  "body": " Matplotlib and 3D graphing   Now that we have some experience making 2D graphs, let's learn how to make 3D graphs. Note that we can graph both curves and surfaces in 3D. If you have taken a multivariable class hopefully you remember that surfaces arise as solutions to equations of three variables, while points on a space curve are parametric equations or vector-valued functions. The code for the points on a space curve is a little more straightforward so we will start with those examples.      Use Matplotlib to graph parametric curves in 3D.    Use Matplotlib to graph surfaces and scatterplots in 3D.      3D axes  First, for 3D graphs we will need to add 3D axes to our figure using the keyword projection='3d' . Read through and run the code below to see the default 3D axes.     Parametric Curves in 3D  Matplotlib graphs 3D curves by plotting points and connecting the dots. The , , and coordinates are still given by numpy arrays and then plotted on the axes.  Run the code below to graph the equation of a line between the points and .   Edit the above code to graph the equation of a line between the points and .  Edit the above code to add a third number to each numpy array. What happens? Can you explain what plot() just graphed?  We can also graph curves by making coordinates dependent on another. For example, the curve below looks like a parabola in the -direction above the shadow    As before, we need enough input points to get a smooth curve.  Parametric curves in 3D are just like 2D (see ( )) with an added -coordinate. For example, we can graph a horizontal circle at using              Play with the above code for , , and to see what other interesting curves you can create. In 3-space can you graph  a line?  a spiral?  a different circle?      Surfaces and scatterplots in 3D  To graph a surface or 3D scatterplot, we will need two-dimensional numpy arrays for all of our inputs and outputs. As a shortcut we can create 1D arrays for the and inputs first, then use NumPy's function meshgrid() to create a coordinate grid of inputs (two 2D arrays). Last we define our outputs on that coordinate grid.  The function scatter() will plot a scatterplot just like in 2D. The function plot_surface() plots the points and connect those dots with a surface. Just like we need enough points to get a curve that looks smooth, we will need enough points to get a surface that looks smooth.  Run the code below trying both the command plot_surface() (current default) and scatter() to see the difference.   For the surface, increase the step in each input and run the above code again. When does the surface start to look polygonal instead of smooth?  Modify the above code to graph the surface . Choose a reasonable range of inputs that shows the important features of the graph.  Change the surface to . What step size is needed to make the input window [-2,2] and [-2,2] display a smooth surface?  As in the 2D case, the function scatter() plots the points without connecting the dots.    Axes and Labels  Adding titles or labels to our 3D axes uses the same commands as in 2D. the commands set_title(\"title_here\") , set_xlabel(\"label_here\") , set_ylabel(\"label_here\") .   In the above code, use parallel syntax to add a label to the -axis.  Note that the default viewing window makes the -axis positive left to right and -axis positive front to back. Something new in the 3D setting, however, is the ability to choose our viewing angle for the 3D axes using view_init(elev= , azim=, roll=) .  In the code below, play with the values for elev , azim and roll .   What does each change?  What custom viewing angle do you think showcases this particular surface the best?       Customizing  Like in 2D, we can customize our plots: the style, colors, markers, meshes, contours, line width, etc. There are many features available that we didn't cover here, but hopefully you have enough to get you started with 3D graphing using Matplotlib in Python.  So how do you learn more?  Look up Matplotlib's documentation on the web and find their page of examples, 3D plotting . Pick a 3D graph you want to learn to code and use the cell below to try it out. How is what you found different than what you learned in this section? Experiment by adjusting Matplotlib's example code to see what happens.     This section gave us just an introduction to 3D graphing possibilities using Matplotlib in Python. We will continue to learn more about graphing as we move into using Python for matrix algebra.    Summary     We can add 3D axes using the argument projection='3d' inside pyplot's axes command.    We can use numpy.meshgrid() to create input coordinates on a grid and then use plot_surface() or scatter() to plot a surface or scatter plot on 3D axes.    As before we need enough points for plot_surface() or plot() to make smooth graphs.      "
 },
 {
   "id": "objectives-6",
@@ -394,7 +394,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.1",
   "title": "Solving Systems of Linear Equations via Row Reduction",
-  "body": " Solving Systems of Linear Equations via Row Reduction  Systems of linear equations can be solved using multiple methods. In this section we will learn how to solve systems of linear equations using a process called row reduction. Row reduction is sometimes called Gaussian elimination, after the mathematician Gauss. Long before Gauss, Chinese scholars demonstrated this method of solving systems of linear equations in chapter 8 of The Nine Chapters on the Mathematical Art. .      Row reduce matrices representing systems of linear equations using the Python library Sympy.    Graph systems of linear equations of two or three variables.      Row Reduction  Note that row reduction involves symbolic manipulation. Since Numpy is focused on number crunching, so we will need a different Python library called Sympy to do the symbolic manipulation of row reductin to reduced echelon form and row reduced echelon form using the functions ref() and rref() respectively.  In order to row reduce a system of linear equations we convert our system into an augmented matrix. For example becomes   In Sympy, matrices are entered using the function Matrix .   Edit the above code to print the augmented matrix for our example system of linear equations.  Edit the code below to print the reduced echelon form and the row reduced echelon form for the augmented matrix from our example system of linear equations.   Note that rref() returns not only the row reduced echelon form of a matrix, but also a tuple that tells you which columns are pivot columns, that is have leading values of 1.  Edit the code above for various augmented matrices to see how the tuple relates to the pivot columns.  Things left to do here: (1) something about unique solutions, infinitely many solutions or no solutions, (2) graphing solutions to systems  Since Numpy and Sympy are different libraries, we will need to either enter our augmented matrix as a Sympy matrix, or convert a numpy array into a sympy matrix in order to call the row reducing function in Sympy.     Summary     blah      blah      "
+  "body": " Solving Systems of Linear Equations via Row Reduction  Systems of linear equations can be solved using multiple methods. In this section we will learn how to solve systems of linear equations using a process called row reduction. Row reduction is sometimes called Gaussian elimination, after the mathematician Gauss. Long before Gauss, Chinese scholars demonstrated this method of solving systems of linear equations in chapter 8 of The Nine Chapters on the Mathematical Art. .      Row reduce matrices representing systems of linear equations using the Python library Sympy.    Graph systems of linear equations of two or three variables.    Use the pivots of a reduced augmented matrix to determine if a system has no solution, a unique solution, or infinitely many solutions      Row Reduction  Note that row reduction involves symbolic manipulation. Since Numpy is focused on number crunching, we will need a different Python library called Sympy to do the symbolic manipulation of row reduction to reduced echelon form and row reduced echelon form.  In order to row reduce a system of linear equations we convert our system into an augmented matrix.   Augmented Matrix   For example, the system becomes     In Sympy, matrices are entered using the function Matrix .   Edit the above code to print the augmented matrix for the system of linear equations in .  The Sympy functions echelon_form() and ref() can be used to row reduce a matrix to reduced echelon form and row reduced echelon form, respectively. If you need a refresher on these two forms, read section (insert reference here).  Edit the code below to print the reduced echelon form and the row reduced echelon form for the augmented matrix of the system of linear equations from .   Note that rref() returns not only the row reduced echelon form of a matrix, but also a tuple that tells you which columns have leading values of 1. These columns are called pivot columns , and give you a quick way to see any free variables (which are non-pivot columns).  Edit the code above for various augmented matrices to see how the tuple returned by rref() relates to the pivot columns.  Recall that a system of linear equations either has   no solution,    a unique solution, or    infinitely many solutions.   If you need a refresher on how to interpret the reduced echelon form of an augmented matrix to determine if there is no solution, write down the unique solution, or give the infinitely many solutions in parametric form, see section (insert section here).    Graphing solutions to systems of equations of two and three variables  In order to graph solutions in 2D and 3D you merely need to graph the corresponding lines, planes, or coordinates.   The system has solutions and .  Linear equations with two variables can be graphed as lines in the xy-plane, either by plotting two points on the line or solving for .    Edit the code in to clearly indicate the solution and on the graph.  Systems of equations with three variables must be graphed on a 3D axis.   The system has solutions and .  Linear equations with two variables can be graphed as lines, either by plotting two points on the line or solving for .     Graphing vector equations     Converting between Numpy arrays and Sympy Matrices  Since Numpy and Sympy are different libraries, we will need to either enter our augmented matrix as a Sympy matrix, or convert a numpy array into a sympy matrix in order to call the row reducing function in Sympy.     Summary     blah      blah      "
 },
 {
   "id": "objectives-7",
@@ -403,34 +403,70 @@ var ptx_lunr_docs = [
   "type": "Objectives",
   "number": "2.1",
   "title": "",
-  "body": "   Row reduce matrices representing systems of linear equations using the Python library Sympy.    Graph systems of linear equations of two or three variables.    "
+  "body": "   Row reduce matrices representing systems of linear equations using the Python library Sympy.    Graph systems of linear equations of two or three variables.    Use the pivots of a reduced augmented matrix to determine if a system has no solution, a unique solution, or infinitely many solutions    "
+},
+{
+  "id": "augmatrix",
+  "level": "2",
+  "url": "section-systems.html#augmatrix",
+  "type": "Example",
+  "number": "2.1",
+  "title": "Augmented Matrix.",
+  "body": " Augmented Matrix   For example, the system becomes    "
 },
 {
   "id": "exercise-29",
   "level": "2",
   "url": "section-systems.html#exercise-29",
   "type": "You Try",
-  "number": "2.1",
+  "number": "2.2",
   "title": "",
-  "body": "Edit the above code to print the augmented matrix for our example system of linear equations. "
+  "body": "Edit the above code to print the augmented matrix for the system of linear equations in . "
 },
 {
   "id": "exercise-30",
   "level": "2",
   "url": "section-systems.html#exercise-30",
   "type": "You Try",
-  "number": "2.2",
+  "number": "2.3",
   "title": "",
-  "body": "Edit the code below to print the reduced echelon form and the row reduced echelon form for the augmented matrix from our example system of linear equations. "
+  "body": "Edit the code below to print the reduced echelon form and the row reduced echelon form for the augmented matrix of the system of linear equations from . "
 },
 {
   "id": "exercise-31",
   "level": "2",
   "url": "section-systems.html#exercise-31",
   "type": "You Try",
-  "number": "2.3",
+  "number": "2.4",
   "title": "",
-  "body": "Edit the code above for various augmented matrices to see how the tuple relates to the pivot columns. "
+  "body": "Edit the code above for various augmented matrices to see how the tuple returned by rref() relates to the pivot columns. "
+},
+{
+  "id": "twodsolutions",
+  "level": "2",
+  "url": "section-systems.html#twodsolutions",
+  "type": "Example",
+  "number": "2.5",
+  "title": "",
+  "body": " The system has solutions and .  Linear equations with two variables can be graphed as lines in the xy-plane, either by plotting two points on the line or solving for .   "
+},
+{
+  "id": "exercise-32",
+  "level": "2",
+  "url": "section-systems.html#exercise-32",
+  "type": "You Try",
+  "number": "2.6",
+  "title": "",
+  "body": "Edit the code in to clearly indicate the solution and on the graph. "
+},
+{
+  "id": "threedsolutions1",
+  "level": "2",
+  "url": "section-systems.html#threedsolutions1",
+  "type": "Example",
+  "number": "2.7",
+  "title": "",
+  "body": " The system has solutions and .  Linear equations with two variables can be graphed as lines, either by plotting two points on the line or solving for .  "
 },
 {
   "id": "section-matrices",
@@ -439,7 +475,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.2",
   "title": "Matrix Arithmetic",
-  "body": " Matrix Arithmetic  In this section we will learn how to     C    D      Title          Summary     blah      blah      "
+  "body": " Matrix Arithmetic  In this section we will learn how to     Add, subtract, scale, and multiply matrices in Numpy    Find matrix inverses    Use matrix inverses to solve systems of linear equations      Title          Summary     blah      blah      "
 },
 {
   "id": "objectives-8",
@@ -448,14 +484,14 @@ var ptx_lunr_docs = [
   "type": "Objectives",
   "number": "2.2",
   "title": "",
-  "body": "   C    D    "
+  "body": "   Add, subtract, scale, and multiply matrices in Numpy    Find matrix inverses    Use matrix inverses to solve systems of linear equations    "
 },
 {
-  "id": "exercise-32",
+  "id": "exercise-33",
   "level": "2",
-  "url": "section-matrices.html#exercise-32",
+  "url": "section-matrices.html#exercise-33",
   "type": "You Try",
-  "number": "2.4",
+  "number": "2.8",
   "title": "",
   "body": ""
 },

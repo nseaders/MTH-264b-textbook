@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script><script>// Make *any* pre with class 'sagecell-python' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-python",
+  "linked": true,
+  "languages": [
+    "python"
+  ],
+  "evalButtonText": "Evaluate (Python)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5</span><span class="period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">The system</div>
+<div class="displaymath process-math">
+\begin{align*}
+x \amp +2y \amp= 6 \\
+\frac{1}{2}x \amp -y \amp =1
+\end{align*}
+</div>
+<div class="para">has solutions <span class="process-math">\(x=4\)</span> and <span class="process-math">\(y=1\text{.}\)</span>
+</div>
+</div> <div class="para">Linear equations with two variables can be graphed as lines in the xy-plane, either by plotting two points on the line or solving for <span class="process-math">\(y\text{.}\)</span>
+</div> <pre class="ptx-sagecell sagecell-python" id="sage-30"><script type="text/x-sage">import matplotlib.pyplot as plt
+import numpy as np
+fig = plt.figure() #create a figure
+ax = plt.axes() #create an axis
+ax.grid() #add a grid
+
+X = np.linspace(0,10,num=100) #inputs
+Y1 = (6-X)/2 #outputs for first equation
+Y2 = 0.5*X-1 #outputs for second equation
+
+ax.set_title("Solutions to 2D System") #title
+ax.set_xlabel("x") #input label
+ax.set_ylabel("y") #output label
+
+ax.plot(X,Y1,X,Y2) #plot both equations
+plt.show() #display result
+</script></pre></article><span class="incontext"><a href="section-systems.html#twodsolutions" class="internal">in-context</a></span>
+</body>
+</html>
