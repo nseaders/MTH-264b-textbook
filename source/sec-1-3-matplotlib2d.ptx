@@ -346,6 +346,7 @@
         
         fig = plt.figure() #create a figure
         ax = plt.axes() #add an axis
+        ax.grid() #add a grid
         X = np.linspace(0,6,num=100) #determine inputs
         Y = np.sin(X) #determine outputs for y=sin(x)
         

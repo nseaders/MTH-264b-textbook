@@ -18,12 +18,12 @@
       <ul>
         <li>
           <p>
-            Create a variable in Python using <c>=</c>
+            Create a variable and assign it a value in Python using <c>=</c>
           </p>
         </li>
         <li>
           <p>
-            Display a variable in Python using <c>print()</c>
+            Display the value of a variable in Python using <c>print()</c>
           </p>
         </li>
       </ul>
@@ -32,7 +32,7 @@
     <subsection>
       <p>
         A <term> variable </term> is like a container that can be used to store information or data. 
-        In Python you assign a variable using <c> = </c>. 
+        In Python you assign a value to a variable using <c> = </c>. 
       </p>
       <p>           
         Run the Python code below by clicking the <em>Evaluate (Python)</em> button. 

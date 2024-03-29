@@ -38,43 +38,43 @@
               a unique solution, or infinitely many solutions
             </p>
           </li>
-          <li>
-            <p>
-              Something about using linalgsolve()? or wait until later?
-            </p>
-          </li>
         </ul>
       </objectives>
 
       <subsection xml:id="rref">
         <title>Row Reduction</title>
 
-
         <p>
           Note that row reduction involves symbolic manipulation. Since Numpy is focused on number crunching,
-          so we will need a different Python library called Sympy to do the symbolic manipulation of 
-          row reduction to reduced echelon form and row reduced echelon form using the 
-          functions <code>ref()</code> and <code>rref()</code> respectively. 
+          we will need a different Python library called Sympy to do the symbolic manipulation of 
+          row reduction to reduced echelon form and row reduced echelon form. 
         </p>
         <p>
-          In order to row reduce a system of linear equations we convert our system into an augmented matrix. 
-          For example
-          <md>
-            <mrow>2x \amp -3y \amp= 4 </mrow>
-            <mrow>  x \amp +4y \amp =2</mrow>
-          </md>
-          becomes
-          <me>
-            \left[
-            \begin{matrix}
-            2 \amp -3 \amp | \amp 4\\
-            1 \amp 4 \amp | \amp 2
-            \end{matrix}
-            \right].
-          </me>
+          In order to row reduce a system of linear equations we convert our system into an augmented matrix.  
         </p>
+        <example xml:id="augmatrix">
+          <title> Augmented Matrix </title>
+          <statement>
+            <p> For example, the system
+              <md>
+                <mrow>2x \amp -3y \amp= 4 </mrow>
+                <mrow>  x \amp +4y \amp =2</mrow>
+              </md>
+              becomes
+              <me>
+                \left[
+                \begin{matrix}
+                2 \amp -3 \amp | \amp 4\\
+                1 \amp 4 \amp | \amp 2
+                \end{matrix}
+                \right].
+              </me> 
+            </p>
+          </statement>
+        </example>
+              
         <p>
-          In Sympy, matrices are entered using the function <code>Matrix</code>.
+          In Sympy, matrices are entered using the function <c>Matrix</c>.
         </p>
 
         <sage language='python'>
@@ -93,14 +93,20 @@
 
         <exercise>
           <p>
-            Edit the above code to print the augmented matrix for our example system of linear equations. 
+            Edit the above code to print the augmented matrix for the system of linear equations in <xref ref="augmatrix"/>. 
           </p>
         </exercise>
+
+        <p>
+          The Sympy functions <c>echelon_form()</c> and <c>ref()</c> can be used to row reduce 
+          a matrix to reduced echelon form and row reduced echelon form, respectively. 
+          If you need a refresher on these two forms, read section (insert reference here). 
+        </p>
 
         <exercise>
           <p>
             Edit the code below to print the reduced echelon form and the row reduced echelon
-            form for the augmented matrix from our example system of linear equations. 
+            form for the augmented matrix of the system of linear equations from <xref ref="augmatrix"/>. 
           </p>
         </exercise>
 
@@ -118,44 +124,162 @@
         </sage>
 
         <p>
-          Note that <code>rref()</code> returns not only the row reduced echelon form of a matrix, but also a 
-          tuple that tells you which columns are pivot columns, that is have leading values of 1. 
+          Note that <c>rref()</c> returns not only the row reduced echelon form of a matrix, but also a 
+          tuple that tells you which columns have leading values of 1. These columns are called <emph>pivot columns</emph>, 
+          and give you a quick way to see any free variables (which are non-pivot columns).
         </p>
 
         <exercise>
           <p>
-            Edit the code above for various augmented matrices to see how the tuple relates to the pivot columns. 
+            Edit the code above for various augmented matrices to see how the tuple returned by <c>rref()</c> relates to the pivot columns. 
           </p>
         </exercise>
 
         <p>
-          Things left to do here: (1) something about unique solutions, infinitely many solutions or no solutions, 
-          (2) graphing solutions to systems 
+          Recall that a system of linear equations either has 
+          <ol>
+            <li>
+              <p>
+                no solution,
+              </p>
+            </li>
+            <li>
+              <p>
+                a unique solution, or
+              </p>
+            </li>
+            <li>
+              <p>
+                infinitely many solutions.
+              </p>
+            </li>
+          </ol>
+          If you need a refresher on how to interpret the reduced echelon form of an augmented matrix to determine if there is no solution, 
+          write down the unique solution, or give the infinitely many solutions in parametric form, 
+          see section (insert section here).
         </p>
+      </subsection>
+
+      <subsection xml:id="graphsolution">
+        <title>Graphing solutions to systems of equations of two and three variables</title>
 
         <p>
-          Since Numpy and Sympy are different libraries, we will need to either enter our augmented matrix 
-          as a Sympy matrix, or convert a numpy array into a sympy matrix in order to 
-          call the row reducing function in Sympy. 
+          In order to graph solutions in 2D and 3D you merely need to graph the corresponding lines, planes, or coordinates. 
         </p>
 
+        <example xml:id="twodsolutions">
+          <p> The system
+            <md>
+              <mrow>x \amp +2y \amp= 6 </mrow>
+              <mrow>  \frac{1}{2}x \amp -y \amp =1</mrow>
+            </md>
+            has solutions <m>x=4</m> and <m>y=1</m>. 
+          </p>
+          <p> Linear equations with two variables can be graphed as lines in the xy-plane, 
+            either by plotting two points on the line or solving for <m>y</m>.</p>
+          <sage language='python'>
+            <input>
+              import matplotlib.pyplot as plt
+              import numpy as np
+              fig = plt.figure() #create a figure
+              ax = plt.axes() #create an axis
+              ax.grid() #add a grid
+
+              X = np.linspace(0,10,num=100) #inputs
+              Y1 = (6-X)/2 #outputs for first equation
+              Y2 = 0.5*X-1 #outputs for second equation
+
+              ax.set_title("Solutions to 2D System") #title
+              ax.set_xlabel("x") #input label
+              ax.set_ylabel("y") #output label
+
+              ax.plot(X,Y1,X,Y2) #plot both equations
+              plt.show() #display result
+            </input>
+          </sage>
+          
+        </example>
+
+        <exercise>
+          <p>
+            Edit the code in <xref ref="twodsolutions"/> to clearly indicate the solution <m>x=4</m> and <m>y=1</m> on the graph.
+          </p>
+        </exercise>
+
+        <p>
+          Systems of equations with three variables must be graphed on a 3D axis. 
+        </p>
+
+        <example xml:id="threedsolutions1">
+          <p> The system
+            <md>
+              <mrow>x \amp +2y \amp= 6 </mrow>
+              <mrow>  \frac{1}{2}x \amp -y \amp =1</mrow>
+            </md>
+            has solutions <m>x=4</m> and <m>y=1</m>. 
+          </p>
+          <p> Linear equations with two variables can be graphed as lines, 
+            either by plotting two points on the line or solving for <m>y</m>.</p>
+          
+        </example>
+
+      </subsection>
+
+      <subsection>
+        <title> Graphing vector equations </title>
 
         <sage language='python'>
           <input>
-            import numpy as np
-            from sympy import Matrix
-
-            npA = np.matrix([[1, 2], [3, 4]]) #Create a numpy matrix
-            spA = Matrix(npA) #convert to a sympy matrix
-            REF = spA.echelon_form() #Get REF
-            RREF = spA.rref()[0] #Get RREF ??why 0?
-
-            print(np.array(RREF))
-
+            import matplotlib.pyplot as plt\
+            plt.figure()
+            plt.xlim(-10, 10)
+            plt.ylim(-10, 10)
+            plt.axhline(0, color='black',linewidth=0.5)
+            plt.axvline(0, color='black',linewidth=0.5)
+            plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
+            u_a = 1
+            v_a = 2
+            u_b = 2
+            v_b = -1
+            # -3a
+            plt.quiver(0,0,-3*u_a,-3*v_a,angles='xy', scale_units='xy', scale=1, label='-3a' # 2b
+            plt.quiver(0,0,u_b*2,(2)*v_b,angles='xy', scale_units='xy', scale=1,label='2b'
+            #a
+            # X,Y U,V
+            plt.quiver(0,0,u_a,v_a,angles='xy', scale_units='xy', scale=1, label='a',color #b
+            plt.quiver(0,0,2,-1,angles='xy', scale_units='xy', scale=1,label='b',color='g' # c from -3a + 2b
+            plt.quiver(0,0,-3*u_a+2*u_b,-3*v_a+2*v_b,angles='xy', scale_units='xy', scale
+            plt.legend() #Makes labels show up plt.show()
           </input>
         </sage>
-        
       </subsection>
+
+      <subsection xml:id="subsec-">
+        <title>Converting between Numpy arrays and Sympy Matrices</title>
+
+      <p>
+        Since Numpy and Sympy are different libraries, we will need to either enter our augmented matrix 
+        as a Sympy matrix, or convert a numpy array into a sympy matrix in order to 
+        call the row reducing function in Sympy. 
+      </p>
+
+
+      <sage language='python'>
+        <input>
+          import numpy as np
+          from sympy import Matrix
+
+          npA = np.matrix([[1, 2], [3, 4]]) #Create a numpy matrix
+          spA = Matrix(npA) #convert to a sympy matrix
+          REF = spA.echelon_form() #Get REF
+          RREF = spA.rref()[0] #Get RREF ??why 0?
+
+          print(np.array(RREF))
+
+        </input>
+      </sage>
+      
+    </subsection>
 
       <assemblage><!--to assemble or summarize important connected ideas-->
         <title> Summary </title>

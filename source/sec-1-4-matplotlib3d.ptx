@@ -371,9 +371,7 @@
       <conclusion>
         <p>
         This section gave us just an introduction to 3D graphing possibilities using Matplotlib in Python.
-        There are many other opportunities
-
-        Add conclusion here. More. and more. And more.
+        We will continue to learn more about graphing as we move into using Python for matrix algebra. 
         </p>
       </conclusion>
 
