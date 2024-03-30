@@ -180,10 +180,6 @@
       </subsection>
 
 
-      <subsection>
-        <title>Debugging revisited</title>
-        <p>Add another exercise that they need to debug.</p>
-      </subsection>
 
       <conclusion>
         <p> You can find more information about the package NumPy at 

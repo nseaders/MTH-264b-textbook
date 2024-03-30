@@ -29,6 +29,11 @@
       </li>
       <li>
         <p>
+          Use Matplotlib to graph vectors. 
+        </p>
+      </li>
+      <li>
+        <p>
           Label the axes on a graph.
         </p>
       </li>
@@ -315,8 +320,6 @@
 
   </subsection>
 
-
-
   <subsection xml:id="custom-graphs">
     <title>Customizing</title>
 
@@ -346,11 +349,15 @@
         
         fig = plt.figure() #create a figure
         ax = plt.axes() #add an axis
-        ax.grid() #add a grid
+        
         X = np.linspace(0,6,num=100) #determine inputs
         Y = np.sin(X) #determine outputs for y=sin(x)
-        
         ax.plot(X,Y, color="orange", linestyle="--") #plot the connected dots on your axes
+
+        ax.grid() #add a grid
+        plt.axhline(0, color='black') #add horizontal axis
+        plt.axvline(0, color='black') #add vertical axis
+        
         plt.show() #display the result
       </input>
     </sage>
@@ -364,10 +371,97 @@
     
   </subsection>
 
+  <subsection xml:id="subsec-Vectorsin2D">
+    <title>Vectors in 2D</title>
+    <p>
+      Matplotlib plots vectors using a function from pyplot called <c>quiver</c>, 
+      which takes an initial coordinate, followed by the vector coordinates, to draw an arrow. 
+      Since the axes of your graph are not determined by the input domain of a function, 
+      you need to explicitly choose your axes limits using pyplot's <c>xlim</c> and <c>ylim</c>.
+    </p>
+    <sage language='python'>
+      <input>
+        import matplotlib.pyplot as plt
+
+        fig = plt.figure() #create a figure
+        ax = plt.axes() #add an axis
+        plt.xlim(-4, 4) #choose x window
+        plt.ylim(-2, 4) #choose y window
+
+        plt.quiver(0,0,1,3) #vector(1,3)
+
+        plt.show()
+      </input>
+    </sage>
+    <exercise>
+      <p>
+        Try various viewing windows in the above code. What do you notice about the size of your arrow? 
+      </p>
+    </exercise>
+    <p>
+      Since <c>quiver</c> is typically used for vector fields, the size scales automatically based on other elements of the graph. 
+      Here we want to use the <m>xy</m>-axes as a fixed scale to draw the vectors, and so will include the arguments <c>angles='xy', scale_units='xy', scale=1</c> inside <c>quiver</c>.
+    </p>
+    <sage language='python'>
+      <input>
+        import matplotlib.pyplot as plt
+
+        fig = plt.figure() #create a figure
+        ax = plt.axes() #add an axis
+        plt.xlim(-4, 4) #x window
+        plt.ylim(-2, 4) #y window
+
+        #vector (1,3)
+        plt.quiver(0,0,1,3,angles='xy', scale_units='xy', scale=1) 
+
+        plt.show()
+      </input>
+    </sage>
+    <exercise>
+      <p>
+        Try various vectors and viewing windows in the above code.  
+      </p>
+    </exercise>
+    <p>
+      For multiple vectors it can be helpful to color code and use pyplot's <c>grid()</c> and <c>legend()</c> feature.
+    </p>
+    
+    <sage language='python'>
+      <input>
+        import matplotlib.pyplot as plt
+
+        fig = plt.figure() #create a figure
+        ax = plt.axes() #add an axis
+
+        plt.xlim(-1, 4)
+        plt.ylim(-2, 4)
+        plt.grid()
+
+        # original vectors
+        plt.quiver(0,0,1,3,label='u',color='cyan', angles='xy', scale_units='xy', scale=1) 
+        plt.quiver(1,3,2,-4,label='v',color='orchid', angles='xy', scale_units='xy', scale=1) 
+
+        plt.legend() #Makes labels show up
+        ax.set_title("Vectors") #title
+
+        plt.show()
+      </input>
+    </sage>
+
+    <exercise>
+      <p>
+        Try various vectors and viewing windows in the above code. 
+        Also add a horizontal and vertical axis at <m>x=0</m> and <m>y=0</m> using the code found in the second 
+        Customizing example.
+      </p>
+    </exercise>
+    
+  </subsection>
+
   <conclusion>
     <p>There are other ways to set up your figure and your axes in Matplotlib. 
       Some are shortcuts and Matplotlib will use default settings 
-      (e.g. if we do not explicitly give inputs for the function we want to graph.) 
+      (e.g. if we do not explicitly give inputs for the function we want to graph). 
       The approach in this section is very explicit, which makes it easier to understand how to control each feature as we get started.  
     </p>
   </conclusion>
@@ -412,6 +506,11 @@
           <p>
             We can customize color, linestyles, plotting styles, thickness, tickmarks, font sizes, etc.
             to make our graph exactly what we need for publication. 
+          </p>
+        </li>
+        <li>
+          <p>
+            We can specify a viewing window using <c>xlim</c> and <c>ylim</c> and graph vectors using <c>quiver</c>.
           </p>
         </li>
       </ul>
