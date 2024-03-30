@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script><script>// Make *any* pre with class 'sagecell-python' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-python",
+  "linked": true,
+  "languages": [
+    "python"
+  ],
+  "evalButtonText": "Evaluate (Python)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.25</span><span class="period">.</span>
+</h4>
+<pre class="ptx-sagecell sagecell-python" id="sage-27"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
+import numpy as np 
+
+fig = plt.figure() #create a figure
+ax = plt.axes(projection='3d') #add a 3D axis
+X = np.arange(-2,2,step=0.25) #1D x-inputs
+Y = np.arange(-2,2,step=0.25) #1D y-inputs
+X,Y = np.meshgrid(X,Y) #2D grid of inputs
+Z1 = X**2+Y**2 #determine outputs 
+Z2 = X-3*Y #determine other outputs
+
+ax.set_xlabel('X') #label x-axis
+ax.set_ylabel('Y') #label y-axis
+ax.set_title("Matplotlib Fails") 
+
+ax.plot_surface(X,Y,Z1) #plot one surface
+ax.plot_surface(X,Y,Z2) #plot second surface
+plt.show() #display the result
+</script></pre></article><span class="incontext"><a href="section-matplotlib3d.html#transparent3d" class="internal">in-context</a></span>
+</body>
+</html>

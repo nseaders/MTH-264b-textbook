@@ -9,22 +9,145 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script><script>// Make *any* pre with class 'sagecell-python' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-python",
+  "linked": true,
+  "languages": [
+    "python"
+  ],
+  "evalButtonText": "Evaluate (Python)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <article class="example example-like"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.7</span><span class="period">.</span>
 </h4>
 <div class="para logical">
-<div class="para">The system</div>
+<div class="para">Graph solutions to the system</div>
 <div class="displaymath process-math">
 \begin{align*}
-x \amp +2y \amp= 6 \\
-\frac{1}{2}x \amp -y \amp =1
+x +y +z \amp= 1 \\
+-y +z \amp =1\\
+-x  +y -z\amp =0
 \end{align*}
 </div>
-<div class="para">has solutions <span class="process-math">\(x=4\)</span> and <span class="process-math">\(y=1\text{.}\)</span>
-</div>
-</div> <div class="para">Linear equations with two variables can be graphed as lines, either by plotting two points on the line or solving for <span class="process-math">\(y\text{.}\)</span>
+<div class="para">by finding the equations of the lines of intersection of the planes and plotting the planes, the lines, and the point of intersection.</div>
+</div> <div class="para">Solution 1 walks through the process, followed by a Python implementation of the <code class="code-inline tex2jax_ignore">rref()</code>.</div> <a href="" class="solution-knowl original" data-knowl="./knowl/solution-1-hidden.html" title="Solution 2.7.1"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></a> <pre class="ptx-sagecell sagecell-python" id="sage-35"><script type="text/x-sage">from sympy import Matrix
+
+A = Matrix([ [1,1,1,1], [0,-1,1,1],[-1,1,-1,0]
+]) #all three equations
+
+I1 = Matrix([ [1,1,1,1], [0,-1,1,1]
+]) #intersection first two equations
+
+I2 = Matrix([ [0,-1,1,1],[-1,1,-1,0]
+]) #intersection last two other equations
+
+I3 = Matrix([ [1,1,1,1], [-1,1,-1,0]
+]) #intersection first and last equations
+
+print("A=", A.rref())
+print("I1=", I1.rref())
+print("I2=", I2.rref())
+print("I3=", I3.rref())
+</script></pre> <div class="para">Next we will use Matplotlib to graph these results. First note that if we are careless with our input domains for the planes and lines, our graph will be inconsistent.</div> <pre class="ptx-sagecell sagecell-python" id="sage-36"><script type="text/x-sage">import matplotlib.pyplot as plt
+import numpy as np
+
+fig = plt.figure() #create a figure
+ax = plt.axes(projection='3d') #add a 3D axis
+
+#plot the 3 plane equations, use alpha for transparency
+X = np.arange(-2,2,step=0.25) #1d x inputs
+Y = np.arange(-2,2,step=0.25) #1d y inputs
+X,Y = np.meshgrid(X,Y) #2D grid of inputs
+Z1 = 1-X-Y
+Z2 = 1+Y
+Z3 = Y-X
+ax.plot_surface(X,Y,Z1, alpha=0.5) 
+ax.plot_surface(X,Y,Z2, alpha=0.5)
+ax.plot_surface(X,Y,Z3, alpha=0.5)
+
+#plot the solution
+ax.scatter(-1,1/2,3/2)
+
+#plot the 3 line equations
+Z = np.arange(-2,2,step=0.25)
+X1 = 2-2*Z
+Y1 = -1+Z
+X2 = -1+0*Z
+Y2 = -1+Z
+X3 = 0.5-Z
+Y3 = 0.5+0*Z
+ax.plot(X1,Y1,Z)
+ax.plot(X2,Y2,Z)
+ax.plot(X3,Y3,Z)
+
+# Customize the view angle 
+#ax.view_init(elev=20, azim=30, roll=0)
+
+ax.set_title("Solutions to 3D System") #title
+ax.set_xlabel("x") #x label
+ax.set_ylabel("y") #y label
+ax.set_zlabel("z") #z label
+
+plt.show()
+</script></pre> <div class="para">Note: you can change the viewing angle to try and get a better graph.</div> <div class="para">The real problem in the code above is that we graph our surfaces with domain <span class="process-math">\(-2\leq x \leq 2\)</span> and <span class="process-math">\(-2\leq y\leq 2\text{,}\)</span> but use <span class="process-math">\(-2\leq z\leq 2\)</span> for the parametric equation of our lines. There are several fixes for this.</div> <div class="para">One fix is to adjust the parametric input values for the lines to better match the planes. For example, you can make <span class="process-math">\(-1\leq z \leq 3\)</span> to get a more consistent graph. <em class="emphasis">Try several adjustments for the <span class="process-math">\(z\)</span> range in the above code.</em> To get a fully consistent graph, each line would need a different parametric domain that matches the domain of the planes.</div> <div class="para">Another fix is to solve each pair of equations for two points on the line in the domain of the planes. You can then plot the line between the two points.</div> <div class="para">Solution 2 walks through the process of finding the points, followed by an alternative Python implementation to graph the solutions.</div> <a href="" class="solution-knowl original" data-knowl="./knowl/solution-2-hidden.html" title="Solution 2.7.2"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a> <pre class="ptx-sagecell sagecell-python" id="sage-37"><script type="text/x-sage">import matplotlib.pyplot as plt
+import numpy as np
+
+fig = plt.figure() #create a figure
+ax = plt.axes(projection='3d') #add a 3D axis
+
+#plot the 3 plane equations, use alpha for transparency
+X = np.arange(-2,2,step=0.25) #1d x inputs
+Y = np.arange(-2,2,step=0.25) #1d y inputs
+X,Y = np.meshgrid(X,Y) #2D grid of inputs
+SurfZ1 = 1-X-Y
+SurfZ2 = 1+Y
+SurfZ3 = Y-X
+ax.plot_surface(X,Y,SurfZ1, color='cyan', alpha=0.5) 
+ax.plot_surface(X,Y,SurfZ2, color='orchid', alpha=0.5)
+ax.plot_surface(X,Y,SurfZ3, color='gold', alpha=0.5)
+
+#plot the solution
+ax.scatter(-1,1/2,3/2)
+
+#plot the 3 line equations using points
+Line1X = [-2,2] #xvalues for first line
+Line1Y = [1,-1] #yvalues for first line
+Line1Z = [2,0] #zvalues for first line
+Line2X = [-1,-1]
+Line2Y = [-2,2]
+Line2Z = [-1,3]
+Line3X = [-2,2]
+Line3Y = [1/2,1/2]
+Line3Z = [5/2,-3/2]
+ax.plot(Line1X,Line1Y,Line1Z, color='mediumpurple')
+ax.plot(Line2X,Line2Y,Line2Z, color='darkorange')
+ax.plot(Line3X,Line3Y,Line3Z, color='green')
+
+# Customize the view angle 
+#ax.view_init(elev=20, azim=30, roll=0)
+
+ax.set_title("Solutions to 3D System") #title
+ax.set_xlabel("x") #x label
+ax.set_ylabel("y") #y label
+ax.set_zlabel("z") #z label
+
+plt.show()
+</script></pre> <div class="para">Can you find other fixes? <em class="emphasis">If so, share them so we can add them here.</em>
 </div></article><span class="incontext"><a href="section-systems.html#threedsolutions1" class="internal">in-context</a></span>
 </body>
 </html>

@@ -32,14 +32,48 @@ sagecell.makeSagecell({
 </script>
 </head>
 <body class="ignore-math">
-<article class="example example-like"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3</span><span class="period">.</span>
-</h3>
-<pre class="ptx-sagecell sagecell-python" id="sage-4"><script type="text/x-sage">sum_and_product = (3+4+5)*2
-print(sum_and_product)
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.8</span><span class="period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">For example the vector equation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/twodsolutions.html">
+\begin{equation*}
+x\left[ \begin{matrix} 1\\ 1/2 \end{matrix} \right] +
+y\left[\begin{matrix} 2\\-1 \end{matrix} \right]=
+\left[\begin{matrix} 6\\1 \end{matrix} \right]
+\end{equation*}
+</div>
+<div class="para">corresponds to the linear system found in <a href="" class="xref" data-knowl="./knowl/twodsolutions.html" title="Example 2.5">Example 2.5</a> and still has solution <span class="process-math">\(x=4\)</span> and <span class="process-math">\(y=1\text{.}\)</span>
+</div>
+</div> <div class="para">The solution to the vector equation can be graphed using linear combinations of vectors. That is, <span class="process-math">\(4\vec{u}+\vec{v}=\vec{b}.\)</span>
+</div> <pre class="ptx-sagecell sagecell-python" id="sage-38"><script type="text/x-sage">import matplotlib.pyplot as plt
 
-nine_cubed = 9**3
-print(nine_cubed)
-</script></pre></article><span class="incontext"><a href="section-variables.html#example-4" class="internal">in-context</a></span>
+fig = plt.figure() #create a figure
+ax = plt.axes() #add an axis
+
+plt.xlim(-2, 7)
+plt.ylim(-2, 4)
+plt.axhline(0, color='black')
+plt.axvline(0, color='black')
+plt.grid()
+
+# original vectors
+plt.quiver(0,0,1,1/2,label='u',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1) 
+plt.quiver(0,0,2,-1,label='v',color='deepskyblue', angles='xy', scale_units='xy', scale=1) 
+plt.quiver(0,0,6,1,label='b',color='green', angles='xy', scale_units='xy', scale=1) 
+
+#solution vectors
+plt.quiver(0,0,4,2,label='4u',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1, alpha=0.6) 
+plt.quiver(4,2,2,-1,color='deepskyblue', angles='xy', scale_units='xy', scale=1) 
+
+plt.legend() #Makes labels show up
+ax.set_title("Solutions to Vector Equation") #title
+ax.set_xlabel("x") #input label
+ax.set_ylabel("y") #output label
+
+
+plt.show()
+</script></pre></article><span class="incontext"><a href="section-systems.html#example-4" class="internal">in-context</a></span>
 </body>
 </html>
