@@ -16,7 +16,7 @@ var ptx_lunr_docs = [
   "type": "Chapter",
   "number": "0",
   "title": "Prologue",
-  "body": " Prologue  This textbook is a work in progress, and is being written specifically for Mechanical Engineering majors at OSU to introduce just enough Python code to implement Matrix Algebra taught in MTH 264. You are currently reading an unfinished first draft. We expect some of our students to know more than we do, and hope, with their permission, to include their ideas and contributions to the textbook.  We hope to have a draft of each chapter that we will use to guide each class discussion. Note that instead of needing to install any software on your device we will use embedded SageMathCell. You will need a laptop (or tablet with a keyboard) for each class day, however. Laptops are available for   "
+  "body": " Prologue  This textbook is a work in progress, and is being written specifically for Mechanical Engineering majors at OSU to introduce just enough Python code to implement Matrix Algebra taught in MTH 264. You are currently reading an unfinished first draft. We expect some of our students to know more than we do, and hope, with their permission, to include their ideas and contributions to the textbook.  We hope to have a draft of each chapter that we will use to guide each class discussion. Note that instead of needing to install any software on your device we will use embedded SageMathCell. You will need a laptop (or tablet with a keyboard) for each class day, however. Laptops are available for checkout in the LBCC library.   "
 },
 {
   "id": "section-variables",
