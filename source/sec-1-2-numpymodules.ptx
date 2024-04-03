@@ -217,6 +217,65 @@
       </p>
       </assemblage>
 
+      <exercises xml:id="exercises-modules">
+        <exercise>
+          <p> Research NumPy</p>
+          <ol>
+            <li>
+              <p>
+                Look up how to efficiently create a 15 element array of all <m>1</m>'s.
+              </p>
+            </li>
+            <li>
+              <p>
+                Use this to create a 15 element array of all <m> 100</m>'s. 
+              </p>
+            </li>
+          </ol>
+            
+          <sage language='python'>
+            <input>
+              #
+              #
+              #
+              #
+              #
+            </input>
+          </sage>
+        </exercise>
+
+        <exercise>
+          <p>
+          The magnitude of an earthquake is measured using the Richter Scale, which is a logarithmic scale. 
+          The amount of energy <m>E</m> in <emph>ergs</emph> an earthquake releases can be determined from the magnitude <m>M</m>
+          using the formula 
+          </p>
+          <me> \log_{10}(E)=11.8+1.5M</me>
+          <p>
+            The <url href="https://earthquake.usgs.gov/earthquakes/map">USGS</url> 
+            website lets you download magnitude data for the 30 most recent earthquakes in the world with magnitude <m>>2.5</m>.  
+          </p>
+          <p>
+            Use Numpy to determine how much energy has been released in the 30 most recent earthquakes. 
+            <em>Note that you can copy and paste data from a csv file into SageMathCell. 
+              You will just need to then format that data for Numpy.</em>  
+          </p>
+
+          <sage language='python'>
+            <input>
+              #
+              #
+              #
+              #
+              #
+            </input>
+          </sage>
+        </exercise>
+        
+      </exercises>
+
+
+
 
 
 </section>

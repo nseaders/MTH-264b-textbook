@@ -215,7 +215,17 @@
 
       <exercises xml:id="exercises-variable">
         <exercise>
-          <p> test it out </p>
+          <p> Try some Python here. </p>
+          <sage language='python'>
+            <input>
+              #
+              #
+              #
+              #
+              #
+              #
+            </input>
+          </sage>
         </exercise>
         
       </exercises>
