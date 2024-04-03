@@ -3,7 +3,7 @@
 <!--                                                    -->
 <!-- An Introduction to Matrix Computations in Python   -->
 <!--                                                    -->
-<!-- Copyright (C) 2023  LBCC                           -->
+<!-- Copyright (C) 2024  LBCC                           -->
 <!-- See the file copyright.txt for copying conditions. -->
 
 <section xml:id="section-stuff">
@@ -71,6 +71,22 @@
         </ul>
       </p>
       </assemblage>
+
+      <exercises xml:id="exercises-">
+        <exercise>
+          <sage language='python'>
+            <input>
+              #
+              #
+              #
+              #
+              #
+            </input>
+          </sage>
+          
+        </exercise>
+        
+      </exercises>
 
 
 

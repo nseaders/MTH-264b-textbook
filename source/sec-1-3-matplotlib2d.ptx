@@ -517,4 +517,20 @@
     </p>
   </assemblage>
 
+  <exercises xml:id="exercises-matplotlib2D">
+    <exercise>
+      <sage language='python'>
+        <input>
+          #
+          #
+          #
+          #
+          #
+        </input>
+      </sage>
+      
+    </exercise>
+    
+  </exercises>
+
 </section>

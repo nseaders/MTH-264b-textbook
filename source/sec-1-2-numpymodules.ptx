@@ -242,7 +242,25 @@
               #
             </input>
           </sage>
+          <solution>
+            <p>
+              <ol>
+                <li>
+                  <p>
+                    There is more than one way to do this. One approach is to use the <c>numpy</c> function <c>ones().</c>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Once you have an array of all 1's, you can multiply it by any number you want. 
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </solution>
         </exercise>
+        
+        
 
         <exercise>
           <p>

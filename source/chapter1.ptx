@@ -47,5 +47,6 @@
       <xi:include href="./sec-1-2-numpymodules.ptx"/>
       <xi:include href="./sec-1-3-matplotlib2d.ptx"/>
       <xi:include href="./sec-1-4-matplotlib3d.ptx"/>
+      <xi:include href="./sec-1-5-animation.ptx"/>
     
     </chapter>
