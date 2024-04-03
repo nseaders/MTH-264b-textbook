@@ -273,6 +273,7 @@ sagecell.makeSagecell({
 <li><div class="toc-item"><a href="section-modules.html#subsection-6" class="internal"><span class="title">Importing the package NumPy</span></a></div></li>
 <li><div class="toc-item"><a href="section-modules.html#subsection-7" class="internal"><span class="title">Standard functions in NumPy</span></a></div></li>
 <li><div class="toc-item"><a href="section-modules.html#subsection-8" class="internal"><span class="title">NumPy arrays</span></a></div></li>
+<li><div class="toc-item"><a href="section-modules.html#exercises-modules" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
@@ -342,7 +343,7 @@ sagecell.makeSagecell({
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Importing the package NumPy</span>
 </h3>
 <div class="para" id="p-34">NumPy is an open source scientific computing package that allows you to use standard mathematical functions and constants like sine or pi. NumPy also allows you to work with arrays of numbers so you can efficiently perform computations.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-7"><script type="text/x-sage">#first import the package numpy
+<pre class="ptx-sagecell sagecell-python" id="sage-8"><script type="text/x-sage">#first import the package numpy
 import numpy
 
 #compute sin(2) 
@@ -361,7 +362,7 @@ print(x)
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.5</span><span class="period">.</span>
 </h4>
 <div class="para" id="p-38">Use the NumPy package to compute the area of a circle using pi.</div>
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-3" id="hint-3"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-3"><div class="hint solution-like">If you import numpy as np, you will use np.pi</div></div></article><pre class="ptx-sagecell sagecell-python" id="sage-8"><script type="text/x-sage">#import the package numpy first - you fill in
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-3" id="hint-3"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-3"><div class="hint solution-like">If you import numpy as np, you will use np.pi</div></div></article><pre class="ptx-sagecell sagecell-python" id="sage-9"><script type="text/x-sage">#import the package numpy first - you fill in
 
 #decide the radius of the circle
 radius = 4
@@ -374,7 +375,7 @@ print(circle_area)
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">NumPy arrays</span>
 </h3>
 <div class="para" id="p-39">NumPy arrays can help us efficiently do computations with a collection of numbers all at once. We can also represent vectors or matrices using NumPy arrays. Run the code below that calls the NumPy function <code class="code-inline tex2jax_ignore">array</code> to see how it works.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-9"><script type="text/x-sage">import numpy as np
+<pre class="ptx-sagecell sagecell-python" id="sage-10"><script type="text/x-sage">import numpy as np
 
 #create an array containing the numbers 1, 2, 3, 4
 X = np.array([1,2,3,4])
@@ -383,7 +384,7 @@ print(X)
 print(2*X)
 </script></pre>
 <div class="para" id="p-40">NumPy also has built in functions to automatically create an array with certain conditions. For example <code class="code-inline tex2jax_ignore">linspace()</code> takes a given interval and sets up an array of evenly spaced numbers on that interval.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-10"><script type="text/x-sage">import numpy as np
+<pre class="ptx-sagecell sagecell-python" id="sage-11"><script type="text/x-sage">import numpy as np
 
 #create array of 11 evenly spaced numbers between 0 and 5
 X = np.linspace(0,5,num=11) 
@@ -395,7 +396,7 @@ print(X)
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.6</span><span class="period">.</span>
 </h4>
 <div class="para" id="p-42">Edit the above code to use linspace to create an array of numbers between 0 and 5 that are one-quarter apart. When you evaluate your code should print the list 0, 0.25, 0.5, 0.75, etc.</div></article><div class="para" id="p-43">Another way to create an array of values for a given interval is <code class="code-inline tex2jax_ignore">arange()</code>, which uses a step value to set up a sequence of numbers within that interval.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-11"><script type="text/x-sage">import numpy as np
+<pre class="ptx-sagecell sagecell-python" id="sage-12"><script type="text/x-sage">import numpy as np
 
 #create array of numbers between 0 and 5 with step size 2 
 X = np.arange(0,5,step=2) 
@@ -413,7 +414,38 @@ print(X)
 </div></li>
 <li id="li-12"><div class="para" id="p-50">Numpy arrays can help us efficiently do computations.</div></li>
 <li id="li-13"><div class="para" id="p-51">The Numpy functions <code class="code-inline tex2jax_ignore">linspace()</code> and <code class="code-inline tex2jax_ignore">arange()</code> set up an array of values over an interval.</div></li>
-</ul></div></article></section><div class="hidden-content tex2jax_ignore" id="hk-fn-2"><div class="fn"><code class="code-inline tex2jax_ignore">wiki.python.org/moin/UsefulModules</code></div></div>
+</ul></div></article><section class="exercises" id="exercises-modules"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exercise-9"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para" id="p-52">Research NumPy</div>
+<ol class="lower-alpha">
+<li id="li-14"><div class="para" id="p-53">Look up how to efficiently create a 15 element array of all <span class="process-math">\(1\)</span>’s.</div></li>
+<li id="li-15"><div class="para" id="p-54">Use this to create a 15 element array of all <span class="process-math">\(100\)</span>’s.</div></li>
+</ol>
+<pre class="ptx-sagecell sagecell-python" id="sage-13"><script type="text/x-sage">#
+#
+#
+#
+#
+</script></pre></article><article class="exercise exercise-like" id="exercise-10"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para" id="p-55">The magnitude of an earthquake is measured using the Richter Scale, which is a logarithmic scale. The amount of energy <span class="process-math">\(E\)</span> in ergs an earthquake releases can be determined from the magnitude <span class="process-math">\(M\)</span> using the formula</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\log_{10}(E)=11.8+1.5M
+\end{equation*}
+</div>
+<div class="para" id="p-56">The <a class="external" href="https://earthquake.usgs.gov/earthquakes/map" target="_blank">USGS</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-3" id="fn-3"><sup> 2 </sup></a> website lets you download magnitude data for the 30 most recent earthquakes in the world with magnitude <span class="process-math">\(&gt;2.5\text{.}\)</span>
+</div>
+<div class="para" id="p-57">Use Numpy to determine how much energy has been released in the 30 most recent earthquakes. <em class="emphasis">Note that you can copy and paste data from a csv file into SageMathCell. You will just need to then format that data for Numpy.</em>
+</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-14"><script type="text/x-sage">#
+#
+#
+#
+#
+</script></pre></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-2"><div class="fn"><code class="code-inline tex2jax_ignore">wiki.python.org/moin/UsefulModules</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-3"><div class="fn"><code class="code-inline tex2jax_ignore">earthquake.usgs.gov/earthquakes/map</code></div></div>
 </div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="section-variables.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="section-matplotlib.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>

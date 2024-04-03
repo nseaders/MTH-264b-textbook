@@ -25,7 +25,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.1",
   "title": "Variables",
-  "body": " Variables  In this section we will learn how to assign values to a variable in Python and display results.     Create a variable and assign it a value in Python using =     Display the value of a variable in Python using print()       A variable is like a container that can be used to store information or data. In Python you assign a value to a variable using = .  Run the Python code below by clicking the Evaluate (Python) button.   Note that the function print() was needed to display the value of the variable.  Change the value of the variable a by adding 5 after the 2*3 above and run the code again to see how the output changes.    Naming Variables  Variables can be named using letters, underscores, numbers, etc. Just be sure to use the exact same name to call your variable.  For example, the following code has a syntax error. Run the code as is and see what happens.    Can you fix the bug in the above code so it runs correctly?   Variables are case sensitive and must be exactly the same for Python to recognize them.     Arithmetic and Comments in Python  Python recognizes simple arithmetic symbols like + -, *, \/ .  Meanwhile a hashtag # can be used to tell Python to ignore code, reading what follows as a comment by the author rather than a Python command.   Comments can help anyone reading your code understand what that section of the code is doing. You can also comment out portions of code to isolate a bug.   In the box below, change the value of the variable arithmetic to try out some basic calculations. Add a comment using # to explain what your code is doing.   You can use the standard order of operations and parentheses (PEMDAS).      More about Variables  Just like in math, variables can be helpful when the information will change. Recall the formula for the area of a circle .  In the code below,    fill in the formula for the area of the circle using the appropriate variable names and arithmetic operations.      Use the code to approximately compute the area of a circle with radius 5 and a circle with radius 13.     Note that print will display comma separted items one right after the other. In the code above we first displayed the string The area of a circle is followed by the current value of our variable circle_area .    Syntax and Semantic errors  One error we can make when creating and editing code is to mis-type a command causing Python to not understand the syntax , that is the chosen command, in our program. Another error is when we make our meaning unclear, more of a semantic issue. For example you can add numbers to numbers or strings of letters to strings of letters in Python but if we try to add a number to a string of letters, Python will not know what is meant by adding.    Summary     A variable can be used as a container to store data or information.      Use print(variable_name) to display the information stored in the variable.      Use # to comment and make your code more readable.       test it out   "
+  "body": " Variables  In this section we will learn how to assign values to a variable in Python and display results.     Create a variable and assign it a value in Python using =     Display the value of a variable in Python using print()       A variable is like a container that can be used to store information or data. In Python you assign a value to a variable using = .  Run the Python code below by clicking the Evaluate (Python) button.   Note that the function print() was needed to display the value of the variable.  Change the value of the variable a by adding 5 after the 2*3 above and run the code again to see how the output changes.    Naming Variables  Variables can be named using letters, underscores, numbers, etc. Just be sure to use the exact same name to call your variable.  For example, the following code has a syntax error. Run the code as is and see what happens.    Can you fix the bug in the above code so it runs correctly?   Variables are case sensitive and must be exactly the same for Python to recognize them.     Arithmetic and Comments in Python  Python recognizes simple arithmetic symbols like + -, *, \/ .  Meanwhile a hashtag # can be used to tell Python to ignore code, reading what follows as a comment by the author rather than a Python command.   Comments can help anyone reading your code understand what that section of the code is doing. You can also comment out portions of code to isolate a bug.   In the box below, change the value of the variable arithmetic to try out some basic calculations. Add a comment using # to explain what your code is doing.   You can use the standard order of operations and parentheses (PEMDAS).      More about Variables  Just like in math, variables can be helpful when the information will change. Recall the formula for the area of a circle .  In the code below,    fill in the formula for the area of the circle using the appropriate variable names and arithmetic operations.      Use the code to approximately compute the area of a circle with radius 5 and a circle with radius 13.     Note that print will display comma separted items one right after the other. In the code above we first displayed the string The area of a circle is followed by the current value of our variable circle_area .    Syntax and Semantic errors  One error we can make when creating and editing code is to mis-type a command causing Python to not understand the syntax , that is the chosen command, in our program. Another error is when we make our meaning unclear, more of a semantic issue. For example you can add numbers to numbers or strings of letters to strings of letters in Python but if we try to add a number to a string of letters, Python will not know what is meant by adding.    Summary     A variable can be used as a container to store data or information.      Use print(variable_name) to display the information stored in the variable.      Use # to comment and make your code more readable.       Try some Python here.   "
 },
 {
   "id": "objectives-1",
@@ -79,7 +79,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1",
   "title": "",
-  "body": "test it out "
+  "body": "Try some Python here. "
 },
 {
   "id": "section-modules",
@@ -88,7 +88,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.2",
   "title": "Python Packages and NumPy",
-  "body": " Python Packages and NumPy  Python packages and libraries are collections of functions and modules centered around a common theme. In this section we will learn how to import a Python package and use functions from that package.     Import a Python package or library (our example NumPy).    Use functions from a Python package.      Importing the package NumPy  NumPy is an open source scientific computing package that allows you to use standard mathematical functions and constants like sine or pi. NumPy also allows you to work with arrays of numbers so you can efficiently perform computations.   Note to call a function from an imported package you must use the syntax package.function . To avoid retyping the long name of a package every time, it is standard practice to rename the package as you import.  Rename the package numpy in the above code by replacing the import line with import numpy as np . Next use the new name of the package to call the function np.sin() and re-run.    Standard functions in NumPy  In addition to the standard trigonometric functions, NumPy also contains as exp() and natural log as log() , as well as the standard mathematical constants like pi and e .  Use the NumPy package to compute the area of a circle using pi. If you import numpy as np, you will use np.pi     NumPy arrays  NumPy arrays can help us efficiently do computations with a collection of numbers all at once. We can also represent vectors or matrices using NumPy arrays. Run the code below that calls the NumPy function array to see how it works.   NumPy also has built in functions to automatically create an array with certain conditions. For example linspace() takes a given interval and sets up an array of evenly spaced numbers on that interval.   Note that the array includes 5, so it takes 11 evenly spaced numbers to get numbers 0.5 apart. Note also that although the number values are evenly spaced, the printed array is not. Namely the default is to space out the entries by the maximum number of decimal places with blank spaces instead of extra zeroes.  Edit the above code to use linspace to create an array of numbers between 0 and 5 that are one-quarter apart. When you evaluate your code should print the list 0, 0.25, 0.5, 0.75, etc.  Another way to create an array of values for a given interval is arange() , which uses a step value to set up a sequence of numbers within that interval.   Note that the array gets cut off before the right endpoint of the interval if your stepsize doesn't divide the interval evenly.  Edit the above code to use arange to create an array of numbers between 0 and 5 that are one-quarter apart. When you evaluate your code should print the list 0, 0.25, 0.5, 0.75, etc.    You can find more information about the package NumPy at . Python's wiki has a list of other commonly used modules and packages .    Summary     You can import a Python package and rename it by using import package as name .    You can call a function from a package using packagename.function     Numpy arrays can help us efficiently do computations.    The Numpy functions linspace() and arange() set up an array of values over an interval.      "
+  "body": " Python Packages and NumPy  Python packages and libraries are collections of functions and modules centered around a common theme. In this section we will learn how to import a Python package and use functions from that package.     Import a Python package or library (our example NumPy).    Use functions from a Python package.      Importing the package NumPy  NumPy is an open source scientific computing package that allows you to use standard mathematical functions and constants like sine or pi. NumPy also allows you to work with arrays of numbers so you can efficiently perform computations.   Note to call a function from an imported package you must use the syntax package.function . To avoid retyping the long name of a package every time, it is standard practice to rename the package as you import.  Rename the package numpy in the above code by replacing the import line with import numpy as np . Next use the new name of the package to call the function np.sin() and re-run.    Standard functions in NumPy  In addition to the standard trigonometric functions, NumPy also contains as exp() and natural log as log() , as well as the standard mathematical constants like pi and e .  Use the NumPy package to compute the area of a circle using pi. If you import numpy as np, you will use np.pi     NumPy arrays  NumPy arrays can help us efficiently do computations with a collection of numbers all at once. We can also represent vectors or matrices using NumPy arrays. Run the code below that calls the NumPy function array to see how it works.   NumPy also has built in functions to automatically create an array with certain conditions. For example linspace() takes a given interval and sets up an array of evenly spaced numbers on that interval.   Note that the array includes 5, so it takes 11 evenly spaced numbers to get numbers 0.5 apart. Note also that although the number values are evenly spaced, the printed array is not. Namely the default is to space out the entries by the maximum number of decimal places with blank spaces instead of extra zeroes.  Edit the above code to use linspace to create an array of numbers between 0 and 5 that are one-quarter apart. When you evaluate your code should print the list 0, 0.25, 0.5, 0.75, etc.  Another way to create an array of values for a given interval is arange() , which uses a step value to set up a sequence of numbers within that interval.   Note that the array gets cut off before the right endpoint of the interval if your stepsize doesn't divide the interval evenly.  Edit the above code to use arange to create an array of numbers between 0 and 5 that are one-quarter apart. When you evaluate your code should print the list 0, 0.25, 0.5, 0.75, etc.    You can find more information about the package NumPy at . Python's wiki has a list of other commonly used modules and packages .    Summary     You can import a Python package and rename it by using import package as name .    You can call a function from a package using packagename.function     Numpy arrays can help us efficiently do computations.    The Numpy functions linspace() and arange() set up an array of values over an interval.       Research NumPy   Look up how to efficiently create a 15 element array of all 's.    Use this to create a 15 element array of all 's.    The magnitude of an earthquake is measured using the Richter Scale, which is a logarithmic scale. The amount of energy in ergs an earthquake releases can be determined from the magnitude using the formula The USGS website lets you download magnitude data for the 30 most recent earthquakes in the world with magnitude . Use Numpy to determine how much energy has been released in the 30 most recent earthquakes. Note that you can copy and paste data from a csv file into SageMathCell. You will just need to then format that data for Numpy.    "
 },
 {
   "id": "objectives-2",
@@ -136,6 +136,24 @@ var ptx_lunr_docs = [
   "body": "Edit the above code to use arange to create an array of numbers between 0 and 5 that are one-quarter apart. When you evaluate your code should print the list 0, 0.25, 0.5, 0.75, etc. "
 },
 {
+  "id": "exercise-9",
+  "level": "2",
+  "url": "section-modules.html#exercise-9",
+  "type": "Exercise",
+  "number": "1",
+  "title": "",
+  "body": "Research NumPy   Look up how to efficiently create a 15 element array of all 's.    Use this to create a 15 element array of all 's.   "
+},
+{
+  "id": "exercise-10",
+  "level": "2",
+  "url": "section-modules.html#exercise-10",
+  "type": "Exercise",
+  "number": "2",
+  "title": "",
+  "body": "The magnitude of an earthquake is measured using the Richter Scale, which is a logarithmic scale. The amount of energy in ergs an earthquake releases can be determined from the magnitude using the formula The USGS website lets you download magnitude data for the 30 most recent earthquakes in the world with magnitude . Use Numpy to determine how much energy has been released in the 30 most recent earthquakes. Note that you can copy and paste data from a csv file into SageMathCell. You will just need to then format that data for Numpy.  "
+},
+{
   "id": "section-matplotlib",
   "level": "1",
   "url": "section-matplotlib.html",
@@ -154,99 +172,99 @@ var ptx_lunr_docs = [
   "body": "   Use Matplotlib to graph curves.    Use Matplotlib to make a scatterplot.    Use Matplotlib to graph vectors.    Label the axes on a graph.    "
 },
 {
-  "id": "exercise-9",
+  "id": "exercise-11",
   "level": "2",
-  "url": "section-matplotlib.html#exercise-9",
+  "url": "section-matplotlib.html#exercise-11",
   "type": "You Try",
   "number": "1.8",
   "title": "",
   "body": "Change both of the above sets of code to whole number inputs from 0 to 6.   What happens to your line?    What happens to your sine curve?    "
 },
 {
-  "id": "exercise-10",
+  "id": "exercise-12",
   "level": "2",
-  "url": "section-matplotlib.html#exercise-10",
+  "url": "section-matplotlib.html#exercise-12",
   "type": "You Try",
   "number": "1.9",
   "title": "",
   "body": "Change the above code to use arange() instead of linspace() to set up your inputs. What is the smallest step size that makes the curve look smooth? "
 },
 {
-  "id": "exercise-11",
+  "id": "exercise-13",
   "level": "2",
-  "url": "section-matplotlib.html#exercise-11",
+  "url": "section-matplotlib.html#exercise-13",
   "type": "You Try",
   "number": "1.10",
   "title": "",
   "body": "Change the above code to graph with a traditional input window like [-10,10]. "
 },
 {
-  "id": "exercise-12",
+  "id": "exercise-14",
   "level": "2",
-  "url": "section-matplotlib.html#exercise-12",
+  "url": "section-matplotlib.html#exercise-14",
   "type": "You Try",
   "number": "1.11",
   "title": "",
   "body": "Notice that if you don't specify the inputs, pyplot uses a default set instead. Change the above code and remove the second call for the inputs X in ax.plot(). What is the default input window pyplot uses for Y2? "
 },
 {
-  "id": "exercise-13",
+  "id": "exercise-15",
   "level": "2",
-  "url": "section-matplotlib.html#exercise-13",
+  "url": "section-matplotlib.html#exercise-15",
   "type": "You Try",
   "number": "1.12",
   "title": "",
   "body": "Change the above code to add a third function on the same graph. "
 },
 {
-  "id": "exercise-14",
+  "id": "exercise-16",
   "level": "2",
-  "url": "section-matplotlib.html#exercise-14",
+  "url": "section-matplotlib.html#exercise-16",
   "type": "You Try",
   "number": "1.13",
   "title": "",
   "body": "Adjust the code in any plot above to make it into a scatter plot instead.  Replace ax.plot() with ax.scatter() in the code.  "
 },
 {
-  "id": "exercise-15",
+  "id": "exercise-17",
   "level": "2",
-  "url": "section-matplotlib.html#exercise-15",
+  "url": "section-matplotlib.html#exercise-17",
   "type": "You Try",
   "number": "1.14",
   "title": "",
   "body": "Note that the above code graphs the unit circle. Play with the above functions for and to see what other interesting curves you can graph. In particular, when you have the parameter , can you create  a line?  a different circle?  a parabola?   "
 },
 {
-  "id": "exercise-16",
+  "id": "exercise-18",
   "level": "2",
-  "url": "section-matplotlib.html#exercise-16",
+  "url": "section-matplotlib.html#exercise-18",
   "type": "You Try",
   "number": "1.15",
   "title": "",
   "body": "Search online for a way to change the tick labels in Matplotlib. Try and adjust the \"Falling Body\" graph to have tickmarks every quarter of a second. "
 },
 {
-  "id": "exercise-17",
+  "id": "exercise-19",
   "level": "2",
-  "url": "section-matplotlib.html#exercise-17",
+  "url": "section-matplotlib.html#exercise-19",
   "type": "You Try",
   "number": "1.16",
   "title": "",
   "body": "Try various viewing windows in the above code. What do you notice about the size of your arrow? "
 },
 {
-  "id": "exercise-18",
+  "id": "exercise-20",
   "level": "2",
-  "url": "section-matplotlib.html#exercise-18",
+  "url": "section-matplotlib.html#exercise-20",
   "type": "You Try",
   "number": "1.17",
   "title": "",
   "body": "Try various vectors and viewing windows in the above code. "
 },
 {
-  "id": "exercise-19",
+  "id": "exercise-21",
   "level": "2",
-  "url": "section-matplotlib.html#exercise-19",
+  "url": "section-matplotlib.html#exercise-21",
   "type": "You Try",
   "number": "1.18",
   "title": "",
@@ -271,108 +289,108 @@ var ptx_lunr_docs = [
   "body": "   Use Matplotlib to graph parametric curves in 3D.    Use Matplotlib to graph surfaces and scatterplots in 3D.    "
 },
 {
-  "id": "exercise-20",
+  "id": "exercise-22",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-20",
+  "url": "section-matplotlib3d.html#exercise-22",
   "type": "You Try",
   "number": "1.19",
   "title": "",
   "body": "Edit the above code to graph the equation of a line between the points and . "
 },
 {
-  "id": "exercise-21",
+  "id": "exercise-23",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-21",
+  "url": "section-matplotlib3d.html#exercise-23",
   "type": "You Try",
   "number": "1.20",
   "title": "",
   "body": "Edit the above code to add a third number to each numpy array. What happens? Can you explain what plot() just graphed? "
 },
 {
-  "id": "exercise-22",
+  "id": "exercise-24",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-22",
+  "url": "section-matplotlib3d.html#exercise-24",
   "type": "You Try",
   "number": "1.21",
   "title": "",
   "body": "Play with the above code for , , and to see what other interesting curves you can create. In 3-space can you graph  a line?  a spiral?  a different circle?   "
 },
 {
-  "id": "exercise-23",
+  "id": "exercise-25",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-23",
+  "url": "section-matplotlib3d.html#exercise-25",
   "type": "You Try",
   "number": "1.22",
   "title": "",
   "body": "Run the code below trying both the command plot_surface() (current default) and scatter() to see the difference. "
 },
 {
-  "id": "exercise-24",
+  "id": "exercise-26",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-24",
+  "url": "section-matplotlib3d.html#exercise-26",
   "type": "You Try",
   "number": "1.23",
   "title": "",
   "body": "For the surface, increase the step in each input and run the above code again. When does the surface start to look polygonal instead of smooth? "
 },
 {
-  "id": "exercise-25",
+  "id": "exercise-27",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-25",
+  "url": "section-matplotlib3d.html#exercise-27",
   "type": "You Try",
   "number": "1.24",
   "title": "",
   "body": "Modify the above code to graph the surface . Choose a reasonable range of inputs that shows the important features of the graph. "
 },
 {
-  "id": "exercise-26",
+  "id": "exercise-28",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-26",
+  "url": "section-matplotlib3d.html#exercise-28",
   "type": "You Try",
   "number": "1.25",
   "title": "",
   "body": "Change the surface to . What step size is needed to make the input window [-2,2] and [-2,2] display a smooth surface? "
 },
 {
-  "id": "exercise-27",
+  "id": "exercise-29",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-27",
+  "url": "section-matplotlib3d.html#exercise-29",
   "type": "You Try",
   "number": "1.26",
   "title": "",
   "body": "In the above code, use parallel syntax to add a label to the -axis. "
 },
 {
-  "id": "exercise-28",
+  "id": "exercise-30",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-28",
+  "url": "section-matplotlib3d.html#exercise-30",
   "type": "You Try",
   "number": "1.27",
   "title": "",
   "body": "In the code below, play with the values for elev , azim and roll .   What does each change?  What custom viewing angle do you think showcases this particular surface the best?   "
 },
 {
-  "id": "exercise-29",
+  "id": "exercise-31",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-29",
+  "url": "section-matplotlib3d.html#exercise-31",
   "type": "You Try",
   "number": "1.28",
   "title": "",
   "body": "In the above code add a second surface to your graph using Z2 for the new outputs and ax.plot_surface(X,Y,Z2) .   Can you find a viewing angle where both surfaces look good?    Can you find a viewing angle where they don't quite look right?    "
 },
 {
-  "id": "exercise-30",
+  "id": "exercise-32",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-30",
+  "url": "section-matplotlib3d.html#exercise-32",
   "type": "You Try",
   "number": "1.29",
   "title": "",
   "body": "Run the code below to see a Matplotlib 3D fail. "
 },
 {
-  "id": "exercise-31",
+  "id": "exercise-33",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-31",
+  "url": "section-matplotlib3d.html#exercise-33",
   "type": "You Try",
   "number": "1.30",
   "title": "",
@@ -406,27 +424,27 @@ var ptx_lunr_docs = [
   "body": " Augmented Matrix   For example, the system becomes    "
 },
 {
-  "id": "exercise-32",
+  "id": "exercise-34",
   "level": "2",
-  "url": "section-systems.html#exercise-32",
+  "url": "section-systems.html#exercise-34",
   "type": "You Try",
   "number": "2.2",
   "title": "",
   "body": "Edit the above code to print the augmented matrix for the system of linear equations in . "
 },
 {
-  "id": "exercise-33",
+  "id": "exercise-35",
   "level": "2",
-  "url": "section-systems.html#exercise-33",
+  "url": "section-systems.html#exercise-35",
   "type": "You Try",
   "number": "2.3",
   "title": "",
   "body": "Edit the code below to print the reduced echelon form and the row reduced echelon form for the augmented matrix of the system of linear equations from . "
 },
 {
-  "id": "exercise-34",
+  "id": "exercise-36",
   "level": "2",
-  "url": "section-systems.html#exercise-34",
+  "url": "section-systems.html#exercise-36",
   "type": "You Try",
   "number": "2.4",
   "title": "",
@@ -442,9 +460,9 @@ var ptx_lunr_docs = [
   "body": " The system has solutions and .  Linear equations with two variables can be graphed as lines in the xy-plane, either by plotting two points on the line or solving for . The solution is one point in a scatter plot.   "
 },
 {
-  "id": "exercise-35",
+  "id": "exercise-37",
   "level": "2",
-  "url": "section-systems.html#exercise-35",
+  "url": "section-systems.html#exercise-37",
   "type": "You Try",
   "number": "2.6",
   "title": "",
@@ -469,9 +487,9 @@ var ptx_lunr_docs = [
   "body": " For example the vector equation corresponds to the linear system found in and still has solution and .  The solution to the vector equation can be graphed using linear combinations of vectors. That is,    "
 },
 {
-  "id": "exercise-36",
+  "id": "exercise-38",
   "level": "2",
-  "url": "section-systems.html#exercise-36",
+  "url": "section-systems.html#exercise-38",
   "type": "Exercise",
   "number": "1",
   "title": "",
@@ -496,9 +514,9 @@ var ptx_lunr_docs = [
   "body": "   Add, subtract, scale, and multiply matrices in Numpy    Find matrix inverses    Use matrix inverses to solve systems of linear equations    "
 },
 {
-  "id": "exercise-37",
+  "id": "exercise-39",
   "level": "2",
-  "url": "section-matrices.html#exercise-37",
+  "url": "section-matrices.html#exercise-39",
   "type": "You Try",
   "number": "2.9",
   "title": "",
@@ -541,18 +559,18 @@ var ptx_lunr_docs = [
   "body": " "
 },
 {
-  "id": "p-205",
+  "id": "p-211",
   "level": "2",
-  "url": "examples.html#p-205",
+  "url": "examples.html#p-211",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "integral integral integral integral integral integral variable "
 },
 {
-  "id": "exercise-39",
+  "id": "exercise-41",
   "level": "2",
-  "url": "examples.html#exercise-39",
+  "url": "examples.html#exercise-41",
   "type": "You Try",
   "number": "3.4",
   "title": "Exercise What.",
@@ -568,9 +586,9 @@ var ptx_lunr_docs = [
   "body": "   C    D    "
 },
 {
-  "id": "exercise-40",
+  "id": "exercise-42",
   "level": "2",
-  "url": "examples.html#exercise-40",
+  "url": "examples.html#exercise-42",
   "type": "Reading Question",
   "number": "1",
   "title": "",

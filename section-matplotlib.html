@@ -273,6 +273,7 @@ sagecell.makeSagecell({
 <li><div class="toc-item"><a href="section-modules.html#subsection-6" class="internal"><span class="title">Importing the package NumPy</span></a></div></li>
 <li><div class="toc-item"><a href="section-modules.html#subsection-7" class="internal"><span class="title">Standard functions in NumPy</span></a></div></li>
 <li><div class="toc-item"><a href="section-modules.html#subsection-8" class="internal"><span class="title">NumPy arrays</span></a></div></li>
+<li><div class="toc-item"><a href="section-modules.html#exercises-modules" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="active">
@@ -335,16 +336,16 @@ sagecell.makeSagecell({
 </h2>
 <section class="introduction" id="introduction-5">Matplotlib is a Python library that uses NumPy arrays (<a href="section-modules.html" class="internal" title="Section 1.2: Python Packages and NumPy">Section 1.2</a>) to create static or interactive graphs and data visualizations. In this section we will learn how to use the MatPlotLib to graph curves and plot points in 2D.</section><article class="objectives goal-like" id="objectives-3"><h3 class="heading"><span class="type">Objectives</span></h3>
 <ul class="disc">
-<li id="li-14"><div class="para" id="p-52">Use Matplotlib to graph curves.</div></li>
-<li id="li-15"><div class="para" id="p-53">Use Matplotlib to make a scatterplot.</div></li>
-<li id="li-16"><div class="para" id="p-54">Use Matplotlib to graph vectors.</div></li>
-<li id="li-17"><div class="para" id="p-55">Label the axes on a graph.</div></li>
+<li id="li-16"><div class="para" id="p-58">Use Matplotlib to graph curves.</div></li>
+<li id="li-17"><div class="para" id="p-59">Use Matplotlib to make a scatterplot.</div></li>
+<li id="li-18"><div class="para" id="p-60">Use Matplotlib to graph vectors.</div></li>
+<li id="li-19"><div class="para" id="p-61">Label the axes on a graph.</div></li>
 </ul></article><section class="subsection" id="subsection-9"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Curves in 2D</span>
 </h3>
-<div class="para" id="p-56">Matplotlib graphs curves by plotting points and connecting the dots. A Matplotlib function called <code class="code-inline tex2jax_ignore">pyplot</code> is used to create the figure and axes. The inputs and outputs are given by NumPy arrays and then plotted on the axes.</div>
-<div class="para" id="p-57">Read through both sets of code below that uses matplotlib to graph a line and a sine curve to see the syntax for these steps. <em class="emphasis">Do you see the difference in how the numpy arrays were created for the inputs and outputs?</em> Run both sets of code to see the result.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-12"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
+<div class="para" id="p-62">Matplotlib graphs curves by plotting points and connecting the dots. A Matplotlib function called <code class="code-inline tex2jax_ignore">pyplot</code> is used to create the figure and axes. The inputs and outputs are given by NumPy arrays and then plotted on the axes.</div>
+<div class="para" id="p-63">Read through both sets of code below that uses matplotlib to graph a line and a sine curve to see the syntax for these steps. <em class="emphasis">Do you see the difference in how the numpy arrays were created for the inputs and outputs?</em> Run both sets of code to see the result.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-15"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
 import numpy as np 
 
 fig = plt.figure() #create a figure
@@ -355,7 +356,7 @@ Y = 2*X #determine outputs for y=2x
 ax.plot(X,Y) #plot the connected dots on your axes
 plt.show() #display the result
 </script></pre>
-<pre class="ptx-sagecell sagecell-python" id="sage-13"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
+<pre class="ptx-sagecell sagecell-python" id="sage-16"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
 import numpy as np 
 
 fig = plt.figure() #create a figure
@@ -366,24 +367,24 @@ Y = np.sin(X) #determine outputs for y=sin(x)
 ax.plot(X,Y) #plot the connected dots on your axes
 plt.show() #display the result
 </script></pre>
-<div class="para" id="p-58">Note when `connecting the dots’ you need enough points to get a smooth curve.</div>
-<article class="exercise exercise-like" id="exercise-9"><h4 class="heading">
+<div class="para" id="p-64">Note when `connecting the dots’ you need enough points to get a smooth curve.</div>
+<article class="exercise exercise-like" id="exercise-11"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.8</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-59">
+<div class="para logical" id="p-65">
 <div class="para">Change both of the above sets of code to whole number inputs from 0 to 6.</div>
 <ul class="disc">
-<li id="li-18"><div class="para" id="p-60">What happens to your line?</div></li>
-<li id="li-19"><div class="para" id="p-61">What happens to your sine curve?</div></li>
+<li id="li-20"><div class="para" id="p-66">What happens to your line?</div></li>
+<li id="li-21"><div class="para" id="p-67">What happens to your sine curve?</div></li>
 </ul>
-</div></article><article class="exercise exercise-like" id="exercise-10"><h4 class="heading">
+</div></article><article class="exercise exercise-like" id="exercise-12"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.9</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-62">Change the above code to use <code class="code-inline tex2jax_ignore">arange()</code> instead of <code class="code-inline tex2jax_ignore">linspace()</code> to set up your inputs. What is the smallest step size that makes the curve look smooth?</div></article><article class="exercise exercise-like" id="exercise-11"><h4 class="heading">
+<div class="para" id="p-68">Change the above code to use <code class="code-inline tex2jax_ignore">arange()</code> instead of <code class="code-inline tex2jax_ignore">linspace()</code> to set up your inputs. What is the smallest step size that makes the curve look smooth?</div></article><article class="exercise exercise-like" id="exercise-13"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.10</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-63">Change the above code to graph <span class="process-math">\(y=x^2 \)</span> with a traditional input window like [-10,10].</div></article><div class="para" id="p-64">You can plot more than one graph in the same figure using the same inputs but more than one set of outputs. Run the code below to graph <span class="process-math">\(y_1 = \sin(x) \)</span> and <span class="process-math">\(y_2=\cos(x)\)</span> on the same graph.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-14"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
+<div class="para" id="p-69">Change the above code to graph <span class="process-math">\(y=x^2 \)</span> with a traditional input window like [-10,10].</div></article><div class="para" id="p-70">You can plot more than one graph in the same figure using the same inputs but more than one set of outputs. Run the code below to graph <span class="process-math">\(y_1 = \sin(x) \)</span> and <span class="process-math">\(y_2=\cos(x)\)</span> on the same graph.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-17"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
 import numpy as np 
 
 fig = plt.figure() #create a figure
@@ -395,22 +396,22 @@ Y2 = np.cos(X) #determine outputs for y=cos(x)
 ax.plot(X,Y1,X,Y2) #Note: list inputs for both
 plt.show() #display the result
 </script></pre>
-<article class="exercise exercise-like" id="exercise-12"><h4 class="heading">
+<article class="exercise exercise-like" id="exercise-14"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.11</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-65">Notice that if you don’t specify the inputs, pyplot uses a default set instead. Change the above code and remove the second call for the inputs X in ax.plot(). What is the default input window pyplot uses for Y2?</div></article><article class="exercise exercise-like" id="exercise-13"><h4 class="heading">
+<div class="para" id="p-71">Notice that if you don’t specify the inputs, pyplot uses a default set instead. Change the above code and remove the second call for the inputs X in ax.plot(). What is the default input window pyplot uses for Y2?</div></article><article class="exercise exercise-like" id="exercise-15"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.12</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-66">Change the above code to add a third function on the same graph.</div></article></section><section class="subsection" id="subsec-scatterplots"><h3 class="heading hide-type">
+<div class="para" id="p-72">Change the above code to add a third function on the same graph.</div></article></section><section class="subsection" id="subsec-scatterplots"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Scatter Plots in 2D</span>
 </h3>
-<div class="para" id="p-67">To graph a scatterplot, use the command <code class="code-inline tex2jax_ignore">scatter</code> instead of <code class="code-inline tex2jax_ignore">plot</code>.</div>
-<article class="exercise exercise-like" id="exercise-14"><h4 class="heading">
+<div class="para" id="p-73">To graph a scatterplot, use the command <code class="code-inline tex2jax_ignore">scatter</code> instead of <code class="code-inline tex2jax_ignore">plot</code>.</div>
+<article class="exercise exercise-like" id="exercise-16"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.13</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-68">Adjust the code in any plot above to make it into a scatter plot instead.</div>
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-4" id="hint-4"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-4"><div class="hint solution-like"><div class="para" id="p-69">Replace <code class="code-inline tex2jax_ignore">ax.plot()</code> with <code class="code-inline tex2jax_ignore">ax.scatter()</code> in the code.</div></div></div></article><div class="para" id="p-70">For scatter plots sometimes you get the data from an experiment instead of a formula. As long as the outputs are given as a NumPy array, either from manipulating your input array, or by creating a completely new array, Matplotlib will still connect the dots.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-15"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
+<div class="para" id="p-74">Adjust the code in any plot above to make it into a scatter plot instead.</div>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-4" id="hint-4"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-4"><div class="hint solution-like"><div class="para" id="p-75">Replace <code class="code-inline tex2jax_ignore">ax.plot()</code> with <code class="code-inline tex2jax_ignore">ax.scatter()</code> in the code.</div></div></div></article><div class="para" id="p-76">For scatter plots sometimes you get the data from an experiment instead of a formula. As long as the outputs are given as a NumPy array, either from manipulating your input array, or by creating a completely new array, Matplotlib will still connect the dots.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-18"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
 import numpy as np 
 
 fig = plt.figure() #create a figure
@@ -423,8 +424,8 @@ plt.show() #display the result
 </script></pre></section><section class="subsection" id="subsection-11"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Parametric Curves in 2D</span>
 </h3>
-<div class="para" id="p-71">In mathematics and the sciences we sometimes introduce a new parameter <span class="process-math">\(t\)</span> and write coordinates <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> in terms of that parameter. This is common for curves that are not functions of <span class="process-math">\(x\text{,}\)</span> like circles or ellipses, or a nice way to model motion, where the <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> coordinate location of an object is the output at each input time <span class="process-math">\(t\text{.}\)</span> If you haven’t seen this in a Trigonometry class, or if you need a refresher, check out <em class="emphasis">insert appendix stuff here</em>. In mathematics these <em class="emphasis">parametric curves</em> or <em class="emphasis">space curves</em> are often written as a set of two parametric equations or a vector-valued function.</div>
-<div class="para logical" id="p-72">
+<div class="para" id="p-77">In mathematics and the sciences we sometimes introduce a new parameter <span class="process-math">\(t\)</span> and write coordinates <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> in terms of that parameter. This is common for curves that are not functions of <span class="process-math">\(x\text{,}\)</span> like circles or ellipses, or a nice way to model motion, where the <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> coordinate location of an object is the output at each input time <span class="process-math">\(t\text{.}\)</span> If you haven’t seen this in a Trigonometry class, or if you need a refresher, check out <em class="emphasis">insert appendix stuff here</em>. In mathematics these <em class="emphasis">parametric curves</em> or <em class="emphasis">space curves</em> are often written as a set of two parametric equations or a vector-valued function.</div>
+<div class="para logical" id="p-78">
 <div class="para">For example, we can graph a circle using</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -441,8 +442,8 @@ y \amp= \sin(t)
 <div class="para">for values of <span class="process-math">\(t\)</span> in <span class="process-math">\([0,2\pi]\)</span>
 </div>
 </div>
-<div class="para" id="p-73">Matplotlib still graphs these curves by plotting points <span class="process-math">\((x,y)\)</span> using <code class="code-inline tex2jax_ignore">plot</code> and connecting the dots, which will make it easy to generalize these curves to 3D.</div>
-<pre class="ptx-sagecell sagecell-sage" id="sage-16"><script type="text/x-sage">import matplotlib.pyplot as plt
+<div class="para" id="p-79">Matplotlib still graphs these curves by plotting points <span class="process-math">\((x,y)\)</span> using <code class="code-inline tex2jax_ignore">plot</code> and connecting the dots, which will make it easy to generalize these curves to 3D.</div>
+<pre class="ptx-sagecell sagecell-sage" id="sage-19"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 fig = plt.figure() #create a figure
 ax = plt.axes() #add an axis
@@ -454,23 +455,23 @@ Y = np.sin(T) #y-values
 ax.plot(X,Y)
 plt.show()
 </script></pre>
-<article class="exercise exercise-like" id="exercise-15"><h4 class="heading">
+<article class="exercise exercise-like" id="exercise-17"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.14</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-74">Note that the above code graphs the unit circle. Play with the above functions for <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> to see what other interesting curves you can graph.</div>
-<div class="para logical" id="p-75">
+<div class="para" id="p-80">Note that the above code graphs the unit circle. Play with the above functions for <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> to see what other interesting curves you can graph.</div>
+<div class="para logical" id="p-81">
 <div class="para">In particular, when you have the parameter <span class="process-math">\(t\text{,}\)</span> can you create</div>
 <ul class="disc">
-<li id="li-20"><div class="para" id="p-derived-li-20">a line?</div></li>
-<li id="li-21"><div class="para" id="p-derived-li-21">a different circle?</div></li>
-<li id="li-22"><div class="para" id="p-derived-li-22">a parabola?</div></li>
+<li id="li-22"><div class="para" id="p-derived-li-22">a line?</div></li>
+<li id="li-23"><div class="para" id="p-derived-li-23">a different circle?</div></li>
+<li id="li-24"><div class="para" id="p-derived-li-24">a parabola?</div></li>
 </ul>
 </div></article></section><section class="subsection" id="axes"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Axes and Labels</span>
 </h3>
-<div class="para" id="p-76">You can easily add titles or labels to your axes using the commands <code class="code-inline tex2jax_ignore">set_title("title_here")</code>, <code class="code-inline tex2jax_ignore">set_xlabel("label_here")</code>, <code class="code-inline tex2jax_ignore">set_ylabel("label_here")</code>. <em class="emphasis">Since the code below is longer, you might need to scroll to see all of the commands.</em>
+<div class="para" id="p-82">You can easily add titles or labels to your axes using the commands <code class="code-inline tex2jax_ignore">set_title("title_here")</code>, <code class="code-inline tex2jax_ignore">set_xlabel("label_here")</code>, <code class="code-inline tex2jax_ignore">set_ylabel("label_here")</code>. <em class="emphasis">Since the code below is longer, you might need to scroll to see all of the commands.</em>
 </div>
-<pre class="ptx-sagecell sagecell-python" id="sage-17"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
+<pre class="ptx-sagecell sagecell-python" id="sage-20"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
 import numpy as np 
 
 fig = plt.figure() #create a figure
@@ -486,15 +487,15 @@ ax.set_ylabel("Height (m)") #output label
 ax.plot(X,Y) #Plot the connected dots
 plt.show() #display the result
 </script></pre>
-<div class="para" id="p-77">You can also adjust the tick marks on the axes, but it takes a little more work, and there are multiple approaches.</div>
-<article class="exercise exercise-like" id="exercise-16"><h4 class="heading">
+<div class="para" id="p-83">You can also adjust the tick marks on the axes, but it takes a little more work, and there are multiple approaches.</div>
+<article class="exercise exercise-like" id="exercise-18"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.15</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-78">Search online for a way to change the tick labels in Matplotlib. Try and adjust the "Falling Body" graph to have tickmarks every quarter of a second.</div></article></section><section class="subsection" id="custom-graphs"><h3 class="heading hide-type">
+<div class="para" id="p-84">Search online for a way to change the tick labels in Matplotlib. Try and adjust the "Falling Body" graph to have tickmarks every quarter of a second.</div></article></section><section class="subsection" id="custom-graphs"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Customizing</span>
 </h3>
-<div class="para" id="p-79">You can customize pretty much everything in the plot: colors, markers, line width and styles, etc. Below are a few examples.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-18"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
+<div class="para" id="p-85">You can customize pretty much everything in the plot: colors, markers, line width and styles, etc. Below are a few examples.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-21"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
 import numpy as np 
 
 fig = plt.figure() #create a figure
@@ -505,7 +506,7 @@ Y = np.array([4,2,0,1]) #determine outputs
 ax.scatter(X,Y, marker="x") #scatterplot with x
 plt.show() #display the result
 </script></pre>
-<pre class="ptx-sagecell sagecell-python" id="sage-19"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
+<pre class="ptx-sagecell sagecell-python" id="sage-22"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
 import numpy as np 
 
 fig = plt.figure() #create a figure
@@ -521,11 +522,11 @@ plt.axvline(0, color='black') #add vertical axis
 
 plt.show() #display the result
 </script></pre>
-<div class="para" id="p-80">The comma separated list of possible commands inside the parentheses of a function like <code class="code-inline tex2jax_ignore">plot()</code> are called the <em class="emphasis">arguments</em> of the function. The functions <code class="code-inline tex2jax_ignore">plot</code> and <code class="code-inline tex2jax_ignore">scatter</code> can take arguments like <code class="code-inline tex2jax_ignore">color="color_here"</code>, <code class="code-inline tex2jax_ignore">linestyle="style_here"</code>, <code class="code-inline tex2jax_ignore">linewidth=number_here</code>, <code class="code-inline tex2jax_ignore">marker="markertype_here"</code>.</div></section><section class="subsection" id="subsec-Vectorsin2D"><h3 class="heading hide-type">
+<div class="para" id="p-86">The comma separated list of possible commands inside the parentheses of a function like <code class="code-inline tex2jax_ignore">plot()</code> are called the <em class="emphasis">arguments</em> of the function. The functions <code class="code-inline tex2jax_ignore">plot</code> and <code class="code-inline tex2jax_ignore">scatter</code> can take arguments like <code class="code-inline tex2jax_ignore">color="color_here"</code>, <code class="code-inline tex2jax_ignore">linestyle="style_here"</code>, <code class="code-inline tex2jax_ignore">linewidth=number_here</code>, <code class="code-inline tex2jax_ignore">marker="markertype_here"</code>.</div></section><section class="subsection" id="subsec-Vectorsin2D"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Vectors in 2D</span>
 </h3>
-<div class="para" id="p-81">Matplotlib plots vectors using a function from pyplot called <code class="code-inline tex2jax_ignore">quiver</code>, which takes an initial coordinate, followed by the vector coordinates, to draw an arrow. Since the axes of your graph are not determined by the input domain of a function, you need to explicitly choose your axes limits using pyplot’s <code class="code-inline tex2jax_ignore">xlim</code> and <code class="code-inline tex2jax_ignore">ylim</code>.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-20"><script type="text/x-sage">import matplotlib.pyplot as plt
+<div class="para" id="p-87">Matplotlib plots vectors using a function from pyplot called <code class="code-inline tex2jax_ignore">quiver</code>, which takes an initial coordinate, followed by the vector coordinates, to draw an arrow. Since the axes of your graph are not determined by the input domain of a function, you need to explicitly choose your axes limits using pyplot’s <code class="code-inline tex2jax_ignore">xlim</code> and <code class="code-inline tex2jax_ignore">ylim</code>.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-23"><script type="text/x-sage">import matplotlib.pyplot as plt
 
 fig = plt.figure() #create a figure
 ax = plt.axes() #add an axis
@@ -536,11 +537,11 @@ plt.quiver(0,0,1,3) #vector(1,3)
 
 plt.show()
 </script></pre>
-<article class="exercise exercise-like" id="exercise-17"><h4 class="heading">
+<article class="exercise exercise-like" id="exercise-19"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.16</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-82">Try various viewing windows in the above code. What do you notice about the size of your arrow?</div></article><div class="para" id="p-83">Since <code class="code-inline tex2jax_ignore">quiver</code> is typically used for vector fields, the size scales automatically based on other elements of the graph. Here we want to use the <span class="process-math">\(xy\)</span>-axes as a fixed scale to draw the vectors, and so will include the arguments <code class="code-inline tex2jax_ignore">angles='xy', scale_units='xy', scale=1</code> inside <code class="code-inline tex2jax_ignore">quiver</code>.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-21"><script type="text/x-sage">import matplotlib.pyplot as plt
+<div class="para" id="p-88">Try various viewing windows in the above code. What do you notice about the size of your arrow?</div></article><div class="para" id="p-89">Since <code class="code-inline tex2jax_ignore">quiver</code> is typically used for vector fields, the size scales automatically based on other elements of the graph. Here we want to use the <span class="process-math">\(xy\)</span>-axes as a fixed scale to draw the vectors, and so will include the arguments <code class="code-inline tex2jax_ignore">angles='xy', scale_units='xy', scale=1</code> inside <code class="code-inline tex2jax_ignore">quiver</code>.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-24"><script type="text/x-sage">import matplotlib.pyplot as plt
 
 fig = plt.figure() #create a figure
 ax = plt.axes() #add an axis
@@ -552,11 +553,11 @@ plt.quiver(0,0,1,3,angles='xy', scale_units='xy', scale=1)
 
 plt.show()
 </script></pre>
-<article class="exercise exercise-like" id="exercise-18"><h4 class="heading">
+<article class="exercise exercise-like" id="exercise-20"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.17</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-84">Try various vectors and viewing windows in the above code.</div></article><div class="para" id="p-85">For multiple vectors it can be helpful to color code and use pyplot’s <code class="code-inline tex2jax_ignore">grid()</code> and <code class="code-inline tex2jax_ignore">legend()</code> feature.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-22"><script type="text/x-sage">import matplotlib.pyplot as plt
+<div class="para" id="p-90">Try various vectors and viewing windows in the above code.</div></article><div class="para" id="p-91">For multiple vectors it can be helpful to color code and use pyplot’s <code class="code-inline tex2jax_ignore">grid()</code> and <code class="code-inline tex2jax_ignore">legend()</code> feature.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-25"><script type="text/x-sage">import matplotlib.pyplot as plt
 
 fig = plt.figure() #create a figure
 ax = plt.axes() #add an axis
@@ -574,19 +575,19 @@ ax.set_title("Vectors") #title
 
 plt.show()
 </script></pre>
-<article class="exercise exercise-like" id="exercise-19"><h4 class="heading">
+<article class="exercise exercise-like" id="exercise-21"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.18</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-86">Try various vectors and viewing windows in the above code. Also add a horizontal and vertical axis at <span class="process-math">\(x=0\)</span> and <span class="process-math">\(y=0\)</span> using the code found in the second Customizing example.</div></article></section><section class="conclusion" id="conclusion-2"><div class="para" id="p-87">There are other ways to set up your figure and your axes in Matplotlib. Some are shortcuts and Matplotlib will use default settings (e.g. if we do not explicitly give inputs for the function we want to graph). The approach in this section is very explicit, which makes it easier to understand how to control each feature as we get started.</div></section><article class="assemblage assemblage-like" id="assemblage-3"><h3 class="heading"><span class="title">Summary.</span></h3>
-<div class="para logical" id="p-88"><ul class="disc">
-<li id="li-23"><div class="para" id="p-89">Every graph needs a figure and an axes.</div></li>
-<li id="li-24"><div class="para" id="p-90">We graph a connected curve on our axes using <code class="code-inline tex2jax_ignore">axes_name.plot(array x,array y)</code> for both standard equations and parametric curves.</div></li>
-<li id="li-25"><div class="para" id="p-91">We graph a scatterplot on our axes using <code class="code-inline tex2jax_ignore">axes_name.scatter(array x, array y)</code>.</div></li>
-<li id="li-26"><div class="para" id="p-92">We graph a parametric curve on our axes using <code class="code-inline tex2jax_ignore">axes_name.plot(array x, array y)</code>.</div></li>
-<li id="li-27"><div class="para" id="p-93">We can use <code class="code-inline tex2jax_ignore">numpy.linspace()</code> to efficiently create enough points for <code class="code-inline tex2jax_ignore">plot()</code> to connect the dots into a smooth-looking curve.</div></li>
-<li id="li-28"><div class="para" id="p-94">We can add titles and labels using <code class="code-inline tex2jax_ignore">axes_name.set_title("Title")</code> or <code class="code-inline tex2jax_ignore">axes_name.set_xlabel("input_label")</code>.</div></li>
-<li id="li-29"><div class="para" id="p-95">We can customize color, linestyles, plotting styles, thickness, tickmarks, font sizes, etc. to make our graph exactly what we need for publication.</div></li>
-<li id="li-30"><div class="para" id="p-96">We can specify a viewing window using <code class="code-inline tex2jax_ignore">xlim</code> and <code class="code-inline tex2jax_ignore">ylim</code> and graph vectors using <code class="code-inline tex2jax_ignore">quiver</code>.</div></li>
+<div class="para" id="p-92">Try various vectors and viewing windows in the above code. Also add a horizontal and vertical axis at <span class="process-math">\(x=0\)</span> and <span class="process-math">\(y=0\)</span> using the code found in the second Customizing example.</div></article></section><section class="conclusion" id="conclusion-2"><div class="para" id="p-93">There are other ways to set up your figure and your axes in Matplotlib. Some are shortcuts and Matplotlib will use default settings (e.g. if we do not explicitly give inputs for the function we want to graph). The approach in this section is very explicit, which makes it easier to understand how to control each feature as we get started.</div></section><article class="assemblage assemblage-like" id="assemblage-3"><h3 class="heading"><span class="title">Summary.</span></h3>
+<div class="para logical" id="p-94"><ul class="disc">
+<li id="li-25"><div class="para" id="p-95">Every graph needs a figure and an axes.</div></li>
+<li id="li-26"><div class="para" id="p-96">We graph a connected curve on our axes using <code class="code-inline tex2jax_ignore">axes_name.plot(array x,array y)</code> for both standard equations and parametric curves.</div></li>
+<li id="li-27"><div class="para" id="p-97">We graph a scatterplot on our axes using <code class="code-inline tex2jax_ignore">axes_name.scatter(array x, array y)</code>.</div></li>
+<li id="li-28"><div class="para" id="p-98">We graph a parametric curve on our axes using <code class="code-inline tex2jax_ignore">axes_name.plot(array x, array y)</code>.</div></li>
+<li id="li-29"><div class="para" id="p-99">We can use <code class="code-inline tex2jax_ignore">numpy.linspace()</code> to efficiently create enough points for <code class="code-inline tex2jax_ignore">plot()</code> to connect the dots into a smooth-looking curve.</div></li>
+<li id="li-30"><div class="para" id="p-100">We can add titles and labels using <code class="code-inline tex2jax_ignore">axes_name.set_title("Title")</code> or <code class="code-inline tex2jax_ignore">axes_name.set_xlabel("input_label")</code>.</div></li>
+<li id="li-31"><div class="para" id="p-101">We can customize color, linestyles, plotting styles, thickness, tickmarks, font sizes, etc. to make our graph exactly what we need for publication.</div></li>
+<li id="li-32"><div class="para" id="p-102">We can specify a viewing window using <code class="code-inline tex2jax_ignore">xlim</code> and <code class="code-inline tex2jax_ignore">ylim</code> and graph vectors using <code class="code-inline tex2jax_ignore">quiver</code>.</div></li>
 </ul></div></article></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="section-modules.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="section-matplotlib3d.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
