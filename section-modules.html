@@ -285,6 +285,7 @@ sagecell.makeSagecell({
 <li><div class="toc-item"><a href="section-matplotlib.html#axes" class="internal"><span class="title">Axes and Labels</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib.html#custom-graphs" class="internal"><span class="title">Customizing</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib.html#subsec-Vectorsin2D" class="internal"><span class="title">Vectors in 2D</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#exercises-matplotlib2D" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
@@ -296,6 +297,14 @@ sagecell.makeSagecell({
 <li><div class="toc-item"><a href="section-matplotlib3d.html#subsec-3DAxesandLabels" class="internal"><span class="title">Axes and Labels</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib3d.html#subsec-multiplesurfaces" class="internal"><span class="title">Plotting Multiple Surfaces</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib3d.html#subsection-20" class="internal"><span class="title">Customizing</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib3d.html#exercises-matplotlib3D" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-animation.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Basic Animation</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-animation.html#subsection-21" class="internal"><span class="title">Animating in Matplotlib</span></a></div></li>
+<li><div class="toc-item"><a href="section-animation.html#exercises-animation" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -308,14 +317,17 @@ sagecell.makeSagecell({
 <ul class="structural">
 <li><div class="toc-item"><a href="section-systems.html#rref" class="internal"><span class="title">Row Reduction</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#graphsolution" class="internal"><span class="title">Graphing solutions to systems of equations</span></a></div></li>
-<li><div class="toc-item"><a href="section-systems.html#subsection-23" class="internal"><span class="title">Graphing vector equations and their solutions</span></a></div></li>
+<li><div class="toc-item"><a href="section-systems.html#subsection-24" class="internal"><span class="title">Graphing vector equations and their solutions</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#subsec-" class="internal"><span class="title">Converting between Numpy arrays and Sympy Matrices</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#exercises-systems" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="section-matrices.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix Arithmetic</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="section-matrices.html#subsection-25" class="internal"><span class="title">Title</span></a></div></li></ul>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-matrices.html#subsection-26" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#exercises-matrices" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
 </li>
 </ul>
 </li>
@@ -324,7 +336,7 @@ sagecell.makeSagecell({
 <ul class="structural"><li>
 <div class="toc-item"><a href="examples.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Samples of various pretext formats</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="examples.html#subsection-26" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
+<li><div class="toc-item"><a href="examples.html#subsection-27" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
 <li><div class="toc-item"><a href="examples.html#reading-questions-1" class="internal"><span class="title">Reading Questions</span></a></div></li>
 </ul>
 </li></ul>
@@ -428,16 +440,21 @@ print(X)
 #
 #
 #
-</script></pre></article><article class="exercise exercise-like" id="exercise-10"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="para" id="p-55">The magnitude of an earthquake is measured using the Richter Scale, which is a logarithmic scale. The amount of energy <span class="process-math">\(E\)</span> in ergs an earthquake releases can be determined from the magnitude <span class="process-math">\(M\)</span> using the formula</div>
+</script></pre>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-1" id="solution-1"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-1"><div class="solution solution-like"><div class="para logical" id="p-55"><ol class="lower-alpha">
+<li id="li-16"><div class="para" id="p-56">There is more than one way to do this. One approach is to use the <code class="code-inline tex2jax_ignore">numpy</code> function <code class="code-inline tex2jax_ignore">ones().</code>
+</div></li>
+<li id="li-17"><div class="para" id="p-57">Once you have an array of all 1’s, you can multiply it by any number you want.</div></li>
+</ol></div></div></div></article><article class="exercise exercise-like" id="exercise-10"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para" id="p-58">The magnitude of an earthquake is measured using the Richter Scale, which is a logarithmic scale. The amount of energy <span class="process-math">\(E\)</span> in ergs an earthquake releases can be determined from the magnitude <span class="process-math">\(M\)</span> using the formula</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \log_{10}(E)=11.8+1.5M
 \end{equation*}
 </div>
-<div class="para" id="p-56">The <a class="external" href="https://earthquake.usgs.gov/earthquakes/map" target="_blank">USGS</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-3" id="fn-3"><sup> 2 </sup></a> website lets you download magnitude data for the 30 most recent earthquakes in the world with magnitude <span class="process-math">\(&gt;2.5\text{.}\)</span>
+<div class="para" id="p-59">The <a class="external" href="https://earthquake.usgs.gov/earthquakes/map" target="_blank">USGS</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-3" id="fn-3"><sup> 2 </sup></a> website lets you download magnitude data for the 30 most recent earthquakes in the world with magnitude <span class="process-math">\(&gt;2.5\text{.}\)</span>
 </div>
-<div class="para" id="p-57">Use Numpy to determine how much energy has been released in the 30 most recent earthquakes. <em class="emphasis">Note that you can copy and paste data from a csv file into SageMathCell. You will just need to then format that data for Numpy.</em>
+<div class="para" id="p-60">Use Numpy to determine how much energy has been released in the 30 most recent earthquakes. <em class="emphasis">Note that you can copy and paste data from a csv file into SageMathCell. You will just need to then format that data for Numpy.</em>
 </div>
 <pre class="ptx-sagecell sagecell-python" id="sage-14"><script type="text/x-sage">#
 #

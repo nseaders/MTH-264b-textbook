@@ -88,7 +88,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.2",
   "title": "Python Packages and NumPy",
-  "body": " Python Packages and NumPy  Python packages and libraries are collections of functions and modules centered around a common theme. In this section we will learn how to import a Python package and use functions from that package.     Import a Python package or library (our example NumPy).    Use functions from a Python package.      Importing the package NumPy  NumPy is an open source scientific computing package that allows you to use standard mathematical functions and constants like sine or pi. NumPy also allows you to work with arrays of numbers so you can efficiently perform computations.   Note to call a function from an imported package you must use the syntax package.function . To avoid retyping the long name of a package every time, it is standard practice to rename the package as you import.  Rename the package numpy in the above code by replacing the import line with import numpy as np . Next use the new name of the package to call the function np.sin() and re-run.    Standard functions in NumPy  In addition to the standard trigonometric functions, NumPy also contains as exp() and natural log as log() , as well as the standard mathematical constants like pi and e .  Use the NumPy package to compute the area of a circle using pi. If you import numpy as np, you will use np.pi     NumPy arrays  NumPy arrays can help us efficiently do computations with a collection of numbers all at once. We can also represent vectors or matrices using NumPy arrays. Run the code below that calls the NumPy function array to see how it works.   NumPy also has built in functions to automatically create an array with certain conditions. For example linspace() takes a given interval and sets up an array of evenly spaced numbers on that interval.   Note that the array includes 5, so it takes 11 evenly spaced numbers to get numbers 0.5 apart. Note also that although the number values are evenly spaced, the printed array is not. Namely the default is to space out the entries by the maximum number of decimal places with blank spaces instead of extra zeroes.  Edit the above code to use linspace to create an array of numbers between 0 and 5 that are one-quarter apart. When you evaluate your code should print the list 0, 0.25, 0.5, 0.75, etc.  Another way to create an array of values for a given interval is arange() , which uses a step value to set up a sequence of numbers within that interval.   Note that the array gets cut off before the right endpoint of the interval if your stepsize doesn't divide the interval evenly.  Edit the above code to use arange to create an array of numbers between 0 and 5 that are one-quarter apart. When you evaluate your code should print the list 0, 0.25, 0.5, 0.75, etc.    You can find more information about the package NumPy at . Python's wiki has a list of other commonly used modules and packages .    Summary     You can import a Python package and rename it by using import package as name .    You can call a function from a package using packagename.function     Numpy arrays can help us efficiently do computations.    The Numpy functions linspace() and arange() set up an array of values over an interval.       Research NumPy   Look up how to efficiently create a 15 element array of all 's.    Use this to create a 15 element array of all 's.    The magnitude of an earthquake is measured using the Richter Scale, which is a logarithmic scale. The amount of energy in ergs an earthquake releases can be determined from the magnitude using the formula The USGS website lets you download magnitude data for the 30 most recent earthquakes in the world with magnitude . Use Numpy to determine how much energy has been released in the 30 most recent earthquakes. Note that you can copy and paste data from a csv file into SageMathCell. You will just need to then format that data for Numpy.    "
+  "body": " Python Packages and NumPy  Python packages and libraries are collections of functions and modules centered around a common theme. In this section we will learn how to import a Python package and use functions from that package.     Import a Python package or library (our example NumPy).    Use functions from a Python package.      Importing the package NumPy  NumPy is an open source scientific computing package that allows you to use standard mathematical functions and constants like sine or pi. NumPy also allows you to work with arrays of numbers so you can efficiently perform computations.   Note to call a function from an imported package you must use the syntax package.function . To avoid retyping the long name of a package every time, it is standard practice to rename the package as you import.  Rename the package numpy in the above code by replacing the import line with import numpy as np . Next use the new name of the package to call the function np.sin() and re-run.    Standard functions in NumPy  In addition to the standard trigonometric functions, NumPy also contains as exp() and natural log as log() , as well as the standard mathematical constants like pi and e .  Use the NumPy package to compute the area of a circle using pi. If you import numpy as np, you will use np.pi     NumPy arrays  NumPy arrays can help us efficiently do computations with a collection of numbers all at once. We can also represent vectors or matrices using NumPy arrays. Run the code below that calls the NumPy function array to see how it works.   NumPy also has built in functions to automatically create an array with certain conditions. For example linspace() takes a given interval and sets up an array of evenly spaced numbers on that interval.   Note that the array includes 5, so it takes 11 evenly spaced numbers to get numbers 0.5 apart. Note also that although the number values are evenly spaced, the printed array is not. Namely the default is to space out the entries by the maximum number of decimal places with blank spaces instead of extra zeroes.  Edit the above code to use linspace to create an array of numbers between 0 and 5 that are one-quarter apart. When you evaluate your code should print the list 0, 0.25, 0.5, 0.75, etc.  Another way to create an array of values for a given interval is arange() , which uses a step value to set up a sequence of numbers within that interval.   Note that the array gets cut off before the right endpoint of the interval if your stepsize doesn't divide the interval evenly.  Edit the above code to use arange to create an array of numbers between 0 and 5 that are one-quarter apart. When you evaluate your code should print the list 0, 0.25, 0.5, 0.75, etc.    You can find more information about the package NumPy at . Python's wiki has a list of other commonly used modules and packages .    Summary     You can import a Python package and rename it by using import package as name .    You can call a function from a package using packagename.function     Numpy arrays can help us efficiently do computations.    The Numpy functions linspace() and arange() set up an array of values over an interval.       Research NumPy   Look up how to efficiently create a 15 element array of all 's.    Use this to create a 15 element array of all 's.       There is more than one way to do this. One approach is to use the numpy function ones().     Once you have an array of all 1's, you can multiply it by any number you want.      The magnitude of an earthquake is measured using the Richter Scale, which is a logarithmic scale. The amount of energy in ergs an earthquake releases can be determined from the magnitude using the formula The USGS website lets you download magnitude data for the 30 most recent earthquakes in the world with magnitude . Use Numpy to determine how much energy has been released in the 30 most recent earthquakes. Note that you can copy and paste data from a csv file into SageMathCell. You will just need to then format that data for Numpy.    "
 },
 {
   "id": "objectives-2",
@@ -142,7 +142,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1",
   "title": "",
-  "body": "Research NumPy   Look up how to efficiently create a 15 element array of all 's.    Use this to create a 15 element array of all 's.   "
+  "body": "Research NumPy   Look up how to efficiently create a 15 element array of all 's.    Use this to create a 15 element array of all 's.       There is more than one way to do this. One approach is to use the numpy function ones().     Once you have an array of all 1's, you can multiply it by any number you want.     "
 },
 {
   "id": "exercise-10",
@@ -160,7 +160,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.3",
   "title": "Matplotlib and 2D graphing",
-  "body": " Matplotlib and 2D graphing  Matplotlib is a Python library that uses NumPy arrays ( ) to create static or interactive graphs and data visualizations. In this section we will learn how to use the MatPlotLib to graph curves and plot points in 2D.     Use Matplotlib to graph curves.    Use Matplotlib to make a scatterplot.    Use Matplotlib to graph vectors.    Label the axes on a graph.      Curves in 2D  Matplotlib graphs curves by plotting points and connecting the dots. A Matplotlib function called pyplot is used to create the figure and axes. The inputs and outputs are given by NumPy arrays and then plotted on the axes.            Read through both sets of code below that uses matplotlib to graph a line and a sine curve to see the syntax for these steps. Do you see the difference in how the numpy arrays were created for the inputs and outputs? Run both sets of code to see the result.    Note when `connecting the dots' you need enough points to get a smooth curve.  Change both of the above sets of code to whole number inputs from 0 to 6.   What happens to your line?    What happens to your sine curve?     Change the above code to use arange() instead of linspace() to set up your inputs. What is the smallest step size that makes the curve look smooth?  Change the above code to graph with a traditional input window like [-10,10].  You can plot more than one graph in the same figure using the same inputs but more than one set of outputs. Run the code below to graph and on the same graph.   Notice that if you don't specify the inputs, pyplot uses a default set instead. Change the above code and remove the second call for the inputs X in ax.plot(). What is the default input window pyplot uses for Y2?  Change the above code to add a third function on the same graph.    Scatter Plots in 2D  To graph a scatterplot, use the command scatter instead of plot .  Adjust the code in any plot above to make it into a scatter plot instead.  Replace ax.plot() with ax.scatter() in the code.   For scatter plots sometimes you get the data from an experiment instead of a formula. As long as the outputs are given as a NumPy array, either from manipulating your input array, or by creating a completely new array, Matplotlib will still connect the dots.     Parametric Curves in 2D  In mathematics and the sciences we sometimes introduce a new parameter and write coordinates and in terms of that parameter. This is common for curves that are not functions of , like circles or ellipses, or a nice way to model motion, where the and coordinate location of an object is the output at each input time . If you haven't seen this in a Trigonometry class, or if you need a refresher, check out insert appendix stuff here . In mathematics these parametric curves or space curves are often written as a set of two parametric equations or a vector-valued function.  For example, we can graph a circle using or, equivalently, for values of in   Matplotlib still graphs these curves by plotting points using plot and connecting the dots, which will make it easy to generalize these curves to 3D.   Note that the above code graphs the unit circle. Play with the above functions for and to see what other interesting curves you can graph. In particular, when you have the parameter , can you create  a line?  a different circle?  a parabola?      Axes and Labels  You can easily add titles or labels to your axes using the commands set_title(\"title_here\") , set_xlabel(\"label_here\") , set_ylabel(\"label_here\") . Since the code below is longer, you might need to scroll to see all of the commands.    You can also adjust the tick marks on the axes, but it takes a little more work, and there are multiple approaches.  Search online for a way to change the tick labels in Matplotlib. Try and adjust the \"Falling Body\" graph to have tickmarks every quarter of a second.    Customizing  You can customize pretty much everything in the plot: colors, markers, line width and styles, etc. Below are a few examples.    The comma separated list of possible commands inside the parentheses of a function like plot() are called the arguments of the function. The functions plot and scatter can take arguments like color=\"color_here\" , linestyle=\"style_here\" , linewidth=number_here , marker=\"markertype_here\" .    Vectors in 2D  Matplotlib plots vectors using a function from pyplot called quiver , which takes an initial coordinate, followed by the vector coordinates, to draw an arrow. Since the axes of your graph are not determined by the input domain of a function, you need to explicitly choose your axes limits using pyplot's xlim and ylim .   Try various viewing windows in the above code. What do you notice about the size of your arrow?  Since quiver is typically used for vector fields, the size scales automatically based on other elements of the graph. Here we want to use the -axes as a fixed scale to draw the vectors, and so will include the arguments angles='xy', scale_units='xy', scale=1 inside quiver .   Try various vectors and viewing windows in the above code.  For multiple vectors it can be helpful to color code and use pyplot's grid() and legend() feature.   Try various vectors and viewing windows in the above code. Also add a horizontal and vertical axis at and using the code found in the second Customizing example.    There are other ways to set up your figure and your axes in Matplotlib. Some are shortcuts and Matplotlib will use default settings (e.g. if we do not explicitly give inputs for the function we want to graph). The approach in this section is very explicit, which makes it easier to understand how to control each feature as we get started.    Summary     Every graph needs a figure and an axes.    We graph a connected curve on our axes using axes_name.plot(array x,array y) for both standard equations and parametric curves.    We graph a scatterplot on our axes using axes_name.scatter(array x, array y) .    We graph a parametric curve on our axes using axes_name.plot(array x, array y) .    We can use numpy.linspace() to efficiently create enough points for plot() to connect the dots into a smooth-looking curve.    We can add titles and labels using axes_name.set_title(\"Title\") or axes_name.set_xlabel(\"input_label\") .    We can customize color, linestyles, plotting styles, thickness, tickmarks, font sizes, etc. to make our graph exactly what we need for publication.    We can specify a viewing window using xlim and ylim and graph vectors using quiver .      "
+  "body": " Matplotlib and 2D graphing  Matplotlib is a Python library that uses NumPy arrays ( ) to create static or interactive graphs and data visualizations. In this section we will learn how to use the MatPlotLib to graph curves and plot points in 2D.     Use Matplotlib to graph curves.    Use Matplotlib to make a scatterplot.    Use Matplotlib to graph vectors.    Label the axes on a graph.      Curves in 2D  Matplotlib graphs curves by plotting points and connecting the dots. A Matplotlib function called pyplot is used to create the figure and axes. The inputs and outputs are given by NumPy arrays and then plotted on the axes.            Read through both sets of code below that uses matplotlib to graph a line and a sine curve to see the syntax for these steps. Do you see the difference in how the numpy arrays were created for the inputs and outputs? Run both sets of code to see the result.    Note when `connecting the dots' you need enough points to get a smooth curve.  Change both of the above sets of code to whole number inputs from 0 to 6.   What happens to your line?    What happens to your sine curve?     Change the above code to use arange() instead of linspace() to set up your inputs. What is the smallest step size that makes the curve look smooth?  Change the above code to graph with a traditional input window like [-10,10].  You can plot more than one graph in the same figure using the same inputs but more than one set of outputs. Run the code below to graph and on the same graph.   Notice that if you don't specify the inputs, pyplot uses a default set instead. Change the above code and remove the second call for the inputs X in ax.plot(). What is the default input window pyplot uses for Y2?  Change the above code to add a third function on the same graph.    Scatter Plots in 2D  To graph a scatterplot, use the command scatter instead of plot .  Adjust the code in any plot above to make it into a scatter plot instead.  Replace ax.plot() with ax.scatter() in the code.   For scatter plots sometimes you get the data from an experiment instead of a formula. As long as the outputs are given as a NumPy array, either from manipulating your input array, or by creating a completely new array, Matplotlib will still connect the dots.     Parametric Curves in 2D  In mathematics and the sciences we sometimes introduce a new parameter and write coordinates and in terms of that parameter. This is common for curves that are not functions of , like circles or ellipses, or a nice way to model motion, where the and coordinate location of an object is the output at each input time . If you haven't seen this in a Trigonometry class, or if you need a refresher, check out insert appendix stuff here . In mathematics these parametric curves or space curves are often written as a set of two parametric equations or a vector-valued function.  For example, we can graph a circle using or, equivalently, for values of in   Matplotlib still graphs these curves by plotting points using plot and connecting the dots, which will make it easy to generalize these curves to 3D.   Note that the above code graphs the unit circle. Play with the above functions for and to see what other interesting curves you can graph. In particular, when you have the parameter , can you create  a line?  a different circle?  a parabola?      Axes and Labels  You can easily add titles or labels to your axes using the commands set_title(\"title_here\") , set_xlabel(\"label_here\") , set_ylabel(\"label_here\") . Since the code below is longer, you might need to scroll to see all of the commands.    You can also adjust the tick marks on the axes, but it takes a little more work, and there are multiple approaches.  Search online for a way to change the tick labels in Matplotlib. Try and adjust the \"Falling Body\" graph to have tickmarks every quarter of a second.    Customizing  You can customize pretty much everything in the plot: colors, markers, line width and styles, etc. Below are a few examples.    The comma separated list of possible commands inside the parentheses of a function like plot() are called the arguments of the function. The functions plot and scatter can take arguments like color=\"color_here\" , linestyle=\"style_here\" , linewidth=number_here , marker=\"markertype_here\" .    Vectors in 2D  Matplotlib plots vectors using a function from pyplot called quiver , which takes an initial coordinate, followed by the vector coordinates, to draw an arrow. Since the axes of your graph are not determined by the input domain of a function, you need to explicitly choose your axes limits using pyplot's xlim and ylim .   Try various viewing windows in the above code. What do you notice about the size of your arrow?  Since quiver is typically used for vector fields, the size scales automatically based on other elements of the graph. Here we want to use the -axes as a fixed scale to draw the vectors, and so will include the arguments angles='xy', scale_units='xy', scale=1 inside quiver .   Try various vectors and viewing windows in the above code.  For multiple vectors it can be helpful to color code and use pyplot's grid() and legend() feature.   Try various vectors and viewing windows in the above code. Also add a horizontal and vertical axis at and using the code found in the second Customizing example.    There are other ways to set up your figure and your axes in Matplotlib. Some are shortcuts and Matplotlib will use default settings (e.g. if we do not explicitly give inputs for the function we want to graph). The approach in this section is very explicit, which makes it easier to understand how to control each feature as we get started.    Summary     Every graph needs a figure and an axes.    We graph a connected curve on our axes using axes_name.plot(array x,array y) for both standard equations and parametric curves.    We graph a scatterplot on our axes using axes_name.scatter(array x, array y) .    We graph a parametric curve on our axes using axes_name.plot(array x, array y) .    We can use numpy.linspace() to efficiently create enough points for plot() to connect the dots into a smooth-looking curve.    We can add titles and labels using axes_name.set_title(\"Title\") or axes_name.set_xlabel(\"input_label\") .    We can customize color, linestyles, plotting styles, thickness, tickmarks, font sizes, etc. to make our graph exactly what we need for publication.    We can specify a viewing window using xlim and ylim and graph vectors using quiver .         "
 },
 {
   "id": "objectives-3",
@@ -271,13 +271,22 @@ var ptx_lunr_docs = [
   "body": "Try various vectors and viewing windows in the above code. Also add a horizontal and vertical axis at and using the code found in the second Customizing example. "
 },
 {
+  "id": "exercise-22",
+  "level": "2",
+  "url": "section-matplotlib.html#exercise-22",
+  "type": "Exercise",
+  "number": "1",
+  "title": "",
+  "body": ""
+},
+{
   "id": "section-matplotlib3d",
   "level": "1",
   "url": "section-matplotlib3d.html",
   "type": "Section",
   "number": "1.4",
   "title": "Matplotlib and 3D graphing",
-  "body": " Matplotlib and 3D graphing   Now that we have some experience making 2D graphs, let's learn how to make 3D graphs. Note that we can graph both curves and surfaces in 3D. If you have taken a multivariable class hopefully you remember that surfaces arise as solutions to equations of three variables, while points on a space curve are parametric equations or vector-valued functions. The code for the points on a space curve is a little more straightforward so we will start with those examples.      Use Matplotlib to graph parametric curves in 3D.    Use Matplotlib to graph surfaces and scatterplots in 3D.      3D axes  First, for 3D graphs we will need to add 3D axes to our figure using the keyword projection='3d' . Read through and run the code below to see the default 3D axes.     Parametric Curves in 3D  Matplotlib graphs 3D curves by plotting points and connecting the dots. The , , and coordinates are still given by numpy arrays and then plotted on the axes.  Run the code below to graph the equation of a line between the points and .   Edit the above code to graph the equation of a line between the points and .  Edit the above code to add a third number to each numpy array. What happens? Can you explain what plot() just graphed?  We can also graph curves by making coordinates dependent on another. For example, the curve below looks like a parabola in the -direction above the shadow    As before, we need enough input points to get a smooth curve.  Parametric curves in 3D are just like 2D (see ( )) with an added -coordinate. For example, we can graph a horizontal circle at using              Play with the above code for , , and to see what other interesting curves you can create. In 3-space can you graph  a line?  a spiral?  a different circle?      Surfaces and scatterplots in 3D  To graph a surface or 3D scatterplot, we will need two-dimensional numpy arrays for all of our inputs and outputs. As a shortcut we can create 1D arrays for the and inputs first, then use NumPy's function meshgrid() to create a coordinate grid of inputs (two 2D arrays). Last we define our outputs on that coordinate grid.  The function scatter() will plot a scatterplot just like in 2D. The function plot_surface() plots the points and connect those dots with a surface. Just like we need enough points to get a curve that looks smooth, we will need enough points to get a surface that looks smooth.  Run the code below trying both the command plot_surface() (current default) and scatter() to see the difference.   For the surface, increase the step in each input and run the above code again. When does the surface start to look polygonal instead of smooth?  Modify the above code to graph the surface . Choose a reasonable range of inputs that shows the important features of the graph.  Change the surface to . What step size is needed to make the input window [-2,2] and [-2,2] display a smooth surface?  As in the 2D case, the function scatter() plots the points without connecting the dots.    Axes and Labels  Adding titles or labels to our 3D axes uses the same commands as in 2D. the commands set_title(\"title_here\") , set_xlabel(\"label_here\") , set_ylabel(\"label_here\") .   In the above code, use parallel syntax to add a label to the -axis.  Note that the default viewing window makes the -axis positive left to right and -axis positive front to back. Something new in the 3D setting, however, is the ability to choose our viewing angle for the 3D axes using view_init(elev= , azim=, roll=) .  In the code below, play with the values for elev , azim and roll .   What does each change?  What custom viewing angle do you think showcases this particular surface the best?       Plotting Multiple Surfaces  Unfortunately Matplotlib does NOT actually graph in 3D, but paints each surface in a 2D projection, one on top of the other, which can cause the resulting graphs to look weird. Sometimes it is enough to change the viewing angle.  In the above code add a second surface to your graph using Z2 for the new outputs and ax.plot_surface(X,Y,Z2) .   Can you find a viewing angle where both surfaces look good?    Can you find a viewing angle where they don't quite look right?     A possible workaround involves making the surfaces transparent and plotting their intersection as well. If you find another workaround that is fairly simple and doesn't involve dark magic and paying with programmer souls as one stack overflow user suggested, let us know and we can include it in future iterations of this book.  Run the code below to see a Matplotlib 3D fail.   You can make your graphs transparent using the argument alpha = inside plot_surface .  In the code above add alpha=0.5 after each of Z1, Z2, and Z3 inside plot_surface to see a partial fix. Play with values of alpha to see which transparency setting you prefer. You can also graph the lines of intersection for each plane, which we will do later in the term.    Customizing  Like in 2D, we can customize our plots: the style, colors, markers, meshes, contours, line width, etc. There are many features available that we didn't cover here, but hopefully you have enough to get you started with 3D graphing using Matplotlib in Python.  So how do you learn more?  Look up Matplotlib's documentation on the web and find their page of examples, 3D plotting . Pick a 3D graph you want to learn to code and use the cell below to try it out. How is what you found different than what you learned in this section? Experiment by adjusting Matplotlib's example code to see what happens.     This section gave us just an introduction to 3D graphing possibilities using Matplotlib in Python. We will continue to learn more about graphing as we move into using Python for matrix algebra.    Summary     We can add 3D axes using the argument projection='3d' inside pyplot's axes command.    We can use numpy.meshgrid() to create input coordinates on a grid and then use plot_surface() or scatter() to plot a surface or scatter plot on 3D axes.    As before we need enough points for plot_surface() or plot() to make smooth graphs.      "
+  "body": " Matplotlib and 3D graphing   Now that we have some experience making 2D graphs, let's learn how to make 3D graphs. Note that we can graph both curves and surfaces in 3D. If you have taken a multivariable class hopefully you remember that surfaces arise as solutions to equations of three variables, while points on a space curve are parametric equations or vector-valued functions. The code for the points on a space curve is a little more straightforward so we will start with those examples.      Use Matplotlib to graph parametric curves in 3D.    Use Matplotlib to graph surfaces and scatterplots in 3D.      3D axes  First, for 3D graphs we will need to add 3D axes to our figure using the keyword projection='3d' . Read through and run the code below to see the default 3D axes.     Parametric Curves in 3D  Matplotlib graphs 3D curves by plotting points and connecting the dots. The , , and coordinates are still given by numpy arrays and then plotted on the axes.  Run the code below to graph the equation of a line between the points and .   Edit the above code to graph the equation of a line between the points and .  Edit the above code to add a third number to each numpy array. What happens? Can you explain what plot() just graphed?  We can also graph curves by making coordinates dependent on another. For example, the curve below looks like a parabola in the -direction above the shadow    As before, we need enough input points to get a smooth curve.  Parametric curves in 3D are just like 2D (see ( )) with an added -coordinate. For example, we can graph a horizontal circle at using              Play with the above code for , , and to see what other interesting curves you can create. In 3-space can you graph  a line?  a spiral?  a different circle?      Surfaces and scatterplots in 3D  To graph a surface or 3D scatterplot, we will need two-dimensional numpy arrays for all of our inputs and outputs. As a shortcut we can create 1D arrays for the and inputs first, then use NumPy's function meshgrid() to create a coordinate grid of inputs (two 2D arrays). Last we define our outputs on that coordinate grid.  The function scatter() will plot a scatterplot just like in 2D. The function plot_surface() plots the points and connect those dots with a surface. Just like we need enough points to get a curve that looks smooth, we will need enough points to get a surface that looks smooth.  Run the code below trying both the command plot_surface() (current default) and scatter() to see the difference.   For the surface, increase the step in each input and run the above code again. When does the surface start to look polygonal instead of smooth?  Modify the above code to graph the surface . Choose a reasonable range of inputs that shows the important features of the graph.  Change the surface to . What step size is needed to make the input window [-2,2] and [-2,2] display a smooth surface?  As in the 2D case, the function scatter() plots the points without connecting the dots.    Axes and Labels  Adding titles or labels to our 3D axes uses the same commands as in 2D. the commands set_title(\"title_here\") , set_xlabel(\"label_here\") , set_ylabel(\"label_here\") .   In the above code, use parallel syntax to add a label to the -axis.  Note that the default viewing window makes the -axis positive left to right and -axis positive front to back. Something new in the 3D setting, however, is the ability to choose our viewing angle for the 3D axes using view_init(elev= , azim=, roll=) .  In the code below, play with the values for elev , azim and roll .   What does each change?  What custom viewing angle do you think showcases this particular surface the best?       Plotting Multiple Surfaces  Unfortunately Matplotlib does NOT actually graph in 3D, but paints each surface in a 2D projection, one on top of the other, which can cause the resulting graphs to look weird. Sometimes it is enough to change the viewing angle.  In the above code add a second surface to your graph using Z2 for the new outputs and ax.plot_surface(X,Y,Z2) .   Can you find a viewing angle where both surfaces look good?    Can you find a viewing angle where they don't quite look right?     A possible workaround involves making the surfaces transparent and plotting their intersection as well. If you find another workaround that is fairly simple and doesn't involve dark magic and paying with programmer souls as one stack overflow user suggested, let us know and we can include it in future iterations of this book.  Run the code below to see a Matplotlib 3D fail.   You can make your graphs transparent using the argument alpha = inside plot_surface .  In the code above add alpha=0.5 after each of Z1, Z2, and Z3 inside plot_surface to see a partial fix. Play with values of alpha to see which transparency setting you prefer. You can also graph the lines of intersection for each plane, which we will do later in the term.    Customizing  Like in 2D, we can customize our plots: the style, colors, markers, meshes, contours, line width, etc. There are many features available that we didn't cover here, but hopefully you have enough to get you started with 3D graphing using Matplotlib in Python.  So how do you learn more?  Look up Matplotlib's documentation on the web and find their page of examples, 3D plotting . Pick a 3D graph you want to learn to code and use the cell below to try it out. How is what you found different than what you learned in this section? Experiment by adjusting Matplotlib's example code to see what happens.     This section gave us just an introduction to 3D graphing possibilities using Matplotlib in Python. We will continue to learn more about graphing as we move into using Python for matrix algebra.    Summary     We can add 3D axes using the argument projection='3d' inside pyplot's axes command.    We can use numpy.meshgrid() to create input coordinates on a grid and then use plot_surface() or scatter() to plot a surface or scatter plot on 3D axes.    As before we need enough points for plot_surface() or plot() to make smooth graphs.         "
 },
 {
   "id": "objectives-4",
@@ -289,112 +298,157 @@ var ptx_lunr_docs = [
   "body": "   Use Matplotlib to graph parametric curves in 3D.    Use Matplotlib to graph surfaces and scatterplots in 3D.    "
 },
 {
-  "id": "exercise-22",
+  "id": "exercise-23",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-22",
+  "url": "section-matplotlib3d.html#exercise-23",
   "type": "You Try",
   "number": "1.19",
   "title": "",
   "body": "Edit the above code to graph the equation of a line between the points and . "
 },
 {
-  "id": "exercise-23",
+  "id": "exercise-24",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-23",
+  "url": "section-matplotlib3d.html#exercise-24",
   "type": "You Try",
   "number": "1.20",
   "title": "",
   "body": "Edit the above code to add a third number to each numpy array. What happens? Can you explain what plot() just graphed? "
 },
 {
-  "id": "exercise-24",
+  "id": "exercise-25",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-24",
+  "url": "section-matplotlib3d.html#exercise-25",
   "type": "You Try",
   "number": "1.21",
   "title": "",
   "body": "Play with the above code for , , and to see what other interesting curves you can create. In 3-space can you graph  a line?  a spiral?  a different circle?   "
 },
 {
-  "id": "exercise-25",
+  "id": "exercise-26",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-25",
+  "url": "section-matplotlib3d.html#exercise-26",
   "type": "You Try",
   "number": "1.22",
   "title": "",
   "body": "Run the code below trying both the command plot_surface() (current default) and scatter() to see the difference. "
 },
 {
-  "id": "exercise-26",
+  "id": "exercise-27",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-26",
+  "url": "section-matplotlib3d.html#exercise-27",
   "type": "You Try",
   "number": "1.23",
   "title": "",
   "body": "For the surface, increase the step in each input and run the above code again. When does the surface start to look polygonal instead of smooth? "
 },
 {
-  "id": "exercise-27",
+  "id": "exercise-28",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-27",
+  "url": "section-matplotlib3d.html#exercise-28",
   "type": "You Try",
   "number": "1.24",
   "title": "",
   "body": "Modify the above code to graph the surface . Choose a reasonable range of inputs that shows the important features of the graph. "
 },
 {
-  "id": "exercise-28",
+  "id": "exercise-29",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-28",
+  "url": "section-matplotlib3d.html#exercise-29",
   "type": "You Try",
   "number": "1.25",
   "title": "",
   "body": "Change the surface to . What step size is needed to make the input window [-2,2] and [-2,2] display a smooth surface? "
 },
 {
-  "id": "exercise-29",
+  "id": "exercise-30",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-29",
+  "url": "section-matplotlib3d.html#exercise-30",
   "type": "You Try",
   "number": "1.26",
   "title": "",
   "body": "In the above code, use parallel syntax to add a label to the -axis. "
 },
 {
-  "id": "exercise-30",
+  "id": "exercise-31",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-30",
+  "url": "section-matplotlib3d.html#exercise-31",
   "type": "You Try",
   "number": "1.27",
   "title": "",
   "body": "In the code below, play with the values for elev , azim and roll .   What does each change?  What custom viewing angle do you think showcases this particular surface the best?   "
 },
 {
-  "id": "exercise-31",
+  "id": "exercise-32",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-31",
+  "url": "section-matplotlib3d.html#exercise-32",
   "type": "You Try",
   "number": "1.28",
   "title": "",
   "body": "In the above code add a second surface to your graph using Z2 for the new outputs and ax.plot_surface(X,Y,Z2) .   Can you find a viewing angle where both surfaces look good?    Can you find a viewing angle where they don't quite look right?    "
 },
 {
-  "id": "exercise-32",
+  "id": "exercise-33",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-32",
+  "url": "section-matplotlib3d.html#exercise-33",
   "type": "You Try",
   "number": "1.29",
   "title": "",
   "body": "Run the code below to see a Matplotlib 3D fail. "
 },
 {
-  "id": "exercise-33",
+  "id": "exercise-34",
   "level": "2",
-  "url": "section-matplotlib3d.html#exercise-33",
+  "url": "section-matplotlib3d.html#exercise-34",
   "type": "You Try",
   "number": "1.30",
   "title": "",
   "body": "In the code above add alpha=0.5 after each of Z1, Z2, and Z3 inside plot_surface to see a partial fix. Play with values of alpha to see which transparency setting you prefer. You can also graph the lines of intersection for each plane, which we will do later in the term. "
+},
+{
+  "id": "exercise-35",
+  "level": "2",
+  "url": "section-matplotlib3d.html#exercise-35",
+  "type": "Exercise",
+  "number": "1",
+  "title": "",
+  "body": ""
+},
+{
+  "id": "section-animation",
+  "level": "1",
+  "url": "section-animation.html",
+  "type": "Section",
+  "number": "1.5",
+  "title": "Basic Animation",
+  "body": " Basic Animation  In this section we will someday, hopefully, learn how to animate in Matplotlib. For now, however, this section just has examples. Feel free to try them out.     TBD    TBD      Animating in Matplotlib  This first example creates a user defined function to plot data one point at a time.   Matplotlib has a function called animation that we can use instead. This second example calls the function animation to create a gif. It is more complicated than what we need for a gif (see the following examples), but might help us move toward an interactive. In the Matplotlib animation documentation similar code comes with player controls that are likely beyond the scope of this class.    Here is an example using the Matplotlib function animation.FuncAnimation that is simpler, but I think it only works for gif's or mpeg's and NOT interactives.           Summary     TBD      TBD         "
+},
+{
+  "id": "objectives-5",
+  "level": "2",
+  "url": "section-animation.html#objectives-5",
+  "type": "Objectives",
+  "number": "1.5",
+  "title": "",
+  "body": "   TBD    TBD    "
+},
+{
+  "id": "exercise-36",
+  "level": "2",
+  "url": "section-animation.html#exercise-36",
+  "type": "You Try",
+  "number": "1.31",
+  "title": "",
+  "body": ""
+},
+{
+  "id": "exercise-37",
+  "level": "2",
+  "url": "section-animation.html#exercise-37",
+  "type": "Exercise",
+  "number": "1",
+  "title": "",
+  "body": ""
 },
 {
   "id": "section-systems",
@@ -406,9 +460,9 @@ var ptx_lunr_docs = [
   "body": " Solving and Graphing Systems of Linear Equations  Systems of linear equations can be solved using multiple methods. In this section we will learn how to solve systems of linear equations using a process called row reduction. Row reduction is sometimes called Gaussian elimination, after the mathematician Gauss. Long before Gauss, Chinese scholars demonstrated this method of solving systems of linear equations in chapter 8 of The Nine Chapters on the Mathematical Art. .      Row reduce matrices representing systems of linear equations using the Python library Sympy.    Graph solutions to systems of linear equations of two or three variables.    Graph solutions to vector equations in and .    Use the pivots of a reduced augmented matrix to determine if a system has no solution, a unique solution, or infinitely many solutions      Row Reduction  Note that row reduction involves symbolic manipulation. Since Numpy is focused on number crunching, we will need a different Python library called Sympy to do the symbolic manipulation of row reduction to reduced echelon form and row reduced echelon form.  In order to row reduce a system of linear equations we convert our system into an augmented matrix.   Augmented Matrix   For example, the system becomes     In Sympy, matrices are entered using the function Matrix .   Edit the above code to print the augmented matrix for the system of linear equations in .  The Sympy functions echelon_form() and rref() can be used to row reduce a matrix to reduced echelon form and row reduced echelon form, respectively. If you need a refresher on these two forms, read section (insert reference here).  Edit the code below to print the reduced echelon form and the row reduced echelon form for the augmented matrix of the system of linear equations from .   Note that rref() returns not only the row reduced echelon form of a matrix, but also a tuple that tells you which columns have leading values of 1. These columns are called pivot columns , and give you a quick way to see any free variables (which are non-pivot columns).  Edit the code above for various augmented matrices to see how the tuple returned by rref() relates to the pivot columns.  Recall that a system of linear equations either has   no solution,    a unique solution, or    infinitely many solutions.   If you need a refresher on how to interpret the reduced echelon form of an augmented matrix to determine if there is no solution, write down the unique solution, or give the infinitely many solutions in parametric form, see section (insert section here).    Graphing solutions to systems of equations  In order to graph solutions to systems of linear equations with two or three variables you can graph the corresponding lines, planes, or coordinates.   The system has solutions and .  Linear equations with two variables can be graphed as lines in the xy-plane, either by plotting two points on the line or solving for . The solution is one point in a scatter plot.    Edit the code in to clearly indicate the solution and on the graph.  Systems of equations with three variables must be graphed in 3D. As mentioned in , Matplotlib paints 2D projections of each surface on top of the other which doesn't adequately graph their relationships. We can partially fix this by making the surfaces transparent and explicitly plotting their intersections. The intersection of any two non-parallel planes is a line which can be found by solving the system of the two plane equations and writing the solution in parametric form.   Graph solutions to the system by finding the equations of the lines of intersection of the planes and plotting the planes, the lines, and the point of intersection.  Solution 1 walks through the process, followed by a Python implementation of the rref() .   First row reducing the augmented matrix for the system of all three equations we obtain a unique solution , , .  Row reducing the augmented matrix for the first two equations we obtain which can be written in parametric form,   Row reducing the augmented matrix for the last two equations we obtain which can be written in parametric form,   Row reducing the augmented matrix for the first and last equations we obtain which can be written in parametric form,     Next we will use Matplotlib to graph these results. First note that if we are careless with our input domains for the planes and lines, our graph will be inconsistent.   Note: you can change the viewing angle to try and get a better graph.  The real problem in the code above is that we graph our surfaces with domain and , but use for the parametric equation of our lines. There are several fixes for this.  One fix is to adjust the parametric input values for the lines to better match the planes. For example, you can make to get a more consistent graph. Try several adjustments for the range in the above code. To get a fully consistent graph, each line would need a different parametric domain that matches the domain of the planes.  Another fix is to solve each pair of equations for two points on the line in the domain of the planes. You can then plot the line between the two points.  Solution 2 walks through the process of finding the points, followed by an alternative Python implementation to graph the solutions.   Recall the first two equations intersect in the line Solving for when , we see . Plugging into the parametric equation for the line we obtain the point . Similarly when , we find , giving the point .  The last two equations intersect in the line Here is always . Instead we solve for when and . We find and , giving us the two points and .  The first and last equations intersect in the line Here when giving us the points and .  Recall to plot the lines between two points we create arrays of the -values, -values, and -values, then plot the line between them.    Can you find other fixes? If so, share them so we can add them here.      Graphing vector equations and their solutions  Recall that solving a vector equation is equivalent to solving a system of equations.   For example the vector equation corresponds to the linear system found in and still has solution and .  The solution to the vector equation can be graphed using linear combinations of vectors. That is,       Converting between Numpy arrays and Sympy Matrices  Since Numpy and Sympy are different libraries, we will need to either enter our augmented matrix as a Sympy matrix, or convert a numpy array into a sympy matrix in order to call the row reducing function in Sympy.     Summary     TBD      TBD       The system has a unique solution. Use Python code to find the solution. Graph the system of equations and the solution using Matplot3D. Lable your axes. Note: part of the challenge is making sure you have a good viewing window and perspective so the graph helps illuminate the solution.    "
 },
 {
-  "id": "objectives-5",
+  "id": "objectives-6",
   "level": "2",
-  "url": "section-systems.html#objectives-5",
+  "url": "section-systems.html#objectives-6",
   "type": "Objectives",
   "number": "2.1",
   "title": "",
@@ -424,27 +478,27 @@ var ptx_lunr_docs = [
   "body": " Augmented Matrix   For example, the system becomes    "
 },
 {
-  "id": "exercise-34",
+  "id": "exercise-38",
   "level": "2",
-  "url": "section-systems.html#exercise-34",
+  "url": "section-systems.html#exercise-38",
   "type": "You Try",
   "number": "2.2",
   "title": "",
   "body": "Edit the above code to print the augmented matrix for the system of linear equations in . "
 },
 {
-  "id": "exercise-35",
+  "id": "exercise-39",
   "level": "2",
-  "url": "section-systems.html#exercise-35",
+  "url": "section-systems.html#exercise-39",
   "type": "You Try",
   "number": "2.3",
   "title": "",
   "body": "Edit the code below to print the reduced echelon form and the row reduced echelon form for the augmented matrix of the system of linear equations from . "
 },
 {
-  "id": "exercise-36",
+  "id": "exercise-40",
   "level": "2",
-  "url": "section-systems.html#exercise-36",
+  "url": "section-systems.html#exercise-40",
   "type": "You Try",
   "number": "2.4",
   "title": "",
@@ -460,9 +514,9 @@ var ptx_lunr_docs = [
   "body": " The system has solutions and .  Linear equations with two variables can be graphed as lines in the xy-plane, either by plotting two points on the line or solving for . The solution is one point in a scatter plot.   "
 },
 {
-  "id": "exercise-37",
+  "id": "exercise-41",
   "level": "2",
-  "url": "section-systems.html#exercise-37",
+  "url": "section-systems.html#exercise-41",
   "type": "You Try",
   "number": "2.6",
   "title": "",
@@ -487,9 +541,9 @@ var ptx_lunr_docs = [
   "body": " For example the vector equation corresponds to the linear system found in and still has solution and .  The solution to the vector equation can be graphed using linear combinations of vectors. That is,    "
 },
 {
-  "id": "exercise-38",
+  "id": "exercise-42",
   "level": "2",
-  "url": "section-systems.html#exercise-38",
+  "url": "section-systems.html#exercise-42",
   "type": "Exercise",
   "number": "1",
   "title": "",
@@ -502,23 +556,32 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.2",
   "title": "Matrix Arithmetic",
-  "body": " Matrix Arithmetic  In this section we will learn how to     Add, subtract, scale, and multiply matrices in Numpy    Find matrix inverses    Use matrix inverses to solve systems of linear equations      Title          Summary     blah      blah      "
+  "body": " Matrix Arithmetic  In this section we will learn how to     Add, subtract, scale, and multiply matrices in Numpy    Find matrix inverses    Use matrix inverses to solve systems of linear equations      Title          Summary     blah      blah         "
 },
 {
-  "id": "objectives-6",
+  "id": "objectives-7",
   "level": "2",
-  "url": "section-matrices.html#objectives-6",
+  "url": "section-matrices.html#objectives-7",
   "type": "Objectives",
   "number": "2.2",
   "title": "",
   "body": "   Add, subtract, scale, and multiply matrices in Numpy    Find matrix inverses    Use matrix inverses to solve systems of linear equations    "
 },
 {
-  "id": "exercise-39",
+  "id": "exercise-43",
   "level": "2",
-  "url": "section-matrices.html#exercise-39",
+  "url": "section-matrices.html#exercise-43",
   "type": "You Try",
   "number": "2.9",
+  "title": "",
+  "body": ""
+},
+{
+  "id": "exercise-44",
+  "level": "2",
+  "url": "section-matrices.html#exercise-44",
+  "type": "Exercise",
+  "number": "1",
   "title": "",
   "body": ""
 },
@@ -532,9 +595,9 @@ var ptx_lunr_docs = [
   "body": " Samples of various pretext formats     C    D       Does this make a difference?     Here is a paragraph. With quotations and single quotes , emphasis and angles .  Here are examples of the OscarLevin css style.     Here is a part of an ordered list    next part      try again       Here is an itemized list      Here is an itemized list            integral   An integral is a sum.     integral   An integral is a sum.     integral   An integral is a sum.     integral  An integral is a sum.    integral  An integral is a sum.   integral An integral is a sum. A variable is a container for information.   How to do an aside  here is an aside. can you footnote an aside?   with two paragraphs and    It seems that asides get lost a little on the right, so I think I should use them sparingly. How in the heck do you write a paragraph that is readable?  Exercise What  Does this work at all?    What happens if I do this? Blah blah blah     C    D      blah blah   "
 },
 {
-  "id": "objectives-7",
+  "id": "objectives-8",
   "level": "2",
-  "url": "examples.html#objectives-7",
+  "url": "examples.html#objectives-8",
   "type": "Objectives",
   "number": "3.1",
   "title": "",
@@ -550,27 +613,27 @@ var ptx_lunr_docs = [
   "body": " Does this make a difference?  "
 },
 {
-  "id": "objectives-8",
+  "id": "objectives-9",
   "level": "2",
-  "url": "examples.html#objectives-8",
+  "url": "examples.html#objectives-9",
   "type": "Objectives",
   "number": "",
   "title": "",
   "body": " "
 },
 {
-  "id": "p-211",
+  "id": "p-223",
   "level": "2",
-  "url": "examples.html#p-211",
+  "url": "examples.html#p-223",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "integral integral integral integral integral integral variable "
 },
 {
-  "id": "exercise-41",
+  "id": "exercise-46",
   "level": "2",
-  "url": "examples.html#exercise-41",
+  "url": "examples.html#exercise-46",
   "type": "You Try",
   "number": "3.4",
   "title": "Exercise What.",
@@ -586,9 +649,9 @@ var ptx_lunr_docs = [
   "body": "   C    D    "
 },
 {
-  "id": "exercise-42",
+  "id": "exercise-47",
   "level": "2",
-  "url": "examples.html#exercise-42",
+  "url": "examples.html#exercise-47",
   "type": "Reading Question",
   "number": "1",
   "title": "",

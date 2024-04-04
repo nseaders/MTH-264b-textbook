@@ -285,6 +285,7 @@ sagecell.makeSagecell({
 <li><div class="toc-item"><a href="section-matplotlib.html#axes" class="internal"><span class="title">Axes and Labels</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib.html#custom-graphs" class="internal"><span class="title">Customizing</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib.html#subsec-Vectorsin2D" class="internal"><span class="title">Vectors in 2D</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#exercises-matplotlib2D" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
@@ -296,6 +297,14 @@ sagecell.makeSagecell({
 <li><div class="toc-item"><a href="section-matplotlib3d.html#subsec-3DAxesandLabels" class="internal"><span class="title">Axes and Labels</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib3d.html#subsec-multiplesurfaces" class="internal"><span class="title">Plotting Multiple Surfaces</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib3d.html#subsection-20" class="internal"><span class="title">Customizing</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib3d.html#exercises-matplotlib3D" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-animation.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Basic Animation</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-animation.html#subsection-21" class="internal"><span class="title">Animating in Matplotlib</span></a></div></li>
+<li><div class="toc-item"><a href="section-animation.html#exercises-animation" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -308,14 +317,17 @@ sagecell.makeSagecell({
 <ul class="structural">
 <li><div class="toc-item"><a href="section-systems.html#rref" class="internal"><span class="title">Row Reduction</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#graphsolution" class="internal"><span class="title">Graphing solutions to systems of equations</span></a></div></li>
-<li><div class="toc-item"><a href="section-systems.html#subsection-23" class="internal"><span class="title">Graphing vector equations and their solutions</span></a></div></li>
+<li><div class="toc-item"><a href="section-systems.html#subsection-24" class="internal"><span class="title">Graphing vector equations and their solutions</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#subsec-" class="internal"><span class="title">Converting between Numpy arrays and Sympy Matrices</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#exercises-systems" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="active">
 <div class="toc-item"><a href="section-matrices.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix Arithmetic</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="section-matrices.html#subsection-25" class="internal"><span class="title">Title</span></a></div></li></ul>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-matrices.html#subsection-26" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#exercises-matrices" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
 </li>
 </ul>
 </li>
@@ -324,7 +336,7 @@ sagecell.makeSagecell({
 <ul class="structural"><li>
 <div class="toc-item"><a href="examples.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Samples of various pretext formats</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="examples.html#subsection-26" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
+<li><div class="toc-item"><a href="examples.html#subsection-27" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
 <li><div class="toc-item"><a href="examples.html#reading-questions-1" class="internal"><span class="title">Reading Questions</span></a></div></li>
 </ul>
 </li></ul>
@@ -334,23 +346,32 @@ sagecell.makeSagecell({
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-matrices"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.2</span> <span class="title">Matrix Arithmetic</span>
 </h2>
-<section class="introduction" id="introduction-8">In this section we will learn how to</section><article class="objectives goal-like" id="objectives-6"><h3 class="heading"><span class="type">Objectives</span></h3>
+<section class="introduction" id="introduction-9">In this section we will learn how to</section><article class="objectives goal-like" id="objectives-7"><h3 class="heading"><span class="type">Objectives</span></h3>
 <ul class="disc">
-<li id="li-57"><div class="para" id="p-193">Add, subtract, scale, and multiply matrices in Numpy</div></li>
-<li id="li-58"><div class="para" id="p-194">Find matrix inverses</div></li>
-<li id="li-59"><div class="para" id="p-195">Use matrix inverses to solve systems of linear equations</div></li>
-</ul></article><section class="subsection" id="subsection-25"><h3 class="heading hide-type">
+<li id="li-63"><div class="para" id="p-205">Add, subtract, scale, and multiply matrices in Numpy</div></li>
+<li id="li-64"><div class="para" id="p-206">Find matrix inverses</div></li>
+<li id="li-65"><div class="para" id="p-207">Use matrix inverses to solve systems of linear equations</div></li>
+</ul></article><section class="subsection" id="subsection-26"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Title</span>
 </h3>
-<pre class="ptx-sagecell sagecell-python" id="sage-43"><script type="text/x-sage">python
+<pre class="ptx-sagecell sagecell-python" id="sage-51"><script type="text/x-sage">python
 </script></pre>
-<article class="exercise exercise-like" id="exercise-39"><h4 class="heading">
+<article class="exercise exercise-like" id="exercise-43"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.9</span><span class="period">.</span>
-</h4></article></section><section class="conclusion" id="conclusion-4"><div class="para" id="p-196"></div></section><article class="assemblage assemblage-like" id="assemblage-6"><h3 class="heading"><span class="title">Summary.</span></h3>
-<div class="para logical" id="p-197">
-<ul class="disc"><li id="li-60"><div class="para" id="p-198">blah</div></li></ul>
-<ul class="disc"><li id="li-61"><div class="para" id="p-199">blah</div></li></ul>
-</div></article></section></div>
+</h4></article></section><section class="conclusion" id="conclusion-5"><div class="para" id="p-208"></div></section><article class="assemblage assemblage-like" id="assemblage-7"><h3 class="heading"><span class="title">Summary.</span></h3>
+<div class="para logical" id="p-209">
+<ul class="disc"><li id="li-66"><div class="para" id="p-210">blah</div></li></ul>
+<ul class="disc"><li id="li-67"><div class="para" id="p-211">blah</div></li></ul>
+</div></article><section class="exercises" id="exercises-matrices"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exercise-44"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<pre class="ptx-sagecell sagecell-python" id="sage-52"><script type="text/x-sage">#
+#
+#
+#
+#
+</script></pre></article></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="section-systems.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="appendix.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
