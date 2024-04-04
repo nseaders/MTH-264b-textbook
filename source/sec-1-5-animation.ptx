@@ -11,32 +11,272 @@
     <title>Basic Animation</title>
 
     <introduction>
-        In this section we will learn how to  
+        In this section we will someday, hopefully, learn how to animate in Matplotlib. 
+        For now, however, this section just has examples.
+        Feel free to try them out.
     </introduction>
 
     <objectives>
         <ul>
           <li>
             <p>
-              C
+              TBD
             </p>
           </li>
           <li>
             <p>
-              D
+              TBD
             </p>
           </li>
         </ul>
       </objectives>
 
       <subsection>
-        <title>Title</title>
+        <title>Animating in Matplotlib</title>
+
+        <p>
+          This first example creates a user defined function to plot data one point at a time. 
+        </p>
 
         <sage language='python'>
           <input>
-            python
+            import matplotlib.pyplot as plt
+            import numpy as np
+            
+            t = np.linspace(0, 3, 10) #time inputs
+            g = -9.81 # estimated gravity
+            v0 = 12 # initial velocity
+            # current position based on initial velocity, gravity, and time elapsed
+            y = g * t**2 / 2 + v0 * t
+            
+            # how far into the simulation we are
+            # note that we start this at 0, knowing that the interact code down below runs even when we just start the program
+            current_frame = 0
+            
+            def plot_data(current_t, current_y):
+                """Plot data up to current x and y values based on the current_frame."""
+                # note that we could include this inline in the function below, but that function is already long enough...
+                plt.plot(current_t, current_y, "o-") # plot data
+              
+                # set boundaries, axis labels, title, show grid, show legend
+                plt.xlim([-0.1, 3])
+                plt.ylim([-4, 10])
+                plt.xlabel("Time [s]")
+                plt.ylabel("Z [m]")
+              
+                plt.title("Dynamic Plot")
+                plt.grid(True)
+                plt.legend([f"v0 = {v0} m/s"])
+              
+                plt.show() # actually show the plotted data   
+              
+            @interact
+            def change_frame(selection=selector(["advance_time", "retreat_time"],buttons=True), auto_update=False):
+                """Change the current frame and kick off the update and re-plot process."""
+                # I dislike globals, but the decorator @interact wraps this up into another namespace?
+                global current_frame
+              
+                # if advance is selected then add 1 to the current frame number, else subtract 1 from the current frame number
+                if selection == "advance_time":
+                  current_frame += 1
+                else:
+                  current_frame -= 1
+              
+                # Update underlying data
+                plt.clf() # clear previous plot, if any
+              
+                # Get only data up to the current frame.
+                current_t = t[:current_frame]
+                current_y = y[:current_frame]
+              
+                plot_data(current_t, current_y) # re-plot updated data
+              
+                # debug data, this can be useful even with just a simple print!
+                print(f"current frame: {current_frame}")
 
           </input>
+        </sage>
+
+        <p>
+          Matplotlib has a function called <c>animation</c> that we can use instead. 
+          This second example calls the function animation to create a gif.
+          It is more complicated than what we need for a gif (see the following examples), 
+          but might help us move toward an interactive. In the Matplotlib <c>animation</c> 
+          documentation similar code comes with player controls that are likely beyond the scope of this class.   
+        </p>
+
+        <sage language='python'>
+          <input>
+            import matplotlib.pyplot as plt
+            import numpy as np
+            import time
+            import matplotlib.animation as animation
+
+            fig = plt.figure()
+            ax = plt.axes()
+
+            t = np.linspace(0,3,15)
+            g = -9.81
+            v0 = 12
+            z = g* t**2 /2 + v0*t
+
+            scat = ax.scatter(t[0], z[0], label=f'v0 = {v0} m/s')
+            ax.set(xlim=[0,3], ylim=[-4,10], xlabel='Time [s]', ylabel='Height [m]')
+            ax.legend()
+
+            current_frame = 0
+
+            def update(frame):
+              #for each frame, update the data stored on each artist
+              x = t[:frame]
+              y = z[:frame]
+
+              #update the scatter plot:
+              data = np.stack([x,y]).T
+              scat.set_offsets(data)
+              return(scat)
+
+              update(current_frame)
+              print(current_frame)
+
+            #create animation, interval is the delay between frames
+            #Note: need number of frames > number of inputs plotted to animate entire graph
+            ani = animation.FuncAnimation(fig=fig, func=update, frames=15, interval=200)
+
+            #save animation as a file
+            ani.to_jshtml()
+            ani.save("plot_animation.gif")
+
+          </input>
+        </sage>
+
+        <sage language='python'>
+          <input>
+            # Plot, selector to add random point, only update on click
+            import matplotlib.pyplot as plt
+            import random
+            
+            # Initial data
+            x = [1, 2, 3, 4, 5]
+            y = [2, 3, 5, 7, 11]
+            first_run = True
+
+            plt.clf()  # Clear the existing plot
+            
+            # Create plot function
+            def plot_data():
+                plt.plot(x, y, 'bo-')
+                plt.xlabel('X-axis')
+                plt.ylabel('Y-axis')
+                plt.title('Dynamic Plot')
+                plt.grid(True)
+                plt.show()
+                
+            # Function to update the existing plot with new data
+            def update_plot():
+                plt.clf()  # Clear the existing plot
+                plot_data()  # Redraw the plot with updated data
+                
+            # Function to add a new point
+            def add_point():
+                new_x = len(x) + 1
+                new_y = random.randint(1, 15)
+                x.append(new_x)
+                y.append(new_y)
+                # debug
+                # print(f"x: {x}\ny: {y}")
+                update_plot()  # Update the plot with new data
+              
+            # Create SageMath selector with auto-update disabled
+            @interact
+            def add(change=selector(['add_point'], buttons=True), auto_update=False):
+                # debug
+                # print(f"change: {change}")
+                if change == "add_point" and first_run == False:
+                    add_point()
+                else:
+                    # plot initial data
+                    plot_data()
+                    # debug, but useful to see what the data is
+                    print(f"x: {x}\ny: {y}")
+            
+            # clear first_run
+            if first_run == True:
+                first_run = False
+          </input>
+        </sage>
+
+        <p>
+          Here is an example using the Matplotlib function <c>animation.FuncAnimation</c> that is simpler, 
+          but I think it only works for gif's or mpeg's and NOT interactives. 
+        </p>
+
+        <sage language='python'>
+          <input>
+            import numpy as np
+            from matplotlib import pyplot as plt
+            from matplotlib import animation
+            from matplotlib.animation import PillowWriter
+            #PillowWriter used for creating gifs
+
+            fig = plt.figure()
+            ax = plt.axes()
+            curve, = ax.plot([],[]) #create an empty graph to animate
+
+            ax.set(xlim=(-5,5), ylim = (-5,5))
+
+            #set up writer object to grab frames for a gif
+            writer = PillowWriter(fps=15)
+
+            x = [] #empty start
+            y = []
+
+            with writer.saving(fig, "sinWave.gif", 100): #100 is the dpi
+              for xval in np.linspace(-5,5,100):
+                x.append(xval)
+                y.append(3*np.sin(xval))
+
+                curve.set_data(x,y)
+
+                writer.grab_frame() #grab current frame in figure for writer object
+
+          </input> 
+        </sage>
+
+        <sage language='python'>
+          <input>
+            import numpy as np
+            from matplotlib import pyplot as plt
+            from matplotlib import animation
+            from matplotlib.animation import PillowWriter
+
+            fig = plt.figure()
+            ax = plt.axes()
+            curve, = ax.plot([],[], label='sine') #create an empty graph to animate
+            curve2, = ax.plot([],[],color='purple', linestyle='dashed', label='cosine')
+
+            ax.set(xlim=(-5,5), ylim = (-5,5))
+            plt.legend()
+
+            #set up writer object to grab frames for a gif
+            writer = PillowWriter(fps=15)
+
+            x = [] #empty start
+            y = []
+            y2 = []
+
+            with writer.saving(fig, "sincosWave.gif", 100): #100 is the dpi
+              for xval in np.linspace(-5,5,100):
+                x.append(xval)
+                y.append(3*np.sin(xval))
+                y2.append(3*np.cos(xval))
+
+                curve.set_data(x,y)
+                curve2.set_data(x,y2)
+
+                writer.grab_frame() #grab current frame in figure for writer object
+
+          </input> 
         </sage>
 
         <exercise>
@@ -58,14 +298,14 @@
         <ul>
           <li>
             <p>
-              blah 
+              TBD 
             </p>
           </li>
         </ul>
         <ul>
           <li>
             <p>
-                blah
+              TBD
             </p>
           </li>
         </ul>
