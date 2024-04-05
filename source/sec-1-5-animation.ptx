@@ -11,21 +11,20 @@
     <title>Basic Animation</title>
 
     <introduction>
-        In this section we will someday, hopefully, learn how to animate in Matplotlib. 
-        For now, however, this section just has examples.
-        Feel free to try them out.
+        In this section we will create some basic animations in Matplotlib,
+        by graphing over and over again to create frames for the animation.
     </introduction>
 
     <objectives>
         <ul>
           <li>
             <p>
-              TBD
+              Create an interactive plot with a slider.
             </p>
           </li>
           <li>
             <p>
-              TBD
+              Create a gif animating a graph.
             </p>
           </li>
         </ul>
@@ -35,180 +34,107 @@
         <title>Animating in Matplotlib</title>
 
         <p>
-          This first example creates a user defined function to plot data one point at a time. 
+          This first example uses <c>interact</c> to create a slider to plot one point at a time. 
+          We will need to create two user defined (computer science) functions: 
+          one that increments through the input points for the slider and 
+          another that plots the graph for just those input points. 
+        </p>
+        <sage language='python'>
+          <input>
+            import matplotlib.pyplot as plt
+            import numpy as np
+
+            t = np.linspace(0, 6, 15) #inputs
+            y = np.sin(t) #outputs           
+
+            #define function that plots points up to user input
+            def plot_data(current_t, current_y):
+                fig = plt.figure() #create a figure
+                ax = plt.axes() #add a graph to the figure
+                ax.plot(current_t, current_y, "o", color='blue') 
+
+                #set window, axis labels, title, show grid
+                ax.set(xlim=[0,6], ylim=[-2,2], ylabel='Sine Wave', title="Dynamic Plot")             
+                plt.show()   
+            
+            #define function to create points based on user input
+            @interact() #create interactive element, this one is a slider
+            def respond_to_user_input(frame=slider(1,15,1)): 
+              
+                #Get points up to frame user chooses.
+                current_t = t[:frame]
+                current_y = y[:frame]
+                #Call our function that plots points        
+                plot_data(current_t, current_y) 
+          </input>
+        </sage>
+
+        <exercise>
+          <ul>
+            <li>
+              <p>
+                Play with various graph features and customizations. 
+              </p>
+            </li>
+            <li>
+              <p>
+                Change the number of frames to see how the interactive is affected.
+              </p>
+            </li>
+          </ul>
+          <hint>
+            <p>
+              Try aligning and misaligning the number of frames and the number of inputs plotted.
+            </p>
+          </hint>
+
+        </exercise>
+
+        <p>
+          Here is the same interactive for projectile motion.
         </p>
 
         <sage language='python'>
           <input>
             import matplotlib.pyplot as plt
             import numpy as np
-            
-            t = np.linspace(0, 3, 10) #time inputs
-            g = -9.81 # estimated gravity
-            v0 = 12 # initial velocity
-            # current position based on initial velocity, gravity, and time elapsed
-            y = g * t**2 / 2 + v0 * t
-            
-            # how far into the simulation we are
-            # note that we start this at 0, knowing that the interact code down below runs even when we just start the program
-            current_frame = 0
-            
+
+            t_range = np.linspace(0, 3, 15) #time inputs
+            #position based on initial velocity, gravity, and time elapsed
+            g = -9.81 #approx gravity
+            v0 = 12 #initial velocity
+            y_range = g * t_range**2 / 2 + v0 * t_range 
+
+            #Plot points up to frame user chooses
             def plot_data(current_t, current_y):
-                """Plot data up to current x and y values based on the current_frame."""
-                # note that we could include this inline in the function below, but that function is already long enough...
-                plt.plot(current_t, current_y, "o-") # plot data
-              
-                # set boundaries, axis labels, title, show grid, show legend
-                plt.xlim([-0.1, 3])
-                plt.ylim([-4, 10])
-                plt.xlabel("Time [s]")
-                plt.ylabel("Z [m]")
-              
-                plt.title("Dynamic Plot")
+                fig = plt.figure() #create a figure
+                ax = plt.axes() #add a graph to the figure
+                ax.plot(current_t, current_y, "o-", color='blue')
+                
+                #set window, axis labels, title, show grid, show legend
+                ax.set(xlim=[0,3], ylim=[-4,10], xlabel='Time (s)', ylabel='Height (m)', title="Projectile Motion")
+
                 plt.grid(True)
                 plt.legend([f"v0 = {v0} m/s"])
               
-                plt.show() # actually show the plotted data   
+                plt.show()   
               
-            @interact
-            def change_frame(selection=selector(["advance_time", "retreat_time"],buttons=True), auto_update=False):
-                """Change the current frame and kick off the update and re-plot process."""
-                # I dislike globals, but the decorator @interact wraps this up into another namespace?
-                global current_frame
+            @interact() #create interactive element
+            def respond_to_user_input(time=slider(1,15,1)):
               
-                # if advance is selected then add 1 to the current frame number, else subtract 1 from the current frame number
-                if selection == "advance_time":
-                  current_frame += 1
-                else:
-                  current_frame -= 1
-              
-                # Update underlying data
-                plt.clf() # clear previous plot, if any
-              
-                # Get only data up to the current frame.
-                current_t = t[:current_frame]
-                current_y = y[:current_frame]
-              
-                plot_data(current_t, current_y) # re-plot updated data
-              
-                # debug data, this can be useful even with just a simple print!
-                print(f"current frame: {current_frame}")
-
+                #Get data up to frame user chooses.
+                current_t = t_range[:time]
+                current_y = y_range[:time]
+                #Call our function that plots data       
+                plot_data(current_t, current_y) 
           </input>
         </sage>
 
         <p>
-          Matplotlib has a function called <c>animation</c> that we can use instead. 
-          This second example calls the function animation to create a gif.
-          It is more complicated than what we need for a gif (see the following examples), 
-          but might help us move toward an interactive. In the Matplotlib <c>animation</c> 
-          documentation similar code comes with player controls that are likely beyond the scope of this class.   
-        </p>
-
-        <sage language='python'>
-          <input>
-            import matplotlib.pyplot as plt
-            import numpy as np
-            import time
-            import matplotlib.animation as animation
-
-            fig = plt.figure()
-            ax = plt.axes()
-
-            t = np.linspace(0,3,15)
-            g = -9.81
-            v0 = 12
-            z = g* t**2 /2 + v0*t
-
-            scat = ax.scatter(t[0], z[0], label=f'v0 = {v0} m/s')
-            ax.set(xlim=[0,3], ylim=[-4,10], xlabel='Time [s]', ylabel='Height [m]')
-            ax.legend()
-
-            current_frame = 0
-
-            def update(frame):
-              #for each frame, update the data stored on each artist
-              x = t[:frame]
-              y = z[:frame]
-
-              #update the scatter plot:
-              data = np.stack([x,y]).T
-              scat.set_offsets(data)
-              return(scat)
-
-              update(current_frame)
-              print(current_frame)
-
-            #create animation, interval is the delay between frames
-            #Note: need number of frames > number of inputs plotted to animate entire graph
-            ani = animation.FuncAnimation(fig=fig, func=update, frames=15, interval=200)
-
-            #save animation as a file
-            ani.to_jshtml()
-            ani.save("plot_animation.gif")
-
-          </input>
-        </sage>
-
-        <sage language='python'>
-          <input>
-            # Plot, selector to add random point, only update on click
-            import matplotlib.pyplot as plt
-            import random
-            
-            # Initial data
-            x = [1, 2, 3, 4, 5]
-            y = [2, 3, 5, 7, 11]
-            first_run = True
-
-            plt.clf()  # Clear the existing plot
-            
-            # Create plot function
-            def plot_data():
-                plt.plot(x, y, 'bo-')
-                plt.xlabel('X-axis')
-                plt.ylabel('Y-axis')
-                plt.title('Dynamic Plot')
-                plt.grid(True)
-                plt.show()
-                
-            # Function to update the existing plot with new data
-            def update_plot():
-                plt.clf()  # Clear the existing plot
-                plot_data()  # Redraw the plot with updated data
-                
-            # Function to add a new point
-            def add_point():
-                new_x = len(x) + 1
-                new_y = random.randint(1, 15)
-                x.append(new_x)
-                y.append(new_y)
-                # debug
-                # print(f"x: {x}\ny: {y}")
-                update_plot()  # Update the plot with new data
-              
-            # Create SageMath selector with auto-update disabled
-            @interact
-            def add(change=selector(['add_point'], buttons=True), auto_update=False):
-                # debug
-                # print(f"change: {change}")
-                if change == "add_point" and first_run == False:
-                    add_point()
-                else:
-                    # plot initial data
-                    plot_data()
-                    # debug, but useful to see what the data is
-                    print(f"x: {x}\ny: {y}")
-            
-            # clear first_run
-            if first_run == True:
-                first_run = False
-          </input>
-        </sage>
-
-        <p>
-          Here is an example using the Matplotlib function <c>animation.FuncAnimation</c> that is simpler, 
-          but I think it only works for gif's or mpeg's and NOT interactives. 
+          Matplotlib has a module called <c>animation</c> 
+          with a <c>FuncAnimation</c> class that allows you easily make frames of a graph. 
+          A class called <c>PillowWriter</c> allows you to grab
+          frames and save them to a file to make gifs.  
         </p>
 
         <sage language='python'>
@@ -242,6 +168,10 @@
 
           </input> 
         </sage>
+
+        <p>
+          Here is an example animating two curves on the same graph. 
+        </p>
 
         <sage language='python'>
           <input>
@@ -280,6 +210,9 @@
         </sage>
 
         <exercise>
+          <p>
+            What graph do <em>you</em> want to animate? Create it!  
+          </p>
           
         </exercise>
 
@@ -288,7 +221,10 @@
 
       <conclusion>
         <p>
-
+          Matplotlib allows you to not only graph, but make your graphs interactive. 
+          You can use <c>interact</c> to create interactive elements.
+          The <c>animation</c> module can be used to animate your graphs.  
+          Hopefully this is enough to get you started.
         </p>
       </conclusion>
 
@@ -298,14 +234,17 @@
         <ul>
           <li>
             <p>
-              TBD 
+              We can use <c>interact</c> to create a slider element and 
+              create two user defined functions: one that takes the slider information 
+              to create points and another that makes graphs for just those points. 
             </p>
           </li>
         </ul>
         <ul>
           <li>
             <p>
-              TBD
+              The <c>FuncAnimation</c>> class can be used to animate your graphs and 
+              <c>PillowWriter</c> saves those frames into a gif.
             </p>
           </li>
         </ul>

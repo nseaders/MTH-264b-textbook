@@ -271,7 +271,6 @@
 
               ax.set_xlabel('X') #label x-axis
               ax.set_ylabel('Y') #label y-axis
-
               ax.set_title("My surface") #title my graph
 
               ax.plot_surface(X,Y,Z) #plot surface

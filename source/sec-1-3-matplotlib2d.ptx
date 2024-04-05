@@ -72,7 +72,7 @@
         import numpy as np 
         
         fig = plt.figure() #create a figure
-        ax = plt.axes() #add a graph or plot, just axes unless more info) 
+        ax = plt.axes() #add a graph or plot, just axes unless more info 
         X = np.array([0,3,6]) #determine inputs
         Y = 2*X #determine outputs for y=2x
 
@@ -492,7 +492,9 @@
     <p>There are other ways to set up your figure and your axes in Matplotlib. 
       Some are shortcuts and Matplotlib will use default settings 
       (e.g. if we do not explicitly give inputs for the function we want to graph). 
-      The approach in this section is very explicit, which makes it easier to understand how to control each feature as we get started.  
+      The approach in this section is very explicit and <em>object oriented,</em>
+      which makes it easier to see how to control each feature as we get started. 
+
     </p>
   </conclusion>
 
