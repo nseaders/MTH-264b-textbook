@@ -45,13 +45,13 @@
 
     <p>
       Matplotlib graphs curves by plotting points and connecting the dots.
-      A Matplotlib function called <c>pyplot</c> is used to create the figure and axes. 
+      A Matplotlib function called <c>pyplot</c> is used to create the figure and individual graphs. 
       The inputs and outputs are given by NumPy arrays and then plotted on the axes.
     </p>
     <!--p-->
     <!--  Note that graphing uses matplotlibs function pyplot and the main steps are:-->
       <!--ol-->
-        <!--<li>create a figure and add axes,</li>-->
+        <!--<li>create a figure and add individual graphs,</li>-->
         <!-- <li>determine an input array, </li>-->
         <!--<li>determine an output array, </li>-->
         <!--<li>plot those inputs and outputs (which pyplot connects piecewise into a curve), and</li>-->
@@ -72,11 +72,11 @@
         import numpy as np 
         
         fig = plt.figure() #create a figure
-        ax = plt.axes() #add an axis
+        ax = plt.axes() #add a graph or plot, just axes unless more info) 
         X = np.array([0,3,6]) #determine inputs
         Y = 2*X #determine outputs for y=2x
 
-        ax.plot(X,Y) #plot the connected dots on your axes
+        ax.plot(X,Y) #plot the connected dots on your graph
         plt.show() #display the result
       </input>
     </sage>
@@ -88,11 +88,11 @@
         import numpy as np 
         
         fig = plt.figure() #create a figure
-        ax = plt.axes() #add an axis
+        ax = plt.axes() #add a graph or plot
         X = np.linspace(0,6,num=100) #determine inputs
         Y = np.sin(X) #determine outputs for y=sin(x)
         
-        ax.plot(X,Y) #plot the connected dots on your axes
+        ax.plot(X,Y) #plot the connected dots on your graph
         plt.show() #display the result
       </input>
     </sage>
@@ -131,7 +131,7 @@
 
 
     <p>
-      You can plot more than one graph in the same figure using the same inputs but more than one set of outputs. 
+      You can plot more than one curve in the same figure using the same inputs but more than one set of outputs. 
       Run the code below to graph <m> y_1 = \sin(x) </m> and <m>y_2=\cos(x)</m> on the same graph. 
     </p>
 
@@ -141,7 +141,7 @@
           import numpy as np 
           
           fig = plt.figure() #create a figure
-          ax = plt.axes() #add an axis
+          ax = plt.axes() #add a graph
           X = np.linspace(0,6,num=100) #determine inputs
           Y1 = np.sin(X) #determine outputs for y=sin(x)
           Y2 = np.cos(X) #determine outputs for y=cos(x)
@@ -153,7 +153,7 @@
 
     <exercise>
       <p> Notice that if you don't specify the inputs, pyplot uses a default set instead.
-        Change the above code and remove the second call for the inputs X in ax.plot(). 
+        Change the above code and remove the second call for the inputs X in graph.plot(). 
         What is the default input window pyplot uses for Y2?  
       </p>
     </exercise>
@@ -162,6 +162,7 @@
       <p>Change the above code to add a third function on the same graph.  
       </p>
     </exercise>
+
 
   </subsection>
 
@@ -194,11 +195,11 @@
         import numpy as np 
         
         fig = plt.figure() #create a figure
-        ax = plt.axes() #add an axis
+        ax = plt.axes() #add a graph
         X = np.array([1,2,3,4]) #determine inputs
         Y = np.array([4,2,0,1]) #determine outputs 
         
-        ax.scatter(X,Y) #plot the scatter plot on your axes
+        ax.scatter(X,Y) #plot the scatter plot on your graph
         plt.show() #display the result
       </input>
     </sage> 
@@ -243,7 +244,7 @@
         import matplotlib.pyplot as plt
         import numpy as np
         fig = plt.figure() #create a figure
-        ax = plt.axes() #add an axis
+        ax = plt.axes() #add a graph
         
         T = np.linspace(0,2*np.pi, num=25) #parameter values
         X = np.cos(T) #x-values
@@ -278,10 +279,10 @@
   </subsection>
   
   <subsection xml:id="axes">
-    <title>Axes and Labels</title>
+    <title>Labels and Axes</title>
 
     <p>
-      You can easily add titles or labels to your axes using the commands <c>set_title("title_here")</c>, 
+      You can easily add titles and label each axis using the commands <c>set_title("title_here")</c>, 
       <c>set_xlabel("label_here")</c>, <c>set_ylabel("label_here")</c>. 
       <em>Since the code below is longer, you might need to scroll to see all of the commands.</em> 
     </p>
@@ -292,7 +293,7 @@
         import numpy as np 
         
         fig = plt.figure() #create a figure
-        ax = plt.axes() #axis name used for plots and labels
+        ax = plt.axes() #graph name used for plots and labels
 
         X = np.linspace(0,4,num=100) #determine inputs
         Y = -9.8*X**2+100 #determine outputs for y=-9.8x^2+3
@@ -315,7 +316,36 @@
       <p>Search online for a way to change the tick labels in Matplotlib. 
         Try and adjust the "Falling Body" graph to have tickmarks every quarter of a second.  
       </p>
-    </exercise>    
+    </exercise> 
+    
+    <p>
+      Multiple graphs with separate axes can be added to the same figure using <c>plt.subplots()</c>, 
+      which sets up the number of rows or columns of desired plots. 
+      <em>Note the <c>axes()</c> function creates each separate graph and their individual axes. </em> 
+    </p>
+
+    <sage language='python'>
+      <input>
+        import matplotlib.pyplot as plt 
+        import numpy as np 
+        fig = plt.figure() #create a figure
+        #create two rows and one column of plots
+        ax1 = plt.subplot(2,1,1)
+        ax2 = plt.subplot(2,1,2)
+        
+        t = np.linspace(0,6,num=100) #determine inputs
+        Y1 = np.sin(t) #determine outputs for y=sin(t)
+        Y2 = np.cos(t) #determine outputs for y=cos(t)
+
+        fig.suptitle('Vertically stacked subplots')
+        ax1.set_ylabel('sine wave')
+        ax2.set_ylabel('cosine wave')
+        
+        ax1.plot(t, Y1)
+        ax2.plot(t, Y2)
+        plt.show() #display the result
+      </input>
+    </sage>
 
 
   </subsection>
@@ -324,7 +354,7 @@
     <title>Customizing</title>
 
     <p>
-      You can customize pretty much everything in the plot: colors, markers, line width and styles, etc.
+      You can customize pretty much everything in each plot: colors, markers, line width and styles, etc.
       Below are a few examples.   
     </p>
 
@@ -334,7 +364,7 @@
         import numpy as np 
         
         fig = plt.figure() #create a figure
-        ax = plt.axes() #add an axis
+        ax = plt.axes() #add a graph
         X = np.array([1,2,3,4]) #determine inputs
         Y = np.array([4,2,0,1]) #determine outputs 
         
@@ -348,11 +378,11 @@
         import numpy as np 
         
         fig = plt.figure() #create a figure
-        ax = plt.axes() #add an axis
+        ax = plt.axes() #add a graph
         
         X = np.linspace(0,6,num=100) #determine inputs
         Y = np.sin(X) #determine outputs for y=sin(x)
-        ax.plot(X,Y, color="orange", linestyle="--") #plot the connected dots on your axes
+        ax.plot(X,Y, color="orange", linestyle="--") #plot the connected dots on your graph
 
         ax.grid() #add a grid
         plt.axhline(0, color='black') #add horizontal axis
@@ -384,7 +414,7 @@
         import matplotlib.pyplot as plt
 
         fig = plt.figure() #create a figure
-        ax = plt.axes() #add an axis
+        ax = plt.axes() #add a graph
         plt.xlim(-4, 4) #choose x window
         plt.ylim(-2, 4) #choose y window
 
@@ -407,7 +437,7 @@
         import matplotlib.pyplot as plt
 
         fig = plt.figure() #create a figure
-        ax = plt.axes() #add an axis
+        ax = plt.axes() #add a graph
         plt.xlim(-4, 4) #x window
         plt.ylim(-2, 4) #y window
 
@@ -431,7 +461,7 @@
         import matplotlib.pyplot as plt
 
         fig = plt.figure() #create a figure
-        ax = plt.axes() #add an axis
+        ax = plt.axes() #add a graph
 
         plt.xlim(-1, 4)
         plt.ylim(-2, 4)
@@ -472,7 +502,8 @@
       <ul>
         <li>
           <p>
-            Every graph needs a figure and an axes. 
+            Every graph needs a figure object and a graph object. 
+            The graph object will plot just the axes if no other information is given. 
           </p>
         </li>
         <li>

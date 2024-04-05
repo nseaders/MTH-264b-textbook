@@ -50,7 +50,7 @@
               import numpy as np 
 
               fig = plt.figure() #create a figure
-              ax = plt.axes(projection='3d') #add a 3D axis
+              ax = plt.axes(projection='3d') #add 3D graph w/ axes
 
               plt.show() #display the result
           </input>
@@ -76,7 +76,7 @@
             import numpy as np
 
             fig = plt.figure() #create a figure
-            ax = plt.axes(projection='3d') #add a 3D axis
+            ax = plt.axes(projection='3d') #add 3D graph w/ axes
 
             X = [1,2] #determine two x-values for the line
             Y = [1,3] #determine two y-values for the line
@@ -111,7 +111,7 @@
             import numpy as np
 
             fig = plt.figure() #create a figure
-            ax = plt.axes(projection='3d') #add a 3D axis
+            ax = plt.axes(projection='3d') #add 3D graph w/ axes
 
             X = np.linspace(-6,6, num=10) #10 x-values
             Y = X #corresponding y-values along y=x
@@ -148,7 +148,7 @@
             import numpy as np
 
             fig = plt.figure() #create a figure
-            ax = plt.axes(projection='3d') #add a 3D axis
+            ax = plt.axes(projection='3d') #add 3D graph w/ axes
 
             T = np.linspace(0,2*np.pi, num=25) #25 input parameter values
             X = np.cos(T) #corresponding x-values
@@ -213,7 +213,7 @@
               import numpy as np 
 
               fig = plt.figure() #create a figure
-              ax = plt.axes(projection='3d') #add a 3D axis
+              ax = plt.axes(projection='3d') #add 3D graph w/ axes
               X = np.arange(-2,2,step=0.25) #1D x-inputs
               Y = np.arange(-2,2,step=0.25) #1D y-inputs
               X,Y = np.meshgrid(X,Y) #2D coordinate input grid
@@ -263,7 +263,7 @@
               import numpy as np 
 
               fig = plt.figure() #create a figure
-              ax = plt.axes(projection='3d') #add a 3D axis
+              ax = plt.axes(projection='3d') #add 3D graph w/ axes
               X = np.arange(-2,2,step=0.25) #1D x-inputs
               Y = np.arange(-2,2,step=0.25) #1D y-inputs
               X,Y = np.meshgrid(X,Y) #2D grid of inputs
@@ -310,7 +310,7 @@
               import numpy as np 
 
               fig = plt.figure() #create a figure
-              ax = plt.axes(projection='3d') #add a 3D axis
+              ax = plt.axes(projection='3d') #add 3D graph w/ axes
               X = np.arange(-2,2,step=0.25) #1D x-inputs
               Y = np.arange(-2,2,step=0.25) #1D y-inputs
               X,Y = np.meshgrid(X,Y) #2D grid of inputs
@@ -374,7 +374,7 @@
             import numpy as np 
               
             fig = plt.figure() #create a figure
-            ax = plt.axes(projection='3d') #add a 3D axis
+            ax = plt.axes(projection='3d') #add 3D graph w/ axes
             X = np.arange(-2,2,step=0.25) #1D x-inputs
             Y = np.arange(-2,2,step=0.25) #1D y-inputs
             X,Y = np.meshgrid(X,Y) #2D grid of inputs
@@ -459,7 +459,13 @@
         <ul>
           <li>
             <p>
-              We can add 3D axes using the argument <c>projection='3d'</c> inside pyplot's <c>axes</c> command.
+              We can add 3D graphs and axes using the argument <c>projection='3d'</c> inside pyplot's <c>axes</c> command.
+            </p>
+          </li>
+          <li>
+            <p>
+              We can plot curves using <c>plot()</c> and three numpy arrays representing the <m>x</m>, <m>y</m>, and <m>z</m>-coordinates
+              for points on our curve.  
             </p>
           </li>
           <li>
