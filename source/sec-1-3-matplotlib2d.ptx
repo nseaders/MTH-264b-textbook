@@ -34,18 +34,66 @@
       </li>
       <li>
         <p>
-          Label the axes on a graph.
+          Label the axes on a graph and customize features.
+        </p>
+      </li>
+      <li>
+        <p>
+          Create multiple subplots.
         </p>
       </li>
     </ul>
   </objectives>
+
+  <subsection xml:id="subsec-figures">
+    <title>Creating a graph or plot</title>
+    <p>
+      A Matplotlib API (Application Programming Interface) called <c>pyplot</c> 
+      is used to create the figure and individual plots. 
+      The figure acts as a container and can contain multiple subplots. 
+      
+    </p>
+
+    <sage language='python'>
+      <input>
+        import matplotlib.pyplot as plt #import pyplot
+        import numpy as np 
+        
+        fig = plt.figure() #create a figure and named fig
+        #add one plot named ax, just axes until more info
+        ax = plt.axes()  
+
+        plt.show() #display the result
+      </input>
+    </sage>
+    <p>
+      You can also create a figure and a plot with just one line of code using a comma
+      to separate the two and the function <c>plt.subplots()</c> that creates both at once.
+      
+    </p>
+
+    <sage language='python'>
+      <input>
+        import matplotlib.pyplot as plt #import pyplot
+        import numpy as np 
+        
+        #Create a figure named fig 
+        #containing a single plot named ax.
+        fig, ax = plt.subplots()   
+
+        plt.show() #display the result
+      </input>
+    </sage>
+
+    
+  </subsection>
+
 
   <subsection>
     <title> Curves in 2D </title>
 
     <p>
       Matplotlib graphs curves by plotting points and connecting the dots.
-      A Matplotlib function called <c>pyplot</c> is used to create the figure and individual graphs. 
       The inputs and outputs are given by NumPy arrays and then plotted on the axes.
     </p>
     <!--p-->
@@ -71,8 +119,7 @@
         import matplotlib.pyplot as plt #import pyplot
         import numpy as np 
         
-        fig = plt.figure() #create a figure
-        ax = plt.axes() #add a graph or plot, just axes unless more info 
+        fig, ax = plt.subplots() #create a fig and a plot ax 
         X = np.array([0,3,6]) #determine inputs
         Y = 2*X #determine outputs for y=2x
 
@@ -87,8 +134,7 @@
         import matplotlib.pyplot as plt #import pyplot
         import numpy as np 
         
-        fig = plt.figure() #create a figure
-        ax = plt.axes() #add a graph or plot
+        fig, ax = plt.subplots() #create a fig and a plot ax  
         X = np.linspace(0,6,num=100) #determine inputs
         Y = np.sin(X) #determine outputs for y=sin(x)
         
@@ -131,7 +177,7 @@
 
 
     <p>
-      You can plot more than one curve in the same figure using the same inputs but more than one set of outputs. 
+      You can plot more than one curve on the same axes using the same inputs but more than one set of outputs. 
       Run the code below to graph <m> y_1 = \sin(x) </m> and <m>y_2=\cos(x)</m> on the same graph. 
     </p>
 
@@ -140,8 +186,7 @@
           import matplotlib.pyplot as plt #import pyplot
           import numpy as np 
           
-          fig = plt.figure() #create a figure
-          ax = plt.axes() #add a graph
+          fig, ax = plt.subplots() #create a fig and a plot ax 
           X = np.linspace(0,6,num=100) #determine inputs
           Y1 = np.sin(X) #determine outputs for y=sin(x)
           Y2 = np.cos(X) #determine outputs for y=cos(x)
@@ -194,8 +239,7 @@
         import matplotlib.pyplot as plt #import pyplot
         import numpy as np 
         
-        fig = plt.figure() #create a figure
-        ax = plt.axes() #add a graph
+        fig, ax = plt.subplots() #create a fig and a plot ax
         X = np.array([1,2,3,4]) #determine inputs
         Y = np.array([4,2,0,1]) #determine outputs 
         
@@ -243,8 +287,8 @@
       <input>
         import matplotlib.pyplot as plt
         import numpy as np
-        fig = plt.figure() #create a figure
-        ax = plt.axes() #add a graph
+        
+        fig, ax = plt.subplots() #create a fig and a plot ax
         
         T = np.linspace(0,2*np.pi, num=25) #parameter values
         X = np.cos(T) #x-values
@@ -278,8 +322,8 @@
 
   </subsection>
   
-  <subsection xml:id="axes">
-    <title>Labels and Axes</title>
+  <subsection xml:id="labels">
+    <title>Titles and Axes Labels</title>
 
     <p>
       You can easily add titles and label each axis using the commands <c>set_title("title_here")</c>, 
@@ -292,8 +336,7 @@
         import matplotlib.pyplot as plt #import pyplot
         import numpy as np 
         
-        fig = plt.figure() #create a figure
-        ax = plt.axes() #graph name used for plots and labels
+        fig, ax = plt.subplots() #create a fig and a plot ax
 
         X = np.linspace(0,4,num=100) #determine inputs
         Y = -9.8*X**2+100 #determine outputs for y=-9.8x^2+3
@@ -318,34 +361,6 @@
       </p>
     </exercise> 
     
-    <p>
-      Multiple graphs with separate axes can be added to the same figure using <c>plt.subplots()</c>, 
-      which sets up the number of rows or columns of desired plots. 
-      <em>Note the <c>axes()</c> function creates each separate graph and their individual axes. </em> 
-    </p>
-
-    <sage language='python'>
-      <input>
-        import matplotlib.pyplot as plt 
-        import numpy as np 
-        fig = plt.figure() #create a figure
-        #create two rows and one column of plots
-        ax1 = plt.subplot(2,1,1)
-        ax2 = plt.subplot(2,1,2)
-        
-        t = np.linspace(0,6,num=100) #determine inputs
-        Y1 = np.sin(t) #determine outputs for y=sin(t)
-        Y2 = np.cos(t) #determine outputs for y=cos(t)
-
-        fig.suptitle('Vertically stacked subplots')
-        ax1.set_ylabel('sine wave')
-        ax2.set_ylabel('cosine wave')
-        
-        ax1.plot(t, Y1)
-        ax2.plot(t, Y2)
-        plt.show() #display the result
-      </input>
-    </sage>
 
 
   </subsection>
@@ -363,8 +378,7 @@
         import matplotlib.pyplot as plt #import pyplot
         import numpy as np 
         
-        fig = plt.figure() #create a figure
-        ax = plt.axes() #add a graph
+        fig, ax = plt.subplots() #create a fig and a plot ax
         X = np.array([1,2,3,4]) #determine inputs
         Y = np.array([4,2,0,1]) #determine outputs 
         
@@ -377,8 +391,7 @@
         import matplotlib.pyplot as plt #import pyplot
         import numpy as np 
         
-        fig = plt.figure() #create a figure
-        ax = plt.axes() #add a graph
+        fig, ax = plt.subplots() #create a fig and a plot ax
         
         X = np.linspace(0,6,num=100) #determine inputs
         Y = np.sin(X) #determine outputs for y=sin(x)
@@ -413,8 +426,7 @@
       <input>
         import matplotlib.pyplot as plt
 
-        fig = plt.figure() #create a figure
-        ax = plt.axes() #add a graph
+        fig, ax = plt.subplots() #create a fig and a plot ax
         plt.xlim(-4, 4) #choose x window
         plt.ylim(-2, 4) #choose y window
 
@@ -436,8 +448,7 @@
       <input>
         import matplotlib.pyplot as plt
 
-        fig = plt.figure() #create a figure
-        ax = plt.axes() #add a graph
+        fig, ax = plt.subplots() #create a fig and a plot ax
         plt.xlim(-4, 4) #x window
         plt.ylim(-2, 4) #y window
 
@@ -460,8 +471,7 @@
       <input>
         import matplotlib.pyplot as plt
 
-        fig = plt.figure() #create a figure
-        ax = plt.axes() #add a graph
+        fig, ax = plt.subplots() #create a fig and a plot ax
 
         plt.xlim(-1, 4)
         plt.ylim(-2, 4)
@@ -485,6 +495,42 @@
         Customizing example.
       </p>
     </exercise>
+    
+  </subsection>
+  <subsection xml:id="subsec-subplots">
+    <title>Multiple plots in the same figure</title>
+    <p>
+      Sometimes we want more than one graph in the same figure. 
+      Multiple graphs can be added to the same figure using <c>plt.subplots()</c>, 
+      which sets up the number of rows or columns of desired plots. 
+      <em>Note the <c>axes()</c> function creates each separate graph and their individual axes. </em> 
+    </p>
+
+    <sage language='python'>
+      <input>
+        import matplotlib.pyplot as plt 
+        import numpy as np 
+        fig = plt.figure() #create a figure
+        #create two rows and one column of plots
+        ax1 = plt.subplot(2,1,1) #2 rows, 1 column, first graph
+        ax2 = plt.subplot(2,1,2) #2 rows, 1 column, second graph
+        
+        t = np.linspace(0,6,num=100) #determine inputs
+        Y1 = np.sin(t) #determine outputs for y=sin(t)
+        Y2 = np.cos(t) #determine outputs for y=cos(t)
+
+        fig.suptitle('Vertically stacked subplots')
+        ax1.set_ylabel('sine wave')
+        ax2.set_ylabel('cosine wave')
+        
+        ax1.plot(t, Y1)
+        ax2.plot(t, Y2)
+        plt.show() #display the result
+      </input>
+    </sage>
+
+    <!-- include reference to https://www.skytowner.com/explore/getting_started_with_matplotlib and the picture there?-->
+
     
   </subsection>
 
