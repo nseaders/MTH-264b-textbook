@@ -160,7 +160,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.3",
   "title": "Matplotlib and 2D graphing",
-  "body": " Matplotlib and 2D graphing  Matplotlib is a Python library that uses NumPy arrays ( ) to create static or interactive graphs and data visualizations. In this section we will learn how to use the MatPlotLib to graph curves and plot points in 2D.     Use Matplotlib to graph curves.    Use Matplotlib to make a scatterplot.    Use Matplotlib to graph vectors.    Label the axes on a graph.      Curves in 2D  Matplotlib graphs curves by plotting points and connecting the dots. A Matplotlib function called pyplot is used to create the figure and axes. The inputs and outputs are given by NumPy arrays and then plotted on the axes.            Read through both sets of code below that uses matplotlib to graph a line and a sine curve to see the syntax for these steps. Do you see the difference in how the numpy arrays were created for the inputs and outputs? Run both sets of code to see the result.    Note when `connecting the dots' you need enough points to get a smooth curve.  Change both of the above sets of code to whole number inputs from 0 to 6.   What happens to your line?    What happens to your sine curve?     Change the above code to use arange() instead of linspace() to set up your inputs. What is the smallest step size that makes the curve look smooth?  Change the above code to graph with a traditional input window like [-10,10].  You can plot more than one graph in the same figure using the same inputs but more than one set of outputs. Run the code below to graph and on the same graph.   Notice that if you don't specify the inputs, pyplot uses a default set instead. Change the above code and remove the second call for the inputs X in ax.plot(). What is the default input window pyplot uses for Y2?  Change the above code to add a third function on the same graph.    Scatter Plots in 2D  To graph a scatterplot, use the command scatter instead of plot .  Adjust the code in any plot above to make it into a scatter plot instead.  Replace ax.plot() with ax.scatter() in the code.   For scatter plots sometimes you get the data from an experiment instead of a formula. As long as the outputs are given as a NumPy array, either from manipulating your input array, or by creating a completely new array, Matplotlib will still connect the dots.     Parametric Curves in 2D  In mathematics and the sciences we sometimes introduce a new parameter and write coordinates and in terms of that parameter. This is common for curves that are not functions of , like circles or ellipses, or a nice way to model motion, where the and coordinate location of an object is the output at each input time . If you haven't seen this in a Trigonometry class, or if you need a refresher, check out insert appendix stuff here . In mathematics these parametric curves or space curves are often written as a set of two parametric equations or a vector-valued function.  For example, we can graph a circle using or, equivalently, for values of in   Matplotlib still graphs these curves by plotting points using plot and connecting the dots, which will make it easy to generalize these curves to 3D.   Note that the above code graphs the unit circle. Play with the above functions for and to see what other interesting curves you can graph. In particular, when you have the parameter , can you create  a line?  a different circle?  a parabola?      Axes and Labels  You can easily add titles or labels to your axes using the commands set_title(\"title_here\") , set_xlabel(\"label_here\") , set_ylabel(\"label_here\") . Since the code below is longer, you might need to scroll to see all of the commands.    You can also adjust the tick marks on the axes, but it takes a little more work, and there are multiple approaches.  Search online for a way to change the tick labels in Matplotlib. Try and adjust the \"Falling Body\" graph to have tickmarks every quarter of a second.    Customizing  You can customize pretty much everything in the plot: colors, markers, line width and styles, etc. Below are a few examples.    The comma separated list of possible commands inside the parentheses of a function like plot() are called the arguments of the function. The functions plot and scatter can take arguments like color=\"color_here\" , linestyle=\"style_here\" , linewidth=number_here , marker=\"markertype_here\" .    Vectors in 2D  Matplotlib plots vectors using a function from pyplot called quiver , which takes an initial coordinate, followed by the vector coordinates, to draw an arrow. Since the axes of your graph are not determined by the input domain of a function, you need to explicitly choose your axes limits using pyplot's xlim and ylim .   Try various viewing windows in the above code. What do you notice about the size of your arrow?  Since quiver is typically used for vector fields, the size scales automatically based on other elements of the graph. Here we want to use the -axes as a fixed scale to draw the vectors, and so will include the arguments angles='xy', scale_units='xy', scale=1 inside quiver .   Try various vectors and viewing windows in the above code.  For multiple vectors it can be helpful to color code and use pyplot's grid() and legend() feature.   Try various vectors and viewing windows in the above code. Also add a horizontal and vertical axis at and using the code found in the second Customizing example.    There are other ways to set up your figure and your axes in Matplotlib. Some are shortcuts and Matplotlib will use default settings (e.g. if we do not explicitly give inputs for the function we want to graph). The approach in this section is very explicit, which makes it easier to understand how to control each feature as we get started.    Summary     Every graph needs a figure and an axes.    We graph a connected curve on our axes using axes_name.plot(array x,array y) for both standard equations and parametric curves.    We graph a scatterplot on our axes using axes_name.scatter(array x, array y) .    We graph a parametric curve on our axes using axes_name.plot(array x, array y) .    We can use numpy.linspace() to efficiently create enough points for plot() to connect the dots into a smooth-looking curve.    We can add titles and labels using axes_name.set_title(\"Title\") or axes_name.set_xlabel(\"input_label\") .    We can customize color, linestyles, plotting styles, thickness, tickmarks, font sizes, etc. to make our graph exactly what we need for publication.    We can specify a viewing window using xlim and ylim and graph vectors using quiver .         "
+  "body": " Matplotlib and 2D graphing  Matplotlib is a Python library that uses NumPy arrays ( ) to create static or interactive graphs and data visualizations. In this section we will learn how to use the MatPlotLib to graph curves and plot points in 2D.     Use Matplotlib to graph curves.    Use Matplotlib to make a scatterplot.    Use Matplotlib to graph vectors.    Label the axes on a graph.      Curves in 2D  Matplotlib graphs curves by plotting points and connecting the dots. A Matplotlib function called pyplot is used to create the figure and individual graphs. The inputs and outputs are given by NumPy arrays and then plotted on the axes.            Read through both sets of code below that uses matplotlib to graph a line and a sine curve to see the syntax for these steps. Do you see the difference in how the numpy arrays were created for the inputs and outputs? Run both sets of code to see the result.    Note when `connecting the dots' you need enough points to get a smooth curve.  Change both of the above sets of code to whole number inputs from 0 to 6.   What happens to your line?    What happens to your sine curve?     Change the above code to use arange() instead of linspace() to set up your inputs. What is the smallest step size that makes the curve look smooth?  Change the above code to graph with a traditional input window like [-10,10].  You can plot more than one curve in the same figure using the same inputs but more than one set of outputs. Run the code below to graph and on the same graph.   Notice that if you don't specify the inputs, pyplot uses a default set instead. Change the above code and remove the second call for the inputs X in graph.plot(). What is the default input window pyplot uses for Y2?  Change the above code to add a third function on the same graph.    Scatter Plots in 2D  To graph a scatterplot, use the command scatter instead of plot .  Adjust the code in any plot above to make it into a scatter plot instead.  Replace ax.plot() with ax.scatter() in the code.   For scatter plots sometimes you get the data from an experiment instead of a formula. As long as the outputs are given as a NumPy array, either from manipulating your input array, or by creating a completely new array, Matplotlib will still connect the dots.     Parametric Curves in 2D  In mathematics and the sciences we sometimes introduce a new parameter and write coordinates and in terms of that parameter. This is common for curves that are not functions of , like circles or ellipses, or a nice way to model motion, where the and coordinate location of an object is the output at each input time . If you haven't seen this in a Trigonometry class, or if you need a refresher, check out insert appendix stuff here . In mathematics these parametric curves or space curves are often written as a set of two parametric equations or a vector-valued function.  For example, we can graph a circle using or, equivalently, for values of in   Matplotlib still graphs these curves by plotting points using plot and connecting the dots, which will make it easy to generalize these curves to 3D.   Note that the above code graphs the unit circle. Play with the above functions for and to see what other interesting curves you can graph. In particular, when you have the parameter , can you create  a line?  a different circle?  a parabola?      Labels and Axes  You can easily add titles and label each axis using the commands set_title(\"title_here\") , set_xlabel(\"label_here\") , set_ylabel(\"label_here\") . Since the code below is longer, you might need to scroll to see all of the commands.    You can also adjust the tick marks on the axes, but it takes a little more work, and there are multiple approaches.  Search online for a way to change the tick labels in Matplotlib. Try and adjust the \"Falling Body\" graph to have tickmarks every quarter of a second.  Multiple graphs with separate axes can be added to the same figure using plt.subplots() , which sets up the number of rows or columns of desired plots. Note the axes() function creates each separate graph and their individual axes.      Customizing  You can customize pretty much everything in each plot: colors, markers, line width and styles, etc. Below are a few examples.    The comma separated list of possible commands inside the parentheses of a function like plot() are called the arguments of the function. The functions plot and scatter can take arguments like color=\"color_here\" , linestyle=\"style_here\" , linewidth=number_here , marker=\"markertype_here\" .    Vectors in 2D  Matplotlib plots vectors using a function from pyplot called quiver , which takes an initial coordinate, followed by the vector coordinates, to draw an arrow. Since the axes of your graph are not determined by the input domain of a function, you need to explicitly choose your axes limits using pyplot's xlim and ylim .   Try various viewing windows in the above code. What do you notice about the size of your arrow?  Since quiver is typically used for vector fields, the size scales automatically based on other elements of the graph. Here we want to use the -axes as a fixed scale to draw the vectors, and so will include the arguments angles='xy', scale_units='xy', scale=1 inside quiver .   Try various vectors and viewing windows in the above code.  For multiple vectors it can be helpful to color code and use pyplot's grid() and legend() feature.   Try various vectors and viewing windows in the above code. Also add a horizontal and vertical axis at and using the code found in the second Customizing example.    There are other ways to set up your figure and your axes in Matplotlib. Some are shortcuts and Matplotlib will use default settings (e.g. if we do not explicitly give inputs for the function we want to graph). The approach in this section is very explicit and object oriented, which makes it easier to see how to control each feature as we get started.    Summary     Every graph needs a figure object and a graph object. The graph object will plot just the axes if no other information is given.    We graph a connected curve on our axes using axes_name.plot(array x,array y) for both standard equations and parametric curves.    We graph a scatterplot on our axes using axes_name.scatter(array x, array y) .    We graph a parametric curve on our axes using axes_name.plot(array x, array y) .    We can use numpy.linspace() to efficiently create enough points for plot() to connect the dots into a smooth-looking curve.    We can add titles and labels using axes_name.set_title(\"Title\") or axes_name.set_xlabel(\"input_label\") .    We can customize color, linestyles, plotting styles, thickness, tickmarks, font sizes, etc. to make our graph exactly what we need for publication.    We can specify a viewing window using xlim and ylim and graph vectors using quiver .         "
 },
 {
   "id": "objectives-3",
@@ -205,7 +205,7 @@ var ptx_lunr_docs = [
   "type": "You Try",
   "number": "1.11",
   "title": "",
-  "body": "Notice that if you don't specify the inputs, pyplot uses a default set instead. Change the above code and remove the second call for the inputs X in ax.plot(). What is the default input window pyplot uses for Y2? "
+  "body": "Notice that if you don't specify the inputs, pyplot uses a default set instead. Change the above code and remove the second call for the inputs X in graph.plot(). What is the default input window pyplot uses for Y2? "
 },
 {
   "id": "exercise-15",
@@ -286,7 +286,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.4",
   "title": "Matplotlib and 3D graphing",
-  "body": " Matplotlib and 3D graphing   Now that we have some experience making 2D graphs, let's learn how to make 3D graphs. Note that we can graph both curves and surfaces in 3D. If you have taken a multivariable class hopefully you remember that surfaces arise as solutions to equations of three variables, while points on a space curve are parametric equations or vector-valued functions. The code for the points on a space curve is a little more straightforward so we will start with those examples.      Use Matplotlib to graph parametric curves in 3D.    Use Matplotlib to graph surfaces and scatterplots in 3D.      3D axes  First, for 3D graphs we will need to add 3D axes to our figure using the keyword projection='3d' . Read through and run the code below to see the default 3D axes.     Parametric Curves in 3D  Matplotlib graphs 3D curves by plotting points and connecting the dots. The , , and coordinates are still given by numpy arrays and then plotted on the axes.  Run the code below to graph the equation of a line between the points and .   Edit the above code to graph the equation of a line between the points and .  Edit the above code to add a third number to each numpy array. What happens? Can you explain what plot() just graphed?  We can also graph curves by making coordinates dependent on another. For example, the curve below looks like a parabola in the -direction above the shadow    As before, we need enough input points to get a smooth curve.  Parametric curves in 3D are just like 2D (see ( )) with an added -coordinate. For example, we can graph a horizontal circle at using              Play with the above code for , , and to see what other interesting curves you can create. In 3-space can you graph  a line?  a spiral?  a different circle?      Surfaces and scatterplots in 3D  To graph a surface or 3D scatterplot, we will need two-dimensional numpy arrays for all of our inputs and outputs. As a shortcut we can create 1D arrays for the and inputs first, then use NumPy's function meshgrid() to create a coordinate grid of inputs (two 2D arrays). Last we define our outputs on that coordinate grid.  The function scatter() will plot a scatterplot just like in 2D. The function plot_surface() plots the points and connect those dots with a surface. Just like we need enough points to get a curve that looks smooth, we will need enough points to get a surface that looks smooth.  Run the code below trying both the command plot_surface() (current default) and scatter() to see the difference.   For the surface, increase the step in each input and run the above code again. When does the surface start to look polygonal instead of smooth?  Modify the above code to graph the surface . Choose a reasonable range of inputs that shows the important features of the graph.  Change the surface to . What step size is needed to make the input window [-2,2] and [-2,2] display a smooth surface?  As in the 2D case, the function scatter() plots the points without connecting the dots.    Axes and Labels  Adding titles or labels to our 3D axes uses the same commands as in 2D. the commands set_title(\"title_here\") , set_xlabel(\"label_here\") , set_ylabel(\"label_here\") .   In the above code, use parallel syntax to add a label to the -axis.  Note that the default viewing window makes the -axis positive left to right and -axis positive front to back. Something new in the 3D setting, however, is the ability to choose our viewing angle for the 3D axes using view_init(elev= , azim=, roll=) .  In the code below, play with the values for elev , azim and roll .   What does each change?  What custom viewing angle do you think showcases this particular surface the best?       Plotting Multiple Surfaces  Unfortunately Matplotlib does NOT actually graph in 3D, but paints each surface in a 2D projection, one on top of the other, which can cause the resulting graphs to look weird. Sometimes it is enough to change the viewing angle.  In the above code add a second surface to your graph using Z2 for the new outputs and ax.plot_surface(X,Y,Z2) .   Can you find a viewing angle where both surfaces look good?    Can you find a viewing angle where they don't quite look right?     A possible workaround involves making the surfaces transparent and plotting their intersection as well. If you find another workaround that is fairly simple and doesn't involve dark magic and paying with programmer souls as one stack overflow user suggested, let us know and we can include it in future iterations of this book.  Run the code below to see a Matplotlib 3D fail.   You can make your graphs transparent using the argument alpha = inside plot_surface .  In the code above add alpha=0.5 after each of Z1, Z2, and Z3 inside plot_surface to see a partial fix. Play with values of alpha to see which transparency setting you prefer. You can also graph the lines of intersection for each plane, which we will do later in the term.    Customizing  Like in 2D, we can customize our plots: the style, colors, markers, meshes, contours, line width, etc. There are many features available that we didn't cover here, but hopefully you have enough to get you started with 3D graphing using Matplotlib in Python.  So how do you learn more?  Look up Matplotlib's documentation on the web and find their page of examples, 3D plotting . Pick a 3D graph you want to learn to code and use the cell below to try it out. How is what you found different than what you learned in this section? Experiment by adjusting Matplotlib's example code to see what happens.     This section gave us just an introduction to 3D graphing possibilities using Matplotlib in Python. We will continue to learn more about graphing as we move into using Python for matrix algebra.    Summary     We can add 3D axes using the argument projection='3d' inside pyplot's axes command.    We can use numpy.meshgrid() to create input coordinates on a grid and then use plot_surface() or scatter() to plot a surface or scatter plot on 3D axes.    As before we need enough points for plot_surface() or plot() to make smooth graphs.         "
+  "body": " Matplotlib and 3D graphing   Now that we have some experience making 2D graphs, let's learn how to make 3D graphs. Note that we can graph both curves and surfaces in 3D. If you have taken a multivariable class hopefully you remember that surfaces arise as solutions to equations of three variables, while points on a space curve are parametric equations or vector-valued functions. The code for the points on a space curve is a little more straightforward so we will start with those examples.      Use Matplotlib to graph parametric curves in 3D.    Use Matplotlib to graph surfaces and scatterplots in 3D.      3D axes  First, for 3D graphs we will need to add 3D axes to our figure using the keyword projection='3d' . Read through and run the code below to see the default 3D axes.     Parametric Curves in 3D  Matplotlib graphs 3D curves by plotting points and connecting the dots. The , , and coordinates are still given by numpy arrays and then plotted on the axes.  Run the code below to graph the equation of a line between the points and .   Edit the above code to graph the equation of a line between the points and .  Edit the above code to add a third number to each numpy array. What happens? Can you explain what plot() just graphed?  We can also graph curves by making coordinates dependent on another. For example, the curve below looks like a parabola in the -direction above the shadow    As before, we need enough input points to get a smooth curve.  Parametric curves in 3D are just like 2D (see ( )) with an added -coordinate. For example, we can graph a horizontal circle at using              Play with the above code for , , and to see what other interesting curves you can create. In 3-space can you graph  a line?  a spiral?  a different circle?      Surfaces and scatterplots in 3D  To graph a surface or 3D scatterplot, we will need two-dimensional numpy arrays for all of our inputs and outputs. As a shortcut we can create 1D arrays for the and inputs first, then use NumPy's function meshgrid() to create a coordinate grid of inputs (two 2D arrays). Last we define our outputs on that coordinate grid.  The function scatter() will plot a scatterplot just like in 2D. The function plot_surface() plots the points and connect those dots with a surface. Just like we need enough points to get a curve that looks smooth, we will need enough points to get a surface that looks smooth.  Run the code below trying both the command plot_surface() (current default) and scatter() to see the difference.   For the surface, increase the step in each input and run the above code again. When does the surface start to look polygonal instead of smooth?  Modify the above code to graph the surface . Choose a reasonable range of inputs that shows the important features of the graph.  Change the surface to . What step size is needed to make the input window [-2,2] and [-2,2] display a smooth surface?  As in the 2D case, the function scatter() plots the points without connecting the dots.    Axes and Labels  Adding titles or labels to our 3D axes uses the same commands as in 2D. the commands set_title(\"title_here\") , set_xlabel(\"label_here\") , set_ylabel(\"label_here\") .   In the above code, use parallel syntax to add a label to the -axis.  Note that the default viewing window makes the -axis positive left to right and -axis positive front to back. Something new in the 3D setting, however, is the ability to choose our viewing angle for the 3D axes using view_init(elev= , azim=, roll=) .  In the code below, play with the values for elev , azim and roll .   What does each change?  What custom viewing angle do you think showcases this particular surface the best?       Plotting Multiple Surfaces  Unfortunately Matplotlib does NOT actually graph in 3D, but paints each surface in a 2D projection, one on top of the other, which can cause the resulting graphs to look weird. Sometimes it is enough to change the viewing angle.  In the above code add a second surface to your graph using Z2 for the new outputs and ax.plot_surface(X,Y,Z2) .   Can you find a viewing angle where both surfaces look good?    Can you find a viewing angle where they don't quite look right?     A possible workaround involves making the surfaces transparent and plotting their intersection as well. If you find another workaround that is fairly simple and doesn't involve dark magic and paying with programmer souls as one stack overflow user suggested, let us know and we can include it in future iterations of this book.  Run the code below to see a Matplotlib 3D fail.   You can make your graphs transparent using the argument alpha = inside plot_surface .  In the code above add alpha=0.5 after each of Z1, Z2, and Z3 inside plot_surface to see a partial fix. Play with values of alpha to see which transparency setting you prefer. You can also graph the lines of intersection for each plane, which we will do later in the term.    Customizing  Like in 2D, we can customize our plots: the style, colors, markers, meshes, contours, line width, etc. There are many features available that we didn't cover here, but hopefully you have enough to get you started with 3D graphing using Matplotlib in Python.  So how do you learn more?  Look up Matplotlib's documentation on the web and find their page of examples, 3D plotting . Pick a 3D graph you want to learn to code and use the cell below to try it out. How is what you found different than what you learned in this section? Experiment by adjusting Matplotlib's example code to see what happens.     This section gave us just an introduction to 3D graphing possibilities using Matplotlib in Python. We will continue to learn more about graphing as we move into using Python for matrix algebra.    Summary     We can add 3D graphs and axes using the argument projection='3d' inside pyplot's axes command.    We can plot curves using plot() and three numpy arrays representing the , , and -coordinates for points on our curve.    We can use numpy.meshgrid() to create input coordinates on a grid and then use plot_surface() or scatter() to plot a surface or scatter plot on 3D axes.    As before we need enough points for plot_surface() or plot() to make smooth graphs.         "
 },
 {
   "id": "objectives-4",
@@ -421,7 +421,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.5",
   "title": "Basic Animation",
-  "body": " Basic Animation  In this section we will someday, hopefully, learn how to animate in Matplotlib. For now, however, this section just has examples. Feel free to try them out.     TBD    TBD      Animating in Matplotlib  This first example creates a user defined function to plot data one point at a time.   Matplotlib has a function called animation that we can use instead. This second example calls the function animation to create a gif. It is more complicated than what we need for a gif (see the following examples), but might help us move toward an interactive. In the Matplotlib animation documentation similar code comes with player controls that are likely beyond the scope of this class.    Here is an example using the Matplotlib function animation.FuncAnimation that is simpler, but I think it only works for gif's or mpeg's and NOT interactives.           Summary     TBD      TBD         "
+  "body": " Basic Animation  In this section we will create some basic animations in Matplotlib, by graphing over and over again to create frames for the animation.     Create an interactive plot with a slider.    Create a gif animating a graph.      Animating in Matplotlib  This first example uses interact to create a slider to plot one point at a time. We will need to create two user defined (computer science) functions: one that increments through the input points for the slider and another that plots the graph for just those input points.     Play with various graph features and customizations.    Change the number of frames to see how the interactive is affected.    Try aligning and misaligning the number of frames and the number of inputs plotted.   Here is the same interactive for projectile motion.   Matplotlib has a module called animation with a FuncAnimation class that allows you easily make frames of a graph. A class called PillowWriter allows you to grab frames and save them to a file to make gifs.   Here is an example animating two curves on the same graph.   What graph do you want to animate? Create it!    Matplotlib allows you to not only graph, but make your graphs interactive. You can use interact to create interactive elements. The animation module can be used to animate your graphs. Hopefully this is enough to get you started.    Summary     We can use interact to create a slider element and create two user defined functions: one that takes the slider information to create points and another that makes graphs for just those points.      The FuncAnimation > class can be used to animate your graphs and PillowWriter saves those frames into a gif.         "
 },
 {
   "id": "objectives-5",
@@ -430,7 +430,7 @@ var ptx_lunr_docs = [
   "type": "Objectives",
   "number": "1.5",
   "title": "",
-  "body": "   TBD    TBD    "
+  "body": "   Create an interactive plot with a slider.    Create a gif animating a graph.    "
 },
 {
   "id": "exercise-36",
@@ -439,12 +439,21 @@ var ptx_lunr_docs = [
   "type": "You Try",
   "number": "1.31",
   "title": "",
-  "body": ""
+  "body": "  Play with various graph features and customizations.    Change the number of frames to see how the interactive is affected.    Try aligning and misaligning the number of frames and the number of inputs plotted.  "
 },
 {
   "id": "exercise-37",
   "level": "2",
   "url": "section-animation.html#exercise-37",
+  "type": "You Try",
+  "number": "1.32",
+  "title": "",
+  "body": "What graph do you want to animate? Create it! "
+},
+{
+  "id": "exercise-38",
+  "level": "2",
+  "url": "section-animation.html#exercise-38",
   "type": "Exercise",
   "number": "1",
   "title": "",
@@ -478,27 +487,27 @@ var ptx_lunr_docs = [
   "body": " Augmented Matrix   For example, the system becomes    "
 },
 {
-  "id": "exercise-38",
+  "id": "exercise-39",
   "level": "2",
-  "url": "section-systems.html#exercise-38",
+  "url": "section-systems.html#exercise-39",
   "type": "You Try",
   "number": "2.2",
   "title": "",
   "body": "Edit the above code to print the augmented matrix for the system of linear equations in . "
 },
 {
-  "id": "exercise-39",
+  "id": "exercise-40",
   "level": "2",
-  "url": "section-systems.html#exercise-39",
+  "url": "section-systems.html#exercise-40",
   "type": "You Try",
   "number": "2.3",
   "title": "",
   "body": "Edit the code below to print the reduced echelon form and the row reduced echelon form for the augmented matrix of the system of linear equations from . "
 },
 {
-  "id": "exercise-40",
+  "id": "exercise-41",
   "level": "2",
-  "url": "section-systems.html#exercise-40",
+  "url": "section-systems.html#exercise-41",
   "type": "You Try",
   "number": "2.4",
   "title": "",
@@ -514,9 +523,9 @@ var ptx_lunr_docs = [
   "body": " The system has solutions and .  Linear equations with two variables can be graphed as lines in the xy-plane, either by plotting two points on the line or solving for . The solution is one point in a scatter plot.   "
 },
 {
-  "id": "exercise-41",
+  "id": "exercise-42",
   "level": "2",
-  "url": "section-systems.html#exercise-41",
+  "url": "section-systems.html#exercise-42",
   "type": "You Try",
   "number": "2.6",
   "title": "",
@@ -541,9 +550,9 @@ var ptx_lunr_docs = [
   "body": " For example the vector equation corresponds to the linear system found in and still has solution and .  The solution to the vector equation can be graphed using linear combinations of vectors. That is,    "
 },
 {
-  "id": "exercise-42",
+  "id": "exercise-43",
   "level": "2",
-  "url": "section-systems.html#exercise-42",
+  "url": "section-systems.html#exercise-43",
   "type": "Exercise",
   "number": "1",
   "title": "",
@@ -568,18 +577,18 @@ var ptx_lunr_docs = [
   "body": "   Add, subtract, scale, and multiply matrices in Numpy    Find matrix inverses    Use matrix inverses to solve systems of linear equations    "
 },
 {
-  "id": "exercise-43",
+  "id": "exercise-44",
   "level": "2",
-  "url": "section-matrices.html#exercise-43",
+  "url": "section-matrices.html#exercise-44",
   "type": "You Try",
   "number": "2.9",
   "title": "",
   "body": ""
 },
 {
-  "id": "exercise-44",
+  "id": "exercise-45",
   "level": "2",
-  "url": "section-matrices.html#exercise-44",
+  "url": "section-matrices.html#exercise-45",
   "type": "Exercise",
   "number": "1",
   "title": "",
@@ -622,18 +631,18 @@ var ptx_lunr_docs = [
   "body": " "
 },
 {
-  "id": "p-223",
+  "id": "p-230",
   "level": "2",
-  "url": "examples.html#p-223",
+  "url": "examples.html#p-230",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "integral integral integral integral integral integral variable "
 },
 {
-  "id": "exercise-46",
+  "id": "exercise-47",
   "level": "2",
-  "url": "examples.html#exercise-46",
+  "url": "examples.html#exercise-47",
   "type": "You Try",
   "number": "3.4",
   "title": "Exercise What.",
@@ -649,9 +658,9 @@ var ptx_lunr_docs = [
   "body": "   C    D    "
 },
 {
-  "id": "exercise-47",
+  "id": "exercise-48",
   "level": "2",
-  "url": "examples.html#exercise-47",
+  "url": "examples.html#exercise-48",
   "type": "Reading Question",
   "number": "1",
   "title": "",

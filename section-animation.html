@@ -282,7 +282,7 @@ sagecell.makeSagecell({
 <li><div class="toc-item"><a href="section-matplotlib.html#subsection-9" class="internal"><span class="title">Curves in 2D</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib.html#subsec-scatterplots" class="internal"><span class="title">Scatter Plots in 2D</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib.html#subsection-11" class="internal"><span class="title">Parametric Curves in 2D</span></a></div></li>
-<li><div class="toc-item"><a href="section-matplotlib.html#axes" class="internal"><span class="title">Axes and Labels</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#axes" class="internal"><span class="title">Labels and Axes</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib.html#custom-graphs" class="internal"><span class="title">Customizing</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib.html#subsec-Vectorsin2D" class="internal"><span class="title">Vectors in 2D</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib.html#exercises-matplotlib2D" class="internal"><span class="title">Exercises</span></a></div></li>
@@ -346,162 +346,81 @@ sagecell.makeSagecell({
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-animation"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">1.5</span> <span class="title">Basic Animation</span>
 </h2>
-<section class="introduction" id="introduction-7">In this section we will someday, hopefully, learn how to animate in Matplotlib. For now, however, this section just has examples. Feel free to try them out.</section><article class="objectives goal-like" id="objectives-5"><h3 class="heading"><span class="type">Objectives</span></h3>
+<section class="introduction" id="introduction-7">In this section we will create some basic animations in Matplotlib, by graphing over and over again to create frames for the animation.</section><article class="objectives goal-like" id="objectives-5"><h3 class="heading"><span class="type">Objectives</span></h3>
 <ul class="disc">
-<li id="li-50"><div class="para" id="p-148">TBD</div></li>
-<li id="li-51"><div class="para" id="p-149">TBD</div></li>
+<li id="li-51"><div class="para" id="p-150">Create an interactive plot with a slider.</div></li>
+<li id="li-52"><div class="para" id="p-151">Create a gif animating a graph.</div></li>
 </ul></article><section class="subsection" id="subsection-21"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Animating in Matplotlib</span>
 </h3>
-<div class="para" id="p-150">This first example creates a user defined function to plot data one point at a time.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-37"><script type="text/x-sage">import matplotlib.pyplot as plt
+<div class="para" id="p-152">This first example uses <code class="code-inline tex2jax_ignore">interact</code> to create a slider to plot one point at a time. We will need to create two user defined (computer science) functions: one that increments through the input points for the slider and another that plots the graph for just those input points.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-38"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
-t = np.linspace(0, 3, 10) #time inputs
-g = -9.81 # estimated gravity
-v0 = 12 # initial velocity
-# current position based on initial velocity, gravity, and time elapsed
-y = g * t**2 / 2 + v0 * t
+t = np.linspace(0, 6, 15) #inputs
+y = np.sin(t) #outputs           
 
-# how far into the simulation we are
-# note that we start this at 0, knowing that the interact code down below runs even when we just start the program
-current_frame = 0
-
+#define function that plots points up to user input
 def plot_data(current_t, current_y):
-    """Plot data up to current x and y values based on the current_frame."""
-    # note that we could include this inline in the function below, but that function is already long enough...
-    plt.plot(current_t, current_y, "o-") # plot data
+    fig = plt.figure() #create a figure
+    ax = plt.axes() #add a graph to the figure
+    ax.plot(current_t, current_y, "o", color='blue') 
+
+    #set window, axis labels, title, show grid
+    ax.set(xlim=[0,6], ylim=[-2,2], ylabel='Sine Wave', title="Dynamic Plot")             
+    plt.show()   
+
+#define function to create points based on user input
+@interact() #create interactive element, this one is a slider
+def respond_to_user_input(frame=slider(1,15,1)): 
   
-    # set boundaries, axis labels, title, show grid, show legend
-    plt.xlim([-0.1, 3])
-    plt.ylim([-4, 10])
-    plt.xlabel("Time [s]")
-    plt.ylabel("Z [m]")
-  
-    plt.title("Dynamic Plot")
+    #Get points up to frame user chooses.
+    current_t = t[:frame]
+    current_y = y[:frame]
+    #Call our function that plots points        
+    plot_data(current_t, current_y)
+</script></pre>
+<article class="exercise exercise-like" id="exercise-36"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.31</span><span class="period">.</span>
+</h4>
+<ul class="disc">
+<li id="li-53"><div class="para" id="p-153">Play with various graph features and customizations.</div></li>
+<li id="li-54"><div class="para" id="p-154">Change the number of frames to see how the interactive is affected.</div></li>
+</ul>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-5" id="hint-5"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-5"><div class="hint solution-like"><div class="para" id="p-155">Try aligning and misaligning the number of frames and the number of inputs plotted.</div></div></div></article><div class="para" id="p-156">Here is the same interactive for projectile motion.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-39"><script type="text/x-sage">import matplotlib.pyplot as plt
+import numpy as np
+
+t_range = np.linspace(0, 3, 15) #time inputs
+#position based on initial velocity, gravity, and time elapsed
+g = -9.81 #approx gravity
+v0 = 12 #initial velocity
+y_range = g * t_range**2 / 2 + v0 * t_range 
+
+#Plot points up to frame user chooses
+def plot_data(current_t, current_y):
+    fig = plt.figure() #create a figure
+    ax = plt.axes() #add a graph to the figure
+    ax.plot(current_t, current_y, "o-", color='blue')
+    
+    #set window, axis labels, title, show grid, show legend
+    ax.set(xlim=[0,3], ylim=[-4,10], xlabel='Time (s)', ylabel='Height (m)', title="Projectile Motion")
+
     plt.grid(True)
     plt.legend([f"v0 = {v0} m/s"])
   
-    plt.show() # actually show the plotted data   
+    plt.show()   
   
-@interact
-def change_frame(selection=selector(["advance_time", "retreat_time"],buttons=True), auto_update=False):
-    """Change the current frame and kick off the update and re-plot process."""
-    # I dislike globals, but the decorator @interact wraps this up into another namespace?
-    global current_frame
+@interact() #create interactive element
+def respond_to_user_input(time=slider(1,15,1)):
   
-    # if advance is selected then add 1 to the current frame number, else subtract 1 from the current frame number
-    if selection == "advance_time":
-      current_frame += 1
-    else:
-      current_frame -= 1
-  
-    # Update underlying data
-    plt.clf() # clear previous plot, if any
-  
-    # Get only data up to the current frame.
-    current_t = t[:current_frame]
-    current_y = y[:current_frame]
-  
-    plot_data(current_t, current_y) # re-plot updated data
-  
-    # debug data, this can be useful even with just a simple print!
-    print(f"current frame: {current_frame}")
+    #Get data up to frame user chooses.
+    current_t = t_range[:time]
+    current_y = y_range[:time]
+    #Call our function that plots data       
+    plot_data(current_t, current_y)
 </script></pre>
-<div class="para" id="p-151">Matplotlib has a function called <code class="code-inline tex2jax_ignore">animation</code> that we can use instead. This second example calls the function animation to create a gif. It is more complicated than what we need for a gif (see the following examples), but might help us move toward an interactive. In the Matplotlib <code class="code-inline tex2jax_ignore">animation</code> documentation similar code comes with player controls that are likely beyond the scope of this class.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-38"><script type="text/x-sage">import matplotlib.pyplot as plt
-import numpy as np
-import time
-import matplotlib.animation as animation
-
-fig = plt.figure()
-ax = plt.axes()
-
-t = np.linspace(0,3,15)
-g = -9.81
-v0 = 12
-z = g* t**2 /2 + v0*t
-
-scat = ax.scatter(t[0], z[0], label=f'v0 = {v0} m/s')
-ax.set(xlim=[0,3], ylim=[-4,10], xlabel='Time [s]', ylabel='Height [m]')
-ax.legend()
-
-current_frame = 0
-
-def update(frame):
-  #for each frame, update the data stored on each artist
-  x = t[:frame]
-  y = z[:frame]
-
-  #update the scatter plot:
-  data = np.stack([x,y]).T
-  scat.set_offsets(data)
-  return(scat)
-
-  update(current_frame)
-  print(current_frame)
-
-#create animation, interval is the delay between frames
-#Note: need number of frames > number of inputs plotted to animate entire graph
-ani = animation.FuncAnimation(fig=fig, func=update, frames=15, interval=200)
-
-#save animation as a file
-ani.to_jshtml()
-ani.save("plot_animation.gif")
-</script></pre>
-<pre class="ptx-sagecell sagecell-python" id="sage-39"><script type="text/x-sage"># Plot, selector to add random point, only update on click
-import matplotlib.pyplot as plt
-import random
-
-# Initial data
-x = [1, 2, 3, 4, 5]
-y = [2, 3, 5, 7, 11]
-first_run = True
-
-plt.clf()  # Clear the existing plot
-
-# Create plot function
-def plot_data():
-    plt.plot(x, y, 'bo-')
-    plt.xlabel('X-axis')
-    plt.ylabel('Y-axis')
-    plt.title('Dynamic Plot')
-    plt.grid(True)
-    plt.show()
-    
-# Function to update the existing plot with new data
-def update_plot():
-    plt.clf()  # Clear the existing plot
-    plot_data()  # Redraw the plot with updated data
-    
-# Function to add a new point
-def add_point():
-    new_x = len(x) + 1
-    new_y = random.randint(1, 15)
-    x.append(new_x)
-    y.append(new_y)
-    # debug
-    # print(f"x: {x}\ny: {y}")
-    update_plot()  # Update the plot with new data
-  
-# Create SageMath selector with auto-update disabled
-@interact
-def add(change=selector(['add_point'], buttons=True), auto_update=False):
-    # debug
-    # print(f"change: {change}")
-    if change == "add_point" and first_run == False:
-        add_point()
-    else:
-        # plot initial data
-        plot_data()
-        # debug, but useful to see what the data is
-        print(f"x: {x}\ny: {y}")
-
-# clear first_run
-if first_run == True:
-    first_run = False
-</script></pre>
-<div class="para" id="p-152">Here is an example using the Matplotlib function <code class="code-inline tex2jax_ignore">animation.FuncAnimation</code> that is simpler, but I think it only works for gif’s or mpeg’s and NOT interactives.</div>
+<div class="para" id="p-157">Matplotlib has a module called <code class="code-inline tex2jax_ignore">animation</code> with a <code class="code-inline tex2jax_ignore">FuncAnimation</code> class that allows you easily make frames of a graph. A class called <code class="code-inline tex2jax_ignore">PillowWriter</code> allows you to grab frames and save them to a file to make gifs.</div>
 <pre class="ptx-sagecell sagecell-python" id="sage-40"><script type="text/x-sage">import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import animation
@@ -529,6 +448,7 @@ with writer.saving(fig, "sinWave.gif", 100): #100 is the dpi
 
     writer.grab_frame() #grab current frame in figure for writer object
 </script></pre>
+<div class="para" id="p-158">Here is an example animating two curves on the same graph.</div>
 <pre class="ptx-sagecell sagecell-python" id="sage-41"><script type="text/x-sage">import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import animation
@@ -560,16 +480,17 @@ with writer.saving(fig, "sincosWave.gif", 100): #100 is the dpi
 
     writer.grab_frame() #grab current frame in figure for writer object
 </script></pre>
-<article class="exercise exercise-like" id="exercise-36"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.31</span><span class="period">.</span>
-</h4></article></section><section class="conclusion" id="conclusion-4"><div class="para" id="p-153"></div></section><article class="assemblage assemblage-like" id="assemblage-5"><h3 class="heading"><span class="title">Summary.</span></h3>
-<div class="para logical" id="p-154">
-<ul class="disc"><li id="li-52"><div class="para" id="p-155">TBD</div></li></ul>
-<ul class="disc"><li id="li-53"><div class="para" id="p-156">TBD</div></li></ul>
+<article class="exercise exercise-like" id="exercise-37"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.32</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-159">What graph do <em class="emphasis">you</em> want to animate? Create it!</div></article></section><section class="conclusion" id="conclusion-4"><div class="para" id="p-160">Matplotlib allows you to not only graph, but make your graphs interactive. You can use <code class="code-inline tex2jax_ignore">interact</code> to create interactive elements. The <code class="code-inline tex2jax_ignore">animation</code> module can be used to animate your graphs. Hopefully this is enough to get you started.</div></section><article class="assemblage assemblage-like" id="assemblage-5"><h3 class="heading"><span class="title">Summary.</span></h3>
+<div class="para logical" id="p-161">
+<ul class="disc"><li id="li-55"><div class="para" id="p-162">We can use <code class="code-inline tex2jax_ignore">interact</code> to create a slider element and create two user defined functions: one that takes the slider information to create points and another that makes graphs for just those points.</div></li></ul>
+<ul class="disc"><li id="li-56"><div class="para" id="p-163">The <code class="code-inline tex2jax_ignore">FuncAnimation</code>&gt; class can be used to animate your graphs and <code class="code-inline tex2jax_ignore">PillowWriter</code> saves those frames into a gif.</div></li></ul>
 </div></article><section class="exercises" id="exercises-animation"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-37"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<article class="exercise exercise-like" id="exercise-38"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
 <pre class="ptx-sagecell sagecell-python" id="sage-42"><script type="text/x-sage">#
 #
 #
