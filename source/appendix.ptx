@@ -12,6 +12,10 @@
       <!--xi:include href="./section2-1-system.ptx"/-->
 
       <xi:include href="./app-CLP3Multi-01.ptx"/>
+      <xi:include href="./app-CLP3Multi-02.ptx"/>
+      <xi:include href="./app-CLP3Multi-03.ptx"/>
+      <xi:include href="./app-CLP3Multi-04.ptx"/>
+      <xi:include href="./app-CLP3Multi-05.ptx"/>
 
       <xi:include href="./pretextguide.ptx"/>
 
