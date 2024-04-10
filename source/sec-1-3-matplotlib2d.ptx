@@ -420,15 +420,15 @@
       Matplotlib plots vectors using a function from pyplot called <c>quiver</c>, 
       which takes an initial coordinate, followed by the vector coordinates, to draw an arrow. 
       Since the axes of your graph are not determined by the input domain of a function, 
-      you need to explicitly choose your axes limits using pyplot's <c>xlim</c> and <c>ylim</c>.
+      you need to explicitly choose your axes limits using <c>xlim</c> and <c>ylim</c>.
     </p>
     <sage language='python'>
       <input>
         import matplotlib.pyplot as plt
 
         fig, ax = plt.subplots() #create a fig and a plot ax
-        plt.xlim(-4, 4) #choose x window
-        plt.ylim(-2, 4) #choose y window
+        #set the x and y window for your axes
+        ax.set(xlim=[-4,4], ylim=[-2,4])
 
         plt.quiver(0,0,1,3) #vector(1,3)
 
@@ -449,8 +449,8 @@
         import matplotlib.pyplot as plt
 
         fig, ax = plt.subplots() #create a fig and a plot ax
-        plt.xlim(-4, 4) #x window
-        plt.ylim(-2, 4) #y window
+        #set the x and y window for your axes
+        ax.set(xlim=[-4,4], ylim=[-2,4])
 
         #vector (1,3)
         plt.quiver(0,0,1,3,angles='xy', scale_units='xy', scale=1) 
@@ -473,8 +473,7 @@
 
         fig, ax = plt.subplots() #create a fig and a plot ax
 
-        plt.xlim(-1, 4)
-        plt.ylim(-2, 4)
+        ax.set(xlim=[-1,4], ylim=[-2,4])
         plt.grid()
 
         # original vectors
@@ -597,7 +596,45 @@
   </assemblage>
 
   <exercises xml:id="exercises-matplotlib2D">
+
     <exercise>
+      <p>
+        Plot two different parametric curves on the same axes. 
+        Your graph should include a title, labelled axes and a legend. 
+      </p>
+      <sage language='python'>
+        <input>
+          #
+          #
+          #
+          #
+          #
+        </input>
+      </sage>
+    </exercise>
+    <exercise>
+      <p>
+        Find a data set with real context and at least 10 values. 
+        Plot a scatterplot of the data and the linear regression of the data set.
+        <em>You don't have to use Python to find the regression, but you can if you want.</em>
+        Your graph should include a title, labelled axes and a legend.
+      </p>
+      <sage language='python'>
+        <input>
+          #
+          #
+          #
+          #
+          #
+        </input>
+      </sage>
+    </exercise>
+    <exercise>
+      <p>
+        Create a figure with two subplots, 
+        one visualizing a vector sum, the other visualizing a vector difference. 
+        Your graphs should include titles and legends. 
+      </p>
       <sage language='python'>
         <input>
           #
