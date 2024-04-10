@@ -572,8 +572,8 @@ ax.set_ylabel('Y') #label y-axis
 ax.set_title("Matplotlib 3D Fail") 
   
 ax.plot_surface(X,Y,Z1) #plot one surface
-ax.plot_surface(X,Y,Z2) #plot second surface
-ax.plot_surface(X,Y,Z3) #plot third surface
+ax.plot_surface(X,Y,Z2) #plot second surface on same axes
+ax.plot_surface(X,Y,Z3) #plot third surface on same axes
 plt.show() #display the result
 </script></pre>
 <div class="para" id="p-144">You can make your graphs transparent using the argument <code class="code-inline tex2jax_ignore">alpha = </code> inside <code class="code-inline tex2jax_ignore">plot_surface</code>.</div>
