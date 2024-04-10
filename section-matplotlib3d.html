@@ -279,12 +279,14 @@ sagecell.makeSagecell({
 <li>
 <div class="toc-item"><a href="section-matplotlib.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Matplotlib and 2D graphing</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-matplotlib.html#subsection-9" class="internal"><span class="title">Curves in 2D</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#subsec-figures" class="internal"><span class="title">Creating a graph or plot</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#subsection-10" class="internal"><span class="title">Curves in 2D</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib.html#subsec-scatterplots" class="internal"><span class="title">Scatter Plots in 2D</span></a></div></li>
-<li><div class="toc-item"><a href="section-matplotlib.html#subsection-11" class="internal"><span class="title">Parametric Curves in 2D</span></a></div></li>
-<li><div class="toc-item"><a href="section-matplotlib.html#axes" class="internal"><span class="title">Labels and Axes</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#subsection-12" class="internal"><span class="title">Parametric Curves in 2D</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#labels" class="internal"><span class="title">Titles and Axes Labels</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib.html#custom-graphs" class="internal"><span class="title">Customizing</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib.html#subsec-Vectorsin2D" class="internal"><span class="title">Vectors in 2D</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#subsec-subplots" class="internal"><span class="title">Multiple plots in the same figure</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib.html#exercises-matplotlib2D" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -296,14 +298,14 @@ sagecell.makeSagecell({
 <li><div class="toc-item"><a href="section-matplotlib3d.html#subsec-Graphing-a-surface" class="internal"><span class="title">Surfaces and scatterplots in 3D</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib3d.html#subsec-3DAxesandLabels" class="internal"><span class="title">Axes and Labels</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib3d.html#subsec-multiplesurfaces" class="internal"><span class="title">Plotting Multiple Surfaces</span></a></div></li>
-<li><div class="toc-item"><a href="section-matplotlib3d.html#subsection-20" class="internal"><span class="title">Customizing</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib3d.html#subsection-22" class="internal"><span class="title">Customizing</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib3d.html#exercises-matplotlib3D" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="section-animation.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Basic Animation</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-animation.html#subsection-21" class="internal"><span class="title">Animating in Matplotlib</span></a></div></li>
+<li><div class="toc-item"><a href="section-animation.html#subsection-23" class="internal"><span class="title">Animating in Matplotlib</span></a></div></li>
 <li><div class="toc-item"><a href="section-animation.html#exercises-animation" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -317,7 +319,7 @@ sagecell.makeSagecell({
 <ul class="structural">
 <li><div class="toc-item"><a href="section-systems.html#rref" class="internal"><span class="title">Row Reduction</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#graphsolution" class="internal"><span class="title">Graphing solutions to systems of equations</span></a></div></li>
-<li><div class="toc-item"><a href="section-systems.html#subsection-24" class="internal"><span class="title">Graphing vector equations and their solutions</span></a></div></li>
+<li><div class="toc-item"><a href="section-systems.html#subsection-26" class="internal"><span class="title">Graphing vector equations and their solutions</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#subsec-" class="internal"><span class="title">Converting between Numpy arrays and Sympy Matrices</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#exercises-systems" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
@@ -325,7 +327,7 @@ sagecell.makeSagecell({
 <li>
 <div class="toc-item"><a href="section-matrices.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix Arithmetic</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-matrices.html#subsection-26" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsection-28" class="internal"><span class="title">Title</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#exercises-matrices" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -333,45 +335,64 @@ sagecell.makeSagecell({
 </li>
 <li>
 <div class="toc-item"><a href="appendix.html" class="internal"><span class="codenumber">3</span> <span class="title">Appendix</span></a></div>
-<ul class="structural"><li>
-<div class="toc-item"><a href="examples.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Samples of various pretext formats</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="examples.html#subsection-27" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
+<li><div class="toc-item"><a href="sec-points.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Points</span></a></div></li>
+<li>
+<div class="toc-item"><a href="sec_vectors.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Vectors</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vectors.html#subsec-addvec" class="internal"><span class="title">Addition of Vectors and Multiplication of a Vector by a Scalar</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#subsec-dotprod" class="internal"><span class="title">The Dot Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#subsec-pendulum" class="internal"><span class="title">(Optional) Using Dot Products to Resolve Forces — The Pendulum</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#sec_GEOparallelogram" class="internal"><span class="title">(Optional) Areas of Parallelograms</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#subsec-crossprod" class="internal"><span class="title">The Cross Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#sec_vector_identities" class="internal"><span class="title">(Optional) Some Vector Identities</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#sec_rot_motion" class="internal"><span class="title">(Optional) Application of Cross Products to Rotational Motion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#sec_rot_frame" class="internal"><span class="title">(Optional) Application of Cross Products to Rotating Reference Frames</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="sec_lines_2d.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Equations of Lines in 2d</span></a></div></li>
+<li><div class="toc-item"><a href="sec_planes_3d.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Equations of Planes in 3d</span></a></div></li>
+<li><div class="toc-item"><a href="sec_lines_3d.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Equations of Lines in 3d</span></a></div></li>
+<li>
+<div class="toc-item"><a href="examples.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Samples of various pretext formats</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="examples.html#subsection-37" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
 <li><div class="toc-item"><a href="examples.html#reading-questions-1" class="internal"><span class="title">Reading Questions</span></a></div></li>
 </ul>
-</li></ul>
+</li>
+</ul>
 </li>
 <li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-matplotlib3d"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">1.4</span> <span class="title">Matplotlib and 3D graphing</span>
 </h2>
-<section class="introduction" id="introduction-6"><div class="para" id="p-107">Now that we have some experience making 2D graphs, let’s learn how to make 3D graphs. Note that we can graph both curves and surfaces in 3D. If you have taken a multivariable class hopefully you remember that surfaces arise as solutions to equations of three variables, while points on a space curve are parametric equations or vector-valued functions. The code for the points on a space curve is a little more straightforward so we will start with those examples.</div></section><article class="objectives goal-like" id="objectives-4"><h3 class="heading"><span class="type">Objectives</span></h3>
+<section class="introduction" id="introduction-6"><div class="para" id="p-113">Now that we have some experience making 2D graphs, let’s learn how to make 3D graphs. Note that we can graph both curves and surfaces in 3D. If you have taken a multivariable class hopefully you remember that surfaces arise as solutions to equations of three variables, while points on a space curve are parametric equations or vector-valued functions. The code for the points on a space curve is a little more straightforward so we will start with those examples.</div></section><article class="objectives goal-like" id="objectives-4"><h3 class="heading"><span class="type">Objectives</span></h3>
 <ul class="disc">
-<li id="li-35"><div class="para" id="p-108">Use Matplotlib to graph parametric curves in 3D.</div></li>
-<li id="li-36"><div class="para" id="p-109">Use Matplotlib to graph surfaces and scatterplots in 3D.</div></li>
+<li id="li-36"><div class="para" id="p-114">Use Matplotlib to graph parametric curves in 3D.</div></li>
+<li id="li-37"><div class="para" id="p-115">Use Matplotlib to graph surfaces and scatterplots in 3D.</div></li>
 </ul></article><section class="subsection" id="subsec-3Daxes"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">3D axes</span>
 </h3>
-<div class="para" id="p-110">First, for 3D graphs we will need to add 3D axes to our figure using the keyword <code class="code-inline tex2jax_ignore">projection='3d'</code>. Read through and run the code below to see the default 3D axes.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-28"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
+<div class="para" id="p-116">First, for 3D graphs we will need to add 3D plots to our figure using the keyword <code class="code-inline tex2jax_ignore">projection='3d'</code>. Read through and run the code below to see the default 3D axes.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-32"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
 import numpy as np 
 
 fig = plt.figure() #create a figure
-ax = plt.axes(projection='3d') #add 3D graph w/ axes
+ax = plt.axes(projection='3d') #add 3D plot and axes
 
 plt.show() #display the result
 </script></pre></section><section class="subsection" id="subsec-3DParam"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Parametric Curves in 3D</span>
 </h3>
-<div class="para" id="p-111">Matplotlib graphs 3D curves by plotting points and connecting the dots. The <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> and <span class="process-math">\(z-\)</span>coordinates are still given by numpy arrays and then plotted on the axes.</div>
-<div class="para" id="p-112">Run the code below to graph the equation of a line between the points <span class="process-math">\((1,1,1)\)</span> and <span class="process-math">\((2,3,4)\text{.}\)</span>
+<div class="para" id="p-117">Matplotlib graphs 3D curves by plotting points and connecting the dots. The <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> and <span class="process-math">\(z-\)</span>coordinates are still given by numpy arrays and then plotted on the axes.</div>
+<div class="para" id="p-118">Run the code below to graph the equation of a line between the points <span class="process-math">\((1,1,1)\)</span> and <span class="process-math">\((2,3,4)\text{.}\)</span>
 </div>
-<pre class="ptx-sagecell sagecell-sage" id="sage-29"><script type="text/x-sage">import matplotlib.pyplot as plt
+<pre class="ptx-sagecell sagecell-sage" id="sage-33"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 fig = plt.figure() #create a figure
-ax = plt.axes(projection='3d') #add 3D graph w/ axes
+ax = plt.axes(projection='3d') #add 3D plot and axes
 
 X = [1,2] #determine two x-values for the line
 Y = [1,3] #determine two y-values for the line
@@ -380,20 +401,20 @@ Z = [1,4] #determine two z-values for the line
 ax.plot(X,Y,Z)
 plt.show()
 </script></pre>
-<article class="exercise exercise-like" id="exercise-23"><h4 class="heading">
+<article class="exercise exercise-like" id="exercise-25"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.19</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-113">Edit the above code to graph the equation of a line between the points <span class="process-math">\((1,2,3)\)</span> and <span class="process-math">\((4,5,6)\text{.}\)</span>
-</div></article><article class="exercise exercise-like" id="exercise-24"><h4 class="heading">
+<div class="para" id="p-119">Edit the above code to graph the equation of a line between the points <span class="process-math">\((1,2,3)\)</span> and <span class="process-math">\((4,5,6)\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-26"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.20</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-114">Edit the above code to add a third number to each numpy array. What happens? Can you explain what <code class="code-inline tex2jax_ignore">plot()</code> just graphed?</div></article><div class="para" id="p-115">We can also graph curves by making coordinates dependent on another. For example, the curve below looks like a parabola in the <span class="process-math">\(z\)</span>-direction above the shadow <span class="process-math">\(y=x\)</span>
+<div class="para" id="p-120">Edit the above code to add a third number to each numpy array. What happens? Can you explain what <code class="code-inline tex2jax_ignore">plot()</code> just graphed?</div></article><div class="para" id="p-121">We can also graph curves by making coordinates dependent on another. For example, the curve below looks like a parabola in the <span class="process-math">\(z\)</span>-direction above the shadow <span class="process-math">\(y=x\)</span>
 </div>
-<pre class="ptx-sagecell sagecell-sage" id="sage-30"><script type="text/x-sage">import matplotlib.pyplot as plt
+<pre class="ptx-sagecell sagecell-sage" id="sage-34"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 fig = plt.figure() #create a figure
-ax = plt.axes(projection='3d') #add 3D graph w/ axes
+ax = plt.axes(projection='3d') #add 3D plot and axes
 
 X = np.linspace(-6,6, num=10) #10 x-values
 Y = X #corresponding y-values along y=x
@@ -402,20 +423,20 @@ Z = X**2 #corresponding z-values above y=x
 ax.plot(X,Y,Z)
 plt.show()
 </script></pre>
-<div class="para" id="p-116">As before, we need enough input points to get a smooth curve.</div>
-<div class="para logical" id="p-117">
+<div class="para" id="p-122">As before, we need enough input points to get a smooth curve.</div>
+<div class="para logical" id="p-123">
 <div class="para">Parametric curves in 3D are just like 2D (see (<a href="section-matplotlib.html" class="internal" title="Section 1.3: Matplotlib and 2D graphing">Section 1.3</a>)) with an added <span class="process-math">\(z\)</span>-coordinate. For example, we can graph a horizontal circle at <span class="process-math">\(z=1\)</span> using</div>
 <ul class="disc">
-<li id="li-37"><div class="para" id="p-derived-li-37"><span class="process-math">\(\displaystyle x=\cos(t)\)</span></div></li>
-<li id="li-38"><div class="para" id="p-derived-li-38"><span class="process-math">\(\displaystyle y=\sin(t)\)</span></div></li>
-<li id="li-39"><div class="para" id="p-derived-li-39"><span class="process-math">\(\displaystyle z=1\)</span></div></li>
+<li id="li-38"><div class="para" id="p-derived-li-38"><span class="process-math">\(\displaystyle x=\cos(t)\)</span></div></li>
+<li id="li-39"><div class="para" id="p-derived-li-39"><span class="process-math">\(\displaystyle y=\sin(t)\)</span></div></li>
+<li id="li-40"><div class="para" id="p-derived-li-40"><span class="process-math">\(\displaystyle z=1\)</span></div></li>
 </ul>
 </div>
-<pre class="ptx-sagecell sagecell-sage" id="sage-31"><script type="text/x-sage">import matplotlib.pyplot as plt
+<pre class="ptx-sagecell sagecell-sage" id="sage-35"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 fig = plt.figure() #create a figure
-ax = plt.axes(projection='3d') #add 3D graph w/ axes
+ax = plt.axes(projection='3d') #add 3D plot and axes
 
 T = np.linspace(0,2*np.pi, num=25) #25 input parameter values
 X = np.cos(T) #corresponding x-values
@@ -425,30 +446,30 @@ Z = 1 #corresponding z-values
 ax.plot(X,Y,Z)
 plt.show()
 </script></pre>
-<article class="exercise exercise-like" id="exercise-25"><h4 class="heading">
+<article class="exercise exercise-like" id="exercise-27"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.21</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-118">Play with the above code for <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> and <span class="process-math">\(z\)</span> to see what other interesting curves you can create.</div>
-<div class="para logical" id="p-119">
+<div class="para" id="p-124">Play with the above code for <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> and <span class="process-math">\(z\)</span> to see what other interesting curves you can create.</div>
+<div class="para logical" id="p-125">
 <div class="para">In 3-space can you graph</div>
 <ul class="disc">
-<li id="li-40"><div class="para" id="p-derived-li-40">a line?</div></li>
-<li id="li-41"><div class="para" id="p-derived-li-41">a spiral?</div></li>
-<li id="li-42"><div class="para" id="p-derived-li-42">a different circle?</div></li>
+<li id="li-41"><div class="para" id="p-derived-li-41">a line?</div></li>
+<li id="li-42"><div class="para" id="p-derived-li-42">a spiral?</div></li>
+<li id="li-43"><div class="para" id="p-derived-li-43">a different circle?</div></li>
 </ul>
 </div></article></section><section class="subsection" id="subsec-Graphing-a-surface"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Surfaces and scatterplots in 3D</span>
 </h3>
-<div class="para" id="p-120">To graph a surface or 3D scatterplot, we will need two-dimensional numpy arrays for all of our inputs and outputs. As a shortcut we can create 1D arrays for the <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> inputs first, then use NumPy’s function <code class="code-inline tex2jax_ignore">meshgrid()</code> to create a coordinate grid of inputs (two 2D arrays). Last we define our outputs on that coordinate grid.</div>
-<div class="para" id="p-121">The function <code class="code-inline tex2jax_ignore">scatter()</code> will plot a scatterplot just like in 2D. The function <code class="code-inline tex2jax_ignore">plot_surface()</code> plots the points and connect those dots with a surface. Just like we need enough points to get a curve that looks smooth, we will need enough points to get a surface that looks smooth.</div>
-<article class="exercise exercise-like" id="exercise-26"><h4 class="heading">
+<div class="para" id="p-126">To graph a surface or 3D scatterplot, we will need two-dimensional numpy arrays for all of our inputs and outputs. As a shortcut we can create 1D arrays for the <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> inputs first, then use NumPy’s function <code class="code-inline tex2jax_ignore">meshgrid()</code> to create a coordinate grid of inputs (two 2D arrays). Last we define our outputs on that coordinate grid.</div>
+<div class="para" id="p-127">The function <code class="code-inline tex2jax_ignore">scatter()</code> will plot a scatterplot just like in 2D. The function <code class="code-inline tex2jax_ignore">plot_surface()</code> plots the points and connect those dots with a surface. Just like we need enough points to get a curve that looks smooth, we will need enough points to get a surface that looks smooth.</div>
+<article class="exercise exercise-like" id="exercise-28"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.22</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-122">Run the code below trying both the command <code class="code-inline tex2jax_ignore">plot_surface()</code> (current default) and <code class="code-inline tex2jax_ignore">scatter()</code> to see the difference.</div></article><pre class="ptx-sagecell sagecell-python" id="sage-32"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
+<div class="para" id="p-128">Run the code below trying both the command <code class="code-inline tex2jax_ignore">plot_surface()</code> (current default) and <code class="code-inline tex2jax_ignore">scatter()</code> to see the difference.</div></article><pre class="ptx-sagecell sagecell-python" id="sage-36"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
 import numpy as np 
 
 fig = plt.figure() #create a figure
-ax = plt.axes(projection='3d') #add 3D graph w/ axes
+ax = plt.axes(projection='3d') #add 3D plot and axes
 X = np.arange(-2,2,step=0.25) #1D x-inputs
 Y = np.arange(-2,2,step=0.25) #1D y-inputs
 X,Y = np.meshgrid(X,Y) #2D coordinate input grid
@@ -457,24 +478,24 @@ Z = X**2+Y**2 #determine outputs x^2+y^2
 ax.plot_surface(X,Y,Z) #plot surface
 plt.show() #display the result
 </script></pre>
-<article class="exercise exercise-like" id="exercise-27"><h4 class="heading">
+<article class="exercise exercise-like" id="exercise-29"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.23</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-123">For the surface, increase the step in each input and run the above code again. When does the surface start to look “polygonal” instead of smooth?</div></article><article class="exercise exercise-like" id="exercise-28"><h4 class="heading">
+<div class="para" id="p-129">For the surface, increase the step in each input and run the above code again. When does the surface start to look “polygonal” instead of smooth?</div></article><article class="exercise exercise-like" id="exercise-30"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.24</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-124">Modify the above code to graph the surface <span class="process-math">\(z=sin(y)\text{.}\)</span> Choose a reasonable range of inputs that shows the important features of the graph.</div></article><article class="exercise exercise-like" id="exercise-29"><h4 class="heading">
+<div class="para" id="p-130">Modify the above code to graph the surface <span class="process-math">\(z=sin(y)\text{.}\)</span> Choose a reasonable range of inputs that shows the important features of the graph.</div></article><article class="exercise exercise-like" id="exercise-31"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.25</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-125">Change the surface to <span class="process-math">\(z=sin(xy)\text{.}\)</span> What step size is needed to make the input window [-2,2] and [-2,2] display a smooth surface?</div></article><div class="para" id="p-126">As in the 2D case, the function <code class="code-inline tex2jax_ignore">scatter()</code> plots the points without connecting the dots.</div></section><section class="subsection" id="subsec-3DAxesandLabels"><h3 class="heading hide-type">
+<div class="para" id="p-131">Change the surface to <span class="process-math">\(z=sin(xy)\text{.}\)</span> What step size is needed to make the input window [-2,2] and [-2,2] display a smooth surface?</div></article><div class="para" id="p-132">As in the 2D case, the function <code class="code-inline tex2jax_ignore">scatter()</code> plots the points without connecting the dots.</div></section><section class="subsection" id="subsec-3DAxesandLabels"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Axes and Labels</span>
 </h3>
-<div class="para" id="p-127">Adding titles or labels to our 3D axes uses the same commands as in 2D. the commands <code class="code-inline tex2jax_ignore">set_title("title_here")</code>, <code class="code-inline tex2jax_ignore">set_xlabel("label_here")</code>, <code class="code-inline tex2jax_ignore">set_ylabel("label_here")</code>.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-33"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
+<div class="para" id="p-133">Adding titles or labels to our 3D axes uses the same commands as in 2D. the commands <code class="code-inline tex2jax_ignore">set_title("title_here")</code>, <code class="code-inline tex2jax_ignore">set_xlabel("label_here")</code>, <code class="code-inline tex2jax_ignore">set_ylabel("label_here")</code>.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-37"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
 import numpy as np 
 
 fig = plt.figure() #create a figure
-ax = plt.axes(projection='3d') #add 3D graph w/ axes
+ax = plt.axes(projection='3d') #add 3D plot and axes
 X = np.arange(-2,2,step=0.25) #1D x-inputs
 Y = np.arange(-2,2,step=0.25) #1D y-inputs
 X,Y = np.meshgrid(X,Y) #2D grid of inputs
@@ -487,22 +508,22 @@ ax.set_title("My surface") #title my graph
 ax.plot_surface(X,Y,Z) #plot surface
 plt.show() #display the result
 </script></pre>
-<article class="exercise exercise-like" id="exercise-30"><h4 class="heading">
+<article class="exercise exercise-like" id="exercise-32"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.26</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-128">In the above code, use parallel syntax to add a label to the <span class="process-math">\(z\)</span>-axis.</div></article><div class="para" id="p-129">Note that the default viewing window makes the <span class="process-math">\(x\)</span>-axis positive left to right and <span class="process-math">\(y\)</span>-axis positive front to back. Something new in the 3D setting, however, is the ability to choose our viewing angle for the 3D axes using <code class="code-inline tex2jax_ignore">view_init(elev= , azim=, roll=)</code>.</div>
-<article class="exercise exercise-like" id="exercise-31"><h4 class="heading">
+<div class="para" id="p-134">In the above code, use parallel syntax to add a label to the <span class="process-math">\(z\)</span>-axis.</div></article><div class="para" id="p-135">Note that the default viewing window makes the <span class="process-math">\(x\)</span>-axis positive left to right and <span class="process-math">\(y\)</span>-axis positive front to back. Something new in the 3D setting, however, is the ability to choose our viewing angle for the 3D axes using <code class="code-inline tex2jax_ignore">view_init(elev= , azim=, roll=)</code>.</div>
+<article class="exercise exercise-like" id="exercise-33"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.27</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-130">In the code below, play with the values for <code class="code-inline tex2jax_ignore">elev</code>, <code class="code-inline tex2jax_ignore">azim</code> and <code class="code-inline tex2jax_ignore">roll</code>.</div>
-<div class="para logical" id="p-131"><ul class="disc">
-<li id="li-43"><div class="para" id="p-derived-li-43">What does each change?</div></li>
-<li id="li-44"><div class="para" id="p-derived-li-44">What custom viewing angle do you think showcases this particular surface the best?</div></li>
-</ul></div></article><pre class="ptx-sagecell sagecell-python" id="sage-34"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
+<div class="para" id="p-136">In the code below, play with the values for <code class="code-inline tex2jax_ignore">elev</code>, <code class="code-inline tex2jax_ignore">azim</code> and <code class="code-inline tex2jax_ignore">roll</code>.</div>
+<div class="para logical" id="p-137"><ul class="disc">
+<li id="li-44"><div class="para" id="p-derived-li-44">What does each change?</div></li>
+<li id="li-45"><div class="para" id="p-derived-li-45">What custom viewing angle do you think showcases this particular surface the best?</div></li>
+</ul></div></article><pre class="ptx-sagecell sagecell-python" id="sage-38"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
 import numpy as np 
 
 fig = plt.figure() #create a figure
-ax = plt.axes(projection='3d') #add 3D graph w/ axes
+ax = plt.axes(projection='3d') #add 3D plot and axes
 X = np.arange(-2,2,step=0.25) #1D x-inputs
 Y = np.arange(-2,2,step=0.25) #1D y-inputs
 X,Y = np.meshgrid(X,Y) #2D grid of inputs
@@ -520,21 +541,21 @@ plt.show() #display the result
 </script></pre></section><section class="subsection" id="subsec-multiplesurfaces"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Plotting Multiple Surfaces</span>
 </h3>
-<div class="para" id="p-132">Unfortunately Matplotlib does NOT actually graph in 3D, but paints each surface in a 2D projection, one on top of the other, which can cause the resulting graphs to look weird. Sometimes it is enough to change the viewing angle.</div>
-<article class="exercise exercise-like" id="exercise-32"><h4 class="heading">
+<div class="para" id="p-138">Unfortunately Matplotlib does NOT actually graph in 3D, but paints each surface in a 2D projection, one on top of the other, which can cause the resulting graphs to look weird. Sometimes it is enough to change the viewing angle.</div>
+<article class="exercise exercise-like" id="exercise-34"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.28</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-133">
+<div class="para logical" id="p-139">
 <div class="para">In the above code add a second surface to your graph using <code class="code-inline tex2jax_ignore">Z2</code> for the new outputs and <code class="code-inline tex2jax_ignore">ax.plot_surface(X,Y,Z2)</code>.</div>
 <ul class="disc">
-<li id="li-45"><div class="para" id="p-134">Can you find a viewing angle where both surfaces look good?</div></li>
-<li id="li-46"><div class="para" id="p-135">Can you find a viewing angle where they don’t quite look right?</div></li>
+<li id="li-46"><div class="para" id="p-140">Can you find a viewing angle where both surfaces look good?</div></li>
+<li id="li-47"><div class="para" id="p-141">Can you find a viewing angle where they don’t quite look right?</div></li>
 </ul>
-</div></article><div class="para" id="p-136">A possible workaround involves making the surfaces transparent and plotting their intersection as well. If you find another workaround that is fairly simple and doesn’t involve “dark magic and paying with programmer souls” as one stack overflow user suggested, let us know and we can include it in future iterations of this book.</div>
-<article class="exercise exercise-like" id="exercise-33"><h4 class="heading">
+</div></article><div class="para" id="p-142">A possible workaround involves making the surfaces transparent and plotting their intersection as well. If you find another workaround that is fairly simple and doesn’t involve “dark magic and paying with programmer souls” as one stack overflow user suggested, let us know and we can include it in future iterations of this book.</div>
+<article class="exercise exercise-like" id="exercise-35"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.29</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-137">Run the code below to see a Matplotlib 3D fail.</div></article><pre class="ptx-sagecell sagecell-python" id="sage-35"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
+<div class="para" id="p-143">Run the code below to see a Matplotlib 3D fail.</div></article><pre class="ptx-sagecell sagecell-python" id="sage-39"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
 import numpy as np 
   
 fig = plt.figure() #create a figure
@@ -555,18 +576,18 @@ ax.plot_surface(X,Y,Z2) #plot second surface
 ax.plot_surface(X,Y,Z3) #plot third surface
 plt.show() #display the result
 </script></pre>
-<div class="para" id="p-138">You can make your graphs transparent using the argument <code class="code-inline tex2jax_ignore">alpha = </code> inside <code class="code-inline tex2jax_ignore">plot_surface</code>.</div>
-<article class="exercise exercise-like" id="exercise-34"><h4 class="heading">
+<div class="para" id="p-144">You can make your graphs transparent using the argument <code class="code-inline tex2jax_ignore">alpha = </code> inside <code class="code-inline tex2jax_ignore">plot_surface</code>.</div>
+<article class="exercise exercise-like" id="exercise-36"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.30</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-139">In the code above add <code class="code-inline tex2jax_ignore">alpha=0.5</code> after each of Z1, Z2, and Z3 inside <code class="code-inline tex2jax_ignore">plot_surface</code> to see a partial fix. Play with values of alpha to see which transparency setting you prefer.</div>
-<div class="para" id="p-140">You can also graph the lines of intersection for each plane, which we will do later in the term.</div></article></section><section class="subsection" id="subsection-20"><h3 class="heading hide-type">
+<div class="para" id="p-145">In the code above add <code class="code-inline tex2jax_ignore">alpha=0.5</code> after each of Z1, Z2, and Z3 inside <code class="code-inline tex2jax_ignore">plot_surface</code> to see a partial fix. Play with values of alpha to see which transparency setting you prefer.</div>
+<div class="para" id="p-146">You can also graph the lines of intersection for each plane, which we will do later in the term.</div></article></section><section class="subsection" id="subsection-22"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Customizing</span>
 </h3>
-<div class="para" id="p-141">Like in 2D, we can customize our plots: the style, colors, markers, meshes, contours, line width, etc. There are many features available that we didn’t cover here, but hopefully you have enough to get you started with 3D graphing using Matplotlib in Python.</div>
-<div class="para" id="p-142">So how do you learn more?</div>
-<div class="para" id="p-143">Look up Matplotlib’s documentation on the web and find their page of <em class="emphasis">examples, 3D plotting</em>. Pick a 3D graph you want to learn to code and use the cell below to try it out. <em class="emphasis">How is what you found different than what you learned in this section?</em> Experiment by adjusting Matplotlib’s example code to see what happens.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-36"><script type="text/x-sage">#try out your example here
+<div class="para" id="p-147">Like in 2D, we can customize our plots: the style, colors, markers, meshes, contours, line width, etc. There are many features available that we didn’t cover here, but hopefully you have enough to get you started with 3D graphing using Matplotlib in Python.</div>
+<div class="para" id="p-148">So how do you learn more?</div>
+<div class="para" id="p-149">Look up Matplotlib’s documentation on the web and find their page of <em class="emphasis">examples, 3D plotting</em>. Pick a 3D graph you want to learn to code and use the cell below to try it out. <em class="emphasis">How is what you found different than what you learned in this section?</em> Experiment by adjusting Matplotlib’s example code to see what happens.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-40"><script type="text/x-sage">#try out your example here
 #
 #
 #
@@ -576,17 +597,17 @@ plt.show() #display the result
 #
 #
 #
-</script></pre></section><section class="conclusion" id="conclusion-3"><div class="para" id="p-144">This section gave us just an introduction to 3D graphing possibilities using Matplotlib in Python. We will continue to learn more about graphing as we move into using Python for matrix algebra.</div></section><article class="assemblage assemblage-like" id="assemblage-4"><h3 class="heading"><span class="title">Summary.</span></h3>
-<div class="para logical" id="p-145"><ul class="disc">
-<li id="li-47"><div class="para" id="p-146">We can add 3D graphs and axes using the argument <code class="code-inline tex2jax_ignore">projection='3d'</code> inside pyplot’s <code class="code-inline tex2jax_ignore">axes</code> command.</div></li>
-<li id="li-48"><div class="para" id="p-147">We can plot curves using <code class="code-inline tex2jax_ignore">plot()</code> and three numpy arrays representing the <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> and <span class="process-math">\(z\)</span>-coordinates for points on our curve.</div></li>
-<li id="li-49"><div class="para" id="p-148">We can use <code class="code-inline tex2jax_ignore">numpy.meshgrid()</code> to create input coordinates on a grid and then use <code class="code-inline tex2jax_ignore">plot_surface()</code> or <code class="code-inline tex2jax_ignore">scatter()</code> to plot a surface or scatter plot on 3D axes.</div></li>
-<li id="li-50"><div class="para" id="p-149">As before we need enough points for <code class="code-inline tex2jax_ignore">plot_surface()</code> or <code class="code-inline tex2jax_ignore">plot()</code> to make smooth graphs.</div></li>
+</script></pre></section><section class="conclusion" id="conclusion-3"><div class="para" id="p-150">This section gave us just an introduction to 3D graphing possibilities using Matplotlib in Python. We will continue to learn more about graphing as we move into using Python for matrix algebra.</div></section><article class="assemblage assemblage-like" id="assemblage-4"><h3 class="heading"><span class="title">Summary.</span></h3>
+<div class="para logical" id="p-151"><ul class="disc">
+<li id="li-48"><div class="para" id="p-152">We can add 3D graphs and axes using the argument <code class="code-inline tex2jax_ignore">projection='3d'</code> inside pyplot’s <code class="code-inline tex2jax_ignore">axes</code> command.</div></li>
+<li id="li-49"><div class="para" id="p-153">We can plot curves using <code class="code-inline tex2jax_ignore">plot()</code> and three numpy arrays representing the <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> and <span class="process-math">\(z\)</span>-coordinates for points on our curve.</div></li>
+<li id="li-50"><div class="para" id="p-154">We can use <code class="code-inline tex2jax_ignore">numpy.meshgrid()</code> to create input coordinates on a grid and then use <code class="code-inline tex2jax_ignore">plot_surface()</code> or <code class="code-inline tex2jax_ignore">scatter()</code> to plot a surface or scatter plot on 3D axes.</div></li>
+<li id="li-51"><div class="para" id="p-155">As before we need enough points for <code class="code-inline tex2jax_ignore">plot_surface()</code> or <code class="code-inline tex2jax_ignore">plot()</code> to make smooth graphs.</div></li>
 </ul></div></article><section class="exercises" id="exercises-matplotlib3D"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-35"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<pre class="ptx-sagecell sagecell-python" id="sage-37"><script type="text/x-sage">#
+<article class="exercise exercise-like" id="exercise-37"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<pre class="ptx-sagecell sagecell-python" id="sage-41"><script type="text/x-sage">#
 #
 #
 #

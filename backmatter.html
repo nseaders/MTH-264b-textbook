@@ -259,12 +259,14 @@ window.MathJax = {
 <li>
 <div class="toc-item"><a href="section-matplotlib.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Matplotlib and 2D graphing</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-matplotlib.html#subsection-9" class="internal"><span class="title">Curves in 2D</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#subsec-figures" class="internal"><span class="title">Creating a graph or plot</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#subsection-10" class="internal"><span class="title">Curves in 2D</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib.html#subsec-scatterplots" class="internal"><span class="title">Scatter Plots in 2D</span></a></div></li>
-<li><div class="toc-item"><a href="section-matplotlib.html#subsection-11" class="internal"><span class="title">Parametric Curves in 2D</span></a></div></li>
-<li><div class="toc-item"><a href="section-matplotlib.html#axes" class="internal"><span class="title">Labels and Axes</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#subsection-12" class="internal"><span class="title">Parametric Curves in 2D</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#labels" class="internal"><span class="title">Titles and Axes Labels</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib.html#custom-graphs" class="internal"><span class="title">Customizing</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib.html#subsec-Vectorsin2D" class="internal"><span class="title">Vectors in 2D</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#subsec-subplots" class="internal"><span class="title">Multiple plots in the same figure</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib.html#exercises-matplotlib2D" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -276,14 +278,14 @@ window.MathJax = {
 <li><div class="toc-item"><a href="section-matplotlib3d.html#subsec-Graphing-a-surface" class="internal"><span class="title">Surfaces and scatterplots in 3D</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib3d.html#subsec-3DAxesandLabels" class="internal"><span class="title">Axes and Labels</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib3d.html#subsec-multiplesurfaces" class="internal"><span class="title">Plotting Multiple Surfaces</span></a></div></li>
-<li><div class="toc-item"><a href="section-matplotlib3d.html#subsection-20" class="internal"><span class="title">Customizing</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib3d.html#subsection-22" class="internal"><span class="title">Customizing</span></a></div></li>
 <li><div class="toc-item"><a href="section-matplotlib3d.html#exercises-matplotlib3D" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="section-animation.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Basic Animation</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-animation.html#subsection-21" class="internal"><span class="title">Animating in Matplotlib</span></a></div></li>
+<li><div class="toc-item"><a href="section-animation.html#subsection-23" class="internal"><span class="title">Animating in Matplotlib</span></a></div></li>
 <li><div class="toc-item"><a href="section-animation.html#exercises-animation" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -297,7 +299,7 @@ window.MathJax = {
 <ul class="structural">
 <li><div class="toc-item"><a href="section-systems.html#rref" class="internal"><span class="title">Row Reduction</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#graphsolution" class="internal"><span class="title">Graphing solutions to systems of equations</span></a></div></li>
-<li><div class="toc-item"><a href="section-systems.html#subsection-24" class="internal"><span class="title">Graphing vector equations and their solutions</span></a></div></li>
+<li><div class="toc-item"><a href="section-systems.html#subsection-26" class="internal"><span class="title">Graphing vector equations and their solutions</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#subsec-" class="internal"><span class="title">Converting between Numpy arrays and Sympy Matrices</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#exercises-systems" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
@@ -305,7 +307,7 @@ window.MathJax = {
 <li>
 <div class="toc-item"><a href="section-matrices.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix Arithmetic</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-matrices.html#subsection-26" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsection-28" class="internal"><span class="title">Title</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#exercises-matrices" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -313,13 +315,32 @@ window.MathJax = {
 </li>
 <li>
 <div class="toc-item"><a href="appendix.html" class="internal"><span class="codenumber">3</span> <span class="title">Appendix</span></a></div>
-<ul class="structural"><li>
-<div class="toc-item"><a href="examples.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Samples of various pretext formats</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="examples.html#subsection-27" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
+<li><div class="toc-item"><a href="sec-points.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Points</span></a></div></li>
+<li>
+<div class="toc-item"><a href="sec_vectors.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Vectors</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vectors.html#subsec-addvec" class="internal"><span class="title">Addition of Vectors and Multiplication of a Vector by a Scalar</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#subsec-dotprod" class="internal"><span class="title">The Dot Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#subsec-pendulum" class="internal"><span class="title">(Optional) Using Dot Products to Resolve Forces — The Pendulum</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#sec_GEOparallelogram" class="internal"><span class="title">(Optional) Areas of Parallelograms</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#subsec-crossprod" class="internal"><span class="title">The Cross Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#sec_vector_identities" class="internal"><span class="title">(Optional) Some Vector Identities</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#sec_rot_motion" class="internal"><span class="title">(Optional) Application of Cross Products to Rotational Motion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#sec_rot_frame" class="internal"><span class="title">(Optional) Application of Cross Products to Rotating Reference Frames</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="sec_lines_2d.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Equations of Lines in 2d</span></a></div></li>
+<li><div class="toc-item"><a href="sec_planes_3d.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Equations of Planes in 3d</span></a></div></li>
+<li><div class="toc-item"><a href="sec_lines_3d.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Equations of Lines in 3d</span></a></div></li>
+<li>
+<div class="toc-item"><a href="examples.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Samples of various pretext formats</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="examples.html#subsection-37" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
 <li><div class="toc-item"><a href="examples.html#reading-questions-1" class="internal"><span class="title">Reading Questions</span></a></div></li>
 </ul>
-</li></ul>
+</li>
+</ul>
 </li>
 <li class="active"><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>

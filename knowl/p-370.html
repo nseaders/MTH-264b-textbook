@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">The proof is not exceptionally difficult — just write out both sides and grind. Substituting in</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vb\times\vc
+\ =\ (b_2c_3-b_3c_2)\hi-(b_1c_3-b_3c_1)\hj + (b_1c_2-b_2c_1)\hk
+\end{equation*}
+</div>
+<div class="para">gives, for the left hand side,</div>
+<div class="displaymath process-math">
+\begin{align*}
+\va\times(\vb\times\vc)
+=\phantom{-}&amp;\!\!\!\det\left[\begin{matrix}
+\hi&amp;\hj &amp;\hk \\
+a_1&amp;a_2&amp;a_3\\
+b_2c_3-b_3c_2&amp;-b_1c_3+b_3c_1&amp;b_1c_2-b_2c_1
+\end{matrix}\right]\\
+=\phantom{-}&amp;\hi\big[a_2(b_1c_2-b_2c_1)-a_3(-b_1c_3+b_3c_1)\big]\\
+-&amp;\hj\big[a_1(b_1c_2-b_2c_1)-a_3(b_2c_3-b_3c_2)\big]\\
++&amp;\hk\big[a_1(-b_1c_3+b_3c_1)-a_2(b_2c_3-b_3c_2)\big]
+\end{align*}
+</div>
+<div class="para">On the other hand, the right hand side</div>
+<div class="displaymath process-math">
+\begin{align*}
+(\va\cdot\vc)\vb-(\va\cdot\vb)\vc
+&amp;=(a_1c_1+a_2c_2+a_3c_3)(b_1\hi+b_2\hj+b_3\hk)\\
+&amp;\hskip0.5in-(a_1b_1+a_2b_2+a_3b_3)(c_1\hi+c_2\hj+c_3\hk)\\
+&amp;=\phantom{-}
+\hi\ \big[{\color{blue}{a_1b_1c_1}}
++a_2b_1c_2+a_3b_1c_3-
+{\color{blue}{a_1b_1c_1}}
+-a_2b_2c_1-a_3b_3c_1\big]\\
+&amp;\phantom{=}+\hj\ \big[a_1b_2c_1
++{\color{blue}{a_2b_2c_2}}
++a_3b_2c_3-a_1b_1c_2
+-{\color{blue}{a_2b_2c_2}}
+-a_3b_3c_2\big]\\
+&amp;\phantom{=}+\hk\ \big[a_1b_3c_1+a_2b_3c_2
++{\color{blue}{a_3b_3c_3}}
+-a_1b_1c_3-a_2b_2c_3
+-{\color{blue}{a_3b_3c_3}}\big]\\
+&amp;=\phantom{-}
+\hi\ [a_2b_1c_2+a_3b_1c_3-a_2b_2c_1-a_3b_3c_1]\\
+&amp;\phantom{=}+\hj\ [a_1b_2c_1+a_3b_2c_3-a_1b_1c_2-a_3b_3c_2]\\
+&amp;\phantom{=}+\hk\ [a_1b_3c_1+a_2b_3c_2-a_1b_1c_3-a_2b_2c_3]
+\end{align*}
+</div>
+<div class="para">The last formula that we had for the left hand side is the same as the last formula we had for the right hand side. Oof! This is a little tedious to do by hand. But any computer algebra system will do it for you in a flash.</div>
+</div>
+<span class="incontext"><a href="sec_vectors.html#p-370" class="internal">in-context</a></span>
+</body>
+</html>

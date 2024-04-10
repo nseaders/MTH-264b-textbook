@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Equations of Lines in 3d</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="An Introduction to Matrix Computations in Python">
+<meta property="book:author" content="Nicole Seaders and Claire Burke">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.3/pretext_search.js"></script><link href="https://pretextbook.org/css/0.7/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.3</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.3/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.3/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.3/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.7/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/style_oscarlevin.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom.css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="Matrix-Computations.html"><span class="title">An Introduction to Matrix Computations in Python:</span> <span class="subtitle">Just the basics</span></a></h1>
+<p class="byline">Nicole Seaders and Claire Burke</p>
+</div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" class="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms" class="searchterms"></span>
+</h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="avatarbutton" class="avatarbutton name">You!</span><div id="preferences_menu_holder" class="preferences_menu_holder hidden"><ol id="preferences_menu" class="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec_planes_3d.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="appendix.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="examples.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural">
+<li><div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li><div class="toc-item"><a href="prologue.html" class="internal"><span class="codenumber">0</span> <span class="title">Prologue</span></a></div></li>
+<li>
+<div class="toc-item"><a href="chapter1.html" class="internal"><span class="codenumber">1</span> <span class="title">Basics and Modules for Matrix Algebra</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="section-variables.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Variables</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-variables.html#subsection-1" class="internal"><span class="title"></span></a></div></li>
+<li><div class="toc-item"><a href="section-variables.html#subsec-naming-variables" class="internal"><span class="title">Naming Variables</span></a></div></li>
+<li><div class="toc-item"><a href="section-variables.html#subsec_comments_in_Python" class="internal"><span class="title">Arithmetic and Comments in Python</span></a></div></li>
+<li><div class="toc-item"><a href="section-variables.html#subsec_more_vars" class="internal"><span class="title">More about Variables</span></a></div></li>
+<li><div class="toc-item"><a href="section-variables.html#subsec_errors" class="internal"><span class="title">Syntax and Semantic errors</span></a></div></li>
+<li><div class="toc-item"><a href="section-variables.html#exercises-variable" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-modules.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Python Packages and NumPy</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-modules.html#subsection-6" class="internal"><span class="title">Importing the package NumPy</span></a></div></li>
+<li><div class="toc-item"><a href="section-modules.html#subsection-7" class="internal"><span class="title">Standard functions in NumPy</span></a></div></li>
+<li><div class="toc-item"><a href="section-modules.html#subsection-8" class="internal"><span class="title">NumPy arrays</span></a></div></li>
+<li><div class="toc-item"><a href="section-modules.html#exercises-modules" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-matplotlib.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Matplotlib and 2D graphing</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-matplotlib.html#subsec-figures" class="internal"><span class="title">Creating a graph or plot</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#subsection-10" class="internal"><span class="title">Curves in 2D</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#subsec-scatterplots" class="internal"><span class="title">Scatter Plots in 2D</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#subsection-12" class="internal"><span class="title">Parametric Curves in 2D</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#labels" class="internal"><span class="title">Titles and Axes Labels</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#custom-graphs" class="internal"><span class="title">Customizing</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#subsec-Vectorsin2D" class="internal"><span class="title">Vectors in 2D</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#subsec-subplots" class="internal"><span class="title">Multiple plots in the same figure</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#exercises-matplotlib2D" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-matplotlib3d.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Matplotlib and 3D graphing</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-matplotlib3d.html#subsec-3Daxes" class="internal"><span class="title">3D axes</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib3d.html#subsec-3DParam" class="internal"><span class="title">Parametric Curves in 3D</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib3d.html#subsec-Graphing-a-surface" class="internal"><span class="title">Surfaces and scatterplots in 3D</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib3d.html#subsec-3DAxesandLabels" class="internal"><span class="title">Axes and Labels</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib3d.html#subsec-multiplesurfaces" class="internal"><span class="title">Plotting Multiple Surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib3d.html#subsection-22" class="internal"><span class="title">Customizing</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib3d.html#exercises-matplotlib3D" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-animation.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Basic Animation</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-animation.html#subsection-23" class="internal"><span class="title">Animating in Matplotlib</span></a></div></li>
+<li><div class="toc-item"><a href="section-animation.html#exercises-animation" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter2.html" class="internal"><span class="codenumber">2</span> <span class="title">Matrix Algebra in Python</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="section-systems.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Solving and Graphing Systems of Linear Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-systems.html#rref" class="internal"><span class="title">Row Reduction</span></a></div></li>
+<li><div class="toc-item"><a href="section-systems.html#graphsolution" class="internal"><span class="title">Graphing solutions to systems of equations</span></a></div></li>
+<li><div class="toc-item"><a href="section-systems.html#subsection-26" class="internal"><span class="title">Graphing vector equations and their solutions</span></a></div></li>
+<li><div class="toc-item"><a href="section-systems.html#subsec-" class="internal"><span class="title">Converting between Numpy arrays and Sympy Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-systems.html#exercises-systems" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-matrices.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix Arithmetic</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-matrices.html#subsection-28" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#exercises-matrices" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="appendix.html" class="internal"><span class="codenumber">3</span> <span class="title">Appendix</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-points.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Points</span></a></div></li>
+<li>
+<div class="toc-item"><a href="sec_vectors.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Vectors</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vectors.html#subsec-addvec" class="internal"><span class="title">Addition of Vectors and Multiplication of a Vector by a Scalar</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#subsec-dotprod" class="internal"><span class="title">The Dot Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#subsec-pendulum" class="internal"><span class="title">(Optional) Using Dot Products to Resolve Forces — The Pendulum</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#sec_GEOparallelogram" class="internal"><span class="title">(Optional) Areas of Parallelograms</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#subsec-crossprod" class="internal"><span class="title">The Cross Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#sec_vector_identities" class="internal"><span class="title">(Optional) Some Vector Identities</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#sec_rot_motion" class="internal"><span class="title">(Optional) Application of Cross Products to Rotational Motion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#sec_rot_frame" class="internal"><span class="title">(Optional) Application of Cross Products to Rotating Reference Frames</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="sec_lines_2d.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Equations of Lines in 2d</span></a></div></li>
+<li><div class="toc-item"><a href="sec_planes_3d.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Equations of Planes in 3d</span></a></div></li>
+<li class="active"><div class="toc-item"><a href="sec_lines_3d.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Equations of Lines in 3d</span></a></div></li>
+<li>
+<div class="toc-item"><a href="examples.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Samples of various pretext formats</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="examples.html#subsection-37" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
+<li><div class="toc-item"><a href="examples.html#reading-questions-1" class="internal"><span class="title">Reading Questions</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec_lines_3d"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.5</span> <span class="title">Equations of Lines in 3d</span>
+</h2>
+<div class="para" id="p-422">Just as in two dimensions, a line in three dimensions can be specified  by giving one point <span class="process-math">\((x_0,y_0,z_0)\)</span> on the line and one vector <span class="process-math">\(\vd=\llt d_x,d_y,d_z\rgt \)</span> whose direction is parallel to that of the line. If <span class="process-math">\((x,y,z)\)</span> is any point on the line then the vector <span class="process-math">\(\llt x-x_0,y-y_0,z-z_0\rgt \text{,}\)</span> whose tail is at <span class="process-math">\((x_0,y_0,z_0)\)</span> and whose arrow is at <span class="process-math">\((x,y,z)\text{,}\)</span>  must be parallel to <span class="process-math">\(\vd\)</span> and hence a scalar multiple of <span class="process-math">\(\vd\text{.}\)</span> By translating this statement into a vector equation we get</div>
+<article class="fact theorem-like" id="par_eqn_of_line"><h3 class="heading">
+<span class="type">Fact</span><span class="space"> </span><span class="codenumber">3.43</span><span class="period">.</span><span class="space"> </span><span class="title">Parametric Equations of a Line.</span>
+</h3>
+<div class="para logical" id="p-423">
+<div class="displaymath process-math" id="md-102">
+\begin{gather*}
+\llt x-x_0,y-y_0,z-z_0\rgt =t \vd
+\end{gather*}
+</div>
+<div class="para">or the three corresponding scalar equations</div>
+<div class="displaymath process-math" id="md-103">
+\begin{gather*}
+x-x_0 = t d_x\qquad
+y-y_0 = t d_y\qquad
+z-z_0 = t d_z
+\end{gather*}
+</div>
+</div></article><div class="para logical" id="p-424">
+<div class="para">These are called the parametric equations of the line. Solving all three equations for the parameter <span class="process-math">\(t\)</span> (assuming that <span class="process-math">\(d_x\text{,}\)</span> <span class="process-math">\(d_y\)</span> and <span class="process-math">\(d_z\)</span> are all nonzero)</div>
+<div class="displaymath process-math" id="md-104">
+\begin{gather*}
+t=\frac{x-x_0}{d_x}=\frac{y-y_0}{d_y}=\frac{z-z_0}{d_z}
+\end{gather*}
+</div>
+<div class="para">and erasing the “<span class="process-math">\(t=\)</span>” again gives the (so called) symmetric equations for the line.</div>
+</div>
+<div class="para" id="p-425">Here is an example in which we find the parametric equations of a line that is given by the intersection of two planes.</div>
+<article class="example example-like" id="eg_line_equations"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.44</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-426">The set of points <span class="process-math">\((x,y,z)\)</span> that obey <span class="process-math">\(x+y+z=2\)</span> form a plane. The set of points <span class="process-math">\((x,y,z)\)</span> that obey <span class="process-math">\(x-y=0\)</span> form a second plane. The set of points <span class="process-math">\((x,y,z)\)</span> that obey both <span class="process-math">\(x+y+z=2\)</span> and <span class="process-math">\(x-y=0\)</span>  lie on the intersection of these two planes and hence form a line. We shall find the parametric equations for that line.</div> <div class="para" id="p-427">To sketch <span class="process-math">\(x+y+z=2\)</span> we observe that if any two of <span class="process-math">\(x,y,z\)</span> are zero, then the third is <span class="process-math">\(2\text{.}\)</span> So all of <span class="process-math">\((0,0,2)\text{,}\)</span> <span class="process-math">\((0,2,0)\)</span> and <span class="process-math">\((2,0,0)\)</span> are on <span class="process-math">\(x+y+z=2\text{.}\)</span> The plane <span class="process-math">\(x-y=0\)</span> contains all of the <span class="process-math">\(z\)</span>-axis, since <span class="process-math">\((0,0,z)\)</span> obeys <span class="process-math">\(x-y=0\)</span> for all <span class="process-math">\(z\text{.}\)</span> Here are separate sketches of (parts of) the two planes.</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;">
+<div class="sbspanel middle" style="width:52.6315789473684%;"><img src="external/figs/planeIntA.svg" role="img" class="contained"></div>
+<div class="sbspanel middle" style="width:42.1052631578947%;"><img src="external/figs/planeIntB.svg" role="img" class="contained"></div>
+</div></div> <div class="para" id="p-428">And here is a sketch of their intersection</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/planeInt.svg" role="img" class="contained"></div></div></div> <div class="para logical" id="p-429">
+<div class="para">
+<em class="emphasis">Method 1.</em> Each point on the line has a different value of <span class="process-math">\(z\text{.}\)</span> We’ll use <span class="process-math">\(z\)</span> as the parameter. (We could just as well use <span class="process-math">\(x\)</span> or <span class="process-math">\(y\text{.}\)</span>) There is no law that requires us to use the parameter name <span class="process-math">\(t\text{,}\)</span> but that’s what we have done so far, so set <span class="process-math">\(t=z\text{.}\)</span> If <span class="process-math">\((x,y,z)\)</span> is on the line then <span class="process-math">\(z=t\)</span> and</div>
+<div class="displaymath process-math" id="md-105">
+\begin{align*}
+x+y+t&amp;=2\\
+x-y\phantom{\ \,+t}&amp;=0
+\end{align*}
+</div>
+<div class="para">The second equation forces <span class="process-math">\(y=x\text{.}\)</span> Substituting this into the first equation gives</div>
+<div class="displaymath process-math" id="md-106">
+\begin{gather*}
+2x+t=2 \implies x=y=1-\tfrac{t}{2}
+\end{gather*}
+</div>
+<div class="para">So the parametric equations are</div>
+<div class="displaymath process-math" id="md-107">
+\begin{gather*}
+x=1-\frac{t}{2},\
+y=1-\frac{t}{2},\
+z=t\qquad\text{or}\qquad
+\llt x-1,y-1,z\rgt  = t\llt -\frac{1}{2}, -\frac{1}{2}, 1\rgt
+\end{gather*}
+</div>
+</div> <div class="para logical" id="p-430">
+<div class="para">
+<em class="emphasis">Method 2.</em> We first find one point on the line. There are lots of them. We’ll find the point with <span class="process-math">\(z=0\text{.}\)</span> (We could just as well use z=123.4, but arguably <span class="process-math">\(z=0\)</span> is a little easier.) If  <span class="process-math">\((x,y,z)\)</span> is on the line and <span class="process-math">\(z=0\text{,}\)</span> then</div>
+<div class="displaymath process-math" id="md-108">
+\begin{align*}
+x+y&amp;=2\\
+x-y&amp;=0
+\end{align*}
+</div>
+<div class="para">The second equation again forces <span class="process-math">\(y=x\text{.}\)</span> Substituting this into the first equation gives</div>
+<div class="displaymath process-math" id="md-109">
+\begin{gather*}
+2x=2 \implies x=y=1
+\end{gather*}
+</div>
+<div class="para">So <span class="process-math">\((1,1,0)\)</span> is on the line. Now we’ll find a direction vector, <span class="process-math">\(\vd\text{,}\)</span> for the line.</div>
+<ul class="disc">
+<li id="li-179"><div class="para" id="p-derived-li-179">Since the line is contained in the plane <span class="process-math">\(x+y+z=2\text{,}\)</span> any vector lying on the line, like <span class="process-math">\(\vd\text{,}\)</span> is also completely contained in that plane. So <span class="process-math">\(\vd\)</span> must be perpendicular to the normal vector of <span class="process-math">\(x+y+z=2\text{,}\)</span> which is <span class="process-math">\(\llt 1,1,1\rgt \text{.}\)</span>
+</div></li>
+<li id="li-180"><div class="para" id="p-derived-li-180">Similarly, since the line is contained in the plane <span class="process-math">\(x-y=0\text{,}\)</span> any vector lying on the line, like <span class="process-math">\(\vd\text{,}\)</span> is also completely contained in that plane.  So <span class="process-math">\(\vd\)</span> must be perpendicular to the normal vector of <span class="process-math">\(x-y=0\text{,}\)</span> which is <span class="process-math">\(\llt 1,-1,0\rgt \text{.}\)</span>
+</div></li>
+</ul>
+<div class="para">So we may choose for <span class="process-math">\(\vd\)</span> any vector which is perpendicular to both <span class="process-math">\(\llt 1,1,1\rgt \)</span> and <span class="process-math">\(\llt 1,-1,0\rgt\text{,}\)</span> like, for example,</div>
+<div class="displaymath process-math" id="md-110">
+\begin{align*}
+\vd&amp;=\llt 1,-1,0\rgt \times\llt 1,1,1\rgt\\
+&amp; =\det\left[ \begin{matrix}\hi &amp;\hj&amp;\hk\\
+1&amp;-1&amp;0\\ 1&amp;1&amp;1\end{matrix}\right]
+=\hi\det\left[\begin{matrix}-1&amp;0\\
+1&amp;1\end{matrix}\right]
+-\hj\det\left[\begin{matrix}1&amp;0\\
+1&amp;1\end{matrix}\right]
++\hk\det\left[\begin{matrix}1&amp;-1\\
+1&amp;1\end{matrix}\right]\\
+&amp;=-\hi-\hj+2\hk
+\end{align*}
+</div>
+<div class="para">We now have both a point on the line (namely <span class="process-math">\((1,1,0)\)</span>) and a direction vector for the line (namely <span class="process-math">\(\llt -1,-1,2\rgt\)</span>), so, as usual, the parametric equations for the line are</div>
+<div class="displaymath process-math" id="md-111">
+\begin{gather*}
+\llt x-1,y-1,z\rgt =t\llt -1,-1,2\rgt \qquad\text{or}\qquad
+x=1-t,\ y=1-t,\ z=2t
+\end{gather*}
+</div>
+<div class="para">This looks a little different than the solution from method 1, but we’ll see in a moment that they are really the same. Before that, let’s do one more method.</div>
+</div> <div class="para logical" id="p-431">
+<div class="para">
+<em class="emphasis">Method 3.</em> We’ll find two points on the line. We have already found that <span class="process-math">\((1,1,0)\)</span> is on the line. From the picture above, it looks like <span class="process-math">\((0,0,2)\)</span> is also on the line. This is indeed the case since <span class="process-math">\((0,0,2)\)</span> obeys both <span class="process-math">\(x+y+z=2\)</span> and <span class="process-math">\(x-y=0\text{.}\)</span> Notice that we could also have guessed <span class="process-math">\((0,0,2)\)</span> by setting <span class="process-math">\(x=0\)</span>  and then solving <span class="process-math">\(y+z=x+y+z=2\text{,}\)</span> <span class="process-math">\(-y=x-y=0\)</span> for <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span> As both <span class="process-math">\((1,1,0)\)</span> and <span class="process-math">\((0,0,2)\)</span> are on the line, the vector with head at <span class="process-math">\((1,1,0)\)</span> and tail at <span class="process-math">\((0,0,2)\text{,}\)</span> which is <span class="process-math">\(\llt 1-0,1-0,0-2\rgt =\llt 1,1,-2\rgt \text{,}\)</span> is a direction vector for the line. As <span class="process-math">\((0,0,2)\)</span> is a point on the line and <span class="process-math">\(\llt 1,1,-2\rgt \)</span> is a direction vector for the line, the parametric equations for the line are</div>
+<div class="displaymath process-math" id="md-112">
+\begin{gather*}
+\llt x-0,y-0,z-2\rgt =t\llt 1,1,-2\rgt \qquad\text{or}\qquad
+x=t,\ y=t,\ z=2-2t
+\end{gather*}
+</div>
+<div class="para">This also looks similar, but not quite identical, to our previous answers. Time for a comparison.</div>
+</div> <div class="para logical" id="p-432">
+<div class="para">
+<em class="emphasis">Comparing the answers.</em> The parametric equations given by the three methods are different. That’s just because we have really used different parameters in the three methods, even though we have called the parameter <span class="process-math">\(t\)</span> in each case. To clarify the relation between the three answers, rename the parameter of method 1 to <span class="process-math">\(t_1\text{,}\)</span> the parameter of method 2 to <span class="process-math">\(t_2\)</span> and the parameter of method 3 to <span class="process-math">\(t_3\text{.}\)</span> The parametric equations then become</div>
+<div class="displaymath process-math" id="md-113">
+\begin{alignat*}{4}
+&amp;\text{Method 1:}\qquad &amp;
+x&amp;=1-\frac{t_1}{2}\qquad &amp;
+y&amp;=1-\frac{t_1}{2}\qquad &amp;
+z&amp;=t_1\\
+&amp;\text{Method 2:}\qquad &amp;
+x&amp;=1-t_2\qquad &amp;
+y&amp;=1-t_2\qquad &amp;
+z&amp;=2t_2\\
+&amp;\text{Method 3:}\qquad &amp;
+x&amp;=t_3\qquad &amp;
+y&amp;=t_3\qquad &amp;
+z&amp;=2-2t_3
+\end{alignat*}
+</div>
+<div class="para">Substituting <span class="process-math">\(t_1=2t_2\)</span> into the Method 1 equations gives the Method 2 equations, and substituting <span class="process-math">\(t_3=1-t_2\)</span> into the Method 3 equations gives the Method 2 equations. So all three really give the same line, just parametrized a little differently.</div>
+</div></article><article class="warning remark-like" id="warn_line_normal"><h3 class="heading">
+<span class="type">Warning</span><span class="space"> </span><span class="codenumber">3.45</span><span class="period">.</span><span class="space"> </span><span class="title">A line in three dimensions has infinitely many normal vectors.</span>
+</h3> <div class="para logical" id="p-433">
+<div class="para">For example, the line</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\llt x-1,y-1,z\rgt=t\llt 1,2,-2\rgt
+\end{equation*}
+</div>
+<div class="para">has direction vector <span class="process-math">\(\llt 1,2,-2\rgt\text{.}\)</span> Any vector perpendicular to <span class="process-math">\(\llt 1,2,-2\rgt \)</span> is perpendicular to the line. The vector <span class="process-math">\(\llt n_1,n_2,n_3\rgt\)</span> is perpendicular to <span class="process-math">\(\llt 1,2,-2\rgt\)</span> if and only if</div>
+<div class="displaymath process-math">
+\begin{equation*}
+0=\llt 1,2,-2\rgt \cdot \llt n_1,n_2,n_3\rgt = n_1+2n_2-2n_3
+\end{equation*}
+</div>
+<div class="para">There is  whole plane of <span class="process-math">\(\llt n_1,n_2,n_3\rgt\)</span>’s obeying this condition, of which <span class="process-math">\(\llt 2,-1,0\rgt\text{,}\)</span> <span class="process-math">\(\llt 0,1,1\rgt\)</span> and <span class="process-math">\(\llt 2,0,1\rgt\)</span> are only three examples.</div>
+</div></article><div class="para" id="p-434">The next two examples illustrate two different methods for finding the distance between a point and a line.</div>
+<article class="example example-like" id="eg_VPdistance-point-line"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.46</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-435">
+<div class="para">In this example, we find the distance between the point <span class="process-math">\((2,3,-1)\)</span> and the line</div>
+<div class="displaymath process-math" id="md-114">
+\begin{align*}
+L&amp;:\  \llt x-1,y-2,z-3\rgt=t\llt 1,1,2\rgt\\
+&amp;\quad \text{or, equivalently,}\quad
+x=1+t,\ y=2+t,\ z=3+2t
+\end{align*}
+</div>
+<div class="para">The vector from <span class="process-math">\((2,3,-1)\)</span> to the point <span class="process-math">\((1+t\,,\,2+t\,,\,3+2t)\)</span> on <span class="process-math">\(L\)</span> is <span class="process-math">\(\llt t-1\,,\,t-1\,,\,2t+4\rgt\text{.}\)</span> The square of the distance between <span class="process-math">\((2,3,-1)\)</span> and the point <span class="process-math">\((1+t\,,\,2+t\,,\,3+2t)\)</span>  on <span class="process-math">\(L\)</span> is the square of the length of that vector, namely</div>
+<div class="displaymath process-math">
+\begin{equation*}
+d(t)^2 = (t-1)^2 +(t-1)^2 +(2t+4)^2
+\end{equation*}
+</div>
+<div class="para">The point on <span class="process-math">\(L\)</span> that is closest to <span class="process-math">\((2,3,-1)\)</span> is that whose value of <span class="process-math">\(t\)</span> obeys</div>
+<div class="displaymath process-math" id="md-115">
+\begin{gather*}
+0= \diff{}{t} d(t)^2 = 2(t-1) +2(t-1) + 2(2)(2t+4)
+\tag{\(*\)}
+\end{gather*}
+</div>
+</div> <div class="para logical" id="p-436">
+<div class="para">Before we solve this equation for <span class="process-math">\(t\)</span> and finish of our computation, observe that this equation (divided by <span class="process-math">\(2\)</span>) says that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\llt 1\,,\,1\,,\,2\rgt\cdot\llt t-1\,,\,t-1\,,\, 2t+4\rgt = 0
+\end{equation*}
+</div>
+<div class="para">That is, <em class="emphasis">the vector from <span class="process-math">\((2,3,-1)\)</span> to the point on <span class="process-math">\(L\)</span> nearest <span class="process-math">\((2,3,-1)\)</span> is perpendicular to <span class="process-math">\(L\)</span>’s direction vector</em>.</div>
+</div> <div class="para logical" id="p-437">
+<div class="para">Now back to our computation. The equation <span class="process-math">\((*)\)</span> simplifies to <span class="process-math">\(12t+12=0\text{.}\)</span> So the optimal <span class="process-math">\(t=-1\)</span> and the distance is</div>
+<div class="displaymath process-math" id="md-116">
+\begin{gather*}
+d(-1) =\sqrt{(-1-1)^2+(-1-1)^2+(-2+4)^2}
+=\sqrt{12}
+\end{gather*}
+</div>
+</div></article><article class="example example-like" id="eg_VPdistance-point-line-bis"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.47</span><span class="period">.</span><span class="space"> </span><span class="title">Example Example 3.46 revisited.</span>
+</h3> <div class="para logical" id="p-438">
+<div class="para">In this example, we again find the distance between the point <span class="process-math">\((2,3,-1)\)</span> and the line</div>
+<div class="displaymath process-math">
+\begin{equation*}
+L:\  \llt x-1,y-2,z-3\rgt=t\llt 1,1,2\rgt
+\end{equation*}
+</div>
+<div class="para">but we use a different method. In the figure below, <span class="process-math">\(Q\)</span> is the point <span class="process-math">\((2,3,-1)\text{.}\)</span>
+</div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:27.5%;margin-right:27.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/pointDistProjB.svg" role="img" class="contained"></div></div></div> <div class="para" id="p-439">If we drop a perpendicular from <span class="process-math">\(Q\)</span> to the line <span class="process-math">\(L\text{,}\)</span> it hits the line <span class="process-math">\(L\)</span> at the point <span class="process-math">\(N\text{,}\)</span> which is the point on <span class="process-math">\(L\)</span> that is nearest <span class="process-math">\(Q\text{.}\)</span> So the distance from <span class="process-math">\(Q\)</span> to <span class="process-math">\(L\)</span> is exactly the distance from <span class="process-math">\(Q\)</span> to <span class="process-math">\(N\text{,}\)</span> which is exactly the length of the vector from <span class="process-math">\(Q\)</span> to <span class="process-math">\(N\text{.}\)</span> In the figure above, <span class="process-math">\(\vw\)</span> is the vector from <span class="process-math">\(Q\)</span> to <span class="process-math">\(N\text{.}\)</span> Now the vector <span class="process-math">\(\vw\)</span> has to be perpendicular to the direction vector for <span class="process-math">\(L\text{.}\)</span> That is,  <span class="process-math">\(\vw\)</span> has to be perpendicular to <span class="process-math">\(\vd=\llt 1,1,2\rgt\text{.}\)</span> However, as we saw in Warning <a href="" class="xref" data-knowl="./knowl/warn_line_normal.html" title="Warning 3.45: A line in three dimensions has infinitely many normal vectors">Warning 3.45</a>, there are a huge number of vectors in different directions that are perpendicular to <span class="process-math">\(\vd\text{.}\)</span> So you might think that it is very hard to even determine the direction of <span class="process-math">\(\vw\text{.}\)</span>
+</div> <div class="para logical" id="p-440">
+<div class="para">Fortunately, it isn’t. Here is the strategy.</div>
+<ul class="disc">
+<li id="li-181"><div class="para" id="p-derived-li-181">Pick any point on <span class="process-math">\(L\)</span> and call it <span class="process-math">\(P\text{.}\)</span>
+</div></li>
+<li id="li-182"><div class="para" id="p-derived-li-182">It is very easy to find the vector from <span class="process-math">\(P\)</span> to <span class="process-math">\(N\)</span> — it is just the projection of the vector from <span class="process-math">\(P\)</span> to <span class="process-math">\(Q\)</span> (called <span class="process-math">\(\vv\)</span> in the figure above) on <span class="process-math">\(\vd\text{.}\)</span>
+</div></li>
+<li id="li-183"><div class="para" id="p-derived-li-183">Once we know <span class="process-math">\({\rm proj}_{\vd}\,\vv\text{,}\)</span> we will be able to compute<div class="displaymath process-math">
+\begin{equation*}
+\vw = {\rm proj}_{\vd}\,\vv -\vv
+\end{equation*}
+</div>
+</div></li>
+<li id="li-184"><div class="para" id="p-derived-li-184">and then the distance from <span class="process-math">\(Q\)</span> to the line <span class="process-math">\(L\)</span> is just <span class="process-math">\(|\vw|\text{.}\)</span>
+</div></li>
+</ul>
+</div> <div class="para logical" id="p-441">
+<div class="para">Here is the computation. We’ll choose <span class="process-math">\(P\)</span> to be the point on <span class="process-math">\(L\)</span> that has <span class="process-math">\(t=0\text{,}\)</span> which is <span class="process-math">\((1,2,3)\text{.}\)</span> So the vector from <span class="process-math">\(P=(1,2,3)\)</span> to <span class="process-math">\(Q=(2,3,-1)\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vv = \llt 2-1,3-2,-1-3\rgt=\llt 1,1,-4\rgt
+\end{equation*}
+</div>
+<div class="para">The projection of <span class="process-math">\(\vv=\llt 1,1,-4\rgt\)</span> on <span class="process-math">\(\vd=\llt 1,1,2\rgt\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+{\rm proj}_{\vd}\,\vv
+=\frac{\llt 1,1,-4\rgt\cdot\llt 1,1,2\rgt}{|\llt 1,1,2\rgt|^2}\llt 1,1,2\rgt
+=\frac{-6}{6}\llt 1,1,2\rgt
+=\llt -1,-1,-2\rgt
+\end{equation*}
+</div>
+<div class="para">and then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vw = {\rm proj}_{\vd}\,\vv -\vv
+= \llt -1,-1,-2\rgt -\llt 1,1,-4\rgt
+= \llt -2,-2,2\rgt
+\end{equation*}
+</div>
+<div class="para">and finally the distance from <span class="process-math">\(Q\)</span> to the  line <span class="process-math">\(L\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+|\vw| = |\llt -2,-2,2\rgt|
+=|2\llt -1,-1,1\rgt|
+=2\sqrt{3}
+\end{equation*}
+</div>
+</div></article><div class="para" id="p-442">The next two (optional) examples illustrate two different methods for finding the distance between two lines.</div>
+<article class="example example-like" id="eg_VPdistance-line-line"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.48</span><span class="period">.</span><span class="space"> </span><span class="title">(Optional) Distance between lines.</span>
+</h3> <div class="para logical" id="p-443">
+<div class="para">In this example, we find the distance between the lines</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eg_VPdistance-point-line.html" id="md-117">
+\begin{align*}
+L&amp;:\  \llt x-1,y-2,z-3\rgt = t \llt 1,0,-1 \rgt\\
+L'&amp;:\ \llt x-1,y-2,z-1\rgt = t \llt 1,-2,1 \rgt
+\end{align*}
+</div>
+<div class="para">We can rewrite the equations of the lines as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eg_VPdistance-point-line.html" id="md-118">
+\begin{align*}
+L&amp;:\  x=1+t,\ y=2,\ z=3-t\\
+L'&amp;:\ x=1+t,\ y=2-2t,\ z=1+t
+\end{align*}
+</div>
+<div class="para">Of course the value of <span class="process-math">\(t\)</span> in the parametric equation for <span class="process-math">\(L\)</span> need not be the same as the value of <span class="process-math">\(t\)</span> in the parametric equation for <span class="process-math">\(L'\text{.}\)</span> So let us denote by <span class="process-math">\(\vx(s) = (1+s\,,\,2\,,\,3-s)\)</span> and <span class="process-math">\(\vy(t) = (1+t\,,\,2-2t\,,\,1+t)\)</span> the points on <span class="process-math">\(L\)</span> and <span class="process-math">\(L'\text{,}\)</span> respectively, that are closest together. Note that the vector from <span class="process-math">\(\vx(s)\)</span> to <span class="process-math">\(\vy(t)\)</span> is <span class="process-math">\(\llt  t-s\,,\,-2t\,,\,-2+s+t \rgt\text{.}\)</span> Then, in particular,</div>
+<ul class="disc">
+<li id="li-185"><div class="para" id="p-derived-li-185">
+<span class="process-math">\(\vx(s)\)</span> is the point on <span class="process-math">\(L\)</span> that is closest to the point <span class="process-math">\(\vy(t)\text{,}\)</span> and</div></li>
+<li id="li-186"><div class="para" id="p-derived-li-186">
+<span class="process-math">\(\vy(t)\)</span> is the point on <span class="process-math">\(L'\)</span> that is closest to the point <span class="process-math">\(\vx(s)\text{.}\)</span>
+</div></li>
+</ul>
+<div class="para">So, as we saw in Example <a href="" class="xref" data-knowl="./knowl/eg_VPdistance-point-line.html" title="Example 3.46">Example 3.46</a>, the vector, <span class="process-math">\(\llt  t-s\,,\,-2t\,,\,-2+s+t \rgt\text{,}\)</span> that joins <span class="process-math">\(\vx(s)\)</span> and <span class="process-math">\(\vy(t)\text{,}\)</span> must be perpendicular to both the direction vector of <span class="process-math">\(L\)</span> and the direction vector of <span class="process-math">\(L'\text{.}\)</span> Consequently</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eg_VPdistance-point-line.html" id="md-119">
+\begin{alignat*}{2}
+0&amp;= \llt 1,0,-1\rgt\cdot\llt  t-s\,,\,-2t\,,\,-2+s+t \rgt
+&amp;&amp;= \phantom{-}2-2s\\
+0&amp;= \llt 1,-2,1\rgt\cdot\llt  t-s\,,\,-2t\,,\,-2+s+t \rgt
+&amp;&amp;=-2+6t
+\end{alignat*}
+</div>
+<div class="para">So <span class="process-math">\(s=1\)</span> and <span class="process-math">\(t=\frac{1}{3}\)</span> and the distance between <span class="process-math">\(L\)</span> and <span class="process-math">\(L'\)</span> is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eg_VPdistance-point-line.html" id="md-120">
+\begin{align*}
+\big|\llt  t-s\,,\,-2t\,,\,-2+s+t \rgt\big|_{s=1,\ t=1/3}
+&amp;=\big|\llt -2/3\,,\,-2/3\,,\,-2/3 \rgt\big|\\
+&amp;=\frac{2}{\sqrt{3}}
+\end{align*}
+</div>
+</div></article><article class="example example-like" id="eg_VPdistance-line-line-bis"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.49</span><span class="period">.</span><span class="space"> </span><span class="title">Example Example 3.48 revisited, again optional.</span>
+</h3> <div class="para logical" id="p-444">
+<div class="para">In this example, we again find the distance between the lines</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eg_VPdistance-point-plane-bis.html ./knowl/eqn_proj.html ./knowl/eg_VPdistance-line-line.html ./knowl/eg_VPdistance-line-line.html ./knowl/eg_VPdistance-line-line.html ./knowl/def_projection.html" id="md-121">
+\begin{align*}
+L&amp;:\  \llt x-1,y-2,z-3\rgt = t \llt 1,0,-1 \rgt\\
+L'&amp;:\ \llt x-1,y-2,z-1\rgt = t \llt 1,-2,1 \rgt
+\end{align*}
+</div>
+<div class="para">this time using a projection, much as in Example <a href="" class="xref" data-knowl="./knowl/eg_VPdistance-point-plane-bis.html" title="Example 3.40: Example Example 3.39, revisited">Example 3.40</a>. The procedure, which will be justified below, is</div>
+<ul class="disc">
+<li id="li-187"><div class="para" id="p-derived-li-187">first form a vector <span class="process-math">\(\vn\)</span> that is perpendicular to the direction vectors of both lines by taking the cross product of the two direction vectors. In this example,<div class="displaymath process-math" id="md-122">
+\begin{align*}
+\llt 1,0,-1\rgt \times\llt 1,-2,1\rgt
+&amp; = \det\left[\begin{matrix}
+\hi&amp;\hj&amp;\hk \\ 1 &amp; 0 &amp; -1 \\ 1 &amp;-2 &amp; 1\end{matrix}\right]
+= -2\hi -2 \hj -2\hk
+\end{align*}
+</div>Since we just want <span class="process-math">\(\hn\)</span> to be perpendicular to both direction vectors, we may simplify our computations by dividing this vector by <span class="process-math">\(-2\text{,}\)</span> and take <span class="process-math">\(\vn = \llt 1,1,1 \rgt\text{.}\)</span>
+</div></li>
+<li id="li-188"><div class="para" id="p-derived-li-188">Next find one point on <span class="process-math">\(L\)</span> and one point on <span class="process-math">\(L'\)</span> and subtract to form a vector <span class="process-math">\(\vv\)</span> whose tail is at one point and whose head is at the other point. This vector goes from one line to the other line. In this example, the point <span class="process-math">\((1,2,3)\)</span> is on <span class="process-math">\(L\)</span> (just set <span class="process-math">\(t=0\)</span> in the equation for <span class="process-math">\(L\)</span>) and the point <span class="process-math">\((1,2,1)\)</span> is on <span class="process-math">\(L'\)</span> (just set <span class="process-math">\(t=0\)</span> in the equation for <span class="process-math">\(L'\)</span>), so that we may take<div class="displaymath process-math">
+\begin{equation*}
+\vv = \llt 1-1\,,\,2-2\,,\,3-1\rgt = \llt 0,0,2 \rgt
+\end{equation*}
+</div>
+</div></li>
+<li id="li-189"><div class="para" id="p-derived-li-189">The distance between the two lines is the length of the projection of <span class="process-math">\(\vv\)</span> on <span class="process-math">\(\vn\text{.}\)</span> In this example, by <a href="" class="xref" data-knowl="./knowl/eqn_proj.html" title="Fact 3.17">Fact 3.17</a>, the distance is<div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn_proj.html ./knowl/eg_VPdistance-line-line.html" id="md-123">
+\begin{align*}
+\big|{\rm proj}_{\vn}\,\vv\big|
+&amp;=\left|\frac{\vv\cdot\vn}{|\vn|^2}\,\vn\right|
+=\frac{|\vv\cdot\vn|}{|\vn|}\\
+&amp;= \frac{|\llt 0,0,2\rgt\cdot\llt 1,1,1\rgt|}{|\llt 1,1,1\rgt|}\\
+&amp;= \frac{2}{\sqrt{3}}
+\end{align*}
+</div>just as we found in Example <a href="" class="xref" data-knowl="./knowl/eg_VPdistance-line-line.html" title="Example 3.48: (Optional) Distance between lines">Example 3.48</a>
+</div></li>
+</ul>
+<div class="para">Now, here is the justification for the procedure.</div>
+<ul class="disc">
+<li id="li-190"><div class="para" id="p-derived-li-190">As we did in Example <a href="" class="xref" data-knowl="./knowl/eg_VPdistance-line-line.html" title="Example 3.48: (Optional) Distance between lines">Example 3.48</a>, denote by <span class="process-math">\(\vx(s)\)</span> and <span class="process-math">\(\vy(t)\)</span> the points on <span class="process-math">\(L\)</span> and <span class="process-math">\(L'\text{,}\)</span> respectively, that are closest together. Note that, as we observed in Example <a href="" class="xref" data-knowl="./knowl/eg_VPdistance-line-line.html" title="Example 3.48: (Optional) Distance between lines">Example 3.48</a>, the vector from <span class="process-math">\(\vx(s)\)</span> to <span class="process-math">\(\vy(t)\)</span> is perpendicular to the direction vectors of both lines, and so is parallel to <span class="process-math">\(\vn\text{.}\)</span>
+</div></li>
+<li id="li-191"><div class="para" id="p-derived-li-191">Denote by <span class="process-math">\(P\)</span> the plane through <span class="process-math">\(\vx(s)\)</span> that is perpendicular to <span class="process-math">\(\vn\text{.}\)</span> As <span class="process-math">\(\vx(s)\)</span> is on <span class="process-math">\(L\)</span> and the direction vector of <span class="process-math">\(L\)</span> is perpendicular to <span class="process-math">\(\vn\text{,}\)</span> the line <span class="process-math">\(L\)</span> is contained in <span class="process-math">\(P\text{.}\)</span>
+</div></li>
+<li id="li-192"><div class="para" id="p-derived-li-192">Denote by <span class="process-math">\(P'\)</span> the plane through <span class="process-math">\(\vy(t)\)</span> that is perpendicular to <span class="process-math">\(\vn\text{.}\)</span> As <span class="process-math">\(\vy(t)\)</span> is on <span class="process-math">\(L'\)</span> and the direction vector of <span class="process-math">\(L'\)</span> is perpendicular to <span class="process-math">\(\vn\text{,}\)</span> the line <span class="process-math">\(L'\)</span> is contained in <span class="process-math">\(P'\text{.}\)</span>
+</div></li>
+<li id="li-193"><div class="para" id="p-derived-li-193">The planes <span class="process-math">\(P\)</span> and <span class="process-math">\(P'\)</span> are parallel to each other. As <span class="process-math">\(\vx(s)\)</span> is on <span class="process-math">\(P\)</span> and <span class="process-math">\(\vy(t)\)</span> is on <span class="process-math">\(P'\text{,}\)</span> and the vector from <span class="process-math">\(\vx(s)\)</span> to <span class="process-math">\(\vy(t)\)</span> is perpendicular to both <span class="process-math">\(P\)</span> and <span class="process-math">\(P'\text{,}\)</span> the distance from <span class="process-math">\(P\)</span> to <span class="process-math">\(P'\)</span> is exactly the length of the vector from <span class="process-math">\(\vx(s)\)</span> to <span class="process-math">\(\vy(t)\text{.}\)</span> That is also the distance from <span class="process-math">\(L\)</span> to <span class="process-math">\(L'\text{.}\)</span>
+</div></li>
+<li id="li-194">
+<div class="para" id="p-445">The vector <span class="process-math">\(\vv\)</span> constructed in the procedure above is a vector between <span class="process-math">\(L\)</span> and <span class="process-math">\(L'\)</span> and so is also a vector between <span class="process-math">\(P\)</span> and <span class="process-math">\(P'\text{.}\)</span> Looking at the figure below<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-23" id="fn-23"><sup> 19 </sup></a>, we see that the vector from <span class="process-math">\(\vx(s)\)</span> to <span class="process-math">\(\vy(t)\)</span> is (up to a sign) the projection of <span class="process-math">\(\vv\)</span> on <span class="process-math">\(\vn\text{.}\)</span>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:22.5%;margin-right:22.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/planeDistB.svg" role="img" class="contained"></div></div></div>
+</li>
+<li id="li-195"><div class="para" id="p-derived-li-195">So the distance from <span class="process-math">\(P\)</span> to <span class="process-math">\(P'\text{,}\)</span> and hence the distance from <span class="process-math">\(L\)</span> to <span class="process-math">\(L'\text{,}\)</span> is exactly the length of <span class="process-math">\({\rm proj}_{\vn}\vv\text{.}\)</span>
+</div></li>
+</ul>
+</div></article></section><div class="hidden-content tex2jax_ignore" id="hk-fn-23"><div class="fn">and possibly reviewing the Definition <a href="" class="xref" data-knowl="./knowl/def_projection.html" title="Definition 3.16: Projection">Definition 3.16</a> of projection</div></div>
+</div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec_planes_3d.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="examples.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

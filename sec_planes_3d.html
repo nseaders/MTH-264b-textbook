@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Equations of Planes in 3d</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="An Introduction to Matrix Computations in Python">
+<meta property="book:author" content="Nicole Seaders and Claire Burke">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.3/pretext_search.js"></script><link href="https://pretextbook.org/css/0.7/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.3</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.3/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.3/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.3/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.7/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/style_oscarlevin.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom.css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="Matrix-Computations.html"><span class="title">An Introduction to Matrix Computations in Python:</span> <span class="subtitle">Just the basics</span></a></h1>
+<p class="byline">Nicole Seaders and Claire Burke</p>
+</div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" class="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms" class="searchterms"></span>
+</h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="avatarbutton" class="avatarbutton name">You!</span><div id="preferences_menu_holder" class="preferences_menu_holder hidden"><ol id="preferences_menu" class="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec_lines_2d.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="appendix.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec_lines_3d.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural">
+<li><div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li><div class="toc-item"><a href="prologue.html" class="internal"><span class="codenumber">0</span> <span class="title">Prologue</span></a></div></li>
+<li>
+<div class="toc-item"><a href="chapter1.html" class="internal"><span class="codenumber">1</span> <span class="title">Basics and Modules for Matrix Algebra</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="section-variables.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Variables</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-variables.html#subsection-1" class="internal"><span class="title"></span></a></div></li>
+<li><div class="toc-item"><a href="section-variables.html#subsec-naming-variables" class="internal"><span class="title">Naming Variables</span></a></div></li>
+<li><div class="toc-item"><a href="section-variables.html#subsec_comments_in_Python" class="internal"><span class="title">Arithmetic and Comments in Python</span></a></div></li>
+<li><div class="toc-item"><a href="section-variables.html#subsec_more_vars" class="internal"><span class="title">More about Variables</span></a></div></li>
+<li><div class="toc-item"><a href="section-variables.html#subsec_errors" class="internal"><span class="title">Syntax and Semantic errors</span></a></div></li>
+<li><div class="toc-item"><a href="section-variables.html#exercises-variable" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-modules.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Python Packages and NumPy</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-modules.html#subsection-6" class="internal"><span class="title">Importing the package NumPy</span></a></div></li>
+<li><div class="toc-item"><a href="section-modules.html#subsection-7" class="internal"><span class="title">Standard functions in NumPy</span></a></div></li>
+<li><div class="toc-item"><a href="section-modules.html#subsection-8" class="internal"><span class="title">NumPy arrays</span></a></div></li>
+<li><div class="toc-item"><a href="section-modules.html#exercises-modules" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-matplotlib.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Matplotlib and 2D graphing</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-matplotlib.html#subsec-figures" class="internal"><span class="title">Creating a graph or plot</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#subsection-10" class="internal"><span class="title">Curves in 2D</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#subsec-scatterplots" class="internal"><span class="title">Scatter Plots in 2D</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#subsection-12" class="internal"><span class="title">Parametric Curves in 2D</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#labels" class="internal"><span class="title">Titles and Axes Labels</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#custom-graphs" class="internal"><span class="title">Customizing</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#subsec-Vectorsin2D" class="internal"><span class="title">Vectors in 2D</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#subsec-subplots" class="internal"><span class="title">Multiple plots in the same figure</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib.html#exercises-matplotlib2D" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-matplotlib3d.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Matplotlib and 3D graphing</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-matplotlib3d.html#subsec-3Daxes" class="internal"><span class="title">3D axes</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib3d.html#subsec-3DParam" class="internal"><span class="title">Parametric Curves in 3D</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib3d.html#subsec-Graphing-a-surface" class="internal"><span class="title">Surfaces and scatterplots in 3D</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib3d.html#subsec-3DAxesandLabels" class="internal"><span class="title">Axes and Labels</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib3d.html#subsec-multiplesurfaces" class="internal"><span class="title">Plotting Multiple Surfaces</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib3d.html#subsection-22" class="internal"><span class="title">Customizing</span></a></div></li>
+<li><div class="toc-item"><a href="section-matplotlib3d.html#exercises-matplotlib3D" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-animation.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Basic Animation</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-animation.html#subsection-23" class="internal"><span class="title">Animating in Matplotlib</span></a></div></li>
+<li><div class="toc-item"><a href="section-animation.html#exercises-animation" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter2.html" class="internal"><span class="codenumber">2</span> <span class="title">Matrix Algebra in Python</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="section-systems.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Solving and Graphing Systems of Linear Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-systems.html#rref" class="internal"><span class="title">Row Reduction</span></a></div></li>
+<li><div class="toc-item"><a href="section-systems.html#graphsolution" class="internal"><span class="title">Graphing solutions to systems of equations</span></a></div></li>
+<li><div class="toc-item"><a href="section-systems.html#subsection-26" class="internal"><span class="title">Graphing vector equations and their solutions</span></a></div></li>
+<li><div class="toc-item"><a href="section-systems.html#subsec-" class="internal"><span class="title">Converting between Numpy arrays and Sympy Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-systems.html#exercises-systems" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-matrices.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix Arithmetic</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-matrices.html#subsection-28" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#exercises-matrices" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="appendix.html" class="internal"><span class="codenumber">3</span> <span class="title">Appendix</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-points.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Points</span></a></div></li>
+<li>
+<div class="toc-item"><a href="sec_vectors.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Vectors</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec_vectors.html#subsec-addvec" class="internal"><span class="title">Addition of Vectors and Multiplication of a Vector by a Scalar</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#subsec-dotprod" class="internal"><span class="title">The Dot Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#subsec-pendulum" class="internal"><span class="title">(Optional) Using Dot Products to Resolve Forces — The Pendulum</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#sec_GEOparallelogram" class="internal"><span class="title">(Optional) Areas of Parallelograms</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#subsec-crossprod" class="internal"><span class="title">The Cross Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#sec_vector_identities" class="internal"><span class="title">(Optional) Some Vector Identities</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#sec_rot_motion" class="internal"><span class="title">(Optional) Application of Cross Products to Rotational Motion</span></a></div></li>
+<li><div class="toc-item"><a href="sec_vectors.html#sec_rot_frame" class="internal"><span class="title">(Optional) Application of Cross Products to Rotating Reference Frames</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="sec_lines_2d.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Equations of Lines in 2d</span></a></div></li>
+<li class="active"><div class="toc-item"><a href="sec_planes_3d.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Equations of Planes in 3d</span></a></div></li>
+<li><div class="toc-item"><a href="sec_lines_3d.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Equations of Lines in 3d</span></a></div></li>
+<li>
+<div class="toc-item"><a href="examples.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Samples of various pretext formats</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="examples.html#subsection-37" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
+<li><div class="toc-item"><a href="examples.html#reading-questions-1" class="internal"><span class="title">Reading Questions</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec_planes_3d"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.4</span> <span class="title">Equations of Planes in 3d</span>
+</h2>
+<div class="para" id="p-400">Specifying one point <span class="process-math">\((x_0,y_0,z_0)\)</span> on a plane and a vector <span class="process-math">\(\vd\)</span> parallel to the plane does not uniquely determine the plane, because it is free to rotate about <span class="process-math">\(\vd\text{.}\)</span> On the other hand, giving one point</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:4.75%;margin-right:4.75%;">
+<div class="sbspanel middle" style="width:39.7790055248619%;"><img src="external/figs/threedPlane.svg" role="img" class="contained"></div>
+<div class="sbspanel middle" style="width:49.7237569060773%;"><img src="external/figs/threedPlane2.svg" role="img" class="contained"></div>
+</div></div>
+<div class="para" id="p-401">on the plane and one vector <span class="process-math">\(\vn=\llt n_x,n_y, n_z\rgt \)</span> with direction perpendicular to that of the plane does uniquely determine the plane. If <span class="process-math">\((x,y,z)\)</span> is any point on the plane then the vector <span class="process-math">\(\llt x-x_0,y-y_0,z-z_0\rgt \text{,}\)</span> whose tail is at <span class="process-math">\((x_0,y_0,z_0)\)</span> and whose head is at <span class="process-math">\((x,y,z)\text{,}\)</span>  lies entirely inside the plane and so must be perpendicular to <span class="process-math">\(\vn\text{.}\)</span> That is,</div>
+<article class="fact theorem-like" id="eqn_of_plane"><h3 class="heading">
+<span class="type">Fact</span><span class="space"> </span><span class="codenumber">3.36</span><span class="period">.</span><span class="space"> </span><span class="title">The Equation of a Plane.</span>
+</h3>
+<div class="para logical" id="p-402">
+<div class="displaymath process-math" id="md-88">
+\begin{gather*}
+\vn\cdot\llt x-x_0,y-y_0,z-z_0\rgt =0
+\end{gather*}
+</div>
+<div class="para">Writing out in components</div>
+<div class="displaymath process-math" id="md-89">
+\begin{gather*}
+n_x(x-x_0)+n_y(y-y_0)+n_z(z-z_0)=0
+\quad\text{or}\quad n_xx+n_yy+n_zz= d
+\end{gather*}
+</div>
+<div class="para">where <span class="process-math">\(d=n_xx_0+n_yy_0+n_zz_0\text{.}\)</span>
+</div>
+</div></article><div class="para" id="p-403">Again, the coefficients <span class="process-math">\(n_x,n_y,n_z\)</span> of <span class="process-math">\(x,\ y\)</span> and <span class="process-math">\(z\)</span> in the equation of the plane are the components of a vector <span class="process-math">\(\llt n_x,n_y,n_z\rgt \)</span> perpendicular to the plane. The vector <span class="process-math">\(\vn\)</span> is often called a normal vector for the plane. Any nonzero multiple of <span class="process-math">\(\vn\)</span> will also be perpendicular to the plane and is also called a normal vector.</div>
+<article class="example example-like" id="eg_VPparallel-normal-Planes"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.37</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-404">
+<div class="para">We have just seen that if we write the equation of a plane in the standard form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+ax+by+cz=d
+\end{equation*}
+</div>
+<div class="para">then it is easy to read off a normal vector for the plane. It is just <span class="process-math">\(\llt a,b,c\rgt\text{.}\)</span> So for example the planes</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P:\ x+2y+3z=4 \qquad
+P':\ 3x+6y+9z=7
+\end{equation*}
+</div>
+<div class="para">have normal vectors <span class="process-math">\(\vn=\llt 1,2,3\rgt\)</span> and <span class="process-math">\(\vn'=\llt 3,6,9\rgt\text{,}\)</span> respectively. Since <span class="process-math">\(\vn'=3\vn\text{,}\)</span> the two normal vectors <span class="process-math">\(\vn\)</span> and <span class="process-math">\(\vn'\)</span> are parallel to each other. This tells us that the planes <span class="process-math">\(P\)</span> and <span class="process-math">\(P'\)</span> are parallel to each other.</div>
+</div> <div class="para logical" id="p-405">
+<div class="para">When the normal vectors of two planes are perpendicular to each other, we say that the planes are perpendicular to each other. For example the planes</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P:\ x+2y+3z=4 \qquad
+P'':\ 2x-y=7
+\end{equation*}
+</div>
+<div class="para">have normal vectors  <span class="process-math">\(\vn=\llt 1,2,3\rgt\)</span> and <span class="process-math">\(\vn''=\llt 2,-1,0\rgt\text{,}\)</span> respectively. Since</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vn\cdot\vn'' = 1\times 2+2\times(-1)+3\times 0 = 0
+\end{equation*}
+</div>
+<div class="para">the normal vectors <span class="process-math">\(\vn\)</span> and <span class="process-math">\(\vn''\)</span> are mutually perpendicular, so the corresponding planes <span class="process-math">\(P\)</span> and <span class="process-math">\(P''\)</span> are perpendicular to each other.</div>
+</div></article><div class="para" id="p-406">Here is an example that illustrates how one can sketch a plane, given the equation of the plane.</div>
+<article class="example example-like" id="eg_VPsketchPlane"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.38</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-407">
+<div class="para">In this example, we’ll sketch the plane</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P:\ 4x + 3y + 2z = 12
+\end{equation*}
+</div>
+<div class="para">A good way to prepare for sketching a plane is to find the intersection points of the plane with the <span class="process-math">\(x\)</span>-, <span class="process-math">\(y\)</span>- and <span class="process-math">\(z\)</span>-axes, just as you are used to doing when sketching lines in the <span class="process-math">\(xy\)</span>-plane. For example, any point on the <span class="process-math">\(x\)</span> axis must be of the form <span class="process-math">\((x,0,0)\text{.}\)</span> For <span class="process-math">\((x,0,0)\)</span> to also be on <span class="process-math">\(P\)</span> we need <span class="process-math">\(x=\frac{12}{4}=3\text{.}\)</span> So <span class="process-math">\(P\)</span> intersects the <span class="process-math">\(x\)</span>-axis at <span class="process-math">\((3,0,0)\text{.}\)</span> Similarly, <span class="process-math">\(P\)</span> intersects the <span class="process-math">\(y\)</span>-axis at <span class="process-math">\((0,4,0)\)</span> and the <span class="process-math">\(z\)</span>-axis at <span class="process-math">\((0,0,6)\text{.}\)</span> Now plot the points <span class="process-math">\((3,0,0)\text{,}\)</span> <span class="process-math">\((0,4,0)\)</span> and <span class="process-math">\((0,0,6)\text{.}\)</span> <span class="process-math">\(P\)</span> is the plane containing these three points. Often a visually effective way to sketch a surface in three dimensions is to</div>
+<ul class="disc">
+<li id="li-166"><div class="para" id="p-derived-li-166">only sketch the part of the surface in the first octant. That is, the part with <span class="process-math">\(x\ge0\text{,}\)</span> <span class="process-math">\(y\ge 0\)</span> and <span class="process-math">\(z\ge 0\text{.}\)</span>
+</div></li>
+<li id="li-167"><div class="para" id="p-derived-li-167">To do so, sketch the curve of intersection of the surface with the part of the <span class="process-math">\(xy\)</span>-plane in the first octant and,</div></li>
+<li id="li-168"><div class="para" id="p-derived-li-168">similarly, sketch the curve of intersection of the surface with the part of the <span class="process-math">\(xz\)</span>-plane in the first octant and the curve of intersection of the surface with the part of the <span class="process-math">\(yz\)</span>-plane in the first octant.</div></li>
+</ul>
+<div class="para">That’s what we’ll do. The intersection of the plane <span class="process-math">\(P\)</span> with the <span class="process-math">\(xy\)</span>-plane is the straight line through the two points <span class="process-math">\((3,0,0)\)</span> and <span class="process-math">\((0,4,0)\text{.}\)</span> So the part of that intersection in the first octant is the line segment from <span class="process-math">\((3,0,0)\)</span> to <span class="process-math">\((0,4,0)\text{.}\)</span> Similarly the part of the intersection of <span class="process-math">\(P\)</span> with the <span class="process-math">\(xz\)</span>-plane that is in the first octant is the line segment from <span class="process-math">\((3,0,0)\)</span> to <span class="process-math">\((0,0,6)\)</span> and  the part of the intersection of <span class="process-math">\(P\)</span> with the <span class="process-math">\(yz\)</span>-plane that is in the first octant is the line segment from <span class="process-math">\((0,4,0)\)</span> to <span class="process-math">\((0,0,6)\text{.}\)</span> So we just have to sketch the three line segments joining the three axis intercepts <span class="process-math">\((3,0,0)\text{,}\)</span> <span class="process-math">\((0,4,0)\)</span> and <span class="process-math">\((0,0,6)\text{.}\)</span> That’s it.</div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:30%;margin-right:30%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/planeSketch.svg" role="img" class="contained"></div></div></div></article><div class="para" id="p-408">Here are two examples that illustrate how one can find the distance between a point and a plane.</div>
+<article class="example example-like" id="eg_VPdistance-point-plane"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.39</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-409">
+<div class="para">In this example, we’ll compute the distance between the point</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eg_VPdistance-point-plane-bis.html ./knowl/eg_nearest_point.html">
+\begin{equation*}
+\vx = (1,-1,-3) \qquad\text{and the plane}\qquad
+P:\ x+2y+3z=18
+\end{equation*}
+</div>
+<div class="para">By the “distance between <span class="process-math">\(\vx\)</span> and the plane <span class="process-math">\(P\)</span>” we mean the shortest distance between <span class="process-math">\(\vx\)</span> and any point <span class="process-math">\(\vy\)</span> on <span class="process-math">\(P\text{.}\)</span> In fact, we’ll evaluate the distance in two different ways. In the next Example <a href="" class="xref" data-knowl="./knowl/eg_VPdistance-point-plane-bis.html" title="Example 3.40: Example Example 3.39, revisited">Example 3.40</a>, we’ll use projection. In this example, our strategy for finding the distance will be to</div>
+<ul class="disc">
+<li id="li-169"><div class="para" id="p-derived-li-169">first observe that the vector <span class="process-math">\(\vn=\llt 1,2,3\rgt\)</span> is normal to <span class="process-math">\(P\)</span> and then</div></li>
+<li id="li-170"><div class="para" id="p-derived-li-170">start walking<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-21" id="fn-21"><sup> 17 </sup></a> away from <span class="process-math">\(\vx\)</span> in the  direction of the normal vector <span class="process-math">\(\vn\)</span> and</div></li>
+<li id="li-171"><div class="para" id="p-derived-li-171">keep walking until we hit <span class="process-math">\(P\text{.}\)</span> Call the point on <span class="process-math">\(P\)</span> where we hit, <span class="process-math">\(\vy\text{.}\)</span> Then the desired distance is the distance between <span class="process-math">\(\vx\)</span> and <span class="process-math">\(\vy\text{.}\)</span> From the figure below it does indeed look like distance between <span class="process-math">\(\vx\)</span> and <span class="process-math">\(\vy\)</span> is the shortest distance between <span class="process-math">\(\vx\)</span> and any point on <span class="process-math">\(P\text{.}\)</span> This is in fact true, though we won’t prove it.</div></li>
+</ul>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:27.5%;margin-right:27.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/pointDist.svg" role="img" class="contained"></div></div></div> <div class="para logical" id="p-410">
+<div class="para">So imagine that we start walking, and that we start at time <span class="process-math">\(t=0\)</span> at <span class="process-math">\(\vx\)</span> and walk in the direction <span class="process-math">\(\vn\text{.}\)</span> Then at time <span class="process-math">\(t\)</span> we might be at</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vx+t\vn = (1,-1,-3) +t\,\llt 1,2,3\rgt
+= (1+t, -1+2t, -3+3t)
+\end{equation*}
+</div>
+<div class="para">We hit the plane <span class="process-math">\(P\)</span> at exactly the time <span class="process-math">\(t\)</span> for which <span class="process-math">\((1+t, -1+2t, -3+3t)\)</span> satisfies the equation for <span class="process-math">\(P\text{,}\)</span> which is <span class="process-math">\(x+2y+3z=18\text{.}\)</span> So we are on <span class="process-math">\(P\)</span> at the unique time <span class="process-math">\(t\)</span> obeying</div>
+<div class="displaymath process-math" id="md-90">
+\begin{align*}
+(1+t)+2(-1+2t)+3(-3+3t)=18
+&amp;\iff 14t = 28
+\iff t=2
+\end{align*}
+</div>
+<div class="para">So the point on <span class="process-math">\(P\)</span> which is closest to <span class="process-math">\(\vx\)</span> is</div>
+<div class="displaymath process-math" id="md-91">
+\begin{gather*}
+\vy = \big[\vx+t\vn\big]_{t=2}
+= (1+t, -1+2t, -3+3t)\big|_{t=2}
+= (3, 3, 3)
+\end{gather*}
+</div>
+<div class="para">and the distance from <span class="process-math">\(\vx\)</span> to <span class="process-math">\(P\)</span> is the distance from <span class="process-math">\(\vx\)</span> to <span class="process-math">\(\vy\text{,}\)</span> which is</div>
+</div> <div class="para logical" id="p-411"><div class="displaymath process-math" id="md-92">
+\begin{gather*}
+|\vy-\vx| = 2|\vn| = 2\sqrt{1^2+2^2+3^2} =2\sqrt{14}
+\end{gather*}
+</div></div></article><article class="example example-like" id="eg_VPdistance-point-plane-bis"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.40</span><span class="period">.</span><span class="space"> </span><span class="title">Example Example 3.39, revisited.</span>
+</h3> <div class="para logical" id="p-412">
+<div class="para">We are again going to find the distance from the point</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/def_projection.html">
+\begin{equation*}
+\vx = (1,-1,-3) \qquad\text{to the plane}\qquad
+P:\ x+2y+3z=18
+\end{equation*}
+</div>
+<div class="para">But this time we will use the following strategy.</div>
+<ul class="disc">
+<li id="li-172"><div class="para" id="p-derived-li-172">We’ll first find any point <span class="process-math">\(\vz\)</span> on <span class="process-math">\(P\)</span> and then</div></li>
+<li id="li-173"><div class="para" id="p-derived-li-173">we’ll denote by <span class="process-math">\(\vy\)</span> the point on <span class="process-math">\(P\)</span> nearest <span class="process-math">\(\vx\text{,}\)</span> and we’ll denote by <span class="process-math">\(\vv\)</span> the vector from <span class="process-math">\(\vx\)</span> to <span class="process-math">\(\vz\)</span> (see the figure below) and then</div></li>
+<li id="li-174"><div class="para" id="p-derived-li-174">we’ll realize, by looking at the figure, that the vector from <span class="process-math">\(\vx\)</span> to <span class="process-math">\(\vy\)</span> is exactly the projection<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-22" id="fn-22"><sup> 18 </sup></a> of the vector <span class="process-math">\(\vv\)</span> on <span class="process-math">\(\vn\)</span> so that</div></li>
+<li id="li-175"><div class="para" id="p-derived-li-175">the distance from <span class="process-math">\(\vx\)</span> to <span class="process-math">\(P\text{,}\)</span> i.e. the length of the vector from <span class="process-math">\(\vx\)</span> to <span class="process-math">\(\vy\text{,}\)</span> is exactly <span class="process-math">\(\left|\text{proj}_\vn\vv \right|\text{.}\)</span>
+</div></li>
+</ul>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:27.5%;margin-right:27.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/pointDistProj.svg" role="img" class="contained"></div></div></div> <div class="para logical" id="p-413">
+<div class="para">Now let’s find a point on <span class="process-math">\(P\text{.}\)</span> The plane <span class="process-math">\(P\)</span> is given by a single equation, namely</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x+2y+3z=18
+\end{equation*}
+</div>
+<div class="para">in the three unknowns, <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> <span class="process-math">\(z\text{.}\)</span> The easiest way to find one solution to this equation is to assign two of the unknowns the value zero and then solve for the third unknown. For example, if we set <span class="process-math">\(x=y=0\text{,}\)</span> then the equation reduces to <span class="process-math">\(3z=18\text{.}\)</span> So we may take <span class="process-math">\(\vz=(0,0,6)\text{.}\)</span>
+</div>
+</div> <div class="para logical" id="p-414">
+<div class="para">Then <span class="process-math">\(\vv\text{,}\)</span> the vector from <span class="process-math">\(\vx=(1,-1,-3)\)</span> to <span class="process-math">\(\vz=(0,0,6)\)</span> is <span class="process-math">\(\llt 0-1\,,\,0-(-1)\,,\,6-(-3)  \rgt=\llt -1,1,9\rgt\)</span> so that, by Equation <a href="" class="xref" data-knowl="./knowl/eqn_proj.html" title="Fact 3.17">Fact 3.17</a>,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn_proj.html ./knowl/eg_VPdistance-point-plane.html" id="md-93">
+\begin{align*}
+{\rm proj}_{\vn}\,\vv&amp;=\frac{\vv\cdot\vn}{|\vn|^2}\,\vn\\
+&amp;= \frac{\llt -1,1,9\rgt\cdot\llt 1,2,3\rgt}{|\llt 1,2,3\rgt|^2}\,
+\llt 1,2,3\rgt\\
+&amp;= \frac{28}{14} \llt 1,2,3\rgt\\
+&amp;= 2 \llt 1,2,3\rgt
+\end{align*}
+</div>
+<div class="para">and the distance from <span class="process-math">\(\vx\)</span> to <span class="process-math">\(P\)</span> is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn_proj.html ./knowl/eg_VPdistance-point-plane.html" id="md-94">
+\begin{gather*}
+\left|{\rm proj}_{\vn}\,\vv\right| = \big|2 \llt 1,2,3\rgt\big|
+=2\sqrt{14}
+\end{gather*}
+</div>
+<div class="para">just as we found in Example <a href="" class="xref" data-knowl="./knowl/eg_VPdistance-point-plane.html" title="Example 3.39">Example 3.39</a>.</div>
+</div></article><div class="para" id="p-415">In the next example, we find the distance between two planes.</div>
+<article class="example example-like" id="eg_VPdistance-Planes"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.41</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-416">
+<div class="para">Now we’ll increase the degree of difficulty a tiny bit, and compute the distance between the planes</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P:\ x+2y+2z=1 \qquad\text{and}\qquad
+P':\ 2x+4y+4z=11
+\end{equation*}
+</div>
+<div class="para">By the “distance between the planes <span class="process-math">\(P\)</span> and <span class="process-math">\(P'\)</span>” we mean the shortest distance between any pair of points <span class="process-math">\(\vx\)</span> and <span class="process-math">\(\vx'\)</span> with <span class="process-math">\(\vx\)</span> in <span class="process-math">\(P\)</span> and <span class="process-math">\(\vx'\)</span> in <span class="process-math">\(P'\text{.}\)</span> First observe that the normal vectors</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vn=\llt 1,2,2\rgt \qquad\text{and}\qquad
+\vn'=\llt 2,4,4\rgt=2\vn
+\end{equation*}
+</div>
+<div class="para">to <span class="process-math">\(P\)</span> and <span class="process-math">\(P'\)</span> are parallel to each other. So the planes <span class="process-math">\(P\)</span> and <span class="process-math">\(P'\)</span> are parallel to each other. If they had not been parallel, they would have crossed and the distance between them would have been zero.</div>
+</div> <div class="para logical" id="p-417">
+<div class="para">Our strategy for finding the distance will be to</div>
+<ul class="disc">
+<li id="li-176"><div class="para" id="p-derived-li-176">first find a point <span class="process-math">\(\vx\)</span> on <span class="process-math">\(P\)</span> and then, like we did in Example <a href="" class="xref" data-knowl="./knowl/eg_VPdistance-point-plane.html" title="Example 3.39">Example 3.39</a>,</div></li>
+<li id="li-177"><div class="para" id="p-derived-li-177">start walking away from <span class="process-math">\(P\)</span> in the direction of the normal vector <span class="process-math">\(\vn\)</span> and</div></li>
+<li id="li-178"><div class="para" id="p-derived-li-178">keep walking until we hit <span class="process-math">\(P'\text{.}\)</span> Call the point on <span class="process-math">\(P'\)</span> that we hit <span class="process-math">\(\vx'\text{.}\)</span> Then the desired distance is the distance between <span class="process-math">\(\vx\)</span> and <span class="process-math">\(\vx'\text{.}\)</span> From the figure below it does indeed look like distance between <span class="process-math">\(\vx\)</span> and <span class="process-math">\(\vx'\)</span> is the shortest distance between any pair of points with one point on <span class="process-math">\(P\)</span> and one point on <span class="process-math">\(P'\text{.}\)</span> Again, this is in fact true, though we won’t prove it.</div></li>
+</ul>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:27.5%;margin-right:27.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/planeDist.svg" role="img" class="contained"></div></div></div> <div class="para logical" id="p-418">
+<div class="para">We can find a point on <span class="process-math">\(P\)</span> just as we did on Example <a href="" class="xref" data-knowl="./knowl/eg_VPdistance-point-plane-bis.html" title="Example 3.40: Example Example 3.39, revisited">Example 3.40</a>. The plane <span class="process-math">\(P\)</span> is given by the single equation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eg_VPdistance-point-plane-bis.html">
+\begin{equation*}
+x+2y+2z=1
+\end{equation*}
+</div>
+<div class="para">in the three unknowns, <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> <span class="process-math">\(z\text{.}\)</span> We can find one solution to this equation by assigning two of the unknowns the value zero and then solving for the third unknown. For example, if we set <span class="process-math">\(y=z=0\text{,}\)</span> then the equation reduces to <span class="process-math">\(x=1\text{.}\)</span> So we may take <span class="process-math">\(\vx=(1,0,0)\text{.}\)</span>
+</div>
+</div> <div class="para logical" id="p-419">
+<div class="para">Now imagine that we start walking, and that we start at time <span class="process-math">\(t=0\)</span> at <span class="process-math">\(\vx\)</span> and walk in the direction <span class="process-math">\(\vn\text{.}\)</span> Then at time <span class="process-math">\(t\)</span> we might be at</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vx+t\vn = (1,0,0) +t\llt 1,2,2\rgt
+= (1+t, 2t, 2t)
+\end{equation*}
+</div>
+<div class="para">We hit the second plane <span class="process-math">\(P'\)</span> at exactly the time <span class="process-math">\(t\)</span> for which <span class="process-math">\((1+t, 2t, 2t)\)</span> satisfies the equation for <span class="process-math">\(P'\text{,}\)</span> which is <span class="process-math">\(2x+4y+4z=11\text{.}\)</span> So we are on <span class="process-math">\(P'\)</span> at the unique time <span class="process-math">\(t\)</span> obeying</div>
+<div class="displaymath process-math" id="md-95">
+\begin{align*}
+2(1+t)+4(2t)+4(2t)=11
+&amp;\iff 18t = 9
+\iff t=\frac{1}{2}
+\end{align*}
+</div>
+<div class="para">So the point on <span class="process-math">\(P'\)</span> which is closest to <span class="process-math">\(\vx\)</span> is</div>
+<div class="displaymath process-math" id="md-96">
+\begin{gather*}
+\vx' = \big[\vx+t\vn\big]_{t=\frac{1}{2}}
+= (1+t, 2t, 2t)\big|_{t=\frac{1}{2}}
+= (\frac{3}{2}, 1, 1)
+\end{gather*}
+</div>
+<div class="para">and the distance from <span class="process-math">\(P\)</span> to <span class="process-math">\(P'\)</span> is the distance from <span class="process-math">\(\vx\)</span> to <span class="process-math">\(\vx'\)</span> which is</div>
+<div class="displaymath process-math" id="md-97">
+\begin{gather*}
+\sqrt{(1-\frac{3}{2})^2+(0-1)^2+(0-1)^2}
+=\sqrt{\frac{9}{4}}
+=\frac{3}{2}
+\end{gather*}
+</div>
+</div></article><div class="para" id="p-420">Now we’ll find the angle between two intersecting planes.</div>
+<article class="example example-like" id="eg_VPangle-Planes"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.42</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-421">
+<div class="para">The orientation (i.e. direction) of a plane is determined by its normal vector. So, by definition, the angle between two planes is the angle between their normal vectors. For example, the normal vectors of the two planes</div>
+<div class="displaymath process-math" id="md-98">
+\begin{alignat*}{2}
+P_1&amp;:\quad &amp; 2x+y-z&amp;=3\\
+P_2&amp;: &amp;  x+y+z&amp;=4
+\end{alignat*}
+</div>
+<div class="para">are</div>
+<div class="displaymath process-math" id="md-99">
+\begin{align*}
+\vn_1&amp;=\llt 2,1,-1\rgt\\
+\vn_2&amp;=\llt 1,1,1\rgt
+\end{align*}
+</div>
+<div class="para">If we use <span class="process-math">\(\theta\)</span> to denote the angle between <span class="process-math">\(\vn_1\)</span> and <span class="process-math">\(\vn_2\text{,}\)</span> then</div>
+<div class="displaymath process-math" id="md-100">
+\begin{align*}
+\cos\theta &amp;=\frac{\vn_1\cdot\vn_2}{|\vn_1|\,|\vn_2|}\\
+&amp;=\frac{\llt 2,1,-1\rgt\cdot\llt 1,1,1\rgt}
+{|\llt 2,1,-1\rgt|\,|\llt 1,1,1\rgt|}\\
+&amp;=\frac{2}{\sqrt{6}\,\sqrt{3}}
+\end{align*}
+</div>
+<div class="para">so that</div>
+<div class="displaymath process-math" id="md-101">
+\begin{gather*}
+\theta =\arccos\frac{2}{\sqrt{18}} =1.0799
+\end{gather*}
+</div>
+<div class="para">to four decimal places. That’s in radians. In degrees, it is <span class="process-math">\(1.0799\frac{180}{\pi}=61.87^\circ\)</span> to two decimal places.</div>
+</div></article></section><div class="hidden-content tex2jax_ignore" id="hk-fn-21"><div class="fn">To see why heading in the normal direction gives the shortest walk, revisit Example <a href="" class="xref" data-knowl="./knowl/eg_nearest_point.html" title="Example 3.35">Example 3.35</a>.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-22"><div class="fn">Now might be a good time to review the Definition <a href="" class="xref" data-knowl="./knowl/def_projection.html" title="Definition 3.16: Projection">Definition 3.16</a> of projection.</div></div>
+</div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec_lines_2d.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec_lines_3d.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

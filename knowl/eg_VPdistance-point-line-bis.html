@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.47</span><span class="period">.</span><span class="space"> </span><span class="title">Example Example 3.46 revisited.</span>
+</h3> <div class="para logical">
+<div class="para">In this example, we again find the distance between the point <span class="process-math">\((2,3,-1)\)</span> and the line</div>
+<div class="displaymath process-math">
+\begin{equation*}
+L:\  \llt x-1,y-2,z-3\rgt=t\llt 1,1,2\rgt
+\end{equation*}
+</div>
+<div class="para">but we use a different method. In the figure below, <span class="process-math">\(Q\)</span> is the point <span class="process-math">\((2,3,-1)\text{.}\)</span>
+</div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:27.5%;margin-right:27.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/pointDistProjB.svg" role="img" class="contained"></div></div></div> <div class="para">If we drop a perpendicular from <span class="process-math">\(Q\)</span> to the line <span class="process-math">\(L\text{,}\)</span> it hits the line <span class="process-math">\(L\)</span> at the point <span class="process-math">\(N\text{,}\)</span> which is the point on <span class="process-math">\(L\)</span> that is nearest <span class="process-math">\(Q\text{.}\)</span> So the distance from <span class="process-math">\(Q\)</span> to <span class="process-math">\(L\)</span> is exactly the distance from <span class="process-math">\(Q\)</span> to <span class="process-math">\(N\text{,}\)</span> which is exactly the length of the vector from <span class="process-math">\(Q\)</span> to <span class="process-math">\(N\text{.}\)</span> In the figure above, <span class="process-math">\(\vw\)</span> is the vector from <span class="process-math">\(Q\)</span> to <span class="process-math">\(N\text{.}\)</span> Now the vector <span class="process-math">\(\vw\)</span> has to be perpendicular to the direction vector for <span class="process-math">\(L\text{.}\)</span> That is,  <span class="process-math">\(\vw\)</span> has to be perpendicular to <span class="process-math">\(\vd=\llt 1,1,2\rgt\text{.}\)</span> However, as we saw in Warning <a href="" class="xref" data-knowl="./knowl/warn_line_normal.html" title="Warning 3.45: A line in three dimensions has infinitely many normal vectors">Warning 3.45</a>, there are a huge number of vectors in different directions that are perpendicular to <span class="process-math">\(\vd\text{.}\)</span> So you might think that it is very hard to even determine the direction of <span class="process-math">\(\vw\text{.}\)</span>
+</div> <div class="para logical">
+<div class="para">Fortunately, it isn’t. Here is the strategy.</div>
+<ul class="disc">
+<li><div class="para">Pick any point on <span class="process-math">\(L\)</span> and call it <span class="process-math">\(P\text{.}\)</span>
+</div></li>
+<li><div class="para">It is very easy to find the vector from <span class="process-math">\(P\)</span> to <span class="process-math">\(N\)</span> — it is just the projection of the vector from <span class="process-math">\(P\)</span> to <span class="process-math">\(Q\)</span> (called <span class="process-math">\(\vv\)</span> in the figure above) on <span class="process-math">\(\vd\text{.}\)</span>
+</div></li>
+<li><div class="para">Once we know <span class="process-math">\({\rm proj}_{\vd}\,\vv\text{,}\)</span> we will be able to compute<div class="displaymath process-math">
+\begin{equation*}
+\vw = {\rm proj}_{\vd}\,\vv -\vv
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para">and then the distance from <span class="process-math">\(Q\)</span> to the line <span class="process-math">\(L\)</span> is just <span class="process-math">\(|\vw|\text{.}\)</span>
+</div></li>
+</ul>
+</div> <div class="para logical">
+<div class="para">Here is the computation. We’ll choose <span class="process-math">\(P\)</span> to be the point on <span class="process-math">\(L\)</span> that has <span class="process-math">\(t=0\text{,}\)</span> which is <span class="process-math">\((1,2,3)\text{.}\)</span> So the vector from <span class="process-math">\(P=(1,2,3)\)</span> to <span class="process-math">\(Q=(2,3,-1)\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vv = \llt 2-1,3-2,-1-3\rgt=\llt 1,1,-4\rgt
+\end{equation*}
+</div>
+<div class="para">The projection of <span class="process-math">\(\vv=\llt 1,1,-4\rgt\)</span> on <span class="process-math">\(\vd=\llt 1,1,2\rgt\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+{\rm proj}_{\vd}\,\vv
+=\frac{\llt 1,1,-4\rgt\cdot\llt 1,1,2\rgt}{|\llt 1,1,2\rgt|^2}\llt 1,1,2\rgt
+=\frac{-6}{6}\llt 1,1,2\rgt
+=\llt -1,-1,-2\rgt
+\end{equation*}
+</div>
+<div class="para">and then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vw = {\rm proj}_{\vd}\,\vv -\vv
+= \llt -1,-1,-2\rgt -\llt 1,1,-4\rgt
+= \llt -2,-2,2\rgt
+\end{equation*}
+</div>
+<div class="para">and finally the distance from <span class="process-math">\(Q\)</span> to the  line <span class="process-math">\(L\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+|\vw| = |\llt -2,-2,2\rgt|
+=|2\llt -1,-1,1\rgt|
+=2\sqrt{3}
+\end{equation*}
+</div>
+</div></article><span class="incontext"><a href="sec_lines_3d.html#eg_VPdistance-point-line-bis" class="internal">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.29</span><span class="period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">As a concrete example of the computation of the volume of a parallelepiped, we consider the parallelepiped with edges</div>
+<div class="displaymath process-math">
+\begin{align*}
+\va &amp;= \llt 0,1,2\rgt\\
+\vb &amp;= \llt 1,1,0\rgt\\
+\vc &amp;= \llt 0,1,0\rgt
+\end{align*}
+</div>
+<div class="para">Here is a sketch.</div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/pipedVolumeEg.svg" role="img" class="contained"></div></div></div> <div class="para logical">
+<div class="para">The base of the parallelepiped is the parallelogram with sides <span class="process-math">\(\vb\)</span> and <span class="process-math">\(\vc\text{.}\)</span> It is the shaded parallelogram in the sketch above. As</div>
+<div class="displaymath process-math">
+\begin{align*}
+\vb\times\vc
+&amp;=\det\left[\begin{matrix}
+\hi&amp; \hj &amp;\hk \\ 1&amp;1&amp;0 \\ 0&amp;1&amp;0\end{matrix}\right]\\
+&amp;=\hi\det\left[\begin{matrix} 1&amp;0 \\ 1&amp;0\end{matrix}\right]
+-\hj\det\left[\begin{matrix}1&amp;0 \\ 0&amp;0\end{matrix}\right]
++\hk\det\left[\begin{matrix} 1&amp;1 \\ 0&amp;1\end{matrix}\right]\\
+&amp;=\hi\big(1\times 0-0\times 1) -\hj(1\times 0-0\times 0)
++\hk(1\times 1-1\times 0)\\
+&amp;=\hk
+\end{align*}
+</div>
+<div class="para">We should not be surprised that <span class="process-math">\(\vb\times\vc\)</span> has direction <span class="process-math">\(\hk\text{.}\)</span>
+</div>
+<ul class="disc">
+<li><div class="para">
+<span class="process-math">\(\vb\times\vc\)</span> has to be perpendicular to both <span class="process-math">\(\vb\)</span> and <span class="process-math">\(\vc\)</span> and</div></li>
+<li><div class="para">both <span class="process-math">\(\vb\)</span> and <span class="process-math">\(\vc\)</span> lie in the <span class="process-math">\(xy\)</span>-plane,</div></li>
+<li><div class="para">so that <span class="process-math">\(\vb\times\vc\)</span> has to the perpendicular to the <span class="process-math">\(xy\)</span>-plane,</div></li>
+<li><div class="para">so that <span class="process-math">\(\vb\times\vc\)</span> has to the parallel to the <span class="process-math">\(z\)</span>-axis.</div></li>
+</ul>
+<div class="para">The area of the base, i.e. of the shaded parallelogram in the figure above, is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+|\vb\times\vc| = |\hk| =1
+\end{equation*}
+</div>
+<div class="para">and the volume of the parallelepiped is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+|\va\cdot (\vb\times\vc)|
+= |\llt 0,1,2\rgt\cdot\llt 0,0,1\rgt|=2
+\end{equation*}
+</div>
+</div></article><span class="incontext"><a href="sec_vectors.html#eg_GEOcrossConcrete" class="internal">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">In this example, we again find the distance between the lines</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eg_VPdistance-point-plane-bis.html ./knowl/eqn_proj.html ./knowl/eg_VPdistance-line-line.html ./knowl/eg_VPdistance-line-line.html ./knowl/eg_VPdistance-line-line.html ./knowl/def_projection.html">
+\begin{align*}
+L&amp;:\  \llt x-1,y-2,z-3\rgt = t \llt 1,0,-1 \rgt\\
+L'&amp;:\ \llt x-1,y-2,z-1\rgt = t \llt 1,-2,1 \rgt
+\end{align*}
+</div>
+<div class="para">this time using a projection, much as in Example <a href="" class="xref" data-knowl="./knowl/eg_VPdistance-point-plane-bis.html" title="Example 3.40: Example Example 3.39, revisited">Example 3.40</a>. The procedure, which will be justified below, is</div>
+<ul class="disc">
+<li><div class="para">first form a vector <span class="process-math">\(\vn\)</span> that is perpendicular to the direction vectors of both lines by taking the cross product of the two direction vectors. In this example,<div class="displaymath process-math">
+\begin{align*}
+\llt 1,0,-1\rgt \times\llt 1,-2,1\rgt
+&amp; = \det\left[\begin{matrix}
+\hi&amp;\hj&amp;\hk \\ 1 &amp; 0 &amp; -1 \\ 1 &amp;-2 &amp; 1\end{matrix}\right]
+= -2\hi -2 \hj -2\hk
+\end{align*}
+</div>Since we just want <span class="process-math">\(\hn\)</span> to be perpendicular to both direction vectors, we may simplify our computations by dividing this vector by <span class="process-math">\(-2\text{,}\)</span> and take <span class="process-math">\(\vn = \llt 1,1,1 \rgt\text{.}\)</span>
+</div></li>
+<li><div class="para">Next find one point on <span class="process-math">\(L\)</span> and one point on <span class="process-math">\(L'\)</span> and subtract to form a vector <span class="process-math">\(\vv\)</span> whose tail is at one point and whose head is at the other point. This vector goes from one line to the other line. In this example, the point <span class="process-math">\((1,2,3)\)</span> is on <span class="process-math">\(L\)</span> (just set <span class="process-math">\(t=0\)</span> in the equation for <span class="process-math">\(L\)</span>) and the point <span class="process-math">\((1,2,1)\)</span> is on <span class="process-math">\(L'\)</span> (just set <span class="process-math">\(t=0\)</span> in the equation for <span class="process-math">\(L'\)</span>), so that we may take<div class="displaymath process-math">
+\begin{equation*}
+\vv = \llt 1-1\,,\,2-2\,,\,3-1\rgt = \llt 0,0,2 \rgt
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para">The distance between the two lines is the length of the projection of <span class="process-math">\(\vv\)</span> on <span class="process-math">\(\vn\text{.}\)</span> In this example, by <a href="" class="xref" data-knowl="./knowl/eqn_proj.html" title="Fact 3.17">Fact 3.17</a>, the distance is<div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn_proj.html ./knowl/eg_VPdistance-line-line.html">
+\begin{align*}
+\big|{\rm proj}_{\vn}\,\vv\big|
+&amp;=\left|\frac{\vv\cdot\vn}{|\vn|^2}\,\vn\right|
+=\frac{|\vv\cdot\vn|}{|\vn|}\\
+&amp;= \frac{|\llt 0,0,2\rgt\cdot\llt 1,1,1\rgt|}{|\llt 1,1,1\rgt|}\\
+&amp;= \frac{2}{\sqrt{3}}
+\end{align*}
+</div>just as we found in Example <a href="" class="xref" data-knowl="./knowl/eg_VPdistance-line-line.html" title="Example 3.48: (Optional) Distance between lines">Example 3.48</a>
+</div></li>
+</ul>
+<div class="para">Now, here is the justification for the procedure.</div>
+<ul class="disc">
+<li><div class="para">As we did in Example <a href="" class="xref" data-knowl="./knowl/eg_VPdistance-line-line.html" title="Example 3.48: (Optional) Distance between lines">Example 3.48</a>, denote by <span class="process-math">\(\vx(s)\)</span> and <span class="process-math">\(\vy(t)\)</span> the points on <span class="process-math">\(L\)</span> and <span class="process-math">\(L'\text{,}\)</span> respectively, that are closest together. Note that, as we observed in Example <a href="" class="xref" data-knowl="./knowl/eg_VPdistance-line-line.html" title="Example 3.48: (Optional) Distance between lines">Example 3.48</a>, the vector from <span class="process-math">\(\vx(s)\)</span> to <span class="process-math">\(\vy(t)\)</span> is perpendicular to the direction vectors of both lines, and so is parallel to <span class="process-math">\(\vn\text{.}\)</span>
+</div></li>
+<li><div class="para">Denote by <span class="process-math">\(P\)</span> the plane through <span class="process-math">\(\vx(s)\)</span> that is perpendicular to <span class="process-math">\(\vn\text{.}\)</span> As <span class="process-math">\(\vx(s)\)</span> is on <span class="process-math">\(L\)</span> and the direction vector of <span class="process-math">\(L\)</span> is perpendicular to <span class="process-math">\(\vn\text{,}\)</span> the line <span class="process-math">\(L\)</span> is contained in <span class="process-math">\(P\text{.}\)</span>
+</div></li>
+<li><div class="para">Denote by <span class="process-math">\(P'\)</span> the plane through <span class="process-math">\(\vy(t)\)</span> that is perpendicular to <span class="process-math">\(\vn\text{.}\)</span> As <span class="process-math">\(\vy(t)\)</span> is on <span class="process-math">\(L'\)</span> and the direction vector of <span class="process-math">\(L'\)</span> is perpendicular to <span class="process-math">\(\vn\text{,}\)</span> the line <span class="process-math">\(L'\)</span> is contained in <span class="process-math">\(P'\text{.}\)</span>
+</div></li>
+<li><div class="para">The planes <span class="process-math">\(P\)</span> and <span class="process-math">\(P'\)</span> are parallel to each other. As <span class="process-math">\(\vx(s)\)</span> is on <span class="process-math">\(P\)</span> and <span class="process-math">\(\vy(t)\)</span> is on <span class="process-math">\(P'\text{,}\)</span> and the vector from <span class="process-math">\(\vx(s)\)</span> to <span class="process-math">\(\vy(t)\)</span> is perpendicular to both <span class="process-math">\(P\)</span> and <span class="process-math">\(P'\text{,}\)</span> the distance from <span class="process-math">\(P\)</span> to <span class="process-math">\(P'\)</span> is exactly the length of the vector from <span class="process-math">\(\vx(s)\)</span> to <span class="process-math">\(\vy(t)\text{.}\)</span> That is also the distance from <span class="process-math">\(L\)</span> to <span class="process-math">\(L'\text{.}\)</span>
+</div></li>
+<li>
+<div class="para">The vector <span class="process-math">\(\vv\)</span> constructed in the procedure above is a vector between <span class="process-math">\(L\)</span> and <span class="process-math">\(L'\)</span> and so is also a vector between <span class="process-math">\(P\)</span> and <span class="process-math">\(P'\text{.}\)</span> Looking at the figure below<a href="" class="fn-knowl original" data-knowl="./knowl/fn-23-hidden.html" title="Footnote 3.19"><sup> 19 </sup></a>, we see that the vector from <span class="process-math">\(\vx(s)\)</span> to <span class="process-math">\(\vy(t)\)</span> is (up to a sign) the projection of <span class="process-math">\(\vv\)</span> on <span class="process-math">\(\vn\text{.}\)</span>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:22.5%;margin-right:22.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/planeDistB.svg" role="img" class="contained"></div></div></div>
+</li>
+<li><div class="para">So the distance from <span class="process-math">\(P\)</span> to <span class="process-math">\(P'\text{,}\)</span> and hence the distance from <span class="process-math">\(L\)</span> to <span class="process-math">\(L'\text{,}\)</span> is exactly the length of <span class="process-math">\({\rm proj}_{\vn}\vv\text{.}\)</span>
+</div></li>
+</ul>
+</div>
+<span class="incontext"><a href="sec_lines_3d.html#p-444" class="internal">in-context</a></span>
+</body>
+</html>

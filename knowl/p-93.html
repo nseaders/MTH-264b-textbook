@@ -12,7 +12,7 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">Since <code class="code-inline tex2jax_ignore">quiver</code> is typically used for vector fields, the size scales automatically based on other elements of the graph. Here we want to use the <span class="process-math">\(xy\)</span>-axes as a fixed scale to draw the vectors, and so will include the arguments <code class="code-inline tex2jax_ignore">angles='xy', scale_units='xy', scale=1</code> inside <code class="code-inline tex2jax_ignore">quiver</code>.</div>
+<div class="para">Matplotlib plots vectors using a function from pyplot called <code class="code-inline tex2jax_ignore">quiver</code>, which takes an initial coordinate, followed by the vector coordinates, to draw an arrow. Since the axes of your graph are not determined by the input domain of a function, you need to explicitly choose your axes limits using <code class="code-inline tex2jax_ignore">xlim</code> and <code class="code-inline tex2jax_ignore">ylim</code>.</div>
 <span class="incontext"><a href="section-matplotlib.html#p-93" class="internal">in-context</a></span>
 </body>
 </html>

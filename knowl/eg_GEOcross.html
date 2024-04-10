@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.28</span><span class="period">.</span>
+</h4>
+<div class="para">As an illustration of the properties of the dot and cross product, we now derive the formula for the volume of the parallelepiped with edges <span class="process-math">\(\va=\llt a_1,a_2,a_3\rgt \text{,}\)</span> <span class="process-math">\(\vb = \llt b_1,b_2,b_3\rgt \text{,}\)</span> <span class="process-math">\(\vc = \llt c_1,c_2,c_3\rgt \)</span> that was mentioned in §<a href="sec_vectors.html#sec_GEOparallelogram" class="internal" title="Subsection: (Optional) Areas of Parallelograms">Subsection </a>.</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/pipedVolume.svg" role="img" class="contained"></div></div></div> <div class="para">The volume of the parallelepiped is the area of its base times its height<a href="" class="fn-knowl original" data-knowl="./knowl/fn-20-hidden.html" title="Footnote 3.16"><sup> 16 </sup></a>. The base is the parallelogram with sides <span class="process-math">\(\vb\)</span> and <span class="process-math">\(\vc\text{.}\)</span> Its area is the length of its base, which is <span class="process-math">\(|\vb|\text{,}\)</span> times its height, which is <span class="process-math">\(|\vc|\,\sin\theta\text{.}\)</span> (Drop a perpendicular from the head of <span class="process-math">\(\vc\)</span> to the line containing <span class="process-math">\(\vb\)</span>). Here <span class="process-math">\(\theta\)</span> is the angle between <span class="process-math">\(\vb\)</span> and <span class="process-math">\(\vc\text{.}\)</span> So the area of the base is <span class="process-math">\(|\vb|\,|\vc|\,\sin\theta= |\vb\times\vc|\text{,}\)</span> by property 2 of the cross product.</div> <div class="para">To get the height of the parallelepiped, we drop a perpendicular from the head of <span class="process-math">\(\va\)</span> to the line that passes through the tail of <span class="process-math">\(\va\)</span> and is perpendicular to the base of the parallelepiped. In other words, from the head of <span class="process-math">\(\va\)</span> to the line that contains both the head and the tail of <span class="process-math">\(\vb\times\vc\text{.}\)</span> So the height of the parallelepiped is <span class="process-math">\(|\va|\,|\cos\varphi|\text{.}\)</span>  (The absolute values have been included because if the angle between <span class="process-math">\(\vb\times\vc\)</span> and <span class="process-math">\(\va\)</span> happens to be greater than <span class="process-math">\(90^\circ\text{,}\)</span> the <span class="process-math">\(\cos\varphi\)</span> produced by taking the dot product of <span class="process-math">\(\va\)</span> and  <span class="process-math">\((\vb\times\vc\)</span>) will be negative.)</div> <div class="para logical">
+<div class="para">All together</div>
+<div class="displaymath process-math">
+\begin{align*}
+\text{volume of parallelepiped}
+&amp;=(\text{area of base})\,(\text{height})\\
+&amp;=|\vb\times\vc|\ |\va|\ |\cos\varphi|\\
+&amp;=\big|\va\cdot(\vb\times\vc)\big|\\
+&amp;=\left|a_1 (\vb\times\vc)_1 +a_2 (\vb\times\vc)_2
++a_3 (\vb\times\vc)_3\right|\\
+&amp;=\left|a_1\det\left[\begin{matrix} b_2&amp;b_3 \\ c_2&amp;c_3\end{matrix}\right]
+-a_2 \det\left[\begin{matrix}b_1&amp;b_3 \\ c_1&amp;c_3\end{matrix}\right]
++a_3\det\left[\begin{matrix}b_1&amp;b_2 \\ c_1&amp;c_2\end{matrix}\right]\right|\\
+&amp;=\left|\det\left[\begin{matrix}a_1&amp;a_2&amp;a_3\\ b_1&amp;b_2&amp;b_3\\c_1&amp;c_2&amp;c_3\end{matrix}\right]\right|
+\end{align*}
+</div>
+</div></article><span class="incontext"><a href="sec_vectors.html#eg_GEOcross" class="internal">in-context</a></span>
+</body>
+</html>

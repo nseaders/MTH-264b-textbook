@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.44</span><span class="period">.</span>
+</h3>
+<div class="para">The set of points <span class="process-math">\((x,y,z)\)</span> that obey <span class="process-math">\(x+y+z=2\)</span> form a plane. The set of points <span class="process-math">\((x,y,z)\)</span> that obey <span class="process-math">\(x-y=0\)</span> form a second plane. The set of points <span class="process-math">\((x,y,z)\)</span> that obey both <span class="process-math">\(x+y+z=2\)</span> and <span class="process-math">\(x-y=0\)</span>  lie on the intersection of these two planes and hence form a line. We shall find the parametric equations for that line.</div> <div class="para">To sketch <span class="process-math">\(x+y+z=2\)</span> we observe that if any two of <span class="process-math">\(x,y,z\)</span> are zero, then the third is <span class="process-math">\(2\text{.}\)</span> So all of <span class="process-math">\((0,0,2)\text{,}\)</span> <span class="process-math">\((0,2,0)\)</span> and <span class="process-math">\((2,0,0)\)</span> are on <span class="process-math">\(x+y+z=2\text{.}\)</span> The plane <span class="process-math">\(x-y=0\)</span> contains all of the <span class="process-math">\(z\)</span>-axis, since <span class="process-math">\((0,0,z)\)</span> obeys <span class="process-math">\(x-y=0\)</span> for all <span class="process-math">\(z\text{.}\)</span> Here are separate sketches of (parts of) the two planes.</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;">
+<div class="sbspanel middle" style="width:52.6315789473684%;"><img src="external/figs/planeIntA.svg" role="img" class="contained"></div>
+<div class="sbspanel middle" style="width:42.1052631578947%;"><img src="external/figs/planeIntB.svg" role="img" class="contained"></div>
+</div></div> <div class="para">And here is a sketch of their intersection</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/planeInt.svg" role="img" class="contained"></div></div></div> <div class="para logical">
+<div class="para">
+<em class="emphasis">Method 1.</em> Each point on the line has a different value of <span class="process-math">\(z\text{.}\)</span> We’ll use <span class="process-math">\(z\)</span> as the parameter. (We could just as well use <span class="process-math">\(x\)</span> or <span class="process-math">\(y\text{.}\)</span>) There is no law that requires us to use the parameter name <span class="process-math">\(t\text{,}\)</span> but that’s what we have done so far, so set <span class="process-math">\(t=z\text{.}\)</span> If <span class="process-math">\((x,y,z)\)</span> is on the line then <span class="process-math">\(z=t\)</span> and</div>
+<div class="displaymath process-math">
+\begin{align*}
+x+y+t&amp;=2\\
+x-y\phantom{\ \,+t}&amp;=0
+\end{align*}
+</div>
+<div class="para">The second equation forces <span class="process-math">\(y=x\text{.}\)</span> Substituting this into the first equation gives</div>
+<div class="displaymath process-math">
+\begin{gather*}
+2x+t=2 \implies x=y=1-\tfrac{t}{2}
+\end{gather*}
+</div>
+<div class="para">So the parametric equations are</div>
+<div class="displaymath process-math">
+\begin{gather*}
+x=1-\frac{t}{2},\
+y=1-\frac{t}{2},\
+z=t\qquad\text{or}\qquad
+\llt x-1,y-1,z\rgt  = t\llt -\frac{1}{2}, -\frac{1}{2}, 1\rgt
+\end{gather*}
+</div>
+</div> <div class="para logical">
+<div class="para">
+<em class="emphasis">Method 2.</em> We first find one point on the line. There are lots of them. We’ll find the point with <span class="process-math">\(z=0\text{.}\)</span> (We could just as well use z=123.4, but arguably <span class="process-math">\(z=0\)</span> is a little easier.) If  <span class="process-math">\((x,y,z)\)</span> is on the line and <span class="process-math">\(z=0\text{,}\)</span> then</div>
+<div class="displaymath process-math">
+\begin{align*}
+x+y&amp;=2\\
+x-y&amp;=0
+\end{align*}
+</div>
+<div class="para">The second equation again forces <span class="process-math">\(y=x\text{.}\)</span> Substituting this into the first equation gives</div>
+<div class="displaymath process-math">
+\begin{gather*}
+2x=2 \implies x=y=1
+\end{gather*}
+</div>
+<div class="para">So <span class="process-math">\((1,1,0)\)</span> is on the line. Now we’ll find a direction vector, <span class="process-math">\(\vd\text{,}\)</span> for the line.</div>
+<ul class="disc">
+<li><div class="para">Since the line is contained in the plane <span class="process-math">\(x+y+z=2\text{,}\)</span> any vector lying on the line, like <span class="process-math">\(\vd\text{,}\)</span> is also completely contained in that plane. So <span class="process-math">\(\vd\)</span> must be perpendicular to the normal vector of <span class="process-math">\(x+y+z=2\text{,}\)</span> which is <span class="process-math">\(\llt 1,1,1\rgt \text{.}\)</span>
+</div></li>
+<li><div class="para">Similarly, since the line is contained in the plane <span class="process-math">\(x-y=0\text{,}\)</span> any vector lying on the line, like <span class="process-math">\(\vd\text{,}\)</span> is also completely contained in that plane.  So <span class="process-math">\(\vd\)</span> must be perpendicular to the normal vector of <span class="process-math">\(x-y=0\text{,}\)</span> which is <span class="process-math">\(\llt 1,-1,0\rgt \text{.}\)</span>
+</div></li>
+</ul>
+<div class="para">So we may choose for <span class="process-math">\(\vd\)</span> any vector which is perpendicular to both <span class="process-math">\(\llt 1,1,1\rgt \)</span> and <span class="process-math">\(\llt 1,-1,0\rgt\text{,}\)</span> like, for example,</div>
+<div class="displaymath process-math">
+\begin{align*}
+\vd&amp;=\llt 1,-1,0\rgt \times\llt 1,1,1\rgt\\
+&amp; =\det\left[ \begin{matrix}\hi &amp;\hj&amp;\hk\\
+1&amp;-1&amp;0\\ 1&amp;1&amp;1\end{matrix}\right]
+=\hi\det\left[\begin{matrix}-1&amp;0\\
+1&amp;1\end{matrix}\right]
+-\hj\det\left[\begin{matrix}1&amp;0\\
+1&amp;1\end{matrix}\right]
++\hk\det\left[\begin{matrix}1&amp;-1\\
+1&amp;1\end{matrix}\right]\\
+&amp;=-\hi-\hj+2\hk
+\end{align*}
+</div>
+<div class="para">We now have both a point on the line (namely <span class="process-math">\((1,1,0)\)</span>) and a direction vector for the line (namely <span class="process-math">\(\llt -1,-1,2\rgt\)</span>), so, as usual, the parametric equations for the line are</div>
+<div class="displaymath process-math">
+\begin{gather*}
+\llt x-1,y-1,z\rgt =t\llt -1,-1,2\rgt \qquad\text{or}\qquad
+x=1-t,\ y=1-t,\ z=2t
+\end{gather*}
+</div>
+<div class="para">This looks a little different than the solution from method 1, but we’ll see in a moment that they are really the same. Before that, let’s do one more method.</div>
+</div> <div class="para logical">
+<div class="para">
+<em class="emphasis">Method 3.</em> We’ll find two points on the line. We have already found that <span class="process-math">\((1,1,0)\)</span> is on the line. From the picture above, it looks like <span class="process-math">\((0,0,2)\)</span> is also on the line. This is indeed the case since <span class="process-math">\((0,0,2)\)</span> obeys both <span class="process-math">\(x+y+z=2\)</span> and <span class="process-math">\(x-y=0\text{.}\)</span> Notice that we could also have guessed <span class="process-math">\((0,0,2)\)</span> by setting <span class="process-math">\(x=0\)</span>  and then solving <span class="process-math">\(y+z=x+y+z=2\text{,}\)</span> <span class="process-math">\(-y=x-y=0\)</span> for <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span> As both <span class="process-math">\((1,1,0)\)</span> and <span class="process-math">\((0,0,2)\)</span> are on the line, the vector with head at <span class="process-math">\((1,1,0)\)</span> and tail at <span class="process-math">\((0,0,2)\text{,}\)</span> which is <span class="process-math">\(\llt 1-0,1-0,0-2\rgt =\llt 1,1,-2\rgt \text{,}\)</span> is a direction vector for the line. As <span class="process-math">\((0,0,2)\)</span> is a point on the line and <span class="process-math">\(\llt 1,1,-2\rgt \)</span> is a direction vector for the line, the parametric equations for the line are</div>
+<div class="displaymath process-math">
+\begin{gather*}
+\llt x-0,y-0,z-2\rgt =t\llt 1,1,-2\rgt \qquad\text{or}\qquad
+x=t,\ y=t,\ z=2-2t
+\end{gather*}
+</div>
+<div class="para">This also looks similar, but not quite identical, to our previous answers. Time for a comparison.</div>
+</div> <div class="para logical">
+<div class="para">
+<em class="emphasis">Comparing the answers.</em> The parametric equations given by the three methods are different. That’s just because we have really used different parameters in the three methods, even though we have called the parameter <span class="process-math">\(t\)</span> in each case. To clarify the relation between the three answers, rename the parameter of method 1 to <span class="process-math">\(t_1\text{,}\)</span> the parameter of method 2 to <span class="process-math">\(t_2\)</span> and the parameter of method 3 to <span class="process-math">\(t_3\text{.}\)</span> The parametric equations then become</div>
+<div class="displaymath process-math">
+\begin{alignat*}{4}
+&amp;\text{Method 1:}\qquad &amp;
+x&amp;=1-\frac{t_1}{2}\qquad &amp;
+y&amp;=1-\frac{t_1}{2}\qquad &amp;
+z&amp;=t_1\\
+&amp;\text{Method 2:}\qquad &amp;
+x&amp;=1-t_2\qquad &amp;
+y&amp;=1-t_2\qquad &amp;
+z&amp;=2t_2\\
+&amp;\text{Method 3:}\qquad &amp;
+x&amp;=t_3\qquad &amp;
+y&amp;=t_3\qquad &amp;
+z&amp;=2-2t_3
+\end{alignat*}
+</div>
+<div class="para">Substituting <span class="process-math">\(t_1=2t_2\)</span> into the Method 1 equations gives the Method 2 equations, and substituting <span class="process-math">\(t_3=1-t_2\)</span> into the Method 3 equations gives the Method 2 equations. So all three really give the same line, just parametrized a little differently.</div>
+</div></article><span class="incontext"><a href="sec_lines_3d.html#eg_line_equations" class="internal">in-context</a></span>
+</body>
+</html>
