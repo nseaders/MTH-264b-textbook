@@ -386,8 +386,8 @@
             ax.set_title("Matplotlib 3D Fail") 
               
             ax.plot_surface(X,Y,Z1) #plot one surface
-            ax.plot_surface(X,Y,Z2) #plot second surface
-            ax.plot_surface(X,Y,Z3) #plot third surface
+            ax.plot_surface(X,Y,Z2) #plot second surface on same axes
+            ax.plot_surface(X,Y,Z3) #plot third surface on same axes
             plt.show() #display the result
           </input>
         </sage>

@@ -398,8 +398,8 @@
         ax.plot(X,Y, color="orange", linestyle="--") #plot the connected dots on your graph
 
         ax.grid() #add a grid
-        plt.axhline(0, color='black') #add horizontal axis
-        plt.axvline(0, color='black') #add vertical axis
+        ax.axhline(0, color='black') #add horizontal axis
+        ax.axvline(0, color='black') #add vertical axis
         
         plt.show() #display the result
       </input>
@@ -430,7 +430,7 @@
         #set the x and y window for your axes
         ax.set(xlim=[-4,4], ylim=[-2,4])
 
-        plt.quiver(0,0,1,3) #vector(1,3)
+        ax.quiver(0,0,1,3) #vector(1,3)
 
         plt.show()
       </input>
@@ -453,7 +453,7 @@
         ax.set(xlim=[-4,4], ylim=[-2,4])
 
         #vector (1,3)
-        plt.quiver(0,0,1,3,angles='xy', scale_units='xy', scale=1) 
+        ax.quiver(0,0,1,3,angles='xy', scale_units='xy', scale=1) 
 
         plt.show()
       </input>
@@ -474,13 +474,13 @@
         fig, ax = plt.subplots() #create a fig and a plot ax
 
         ax.set(xlim=[-1,4], ylim=[-2,4])
-        plt.grid()
+        ax.grid()
 
         # original vectors
-        plt.quiver(0,0,1,3,label='u',color='cyan', angles='xy', scale_units='xy', scale=1) 
-        plt.quiver(1,3,2,-4,label='v',color='orchid', angles='xy', scale_units='xy', scale=1) 
+        ax.quiver(0,0,1,3,label='u',color='cyan', angles='xy', scale_units='xy', scale=1) 
+        ax.quiver(1,3,2,-4,label='v',color='orchid', angles='xy', scale_units='xy', scale=1) 
 
-        plt.legend() #Makes labels show up
+        ax.legend() #Makes labels show up
         ax.set_title("Vectors") #title
 
         plt.show()
