@@ -11,8 +11,8 @@
     <title>Basic Animation</title>
 
     <introduction>
-        In this section we will create some basic animations in Matplotlib,
-        by graphing over and over again to create frames for the animation.
+        In this section we will create some basic animations,
+        by creating frames for the animation in Matplotlib.
     </introduction>
 
     <objectives>
@@ -53,9 +53,10 @@
                 ax = plt.axes() #add a graph to the figure
                 ax.plot(current_t, current_y, "o", color='blue') 
 
-                #set window, axis labels, title, show grid
-                ax.set(xlim=[0,6], ylim=[-2,2], ylabel='Sine Wave', title="Dynamic Plot")             
-                plt.show()   
+                #set window, axis labels, title
+                ax.set(xlim=[0,6], ylim=[-2,2], ylabel='Sine Wave', title="Dynamic Plot") 
+                          
+                plt.show() #display graph
             
             #define function to create points based on user input
             @interact() #create interactive element, this one is a slider
@@ -111,13 +112,13 @@
                 ax = plt.axes() #add a graph to the figure
                 ax.plot(current_t, current_y, "o-", color='blue')
                 
-                #set window, axis labels, title, show grid, show legend
+                #set window, axis labels, title
                 ax.set(xlim=[0,3], ylim=[-4,10], xlabel='Time (s)', ylabel='Height (m)', title="Projectile Motion")
 
-                plt.grid(True)
-                plt.legend([f"v0 = {v0} m/s"])
+                ax.grid(True) #show grid
+                ax.legend([f"v0 = {v0} m/s"]) #create legend
               
-                plt.show()   
+                plt.show()  #display graph
               
             @interact() #create interactive element
             def respond_to_user_input(time=slider(1,15,1)):
@@ -185,8 +186,8 @@
             curve, = ax.plot([],[], label='sine') #create an empty graph to animate
             curve2, = ax.plot([],[],color='purple', linestyle='dashed', label='cosine')
 
-            ax.set(xlim=(-5,5), ylim = (-5,5))
-            plt.legend()
+            ax.set(xlim=[-5,5], ylim=[-5,5])
+            ax.legend()
 
             #set up writer object to grab frames for a gif
             writer = PillowWriter(fps=15)

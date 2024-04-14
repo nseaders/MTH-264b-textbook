@@ -230,7 +230,7 @@
 
     <p> For scatter plots sometimes you get the data from an experiment instead of a formula.
       As long as the outputs are given as a NumPy array, 
-      either from manipulating your input array, or by creating a completely new array, 
+      either from manipulating your input array, or by creating a completely new output array, 
       Matplotlib will still connect the dots. 
     </p>
 
@@ -549,7 +549,7 @@
       <ul>
         <li>
           <p>
-            Every graph needs a figure object and a graph object. 
+            Every graph needs a figure object and an axes object (which is essentially a single plot). 
             The graph object will plot just the axes if no other information is given. 
           </p>
         </li>
@@ -588,7 +588,7 @@
         </li>
         <li>
           <p>
-            We can specify a viewing window using <c>xlim</c> and <c>ylim</c> and graph vectors using <c>quiver</c>.
+            We can specify a viewing window using arguments <c>xlim</c> and <c>ylim</c> inside <c>axes_name.set()</c> and graph vectors using <c>axes_name.quiver</c>.
           </p>
         </li>
       </ul>

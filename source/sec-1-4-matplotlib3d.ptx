@@ -484,6 +484,12 @@
 
       <exercises xml:id="exercises-matplotlib3D">
         <exercise>
+          <p>
+            The function <c>meshgrid()</c> has other uses, so it is nice to familiarize yourself with what it actually does. 
+            First make two small Numpy arrays, say one with three entries and one with five entries. 
+            Next make a <c>meshgrid()</c> of those two arrays and print the result. 
+            What do you notice? 
+          </p>
           <sage language='python'>
             <input>
               #
@@ -493,6 +499,31 @@
               #
             </input>
           </sage>
+          <p>
+            Note that <c>meshgrid()</c> returns arrays that are of equal sizes (the size of the first array). 
+            But it returns the same number of columns as well (the size of the second array). 
+            This aligns the values of the two arrays so that they can be easily combined. 
+            That is, the first element of the first array can be combined with the first element of the second array,
+            the second with the second, etc. 
+          </p>
+          <p>
+            Multiply the two arrays created by meshgrid and display your result. 
+            What do you notice? 
+          </p>
+          <sage language='python'>
+            <input>
+              #
+              #
+              #
+              #
+              #
+            </input>
+          </sage>
+          <hint>
+            <p>
+              It should look like a multiplication table.
+            </p>
+          </hint>
           
         </exercise>
         
