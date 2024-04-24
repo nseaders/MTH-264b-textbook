@@ -254,6 +254,10 @@
 
       <exercises xml:id="exercises-animation">
         <exercise>
+          <p>
+            Showcase your skills from so far in the term to create an animated graph in Matplotlib for any other class 
+            (and using one feature we haven't learned in class). 
+          </p>
           <sage language='python'>
             <input>
               #

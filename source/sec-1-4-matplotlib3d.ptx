@@ -486,7 +486,7 @@
         <exercise>
           <p>
             The function <c>meshgrid()</c> has other uses, so it is nice to familiarize yourself with what it actually does. 
-            First make two small Numpy arrays, say one with three entries and one with five entries. 
+            First make two small Numpy arrays, say one, X, with three entries and the other, Y, with five entries. 
             Next make a <c>meshgrid()</c> of those two arrays and print the result. 
             What do you notice? 
           </p>
@@ -500,16 +500,24 @@
             </input>
           </sage>
           <p>
-            Note that <c>meshgrid()</c> returns arrays that are of equal sizes (the size of the first array). 
-            But it returns the same number of columns as well (the size of the second array). 
-            This aligns the values of the two arrays so that they can be easily combined. 
-            That is, the first element of the first array can be combined with the first element of the second array,
-            the second with the second, etc. 
+            <ol>
+              <li>
+                <p>
+                  Experiment with different sizes of arrays X and Y. 
+                  Explain in your own words what meshgrid does with the two arrays. 
+                  Demonstrate with some example code. 
+                </p>
+              </li>
+              <li>
+                <p>
+                  What happens if you multiply the arrays that result from meshgrid together?
+                  Demonstrate with some example code.   
+                </p>
+              </li>
+            </ol> 
+           
           </p>
-          <p>
-            Multiply the two arrays created by meshgrid and display your result. 
-            What do you notice? 
-          </p>
+
           <sage language='python'>
             <input>
               #
@@ -519,12 +527,38 @@
               #
             </input>
           </sage>
-          <hint>
-            <p>
-              It should look like a multiplication table.
-            </p>
-          </hint>
           
+        </exercise>
+        <exercise>
+          <p>
+            In one figure create a gallery of examples containing at least one of each: 
+            <ul>
+              <li>
+                <p>
+                  A curve in 3D
+                </p>
+              </li>
+              <li>
+                <p>
+                  A suface in 3D
+                </p>
+              </li>
+              <li>
+                <p>
+                  A scatterplot in 3D
+                </p>
+              </li>
+            </ul>
+            Make sure your graphs are appropriately labelled for your reader.
+          </p>
+        </exercise>
+        <exercise>
+          <p>
+          Look up Matplotlib’s documentation on the web and find their page of examples, 3D plotting. 
+          Pick a 3D graph you want to learn to code and try it out.
+          Experiment with the code to make it your own. 
+          How is what you found different than what you learned in this section? Explain.
+          </p>
         </exercise>
         
       </exercises>
