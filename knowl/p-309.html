@@ -12,7 +12,36 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">This formula is called “expansion along the top row”. There is one term in the formula for each entry in the top row of the <span class="process-math">\(3\times 3\)</span> matrix. The term is a sign times the entry itself times the determinant of the <span class="process-math">\(2\times 2\)</span> matrix gotten by deleting the row and column that contains the entry. The sign alternates, starting with a “<span class="process-math">\(+\)</span>”.</div>
+<div class="para logical">
+<div class="para">To extract the components perpendicular to the direction of motion, we dot with <span class="process-math">\(\llt -\sin\theta,\cos\theta\rgt \)</span> rather than <span class="process-math">\(\llt \cos\theta,\sin\theta\rgt \text{.}\)</span> Note that, because</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\llt -\sin\theta,\cos\theta\rgt \cdot \llt \cos\theta,\sin\theta\rgt =0,
+\end{equation*}
+</div>
+<div class="para">the vector <span class="process-math">\(\llt -\sin\theta,\cos\theta\rgt \)</span> really is perpendicular to the direction of motion.  Since</div>
+<div class="displaymath process-math">
+\begin{align*}
+\llt -\sin\theta,\cos\theta\rgt \cdot\llt \cos\theta,\sin\theta\rgt &amp;=0\\
+\llt -\sin\theta,\cos\theta\rgt \cdot\llt -\sin\theta,cos\theta\rgt &amp;=1\\
+\llt -\sin\theta,\cos\theta\rgt \cdot\llt 0,-1\rgt &amp;=-\cos\theta
+\end{align*}
+</div>
+<div class="para">dotting both sides of the equation of motion <span class="process-math">\((*)\)</span> with <span class="process-math">\(\llt -\sin\theta,\cos\theta\rgt \)</span> gives</div>
+<div class="displaymath process-math">
+\begin{gather*}
+m\ell\Big(\diff{\theta}{t}\Big)^2=-mg\cos\theta+\tau
+\end{gather*}
+</div>
+<div class="para">This equation just determines the tension</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tau=m\ell\big(\diff{\theta}{t}\big)^2+mg\cos\theta
+\end{equation*}
+</div>
+<div class="para">in the rod, once you know <span class="process-math">\(\theta(t)\text{.}\)</span>
+</div>
+</div>
 <span class="incontext"><a href="sec_vectors.html#p-309" class="internal">in-context</a></span>
 </body>
 </html>

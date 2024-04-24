@@ -11,31 +11,19 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
+<h3 class="heading"><span class="type">Paragraph</span></h3>
 <div class="para logical">
-<div class="para">The distance from <span class="process-math">\((x,y,z)\)</span> to <span class="process-math">\((9,-12,15)\)</span> is <span class="process-math">\(\sqrt{(x-9)^2+(y+12)^2+(z-15)^2}\text{.}\)</span> The distance from <span class="process-math">\((x,y,z)\)</span> to <span class="process-math">\((0,0,0)\)</span> is <span class="process-math">\(\sqrt{x^2+y^2+z^2}\text{.}\)</span> So we want to find all points <span class="process-math">\((x,y,z)\)</span> for which</div>
+<div class="para">More generally, the distance from the point <span class="process-math">\((x,y,z)\)</span> to the point <span class="process-math">\((x',y',z')\)</span> is</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\sqrt{(x-9)^2+(y+12)^2+(z-15)^2}
-=2\sqrt{x^2+y^2+z^2}
+\sqrt{(x-x')^2+(y-y')^2+(z-z')^2}
 \end{equation*}
 </div>
-<div class="para">Squaring both sides of this equation gives</div>
+<div class="para">Notice that this gives us the equation for a sphere quite directly. All the points on a sphere are equidistant from the centre of the sphere. So, for example, the equation of the sphere centered on <span class="process-math">\((1,2,3)\)</span> with radius <span class="process-math">\(4\text{,}\)</span> that is, the set of all points <span class="process-math">\((x,y,z)\)</span> whose distance from <span class="process-math">\((1,2,3)\)</span> is <span class="process-math">\(4\text{,}\)</span> is</div>
 <div class="displaymath process-math">
 \begin{equation*}
-x^2-18x+81 +y^2+24y+144 +z^2-30z+225 = 4\big(x^2+y^2+z^2)
+(x-1)^2+(y-2)^2+(z-3)^2=16
 \end{equation*}
-</div>
-<div class="para">Collecting up terms gives</div>
-<div class="displaymath process-math">
-\begin{alignat*}{1}
-3x^2+18x +3y^2-24y +3z^2+30z \amp= 450\ \text{and, dividing by 3,} \\
-x^2+6x +y^2-8y +z^2+10z \amp= 150\ \text{and, completing squares,}\\
-x^2+6x +9 +y^2-8y +16  +z^2+10z +25 \amp= 200\ \text{or}\\
-(x+3)^2+(y-4)^2+(z+5)^2 \amp=200 
-\end{alignat*}
-</div>
-<div class="para">This is the sphere of radius <span class="process-math">\(10\sqrt{2}\)</span> centred on <span class="process-math">\((-3,4,-5)\text{.}\)</span>
 </div>
 </div>
 <span class="incontext"><a href="sec-points.html#p-239" class="internal">in-context</a></span>

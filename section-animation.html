@@ -367,15 +367,15 @@ sagecell.makeSagecell({
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-animation"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">1.5</span> <span class="title">Basic Animation</span>
 </h2>
-<section class="introduction" id="introduction-7">In this section we will create some basic animations in Matplotlib, by graphing over and over again to create frames for the animation.</section><article class="objectives goal-like" id="objectives-5"><h3 class="heading"><span class="type">Objectives</span></h3>
+<section class="introduction" id="introduction-7">In this section we will create some basic animations, by creating frames for the animation in Matplotlib.</section><article class="objectives goal-like" id="objectives-5"><h3 class="heading"><span class="type">Objectives</span></h3>
 <ul class="disc">
-<li id="li-52"><div class="para" id="p-156">Create an interactive plot with a slider.</div></li>
-<li id="li-53"><div class="para" id="p-157">Create a gif animating a graph.</div></li>
+<li id="li-57"><div class="para" id="p-165">Create an interactive plot with a slider.</div></li>
+<li id="li-58"><div class="para" id="p-166">Create a gif animating a graph.</div></li>
 </ul></article><section class="subsection" id="subsection-23"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Animating in Matplotlib</span>
 </h3>
-<div class="para" id="p-158">This first example uses <code class="code-inline tex2jax_ignore">interact</code> to create a slider to plot one point at a time. We will need to create two user defined (computer science) functions: one that increments through the input points for the slider and another that plots the graph for just those input points.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-42"><script type="text/x-sage">import matplotlib.pyplot as plt
+<div class="para" id="p-167">This first example uses <code class="code-inline tex2jax_ignore">interact</code> to create a slider to plot one point at a time. We will need to create two user defined (computer science) functions: one that increments through the input points for the slider and another that plots the graph for just those input points.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-43"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 t = np.linspace(0, 6, 15) #inputs
@@ -387,9 +387,10 @@ def plot_data(current_t, current_y):
     ax = plt.axes() #add a graph to the figure
     ax.plot(current_t, current_y, "o", color='blue') 
 
-    #set window, axis labels, title, show grid
-    ax.set(xlim=[0,6], ylim=[-2,2], ylabel='Sine Wave', title="Dynamic Plot")             
-    plt.show()   
+    #set window, axis labels, title
+    ax.set(xlim=[0,6], ylim=[-2,2], ylabel='Sine Wave', title="Dynamic Plot") 
+              
+    plt.show() #display graph
 
 #define function to create points based on user input
 @interact() #create interactive element, this one is a slider
@@ -401,15 +402,15 @@ def respond_to_user_input(frame=slider(1,15,1)):
     #Call our function that plots points        
     plot_data(current_t, current_y)
 </script></pre>
-<article class="exercise exercise-like" id="exercise-38"><h4 class="heading">
+<article class="exercise exercise-like" id="exercise-40"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.31</span><span class="period">.</span>
 </h4>
 <ul class="disc">
-<li id="li-54"><div class="para" id="p-159">Play with various graph features and customizations.</div></li>
-<li id="li-55"><div class="para" id="p-160">Change the number of frames to see how the interactive is affected.</div></li>
+<li id="li-59"><div class="para" id="p-168">Play with various graph features and customizations.</div></li>
+<li id="li-60"><div class="para" id="p-169">Change the number of frames to see how the interactive is affected.</div></li>
 </ul>
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-5" id="hint-5"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-5"><div class="hint solution-like"><div class="para" id="p-161">Try aligning and misaligning the number of frames and the number of inputs plotted.</div></div></div></article><div class="para" id="p-162">Here is the same interactive for projectile motion.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-43"><script type="text/x-sage">import matplotlib.pyplot as plt
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-5" id="hint-5"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-5"><div class="hint solution-like"><div class="para" id="p-170">Try aligning and misaligning the number of frames and the number of inputs plotted.</div></div></div></article><div class="para" id="p-171">Here is the same interactive for projectile motion.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-44"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 t_range = np.linspace(0, 3, 15) #time inputs
@@ -424,13 +425,13 @@ def plot_data(current_t, current_y):
     ax = plt.axes() #add a graph to the figure
     ax.plot(current_t, current_y, "o-", color='blue')
     
-    #set window, axis labels, title, show grid, show legend
+    #set window, axis labels, title
     ax.set(xlim=[0,3], ylim=[-4,10], xlabel='Time (s)', ylabel='Height (m)', title="Projectile Motion")
 
-    plt.grid(True)
-    plt.legend([f"v0 = {v0} m/s"])
+    ax.grid(True) #show grid
+    ax.legend([f"v0 = {v0} m/s"]) #create legend
   
-    plt.show()   
+    plt.show()  #display graph
   
 @interact() #create interactive element
 def respond_to_user_input(time=slider(1,15,1)):
@@ -441,8 +442,8 @@ def respond_to_user_input(time=slider(1,15,1)):
     #Call our function that plots data       
     plot_data(current_t, current_y)
 </script></pre>
-<div class="para" id="p-163">Matplotlib has a module called <code class="code-inline tex2jax_ignore">animation</code> with a <code class="code-inline tex2jax_ignore">FuncAnimation</code> class that allows you easily make frames of a graph. A class called <code class="code-inline tex2jax_ignore">PillowWriter</code> allows you to grab frames and save them to a file to make gifs.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-44"><script type="text/x-sage">import numpy as np
+<div class="para" id="p-172">Matplotlib has a module called <code class="code-inline tex2jax_ignore">animation</code> with a <code class="code-inline tex2jax_ignore">FuncAnimation</code> class that allows you easily make frames of a graph. A class called <code class="code-inline tex2jax_ignore">PillowWriter</code> allows you to grab frames and save them to a file to make gifs.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-45"><script type="text/x-sage">import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import animation
 from matplotlib.animation import PillowWriter
@@ -469,8 +470,8 @@ with writer.saving(fig, "sinWave.gif", 100): #100 is the dpi
 
     writer.grab_frame() #grab current frame in figure for writer object
 </script></pre>
-<div class="para" id="p-164">Here is an example animating two curves on the same graph.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-45"><script type="text/x-sage">import numpy as np
+<div class="para" id="p-173">Here is an example animating two curves on the same graph.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-46"><script type="text/x-sage">import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import animation
 from matplotlib.animation import PillowWriter
@@ -480,8 +481,8 @@ ax = plt.axes()
 curve, = ax.plot([],[], label='sine') #create an empty graph to animate
 curve2, = ax.plot([],[],color='purple', linestyle='dashed', label='cosine')
 
-ax.set(xlim=(-5,5), ylim = (-5,5))
-plt.legend()
+ax.set(xlim=[-5,5], ylim=[-5,5])
+ax.legend()
 
 #set up writer object to grab frames for a gif
 writer = PillowWriter(fps=15)
@@ -501,18 +502,19 @@ with writer.saving(fig, "sincosWave.gif", 100): #100 is the dpi
 
     writer.grab_frame() #grab current frame in figure for writer object
 </script></pre>
-<article class="exercise exercise-like" id="exercise-39"><h4 class="heading">
+<article class="exercise exercise-like" id="exercise-41"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.32</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-165">What graph do <em class="emphasis">you</em> want to animate? Create it!</div></article></section><section class="conclusion" id="conclusion-4"><div class="para" id="p-166">Matplotlib allows you to not only graph, but make your graphs interactive. You can use <code class="code-inline tex2jax_ignore">interact</code> to create interactive elements. The <code class="code-inline tex2jax_ignore">animation</code> module can be used to animate your graphs. Hopefully this is enough to get you started.</div></section><article class="assemblage assemblage-like" id="assemblage-5"><h3 class="heading"><span class="title">Summary.</span></h3>
-<div class="para logical" id="p-167">
-<ul class="disc"><li id="li-56"><div class="para" id="p-168">We can use <code class="code-inline tex2jax_ignore">interact</code> to create a slider element and create two user defined functions: one that takes the slider information to create points and another that makes graphs for just those points.</div></li></ul>
-<ul class="disc"><li id="li-57"><div class="para" id="p-169">The <code class="code-inline tex2jax_ignore">FuncAnimation</code>&gt; class can be used to animate your graphs and <code class="code-inline tex2jax_ignore">PillowWriter</code> saves those frames into a gif.</div></li></ul>
+<div class="para" id="p-174">What graph do <em class="emphasis">you</em> want to animate? Create it!</div></article></section><section class="conclusion" id="conclusion-4"><div class="para" id="p-175">Matplotlib allows you to not only graph, but make your graphs interactive. You can use <code class="code-inline tex2jax_ignore">interact</code> to create interactive elements. The <code class="code-inline tex2jax_ignore">animation</code> module can be used to animate your graphs. Hopefully this is enough to get you started.</div></section><article class="assemblage assemblage-like" id="assemblage-5"><h3 class="heading"><span class="title">Summary.</span></h3>
+<div class="para logical" id="p-176">
+<ul class="disc"><li id="li-61"><div class="para" id="p-177">We can use <code class="code-inline tex2jax_ignore">interact</code> to create a slider element and create two user defined functions: one that takes the slider information to create points and another that makes graphs for just those points.</div></li></ul>
+<ul class="disc"><li id="li-62"><div class="para" id="p-178">The <code class="code-inline tex2jax_ignore">FuncAnimation</code>&gt; class can be used to animate your graphs and <code class="code-inline tex2jax_ignore">PillowWriter</code> saves those frames into a gif.</div></li></ul>
 </div></article><section class="exercises" id="exercises-animation"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-40"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<pre class="ptx-sagecell sagecell-python" id="sage-46"><script type="text/x-sage">#
+<article class="exercise exercise-like" id="exercise-42"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para" id="p-179">Showcase your skills from so far in the term to create an animated graph in Matplotlib for any other class (and using one feature we haven’t learned in class).</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-47"><script type="text/x-sage">#
 #
 #
 #

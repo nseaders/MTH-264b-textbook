@@ -12,7 +12,48 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">determine a parallelepiped (three dimensional parallelogram). Its volume is given by the formula</div>
+<div class="para logical">
+<div class="para">Hence, for this physical system, Newton’s law of motion is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn_unit_proj.html">
+\begin{align*}
+&amp;\overbrace{m\ell\,\ddiff{2}{\theta}{t}\llt \cos\theta,\sin\theta\rgt
++m\ell\,\Big(\diff{\theta}{t}\Big)^2\llt -\sin\theta,\cos\theta\rgt}^
+{\text{mass}\times\text{acceleration}}\\
+&amp;\hskip1in=
+\overbrace{mg\llt 0,-1\rgt}^{\rm gravity}
++\overbrace{\tau \llt -\sin\theta,\cos\theta\rgt}^{\rm tension}
+-\overbrace{\beta\ell\,\diff{\theta}{t}\llt \cos\theta,\sin\theta\rgt}^{\rm friction}
+\tag{\(*\)}
+\end{align*}
+</div>
+<div class="para">This is a rather complicated looking equation. Writing out its <span class="process-math">\(x\)</span>- and <span class="process-math">\(y\)</span>-components doesn’t help. They also look complicated. Instead, the equation can be considerably simplified (and consequently better understood) by “taking its components parallel to and perpendicular to the direction of motion”. From the velocity vector <span class="process-math">\(\vv(t)\text{,}\)</span> we see that <span class="process-math">\(\llt \cos\theta(t),\sin\theta(t)\rgt \)</span> is a unit vector parallel to the direction of motion at time <span class="process-math">\(t\text{.}\)</span> Recall, from <a href="" class="xref" data-knowl="./knowl/eqn_unit_proj.html" title="Fact 3.18">Fact 3.18</a>, that the projection of any vector <span class="process-math">\(\vb\)</span> on any unit vector <span class="process-math">\(\hat\vd\)</span> (with the “hat” on <span class="process-math">\(\hat\vd\)</span> reminding ourselves that the vector is a unit vector) is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn_unit_proj.html">
+\begin{gather*}
+\big(\vb\cdot \hat\vd\big)\,\hat\vd
+\end{gather*}
+</div>
+<div class="para">The coefficient <span class="process-math">\(\vb\cdot \hat\vd\)</span> is, by definition, the component of <span class="process-math">\(\vb\)</span> in the direction <span class="process-math">\(\hat\vd\text{.}\)</span> So, by dotting both sides of the equation of motion <span class="process-math">\((*)\)</span> with <span class="process-math">\(\hat\vd=\llt \cos\theta(t),\sin\theta(t)\rgt \text{,}\)</span> we extract the component parallel to the direction of motion. Since</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn_unit_proj.html">
+\begin{align*}
+\llt \cos\theta,\sin\theta\rgt \cdot\llt \cos\theta,\sin\theta\rgt &amp;=1\\
+\llt \cos\theta,\sin\theta\rgt \cdot\llt -\sin\theta,\cos\theta\rgt &amp;=0\\
+\llt \cos\theta,\sin\theta\rgt \cdot\llt 0,-1\rgt &amp;=-\sin\theta
+\end{align*}
+</div>
+<div class="para">this gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn_unit_proj.html">
+\begin{gather*}
+m\ell\ddiff{2}{\theta}{t}=-mg\sin\theta-\beta\ell\diff{\theta}{t}
+\end{gather*}
+</div>
+<div class="para">which is <em class="emphasis">much</em> cleaner than <span class="process-math">\((*)\text{!}\)</span> When <span class="process-math">\(\theta\)</span> is small, we can approximate <span class="process-math">\(\sin\theta\approx\theta\)</span> and get the equation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn_unit_proj.html">
+\begin{gather*}
+\ddiff{2}{\theta}{t}+\frac{\beta}{m}\diff{\theta}{t}+\frac{g}{\ell}\theta=0
+\end{gather*}
+</div>
+<div class="para">which is easily solved. There are systematic procedures for finding the solution, but we’ll just guess.</div>
+</div>
 <span class="incontext"><a href="sec_vectors.html#p-306" class="internal">in-context</a></span>
 </body>
 </html>

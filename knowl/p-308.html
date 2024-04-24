@@ -12,7 +12,45 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">The determinant of a <span class="process-math">\(3\times 3\)</span> matrix can be defined in terms of some <span class="process-math">\(2\times 2\)</span> determinants by</div>
+<div class="para logical">
+<div class="para">When there is some, but not too much, friction, so that <span class="process-math">\(\beta \gt 0\)</span> is relatively small, we would expect “oscillation with decaying amplitude”. So we  guess</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\theta(t)=Ae^{-\gamma t}\sin(\omega t-\delta)
+\end{equation*}
+</div>
+<div class="para">for some constant decay rate <span class="process-math">\(\gamma\text{,}\)</span> to be determined. With this guess,</div>
+<div class="displaymath process-math">
+\begin{alignat*}{3}
+\theta(t)&amp;=\phantom{- -\gamma\omega^{2})} Ae^{-\gamma t}
+&amp;\sin(\omega t-\delta)\\
+\theta'(t)&amp;=\phantom{-\omega^{2})}-\gamma Ae^{-\gamma t}
+&amp;\sin(\omega t-\delta)
+&amp;+\phantom{2\gamma }\omega A e^{-\gamma t}&amp;\cos(\omega t-\delta)\\
+\theta''(t)&amp;=(\gamma^2-\omega^2)Ae^{-\gamma t}&amp;\sin(\omega t-\delta)
+&amp;-2\gamma\omega A e^{-\gamma t}&amp;\cos(\omega t-\delta)
+\end{alignat*}
+</div>
+<div class="para">and the left hand side</div>
+<div class="displaymath process-math">
+\begin{align*}
+\ddiff{2}{\theta}{t}+\frac{\beta}{m}\diff{\theta}{t}+\frac{g}{\ell}\theta
+&amp;
+=\left[\gamma^2-\omega^2-\frac{\beta}{m}\gamma+\frac{g}{\ell}\right]
+Ae^{-\gamma t}\sin(\omega t-\delta)\\
+&amp;\hskip0.5in+\left[-2\gamma\omega+\frac{\beta}{m}\omega\right]
+Ae^{-\gamma t}\cos(\omega t-\delta)
+\end{align*}
+</div>
+<div class="para">vanishes if <span class="process-math">\(\gamma^2-\omega^2-\frac{\beta}{m}\gamma+\tfrac{g}{\ell}=0\)</span> and <span class="process-math">\(-2\gamma\omega+\frac{\beta}{m}\omega=0.\)</span> The second equation tells us the decay rate <span class="process-math">\(\gamma=\tfrac{\beta}{2m}\)</span> and then the first tells us the frequency</div>
+<div class="displaymath process-math">
+\begin{gather*}
+\omega=\sqrt{\gamma^2-\tfrac{\beta}{m}\gamma+\tfrac{g}{\ell}}
+=\sqrt{\tfrac{g}{\ell}-\tfrac{\beta^2}{4m^2}}
+\end{gather*}
+</div>
+<div class="para">When there is a lot of friction (namely when <span class="process-math">\(\tfrac{\beta^2}{4m^2} \gt \tfrac{g}{\ell}\text{,}\)</span> so that the frequency <span class="process-math">\(\omega\)</span> is not a real number), we would expect damping without oscillation and so would guess <span class="process-math">\(\theta(t)=Ae^{-\gamma t}\text{.}\)</span> You can determine the allowed values of <span class="process-math">\(\gamma\)</span> by substituting this guess in.</div>
+</div>
 <span class="incontext"><a href="sec_vectors.html#p-308" class="internal">in-context</a></span>
 </body>
 </html>

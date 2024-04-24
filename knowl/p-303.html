@@ -11,15 +11,51 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical"><div class="displaymath process-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">If we use a coordinate system centered on the hinge, the <span class="process-math">\((x,y)\)</span> coordinates of the mass at time <span class="process-math">\(t\)</span> are</div>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+x(t)&amp;=\ell\sin\theta(t)\\
+y(t)&amp;=-\ell\cos\theta(t)
+\end{align*}
+</div>
+<div class="para">where <span class="process-math">\(\theta(t)\)</span> is the angle between the rod and vertical at time <span class="process-math">\(t\text{.}\)</span> We are now going to use Newton’s law of motion</div>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{gather*}
-\text{area of parallelogram with sides }
-\llt a,b\rgt
-\text{ and }
-\llt c,d\rgt =|ad-bc|
+\text{mass}\times\text{acceleration}=\text{total applied force}
 \end{gather*}
-</div></div>
+</div>
+<div class="para">to determine now <span class="process-math">\(\theta\)</span> evolves in time. By definition, the velocity and acceleration vectors<a href="" class="fn-knowl original" data-knowl="./knowl/fn-14-hidden.html" title="Footnote 3.10"><sup> 10 </sup></a> for the position vector <span class="process-math">\(\llt x(t),y(t)\rgt\)</span> are</div>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\diff{}{t}\llt x(t),y(t)\rgt
+&amp;= \llt \diff{x}{t}(t),\diff{y}{t}(t)\rgt\\
+\ddiff{2}{}{t}\llt x(t),y(t)\rgt
+&amp;=\llt \ddiff{2}{x}{t}(t),\ddiff{2}{y}{t}(t)\rgt
+\end{align*}
+</div>
+<div class="para">So, the velocity and acceleration vectors of our mass are</div>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{alignat*}{1}
+\vv(t)&amp;=\diff{}{t}\llt x(t),y(t)\rgt\\
+&amp;=\llt \ell\diff{}{t}\sin\theta(t),-\ell\diff{}{t}\cos\theta(t)\rgt\\
+&amp;=\llt \ell\cos\theta(t)\,\diff{\theta}{t}(t)\,,\,
+\ell\sin\theta(t)\,\diff{\theta}{t}(t)\rgt\\
+&amp;=\ell\,\diff{\theta}{t}(t)\,\llt \cos\theta(t),\sin\theta(t)\rgt\\
+\va(t)&amp;=\ddiff{2}{}{t}\llt x(t),y(t)\rgt\\
+&amp;=\diff{}{t}
+\left\{\ell\,\diff{\theta}{t}(t)\,
+\llt \cos\theta(t),\sin\theta(t)\rgt \right\}\\
+&amp;=\ell\,\ddiff{2}{\theta}{t}(t)\,\llt \cos\theta(t),\sin\theta(t)\rgt
++\ell\,\diff{\theta}{t}(t)
+\llt \diff{}{t}\cos\theta(t),\diff{}{t}\sin\theta(t)\rgt\\
+&amp;= \ell\,\ddiff{2}{\theta}{t}(t)\llt \cos\theta(t),\sin\theta(t)\rgt
++\ell \Big(\diff{\theta}{t}(t)\Big)^2
+\llt -\sin\theta(t),\cos\theta(t)\rgt
+\end{alignat*}
+</div>
+</div>
 <span class="incontext"><a href="sec_vectors.html#p-303" class="internal">in-context</a></span>
 </body>
 </html>
