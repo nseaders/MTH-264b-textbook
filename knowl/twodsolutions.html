@@ -33,7 +33,7 @@ sagecell.makeSagecell({
 </head>
 <body class="ignore-math">
 <article class="example example-like"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5</span><span class="period">.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.7</span><span class="period">.</span>
 </h4>
 <div class="para logical">
 <div class="para">The system</div>
@@ -56,9 +56,8 @@ X = np.linspace(0,10,num=100) #inputs
 Y1 = (6-X)/2 #outputs for first equation
 Y2 = 0.5*X-1 #outputs for second equation
 
-ax.set_title("Solutions to 2D System") #title
-ax.set_xlabel("x") #input label
-ax.set_ylabel("y") #output label
+#label title and axes
+ax.set(title="Solutions to 2D System", xlabel="x", ylabel="y") 
 
 ax.plot(X,Y1,X,Y2) #plot both equations
 plt.show() #display result

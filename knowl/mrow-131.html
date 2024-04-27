@@ -13,10 +13,26 @@
 <body class="ignore-math">
 <div class="displaymath process-math">
 \begin{align*}
-\va\times\vb&amp;\ne\vb\times\va\\
-\va\times(\vb\times\vc)&amp;\ne (\va\times\vb)\times\vc
+|\va\times\vb|^2
+&amp;=\big(\va\times\vb\big)\cdot\big(\va\times\vb\big)\\
+&amp;=(a_2b_3-a_3b_2)^2+(a_3b_1-a_1b_3)^2+ (a_1b_2-a_2b_1)^2\\
+&amp;=a_2^2b_3^2-2a_2b_3a_3b_2+a_3^2b_2^2
++a_3^2b_1^2-2a_3b_1a_1b_3+a_1^2b_3^2\\
+&amp;\hskip0.5in
++a_1^2b_2^2-2a_1b_2a_2b_1+a_2^2b_1^2\\
+\end{align*}
+<p class="intertext">is equal to</p>
+\begin{align*}
+|\va|^2\,|\vb|^2\sin^2\theta
+&amp;=|\va|^2|\vb|^2(1-\cos^2\theta)\\
+&amp;=|\va|^2|\vb|^2-(\va\cdot\vb)^2\\
+&amp;=\big(a_1^2+a_2^2+a_3^2\big)\big(b_1^2+b_2^2+b_3^2\big)
+-\big(a_1b_1+a_2b_2+a_3b_3\big)^2\\
+&amp;=a_1^2b_2^2+a_1^2b_3^2+a_2^2b_1^2+a_2^2b_3^2+a_3^2b_1^2+a_3^2b_2^2\\
+&amp;\hskip0.5in
+-\big(2a_1b_1a_2b_2+2a_1b_1a_3b_3+2a_2b_2a_3b_3\big)
 \end{align*}
 </div>
-<span class="incontext"><a href="sec_vectors.html#md-59" class="internal">in-context</a></span>
+<span class="incontext"><a href="sec_vectors.html#md-58" class="internal">in-context</a></span>
 </body>
 </html>

@@ -12,7 +12,29 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">Does this work at all?</div>
-<span class="incontext"><a href="examples.html#p-477" class="internal">in-context</a></span>
+<div class="para logical">
+<div class="para">In this example, we find the distance between the point <span class="process-math">\((2,3,-1)\)</span> and the line</div>
+<div class="displaymath process-math">
+\begin{align*}
+L&amp;:\  \llt x-1,y-2,z-3\rgt=t\llt 1,1,2\rgt\\
+&amp;\quad \text{or, equivalently,}\quad
+x=1+t,\ y=2+t,\ z=3+2t
+\end{align*}
+</div>
+<div class="para">The vector from <span class="process-math">\((2,3,-1)\)</span> to the point <span class="process-math">\((1+t\,,\,2+t\,,\,3+2t)\)</span> on <span class="process-math">\(L\)</span> is <span class="process-math">\(\llt t-1\,,\,t-1\,,\,2t+4\rgt\text{.}\)</span> The square of the distance between <span class="process-math">\((2,3,-1)\)</span> and the point <span class="process-math">\((1+t\,,\,2+t\,,\,3+2t)\)</span>  on <span class="process-math">\(L\)</span> is the square of the length of that vector, namely</div>
+<div class="displaymath process-math">
+\begin{equation*}
+d(t)^2 = (t-1)^2 +(t-1)^2 +(2t+4)^2
+\end{equation*}
+</div>
+<div class="para">The point on <span class="process-math">\(L\)</span> that is closest to <span class="process-math">\((2,3,-1)\)</span> is that whose value of <span class="process-math">\(t\)</span> obeys</div>
+<div class="displaymath process-math">
+\begin{gather*}
+0= \diff{}{t} d(t)^2 = 2(t-1) +2(t-1) + 2(2)(2t+4)
+\tag{\(*\)}
+\end{gather*}
+</div>
+</div>
+<span class="incontext"><a href="sec_lines_3d.html#p-477" class="internal">in-context</a></span>
 </body>
 </html>

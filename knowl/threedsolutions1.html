@@ -33,7 +33,7 @@ sagecell.makeSagecell({
 </head>
 <body class="ignore-math">
 <article class="example example-like"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.7</span><span class="period">.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.9</span><span class="period">.</span>
 </h4>
 <div class="para logical">
 <div class="para">Graph solutions to the system</div>
@@ -45,18 +45,18 @@ x +y +z \amp= 1 \\
 \end{align*}
 </div>
 <div class="para">by finding the equations of the lines of intersection of the planes and plotting the planes, the lines, and the point of intersection.</div>
-</div> <div class="para">Solution 1 walks through the process, followed by a Python implementation of the <code class="code-inline tex2jax_ignore">rref()</code>.</div> <a href="" class="solution-knowl original" data-knowl="./knowl/solution-2-hidden.html" title="Solution 2.7.1"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></a> <pre class="ptx-sagecell sagecell-python" id="sage-51"><script type="text/x-sage">from sympy import Matrix
+</div> <div class="para">Solution 1 walks through the process, followed by a Python implementation of the <code class="code-inline tex2jax_ignore">rref()</code>.</div> <a href="" class="solution-knowl original" data-knowl="./knowl/solution-2-hidden.html" title="Solution 2.9.1"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></a> <pre class="ptx-sagecell sagecell-python" id="sage-51"><script type="text/x-sage">import sympy as sy
 
-A = Matrix([ [1,1,1,1], [0,-1,1,1],[-1,1,-1,0]
+A = sy.Matrix([ [1,1,1,1], [0,-1,1,1],[-1,1,-1,0]
 ]) #all three equations
 
-I1 = Matrix([ [1,1,1,1], [0,-1,1,1]
+I1 = sy.Matrix([ [1,1,1,1], [0,-1,1,1]
 ]) #intersection first two equations
 
-I2 = Matrix([ [0,-1,1,1],[-1,1,-1,0]
+I2 = sy.Matrix([ [0,-1,1,1],[-1,1,-1,0]
 ]) #intersection last two other equations
 
-I3 = Matrix([ [1,1,1,1], [-1,1,-1,0]
+I3 = sy.Matrix([ [1,1,1,1], [-1,1,-1,0]
 ]) #intersection first and last equations
 
 print("A=", A.rref())
@@ -98,13 +98,11 @@ ax.plot(X3,Y3,Z)
 # Customize the view angle 
 #ax.view_init(elev=20, azim=30, roll=0)
 
-ax.set_title("Solutions to 3D System") #title
-ax.set_xlabel("x") #x label
-ax.set_ylabel("y") #y label
-ax.set_zlabel("z") #z label
+#set title and axes labels
+ax.set(title="Solutions to 3D System", xlabel="x", ylabel="y", zlabel="z")
 
 plt.show()
-</script></pre> <div class="para">Note: you can change the viewing angle to try and get a better graph.</div> <div class="para">The real problem in the code above is that we graph our surfaces with domain <span class="process-math">\(-2\leq x \leq 2\)</span> and <span class="process-math">\(-2\leq y\leq 2\text{,}\)</span> but use <span class="process-math">\(-2\leq z\leq 2\)</span> for the parametric equation of our lines. There are several fixes for this.</div> <div class="para">One fix is to adjust the parametric input values for the lines to better match the planes. For example, you can make <span class="process-math">\(-1\leq z \leq 3\)</span> to get a more consistent graph. <em class="emphasis">Try several adjustments for the <span class="process-math">\(z\)</span> range in the above code.</em> To get a fully consistent graph, each line would need a different parametric domain that matches the domain of the planes.</div> <div class="para">Another fix is to solve each pair of equations for two points on the line in the domain of the planes. You can then plot the line between the two points.</div> <div class="para">Solution 2 walks through the process of finding the points, followed by an alternative Python implementation to graph the solutions.</div> <a href="" class="solution-knowl original" data-knowl="./knowl/solution-3-hidden.html" title="Solution 2.7.2"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a> <pre class="ptx-sagecell sagecell-python" id="sage-53"><script type="text/x-sage">import matplotlib.pyplot as plt
+</script></pre> <div class="para">Note: you can change the viewing angle to try and get a better graph.</div> <div class="para">The real problem in the code above is that we graph our surfaces with domain <span class="process-math">\(-2\leq x \leq 2\)</span> and <span class="process-math">\(-2\leq y\leq 2\text{,}\)</span> but use <span class="process-math">\(-2\leq z\leq 2\)</span> for the parametric equation of our lines. There are several fixes for this.</div> <div class="para">One fix is to adjust the parametric input values for the lines to better match the planes. For example, you can make <span class="process-math">\(-1\leq z \leq 3\)</span> to get a more consistent graph. <em class="emphasis">Try several adjustments for the <span class="process-math">\(z\)</span> range in the above code.</em> To get a fully consistent graph, each line would need a different parametric domain that matches the domain of the planes.</div> <div class="para">Another fix is to solve each pair of equations for two points on the line in the domain of the planes. You can then plot the line between the two points.</div> <div class="para">Solution 2 walks through the process of finding the points, followed by an alternative Python implementation to graph the solutions.</div> <a href="" class="solution-knowl original" data-knowl="./knowl/solution-3-hidden.html" title="Solution 2.9.2"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a> <pre class="ptx-sagecell sagecell-python" id="sage-53"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 fig = plt.figure() #create a figure
@@ -141,10 +139,8 @@ ax.plot(Line3X,Line3Y,Line3Z, color='green')
 # Customize the view angle 
 #ax.view_init(elev=20, azim=30, roll=0)
 
-ax.set_title("Solutions to 3D System") #title
-ax.set_xlabel("x") #x label
-ax.set_ylabel("y") #y label
-ax.set_zlabel("z") #z label
+set title and axes labels
+ax.set(title="Solutions to 3D System", xlabel="x", ylabel="y", zlabel="z")
 
 plt.show()
 </script></pre> <div class="para">Can you find other fixes? <em class="emphasis">If so, share them so we can add them here.</em>

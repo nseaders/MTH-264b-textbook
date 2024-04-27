@@ -328,7 +328,32 @@ sagecell.makeSagecell({
 <div class="toc-item"><a href="section-matrices.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix Arithmetic</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="section-matrices.html#subsection-28" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsec-BasicMatrices" class="internal"><span class="title">Basic Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsec-MatrixMultiplication" class="internal"><span class="title">Matrix Multiplication</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsec-MatrixInverses" class="internal"><span class="title">Matrix Inverses</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsec-ill-conditioned" class="internal"><span class="title">Ill Conditioned Matrices</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#exercises-matrices" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-transformations.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Matrix Transformations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-transformations.html#subsection-33" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-transformations.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-determinants.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Determinants</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-determinants.html#subsection-34" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-determinants.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-eigenthings.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Eigenthings</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-eigenthings.html#subsection-35" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-eigenthings.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -356,7 +381,7 @@ sagecell.makeSagecell({
 <li>
 <div class="toc-item"><a href="examples.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Samples of various pretext formats</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="examples.html#subsection-37" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
+<li><div class="toc-item"><a href="examples.html#subsection-44" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
 <li><div class="toc-item"><a href="examples.html#reading-questions-1" class="internal"><span class="title">Reading Questions</span></a></div></li>
 </ul>
 </li>
@@ -403,10 +428,10 @@ x \amp +4y \amp =2
 \end{equation*}
 </div>
 </div></article><div class="para" id="p-187">In Sympy, matrices are entered using the function <code class="code-inline tex2jax_ignore">Matrix</code>.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-48"><script type="text/x-sage">from sympy import Matrix
+<pre class="ptx-sagecell sagecell-python" id="sage-48"><script type="text/x-sage">import sympy as sp
 
 #define your sympy matrix
-A = Matrix([
+A = sp.Matrix([
   [1,2,3],
   [4,5,6]]) 
 
@@ -415,38 +440,46 @@ print(A)
 <article class="exercise exercise-like" id="exercise-43"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.2</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-188">Edit the above code to print the augmented matrix for the system of linear equations in <a href="" class="xref" data-knowl="./knowl/augmatrix.html" title="Example 2.1: Augmented Matrix">Example 2.1</a>.</div></article><div class="para" id="p-189">The Sympy functions <code class="code-inline tex2jax_ignore">echelon_form()</code> and <code class="code-inline tex2jax_ignore">rref()</code> can be used to row reduce a matrix to reduced echelon form and row reduced echelon form, respectively. If you need a refresher on these two forms, read section (insert reference here).</div>
+<div class="para" id="p-188">Edit the above code to print the augmented matrix for the system of linear equations in <a href="" class="xref" data-knowl="./knowl/augmatrix.html" title="Example 2.1: Augmented Matrix">Example 2.1</a>.</div></article><div class="para" id="p-189">Note that sympy will automatically convert decimals to floating point numbers. Often it is helpful to keep fractions exact using sympy’s <code class="code-inline tex2jax_ignore">Rational(a,b)</code> command.</div>
 <article class="exercise exercise-like" id="exercise-44"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.3</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-190">Edit the code below to print the reduced echelon form and the row reduced echelon form for the augmented matrix of the system of linear equations from <a href="" class="xref" data-knowl="./knowl/augmatrix.html" title="Example 2.1: Augmented Matrix">Example 2.1</a>.</div></article><pre class="ptx-sagecell sagecell-python" id="sage-49"><script type="text/x-sage">from sympy import Matrix
+<div class="para" id="p-190">Edit the above code to print a matrix with decimals like <span class="process-math">\(0.9\)</span> or <span class="process-math">\(0.1\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-45"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.4</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-191">Now input fractions like <code class="code-inline tex2jax_ignore">sy.Rational(1,9)</code> and <code class="code-inline tex2jax_ignore">sy.Rational(1,10)</code> and compare.</div></article><div class="para" id="p-192">The Sympy functions <code class="code-inline tex2jax_ignore">echelon_form()</code> and <code class="code-inline tex2jax_ignore">rref()</code> can be used to row reduce a matrix to reduced echelon form and row reduced echelon form, respectively. If you need a refresher on these two forms, read section (insert reference here).</div>
+<article class="exercise exercise-like" id="exercise-46"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.5</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-193">Edit the code below to print the reduced echelon form and the row reduced echelon form for the augmented matrix of the system of linear equations from <a href="" class="xref" data-knowl="./knowl/augmatrix.html" title="Example 2.1: Augmented Matrix">Example 2.1</a>.</div></article><pre class="ptx-sagecell sagecell-python" id="sage-49"><script type="text/x-sage">import sympy as sp
 
 #define your sympy matrix
-A = Matrix([ [2,-3,4], [1,4,2]]) 
+A = sp.Matrix([ [2,-3,4], [1,4,2]]) 
 
 print(A.echelon_form()) #print REF of A
 print(A.rref()) #print RREF of A
 </script></pre>
-<div class="para" id="p-191">Note that <code class="code-inline tex2jax_ignore">rref()</code> returns not only the row reduced echelon form of a matrix, but also a tuple that tells you which columns have leading values of 1. These columns are called pivot columns, and give you a quick way to see any free variables (which are non-pivot columns).</div>
-<article class="exercise exercise-like" id="exercise-45"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.4</span><span class="period">.</span>
+<div class="para" id="p-194">Note that <code class="code-inline tex2jax_ignore">rref()</code> returns not only the row reduced echelon form of a matrix, but also a tuple that tells you which columns have leading values of 1. These columns are called pivot columns, and give you a quick way to see any free variables (which are non-pivot columns).</div>
+<article class="exercise exercise-like" id="exercise-47"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.6</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-192">Edit the code above for various augmented matrices to see how the tuple returned by <code class="code-inline tex2jax_ignore">rref()</code> relates to the pivot columns.</div></article><div class="para logical" id="p-193">
+<div class="para" id="p-195">Edit the code above for various augmented matrices to see how the tuple returned by <code class="code-inline tex2jax_ignore">rref()</code> relates to the pivot columns.</div></article><div class="para logical" id="p-196">
 <div class="para">Recall that a system of linear equations either has</div>
 <ol class="decimal">
-<li id="li-67"><div class="para" id="p-194">no solution,</div></li>
-<li id="li-68"><div class="para" id="p-195">a unique solution, or</div></li>
-<li id="li-69"><div class="para" id="p-196">infinitely many solutions.</div></li>
+<li id="li-67"><div class="para" id="p-197">no solution,</div></li>
+<li id="li-68"><div class="para" id="p-198">a unique solution, or</div></li>
+<li id="li-69"><div class="para" id="p-199">infinitely many solutions.</div></li>
 </ol>
 <div class="para">If you need a refresher on how to interpret the reduced echelon form of an augmented matrix to determine if there is no solution, write down the unique solution, or give the infinitely many solutions in parametric form, see section (insert section here).</div>
 </div></section><section class="subsection" id="graphsolution"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Graphing solutions to systems of equations</span>
 </h3>
-<div class="para" id="p-197">In order to graph solutions to systems of linear equations with two or three variables you can graph the corresponding lines, planes, or coordinates.</div>
+<div class="para" id="p-200">In order to graph solutions to systems of linear equations with two or three variables you can graph the corresponding lines, planes, or coordinates.</div>
 <article class="example example-like" id="twodsolutions"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5</span><span class="period">.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.7</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-198">
+<div class="para logical" id="p-201">
 <div class="para">The system</div>
 <div class="displaymath process-math" id="md-3">
 \begin{align*}
@@ -456,7 +489,7 @@ x \amp +2y \amp= 6 \\
 </div>
 <div class="para">has solutions <span class="process-math">\(x=4\)</span> and <span class="process-math">\(y=1\text{.}\)</span>
 </div>
-</div> <div class="para" id="p-199">Linear equations with two variables can be graphed as lines in the xy-plane, either by plotting two points on the line or solving for <span class="process-math">\(y\text{.}\)</span> The solution is one point in a scatter plot.</div> <pre class="ptx-sagecell sagecell-python" id="sage-50"><script type="text/x-sage">import matplotlib.pyplot as plt
+</div> <div class="para" id="p-202">Linear equations with two variables can be graphed as lines in the xy-plane, either by plotting two points on the line or solving for <span class="process-math">\(y\text{.}\)</span> The solution is one point in a scatter plot.</div> <pre class="ptx-sagecell sagecell-python" id="sage-50"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 fig = plt.figure() #create a figure
@@ -467,20 +500,19 @@ X = np.linspace(0,10,num=100) #inputs
 Y1 = (6-X)/2 #outputs for first equation
 Y2 = 0.5*X-1 #outputs for second equation
 
-ax.set_title("Solutions to 2D System") #title
-ax.set_xlabel("x") #input label
-ax.set_ylabel("y") #output label
+#label title and axes
+ax.set(title="Solutions to 2D System", xlabel="x", ylabel="y") 
 
 ax.plot(X,Y1,X,Y2) #plot both equations
 plt.show() #display result
-</script></pre></article><article class="exercise exercise-like" id="exercise-46"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.6</span><span class="period">.</span>
+</script></pre></article><article class="exercise exercise-like" id="exercise-48"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.8</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-200">Edit the code in <a href="" class="xref" data-knowl="./knowl/twodsolutions.html" title="Example 2.5">Example 2.5</a> to clearly indicate the solution <span class="process-math">\(x=4\)</span> and <span class="process-math">\(y=1\)</span> on the graph.</div></article><div class="para" id="p-201">Systems of equations with three variables must be graphed in 3D. As mentioned in <a href="section-matplotlib3d.html" class="internal" title="Section 1.4: Matplotlib and 3D graphing">Section 1.4</a>, Matplotlib paints 2D projections of each surface on top of the other which doesn’t adequately graph their relationships. We can partially fix this by making the surfaces transparent and explicitly plotting their intersections. The intersection of any two non-parallel planes is a line which can be found by solving the system of the two plane equations and writing the solution in parametric form.</div>
+<div class="para" id="p-203">Edit the code in <a href="" class="xref" data-knowl="./knowl/twodsolutions.html" title="Example 2.7">Example 2.7</a> to clearly indicate the solution <span class="process-math">\(x=4\)</span> and <span class="process-math">\(y=1\)</span> on the graph.</div></article><div class="para" id="p-204">Systems of equations with three variables must be graphed in 3D. As mentioned in <a href="section-matplotlib3d.html" class="internal" title="Section 1.4: Matplotlib and 3D graphing">Section 1.4</a>, Matplotlib paints 2D projections of each surface on top of the other which doesn’t adequately graph their relationships. We can partially fix this by making the surfaces transparent and explicitly plotting their intersections. The intersection of any two non-parallel planes is a line which can be found by solving the system of the two plane equations and writing the solution in parametric form.</div>
 <article class="example example-like" id="threedsolutions1"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.7</span><span class="period">.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.9</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-202">
+<div class="para logical" id="p-205">
 <div class="para">Graph solutions to the system</div>
 <div class="displaymath process-math" id="md-4">
 \begin{align*}
@@ -490,9 +522,9 @@ x +y +z \amp= 1 \\
 \end{align*}
 </div>
 <div class="para">by finding the equations of the lines of intersection of the planes and plotting the planes, the lines, and the point of intersection.</div>
-</div> <div class="para" id="p-203">Solution 1 walks through the process, followed by a Python implementation of the <code class="code-inline tex2jax_ignore">rref()</code>.</div> <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-2" id="solution-2"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-2"><div class="solution solution-like">
-<div class="para" id="p-204">First row reducing the augmented matrix for the system of all three equations we obtain a unique solution <span class="process-math">\(x=-1\text{,}\)</span> <span class="process-math">\(y=1/2\text{,}\)</span> <span class="process-math">\(z=3/2\text{.}\)</span>
-</div> <div class="para logical" id="p-205">
+</div> <div class="para" id="p-206">Solution 1 walks through the process, followed by a Python implementation of the <code class="code-inline tex2jax_ignore">rref()</code>.</div> <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-2" id="solution-2"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-2"><div class="solution solution-like">
+<div class="para" id="p-207">First row reducing the augmented matrix for the system of all three equations we obtain a unique solution <span class="process-math">\(x=-1\text{,}\)</span> <span class="process-math">\(y=1/2\text{,}\)</span> <span class="process-math">\(z=3/2\text{.}\)</span>
+</div> <div class="para logical" id="p-208">
 <div class="para">Row reducing the augmented matrix for the first two equations we obtain</div>
 <div class="displaymath process-math" id="md-5">
 \begin{align*}
@@ -508,7 +540,7 @@ y -z \amp =-1
 \left[\begin{matrix} 2\\ -1\\0 \end{matrix} \right] +z\left[\begin{matrix} -2\\ 1\\1 \end{matrix} \right].
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-206">
+</div> <div class="para logical" id="p-209">
 <div class="para">Row reducing the augmented matrix for the last two equations we obtain</div>
 <div class="displaymath process-math" id="md-6">
 \begin{align*}
@@ -524,7 +556,7 @@ y -z \amp =-1
 \left[\begin{matrix} -1\\ -1\\0 \end{matrix} \right] +z\left[\begin{matrix} 0\\ 1\\1 \end{matrix} \right].
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-207">
+</div> <div class="para logical" id="p-210">
 <div class="para">Row reducing the augmented matrix for the first and last equations we obtain</div>
 <div class="displaymath process-math" id="md-7">
 \begin{align*}
@@ -541,25 +573,25 @@ y  \amp =1/2
 \end{equation*}
 </div>
 </div>
-</div></div> <pre class="ptx-sagecell sagecell-python" id="sage-51"><script type="text/x-sage">from sympy import Matrix
+</div></div> <pre class="ptx-sagecell sagecell-python" id="sage-51"><script type="text/x-sage">import sympy as sy
 
-A = Matrix([ [1,1,1,1], [0,-1,1,1],[-1,1,-1,0]
+A = sy.Matrix([ [1,1,1,1], [0,-1,1,1],[-1,1,-1,0]
 ]) #all three equations
 
-I1 = Matrix([ [1,1,1,1], [0,-1,1,1]
+I1 = sy.Matrix([ [1,1,1,1], [0,-1,1,1]
 ]) #intersection first two equations
 
-I2 = Matrix([ [0,-1,1,1],[-1,1,-1,0]
+I2 = sy.Matrix([ [0,-1,1,1],[-1,1,-1,0]
 ]) #intersection last two other equations
 
-I3 = Matrix([ [1,1,1,1], [-1,1,-1,0]
+I3 = sy.Matrix([ [1,1,1,1], [-1,1,-1,0]
 ]) #intersection first and last equations
 
 print("A=", A.rref())
 print("I1=", I1.rref())
 print("I2=", I2.rref())
 print("I3=", I3.rref())
-</script></pre> <div class="para" id="p-208">Next we will use Matplotlib to graph these results. First note that if we are careless with our input domains for the planes and lines, our graph will be inconsistent.</div> <pre class="ptx-sagecell sagecell-python" id="sage-52"><script type="text/x-sage">import matplotlib.pyplot as plt
+</script></pre> <div class="para" id="p-211">Next we will use Matplotlib to graph these results. First note that if we are careless with our input domains for the planes and lines, our graph will be inconsistent.</div> <pre class="ptx-sagecell sagecell-python" id="sage-52"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 fig = plt.figure() #create a figure
@@ -594,14 +626,12 @@ ax.plot(X3,Y3,Z)
 # Customize the view angle 
 #ax.view_init(elev=20, azim=30, roll=0)
 
-ax.set_title("Solutions to 3D System") #title
-ax.set_xlabel("x") #x label
-ax.set_ylabel("y") #y label
-ax.set_zlabel("z") #z label
+#set title and axes labels
+ax.set(title="Solutions to 3D System", xlabel="x", ylabel="y", zlabel="z")
 
 plt.show()
-</script></pre> <div class="para" id="p-209">Note: you can change the viewing angle to try and get a better graph.</div> <div class="para" id="p-210">The real problem in the code above is that we graph our surfaces with domain <span class="process-math">\(-2\leq x \leq 2\)</span> and <span class="process-math">\(-2\leq y\leq 2\text{,}\)</span> but use <span class="process-math">\(-2\leq z\leq 2\)</span> for the parametric equation of our lines. There are several fixes for this.</div> <div class="para" id="p-211">One fix is to adjust the parametric input values for the lines to better match the planes. For example, you can make <span class="process-math">\(-1\leq z \leq 3\)</span> to get a more consistent graph. <em class="emphasis">Try several adjustments for the <span class="process-math">\(z\)</span> range in the above code.</em> To get a fully consistent graph, each line would need a different parametric domain that matches the domain of the planes.</div> <div class="para" id="p-212">Another fix is to solve each pair of equations for two points on the line in the domain of the planes. You can then plot the line between the two points.</div> <div class="para" id="p-213">Solution 2 walks through the process of finding the points, followed by an alternative Python implementation to graph the solutions.</div> <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-3" id="solution-3"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-3"><div class="solution solution-like">
-<div class="para logical" id="p-214">
+</script></pre> <div class="para" id="p-212">Note: you can change the viewing angle to try and get a better graph.</div> <div class="para" id="p-213">The real problem in the code above is that we graph our surfaces with domain <span class="process-math">\(-2\leq x \leq 2\)</span> and <span class="process-math">\(-2\leq y\leq 2\text{,}\)</span> but use <span class="process-math">\(-2\leq z\leq 2\)</span> for the parametric equation of our lines. There are several fixes for this.</div> <div class="para" id="p-214">One fix is to adjust the parametric input values for the lines to better match the planes. For example, you can make <span class="process-math">\(-1\leq z \leq 3\)</span> to get a more consistent graph. <em class="emphasis">Try several adjustments for the <span class="process-math">\(z\)</span> range in the above code.</em> To get a fully consistent graph, each line would need a different parametric domain that matches the domain of the planes.</div> <div class="para" id="p-215">Another fix is to solve each pair of equations for two points on the line in the domain of the planes. You can then plot the line between the two points.</div> <div class="para" id="p-216">Solution 2 walks through the process of finding the points, followed by an alternative Python implementation to graph the solutions.</div> <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-3" id="solution-3"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-3"><div class="solution solution-like">
+<div class="para logical" id="p-217">
 <div class="para">Recall the first two equations intersect in the line</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -612,7 +642,7 @@ plt.show()
 </div>
 <div class="para">Solving for when <span class="process-math">\(x=2\text{,}\)</span> we see <span class="process-math">\(t=0\text{.}\)</span> Plugging <span class="process-math">\(t=0\)</span> into the parametric equation for the line we obtain the point <span class="process-math">\((2,-1,0)\text{.}\)</span> Similarly when <span class="process-math">\(x=-2\text{,}\)</span> we find <span class="process-math">\(t=2\text{,}\)</span> giving the point <span class="process-math">\((-2,1,2)\text{.}\)</span>
 </div>
-</div> <div class="para logical" id="p-215">
+</div> <div class="para logical" id="p-218">
 <div class="para">The last two equations intersect in the line</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -623,7 +653,7 @@ plt.show()
 </div>
 <div class="para">Here <span class="process-math">\(x\)</span> is always <span class="process-math">\(-1\text{.}\)</span> Instead we solve for when <span class="process-math">\(y=-2\)</span> and <span class="process-math">\(2\text{.}\)</span> We find <span class="process-math">\(t=-1\)</span> and <span class="process-math">\(3\text{,}\)</span> giving us the two points <span class="process-math">\((-1,2,-1)\)</span> and <span class="process-math">\((-1,2,3)\text{.}\)</span>
 </div>
-</div> <div class="para logical" id="p-216">
+</div> <div class="para logical" id="p-219">
 <div class="para">The first and last equations intersect in the line</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -634,7 +664,7 @@ plt.show()
 </div>
 <div class="para">Here <span class="process-math">\(x=-2,2\)</span> when <span class="process-math">\(t=5/2,-3/2\)</span> giving us the points <span class="process-math">\((-2,1/2,5/2)\)</span> and <span class="process-math">\((2,1/2,-3/2)\text{.}\)</span>
 </div>
-</div> <div class="para" id="p-217">Recall to plot the lines between two points we create arrays of the <span class="process-math">\(x\)</span>-values, <span class="process-math">\(y\)</span>-values, and <span class="process-math">\(z\)</span>-values, then plot the line between them.</div>
+</div> <div class="para" id="p-220">Recall to plot the lines between two points we create arrays of the <span class="process-math">\(x\)</span>-values, <span class="process-math">\(y\)</span>-values, and <span class="process-math">\(z\)</span>-values, then plot the line between them.</div>
 </div></div> <pre class="ptx-sagecell sagecell-python" id="sage-53"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
@@ -672,21 +702,19 @@ ax.plot(Line3X,Line3Y,Line3Z, color='green')
 # Customize the view angle 
 #ax.view_init(elev=20, azim=30, roll=0)
 
-ax.set_title("Solutions to 3D System") #title
-ax.set_xlabel("x") #x label
-ax.set_ylabel("y") #y label
-ax.set_zlabel("z") #z label
+set title and axes labels
+ax.set(title="Solutions to 3D System", xlabel="x", ylabel="y", zlabel="z")
 
 plt.show()
-</script></pre> <div class="para" id="p-218">Can you find other fixes? <em class="emphasis">If so, share them so we can add them here.</em>
+</script></pre> <div class="para" id="p-221">Can you find other fixes? <em class="emphasis">If so, share them so we can add them here.</em>
 </div></article></section><section class="subsection" id="subsection-26"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Graphing vector equations and their solutions</span>
 </h3>
-<div class="para" id="p-219">Recall that solving a vector equation is equivalent to solving a system of equations.</div>
+<div class="para" id="p-222">Recall that solving a vector equation is equivalent to solving a system of equations.</div>
 <article class="example example-like" id="example-4"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.8</span><span class="period">.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.10</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-220">
+<div class="para logical" id="p-223">
 <div class="para">For example the vector equation</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/twodsolutions.html">
 \begin{equation*}
@@ -695,58 +723,76 @@ y\left[\begin{matrix} 2\\-1 \end{matrix} \right]=
 \left[\begin{matrix} 6\\1 \end{matrix} \right]
 \end{equation*}
 </div>
-<div class="para">corresponds to the linear system found in <a href="" class="xref" data-knowl="./knowl/twodsolutions.html" title="Example 2.5">Example 2.5</a> and still has solution <span class="process-math">\(x=4\)</span> and <span class="process-math">\(y=1\text{.}\)</span>
+<div class="para">corresponds to the linear system found in <a href="" class="xref" data-knowl="./knowl/twodsolutions.html" title="Example 2.7">Example 2.7</a> and still has solution <span class="process-math">\(x=4\)</span> and <span class="process-math">\(y=1\text{.}\)</span>
 </div>
-</div> <div class="para" id="p-221">The solution to the vector equation can be graphed using linear combinations of vectors. That is, <span class="process-math">\(4\vec{u}+\vec{v}=\vec{b}.\)</span>
+</div> <div class="para" id="p-224">The solution to the vector equation can be graphed using linear combinations of vectors. That is, <span class="process-math">\(4\vec{u}+\vec{v}=\vec{b}.\)</span>
 </div> <pre class="ptx-sagecell sagecell-python" id="sage-54"><script type="text/x-sage">import matplotlib.pyplot as plt
 
-fig = plt.figure() #create a figure
-ax = plt.axes() #add an axis
+fig = plt.figure(figsize=(8,5)) #create a figure
+#create one row and two columns of plots
+ax1 = plt.subplot(1,2,1) #1 row, 2 columns, first graph
+ax2 = plt.subplot(1,2,2) #1 row, 2 columns, second graph
 
-plt.xlim(-2, 7)
-plt.ylim(-2, 4)
-plt.axhline(0, color='black')
-plt.axvline(0, color='black')
-plt.grid()
+# add original vectors to axes
+ax1.quiver(0,0,1,1/2,label='u',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1) 
+ax1.quiver(0,0,2,-1,label='v',color='deepskyblue', angles='xy', scale_units='xy', scale=1) 
+ax1.quiver(0,0,6,1,label='b',color='green', angles='xy', scale_units='xy', scale=1) 
 
-# original vectors
-plt.quiver(0,0,1,1/2,label='u',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1) 
-plt.quiver(0,0,2,-1,label='v',color='deepskyblue', angles='xy', scale_units='xy', scale=1) 
-plt.quiver(0,0,6,1,label='b',color='green', angles='xy', scale_units='xy', scale=1) 
+#add solution vectors to axes
+ax2.quiver(0,0,4,2,label='4u',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1, alpha=0.6) 
+ax2.quiver(4,2,2,-1,label='v', color='deepskyblue', angles='xy', scale_units='xy', scale=1)
+ax2.quiver(0,0,6,1,label='b',color='green', angles='xy', scale_units='xy', scale=1) 
 
-#solution vectors
-plt.quiver(0,0,4,2,label='4u',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1, alpha=0.6) 
-plt.quiver(4,2,2,-1,color='deepskyblue', angles='xy', scale_units='xy', scale=1) 
+#annotate vectors option instead of legend
+ax1.annotate("u", xy=(0.25,0.25))
+ax1.annotate("v", xy=(0.5, -.65))
+ax1.annotate("b", xy=(3, 0.25))
+ax2.annotate("4u", xy=(2,1.2))
+ax2.annotate("v", xy=(5,1.65))
+ax2.annotate("b", xy=(3, 0.25))
 
-plt.legend() #Makes labels show up
-ax.set_title("Solutions to Vector Equation") #title
-ax.set_xlabel("x") #input label
-ax.set_ylabel("y") #output label
+#set title and axes labels and limits, legend, axis, grid
+ax1.set(title="Vector Equation xu+yv=b", xlabel="x", ylabel="y")
+ax1.set(xlim=(-1,7), ylim=(-1.5,3.5))
+ax1.legend() 
+ax1.axhline(0, color='black')
+ax1.axvline(0, color='black')
+ax1.grid()
 
+#set title and axes labels and limits, legend, axis, grid
+ax2.set(title="Vector Equation Solutions", xlabel="x", ylabel="y")
+ax2.set(xlim=(-1,7), ylim=(-1.5,3.5))
+ax2.legend() 
+ax2.axhline(0, color='black')
+ax2.axvline(0, color='black')
+ax2.grid() 
 
 plt.show()
 </script></pre></article></section><section class="subsection" id="subsec-"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Converting between Numpy arrays and Sympy Matrices</span>
 </h3>
-<div class="para" id="p-222">Since Numpy and Sympy are different libraries, we will need to either enter our augmented matrix as a Sympy matrix, or convert a numpy array into a sympy matrix in order to call the row reducing function in Sympy.</div>
+<div class="para" id="p-225">Since Numpy and Sympy are different libraries, we will need to either enter our augmented matrix as a Sympy matrix, or convert a numpy array into a sympy matrix in order to call the row reducing function in Sympy.</div>
+<div class="para" id="p-226">Note that Numpy matrices can be coded as 2D Numpy arrays.</div>
 <pre class="ptx-sagecell sagecell-python" id="sage-55"><script type="text/x-sage">import numpy as np
-from sympy import Matrix
+import sympy as sp
 
 npA = np.matrix([[1, 2], [3, 4]]) #Create a numpy matrix
-spA = Matrix(npA) #convert to a sympy matrix
-REF = spA.echelon_form() #Get REF
-RREF = spA.rref()[0] #Get RREF ??why 0?
+spA = sp.Matrix(npA) #convert to a sympy matrix
 
-print(np.array(RREF))
+RREF = spA.rref()[0] #Get RREF in sympy
+
+print(RREF) #print sympy rref
+print(np.array(RREF)) #print numpy rref, this doesn't always work to compute with
+print(np.array(RREF).astype(np.float64)) #specify float type, which will work
 </script></pre></section><article class="assemblage assemblage-like" id="assemblage-6"><h3 class="heading"><span class="title">Summary.</span></h3>
-<div class="para logical" id="p-223">
-<ul class="disc"><li id="li-70"><div class="para" id="p-224">TBD</div></li></ul>
-<ul class="disc"><li id="li-71"><div class="para" id="p-225">TBD</div></li></ul>
+<div class="para logical" id="p-227">
+<ul class="disc"><li id="li-70"><div class="para" id="p-228">TBD</div></li></ul>
+<ul class="disc"><li id="li-71"><div class="para" id="p-229">TBD</div></li></ul>
 </div></article><section class="exercises" id="exercises-systems"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-47"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para logical" id="p-226">
+<article class="exercise exercise-like" id="exercise-49"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para logical" id="p-230">
 <div class="para">The system</div>
 <div class="displaymath process-math" id="md-8">
 \begin{align*}
@@ -757,8 +803,20 @@ x  -y  \amp =3\\
 </div>
 <div class="para">has a unique solution.</div>
 </div>
-<div class="para" id="p-227">Use Python code to find the solution. Graph the system of equations and the solution using Matplot3D. Lable your axes. <em class="emphasis">Note: part of the challenge is making sure you have a good viewing window and perspective so the graph helps illuminate the solution.</em>
-</div></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-4"><div class="fn">Row reduction is sometimes called Gaussian elimination, after the mathematician Gauss. Long before Gauss, Chinese scholars demonstrated this method of solving systems of linear equations in chapter 8 of The Nine Chapters on the Mathematical Art..</div></div>
+<div class="para" id="p-231">Use Python code to find the solution. Graph the system of equations and the solution using Matplot3D. Lable your axes. <em class="emphasis">Note: part of the challenge is making sure you have a good viewing window and perspective so the graph helps illuminate the solution.</em>
+</div></article><article class="exercise exercise-like" id="exercise-50"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para logical" id="p-232">
+<div class="para">Consider the system</div>
+<div class="displaymath process-math" id="md-9">
+\begin{align*}
+x  +2y  +z \amp= 6 \\
+x  -y  \amp =3\\
+-x  +y  -z\amp =0
+\end{align*}
+</div>
+<div class="para">Convert the system of linear equations to a vector equation.</div>
+</div>
+<div class="para" id="p-233">Find the unique solution and graph your answer as a vector equation using Matplotlib3D. (That is, use vectors instead of planes to visualize the solution to this system.)</div></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-4"><div class="fn">Row reduction is sometimes called Gaussian elimination, after the mathematician Gauss. The method was actually popularized in Europe by Cambridge University who published notes of Newton. Soon algebra textbooks across Europe included the method. Long before Gauss or Newton, Chinese scholars demonstrated this method of solving systems of linear equations in chapter 8 of The Nine Chapters on the Mathematical Art.</div></div>
 </div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="chapter2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="section-matrices.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>

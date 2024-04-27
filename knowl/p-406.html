@@ -11,16 +11,24 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
+<h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">We’ll start by sketching the line. To do so, we guess two points on <span class="process-math">\(L\)</span> and then draw the line that passes through the two points.</div>
-<ul class="disc">
-<li><div class="para">If <span class="process-math">\((x,y)\)</span> is on <span class="process-math">\(L\)</span> and <span class="process-math">\(x=0\text{,}\)</span> then <span class="process-math">\(y=6\text{.}\)</span> So <span class="process-math">\((0,6)\)</span> is on <span class="process-math">\(L\text{.}\)</span>
-</div></li>
-<li><div class="para">If <span class="process-math">\((x,y)\)</span> is on <span class="process-math">\(L\)</span> and <span class="process-math">\(y=0\text{,}\)</span> then <span class="process-math">\(x=2\text{.}\)</span> So <span class="process-math">\((2,0)\)</span> is on <span class="process-math">\(L\text{.}\)</span>
-</div></li>
-</ul>
+<div class="para">All together</div>
+<div class="displaymath process-math">
+\begin{align*}
+\text{volume of parallelepiped}
+&amp;=(\text{area of base})\,(\text{height})\\
+&amp;=|\vb\times\vc|\ |\va|\ |\cos\varphi|\\
+&amp;=\big|\va\cdot(\vb\times\vc)\big|\\
+&amp;=\left|a_1 (\vb\times\vc)_1 +a_2 (\vb\times\vc)_2
++a_3 (\vb\times\vc)_3\right|\\
+&amp;=\left|a_1\det\left[\begin{matrix} b_2&amp;b_3 \\ c_2&amp;c_3\end{matrix}\right]
+-a_2 \det\left[\begin{matrix}b_1&amp;b_3 \\ c_1&amp;c_3\end{matrix}\right]
++a_3\det\left[\begin{matrix}b_1&amp;b_2 \\ c_1&amp;c_2\end{matrix}\right]\right|\\
+&amp;=\left|\det\left[\begin{matrix}a_1&amp;a_2&amp;a_3\\ b_1&amp;b_2&amp;b_3\\c_1&amp;c_2&amp;c_3\end{matrix}\right]\right|
+\end{align*}
 </div>
-<span class="incontext"><a href="sec_lines_2d.html#p-406" class="internal">in-context</a></span>
+</div>
+<span class="incontext"><a href="sec_vectors.html#p-406" class="internal">in-context</a></span>
 </body>
 </html>

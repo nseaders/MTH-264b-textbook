@@ -12,11 +12,61 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para logical"><div class="displaymath process-math">
+<div class="para logical">
+<div class="para">The position of the moving particle, as seen by the fixed observer is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec_rot_motion.html">
+\begin{align*}
+\vR(t) &amp;= x(t)\,\hi(t) + y(t)\,\hj(t) +z(t)\,\hk(t)
+\end{align*}
+</div>
+<div class="para">Differentiating, the velocity of the moving particle, as measured by the fixed observer is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec_rot_motion.html">
+\begin{align*}
+\vV(t)=\diff{\vR}{t} &amp;= \phantom{+}\diff{x}{t}\!(t)\ \hi(t)
++ \diff{y}{t}\!(t)\ \hj(t)
++ \diff{z}{t}\!(t)\ \hk(t)\\
+&amp;\phantom{=} +x(t)\diff{}{t} \hi(t)
++y(t)\diff{}{t} \hj(t)
++z(t)\diff{}{t} \hk(t)
+\end{align*}
+</div>
+<div class="para">We saw, in the last (optional) §<a href="sec_vectors.html#sec_rot_motion" class="internal" title="Subsection: (Optional) Application of Cross Products to Rotational Motion">Subsection </a>, that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec_rot_motion.html">
 \begin{gather*}
-|\vy-\vx| = 2|\vn| = 2\sqrt{1^2+2^2+3^2} =2\sqrt{14}
+\diff{}{t} \hi(t)=\vOmega\times\hi(t)\quad
+\diff{}{t} \hj(t)=\vOmega\times\hj(t)\quad
+\diff{}{t} \hk(t)=\vOmega\times\hk(t)
 \end{gather*}
-</div></div>
-<span class="incontext"><a href="sec_planes_3d.html#p-421" class="internal">in-context</a></span>
+</div>
+<div class="para">(You could also verify that these are correct by putting in <span class="process-math">\(\vOmega = (0,0,\Om)\)</span> and explicitly computing the cross products.) So</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec_rot_motion.html">
+\begin{align*}
+\vV(t)&amp;= \Big(\diff{x}{t}\!(t)\ \hi(t)
++ \diff{y}{t}\!(t)\ \hj(t)
++ \diff{z}{t}\!(t)\ \hk(t)\Big)\\
+&amp;\hskip0.5in           +\vOmega\times\Big(x(t)\ \hi(t)
++y(t)\ \hj(t)
++z(t)\ \hk(t)\Big)
+\end{align*}
+</div>
+<div class="para">Differentiating a second time, the acceleration of the moving particle (which is also <span class="process-math">\(\frac{\vF}{m}\text{,}\)</span> where <span class="process-math">\(\vF\)</span> is the net force being applied to the particle and <span class="process-math">\(m\)</span> is the mass of the particle) as measured  by the fixed observer is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec_rot_motion.html">
+\begin{align*}
+\frac{\vF}{m}
+=\vA(t)
+=&amp; \Big(\difftwo{x}{t}\!(t)\ \hi(t)
++ \difftwo{y}{t}\!(t)\ \hj(t)
++ \difftwo{z}{t}\!(t)\ \hk(t)\Big)\\
+&amp; +2\vOmega\times\Big(\diff{x}{t}\!(t)\ \hi(t)
++\diff{y}{t}\!(t)\ \hj(t)
++\diff{z}{t}\!(t)\ \hk(t)\Big)\\
+&amp;+\vOmega\times\Big(\vOmega\times\big[
+x(t)\ \hi(t)
++y(t)\ \hj(t)
++z(t)\ \hk(t)\big]\Big)
+\end{align*}
+</div>
+</div>
+<span class="incontext"><a href="sec_vectors.html#p-421" class="internal">in-context</a></span>
 </body>
 </html>

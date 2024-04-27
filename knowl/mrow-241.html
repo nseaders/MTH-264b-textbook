@@ -12,20 +12,18 @@
 </head>
 <body class="ignore-math">
 <div class="displaymath process-math">
-\begin{alignat*}{4}
-&amp;\text{Method 1:}\qquad &amp;
-x&amp;=1-\frac{t_1}{2}\qquad &amp;
-y&amp;=1-\frac{t_1}{2}\qquad &amp;
-z&amp;=t_1\\
-&amp;\text{Method 2:}\qquad &amp;
-x&amp;=1-t_2\qquad &amp;
-y&amp;=1-t_2\qquad &amp;
-z&amp;=2t_2\\
-&amp;\text{Method 3:}\qquad &amp;
-x&amp;=t_3\qquad &amp;
-y&amp;=t_3\qquad &amp;
-z&amp;=2-2t_3
-\end{alignat*}
+\begin{align*}
+\vd&amp;=\llt 1,-1,0\rgt \times\llt 1,1,1\rgt\\
+&amp; =\det\left[ \begin{matrix}\hi &amp;\hj&amp;\hk\\
+1&amp;-1&amp;0\\ 1&amp;1&amp;1\end{matrix}\right]
+=\hi\det\left[\begin{matrix}-1&amp;0\\
+1&amp;1\end{matrix}\right]
+-\hj\det\left[\begin{matrix}1&amp;0\\
+1&amp;1\end{matrix}\right]
++\hk\det\left[\begin{matrix}1&amp;-1\\
+1&amp;1\end{matrix}\right]\\
+&amp;=-\hi-\hj+2\hk
+\end{align*}
 </div>
 <span class="incontext"><a href="sec_lines_3d.html#md-113" class="internal">in-context</a></span>
 </body>

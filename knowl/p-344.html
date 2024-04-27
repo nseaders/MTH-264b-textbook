@@ -13,30 +13,15 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">The formula <span class="process-math">\(|\va\times\vb|=|\va|\,|\vb|\sin\theta\)</span> is gotten by verifying that</div>
+<div class="para">Any parallelogram can be constructed like this if you pick the common point and two vectors appropriately. Let’s compute the area of the parallelogram. The area of the large rectangle with vertices <span class="process-math">\((0,0),\ (0, b+d),\ (a+c,0)\)</span> and <span class="process-math">\((a+c,b+d)\)</span> is <span class="process-math">\((a+c)(b+d)\text{.}\)</span> The parallelogram we want can be extracted from the large rectangle by deleting the two small rectangles (each of area <span class="process-math">\(bc\)</span>), and the two lightly shaded triangles (each of area <span class="process-math">\(\half cd\)</span>), and the two darkly shaded triangles (each of area <span class="process-math">\(\half ab\)</span>). So the desired</div>
 <div class="displaymath process-math">
-\begin{align*}
-|\va\times\vb|^2
-&amp;=\big(\va\times\vb\big)\cdot\big(\va\times\vb\big)\\
-&amp;=(a_2b_3-a_3b_2)^2+(a_3b_1-a_1b_3)^2+ (a_1b_2-a_2b_1)^2\\
-&amp;=a_2^2b_3^2-2a_2b_3a_3b_2+a_3^2b_2^2
-+a_3^2b_1^2-2a_3b_1a_1b_3+a_1^2b_3^2\\
-&amp;\hskip0.5in
-+a_1^2b_2^2-2a_1b_2a_2b_1+a_2^2b_1^2\\
-\end{align*}
-<p class="intertext">is equal to</p>
-\begin{align*}
-|\va|^2\,|\vb|^2\sin^2\theta
-&amp;=|\va|^2|\vb|^2(1-\cos^2\theta)\\
-&amp;=|\va|^2|\vb|^2-(\va\cdot\vb)^2\\
-&amp;=\big(a_1^2+a_2^2+a_3^2\big)\big(b_1^2+b_2^2+b_3^2\big)
--\big(a_1b_1+a_2b_2+a_3b_3\big)^2\\
-&amp;=a_1^2b_2^2+a_1^2b_3^2+a_2^2b_1^2+a_2^2b_3^2+a_3^2b_1^2+a_3^2b_2^2\\
-&amp;\hskip0.5in
--\big(2a_1b_1a_2b_2+2a_1b_1a_3b_3+2a_2b_2a_3b_3\big)
-\end{align*}
+\begin{gather*}
+{\rm area} = (a+c)(b+d) - (2\times bc) -\big(2\times \half cd\big)
+-\big(2\times\half ab\big)
+=ad-bc
+\end{gather*}
 </div>
-<div class="para">To see that <span class="process-math">\(|\va|\,|\vb|\sin\theta\)</span> is the area of the parallelogram with sides <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vb\text{,}\)</span> just recall that the area of any parallelogram is given by the length of its base times its height. Think of <span class="process-math">\(\va\)</span> as the base of the parallelogram. Then <span class="process-math">\(|\va|\)</span> is the length of the base and <span class="process-math">\(|\vb|\sin\theta\)</span> is the height.</div>
+<div class="para">In the above figure, we have implicitly assumed that <span class="process-math">\(a,\ b,\ c,\ d\ge 0\)</span> and <span class="process-math">\(d/c\ge b/a\text{.}\)</span> In words, we have assumed that both vectors <span class="process-math">\(\llt a,b\rgt ,\ \llt c,d\rgt \)</span> lie in the first quadrant and that <span class="process-math">\(\llt c,d\rgt \)</span> lies above <span class="process-math">\(\llt a,b\rgt \text{.}\)</span> By simply interchanging <span class="process-math">\(a\leftrightarrow c\)</span> and <span class="process-math">\(b\leftrightarrow d\)</span> in the picture and throughout the argument, we see that when <span class="process-math">\(a,\ b,\ c,\ d\ge 0\)</span> and <span class="process-math">\(b/a\ge d/c\text{,}\)</span> so that the vector <span class="process-math">\(\llt c,d\rgt \)</span> lies below <span class="process-math">\(\llt a,b\rgt \text{,}\)</span> the area of the parallelogram is <span class="process-math">\(bc-ad\text{.}\)</span> In fact, all cases are covered by the formula</div>
 </div>
 <span class="incontext"><a href="sec_vectors.html#p-344" class="internal">in-context</a></span>
 </body>

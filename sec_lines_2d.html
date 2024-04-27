@@ -308,7 +308,32 @@ window.MathJax = {
 <div class="toc-item"><a href="section-matrices.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix Arithmetic</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="section-matrices.html#subsection-28" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsec-BasicMatrices" class="internal"><span class="title">Basic Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsec-MatrixMultiplication" class="internal"><span class="title">Matrix Multiplication</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsec-MatrixInverses" class="internal"><span class="title">Matrix Inverses</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsec-ill-conditioned" class="internal"><span class="title">Ill Conditioned Matrices</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#exercises-matrices" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-transformations.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Matrix Transformations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-transformations.html#subsection-33" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-transformations.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-determinants.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Determinants</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-determinants.html#subsection-34" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-determinants.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-eigenthings.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Eigenthings</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-eigenthings.html#subsection-35" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-eigenthings.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -336,7 +361,7 @@ window.MathJax = {
 <li>
 <div class="toc-item"><a href="examples.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Samples of various pretext formats</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="examples.html#subsection-37" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
+<li><div class="toc-item"><a href="examples.html#subsection-44" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
 <li><div class="toc-item"><a href="examples.html#reading-questions-1" class="internal"><span class="title">Reading Questions</span></a></div></li>
 </ul>
 </li>
@@ -347,29 +372,29 @@ window.MathJax = {
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_lines_2d"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.3</span> <span class="title">Equations of Lines in 2d</span>
 </h2>
-<div class="para" id="p-392">A line in two dimensions can be specified  by giving one point <span class="process-math">\((x_0,y_0)\)</span> on the line and one vector <span class="process-math">\(\vd=\llt d_x,d_y\rgt \)</span> whose direction is parallel to the line.</div>
+<div class="para" id="p-424">A line in two dimensions can be specified  by giving one point <span class="process-math">\((x_0,y_0)\)</span> on the line and one vector <span class="process-math">\(\vd=\llt d_x,d_y\rgt \)</span> whose direction is parallel to the line.</div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:30%;margin-right:30%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/twodLine.svg" role="img" class="contained"></div></div></div>
-<div class="para" id="p-393">If <span class="process-math">\((x,y)\)</span> is any point on the line then the vector <span class="process-math">\(\llt x-x_0,y-y_0\rgt \text{,}\)</span> whose tail is at <span class="process-math">\((x_0,y_0)\)</span> and whose head is at <span class="process-math">\((x,y)\text{,}\)</span>  must be parallel to <span class="process-math">\(\vd\)</span> and hence must be a scalar multiple of <span class="process-math">\(\vd\text{.}\)</span> So</div>
+<div class="para" id="p-425">If <span class="process-math">\((x,y)\)</span> is any point on the line then the vector <span class="process-math">\(\llt x-x_0,y-y_0\rgt \text{,}\)</span> whose tail is at <span class="process-math">\((x_0,y_0)\)</span> and whose head is at <span class="process-math">\((x,y)\text{,}\)</span>  must be parallel to <span class="process-math">\(\vd\)</span> and hence must be a scalar multiple of <span class="process-math">\(\vd\text{.}\)</span> So</div>
 <article class="fact theorem-like" id="eqn_par_line"><h3 class="heading">
 <span class="type">Fact</span><span class="space"> </span><span class="codenumber">3.31</span><span class="period">.</span><span class="space"> </span><span class="title">Parametric Equations.</span>
 </h3>
-<div class="para logical" id="p-394">
-<div class="displaymath process-math" id="md-80">
+<div class="para logical" id="p-426">
+<div class="displaymath process-math" id="md-83">
 \begin{gather*}
 \llt x-x_0,y-y_0\rgt =t \vd
 \end{gather*}
 </div>
 <div class="para">or, writing out in components,</div>
-<div class="displaymath process-math" id="md-81">
+<div class="displaymath process-math" id="md-84">
 \begin{align*}
 x-x_0&amp;=t d_x\\
 y-y_0&amp;=t d_y
 \end{align*}
 </div>
-</div></article><div class="para" id="p-395">These are called the parametric equations of the line, because they contain a free parameter, namely <span class="process-math">\(t\text{.}\)</span> As <span class="process-math">\(t\)</span> varies from <span class="process-math">\(-\infty\)</span> to <span class="process-math">\(\infty\text{,}\)</span> the point <span class="process-math">\((x_0+td_x,y_0+td_y)\)</span> traverses the entire line.</div>
-<div class="para logical" id="p-396">
+</div></article><div class="para" id="p-427">These are called the parametric equations of the line, because they contain a free parameter, namely <span class="process-math">\(t\text{.}\)</span> As <span class="process-math">\(t\)</span> varies from <span class="process-math">\(-\infty\)</span> to <span class="process-math">\(\infty\text{,}\)</span> the point <span class="process-math">\((x_0+td_x,y_0+td_y)\)</span> traverses the entire line.</div>
+<div class="para logical" id="p-428">
 <div class="para">It is easy to eliminate the parameter <span class="process-math">\(t\)</span> from the equations. Just multiply <span class="process-math">\(x-x_0=t d_x\)</span> by <span class="process-math">\(d_y\text{,}\)</span> multiply <span class="process-math">\(y-y_0=t d_y\)</span> by <span class="process-math">\(d_x\)</span> and subtract to give</div>
-<div class="displaymath process-math" id="md-82">
+<div class="displaymath process-math" id="md-85">
 \begin{gather*}
 (x-x_0)d_y-(y-y_0)d_x=0
 \end{gather*}
@@ -379,34 +404,34 @@ y-y_0&amp;=t d_y
 <article class="fact theorem-like" id="eqn_symm_eqn_line"><h3 class="heading">
 <span class="type">Fact</span><span class="space"> </span><span class="codenumber">3.32</span><span class="period">.</span><span class="space"> </span><span class="title">Symmetric Equation.</span>
 </h3>
-<div class="para logical" id="p-397"><div class="displaymath process-math" id="md-83">
+<div class="para logical" id="p-429"><div class="displaymath process-math" id="md-86">
 \begin{gather*}
 \frac{x-x_0}{d_x}=\frac{y-y_0}{d_y}
 \end{gather*}
-</div></div></article><div class="para" id="p-398">This is called the symmetric equation for the line.</div>
-<div class="para" id="p-399">A second way to specify a line in two dimensions is to give one point <span class="process-math">\((x_0,y_0)\)</span> on the line and one vector <span class="process-math">\(\vn=\llt n_x,n_y\rgt \)</span> whose direction is  perpendicular to that of the line.</div>
+</div></div></article><div class="para" id="p-430">This is called the symmetric equation for the line.</div>
+<div class="para" id="p-431">A second way to specify a line in two dimensions is to give one point <span class="process-math">\((x_0,y_0)\)</span> on the line and one vector <span class="process-math">\(\vn=\llt n_x,n_y\rgt \)</span> whose direction is  perpendicular to that of the line.</div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:30%;margin-right:30%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/twodLineNormal.svg" role="img" class="contained"></div></div></div>
-<div class="para" id="p-400">If <span class="process-math">\((x,y)\)</span> is any point on the line then the vector <span class="process-math">\(\llt x-x_0,y-y_0\rgt \text{,}\)</span> whose tail is at <span class="process-math">\((x_0,y_0)\)</span> and whose head is at <span class="process-math">\((x,y)\text{,}\)</span> must be perpendicular to <span class="process-math">\(\vn\)</span> so that</div>
+<div class="para" id="p-432">If <span class="process-math">\((x,y)\)</span> is any point on the line then the vector <span class="process-math">\(\llt x-x_0,y-y_0\rgt \text{,}\)</span> whose tail is at <span class="process-math">\((x_0,y_0)\)</span> and whose head is at <span class="process-math">\((x,y)\text{,}\)</span> must be perpendicular to <span class="process-math">\(\vn\)</span> so that</div>
 <article class="fact theorem-like" id="eqn_line"><h3 class="heading">
 <span class="type">Fact</span><span class="space"> </span><span class="codenumber">3.33</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-401">
-<div class="displaymath process-math" id="md-84">
+<div class="para logical" id="p-433">
+<div class="displaymath process-math" id="md-87">
 \begin{gather*}
 \vn\cdot\llt x-x_0,y-y_0\rgt =0
 \end{gather*}
 </div>
 <div class="para">Writing out in components</div>
-<div class="displaymath process-math" id="md-85">
+<div class="displaymath process-math" id="md-88">
 \begin{gather*}
 n_x(x-x_0)+n_y(y-y_0)=0\qquad\text{or}\qquad n_xx+n_yy= n_xx_0+n_yy_0
 \end{gather*}
 </div>
-</div></article><div class="para" id="p-402">Observe that the coefficients <span class="process-math">\(n_x,n_y\)</span> of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> in the equation of the line are the components of a vector <span class="process-math">\(\llt n_x,n_y\rgt \)</span> perpendicular to the line. This enables us to read off a vector perpendicular to any given line directly from the equation of the line. Such a vector is called a normal vector for the line.</div>
+</div></article><div class="para" id="p-434">Observe that the coefficients <span class="process-math">\(n_x,n_y\)</span> of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> in the equation of the line are the components of a vector <span class="process-math">\(\llt n_x,n_y\rgt \)</span> perpendicular to the line. This enables us to read off a vector perpendicular to any given line directly from the equation of the line. Such a vector is called a normal vector for the line.</div>
 <article class="example example-like" id="example-18"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.34</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-403">
+<div class="para logical" id="p-435">
 <div class="para">Consider, for example, the line <span class="process-math">\(y=3x+7\text{.}\)</span> To rewrite this equation in the form</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -415,32 +440,32 @@ n_xx+n_yy= n_xx_0+n_yy_0
 </div>
 <div class="para">we have to move terms around so that <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> are on one side of the equation and <span class="process-math">\(7\)</span> is  on the other side: <span class="process-math">\(3x-y=-7\text{.}\)</span> Then <span class="process-math">\(n_x\)</span> is the coefficient of <span class="process-math">\(x\text{,}\)</span> namely <span class="process-math">\(3\text{,}\)</span> and <span class="process-math">\(n_y\)</span> is the coefficient of <span class="process-math">\(y\text{,}\)</span> namely <span class="process-math">\(-1\text{.}\)</span> One normal vector for <span class="process-math">\(y=3x+7\)</span> is <span class="process-math">\(\llt 3,-1\rgt \text{.}\)</span>
 </div>
-</div> <div class="para" id="p-404">Of course, if <span class="process-math">\(\llt 3,-1\rgt \)</span> is perpendicular to <span class="process-math">\(y=3x+7\text{,}\)</span> so is <span class="process-math">\(-5\llt 3,-1\rgt =\llt -15,5\rgt \text{.}\)</span> In fact, if we first multiply the equation <span class="process-math">\(3x-y=-7\)</span> by <span class="process-math">\(-5\)</span> to get <span class="process-math">\(-15x+5y=35\)</span> and then set <span class="process-math">\(n_x\)</span> and <span class="process-math">\(n_y\)</span> to the coefficients of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> respectively, we get <span class="process-math">\(\vn=\llt -15,5\rgt \text{.}\)</span>
+</div> <div class="para" id="p-436">Of course, if <span class="process-math">\(\llt 3,-1\rgt \)</span> is perpendicular to <span class="process-math">\(y=3x+7\text{,}\)</span> so is <span class="process-math">\(-5\llt 3,-1\rgt =\llt -15,5\rgt \text{.}\)</span> In fact, if we first multiply the equation <span class="process-math">\(3x-y=-7\)</span> by <span class="process-math">\(-5\)</span> to get <span class="process-math">\(-15x+5y=35\)</span> and then set <span class="process-math">\(n_x\)</span> and <span class="process-math">\(n_y\)</span> to the coefficients of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> respectively, we get <span class="process-math">\(\vn=\llt -15,5\rgt \text{.}\)</span>
 </div></article><article class="example example-like" id="eg_nearest_point"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.35</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-405">In this example, we find the point on the line <span class="process-math">\(y=6-3x\)</span> (call the line <span class="process-math">\(L\)</span>) that is closest to the point <span class="process-math">\((7,5)\text{.}\)</span>
-</div> <div class="para logical" id="p-406">
+<div class="para" id="p-437">In this example, we find the point on the line <span class="process-math">\(y=6-3x\)</span> (call the line <span class="process-math">\(L\)</span>) that is closest to the point <span class="process-math">\((7,5)\text{.}\)</span>
+</div> <div class="para logical" id="p-438">
 <div class="para">We’ll start by sketching the line. To do so, we guess two points on <span class="process-math">\(L\)</span> and then draw the line that passes through the two points.</div>
 <ul class="disc">
-<li id="li-169"><div class="para" id="p-derived-li-169">If <span class="process-math">\((x,y)\)</span> is on <span class="process-math">\(L\)</span> and <span class="process-math">\(x=0\text{,}\)</span> then <span class="process-math">\(y=6\text{.}\)</span> So <span class="process-math">\((0,6)\)</span> is on <span class="process-math">\(L\text{.}\)</span>
+<li id="li-181"><div class="para" id="p-derived-li-181">If <span class="process-math">\((x,y)\)</span> is on <span class="process-math">\(L\)</span> and <span class="process-math">\(x=0\text{,}\)</span> then <span class="process-math">\(y=6\text{.}\)</span> So <span class="process-math">\((0,6)\)</span> is on <span class="process-math">\(L\text{.}\)</span>
 </div></li>
-<li id="li-170"><div class="para" id="p-derived-li-170">If <span class="process-math">\((x,y)\)</span> is on <span class="process-math">\(L\)</span> and <span class="process-math">\(y=0\text{,}\)</span> then <span class="process-math">\(x=2\text{.}\)</span> So <span class="process-math">\((2,0)\)</span> is on <span class="process-math">\(L\text{.}\)</span>
+<li id="li-182"><div class="para" id="p-derived-li-182">If <span class="process-math">\((x,y)\)</span> is on <span class="process-math">\(L\)</span> and <span class="process-math">\(y=0\text{,}\)</span> then <span class="process-math">\(x=2\text{.}\)</span> So <span class="process-math">\((2,0)\)</span> is on <span class="process-math">\(L\text{.}\)</span>
 </div></li>
 </ul>
 </div> <div class="sidebyside"><div class="sbsrow" style="margin-left:7.5%;margin-right:7.5%;">
 <div class="sbspanel top" style="width:41.1764705882353%;"><img src="external/figs/closestA.svg" role="img" class="contained"></div>
 <div class="sbspanel top" style="width:41.1764705882353%;"><img src="external/figs/closestB.svg" role="img" class="contained"></div>
-</div></div> <div class="para" id="p-407">Denote by <span class="process-math">\(P\)</span> the point on <span class="process-math">\(L\)</span> that is closest to <span class="process-math">\((7,5)\text{.}\)</span> It is characterized by the property that the line from <span class="process-math">\((7,5)\)</span> to <span class="process-math">\(P\)</span> is perpendicular to <span class="process-math">\(L\text{.}\)</span> This is the case just because if <span class="process-math">\(Q\)</span> is any other point on <span class="process-math">\(L\text{,}\)</span> then, by Pythagoras, the distance from <span class="process-math">\((7,5)\)</span> to <span class="process-math">\(Q\)</span> is larger than the distance from <span class="process-math">\((7,5)\)</span> to <span class="process-math">\(P\text{.}\)</span> See the figure on the right above.</div> <div class="para" id="p-408">Let’s use <span class="process-math">\(N\)</span> to denote the line which passes through <span class="process-math">\((7,5)\)</span> and which is perpendicular to <span class="process-math">\(L\text{.}\)</span>
-</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:32.5%;margin-right:32.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/closest.svg" role="img" class="contained"></div></div></div> <div class="para logical" id="p-409">
+</div></div> <div class="para" id="p-439">Denote by <span class="process-math">\(P\)</span> the point on <span class="process-math">\(L\)</span> that is closest to <span class="process-math">\((7,5)\text{.}\)</span> It is characterized by the property that the line from <span class="process-math">\((7,5)\)</span> to <span class="process-math">\(P\)</span> is perpendicular to <span class="process-math">\(L\text{.}\)</span> This is the case just because if <span class="process-math">\(Q\)</span> is any other point on <span class="process-math">\(L\text{,}\)</span> then, by Pythagoras, the distance from <span class="process-math">\((7,5)\)</span> to <span class="process-math">\(Q\)</span> is larger than the distance from <span class="process-math">\((7,5)\)</span> to <span class="process-math">\(P\text{.}\)</span> See the figure on the right above.</div> <div class="para" id="p-440">Let’s use <span class="process-math">\(N\)</span> to denote the line which passes through <span class="process-math">\((7,5)\)</span> and which is perpendicular to <span class="process-math">\(L\text{.}\)</span>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:32.5%;margin-right:32.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/closest.svg" role="img" class="contained"></div></div></div> <div class="para logical" id="p-441">
 <div class="para">Since <span class="process-math">\(L\)</span> has the equation <span class="process-math">\(3x+y=6\text{,}\)</span> one vector perpendicular to <span class="process-math">\(L\text{,}\)</span> and hence parallel to <span class="process-math">\(N\text{,}\)</span> is <span class="process-math">\(\llt 3,1\rgt \text{.}\)</span> So if <span class="process-math">\((x,y)\)</span> is any point on <span class="process-math">\(N\text{,}\)</span> the vector <span class="process-math">\(\llt x-7,y-5\rgt \)</span> must be of the form <span class="process-math">\(t\llt 3,1\rgt \text{.}\)</span> So the parametric equations of <span class="process-math">\(N\)</span> are</div>
-<div class="displaymath process-math" id="md-86">
+<div class="displaymath process-math" id="md-89">
 \begin{gather*}
 \llt x-7,y-5\rgt =t\llt 3,1\rgt \qquad\text{or}\qquad x=7+3t,\ y=5+t
 \end{gather*}
 </div>
 <div class="para">Now let <span class="process-math">\((x,y)\)</span> be the coordinates of <span class="process-math">\(P\text{.}\)</span> Since <span class="process-math">\(P\)</span> is on <span class="process-math">\(N\text{,}\)</span> we have <span class="process-math">\(x=7+3t\text{,}\)</span> <span class="process-math">\(y=5+t\)</span> for some <span class="process-math">\(t\text{.}\)</span> Since <span class="process-math">\(P\)</span> is also on <span class="process-math">\(L\text{,}\)</span> we also have <span class="process-math">\(3x+y=6\text{.}\)</span> So</div>
-<div class="displaymath process-math" id="md-87">
+<div class="displaymath process-math" id="md-90">
 \begin{alignat*}{2}
 &amp; &amp; 3(7+3t)+(5+t)&amp;= 6\\
 &amp; \iff\qquad&amp; 10t+26&amp;= 6\\

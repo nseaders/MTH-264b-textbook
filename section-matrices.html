@@ -240,7 +240,7 @@ sagecell.makeSagecell({
 <span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
 </ol>
 </li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="section-systems.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="chapter2.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="appendix.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="section-systems.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="chapter2.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="section-transformations.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\lt}{&lt;}
@@ -328,7 +328,32 @@ sagecell.makeSagecell({
 <div class="toc-item"><a href="section-matrices.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix Arithmetic</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="section-matrices.html#subsection-28" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsec-BasicMatrices" class="internal"><span class="title">Basic Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsec-MatrixMultiplication" class="internal"><span class="title">Matrix Multiplication</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsec-MatrixInverses" class="internal"><span class="title">Matrix Inverses</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsec-ill-conditioned" class="internal"><span class="title">Ill Conditioned Matrices</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#exercises-matrices" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-transformations.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Matrix Transformations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-transformations.html#subsection-33" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-transformations.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-determinants.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Determinants</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-determinants.html#subsection-34" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-determinants.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-eigenthings.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Eigenthings</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-eigenthings.html#subsection-35" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-eigenthings.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -356,7 +381,7 @@ sagecell.makeSagecell({
 <li>
 <div class="toc-item"><a href="examples.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Samples of various pretext formats</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="examples.html#subsection-37" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
+<li><div class="toc-item"><a href="examples.html#subsection-44" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
 <li><div class="toc-item"><a href="examples.html#reading-questions-1" class="internal"><span class="title">Reading Questions</span></a></div></li>
 </ul>
 </li>
@@ -369,32 +394,188 @@ sagecell.makeSagecell({
 </h2>
 <section class="introduction" id="introduction-9">In this section we will learn how to</section><article class="objectives goal-like" id="objectives-7"><h3 class="heading"><span class="type">Objectives</span></h3>
 <ul class="disc">
-<li id="li-72"><div class="para" id="p-228">Add, subtract, scale, and multiply matrices in Numpy</div></li>
-<li id="li-73"><div class="para" id="p-229">Find matrix inverses</div></li>
-<li id="li-74"><div class="para" id="p-230">Use matrix inverses to solve systems of linear equations</div></li>
+<li id="li-72"><div class="para" id="p-234">Add, subtract, scale, and multiply matrices in Numpy and Sympy</div></li>
+<li id="li-73"><div class="para" id="p-235">Find matrix inverses using Numpy and Sympy</div></li>
+<li id="li-74"><div class="para" id="p-236">Use matrix inverses to solve systems of linear equations</div></li>
 </ul></article><section class="subsection" id="subsection-28"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Title</span>
 </h3>
 <pre class="ptx-sagecell sagecell-python" id="sage-56"><script type="text/x-sage">python
 </script></pre>
-<article class="exercise exercise-like" id="exercise-48"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.9</span><span class="period">.</span>
-</h4></article></section><section class="conclusion" id="conclusion-5"><div class="para" id="p-231"></div></section><article class="assemblage assemblage-like" id="assemblage-7"><h3 class="heading"><span class="title">Summary.</span></h3>
-<div class="para logical" id="p-232">
-<ul class="disc"><li id="li-75"><div class="para" id="p-233">blah</div></li></ul>
-<ul class="disc"><li id="li-76"><div class="para" id="p-234">blah</div></li></ul>
+<article class="exercise exercise-like" id="exercise-51"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.11</span><span class="period">.</span>
+</h4></article></section><section class="subsection" id="subsec-BasicMatrices"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Basic Matrices</span>
+</h3>
+<div class="para" id="p-237">Matrices are just 2D arrays and we can compute with them in both the Sympy and Numpy libraries. Some common matrices that we can generate automatically include the (multiplicative) identity matrix, a zero matrix, and a matrix of all ones.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-57"><script type="text/x-sage">import numpy as np
+import sympy as sp
+nIdentity = np.identity(3)
+sIdentity = sp.eye(3)
+
+print(nIdentity)
+print(sIdentity)
+
+nZeros = np.zeros((2,2))
+sZeros = sp.zeros(2,2)
+
+print(nZeros)
+print(sZeros)
+
+nOnes = np.ones((3,4))
+sOnes = sp.ones(4,2)
+
+print(nOnes)
+print(sOnes)
+</script></pre>
+<pre class="ptx-sagecell sagecell-python" id="sage-58"><script type="text/x-sage">import numpy as np
+import sympy as sp
+
+nIdentity = np.identity(3)
+sIdentity = sp.eye(3)
+
+print(nIdentity)
+print(sIdentity)
+</script></pre>
+<div class="para" id="p-238">You can add, subtract and scale matrices in both numpy and sympy.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-59"><script type="text/x-sage">import numpy as np
+# create numpy matrices and try it out
+# add
+# subtract
+# scale
+</script></pre>
+<pre class="ptx-sagecell sagecell-python" id="sage-60"><script type="text/x-sage">import sympy as sp
+# create sympy matrices and try it out
+# add 
+# subtract
+# scale
+</script></pre></section><section class="subsection" id="subsec-MatrixMultiplication"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Matrix Multiplication</span>
+</h3>
+<div class="para" id="p-239">Note that if you naively multiply Numpy arrays you get the Hadamard product, which is NOT the same as matrix multiplication.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-61"><script type="text/x-sage">import numpy as np
+import sympy as sp
+
+A = np.array([[1,2,3], [4,5,6]])
+B = np.array([[2,4,0],[1,1,1]])
+C = np.array([[2,5], [2,7],[2,1]])
+
+print(A*B)
+</script></pre>
+<pre class="ptx-sagecell sagecell-python" id="sage-62"><script type="text/x-sage">import numpy as np
+import sympy as sp
+
+A = np.array([[1,2,3], [4,5,6]])
+B = np.array([[2,4,0],[1,1,1]])
+C = np.array([[2,5], [2,7],[2,1]])
+
+print(np.dot(A,C))
+print(A@C)
+</script></pre>
+<div class="para" id="p-240">Meanwhile in Sympy you get matrix multiplication by default and have to specify a Hadamard product (element-wise multiplication of matrices).</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-63"><script type="text/x-sage">import sympy as sp
+
+A = sp.Matrix([[1,2,3], [4,5,6]])
+B = sp.Matrix([[2,4,0],[1,1,1]])
+C = sp.Matrix([[2,5], [2,7],[2,1]])
+
+print(A*B)
+</script></pre>
+<pre class="ptx-sagecell sagecell-python" id="sage-64"><script type="text/x-sage">import sympy as sp
+
+A = sp.Matrix([[1,2,3], [4,5,6]])
+B = sp.Matrix([[2,4,0],[1,1,1]])
+C = sp.Matrix([[2,5], [2,7],[2,1]])
+
+print(A.multiply_elementwise(B))
+</script></pre>
+<div class="para" id="p-241">Put something in here about Matrix vector multiplication</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-65"><script type="text/x-sage">import sympy as sp
+
+A = sp.Matrix([[1,2,3], [4,5,6]])
+B = sp.Matrix([[2,4,0],[1,1,1]])
+C = sp.Matrix([[2,5], [2,7],[2,1]])
+
+print(A.multiply_elementwise(B))
+</script></pre></section><section class="subsection" id="subsec-MatrixInverses"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Matrix Inverses</span>
+</h3>
+<div class="para" id="p-242">We can find a matrix inverse in sympy just using <code class="code-inline tex2jax_ignore">rref()</code> with our original matrix augmented with the identity matrix. But sympy has a dedicated matrix inverse command, and numpy has a numerical matrix inverse command as well.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-66"><script type="text/x-sage">import sympy as sp
+import numpy as np
+
+#define your sympy matrix
+sA = sp.Matrix([ [2,-3], [1,4]])
+#invert using sympy 
+sA_inverse = sA.inv()
+
+#print the inverse
+print("In sympy A inverse is:", sA_inverse)
+
+#define our numpy matrix
+nA = np.array([[2,-3], [1,4]])
+# or convert from sympy to numpy
+#nA2 = np.array(sA).astype(np.float64)
+#invert using numpy
+nA_inverse = np.linalg.inv(nA)
+
+print("In numpy A inverse is:", nA_inverse)
+</script></pre></section><section class="subsection" id="subsec-ill-conditioned"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Ill Conditioned Matrices</span>
+</h3>
+<div class="para" id="p-243">While inverting a matrix helps us solve matrix equations symbolically and can be a helpful way to solve by hand, in practice, you seldom want to invert a matrix to solve a system with technology. The primary reason being that some matrices are <em class="emphasis">ill-conditioned</em>, that is, small changes in the entries of the matrix can give radical changes in the inverse given by technology. So then any rounding error can output radically different inverses.</div>
+<div class="para logical" id="p-244">
+<div class="para">For example, consider the two systems </div>
+<div class="displaymath process-math" id="md-10">
+\begin{align*}
+x  +y  \amp= 2 \\
+x  +1.001y  \amp =2 
+\end{align*}
+</div>
+<div class="displaymath process-math" id="md-11">
+\begin{align*}
+x+y \amp= 2\\
+x+1.001y \amp= 2.001
+\end{align*}
+</div>
+<div class="para">which obtain vastly different answers given the small change in the target. The corresponding matrix is ill-conditioned and can give different solutions with technology. </div>
+</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-67"><script type="text/x-sage">import sympy as sp
+import numpy as np
+
+#define your sympy matrix
+sA = sp.Matrix([ [1,1], [1,1.001]])
+#invert using sympy 
+sA_inverse = sA.inv()
+print("In sympy A inverse is:", sA_inverse)
+
+#solve system using sympy inverse
+
+#define our numpy matrix
+nA = np.array([[1,1], [1,1.001]])
+# or convert from sympy to numpy
+#nA2 = np.array(sA).astype(np.float64)
+#invert using numpy
+nA_inverse = np.linalg.inv(nA)
+print("In numpy A inverse is:", nA_inverse)
+
+#solve system using numpy inverse
+</script></pre></section><section class="conclusion" id="conclusion-5"><div class="para" id="p-245"></div></section><article class="assemblage assemblage-like" id="assemblage-7"><h3 class="heading"><span class="title">Summary.</span></h3>
+<div class="para logical" id="p-246">
+<ul class="disc"><li id="li-75"><div class="para" id="p-247">blah</div></li></ul>
+<ul class="disc"><li id="li-76"><div class="para" id="p-248">blah</div></li></ul>
 </div></article><section class="exercises" id="exercises-matrices"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-49"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<pre class="ptx-sagecell sagecell-python" id="sage-57"><script type="text/x-sage">#
+<article class="exercise exercise-like" id="exercise-52"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<pre class="ptx-sagecell sagecell-python" id="sage-68"><script type="text/x-sage">#
 #
 #
 #
 #
 </script></pre></article></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="section-systems.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="appendix.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+<a class="previous-button button" href="section-systems.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="section-transformations.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

@@ -502,7 +502,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.1",
   "title": "Solving and Graphing Systems of Linear Equations",
-  "body": " Solving and Graphing Systems of Linear Equations  Systems of linear equations can be solved using multiple methods. In this section we will learn how to solve systems of linear equations using a process called row reduction. Row reduction is sometimes called Gaussian elimination, after the mathematician Gauss. Long before Gauss, Chinese scholars demonstrated this method of solving systems of linear equations in chapter 8 of The Nine Chapters on the Mathematical Art. .      Row reduce matrices representing systems of linear equations using the Python library Sympy.    Graph solutions to systems of linear equations of two or three variables.    Graph solutions to vector equations in and .    Use the pivots of a reduced augmented matrix to determine if a system has no solution, a unique solution, or infinitely many solutions      Row Reduction  Note that row reduction involves symbolic manipulation. Since Numpy is focused on number crunching, we will need a different Python library called Sympy to do the symbolic manipulation of row reduction to reduced echelon form and row reduced echelon form.  In order to row reduce a system of linear equations we convert our system into an augmented matrix.   Augmented Matrix   For example, the system becomes     In Sympy, matrices are entered using the function Matrix .   Edit the above code to print the augmented matrix for the system of linear equations in .  The Sympy functions echelon_form() and rref() can be used to row reduce a matrix to reduced echelon form and row reduced echelon form, respectively. If you need a refresher on these two forms, read section (insert reference here).  Edit the code below to print the reduced echelon form and the row reduced echelon form for the augmented matrix of the system of linear equations from .   Note that rref() returns not only the row reduced echelon form of a matrix, but also a tuple that tells you which columns have leading values of 1. These columns are called pivot columns , and give you a quick way to see any free variables (which are non-pivot columns).  Edit the code above for various augmented matrices to see how the tuple returned by rref() relates to the pivot columns.  Recall that a system of linear equations either has   no solution,    a unique solution, or    infinitely many solutions.   If you need a refresher on how to interpret the reduced echelon form of an augmented matrix to determine if there is no solution, write down the unique solution, or give the infinitely many solutions in parametric form, see section (insert section here).    Graphing solutions to systems of equations  In order to graph solutions to systems of linear equations with two or three variables you can graph the corresponding lines, planes, or coordinates.   The system has solutions and .  Linear equations with two variables can be graphed as lines in the xy-plane, either by plotting two points on the line or solving for . The solution is one point in a scatter plot.    Edit the code in to clearly indicate the solution and on the graph.  Systems of equations with three variables must be graphed in 3D. As mentioned in , Matplotlib paints 2D projections of each surface on top of the other which doesn't adequately graph their relationships. We can partially fix this by making the surfaces transparent and explicitly plotting their intersections. The intersection of any two non-parallel planes is a line which can be found by solving the system of the two plane equations and writing the solution in parametric form.   Graph solutions to the system by finding the equations of the lines of intersection of the planes and plotting the planes, the lines, and the point of intersection.  Solution 1 walks through the process, followed by a Python implementation of the rref() .   First row reducing the augmented matrix for the system of all three equations we obtain a unique solution , , .  Row reducing the augmented matrix for the first two equations we obtain which can be written in parametric form,   Row reducing the augmented matrix for the last two equations we obtain which can be written in parametric form,   Row reducing the augmented matrix for the first and last equations we obtain which can be written in parametric form,     Next we will use Matplotlib to graph these results. First note that if we are careless with our input domains for the planes and lines, our graph will be inconsistent.   Note: you can change the viewing angle to try and get a better graph.  The real problem in the code above is that we graph our surfaces with domain and , but use for the parametric equation of our lines. There are several fixes for this.  One fix is to adjust the parametric input values for the lines to better match the planes. For example, you can make to get a more consistent graph. Try several adjustments for the range in the above code. To get a fully consistent graph, each line would need a different parametric domain that matches the domain of the planes.  Another fix is to solve each pair of equations for two points on the line in the domain of the planes. You can then plot the line between the two points.  Solution 2 walks through the process of finding the points, followed by an alternative Python implementation to graph the solutions.   Recall the first two equations intersect in the line Solving for when , we see . Plugging into the parametric equation for the line we obtain the point . Similarly when , we find , giving the point .  The last two equations intersect in the line Here is always . Instead we solve for when and . We find and , giving us the two points and .  The first and last equations intersect in the line Here when giving us the points and .  Recall to plot the lines between two points we create arrays of the -values, -values, and -values, then plot the line between them.    Can you find other fixes? If so, share them so we can add them here.      Graphing vector equations and their solutions  Recall that solving a vector equation is equivalent to solving a system of equations.   For example the vector equation corresponds to the linear system found in and still has solution and .  The solution to the vector equation can be graphed using linear combinations of vectors. That is,       Converting between Numpy arrays and Sympy Matrices  Since Numpy and Sympy are different libraries, we will need to either enter our augmented matrix as a Sympy matrix, or convert a numpy array into a sympy matrix in order to call the row reducing function in Sympy.     Summary     TBD      TBD       The system has a unique solution. Use Python code to find the solution. Graph the system of equations and the solution using Matplot3D. Lable your axes. Note: part of the challenge is making sure you have a good viewing window and perspective so the graph helps illuminate the solution.    "
+  "body": " Solving and Graphing Systems of Linear Equations  Systems of linear equations can be solved using multiple methods. In this section we will learn how to solve systems of linear equations using a process called row reduction. Row reduction is sometimes called Gaussian elimination, after the mathematician Gauss. The method was actually popularized in Europe by Cambridge University who published notes of Newton. Soon algebra textbooks across Europe included the method. Long before Gauss or Newton, Chinese scholars demonstrated this method of solving systems of linear equations in chapter 8 of The Nine Chapters on the Mathematical Art.       Row reduce matrices representing systems of linear equations using the Python library Sympy.    Graph solutions to systems of linear equations of two or three variables.    Graph solutions to vector equations in and .    Use the pivots of a reduced augmented matrix to determine if a system has no solution, a unique solution, or infinitely many solutions      Row Reduction  Note that row reduction involves symbolic manipulation. Since Numpy is focused on number crunching, we will need a different Python library called Sympy to do the symbolic manipulation of row reduction to reduced echelon form and row reduced echelon form.  In order to row reduce a system of linear equations we convert our system into an augmented matrix.   Augmented Matrix   For example, the system becomes     In Sympy, matrices are entered using the function Matrix .   Edit the above code to print the augmented matrix for the system of linear equations in .  Note that sympy will automatically convert decimals to floating point numbers. Often it is helpful to keep fractions exact using sympy's Rational(a,b) command.  Edit the above code to print a matrix with decimals like or .  Now input fractions like sy.Rational(1,9) and sy.Rational(1,10) and compare.  The Sympy functions echelon_form() and rref() can be used to row reduce a matrix to reduced echelon form and row reduced echelon form, respectively. If you need a refresher on these two forms, read section (insert reference here).  Edit the code below to print the reduced echelon form and the row reduced echelon form for the augmented matrix of the system of linear equations from .   Note that rref() returns not only the row reduced echelon form of a matrix, but also a tuple that tells you which columns have leading values of 1. These columns are called pivot columns , and give you a quick way to see any free variables (which are non-pivot columns).  Edit the code above for various augmented matrices to see how the tuple returned by rref() relates to the pivot columns.  Recall that a system of linear equations either has   no solution,    a unique solution, or    infinitely many solutions.   If you need a refresher on how to interpret the reduced echelon form of an augmented matrix to determine if there is no solution, write down the unique solution, or give the infinitely many solutions in parametric form, see section (insert section here).    Graphing solutions to systems of equations  In order to graph solutions to systems of linear equations with two or three variables you can graph the corresponding lines, planes, or coordinates.   The system has solutions and .  Linear equations with two variables can be graphed as lines in the xy-plane, either by plotting two points on the line or solving for . The solution is one point in a scatter plot.    Edit the code in to clearly indicate the solution and on the graph.  Systems of equations with three variables must be graphed in 3D. As mentioned in , Matplotlib paints 2D projections of each surface on top of the other which doesn't adequately graph their relationships. We can partially fix this by making the surfaces transparent and explicitly plotting their intersections. The intersection of any two non-parallel planes is a line which can be found by solving the system of the two plane equations and writing the solution in parametric form.   Graph solutions to the system by finding the equations of the lines of intersection of the planes and plotting the planes, the lines, and the point of intersection.  Solution 1 walks through the process, followed by a Python implementation of the rref() .   First row reducing the augmented matrix for the system of all three equations we obtain a unique solution , , .  Row reducing the augmented matrix for the first two equations we obtain which can be written in parametric form,   Row reducing the augmented matrix for the last two equations we obtain which can be written in parametric form,   Row reducing the augmented matrix for the first and last equations we obtain which can be written in parametric form,     Next we will use Matplotlib to graph these results. First note that if we are careless with our input domains for the planes and lines, our graph will be inconsistent.   Note: you can change the viewing angle to try and get a better graph.  The real problem in the code above is that we graph our surfaces with domain and , but use for the parametric equation of our lines. There are several fixes for this.  One fix is to adjust the parametric input values for the lines to better match the planes. For example, you can make to get a more consistent graph. Try several adjustments for the range in the above code. To get a fully consistent graph, each line would need a different parametric domain that matches the domain of the planes.  Another fix is to solve each pair of equations for two points on the line in the domain of the planes. You can then plot the line between the two points.  Solution 2 walks through the process of finding the points, followed by an alternative Python implementation to graph the solutions.   Recall the first two equations intersect in the line Solving for when , we see . Plugging into the parametric equation for the line we obtain the point . Similarly when , we find , giving the point .  The last two equations intersect in the line Here is always . Instead we solve for when and . We find and , giving us the two points and .  The first and last equations intersect in the line Here when giving us the points and .  Recall to plot the lines between two points we create arrays of the -values, -values, and -values, then plot the line between them.    Can you find other fixes? If so, share them so we can add them here.      Graphing vector equations and their solutions  Recall that solving a vector equation is equivalent to solving a system of equations.   For example the vector equation corresponds to the linear system found in and still has solution and .  The solution to the vector equation can be graphed using linear combinations of vectors. That is,       Converting between Numpy arrays and Sympy Matrices  Since Numpy and Sympy are different libraries, we will need to either enter our augmented matrix as a Sympy matrix, or convert a numpy array into a sympy matrix in order to call the row reducing function in Sympy.  Note that Numpy matrices can be coded as 2D Numpy arrays.     Summary     TBD      TBD       The system has a unique solution. Use Python code to find the solution. Graph the system of equations and the solution using Matplot3D. Lable your axes. Note: part of the challenge is making sure you have a good viewing window and perspective so the graph helps illuminate the solution.   Consider the system Convert the system of linear equations to a vector equation. Find the unique solution and graph your answer as a vector equation using Matplotlib3D. (That is, use vectors instead of planes to visualize the solution to this system.)   "
 },
 {
   "id": "objectives-6",
@@ -538,7 +538,7 @@ var ptx_lunr_docs = [
   "type": "You Try",
   "number": "2.3",
   "title": "",
-  "body": "Edit the code below to print the reduced echelon form and the row reduced echelon form for the augmented matrix of the system of linear equations from . "
+  "body": "Edit the above code to print a matrix with decimals like or . "
 },
 {
   "id": "exercise-45",
@@ -547,6 +547,24 @@ var ptx_lunr_docs = [
   "type": "You Try",
   "number": "2.4",
   "title": "",
+  "body": "Now input fractions like sy.Rational(1,9) and sy.Rational(1,10) and compare. "
+},
+{
+  "id": "exercise-46",
+  "level": "2",
+  "url": "section-systems.html#exercise-46",
+  "type": "You Try",
+  "number": "2.5",
+  "title": "",
+  "body": "Edit the code below to print the reduced echelon form and the row reduced echelon form for the augmented matrix of the system of linear equations from . "
+},
+{
+  "id": "exercise-47",
+  "level": "2",
+  "url": "section-systems.html#exercise-47",
+  "type": "You Try",
+  "number": "2.6",
+  "title": "",
   "body": "Edit the code above for various augmented matrices to see how the tuple returned by rref() relates to the pivot columns. "
 },
 {
@@ -554,16 +572,16 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-systems.html#twodsolutions",
   "type": "Example",
-  "number": "2.5",
+  "number": "2.7",
   "title": "",
   "body": " The system has solutions and .  Linear equations with two variables can be graphed as lines in the xy-plane, either by plotting two points on the line or solving for . The solution is one point in a scatter plot.   "
 },
 {
-  "id": "exercise-46",
+  "id": "exercise-48",
   "level": "2",
-  "url": "section-systems.html#exercise-46",
+  "url": "section-systems.html#exercise-48",
   "type": "You Try",
-  "number": "2.6",
+  "number": "2.8",
   "title": "",
   "body": "Edit the code in to clearly indicate the solution and on the graph. "
 },
@@ -572,7 +590,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-systems.html#threedsolutions1",
   "type": "Example",
-  "number": "2.7",
+  "number": "2.9",
   "title": "",
   "body": " Graph solutions to the system by finding the equations of the lines of intersection of the planes and plotting the planes, the lines, and the point of intersection.  Solution 1 walks through the process, followed by a Python implementation of the rref() .   First row reducing the augmented matrix for the system of all three equations we obtain a unique solution , , .  Row reducing the augmented matrix for the first two equations we obtain which can be written in parametric form,   Row reducing the augmented matrix for the last two equations we obtain which can be written in parametric form,   Row reducing the augmented matrix for the first and last equations we obtain which can be written in parametric form,     Next we will use Matplotlib to graph these results. First note that if we are careless with our input domains for the planes and lines, our graph will be inconsistent.   Note: you can change the viewing angle to try and get a better graph.  The real problem in the code above is that we graph our surfaces with domain and , but use for the parametric equation of our lines. There are several fixes for this.  One fix is to adjust the parametric input values for the lines to better match the planes. For example, you can make to get a more consistent graph. Try several adjustments for the range in the above code. To get a fully consistent graph, each line would need a different parametric domain that matches the domain of the planes.  Another fix is to solve each pair of equations for two points on the line in the domain of the planes. You can then plot the line between the two points.  Solution 2 walks through the process of finding the points, followed by an alternative Python implementation to graph the solutions.   Recall the first two equations intersect in the line Solving for when , we see . Plugging into the parametric equation for the line we obtain the point . Similarly when , we find , giving the point .  The last two equations intersect in the line Here is always . Instead we solve for when and . We find and , giving us the two points and .  The first and last equations intersect in the line Here when giving us the points and .  Recall to plot the lines between two points we create arrays of the -values, -values, and -values, then plot the line between them.    Can you find other fixes? If so, share them so we can add them here.   "
 },
@@ -581,18 +599,27 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-systems.html#example-4",
   "type": "Example",
-  "number": "2.8",
+  "number": "2.10",
   "title": "",
   "body": " For example the vector equation corresponds to the linear system found in and still has solution and .  The solution to the vector equation can be graphed using linear combinations of vectors. That is,    "
 },
 {
-  "id": "exercise-47",
+  "id": "exercise-49",
   "level": "2",
-  "url": "section-systems.html#exercise-47",
+  "url": "section-systems.html#exercise-49",
   "type": "Exercise",
   "number": "1",
   "title": "",
   "body": "The system has a unique solution. Use Python code to find the solution. Graph the system of equations and the solution using Matplot3D. Lable your axes. Note: part of the challenge is making sure you have a good viewing window and perspective so the graph helps illuminate the solution.  "
+},
+{
+  "id": "exercise-50",
+  "level": "2",
+  "url": "section-systems.html#exercise-50",
+  "type": "Exercise",
+  "number": "2",
+  "title": "",
+  "body": "Consider the system Convert the system of linear equations to a vector equation. Find the unique solution and graph your answer as a vector equation using Matplotlib3D. (That is, use vectors instead of planes to visualize the solution to this system.) "
 },
 {
   "id": "section-matrices",
@@ -601,7 +628,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.2",
   "title": "Matrix Arithmetic",
-  "body": " Matrix Arithmetic  In this section we will learn how to     Add, subtract, scale, and multiply matrices in Numpy    Find matrix inverses    Use matrix inverses to solve systems of linear equations      Title          Summary     blah      blah         "
+  "body": " Matrix Arithmetic  In this section we will learn how to     Add, subtract, scale, and multiply matrices in Numpy and Sympy    Find matrix inverses using Numpy and Sympy    Use matrix inverses to solve systems of linear equations      Title      Basic Matrices  Matrices are just 2D arrays and we can compute with them in both the Sympy and Numpy libraries. Some common matrices that we can generate automatically include the (multiplicative) identity matrix, a zero matrix, and a matrix of all ones.    You can add, subtract and scale matrices in both numpy and sympy.      Matrix Multiplication  Note that if you naively multiply Numpy arrays you get the Hadamard product, which is NOT the same as matrix multiplication.    Meanwhile in Sympy you get matrix multiplication by default and have to specify a Hadamard product (element-wise multiplication of matrices).    Put something in here about Matrix vector multiplication     Matrix Inverses  We can find a matrix inverse in sympy just using rref() with our original matrix augmented with the identity matrix. But sympy has a dedicated matrix inverse command, and numpy has a numerical matrix inverse command as well.     Ill Conditioned Matrices  While inverting a matrix helps us solve matrix equations symbolically and can be a helpful way to solve by hand, in practice, you seldom want to invert a matrix to solve a system with technology. The primary reason being that some matrices are ill-conditioned , that is, small changes in the entries of the matrix can give radical changes in the inverse given by technology. So then any rounding error can output radically different inverses.  For example, consider the two systems   which obtain vastly different answers given the small change in the target. The corresponding matrix is ill-conditioned and can give different solutions with technology.          Summary     blah      blah         "
 },
 {
   "id": "objectives-7",
@@ -610,21 +637,129 @@ var ptx_lunr_docs = [
   "type": "Objectives",
   "number": "2.2",
   "title": "",
-  "body": "   Add, subtract, scale, and multiply matrices in Numpy    Find matrix inverses    Use matrix inverses to solve systems of linear equations    "
+  "body": "   Add, subtract, scale, and multiply matrices in Numpy and Sympy    Find matrix inverses using Numpy and Sympy    Use matrix inverses to solve systems of linear equations    "
 },
 {
-  "id": "exercise-48",
+  "id": "exercise-51",
   "level": "2",
-  "url": "section-matrices.html#exercise-48",
+  "url": "section-matrices.html#exercise-51",
   "type": "You Try",
-  "number": "2.9",
+  "number": "2.11",
   "title": "",
   "body": ""
 },
 {
-  "id": "exercise-49",
+  "id": "exercise-52",
   "level": "2",
-  "url": "section-matrices.html#exercise-49",
+  "url": "section-matrices.html#exercise-52",
+  "type": "Exercise",
+  "number": "1",
+  "title": "",
+  "body": ""
+},
+{
+  "id": "section-transformations",
+  "level": "1",
+  "url": "section-transformations.html",
+  "type": "Section",
+  "number": "2.3",
+  "title": "Matrix Transformations",
+  "body": " Matrix Transformations  In this section we will learn how to     C    D      Title          Summary     blah      blah         "
+},
+{
+  "id": "objectives-8",
+  "level": "2",
+  "url": "section-transformations.html#objectives-8",
+  "type": "Objectives",
+  "number": "2.3",
+  "title": "",
+  "body": "   C    D    "
+},
+{
+  "id": "exercise-53",
+  "level": "2",
+  "url": "section-transformations.html#exercise-53",
+  "type": "You Try",
+  "number": "2.12",
+  "title": "",
+  "body": ""
+},
+{
+  "id": "exercise-54",
+  "level": "2",
+  "url": "section-transformations.html#exercise-54",
+  "type": "Exercise",
+  "number": "1",
+  "title": "",
+  "body": ""
+},
+{
+  "id": "section-determinants",
+  "level": "1",
+  "url": "section-determinants.html",
+  "type": "Section",
+  "number": "2.4",
+  "title": "Determinants",
+  "body": " Determinants  In this section we will learn how to     C    D      Title          Summary     blah      blah         "
+},
+{
+  "id": "objectives-9",
+  "level": "2",
+  "url": "section-determinants.html#objectives-9",
+  "type": "Objectives",
+  "number": "2.4",
+  "title": "",
+  "body": "   C    D    "
+},
+{
+  "id": "exercise-55",
+  "level": "2",
+  "url": "section-determinants.html#exercise-55",
+  "type": "You Try",
+  "number": "2.13",
+  "title": "",
+  "body": ""
+},
+{
+  "id": "exercise-56",
+  "level": "2",
+  "url": "section-determinants.html#exercise-56",
+  "type": "Exercise",
+  "number": "1",
+  "title": "",
+  "body": ""
+},
+{
+  "id": "section-eigenthings",
+  "level": "1",
+  "url": "section-eigenthings.html",
+  "type": "Section",
+  "number": "2.5",
+  "title": "Eigenthings",
+  "body": " Eigenthings  In this section we will learn how to     C    D      Title          Summary     blah      blah         "
+},
+{
+  "id": "objectives-10",
+  "level": "2",
+  "url": "section-eigenthings.html#objectives-10",
+  "type": "Objectives",
+  "number": "2.5",
+  "title": "",
+  "body": "   C    D    "
+},
+{
+  "id": "exercise-57",
+  "level": "2",
+  "url": "section-eigenthings.html#exercise-57",
+  "type": "You Try",
+  "number": "2.14",
+  "title": "",
+  "body": ""
+},
+{
+  "id": "exercise-58",
+  "level": "2",
+  "url": "section-eigenthings.html#exercise-58",
   "type": "Exercise",
   "number": "1",
   "title": "",
@@ -1198,9 +1333,9 @@ var ptx_lunr_docs = [
   "body": " Samples of various pretext formats     C    D       Does this make a difference?     Here is a paragraph. With quotations and single quotes , emphasis and angles .  Here are examples of the OscarLevin css style.     Here is a part of an ordered list    next part      try again       Here is an itemized list      Here is an itemized list            integral   An integral is a sum.     integral   An integral is a sum.     integral   An integral is a sum.     integral  An integral is a sum.    integral  An integral is a sum.   integral An integral is a sum. A variable is a container for information.   How to do an aside  here is an aside. can you footnote an aside?   with two paragraphs and    It seems that asides get lost a little on the right, so I think I should use them sparingly. How in the heck do you write a paragraph that is readable?  Exercise What  Does this work at all?    What happens if I do this? Blah blah blah     C    D      blah blah   "
 },
 {
-  "id": "objectives-8",
+  "id": "objectives-11",
   "level": "2",
-  "url": "examples.html#objectives-8",
+  "url": "examples.html#objectives-11",
   "type": "Objectives",
   "number": "3.6",
   "title": "",
@@ -1216,27 +1351,27 @@ var ptx_lunr_docs = [
   "body": " Does this make a difference?  "
 },
 {
-  "id": "objectives-9",
+  "id": "objectives-12",
   "level": "2",
-  "url": "examples.html#objectives-9",
+  "url": "examples.html#objectives-12",
   "type": "Objectives",
   "number": "",
   "title": "",
   "body": " "
 },
 {
-  "id": "p-467",
+  "id": "p-499",
   "level": "2",
-  "url": "examples.html#p-467",
+  "url": "examples.html#p-499",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "integral integral integral integral integral integral variable "
 },
 {
-  "id": "exercise-51",
+  "id": "exercise-60",
   "level": "2",
-  "url": "examples.html#exercise-51",
+  "url": "examples.html#exercise-60",
   "type": "You Try",
   "number": "3.53",
   "title": "Exercise What.",
@@ -1252,9 +1387,9 @@ var ptx_lunr_docs = [
   "body": "   C    D    "
 },
 {
-  "id": "exercise-52",
+  "id": "exercise-61",
   "level": "2",
-  "url": "examples.html#exercise-52",
+  "url": "examples.html#exercise-61",
   "type": "Reading Question",
   "number": "1",
   "title": "",
