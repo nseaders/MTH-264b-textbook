@@ -18,12 +18,12 @@
         <ul>
           <li>
             <p>
-              Add, subtract, scale, and multiply matrices in Numpy
+              Add, subtract, scale, and multiply matrices in Numpy and Sympy
             </p>
           </li>
           <li>
             <p>
-              Find matrix inverses 
+              Find matrix inverses using Numpy and Sympy
             </p>
           </li>
           <li>
@@ -48,6 +48,253 @@
           
         </exercise>
 
+      </subsection>
+      <subsection xml:id="subsec-BasicMatrices">
+        <title>Basic Matrices</title>
+        <p>
+          Matrices are just 2D arrays and we can compute with them in both the Sympy and Numpy libraries. 
+          Some common matrices that we can generate automatically include the (multiplicative) identity matrix,
+          a zero matrix, and a matrix of all ones. 
+        </p>
+
+        <sage language='python'>
+          <input>
+            import numpy as np
+            import sympy as sp
+            nIdentity = np.identity(3)
+            sIdentity = sp.eye(3)
+            
+            print(nIdentity)
+            print(sIdentity)
+            
+            nZeros = np.zeros((2,2))
+            sZeros = sp.zeros(2,2)
+            
+            print(nZeros)
+            print(sZeros)
+            
+            nOnes = np.ones((3,4))
+            sOnes = sp.ones(4,2)
+            
+            print(nOnes)
+            print(sOnes)
+          </input>
+        </sage>
+
+        <sage language='python'>
+          <input>
+            import numpy as np
+            import sympy as sp
+
+            nIdentity = np.identity(3)
+            sIdentity = sp.eye(3)
+
+            print(nIdentity)
+            print(sIdentity)
+
+          </input>
+        </sage>
+
+        <p>
+          You can add, subtract and scale matrices in both numpy and sympy. 
+        </p>
+
+        <sage language='python'>
+          <input>
+            import numpy as np
+            # create numpy matrices and try it out
+            # add
+            # subtract
+            # scale
+
+          </input>
+        </sage>
+
+        <sage language='python'>
+          <input>
+            import sympy as sp
+            # create sympy matrices and try it out
+            # add 
+            # subtract
+            # scale
+
+          </input>
+        </sage>
+        
+      </subsection>
+      <subsection xml:id="subsec-MatrixMultiplication">
+        <title>Matrix Multiplication</title>
+
+        <p>
+          Note that if you naively multiply Numpy arrays you get the Hadamard product, 
+          which is NOT the same as matrix multiplication. 
+        </p>
+
+        <sage language='python'>
+          <input>
+            import numpy as np
+            import sympy as sp
+
+            A = np.array([[1,2,3], [4,5,6]])
+            B = np.array([[2,4,0],[1,1,1]])
+            C = np.array([[2,5], [2,7],[2,1]])
+
+            print(A*B)
+
+          </input>
+        </sage>
+
+        <sage language='python'>
+          <input>
+            import numpy as np
+            import sympy as sp
+
+            A = np.array([[1,2,3], [4,5,6]])
+            B = np.array([[2,4,0],[1,1,1]])
+            C = np.array([[2,5], [2,7],[2,1]])
+
+            print(np.dot(A,C))
+            print(A@C)
+
+          </input>
+        </sage>
+
+        <p>
+          Meanwhile in Sympy you get matrix multiplication by default and have to specify a 
+          Hadamard product (element-wise multiplication of matrices).
+        </p>
+
+        <sage language='python'>
+          <input>
+            import sympy as sp
+
+            A = sp.Matrix([[1,2,3], [4,5,6]])
+            B = sp.Matrix([[2,4,0],[1,1,1]])
+            C = sp.Matrix([[2,5], [2,7],[2,1]])
+
+            print(A*B)
+
+          </input>
+        </sage>
+
+        <sage language='python'>
+          <input>
+            import sympy as sp
+
+            A = sp.Matrix([[1,2,3], [4,5,6]])
+            B = sp.Matrix([[2,4,0],[1,1,1]])
+            C = sp.Matrix([[2,5], [2,7],[2,1]])
+
+            print(A.multiply_elementwise(B))
+
+          </input>
+        </sage>
+
+        <p>
+          Put something in here about Matrix vector multiplication
+        </p>
+
+        <sage language='python'>
+          <input>
+            import sympy as sp
+
+            A = sp.Matrix([[1,2,3], [4,5,6]])
+            B = sp.Matrix([[2,4,0],[1,1,1]])
+            C = sp.Matrix([[2,5], [2,7],[2,1]])
+
+            print(A.multiply_elementwise(B))
+
+          </input>
+        </sage>
+        
+      </subsection>
+      <subsection xml:id="subsec-MatrixInverses">
+        <title>Matrix Inverses</title>
+        <p>
+          We can find a matrix inverse in sympy just using <c>rref()</c> with our original matrix augmented with the identity matrix. 
+          But sympy has a dedicated matrix inverse command, and numpy has a numerical matrix inverse command as well.
+        </p>
+
+        <sage language='python'>
+          <input>
+            import sympy as sp
+            import numpy as np
+
+            #define your sympy matrix
+            sA = sp.Matrix([ [2,-3], [1,4]])
+            #invert using sympy 
+            sA_inverse = sA.inv()
+
+            #print the inverse
+            print("In sympy A inverse is:", sA_inverse)
+
+            #define our numpy matrix
+            nA = np.array([[2,-3], [1,4]])
+            # or convert from sympy to numpy
+            #nA2 = np.array(sA).astype(np.float64)
+            #invert using numpy
+            nA_inverse = np.linalg.inv(nA)
+
+            print("In numpy A inverse is:", nA_inverse)
+
+          </input>
+        </sage>
+      </subsection>
+
+      <subsection xml:id="subsec-ill-conditioned">
+        <title>Ill Conditioned Matrices</title>
+
+        <p>
+          While inverting a matrix helps us solve matrix equations symbolically and can be a helpful way to solve by hand,
+          in practice, you seldom want to invert a matrix to solve a system with technology.
+          The primary reason being that some matrices are <em>ill-conditioned</em>, that is, 
+          small changes in the entries of the matrix can give radical changes in the inverse given by technology.
+          So then any rounding error can output radically different inverses. 
+        </p>
+        <p>
+          For example, consider the two systems
+          <!--sidebyside widths="40% 40%" margins="auto" valign="middle"-->
+           <md>
+             <mrow>x  +y  \amp= 2 </mrow>
+             <mrow>x  +1.001y  \amp =2 </mrow>
+           </md>
+
+           <md>
+            <mrow> x+y \amp= 2</mrow>
+            <mrow> x+1.001y \amp= 2.001</mrow>
+          </md>
+          which obtain vastly different answers given the small change in the target. 
+          The corresponding matrix is ill-conditioned and can give different solutions with technology.
+
+         <!--/sidebyside-->
+        </p>
+
+        <sage language='python'>
+          <input>
+            import sympy as sp
+            import numpy as np
+
+            #define your sympy matrix
+            sA = sp.Matrix([ [1,1], [1,1.001]])
+            #invert using sympy 
+            sA_inverse = sA.inv()
+            print("In sympy A inverse is:", sA_inverse)
+
+            #solve system using sympy inverse
+
+            #define our numpy matrix
+            nA = np.array([[1,1], [1,1.001]])
+            # or convert from sympy to numpy
+            #nA2 = np.array(sA).astype(np.float64)
+            #invert using numpy
+            nA_inverse = np.linalg.inv(nA)
+            print("In numpy A inverse is:", nA_inverse)
+
+            #solve system using numpy inverse
+
+          </input>
+        </sage>
+        
       </subsection>
 
 

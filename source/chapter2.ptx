@@ -11,5 +11,8 @@
 
       <xi:include href="./sec-2-1-system.ptx"/>
       <xi:include href="./sec-2-2-matrices.ptx"/>
+      <xi:include href="./sec-2-3-transformations.ptx"/>
+      <xi:include href="./sec-2-4-determinants.ptx"/>
+      <xi:include href="./sec-2-5-eigenthings.ptx"/>
     
     </chapter>

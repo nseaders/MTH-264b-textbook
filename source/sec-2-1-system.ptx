@@ -14,8 +14,10 @@
         In this section we will learn how to solve systems of linear equations using a process called row reduction.
         <fn>
           Row reduction is sometimes called Gaussian elimination, after the mathematician Gauss. 
-          Long before Gauss, Chinese scholars demonstrated this method of solving systems of linear equations in chapter 8 of 
-          <emph>The Nine Chapters on the Mathematical Art.</emph>.
+          The method was actually popularized in Europe by Cambridge University who published notes of Newton. 
+          Soon algebra textbooks across Europe included the method.  
+          Long before Gauss or Newton, Chinese scholars demonstrated this method of solving systems of linear equations in chapter 8 of 
+          <emph>The Nine Chapters on the Mathematical Art.</emph>
         </fn> 
            
     </introduction>
@@ -84,10 +86,10 @@
 
         <sage language='python'>
           <input>
-            from sympy import Matrix
+            import sympy as sp
 
             #define your sympy matrix
-            A = Matrix([
+            A = sp.Matrix([
               [1,2,3],
               [4,5,6]]) 
 
@@ -99,6 +101,23 @@
         <exercise>
           <p>
             Edit the above code to print the augmented matrix for the system of linear equations in <xref ref="augmatrix"/>. 
+          </p>
+        </exercise>
+
+
+        <p>
+          Note that sympy will automatically convert decimals to floating point numbers. 
+          Often it is helpful to keep fractions exact using sympy's <c>Rational(a,b)</c> command.
+        </p>
+
+        <exercise>
+          <p>
+            Edit the above code to print a matrix with decimals like <m>0.9</m> or <m>0.1</m>. 
+          </p>
+        </exercise>
+        <exercise>
+          <p>
+            Now input fractions like <c>sy.Rational(1,9)</c> and <c>sy.Rational(1,10)</c> and compare.
           </p>
         </exercise>
 
@@ -117,10 +136,10 @@
 
         <sage language='python'>
           <input>
-            from sympy import Matrix
+            import sympy as sp
 
             #define your sympy matrix
-            A = Matrix([ [2,-3,4], [1,4,2]]) 
+            A = sp.Matrix([ [2,-3,4], [1,4,2]]) 
 
             print(A.echelon_form()) #print REF of A
             print(A.rref()) #print RREF of A
@@ -197,9 +216,8 @@
               Y1 = (6-X)/2 #outputs for first equation
               Y2 = 0.5*X-1 #outputs for second equation
 
-              ax.set_title("Solutions to 2D System") #title
-              ax.set_xlabel("x") #input label
-              ax.set_ylabel("y") #output label
+              #label title and axes
+              ax.set(title="Solutions to 2D System", xlabel="x", ylabel="y") 
 
               ax.plot(X,Y1,X,Y2) #plot both equations
               plt.show() #display result
@@ -282,18 +300,18 @@
           </solution>
           <sage language='python'>
             <input>
-              from sympy import Matrix
+              import sympy as sy
 
-              A = Matrix([ [1,1,1,1], [0,-1,1,1],[-1,1,-1,0]
+              A = sy.Matrix([ [1,1,1,1], [0,-1,1,1],[-1,1,-1,0]
               ]) #all three equations
 
-              I1 = Matrix([ [1,1,1,1], [0,-1,1,1]
+              I1 = sy.Matrix([ [1,1,1,1], [0,-1,1,1]
               ]) #intersection first two equations
 
-              I2 = Matrix([ [0,-1,1,1],[-1,1,-1,0]
+              I2 = sy.Matrix([ [0,-1,1,1],[-1,1,-1,0]
               ]) #intersection last two other equations
 
-              I3 = Matrix([ [1,1,1,1], [-1,1,-1,0]
+              I3 = sy.Matrix([ [1,1,1,1], [-1,1,-1,0]
               ]) #intersection first and last equations
 
               print("A=", A.rref())
@@ -345,10 +363,8 @@
               # Customize the view angle 
               #ax.view_init(elev=20, azim=30, roll=0)
 
-              ax.set_title("Solutions to 3D System") #title
-              ax.set_xlabel("x") #x label
-              ax.set_ylabel("y") #y label
-              ax.set_zlabel("z") #z label
+              #set title and axes labels
+              ax.set(title="Solutions to 3D System", xlabel="x", ylabel="y", zlabel="z")
               
               plt.show()
             </input>
@@ -447,10 +463,8 @@
               # Customize the view angle 
               #ax.view_init(elev=20, azim=30, roll=0)
 
-              ax.set_title("Solutions to 3D System") #title
-              ax.set_xlabel("x") #x label
-              ax.set_ylabel("y") #y label
-              ax.set_zlabel("z") #z label
+              set title and axes labels
+              ax.set(title="Solutions to 3D System", xlabel="x", ylabel="y", zlabel="z")
               
               plt.show()
             </input>
@@ -489,31 +503,46 @@
           <sage language='python'>
             <input>
               import matplotlib.pyplot as plt
+              
+              fig = plt.figure(figsize=(8,5)) #create a figure
+              #create one row and two columns of plots
+              ax1 = plt.subplot(1,2,1) #1 row, 2 columns, first graph
+              ax2 = plt.subplot(1,2,2) #1 row, 2 columns, second graph
+              
+              # add original vectors to axes
+              ax1.quiver(0,0,1,1/2,label='u',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1) 
+              ax1.quiver(0,0,2,-1,label='v',color='deepskyblue', angles='xy', scale_units='xy', scale=1) 
+              ax1.quiver(0,0,6,1,label='b',color='green', angles='xy', scale_units='xy', scale=1) 
+              
+              #add solution vectors to axes
+              ax2.quiver(0,0,4,2,label='4u',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1, alpha=0.6) 
+              ax2.quiver(4,2,2,-1,label='v', color='deepskyblue', angles='xy', scale_units='xy', scale=1)
+              ax2.quiver(0,0,6,1,label='b',color='green', angles='xy', scale_units='xy', scale=1) 
+              
+              #annotate vectors option instead of legend
+              ax1.annotate("u", xy=(0.25,0.25))
+              ax1.annotate("v", xy=(0.5, -.65))
+              ax1.annotate("b", xy=(3, 0.25))
+              ax2.annotate("4u", xy=(2,1.2))
+              ax2.annotate("v", xy=(5,1.65))
+              ax2.annotate("b", xy=(3, 0.25))
 
-              fig = plt.figure() #create a figure
-              ax = plt.axes() #add an axis
-
-              plt.xlim(-2, 7)
-              plt.ylim(-2, 4)
-              plt.axhline(0, color='black')
-              plt.axvline(0, color='black')
-              plt.grid()
-
-              # original vectors
-              plt.quiver(0,0,1,1/2,label='u',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1) 
-              plt.quiver(0,0,2,-1,label='v',color='deepskyblue', angles='xy', scale_units='xy', scale=1) 
-              plt.quiver(0,0,6,1,label='b',color='green', angles='xy', scale_units='xy', scale=1) 
-
-              #solution vectors
-              plt.quiver(0,0,4,2,label='4u',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1, alpha=0.6) 
-              plt.quiver(4,2,2,-1,color='deepskyblue', angles='xy', scale_units='xy', scale=1) 
-
-              plt.legend() #Makes labels show up
-              ax.set_title("Solutions to Vector Equation") #title
-              ax.set_xlabel("x") #input label
-              ax.set_ylabel("y") #output label
-
-
+              #set title and axes labels and limits, legend, axis, grid
+              ax1.set(title="Vector Equation xu+yv=b", xlabel="x", ylabel="y")
+              ax1.set(xlim=(-1,7), ylim=(-1.5,3.5))
+              ax1.legend() 
+              ax1.axhline(0, color='black')
+              ax1.axvline(0, color='black')
+              ax1.grid()
+              
+              #set title and axes labels and limits, legend, axis, grid
+              ax2.set(title="Vector Equation Solutions", xlabel="x", ylabel="y")
+              ax2.set(xlim=(-1,7), ylim=(-1.5,3.5))
+              ax2.legend() 
+              ax2.axhline(0, color='black')
+              ax2.axvline(0, color='black')
+              ax2.grid() 
+              
               plt.show()
             </input>
           </sage>
@@ -529,18 +558,24 @@
         call the row reducing function in Sympy. 
       </p>
 
+      <p>
+        Note that Numpy matrices can be coded as 2D Numpy arrays.
+      </p>
+
 
       <sage language='python'>
         <input>
           import numpy as np
-          from sympy import Matrix
+          import sympy as sp
 
           npA = np.matrix([[1, 2], [3, 4]]) #Create a numpy matrix
-          spA = Matrix(npA) #convert to a sympy matrix
-          REF = spA.echelon_form() #Get REF
-          RREF = spA.rref()[0] #Get RREF ??why 0?
+          spA = sp.Matrix(npA) #convert to a sympy matrix
 
-          print(np.array(RREF))
+          RREF = spA.rref()[0] #Get RREF in sympy
+          
+          print(RREF) #print sympy rref
+          print(np.array(RREF)) #print numpy rref, this doesn't always work to compute with
+          print(np.array(RREF).astype(np.float64)) #specify float type, which will work
 
         </input>
       </sage>
@@ -583,6 +618,22 @@
             <em>Note: part of the challenge is making sure you have a good viewing window and perspective
               so the graph helps illuminate the solution.
             </em>
+          </p>
+        </exercise>
+
+        <exercise>
+          <p>
+            Consider the system
+            <md>
+              <mrow>x  +2y  +z \amp= 6 </mrow>
+              <mrow>x  -y  \amp =3</mrow>
+              <mrow>-x  +y  -z\amp =0</mrow>
+            </md>
+            Convert the system of linear equations to a vector equation. 
+          </p>
+          <p>
+            Find the unique solution and graph your answer as a vector equation using Matplotlib3D.
+            (That is, use vectors instead of planes to visualize the solution to this system.)
           </p>
         </exercise>
         
