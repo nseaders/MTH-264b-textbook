@@ -301,13 +301,14 @@ window.MathJax = {
 <li><div class="toc-item"><a href="section-systems.html#graphsolution" class="internal"><span class="title">Graphing solutions to systems of equations</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#subsection-26" class="internal"><span class="title">Graphing vector equations and their solutions</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#subsec-" class="internal"><span class="title">Converting between Numpy arrays and Sympy Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-systems.html#subsecRoundingErrorRref" class="internal"><span class="title">Rounding error in Sympy’s rref()</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#exercises-systems" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="section-matrices.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix Arithmetic</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-matrices.html#subsection-28" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsection-29" class="internal"><span class="title">Title</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#subsec-BasicMatrices" class="internal"><span class="title">Basic Matrices</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#subsec-MatrixMultiplication" class="internal"><span class="title">Matrix Multiplication</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#subsec-MatrixInverses" class="internal"><span class="title">Matrix Inverses</span></a></div></li>
@@ -318,21 +319,21 @@ window.MathJax = {
 <li>
 <div class="toc-item"><a href="section-transformations.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Matrix Transformations</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-transformations.html#subsection-33" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-transformations.html#subsection-34" class="internal"><span class="title">Title</span></a></div></li>
 <li><div class="toc-item"><a href="section-transformations.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="section-determinants.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Determinants</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-determinants.html#subsection-34" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-determinants.html#subsection-35" class="internal"><span class="title">Title</span></a></div></li>
 <li><div class="toc-item"><a href="section-determinants.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="section-eigenthings.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Eigenthings</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-eigenthings.html#subsection-35" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-eigenthings.html#subsection-36" class="internal"><span class="title">Title</span></a></div></li>
 <li><div class="toc-item"><a href="section-eigenthings.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -361,7 +362,7 @@ window.MathJax = {
 <li>
 <div class="toc-item"><a href="examples.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Samples of various pretext formats</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="examples.html#subsection-44" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
+<li><div class="toc-item"><a href="examples.html#subsection-45" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
 <li><div class="toc-item"><a href="examples.html#reading-questions-1" class="internal"><span class="title">Reading Questions</span></a></div></li>
 </ul>
 </li>
@@ -373,15 +374,15 @@ window.MathJax = {
 <section class="section" id="sec_vectors"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.2</span> <span class="title">Vectors</span>
 </h2>
-<section class="introduction" id="introduction-13"><div class="para" id="p-282">In many of our applications in 2d and 3d, we will encounter quantities that have both a magnitude (like a distance) and also a direction. Such quantities are called vectors. That is, a <em class="emphasis">vector</em> is a quantity which has both a direction and a magnitude, like a velocity. If you are moving, the magnitude (length) of your velocity vector is your speed (distance travelled per unit time)  and the direction of your velocity vector is your direction of motion. To specify a vector in three dimensions you have to give three components, just as for a point. To draw the vector with components <span class="process-math">\(a, b, c \)</span> you can draw an arrow from the point <span class="process-math">\((0,0,0)\)</span> to the point <span class="process-math">\((a,b,c)\text{.}\)</span>
+<section class="introduction" id="introduction-13"><div class="para" id="p-283">In many of our applications in 2d and 3d, we will encounter quantities that have both a magnitude (like a distance) and also a direction. Such quantities are called vectors. That is, a <em class="emphasis">vector</em> is a quantity which has both a direction and a magnitude, like a velocity. If you are moving, the magnitude (length) of your velocity vector is your speed (distance travelled per unit time)  and the direction of your velocity vector is your direction of motion. To specify a vector in three dimensions you have to give three components, just as for a point. To draw the vector with components <span class="process-math">\(a, b, c \)</span> you can draw an arrow from the point <span class="process-math">\((0,0,0)\)</span> to the point <span class="process-math">\((a,b,c)\text{.}\)</span>
 </div> <div class="sidebyside"><div class="sbsrow" style="margin-left:8.5%;margin-right:8.5%;">
 <div class="sbspanel top" style="width:39.7590361445783%;"><img src="external/figs/vector2d.svg" role="img" class="contained"></div>
 <div class="sbspanel top" style="width:39.7590361445783%;"><img src="external/figs/vector3d.svg" role="img" class="contained"></div>
-</div></div> <div class="para" id="p-283">Similarly, to specify a vector in two dimensions you have to give two components and to draw the vector with components <span class="process-math">\(a, b \)</span> you can draw an arrow from the point <span class="process-math">\((0,0)\)</span> to the point <span class="process-math">\((a,b)\text{.}\)</span>
-</div> <div class="para" id="p-284">There are many situations in which it is preferable to draw a vector with its tail at some point other than the origin. For example, it is natural to draw the velocity vector of a moving particle with the tail of the velocity vector at the position of the particle, whether or not the particle is at the origin. The sketch below shows a moving particle and its velocity vector at two different times.</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:35.5%;margin-right:35.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/movingParticle.svg" role="img" class="contained"></div></div></div> <div class="para" id="p-285">As a second example, suppose that you are analyzing the motion of a pendulum. There are three forces acting on the pendulum bob: gravity <span class="process-math">\(\vg\text{,}\)</span> which is pulling the bob straight down, tension <span class="process-math">\(\vt\)</span> in the rod, which is pulling the bob in the direction of the rod, and air resistance <span class="process-math">\(\vr\text{,}\)</span> which is pulling the bob in a direction opposite to its direction of motion. All three forces are acting on the bob. So it is natural to draw all three arrows representing the forces with their tails at the bob.</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:40%;margin-right:40%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/pendulum.svg" role="img" class="contained"></div></div></div> <div class="para" id="p-286">In this text, we will used bold faced letters, like <span class="process-math">\(\vv\text{,}\)</span> <span class="process-math">\(\vt\text{,}\)</span> <span class="process-math">\(\vg\text{,}\)</span> to designate vectors. In handwriting, it is clearer to use a small overhead arrow<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-7" id="fn-7"><sup> 3 </sup></a>, as in <span class="process-math">\(\vec{v}\text{,}\)</span> <span class="process-math">\(\vec{t}\text{,}\)</span> <span class="process-math">\(\vec{g}\text{,}\)</span> instead. Also, when we want to emphasise that some quantity is a number, rather than a vector, we will call the number a <em class="emphasis">scalar</em>.</div> <div class="para" id="p-287">Both points and vectors in 2d are specified by two numbers. Until you get used to this, it might confuse you sometimes — does a given pair of numbers represent a point or a vector? To distinguish<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-8" id="fn-8"><sup> 4 </sup></a> between the components of a vector and the coordinates of the point at its head, when its tail is at some point other than the origin, we shall use angle brackets rather than round brackets around the components of a vector. For example, the figure below shows the two-dimensional vector <span class="process-math">\(\llt 2,1\rgt\)</span> drawn in three different positions. In each case, when the tail is at the point <span class="process-math">\((u,v)\)</span> the head is at <span class="process-math">\((2+u,1+v)\text{.}\)</span> We warn you that, out in the  real world<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-9" id="fn-9"><sup> 5 </sup></a>, no one uses notation that distinguishes between components of a vector and the coordinates of its head — usually round brackets are used for both. It is up to you to keep straight which is being referred to.</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:20%;margin-right:20%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/positions.svg" role="img" class="contained"></div></div></div> <div class="para" id="p-288">By way of summary,</div> <article class="definition definition-like" id="not_scalar_vector"><h3 class="heading">
+</div></div> <div class="para" id="p-284">Similarly, to specify a vector in two dimensions you have to give two components and to draw the vector with components <span class="process-math">\(a, b \)</span> you can draw an arrow from the point <span class="process-math">\((0,0)\)</span> to the point <span class="process-math">\((a,b)\text{.}\)</span>
+</div> <div class="para" id="p-285">There are many situations in which it is preferable to draw a vector with its tail at some point other than the origin. For example, it is natural to draw the velocity vector of a moving particle with the tail of the velocity vector at the position of the particle, whether or not the particle is at the origin. The sketch below shows a moving particle and its velocity vector at two different times.</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:35.5%;margin-right:35.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/movingParticle.svg" role="img" class="contained"></div></div></div> <div class="para" id="p-286">As a second example, suppose that you are analyzing the motion of a pendulum. There are three forces acting on the pendulum bob: gravity <span class="process-math">\(\vg\text{,}\)</span> which is pulling the bob straight down, tension <span class="process-math">\(\vt\)</span> in the rod, which is pulling the bob in the direction of the rod, and air resistance <span class="process-math">\(\vr\text{,}\)</span> which is pulling the bob in a direction opposite to its direction of motion. All three forces are acting on the bob. So it is natural to draw all three arrows representing the forces with their tails at the bob.</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:40%;margin-right:40%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/pendulum.svg" role="img" class="contained"></div></div></div> <div class="para" id="p-287">In this text, we will used bold faced letters, like <span class="process-math">\(\vv\text{,}\)</span> <span class="process-math">\(\vt\text{,}\)</span> <span class="process-math">\(\vg\text{,}\)</span> to designate vectors. In handwriting, it is clearer to use a small overhead arrow<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-8" id="fn-8"><sup> 3 </sup></a>, as in <span class="process-math">\(\vec{v}\text{,}\)</span> <span class="process-math">\(\vec{t}\text{,}\)</span> <span class="process-math">\(\vec{g}\text{,}\)</span> instead. Also, when we want to emphasise that some quantity is a number, rather than a vector, we will call the number a <em class="emphasis">scalar</em>.</div> <div class="para" id="p-288">Both points and vectors in 2d are specified by two numbers. Until you get used to this, it might confuse you sometimes — does a given pair of numbers represent a point or a vector? To distinguish<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-9" id="fn-9"><sup> 4 </sup></a> between the components of a vector and the coordinates of the point at its head, when its tail is at some point other than the origin, we shall use angle brackets rather than round brackets around the components of a vector. For example, the figure below shows the two-dimensional vector <span class="process-math">\(\llt 2,1\rgt\)</span> drawn in three different positions. In each case, when the tail is at the point <span class="process-math">\((u,v)\)</span> the head is at <span class="process-math">\((2+u,1+v)\text{.}\)</span> We warn you that, out in the  real world<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-10" id="fn-10"><sup> 5 </sup></a>, no one uses notation that distinguishes between components of a vector and the coordinates of its head — usually round brackets are used for both. It is up to you to keep straight which is being referred to.</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:20%;margin-right:20%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/positions.svg" role="img" class="contained"></div></div></div> <div class="para" id="p-289">By way of summary,</div> <article class="definition definition-like" id="not_scalar_vector"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.4</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-289">
+<div class="para logical" id="p-290">
 <div class="para">we use</div>
 <ul class="disc">
 <li id="li-116"><div class="para" id="p-derived-li-116">bold faced letters, like <span class="process-math">\(\vv\text{,}\)</span> <span class="process-math">\(\vt\text{,}\)</span> <span class="process-math">\(\vg\text{,}\)</span> to designate vectors, and</div></li>
@@ -392,8 +393,8 @@ window.MathJax = {
 </div></article></section><section class="subsection" id="subsec-addvec"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Addition of Vectors and Multiplication of a Vector by a Scalar</span>
 </h3>
-<div class="para" id="p-290">Just as we have done many times in the CLP texts, when we define a new type of object, we want to understand how it interacts with the basic operations of addition and multiplication. Vectors are no different, and we shall shortly see a natural way to define addition of vectors. Multiplication will be more subtle, and we shall start with multiplication of a vector by a number (rather than with multiplication of a vector by another vector).</div>
-<div class="para logical" id="p-291">
+<div class="para" id="p-291">Just as we have done many times in the CLP texts, when we define a new type of object, we want to understand how it interacts with the basic operations of addition and multiplication. Vectors are no different, and we shall shortly see a natural way to define addition of vectors. Multiplication will be more subtle, and we shall start with multiplication of a vector by a number (rather than with multiplication of a vector by another vector).</div>
+<div class="para logical" id="p-292">
 <div class="para">By way of motivation for the definitions of addition and multiplication by a number, imagine that we are out for a walk on the <span class="process-math">\(xy\)</span>-plane.</div>
 <ul class="disc">
 <li id="li-120"><div class="para" id="p-derived-li-120">Suppose that we take a step and, in doing so, we move <span class="process-math">\(a_1\)</span> units parallel to the <span class="process-math">\(x\)</span>-axis and <span class="process-math">\(a_2\)</span> units parallel to the <span class="process-math">\(y\)</span>-axis. Then we say that <span class="process-math">\(\llt a_1, a_2\rgt\)</span> is the displacement vector for the step. Suppose now that we take a second step which moves us an additional <span class="process-math">\(b_1\)</span> units  parallel to the <span class="process-math">\(x\)</span>-axis and an additional <span class="process-math">\(b_2\)</span> units  parallel to the <span class="process-math">\(y\)</span>-axis, as in the figure on the left below. So the displacement vector for the second step is <span class="process-math">\(\llt b_1, b_2\rgt\text{.}\)</span> All together, we have moved <span class="process-math">\(a_1+b_1\)</span> units  parallel to the <span class="process-math">\(x\)</span>-axis and <span class="process-math">\(a_2+b_2\)</span> units parallel to the <span class="process-math">\(y\)</span>-axis. The displacement vector for the two steps combined is <span class="process-math">\(\llt a_1+b_1, a_2+b_2\rgt\text{.}\)</span> We shall define the sum of <span class="process-math">\(\llt a_1, a_2\rgt\)</span> and <span class="process-math">\(\llt b_1, b_2\rgt\text{,}\)</span> denoted by <span class="process-math">\(\llt a_1, a_2\rgt+\llt b_1,b_2\rgt\text{,}\)</span> to be <span class="process-math">\(\llt a_1+b_1, a_2+b_2\rgt\text{.}\)</span>
@@ -406,10 +407,10 @@ window.MathJax = {
 <div class="sbspanel middle" style="width:44.4695259593679%;"><img src="external/figs/maddvec.svg" role="img" class="contained"></div>
 <div class="sbspanel middle" style="width:42.6636568848758%;"><img src="external/figs/mscalmul.svg" role="img" class="contained"></div>
 </div></div>
-<div class="para" id="p-292">Here are the formal definitions.</div>
+<div class="para" id="p-293">Here are the formal definitions.</div>
 <article class="definition definition-like" id="def_addScalMult"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.5</span><span class="period">.</span><span class="space"> </span><span class="title">Adding Vectors and Multiplying a Vector by a Number.</span>
-</h4> <div class="para logical" id="p-293">
+</h4> <div class="para logical" id="p-294">
 <div class="para">These two operations have the obvious definitions</div>
 <div class="displaymath process-math" id="md-13">
 \begin{align*}
@@ -422,7 +423,7 @@ window.MathJax = {
 \end{align*}
 </div>
 <div class="para">and similarly in three dimensions.</div>
-</div></article><div class="para logical" id="p-294">
+</div></article><div class="para logical" id="p-295">
 <div class="para">Pictorially, you add the vector <span class="process-math">\(\vb\)</span> to the vector <span class="process-math">\(\va\)</span> by drawing <span class="process-math">\(\vb\)</span> with its tail at the head of <span class="process-math">\(\va\)</span> and then drawing a vector from the tail of <span class="process-math">\(\va\)</span> to the head of <span class="process-math">\(\vb\text{,}\)</span> as in the figure on the left below. For a number <span class="process-math">\(s\text{,}\)</span> we can draw the vector <span class="process-math">\(s\va\text{,}\)</span> by just</div>
 <ul class="disc">
 <li id="li-122"><div class="para" id="p-derived-li-122">changing the vector <span class="process-math">\(\va\)</span>’s length by the factor <span class="process-math">\(|s|\text{,}\)</span> and,</div></li>
@@ -435,7 +436,7 @@ window.MathJax = {
 <div class="sbspanel middle" style="width:26.5017667844523%;"><img src="external/figs/scalmul.svg" role="img" class="contained"></div>
 <div class="sbspanel middle" style="width:26.5017667844523%;"><img src="external/figs/negmul.svg" role="img" class="contained"></div>
 </div></div>
-<div class="para logical" id="p-295">
+<div class="para logical" id="p-296">
 <div class="para">The special case of multiplication by <span class="process-math">\(s=-1\)</span> appears so frequently that <span class="process-math">\((-1)\va\)</span> is given the shorter notation <span class="process-math">\(-\va\text{.}\)</span> That is,</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -444,14 +445,14 @@ window.MathJax = {
 </div>
 <div class="para">Of course <span class="process-math">\(\va+(-\va)\)</span> is <span class="process-math">\(\vZero\text{,}\)</span> the vector all of whose components are zero.</div>
 </div>
-<div class="para" id="p-296">To subtract <span class="process-math">\(\vb\)</span> from <span class="process-math">\(\va\)</span> pictorially, you may add <span class="process-math">\(-\vb\)</span> (which is drawn by reversing the direction of <span class="process-math">\(\vb\)</span>) to <span class="process-math">\(\va\text{.}\)</span> Alternatively, if you draw <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vb\)</span> with their tails at a common point, then <span class="process-math">\(\va-\vb\)</span> is the vector from the head of <span class="process-math">\(\vb\)</span> to the head of <span class="process-math">\(\va\text{.}\)</span> That is, <span class="process-math">\(\va-\vb\)</span> is the vector you must add to <span class="process-math">\(\vb\)</span> in order to get <span class="process-math">\(\va\text{.}\)</span>
+<div class="para" id="p-297">To subtract <span class="process-math">\(\vb\)</span> from <span class="process-math">\(\va\)</span> pictorially, you may add <span class="process-math">\(-\vb\)</span> (which is drawn by reversing the direction of <span class="process-math">\(\vb\)</span>) to <span class="process-math">\(\va\text{.}\)</span> Alternatively, if you draw <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vb\)</span> with their tails at a common point, then <span class="process-math">\(\va-\vb\)</span> is the vector from the head of <span class="process-math">\(\vb\)</span> to the head of <span class="process-math">\(\va\text{.}\)</span> That is, <span class="process-math">\(\va-\vb\)</span> is the vector you must add to <span class="process-math">\(\vb\)</span> in order to get <span class="process-math">\(\va\text{.}\)</span>
 </div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:30%;margin-right:30%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/subtract.svg" role="img" class="contained"></div></div></div>
-<div class="para" id="p-297">The operations of addition and multiplication by a scalar that we have just defined are quite natural and rarely cause any problems, because they inherit from the real numbers the properties of  addition and multiplication that you are used to.</div>
+<div class="para" id="p-298">The operations of addition and multiplication by a scalar that we have just defined are quite natural and rarely cause any problems, because they inherit from the real numbers the properties of  addition and multiplication that you are used to.</div>
 <article class="theorem theorem-like" id="thm_addScalMult"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.6</span><span class="period">.</span><span class="space"> </span><span class="title">Properties of Addition and Scalar Multiplication.</span>
 </h4>
-<div class="para logical" id="p-298">
+<div class="para logical" id="p-299">
 <div class="para">Let <span class="process-math">\(\va\text{,}\)</span> <span class="process-math">\(\vb\)</span> and <span class="process-math">\(\vc\)</span> be vectors and <span class="process-math">\(s\)</span> and <span class="process-math">\(t\)</span> be scalars. Then</div>
 <div class="displaymath process-math" id="md-14">
 \begin{alignat*}{4}
@@ -465,11 +466,11 @@ window.MathJax = {
 &amp;&amp; (8) &amp;&amp;1\va=\va
 \end{alignat*}
 </div>
-</div></article><div class="para" id="p-299">We have just been introduced to many definitions. Let’s see some of them in action.</div>
+</div></article><div class="para" id="p-300">We have just been introduced to many definitions. Let’s see some of them in action.</div>
 <article class="example example-like" id="example-8"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.7</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-300">
+<div class="para logical" id="p-301">
 <div class="para">For example, if</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -498,7 +499,7 @@ window.MathJax = {
 </div></article><article class="definition definition-like" id="def_parallel_vectors"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.8</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-301">
+<div class="para logical" id="p-302">
 <div class="para">Two vectors <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vb\)</span>
 </div>
 <ul class="disc">
@@ -506,18 +507,18 @@ window.MathJax = {
 <li id="li-125"><div class="para" id="p-derived-li-125">are said to have the same direction if <span class="process-math">\(\ \va=s\,\vb\ \)</span> for some number <span class="process-math">\(s \gt 0\text{.}\)</span>
 </div></li>
 </ul>
-</div></article><div class="para" id="p-302">There are some vectors that occur sufficiently commonly that they are given special names. One is the vector <span class="process-math">\(\vZero\text{.}\)</span> Some others are the “standard basis vectors”.</div>
+</div></article><div class="para" id="p-303">There are some vectors that occur sufficiently commonly that they are given special names. One is the vector <span class="process-math">\(\vZero\text{.}\)</span> Some others are the “standard basis vectors”.</div>
 <article class="definition definition-like" id="def_basis_vectors"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.9</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-303">
+<div class="para logical" id="p-304">
 <div class="para">The standard basis vectors in two dimensions are</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \hi = \llt 1,0\rgt \qquad\qquad\hj =\llt 0,1\rgt
 \end{equation*}
 </div>
-</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:42.5%;margin-right:42.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/basis2d.svg" role="img" class="contained"></div></div></div> <div class="para logical" id="p-304">
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:42.5%;margin-right:42.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/basis2d.svg" role="img" class="contained"></div></div></div> <div class="para logical" id="p-305">
 <div class="para">The standard basis vectors in three dimensions are</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -525,7 +526,7 @@ window.MathJax = {
 \qquad\qquad\hk =\llt 0,0,1\rgt
 \end{equation*}
 </div>
-</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:37.5%;margin-right:37.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/basis3d.svg" role="img" class="contained"></div></div></div></article><div class="para logical" id="p-305">
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:37.5%;margin-right:37.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/basis3d.svg" role="img" class="contained"></div></div></div></article><div class="para logical" id="p-306">
 <div class="para">We’ll explain the little hats in the notation <span class="process-math">\(\hi\text{,}\)</span> <span class="process-math">\(\hj\text{,}\)</span> <span class="process-math">\(\hk\)</span> shortly. Some people rename <span class="process-math">\(\hi\text{,}\)</span> <span class="process-math">\(\hj\)</span> and <span class="process-math">\(\hk\)</span> to <span class="process-math">\(\he_1\text{,}\)</span> <span class="process-math">\(\he_2\)</span> and <span class="process-math">\(\he_3\)</span> respectively. Using the above properties we have, for all vectors,</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -533,11 +534,11 @@ window.MathJax = {
 \llt a_1,a_2,a_3\rgt =a_1\,\hi+a_2\,\hj+a_3\,\hk
 \end{equation*}
 </div>
-<div class="para">A sum of numbers times vectors, like <span class="process-math">\(a_1\hi+a_2\hj\)</span> is called a linear combination of the vectors. Thus all vectors can be expressed as linear combinations of the standard basis vectors. This makes basis vectors very helpful in computations. The  standard basis vectors are unit vectors, meaning that they are of length one, where the length of a vector <span class="process-math">\(\va\)</span> is denoted<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-10" id="fn-10"><sup> 6 </sup></a> <span class="process-math">\(|\va|\)</span> and is defined by</div>
+<div class="para">A sum of numbers times vectors, like <span class="process-math">\(a_1\hi+a_2\hj\)</span> is called a linear combination of the vectors. Thus all vectors can be expressed as linear combinations of the standard basis vectors. This makes basis vectors very helpful in computations. The  standard basis vectors are unit vectors, meaning that they are of length one, where the length of a vector <span class="process-math">\(\va\)</span> is denoted<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-11" id="fn-11"><sup> 6 </sup></a> <span class="process-math">\(|\va|\)</span> and is defined by</div>
 </div>
 <article class="definition definition-like" id="def_vectLen"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.10</span><span class="period">.</span><span class="space"> </span><span class="title">Length of a Vector.</span>
-</h4> <div class="para logical" id="p-306">
+</h4> <div class="para logical" id="p-307">
 <div class="displaymath process-math" id="md-17">
 \begin{alignat*}{3}
 &amp;\va=\llt a_1,a_2\rgt \qquad&amp;&amp;\implies\qquad &amp;&amp;|\va|=\sqrt{a_1^2+a_2^2}\\
@@ -549,11 +550,11 @@ window.MathJax = {
 </div></article><article class="example example-like" id="eg_unit_vector"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.11</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-307">Recall that multiplying a vector <span class="process-math">\(\va\)</span> by a positive number <span class="process-math">\(s\text{,}\)</span> changes the length of the vector by a factor <span class="process-math">\(s\)</span> without changing the direction of the vector. So (assuming that <span class="process-math">\(|\va|\ne 0)\)</span> <span class="process-math">\(\frac{\va}{|\va|}\)</span> is a unit vector that has the same direction as <span class="process-math">\(\va\text{.}\)</span> For example, <span class="process-math">\(\frac{\llt 1,1,1\rgt}{\sqrt{3}}\)</span> is a unit vector that points in the same direction as <span class="process-math">\(\llt 1,1,1\rgt\text{.}\)</span>
+<div class="para" id="p-308">Recall that multiplying a vector <span class="process-math">\(\va\)</span> by a positive number <span class="process-math">\(s\text{,}\)</span> changes the length of the vector by a factor <span class="process-math">\(s\)</span> without changing the direction of the vector. So (assuming that <span class="process-math">\(|\va|\ne 0)\)</span> <span class="process-math">\(\frac{\va}{|\va|}\)</span> is a unit vector that has the same direction as <span class="process-math">\(\va\text{.}\)</span> For example, <span class="process-math">\(\frac{\llt 1,1,1\rgt}{\sqrt{3}}\)</span> is a unit vector that points in the same direction as <span class="process-math">\(\llt 1,1,1\rgt\text{.}\)</span>
 </div></article><article class="example example-like" id="eg_walk"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.12</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-308">
+<div class="para logical" id="p-309">
 <div class="para">We go for a walk on a flat Earth. We use a coordinate system with the positive x-axis pointing due east and the positive y-axis pointing due north. We</div>
 <ul class="disc">
 <li id="li-126"><div class="para" id="p-derived-li-126">start at the origin and</div></li>
@@ -565,7 +566,7 @@ window.MathJax = {
 </div> <div class="sidebyside"><div class="sbsrow" style="margin-left:7.5%;margin-right:7.5%;">
 <div class="sbspanel middle" style="width:58.8235294117647%;"><img src="external/figs/addSubtractMult.svg" role="img" class="contained"></div>
 <div class="sbspanel middle" style="width:23.5294117647059%;"><img src="external/figs/triangleWalk.svg" role="img" class="contained"></div>
-</div></div> <div class="para logical" id="p-309">
+</div></div> <div class="para logical" id="p-310">
 <div class="para">We will now use vectors to figure out our final location.</div>
 <ul class="disc">
 <li id="li-131"><div class="para" id="p-derived-li-131">On the first leg of our walk, we go 4 units in the positive <span class="process-math">\(x\)</span>-direction. So our displacement vector — the vector whose tail is at our starting point and whose head is at the end point of the first leg — is <span class="process-math">\(\llt 4,0\rgt\text{.}\)</span> As we started at <span class="process-math">\((0,0)\)</span> we finish the first leg of the walk at <span class="process-math">\((4,0)\text{.}\)</span>
@@ -587,7 +588,7 @@ window.MathJax = {
 </div></article></section><section class="subsection" id="subsec-dotprod"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">The Dot Product</span>
 </h3>
-<div class="para logical" id="p-310">
+<div class="para logical" id="p-311">
 <div class="para">Let’s get back to the arithmetic operations of addition and multiplication. We will be using both scalars and vectors. So, for each operation there are three possibilities that we need to explore:</div>
 <ul class="disc">
 <li id="li-134"><div class="para" id="p-derived-li-134">“scalar plus scalar”, “scalar plus vector” and “vector plus vector”</div></li>
@@ -595,16 +596,16 @@ window.MathJax = {
 </ul>
 <div class="para">We have been using “scalar plus scalar” and “scalar times scalar” since childhood. “vector plus vector” and “scalar times vector” were just defined above. There is no sensible way to define “scalar plus vector”, so we won’t. This leaves “vector times vector”. There are actually two widely used such products. The first is the <em class="emphasis">dot product</em>, which is the topic of this section, and which is used to easily determine the angle <span class="process-math">\(\theta\)</span> (or more precisely, <span class="process-math">\(\cos\theta\)</span>) between two vectors. We’ll get to the second, the cross product, later.</div>
 </div>
-<div class="para logical" id="p-311">
+<div class="para logical" id="p-312">
 <div class="para">Here is preview of what we will do in this dot product subsection §<a href="sec_vectors.html#subsec-dotprod" class="internal" title="Subsection: The Dot Product">Subsection </a>. We are going to give two formulae for the dot product, <span class="process-math">\(\va\cdot\vb\text{,}\)</span> of the pair of vectors <span class="process-math">\(\va=\llt a_1,a_2,a_3\rgt\)</span> and <span class="process-math">\(\vb=\llt b_1,b_2,b_3\rgt\text{.}\)</span>
 </div>
 <ul class="disc">
 <li id="li-136"><div class="para" id="p-derived-li-136">The first formula is <span class="process-math">\(\va\cdot\vb = a_1b_1+a_2b_2+a_3b_3\text{.}\)</span> We will take it as our official definition of <span class="process-math">\(\va\cdot\vb\text{.}\)</span> This formula provides us with an easy way to compute dot products.</div></li>
 <li id="li-137">
-<div class="para" id="p-312">The second formula is <span class="process-math">\(\va\cdot\vb=|\va|\,|\vb|\,\cos\theta\text{,}\)</span> where <span class="process-math">\(\theta\)</span> is the angle between <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vb\text{.}\)</span>
+<div class="para" id="p-313">The second formula is <span class="process-math">\(\va\cdot\vb=|\va|\,|\vb|\,\cos\theta\text{,}\)</span> where <span class="process-math">\(\theta\)</span> is the angle between <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vb\text{.}\)</span>
 </div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:42.35%;margin-right:42.35%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/dotAngle.svg" role="img" class="contained"></div></div></div>
-<div class="para logical" id="p-313">
+<div class="para logical" id="p-314">
 <div class="para">We will show, in Theorem <a href="" class="xref" data-knowl="./knowl/thm_dotPppties.html" title="Theorem 3.14: Properties of the Dot Product">Theorem 3.14</a> below, that this second formula always gives the same answer as the first formula. The second formula provides us with an easy way to determine the angle between two vectors. In particular, it provides us with an easy way to test whether or not two vectors are perpendicular to each other. For example, the vectors <span class="process-math">\(\llt 1,2,3\rgt\)</span> and <span class="process-math">\(\llt -1,-1,1\rgt\)</span> have dot product</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_dotPppties.html">
 \begin{equation*}
@@ -619,7 +620,7 @@ window.MathJax = {
 </div>
 <article class="definition definition-like" id="def_dotProd"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.13</span><span class="period">.</span><span class="space"> </span><span class="title">Dot Product.</span>
-</h4> <div class="para logical" id="p-314">
+</h4> <div class="para logical" id="p-315">
 <div class="para">The dot product of the vectors <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vb\)</span> is denoted <span class="process-math">\(\va\cdot\vb\)</span> and is defined by</div>
 <div class="displaymath process-math" id="md-18">
 \begin{alignat*}{3}
@@ -630,11 +631,11 @@ window.MathJax = {
 \end{alignat*}
 </div>
 <div class="para">in two and three dimensions respectively.</div>
-</div></article><div class="para" id="p-315">The properties of the dot product are as follows:</div>
+</div></article><div class="para" id="p-316">The properties of the dot product are as follows:</div>
 <article class="theorem theorem-like" id="thm_dotPppties"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.14</span><span class="period">.</span><span class="space"> </span><span class="title">Properties of the Dot Product.</span>
 </h4>
-<div class="para logical" id="p-316">
+<div class="para logical" id="p-317">
 <div class="para">Let <span class="process-math">\(\va\text{,}\)</span> <span class="process-math">\(\vb\)</span> and <span class="process-math">\(\vc\)</span> be vectors and let <span class="process-math">\(s\)</span> be a scalar. Then</div>
 <div class="displaymath process-math" id="md-19">
 \begin{alignat*}{2}
@@ -652,7 +653,7 @@ window.MathJax = {
 \text{ or } \va\perp\vb
 \end{alignat*}
 </div>
-</div></article><article class="hiddenproof" id="proof-1"><a href="" data-knowl="" class="id-ref proof-knowl original has-image" data-refid="hk-proof-1"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-1"><article class="hiddenproof"><div class="para logical" id="p-317">
+</div></article><article class="hiddenproof" id="proof-1"><a href="" data-knowl="" class="id-ref proof-knowl original has-image" data-refid="hk-proof-1"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-1"><article class="hiddenproof"><div class="para logical" id="p-318">
 <div class="para">Properties 0 through 5 are almost immediate consequences of the definition. For example, for property 3 (which is called the distributive law) in dimension 2,</div>
 <div class="displaymath process-math" id="md-20">
 \begin{align*}
@@ -665,7 +666,7 @@ window.MathJax = {
 &amp;=a_1b_1+a_2b_2+a_1c_1+a_2c_2
 \end{align*}
 </div>
-</div> <div class="para logical" id="p-318">
+</div> <div class="para logical" id="p-319">
 <div class="para">Property 6 is sufficiently important that it is often used as the definition of dot product. It is not at all an obvious consequence of the definition. To verify it, we just write <span class="process-math">\(|\va-\vb|^2\)</span> in two different ways. The first expresses <span class="process-math">\(|\va-\vb|^2\)</span> in terms of <span class="process-math">\(\va\cdot\vb\text{.}\)</span> It is</div>
 <div class="displaymath process-math" id="md-21">
 \begin{align*}
@@ -676,7 +677,7 @@ window.MathJax = {
 \end{align*}
 </div>
 <div class="para">Here, <span class="process-math">\({\buildrel 1 \over =}\text{,}\)</span> for example, means that the equality is  a consequence of property 1. The second way we write <span class="process-math">\(|\va-\vb|^2\)</span> involves <span class="process-math">\(\cos\theta\)</span> and follows from the cosine law for triangles. Just in case you don’t remember the cosine law, we’ll derive it right now! Start by applying Pythagoras to the shaded triangle in the right hand figure of</div>
-</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:7.5%;margin-right:7.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/cosineB.svg" role="img" class="contained"></div></div></div> <div class="para logical" id="p-319">
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:7.5%;margin-right:7.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/cosineB.svg" role="img" class="contained"></div></div></div> <div class="para logical" id="p-320">
 <div class="para">That triangle is a right triangle whose hypotenuse has length <span class="process-math">\(|\va-\vb|\)</span> and  whose other two sides have lengths <span class="process-math">\(\big(|\vb|-|\va|\cos\theta\big)\)</span> and <span class="process-math">\(|\va|\sin\theta\text{.}\)</span> So Pythagoras gives</div>
 <div class="displaymath process-math" id="md-22">
 \begin{align*}
@@ -687,8 +688,8 @@ window.MathJax = {
 &amp;=|\vb|^2-2|\va|\,|\vb|\,\cos\theta+|\va|^2
 \end{align*}
 </div>
-<div class="para">This is precisely the cosine law<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-11" id="fn-11"><sup> 7 </sup></a>. Observe that, when <span class="process-math">\(\theta=\tfrac{\pi}{2}\text{,}\)</span> this reduces to, (surprise!) Pythagoras’ theorem.</div>
-</div> <div class="para logical" id="p-320">
+<div class="para">This is precisely the cosine law<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-12" id="fn-12"><sup> 7 </sup></a>. Observe that, when <span class="process-math">\(\theta=\tfrac{\pi}{2}\text{,}\)</span> this reduces to, (surprise!) Pythagoras’ theorem.</div>
+</div> <div class="para logical" id="p-321">
 <div class="para">Setting our two expressions for <span class="process-math">\(|\va-\vb|^2\)</span> equal to each other,</div>
 <div class="displaymath process-math" id="md-23">
 \begin{gather*}
@@ -710,12 +711,12 @@ window.MathJax = {
 \end{gather*}
 </div>
 <div class="para">which is exactly property 6.</div>
-</div> <div class="para" id="p-321">Property 7 follows directly from property 6. First note that the dot product <span class="process-math">\(\va\cdot\vb=|\va|\,|\vb|\,\cos\theta\)</span> is zero if and only if at least one of the three factors <span class="process-math">\(|\va|,\ |\vb|,\ \cos\theta\)</span> is zero. The first factor is zero if and only if <span class="process-math">\(\va=\vZero \text{.}\)</span> The second factor is zero if and only if <span class="process-math">\(\vb=\vZero \text{.}\)</span> The third factor is zero if and only if <span class="process-math">\(\theta=\pm\tfrac{\pi}{2}+2k\pi\text{,}\)</span> for some integer <span class="process-math">\(k\text{,}\)</span> which in turn is true if and only if <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vb\)</span> are mutually perpendicular.</div></article></div>
-<div class="para" id="p-322">Because of Property 7 of Theorem <a href="" class="xref" data-knowl="./knowl/thm_dotPppties.html" title="Theorem 3.14: Properties of the Dot Product">Theorem 3.14</a>, the dot product can be used to test whether or not two vectors are perpendicular to each other. That is, whether or not the angle between the two vectors is <span class="process-math">\(90^\circ\text{.}\)</span> Another name<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-12" id="fn-12"><sup> 8 </sup></a> for “perpendicular” is “orthogonal”. Testing for orthogonality is one of the main uses of the dot product.</div>
+</div> <div class="para" id="p-322">Property 7 follows directly from property 6. First note that the dot product <span class="process-math">\(\va\cdot\vb=|\va|\,|\vb|\,\cos\theta\)</span> is zero if and only if at least one of the three factors <span class="process-math">\(|\va|,\ |\vb|,\ \cos\theta\)</span> is zero. The first factor is zero if and only if <span class="process-math">\(\va=\vZero \text{.}\)</span> The second factor is zero if and only if <span class="process-math">\(\vb=\vZero \text{.}\)</span> The third factor is zero if and only if <span class="process-math">\(\theta=\pm\tfrac{\pi}{2}+2k\pi\text{,}\)</span> for some integer <span class="process-math">\(k\text{,}\)</span> which in turn is true if and only if <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vb\)</span> are mutually perpendicular.</div></article></div>
+<div class="para" id="p-323">Because of Property 7 of Theorem <a href="" class="xref" data-knowl="./knowl/thm_dotPppties.html" title="Theorem 3.14: Properties of the Dot Product">Theorem 3.14</a>, the dot product can be used to test whether or not two vectors are perpendicular to each other. That is, whether or not the angle between the two vectors is <span class="process-math">\(90^\circ\text{.}\)</span> Another name<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-13" id="fn-13"><sup> 8 </sup></a> for “perpendicular” is “orthogonal”. Testing for orthogonality is one of the main uses of the dot product.</div>
 <article class="example example-like" id="example-11"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.15</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-323">
+<div class="para logical" id="p-324">
 <div class="para">Consider the three vectors</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -746,15 +747,15 @@ window.MathJax = {
 \theta =\frac{\pi}{3}
 \end{gather*}
 </div>
-</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:30%;margin-right:30%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/dotProd.svg" role="img" class="contained"></div></div></div></article><div class="para" id="p-324">Dot products are also used to compute projections.  First, here’s the definition.</div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:30%;margin-right:30%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/dotProd.svg" role="img" class="contained"></div></div></div></article><div class="para" id="p-325">Dot products are also used to compute projections.  First, here’s the definition.</div>
 <article class="definition definition-like" id="def_projection"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.16</span><span class="period">.</span><span class="space"> </span><span class="title">Projection.</span>
-</h4> <div class="para" id="p-325">Draw two vectors, <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vb\text{,}\)</span> with their tails at a common point and drop a perpendicular from the head of <span class="process-math">\(\va\)</span> to the line that passes through both the head and tail of <span class="process-math">\(\vb\text{.}\)</span> By definition, the projection of the vector <span class="process-math">\(\va\)</span> on the vector <span class="process-math">\(\vb\)</span> is the vector from the tail of <span class="process-math">\(\vb\)</span> to the point on the line where the perpendicular hits.</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:11%;margin-right:11%;">
+</h4> <div class="para" id="p-326">Draw two vectors, <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vb\text{,}\)</span> with their tails at a common point and drop a perpendicular from the head of <span class="process-math">\(\va\)</span> to the line that passes through both the head and tail of <span class="process-math">\(\vb\text{.}\)</span> By definition, the projection of the vector <span class="process-math">\(\va\)</span> on the vector <span class="process-math">\(\vb\)</span> is the vector from the tail of <span class="process-math">\(\vb\)</span> to the point on the line where the perpendicular hits.</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:11%;margin-right:11%;">
 <div class="sbspanel middle" style="width:29.4871794871795%;"><img src="external/figs/projA.svg" role="img" class="contained"></div>
 <div class="sbspanel middle" style="width:42.3076923076923%;"><img src="external/figs/projB.svg" role="img" class="contained"></div>
-</div></div></article><div class="para" id="p-326">Think of the projection of <span class="process-math">\(\va\)</span> on <span class="process-math">\(\vb\)</span> as the part of <span class="process-math">\(\va\)</span> that is in the direction of <span class="process-math">\(\vb\text{.}\)</span>
+</div></div></article><div class="para" id="p-327">Think of the projection of <span class="process-math">\(\va\)</span> on <span class="process-math">\(\vb\)</span> as the part of <span class="process-math">\(\va\)</span> that is in the direction of <span class="process-math">\(\vb\text{.}\)</span>
 </div>
-<div class="para logical" id="p-327">
+<div class="para logical" id="p-328">
 <div class="para">Now let’s develop a formula for the projection of <span class="process-math">\(\va\)</span> on <span class="process-math">\(\vb\text{.}\)</span> Denote by <span class="process-math">\(\theta\)</span> the angle between <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vb\text{.}\)</span> If <span class="process-math">\(|\theta|\)</span> is no more than <span class="process-math">\(90^\circ\text{,}\)</span> as in the figure on the left above, the length of the projection of <span class="process-math">\(\va\)</span> on <span class="process-math">\(\vb\)</span> is <span class="process-math">\(|\va|\cos\theta\text{.}\)</span> By Property 6 of Theorem <a href="" class="xref" data-knowl="./knowl/thm_dotPppties.html" title="Theorem 3.14: Properties of the Dot Product">Theorem 3.14</a>, <span class="process-math">\(|\va|\cos\theta=\va\cdot\vb/|\vb|\text{,}\)</span> so the projection is a vector whose length is <span class="process-math">\(\va\cdot\vb/|\vb|\)</span> and whose direction is given by the unit vector <span class="process-math">\(\vb/|\vb|\text{.}\)</span> Hence</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_dotPppties.html" id="md-28">
 \begin{gather*}
@@ -776,15 +777,15 @@ window.MathJax = {
 <article class="fact theorem-like" id="eqn_proj"><h4 class="heading">
 <span class="type">Fact</span><span class="space"> </span><span class="codenumber">3.17</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-328"><div class="displaymath process-math">
+<div class="para logical" id="p-329"><div class="displaymath process-math">
 \begin{equation*}
 {\rm proj}_{\vb}\,\va=\frac{\va\cdot\vb}{|\vb|^2}\,\vb
 \end{equation*}
-</div></div></article><div class="para" id="p-329">is applicable whenever <span class="process-math">\(\vb\ne\vZero \text{.}\)</span> We may rewrite <span class="process-math">\({\rm proj}_{\vb}\,\va=\frac{\va\cdot\vb}{|\vb|}\,\frac{\vb}{|\vb|}\text{.}\)</span> The coefficient, <span class="process-math">\(\frac{\va\cdot\vb}{|\vb|}\text{,}\)</span> of the unit vector <span class="process-math">\(\frac{\vb}{|\vb|}\text{,}\)</span> is called the component of <span class="process-math">\(\va\)</span> in the direction <span class="process-math">\(\vb\text{.}\)</span> As a special case, if <span class="process-math">\(\vb\)</span> happens to be a unit vector, which, for emphasis, we’ll now write has <span class="process-math">\(\hat\vb\text{,}\)</span> the projection formula simplifies to</div>
+</div></div></article><div class="para" id="p-330">is applicable whenever <span class="process-math">\(\vb\ne\vZero \text{.}\)</span> We may rewrite <span class="process-math">\({\rm proj}_{\vb}\,\va=\frac{\va\cdot\vb}{|\vb|}\,\frac{\vb}{|\vb|}\text{.}\)</span> The coefficient, <span class="process-math">\(\frac{\va\cdot\vb}{|\vb|}\text{,}\)</span> of the unit vector <span class="process-math">\(\frac{\vb}{|\vb|}\text{,}\)</span> is called the component of <span class="process-math">\(\va\)</span> in the direction <span class="process-math">\(\vb\text{.}\)</span> As a special case, if <span class="process-math">\(\vb\)</span> happens to be a unit vector, which, for emphasis, we’ll now write has <span class="process-math">\(\hat\vb\text{,}\)</span> the projection formula simplifies to</div>
 <article class="fact theorem-like" id="eqn_unit_proj"><h4 class="heading">
 <span class="type">Fact</span><span class="space"> </span><span class="codenumber">3.18</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-330"><div class="displaymath process-math">
+<div class="para logical" id="p-331"><div class="displaymath process-math">
 \begin{equation*}
 {\rm proj}_{\hat\vb}\,\va
 =  (\va\cdot\hat\vb)\,\hat\vb
@@ -792,7 +793,7 @@ window.MathJax = {
 </div></div></article><article class="example example-like" id="eg_proj"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.19</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-331">In this example, we will find the projection of the vector <span class="process-math">\(\llt 0,3\rgt\)</span> on the vector <span class="process-math">\(\llt 1,1\rgt\text{,}\)</span> as in the figure</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:30%;margin-right:30%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/projEg.svg" role="img" class="contained"></div></div></div> <div class="para logical" id="p-332">
+<div class="para" id="p-332">In this example, we will find the projection of the vector <span class="process-math">\(\llt 0,3\rgt\)</span> on the vector <span class="process-math">\(\llt 1,1\rgt\text{,}\)</span> as in the figure</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:30%;margin-right:30%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/projEg.svg" role="img" class="contained"></div></div></div> <div class="para logical" id="p-333">
 <div class="para">By Equation <a href="" class="xref" data-knowl="./knowl/eqn_proj.html" title="Fact 3.17">Fact 3.17</a> with <span class="process-math">\(\va=\llt 0,3\rgt\)</span> and <span class="process-math">\(\vb=\llt 1,1\rgt\text{,}\)</span> that projection is</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn_proj.html" id="md-30">
 \begin{align*}
@@ -802,21 +803,21 @@ window.MathJax = {
 =\llt \frac{3}{2},\frac{3}{2}\rgt
 \end{align*}
 </div>
-</div></article><div class="para" id="p-333">One use of projections is to “resolve forces”. There is an example in the next (optional) section.</div></section><section class="subsection" id="subsec-pendulum"><h3 class="heading hide-type">
+</div></article><div class="para" id="p-334">One use of projections is to “resolve forces”. There is an example in the next (optional) section.</div></section><section class="subsection" id="subsec-pendulum"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">(Optional) Using Dot Products to Resolve Forces — The Pendulum</span>
 </h3>
-<div class="para logical" id="p-334">
+<div class="para logical" id="p-335">
 <div class="para">Model a pendulum by a mass <span class="process-math">\(m\)</span> that is connected to a hinge by an idealized rod that is massless and of fixed length <span class="process-math">\(\ell\text{.}\)</span> Denote by <span class="process-math">\(\theta\)</span> the angle between the rod and vertical. The forces acting on the mass are</div>
 <ul class="disc">
 <li id="li-138"><div class="para" id="p-derived-li-138">gravity, which has magnitude <span class="process-math">\(mg\)</span> and direction <span class="process-math">\(\llt 0,-1\rgt\text{,}\)</span>
 </div></li>
 <li id="li-139"><div class="para" id="p-derived-li-139">tension in the rod, whose magnitude <span class="process-math">\(\tau(t)\)</span> automatically adjusts itself so that the distance between the mass and the hinge is fixed at <span class="process-math">\(\ell\)</span> (so that the rod does not stretch or contract) and whose direction is always parallel to the rod,</div></li>
-<li id="li-140"><div class="para" id="p-derived-li-140">and possibly some frictional forces, like friction in the hinge and air resistance. Assume that the total frictional force has magnitude proportional<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-13" id="fn-13"><sup> 9 </sup></a> to the speed of the mass and has direction opposite to the direction of motion of the mass. We’ll call the constant of proportionality <span class="process-math">\(\beta\text{.}\)</span>
+<li id="li-140"><div class="para" id="p-derived-li-140">and possibly some frictional forces, like friction in the hinge and air resistance. Assume that the total frictional force has magnitude proportional<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-14" id="fn-14"><sup> 9 </sup></a> to the speed of the mass and has direction opposite to the direction of motion of the mass. We’ll call the constant of proportionality <span class="process-math">\(\beta\text{.}\)</span>
 </div></li>
 </ul>
 </div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:27.5%;margin-right:27.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/pendulum3.svg" role="img" class="contained"></div></div></div>
-<div class="para logical" id="p-335">
+<div class="para logical" id="p-336">
 <div class="para">If we use a coordinate system centered on the hinge, the <span class="process-math">\((x,y)\)</span> coordinates of the mass at time <span class="process-math">\(t\)</span> are</div>
 <div class="displaymath process-math" data-contains-math-knowls="" id="md-31">
 \begin{align*}
@@ -830,7 +831,7 @@ y(t)&amp;=-\ell\cos\theta(t)
 \text{mass}\times\text{acceleration}=\text{total applied force}
 \end{gather*}
 </div>
-<div class="para">to determine now <span class="process-math">\(\theta\)</span> evolves in time. By definition, the velocity and acceleration vectors<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-14" id="fn-14"><sup> 10 </sup></a> for the position vector <span class="process-math">\(\llt x(t),y(t)\rgt\)</span> are</div>
+<div class="para">to determine now <span class="process-math">\(\theta\)</span> evolves in time. By definition, the velocity and acceleration vectors<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-15" id="fn-15"><sup> 10 </sup></a> for the position vector <span class="process-math">\(\llt x(t),y(t)\rgt\)</span> are</div>
 <div class="displaymath process-math" data-contains-math-knowls="" id="md-33">
 \begin{align*}
 \diff{}{t}\llt x(t),y(t)\rgt
@@ -860,7 +861,7 @@ y(t)&amp;=-\ell\cos\theta(t)
 \end{alignat*}
 </div>
 </div>
-<div class="para logical" id="p-336">
+<div class="para logical" id="p-337">
 <div class="para">The negative of the velocity vector is <span class="process-math">\(- \ell\, \diff{\theta}{t}\llt \cos\theta,\sin\theta\rgt\text{,}\)</span> so the total frictional force is</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -869,7 +870,7 @@ y(t)&amp;=-\ell\cos\theta(t)
 </div>
 <div class="para">with <span class="process-math">\(\beta\)</span> our constant of proportionality.</div>
 </div>
-<div class="para logical" id="p-337">
+<div class="para logical" id="p-338">
 <div class="para">The vector</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -878,7 +879,7 @@ y(t)&amp;=-\ell\cos\theta(t)
 </div>
 <div class="para">has magnitude <span class="process-math">\(\tau(t)\)</span> and direction parallel to the rod pointing from the mass towards the hinge and so is the force due to tension in the rod.</div>
 </div>
-<div class="para logical" id="p-338">
+<div class="para logical" id="p-339">
 <div class="para">Hence, for this physical system, Newton’s law of motion is</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn_unit_proj.html" id="md-35">
 \begin{align*}
@@ -920,7 +921,7 @@ m\ell\ddiff{2}{\theta}{t}=-mg\sin\theta-\beta\ell\diff{\theta}{t}
 </div>
 <div class="para">which is easily solved. There are systematic procedures for finding the solution, but we’ll just guess.</div>
 </div>
-<div class="para logical" id="p-339">
+<div class="para logical" id="p-340">
 <div class="para">When there is no friction (so that <span class="process-math">\(\beta=0\)</span>), we would expect the pendulum to just oscillate. So it is natural to guess</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -936,7 +937,7 @@ m\ell\ddiff{2}{\theta}{t}=-mg\sin\theta-\beta\ell\diff{\theta}{t}
 <div class="para">which is zero if <span class="process-math">\(\omega=\sqrt{g/\ell}\text{.}\)</span> So <span class="process-math">\(\ \theta(t)=A\sin(\omega t-\delta)\ \)</span> is a solution for any amplitude <span class="process-math">\(A\)</span> and phase <span class="process-math">\(\delta\text{,}\)</span> provided the frequency <span class="process-math">\(\omega=\sqrt{g/\ell}\text{.}\)</span>
 </div>
 </div>
-<div class="para logical" id="p-340">
+<div class="para logical" id="p-341">
 <div class="para">When there is some, but not too much, friction, so that <span class="process-math">\(\beta \gt 0\)</span> is relatively small, we would expect “oscillation with decaying amplitude”. So we  guess</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -975,7 +976,7 @@ Ae^{-\gamma t}\cos(\omega t-\delta)
 </div>
 <div class="para">When there is a lot of friction (namely when <span class="process-math">\(\tfrac{\beta^2}{4m^2} \gt \tfrac{g}{\ell}\text{,}\)</span> so that the frequency <span class="process-math">\(\omega\)</span> is not a real number), we would expect damping without oscillation and so would guess <span class="process-math">\(\theta(t)=Ae^{-\gamma t}\text{.}\)</span> You can determine the allowed values of <span class="process-math">\(\gamma\)</span> by substituting this guess in.</div>
 </div>
-<div class="para logical" id="p-341">
+<div class="para logical" id="p-342">
 <div class="para">To extract the components perpendicular to the direction of motion, we dot with <span class="process-math">\(\llt -\sin\theta,\cos\theta\rgt \)</span> rather than <span class="process-math">\(\llt \cos\theta,\sin\theta\rgt \text{.}\)</span> Note that, because</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1007,10 +1008,10 @@ m\ell\Big(\diff{\theta}{t}\Big)^2=-mg\cos\theta+\tau
 </div></section><section class="subsection" id="sec_GEOparallelogram"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">(Optional) Areas of Parallelograms</span>
 </h3>
-<div class="para" id="p-342">A parallelogram is naturally determined by the two vectors that define its sides. We’ll now develop a formula for the area of a parallelogram in terms of these two vectors.</div>
-<div class="para" id="p-343">Construct a parallelogram as follows. Pick two vectors <span class="process-math">\(\llt a,b\rgt \)</span> and <span class="process-math">\(\llt c,d\rgt \text{.}\)</span> Draw them with their tails at a common point. Then draw <span class="process-math">\(\llt a,b\rgt \)</span> a second time with its tail at the head of <span class="process-math">\(\llt c,d\rgt \)</span> and draw  <span class="process-math">\(\llt c,d\rgt \)</span> a second time with its tail at the head of <span class="process-math">\(\llt a,b\rgt \text{.}\)</span> If the common point is the origin, you get a picture like the figure below.</div>
+<div class="para" id="p-343">A parallelogram is naturally determined by the two vectors that define its sides. We’ll now develop a formula for the area of a parallelogram in terms of these two vectors.</div>
+<div class="para" id="p-344">Construct a parallelogram as follows. Pick two vectors <span class="process-math">\(\llt a,b\rgt \)</span> and <span class="process-math">\(\llt c,d\rgt \text{.}\)</span> Draw them with their tails at a common point. Then draw <span class="process-math">\(\llt a,b\rgt \)</span> a second time with its tail at the head of <span class="process-math">\(\llt c,d\rgt \)</span> and draw  <span class="process-math">\(\llt c,d\rgt \)</span> a second time with its tail at the head of <span class="process-math">\(\llt a,b\rgt \text{.}\)</span> If the common point is the origin, you get a picture like the figure below.</div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:17%;margin-right:17%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/area3.svg" role="img" class="contained"></div></div></div>
-<div class="para logical" id="p-344">
+<div class="para logical" id="p-345">
 <div class="para">Any parallelogram can be constructed like this if you pick the common point and two vectors appropriately. Let’s compute the area of the parallelogram. The area of the large rectangle with vertices <span class="process-math">\((0,0),\ (0, b+d),\ (a+c,0)\)</span> and <span class="process-math">\((a+c,b+d)\)</span> is <span class="process-math">\((a+c)(b+d)\text{.}\)</span> The parallelogram we want can be extracted from the large rectangle by deleting the two small rectangles (each of area <span class="process-math">\(bc\)</span>), and the two lightly shaded triangles (each of area <span class="process-math">\(\half cd\)</span>), and the two darkly shaded triangles (each of area <span class="process-math">\(\half ab\)</span>). So the desired</div>
 <div class="displaymath process-math" id="md-45">
 \begin{gather*}
@@ -1024,14 +1025,14 @@ m\ell\Big(\diff{\theta}{t}\Big)^2=-mg\cos\theta+\tau
 <article class="fact theorem-like" id="eq_pgram_area"><h4 class="heading">
 <span class="type">Fact</span><span class="space"> </span><span class="codenumber">3.20</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-345"><div class="displaymath process-math" id="md-46">
+<div class="para logical" id="p-346"><div class="displaymath process-math" id="md-46">
 \begin{gather*}
 \text{area of parallelogram with sides }
 \llt a,b\rgt
 \text{ and }
 \llt c,d\rgt =|ad-bc|
 \end{gather*}
-</div></div></article><div class="para logical" id="p-346">
+</div></div></article><div class="para logical" id="p-347">
 <div class="para">Given two vectors <span class="process-math">\(\llt a,b\rgt \)</span> and <span class="process-math">\(\llt c,d\rgt \text{,}\)</span> the expression <span class="process-math">\(ad-bc\)</span> is generally written</div>
 <div class="displaymath process-math" id="md-47">
 \begin{align*}
@@ -1039,7 +1040,7 @@ m\ell\Big(\diff{\theta}{t}\Big)^2=-mg\cos\theta+\tau
 c&amp;d\end{matrix}\right]=ad-bc
 \end{align*}
 </div>
-<div class="para">and is called the <em class="emphasis">determinant</em> of the matrix<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-15" id="fn-15"><sup> 11 </sup></a>
+<div class="para">and is called the <em class="emphasis">determinant</em> of the matrix<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-16" id="fn-16"><sup> 11 </sup></a>
 </div>
 <div class="displaymath process-math" id="md-48">
 \begin{align*}
@@ -1048,13 +1049,13 @@ c&amp;d\end{matrix}\right]=ad-bc
 </div>
 <div class="para">with rows <span class="process-math">\(\llt a,b\rgt \)</span> and <span class="process-math">\(\llt c,d\rgt \text{.}\)</span> The determinant of a <span class="process-math">\(2\times 2\)</span> matrix is the product of the diagonal entries minus the product of the off-diagonal entries.</div>
 </div>
-<div class="para" id="p-347">There is a similar formula in three dimensions. Any three vectors <span class="process-math">\(\va=\llt a_1,a_2,a_3\rgt ,\ \vb=\llt b_1,b_2,b_3\rgt \)</span> and <span class="process-math">\(\vc=\llt c_1,c_2,c_3\rgt \)</span> in three dimensions</div>
+<div class="para" id="p-348">There is a similar formula in three dimensions. Any three vectors <span class="process-math">\(\va=\llt a_1,a_2,a_3\rgt ,\ \vb=\llt b_1,b_2,b_3\rgt \)</span> and <span class="process-math">\(\vc=\llt c_1,c_2,c_3\rgt \)</span> in three dimensions</div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:40%;margin-right:40%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/piped.svg" role="img" class="contained"></div></div></div>
-<div class="para" id="p-348">determine a parallelepiped (three dimensional parallelogram). Its volume is given by the formula</div>
+<div class="para" id="p-349">determine a parallelepiped (three dimensional parallelogram). Its volume is given by the formula</div>
 <article class="fact theorem-like" id="eq_piped_volume"><h4 class="heading">
 <span class="type">Fact</span><span class="space"> </span><span class="codenumber">3.21</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-349"><div class="displaymath process-math" id="md-49">
+<div class="para logical" id="p-350"><div class="displaymath process-math" id="md-49">
 \begin{align*}
 \text{volume of parallelepiped with edges }
 \va,\ \vb,\ \vc\
@@ -1062,11 +1063,11 @@ c&amp;d\end{matrix}\right]=ad-bc
 \det\left[\begin{matrix}a_1&amp;a_2&amp;a_3 \\  b_1&amp;b_2&amp;b_3\\ c_1&amp;c_2&amp;c_3\end{matrix}\right]
 \right|
 \end{align*}
-</div></div></article><div class="para" id="p-350">The determinant of a <span class="process-math">\(3\times 3\)</span> matrix can be defined in terms of some <span class="process-math">\(2\times 2\)</span> determinants by</div>
+</div></div></article><div class="para" id="p-351">The determinant of a <span class="process-math">\(3\times 3\)</span> matrix can be defined in terms of some <span class="process-math">\(2\times 2\)</span> determinants by</div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/det2.svg" role="img" class="contained"></div></div></div>
-<div class="para" id="p-351">This formula is called “expansion along the top row”. There is one term in the formula for each entry in the top row of the <span class="process-math">\(3\times 3\)</span> matrix. The term is a sign times the entry itself times the determinant of the <span class="process-math">\(2\times 2\)</span> matrix gotten by deleting the row and column that contains the entry. The sign alternates, starting with a “<span class="process-math">\(+\)</span>”.</div>
-<div class="para logical" id="p-352">
-<div class="para">We shall not prove this formula completely here<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-16" id="fn-16"><sup> 12 </sup></a>. It gets a little tedious. But, there is one case in which we can easily verify that the volume of the parallelepiped is really given by the absolute value of the claimed determinant. If the vectors <span class="process-math">\(\vb\)</span> and <span class="process-math">\(\vc\)</span> happen to lie in the <span class="process-math">\(xy\)</span> plane, so that <span class="process-math">\(b_3=c_3=0\text{,}\)</span> then</div>
+<div class="para" id="p-352">This formula is called “expansion along the top row”. There is one term in the formula for each entry in the top row of the <span class="process-math">\(3\times 3\)</span> matrix. The term is a sign times the entry itself times the determinant of the <span class="process-math">\(2\times 2\)</span> matrix gotten by deleting the row and column that contains the entry. The sign alternates, starting with a “<span class="process-math">\(+\)</span>”.</div>
+<div class="para logical" id="p-353">
+<div class="para">We shall not prove this formula completely here<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-17" id="fn-17"><sup> 12 </sup></a>. It gets a little tedious. But, there is one case in which we can easily verify that the volume of the parallelepiped is really given by the absolute value of the claimed determinant. If the vectors <span class="process-math">\(\vb\)</span> and <span class="process-math">\(\vc\)</span> happen to lie in the <span class="process-math">\(xy\)</span> plane, so that <span class="process-math">\(b_3=c_3=0\text{,}\)</span> then</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eg_GEOcross.html" id="md-50">
 \begin{align*}
 \det\left[\begin{matrix}
@@ -1080,31 +1081,31 @@ a_1&amp;a_2&amp;a_3\\ b_1&amp;b_2&amp;0\\ c_1&amp;c_2&amp;0
 </div></section><section class="subsection" id="subsec-crossprod"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">The Cross Product</span>
 </h3>
-<div class="para logical" id="p-353">
+<div class="para logical" id="p-354">
 <div class="para">We have already seen two different products involving vectors — the multiplication of a vector by a scalar and the dot product of two vectors. The dot product of two vectors yields a scalar. We now introduce another product of two vectors, called the <em class="emphasis">cross product</em>. The cross product of two vectors will give a vector. There are applications which have two vectors as inputs and produce one vector as an output, and which are related to the cross product. Here is a very brief mention of two such applications. We will look at them in much more detail later.</div>
 <ul class="disc">
 <li id="li-141">
-<div class="para" id="p-354">Consider a parallelogram in three dimensions. A parallelogram is naturally determined by the two vectors that define its sides. One measure of the size of a parallelogram is its area. One way to specify the orientation of the parallelogram is to give a vector that is perpendicular to it. A very compact way to encode both the area and the orientation of the parallelogram is to give a vector whose direction is perpendicular to the plane in which it lies and whose magnitude is its area. We shall see that such a vector can be easily constructed by taking the cross product (definition coming shortly) of the two vectors that give the sides of the parallelogram.</div>
+<div class="para" id="p-355">Consider a parallelogram in three dimensions. A parallelogram is naturally determined by the two vectors that define its sides. One measure of the size of a parallelogram is its area. One way to specify the orientation of the parallelogram is to give a vector that is perpendicular to it. A very compact way to encode both the area and the orientation of the parallelogram is to give a vector whose direction is perpendicular to the plane in which it lies and whose magnitude is its area. We shall see that such a vector can be easily constructed by taking the cross product (definition coming shortly) of the two vectors that give the sides of the parallelogram.</div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:32.5%;margin-right:32.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/pgramCross.svg" role="img" class="contained"></div></div></div>
 </li>
 <li id="li-142">
-<div class="para" id="p-355">Imagine a rigid body which is rotating at a rate <span class="process-math">\(\Omega\)</span> radians per second about an axis whose direction is given by the unit vector <span class="process-math">\(\hat\va\text{.}\)</span> Let <span class="process-math">\(P\)</span> be any point on the body. We shall see, in the (optional) §<a href="sec_vectors.html#sec_rot_motion" class="internal" title="Subsection: (Optional) Application of Cross Products to Rotational Motion">Subsection </a>, that the velocity, <span class="process-math">\(\vv\text{,}\)</span> of the point <span class="process-math">\(P\)</span> is the cross product (again, definition coming shortly) of the vector <span class="process-math">\(\Om\hat\va\)</span> with the vector <span class="process-math">\(\vr\)</span> from any point on the axis of rotation to <span class="process-math">\(P\text{.}\)</span>
+<div class="para" id="p-356">Imagine a rigid body which is rotating at a rate <span class="process-math">\(\Omega\)</span> radians per second about an axis whose direction is given by the unit vector <span class="process-math">\(\hat\va\text{.}\)</span> Let <span class="process-math">\(P\)</span> be any point on the body. We shall see, in the (optional) §<a href="sec_vectors.html#sec_rot_motion" class="internal" title="Subsection: (Optional) Application of Cross Products to Rotational Motion">Subsection </a>, that the velocity, <span class="process-math">\(\vv\text{,}\)</span> of the point <span class="process-math">\(P\)</span> is the cross product (again, definition coming shortly) of the vector <span class="process-math">\(\Om\hat\va\)</span> with the vector <span class="process-math">\(\vr\)</span> from any point on the axis of rotation to <span class="process-math">\(P\text{.}\)</span>
 </div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:33.5%;margin-right:33.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/rigidBB.svg" role="img" class="contained"></div></div></div>
 </li>
 </ul>
 </div>
-<div class="para" id="p-356">Finally, here is the definition of the cross product. Note that it applies only to vectors in three dimensions.</div>
+<div class="para" id="p-357">Finally, here is the definition of the cross product. Note that it applies only to vectors in three dimensions.</div>
 <article class="definition definition-like" id="def_crossProd"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.22</span><span class="period">.</span><span class="space"> </span><span class="title">Cross Product.</span>
-</h4> <div class="para logical" id="p-357">
+</h4> <div class="para logical" id="p-358">
 <div class="para">The cross product of the vectors <span class="process-math">\(\va=\llt a_1,a_2,a_3\rgt\)</span> and <span class="process-math">\(\vb=\llt b_1,b_2,b_3\rgt\)</span> is denoted <span class="process-math">\(\va\times\vb\)</span> and is defined by</div>
 <div class="displaymath process-math" id="md-51">
 \begin{gather*}
 \va\times\vb = \llt a_2b_3-a_3b_2\,,\, a_3b_1-a_1b_3\,,\, a_1b_2-a_2b_1\rgt
 \end{gather*}
 </div>
-</div></article><div class="para logical" id="p-358">
+</div></article><div class="para logical" id="p-359">
 <div class="para">Note that each component has the form <span class="process-math">\(a_ib_j-a_jb_i\text{.}\)</span> The index <span class="process-math">\(i\)</span> of the first <span class="process-math">\(a\)</span> in component number <span class="process-math">\(k\)</span> of <span class="process-math">\(\va\times\vb\)</span> is just after <span class="process-math">\(k\)</span> in the list <span class="process-math">\(1,2,3,1,2,3,1,2,3,\cdots\text{.}\)</span> The index <span class="process-math">\(j\)</span> of the first <span class="process-math">\(b\)</span> is just before <span class="process-math">\(k\)</span> in the list.</div>
 <div class="displaymath process-math" id="md-52">
 \begin{gather*}
@@ -1122,7 +1123,7 @@ a_1&amp;a_2&amp;a_3\\ b_1&amp;b_2&amp;0\\ c_1&amp;c_2&amp;0
 \end{gather*}
 </div>
 </div>
-<div class="para logical" id="p-359">
+<div class="para logical" id="p-360">
 <div class="para">There is a much better way to remember this definition. Recall that a <span class="process-math">\(2\times 2\)</span> matrix is an array of numbers having two rows and two columns and that the determinant of a <span class="process-math">\(2\times 2\)</span> matrix is  defined by</div>
 <div class="displaymath process-math" id="md-54">
 \begin{align*}
@@ -1131,7 +1132,7 @@ a_1&amp;a_2&amp;a_3\\ b_1&amp;b_2&amp;0\\ c_1&amp;c_2&amp;0
 </div>
 <div class="para">It is the product of the entries on the diagonal minus the product of the entries not on the diagonal.</div>
 </div>
-<div class="para logical" id="p-360">
+<div class="para logical" id="p-361">
 <div class="para">A <span class="process-math">\(3\times 3\)</span> matrix is an array of numbers having three rows and three columns.</div>
 <div class="displaymath process-math" id="md-55">
 \begin{align*}
@@ -1146,7 +1147,7 @@ b_1&amp;b_2&amp;b_3\end{matrix}\right]
 <div class="para">You will shortly see why the entries in the top row have been given the rather peculiar names <span class="process-math">\(i\text{,}\)</span> <span class="process-math">\(j\)</span> and <span class="process-math">\(k\text{.}\)</span> The determinant of a <span class="process-math">\(3\times 3\)</span> matrix can be defined in terms of some <span class="process-math">\(2\times 2\)</span> determinants by</div>
 </div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/det.svg" role="img" class="contained"></div></div></div>
-<div class="para logical" id="p-361">
+<div class="para logical" id="p-362">
 <div class="para">This formula is called “expansion of the determinant along the top row”. There is one term in the formula for each entry in the top row. The term is a sign times the entry itself times the determinant of the <span class="process-math">\(2\times 2\)</span> matrix gotten by deleting the row and column that contains the entry. The sign alternates, starting with a <span class="process-math">\(+\text{.}\)</span> If we now replace <span class="process-math">\(i\)</span> by <span class="process-math">\(\hi\text{,}\)</span> <span class="process-math">\(j\)</span> by <span class="process-math">\(\hj\)</span> and <span class="process-math">\(k\)</span> by <span class="process-math">\(\hk\text{,}\)</span> we get exactly the formula for <span class="process-math">\(\va\times \vb\)</span> of Definition <a href="" class="xref" data-knowl="./knowl/def_crossProd.html" title="Definition 3.22: Cross Product">Definition 3.22</a>. That is the reason for the peculiar choice of names for the matrix entries. So</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/def_crossProd.html" id="md-56">
 \begin{align*}
@@ -1164,11 +1165,11 @@ b_1&amp;b_2&amp;b_3\end{matrix}\right]\\
 <article class="example example-like" id="eg_GEOcrossijji"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.23</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-362">In this example, we’ll use the mnemonic device to compute two very simple cross products. First</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/detij.svg" role="img" class="contained"></div></div></div> <div class="para" id="p-363">Second</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/detji.svg" role="img" class="contained"></div></div></div> <div class="para" id="p-364">Note that, unlike most (or maybe even all) products that you have seen before, <span class="process-math">\(\hi\times\hj\)</span> is <em class="emphasis">not</em> the same as <span class="process-math">\(\hj\times\hi\text{!}\)</span>
+<div class="para" id="p-363">In this example, we’ll use the mnemonic device to compute two very simple cross products. First</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/detij.svg" role="img" class="contained"></div></div></div> <div class="para" id="p-364">Second</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/detji.svg" role="img" class="contained"></div></div></div> <div class="para" id="p-365">Note that, unlike most (or maybe even all) products that you have seen before, <span class="process-math">\(\hi\times\hj\)</span> is <em class="emphasis">not</em> the same as <span class="process-math">\(\hj\times\hi\text{!}\)</span>
 </div></article><article class="example example-like" id="eg_GEOcrossEgA"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.24</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-365">In this example, we’ll use the mnemonic device to compute two more complicated cross products. Let <span class="process-math">\(\va=\llt 1,2,3 \rgt\)</span> and <span class="process-math">\(\vb=\llt 1,-1,2 \rgt\text{.}\)</span> First</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/detEgA1.svg" role="img" class="contained"></div></div></div> <div class="para" id="p-366">Second</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/detEgA2.svg" role="img" class="contained"></div></div></div> <div class="para logical" id="p-367">
+<div class="para" id="p-366">In this example, we’ll use the mnemonic device to compute two more complicated cross products. Let <span class="process-math">\(\va=\llt 1,2,3 \rgt\)</span> and <span class="process-math">\(\vb=\llt 1,-1,2 \rgt\text{.}\)</span> First</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/detEgA1.svg" role="img" class="contained"></div></div></div> <div class="para" id="p-367">Second</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/detEgA2.svg" role="img" class="contained"></div></div></div> <div class="para logical" id="p-368">
 <div class="para">Here are some important observations.</div>
 <ul class="disc">
 <li id="li-143"><div class="para" id="p-derived-li-143">The vectors <span class="process-math">\(\va\times\vb\)</span> and <span class="process-math">\(\vb\times\va\)</span> are not the same! In fact <span class="process-math">\(\vb\times\va=-\va\times\vb\text{.}\)</span> We shall see in Theorem <a href="" class="xref" data-knowl="./knowl/thm_crossPppties.html" title="Theorem 3.26: Properties of the Cross Product">Theorem 3.26</a> below that this was not a fluke.</div></li>
@@ -1177,19 +1178,19 @@ b_1&amp;b_2&amp;b_3\end{matrix}\right]\\
 </div></article><article class="example example-like" id="eg_GEOcrossEgB"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.25</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-368">Yet again we use the mnemonic device to compute a more complicated cross product. This time let <span class="process-math">\(\va=\llt 3,2,1 \rgt\)</span> and <span class="process-math">\(\vb=\llt 6,4,2 \rgt\text{.}\)</span> Then</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/detEgB.svg" role="img" class="contained"></div></div></div> <div class="para" id="p-369">We shall see in Theorem <a href="" class="xref" data-knowl="./knowl/thm_crossPppties.html" title="Theorem 3.26: Properties of the Cross Product">Theorem 3.26</a> below that it is not a fluke that the cross product is <span class="process-math">\(\vZero\text{.}\)</span> It is a consequence of the fact that <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vb=2\va\)</span> are parallel.</div></article><div class="para logical" id="p-370">
+<div class="para" id="p-369">Yet again we use the mnemonic device to compute a more complicated cross product. This time let <span class="process-math">\(\va=\llt 3,2,1 \rgt\)</span> and <span class="process-math">\(\vb=\llt 6,4,2 \rgt\text{.}\)</span> Then</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/detEgB.svg" role="img" class="contained"></div></div></div> <div class="para" id="p-370">We shall see in Theorem <a href="" class="xref" data-knowl="./knowl/thm_crossPppties.html" title="Theorem 3.26: Properties of the Cross Product">Theorem 3.26</a> below that it is not a fluke that the cross product is <span class="process-math">\(\vZero\text{.}\)</span> It is a consequence of the fact that <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vb=2\va\)</span> are parallel.</div></article><div class="para logical" id="p-371">
 <div class="para">We now move on to learning about the properties of the cross product. Our first properties lead up to a more intuitive geometric definition of <span class="process-math">\(\va\times\vb\text{,}\)</span> which is better for interpreting <span class="process-math">\(\va\times\vb\text{.}\)</span> These properties of the cross product, which state that  <span class="process-math">\(\va\times\vb\)</span> is a vector and then determine its direction and length, are as follows. We will collect these properties, and a few others, into a theorem shortly. </div>
 <dl class="description-list narrow">
 <dt id="li-145">(0)</dt>
-<dd><div class="para" id="p-371">
+<dd><div class="para" id="p-372">
 <span class="process-math">\(\va,\vb\)</span>  are vectors in three dimensions and <span class="process-math">\(\va\times\vb\)</span> is a vector in three dimensions.</div></dd>
 <dt id="li-146">(1)</dt>
-<dd><div class="para" id="p-372">
+<dd><div class="para" id="p-373">
 <span class="process-math">\(\va\times\vb\)</span> is perpendicular to both  <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vb\text{.}\)</span>
 </div></dd>
 </dl>
 </div>
-<article class="hiddenproof" id="proof-2"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-2"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-2"><article class="hiddenproof"><div class="para logical" id="p-373">
+<article class="hiddenproof" id="proof-2"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-2"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-2"><article class="hiddenproof"><div class="para logical" id="p-374">
 <div class="para">To check that <span class="process-math">\(\va\)</span> and <span class="process-math">\(\va\times \vb\)</span> are perpendicular, one just has to check that the dot product <span class="process-math">\(\va\cdot(\va\times \vb)=0\text{.}\)</span> The six terms in</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1199,10 +1200,10 @@ a_1(a_2b_3-a_3b_2)+a_2(a_3b_1-a_1b_3)+a_3(a_1b_2-a_2b_1)
 </div>
 <div class="para">cancel pairwise. The computation showing that <span class="process-math">\(\vb\cdot(\va\times \vb)=0\)</span> is similar.</div>
 </div></article></div>
-<div class="para logical" id="p-374"><dl class="description-list narrow">
+<div class="para logical" id="p-375"><dl class="description-list narrow">
 <dt id="li-147">(2)</dt>
 <dd>
-<div class="para logical" id="p-375"><div class="displaymath process-math" id="md-57">
+<div class="para logical" id="p-376"><div class="displaymath process-math" id="md-57">
 \begin{align*}
 |\va\times\vb| \amp = |\va|\,|\vb|\sin\theta
 \text{ where } 0\le\theta\le\pi \text{ is the angle between } \va,\vb\\
@@ -1212,7 +1213,7 @@ a_1(a_2b_3-a_3b_2)+a_2(a_3b_1-a_1b_3)+a_3(a_1b_2-a_2b_1)
 <div class="sidebyside"><div class="sbsrow" style="margin-left:40%;margin-right:40%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/area.svg" role="img" class="contained"></div></div></div>
 </dd>
 </dl></div>
-<article class="hiddenproof" id="proof-3"><a href="" data-knowl="" class="id-ref proof-knowl original has-image" data-refid="hk-proof-3"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-3"><article class="hiddenproof"><div class="para logical" id="p-376">
+<article class="hiddenproof" id="proof-3"><a href="" data-knowl="" class="id-ref proof-knowl original has-image" data-refid="hk-proof-3"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-3"><article class="hiddenproof"><div class="para logical" id="p-377">
 <div class="para">The formula <span class="process-math">\(|\va\times\vb|=|\va|\,|\vb|\sin\theta\)</span> is gotten by verifying that</div>
 <div class="displaymath process-math" id="md-58">
 \begin{align*}
@@ -1238,18 +1239,18 @@ a_1(a_2b_3-a_3b_2)+a_2(a_3b_1-a_1b_3)+a_3(a_1b_2-a_2b_1)
 </div>
 <div class="para">To see that <span class="process-math">\(|\va|\,|\vb|\sin\theta\)</span> is the area of the parallelogram with sides <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vb\text{,}\)</span> just recall that the area of any parallelogram is given by the length of its base times its height. Think of <span class="process-math">\(\va\)</span> as the base of the parallelogram. Then <span class="process-math">\(|\va|\)</span> is the length of the base and <span class="process-math">\(|\vb|\sin\theta\)</span> is the height.</div>
 </div> <div class="sidebyside"><div class="sbsrow" style="margin-left:39%;margin-right:39%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/areaB.svg" role="img" class="contained"></div></div></div></article></div>
-<div class="para" id="p-377">These properties almost determine <span class="process-math">\(\va\times\vb\text{.}\)</span> Property 1 forces the vector <span class="process-math">\(\va\times\vb\)</span> to lie on the line perpendicular to the plane containing <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vb\text{.}\)</span> There are precisely two vectors on this line that have the length given by property 2. In the left hand figure of</div>
+<div class="para" id="p-378">These properties almost determine <span class="process-math">\(\va\times\vb\text{.}\)</span> Property 1 forces the vector <span class="process-math">\(\va\times\vb\)</span> to lie on the line perpendicular to the plane containing <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vb\text{.}\)</span> There are precisely two vectors on this line that have the length given by property 2. In the left hand figure of</div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:5.5%;margin-right:5.5%;">
 <div class="sbspanel middle" style="width:28.0898876404494%;"><img src="external/figs/crossLL.svg" role="img" class="contained"></div>
 <div class="sbspanel middle" style="width:24.7191011235955%;"><img src="external/figs/crossRR.svg" role="img" class="contained"></div>
 <div class="sbspanel middle" style="width:22.4719101123596%;"><img src="external/figs/RHR.svg" role="img" class="contained"></div>
 </div></div>
-<div class="para logical" id="p-378">
-<div class="para">the two vectors are labeled <span class="process-math">\(\vc\)</span> and <span class="process-math">\(\vd\text{.}\)</span> Which of these two candidates is correct is determined by the right hand rule<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-17" id="fn-17"><sup> 13 </sup></a>, which says that if you form your right hand into a fist with your fingers curling from <span class="process-math">\(\va\)</span> to <span class="process-math">\(\vb\text{,}\)</span> then when you stick your thumb straight out from the fist, it points in the direction of <span class="process-math">\(\va\times\vb\text{.}\)</span> This is illustrated in the figure on the right above<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-18" id="fn-18"><sup> 14 </sup></a>. The important special cases</div>
+<div class="para logical" id="p-379">
+<div class="para">the two vectors are labeled <span class="process-math">\(\vc\)</span> and <span class="process-math">\(\vd\text{.}\)</span> Which of these two candidates is correct is determined by the right hand rule<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-18" id="fn-18"><sup> 13 </sup></a>, which says that if you form your right hand into a fist with your fingers curling from <span class="process-math">\(\va\)</span> to <span class="process-math">\(\vb\text{,}\)</span> then when you stick your thumb straight out from the fist, it points in the direction of <span class="process-math">\(\va\times\vb\text{.}\)</span> This is illustrated in the figure on the right above<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-19" id="fn-19"><sup> 14 </sup></a>. The important special cases</div>
 <dl class="description-list narrow">
 <dt id="li-148">(3)</dt>
 <dd>
-<div class="para logical" id="p-379">
+<div class="para logical" id="p-380">
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eg_GEOcrossijji.html">
 \begin{equation*}
 \hi\times\hj=\phantom{-}\hk,\ \ \ \hj\times\hk=\phantom{-}\hi,\ \ \  \hk\times\hi=\phantom{-}\hj
@@ -1263,10 +1264,10 @@ a_1(a_2b_3-a_3b_2)+a_2(a_3b_1-a_1b_3)+a_3(a_1b_2-a_2b_1)
 <div class="para">all follow directly from the definition of the cross product (see, for example, Example <a href="" class="xref" data-knowl="./knowl/eg_GEOcrossijji.html" title="Example 3.23">Example 3.23</a>) and all obey the right hand rule.  Combining properties 1, 2 and the right hand rule give the geometric definition of <span class="process-math">\(\va\times\vb\text{.}\)</span> To remember these three special cases, just remember this figure.</div>
 </div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:37.5%;margin-right:37.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/cp_circle.svg" role="img" class="contained"></div></div></div>
-<div class="para" id="p-380">The product of any two standard basis vectors, taken in the order of the arrows in the figure, is the third standard basis vector. Going against the arrows introduces a minus sign.</div>
+<div class="para" id="p-381">The product of any two standard basis vectors, taken in the order of the arrows in the figure, is the third standard basis vector. Going against the arrows introduces a minus sign.</div>
 </dd>
 <dt id="li-149">(4)</dt>
-<dd><div class="para logical" id="p-381">
+<dd><div class="para logical" id="p-382">
 <div class="displaymath process-math">
 \begin{equation*}
 \va\times\vb=|\va|\,|\vb|\sin\theta\ \hn
@@ -1276,8 +1277,8 @@ a_1(a_2b_3-a_3b_2)+a_2(a_3b_1-a_1b_3)+a_3(a_1b_2-a_2b_1)
 </div></dd>
 </dl>
 </div>
-<article class="hiddenproof" id="proof-4"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-4"><h4 class="heading"><span class="title">Outline of Proof.</span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-4"><article class="hiddenproof"> <div class="para logical" id="p-382">
-<div class="para">We have already seen that the right hand side has the correct length and, except possibly for a sign, direction. To check that the right hand rule holds in general, rotate your coordinate system around<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-19" id="fn-19"><sup> 15 </sup></a> so that <span class="process-math">\(\va\)</span> points along the positive <span class="process-math">\(x\)</span> axis and <span class="process-math">\(\vb\)</span> lies in the <span class="process-math">\(xy\)</span>-plane with positive <span class="process-math">\(y\)</span> component. That is <span class="process-math">\(\va=\alpha\hi\)</span> and <span class="process-math">\(\vb=\beta\hi+\gamma\hj\)</span> with <span class="process-math">\(\alpha,\gamma\ge 0\text{.}\)</span> Then</div>
+<article class="hiddenproof" id="proof-4"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-4"><h4 class="heading"><span class="title">Outline of Proof.</span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-4"><article class="hiddenproof"> <div class="para logical" id="p-383">
+<div class="para">We have already seen that the right hand side has the correct length and, except possibly for a sign, direction. To check that the right hand rule holds in general, rotate your coordinate system around<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-20" id="fn-20"><sup> 15 </sup></a> so that <span class="process-math">\(\va\)</span> points along the positive <span class="process-math">\(x\)</span> axis and <span class="process-math">\(\vb\)</span> lies in the <span class="process-math">\(xy\)</span>-plane with positive <span class="process-math">\(y\)</span> component. That is <span class="process-math">\(\va=\alpha\hi\)</span> and <span class="process-math">\(\vb=\beta\hi+\gamma\hj\)</span> with <span class="process-math">\(\alpha,\gamma\ge 0\text{.}\)</span> Then</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \va\times\vb=\alpha\hi\times(\beta\hi+\gamma\hj) =\alpha\beta\,\hi\times\hi+\alpha\gamma\,\hi\times\hj.
@@ -1285,11 +1286,11 @@ a_1(a_2b_3-a_3b_2)+a_2(a_3b_1-a_1b_3)+a_3(a_1b_2-a_2b_1)
 </div>
 <div class="para">The first term vanishes by property 2, because the angle <span class="process-math">\(\theta\)</span> between <span class="process-math">\(\hi\)</span> and <span class="process-math">\(\hi\)</span> is zero. So, by property 3, <span class="process-math">\(\va\times\vb= \alpha\gamma\hk\)</span> points along the positive <span class="process-math">\(z\)</span> axis, which is consistent with the right hand rule.</div>
 </div></article></div>
-<div class="para logical" id="p-383">
+<div class="para logical" id="p-384">
 <div class="para">The analog of property 7 of the dot product (which says that <span class="process-math">\(\va\cdot\vb\)</span> is zero if and only if  <span class="process-math">\(\va=\vZero\)</span> or <span class="process-math">\(\vb=\vZero\)</span> or  <span class="process-math">\(\va\perp\vb\)</span>) follows immediately from property 2.</div>
 <dl class="description-list narrow">
 <dt id="li-150">(5)</dt>
-<dd><div class="para logical" id="p-384"><div class="displaymath process-math">
+<dd><div class="para logical" id="p-385"><div class="displaymath process-math">
 \begin{equation*}
 \va\times\vb=\vZero\iff \va=\vZero  \text{ or }
 \vb=\vZero
@@ -1299,21 +1300,21 @@ a_1(a_2b_3-a_3b_2)+a_2(a_3b_1-a_1b_3)+a_3(a_1b_2-a_2b_1)
 </div></div></dd>
 </dl>
 </div>
-<div class="para" id="p-385">The remaining properties are all tools for helping do computations with cross products. Here is a theorem which summarizes the properties of the cross product. We have already seen the first five. The other properties are all tools for helping do computations with cross products.</div>
+<div class="para" id="p-386">The remaining properties are all tools for helping do computations with cross products. Here is a theorem which summarizes the properties of the cross product. We have already seen the first five. The other properties are all tools for helping do computations with cross products.</div>
 <article class="theorem theorem-like" id="thm_crossPppties"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.26</span><span class="period">.</span><span class="space"> </span><span class="title">Properties of the Cross Product.</span>
 </h4>
-<div class="para logical" id="p-386"><dl class="description-list narrow">
+<div class="para logical" id="p-387"><dl class="description-list narrow">
 <dt id="li-151">(0)</dt>
-<dd><div class="para" id="p-387">
+<dd><div class="para" id="p-388">
 <span class="process-math">\(\va,\vb\)</span>  are vectors in three dimensions and <span class="process-math">\(\va\times\vb\)</span> is a vector in three dimensions.</div></dd>
 <dt id="li-152">(1)</dt>
-<dd><div class="para" id="p-388">
+<dd><div class="para" id="p-389">
 <span class="process-math">\(\va\times\vb\)</span> is perpendicular to both  <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vb\text{.}\)</span>
 </div></dd>
 <dt id="li-153">(2)</dt>
 <dd>
-<div class="para logical" id="p-389"><div class="displaymath process-math" id="md-59">
+<div class="para logical" id="p-390"><div class="displaymath process-math" id="md-59">
 \begin{align*}
 |\va\times\vb| \amp = |\va|\,|\vb|\sin\theta
 \text{ where } 0\le\theta\le\pi \text{ is the angle between } \va,\vb\\
@@ -1323,13 +1324,13 @@ a_1(a_2b_3-a_3b_2)+a_2(a_3b_1-a_1b_3)+a_3(a_1b_2-a_2b_1)
 <div class="sidebyside"><div class="sbsrow" style="margin-left:37.5%;margin-right:37.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/area.svg" role="img" class="contained"></div></div></div>
 </dd>
 <dt id="li-154">(3)</dt>
-<dd><div class="para logical" id="p-390"><div class="displaymath process-math">
+<dd><div class="para logical" id="p-391"><div class="displaymath process-math">
 \begin{equation*}
 \hi\times\hj=\phantom{-}\hk,\ \ \ \hj\times\hk=\phantom{-}\hi,\ \ \  \hk\times\hi=\phantom{-}\hj
 \end{equation*}
 </div></div></dd>
 <dt id="li-155">(4)</dt>
-<dd><div class="para logical" id="p-391">
+<dd><div class="para logical" id="p-392">
 <div class="displaymath process-math">
 \begin{equation*}
 \va\times\vb=|\va|\,|\vb|\sin\theta\ \hn
@@ -1338,7 +1339,7 @@ a_1(a_2b_3-a_3b_2)+a_2(a_3b_1-a_1b_3)+a_3(a_1b_2-a_2b_1)
 <div class="para">where <span class="process-math">\(\theta\)</span> is the angle between <span class="process-math">\(\va, \vb\text{,}\)</span> <span class="process-math">\(|\hn|=1,\ \hn\perp\va,\vb\text{,}\)</span> and <span class="process-math">\((\va,\vb,\hn)\)</span> obey the right hand rule.</div>
 </div></dd>
 <dt id="li-156">(5)</dt>
-<dd><div class="para logical" id="p-392"><div class="displaymath process-math">
+<dd><div class="para logical" id="p-393"><div class="displaymath process-math">
 \begin{equation*}
 \va\times\vb=\vZero\iff \va=\vZero  \text{ or }
 \vb=\vZero
@@ -1347,13 +1348,13 @@ a_1(a_2b_3-a_3b_2)+a_2(a_3b_1-a_1b_3)+a_3(a_1b_2-a_2b_1)
 \end{equation*}
 </div></div></dd>
 <dt id="li-157">(6)</dt>
-<dd><div class="para logical" id="p-393"><div class="displaymath process-math">
+<dd><div class="para logical" id="p-394"><div class="displaymath process-math">
 \begin{equation*}
 \va\times \vb=-\vb\times\va
 \end{equation*}
 </div></div></dd>
 <dt id="li-158">(7)</dt>
-<dd><div class="para logical" id="p-394">
+<dd><div class="para logical" id="p-395">
 <div class="displaymath process-math">
 \begin{equation*}
 (s\va)\times \vb=\va\times(s\vb)=s(\va\times \vb)
@@ -1363,26 +1364,26 @@ a_1(a_2b_3-a_3b_2)+a_2(a_3b_1-a_1b_3)+a_3(a_1b_2-a_2b_1)
 </div>
 </div></dd>
 <dt id="li-159">(8)</dt>
-<dd><div class="para logical" id="p-395"><div class="displaymath process-math">
+<dd><div class="para logical" id="p-396"><div class="displaymath process-math">
 \begin{equation*}
 \va\times(\vb+\vc)=\va\times\vb+\va\times \vc
 \end{equation*}
 </div></div></dd>
 <dt id="li-160">(9)</dt>
-<dd><div class="para logical" id="p-396"><div class="displaymath process-math">
+<dd><div class="para logical" id="p-397"><div class="displaymath process-math">
 \begin{equation*}
 \va\cdot(\vb\times\vc)=(\va\times\vb)\cdot\vc
 \end{equation*}
 </div></div></dd>
 <dt id="li-161">(10)</dt>
-<dd><div class="para logical" id="p-397"><div class="displaymath process-math">
+<dd><div class="para logical" id="p-398"><div class="displaymath process-math">
 \begin{equation*}
 \va\times(\vb\times\vc)=(\vc\cdot\va)\vb -(\vb\cdot\va)\vc
 \end{equation*}
 </div></div></dd>
-</dl></div></article><article class="hiddenproof" id="proof-5"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-5"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-5"><article class="hiddenproof"><div class="para" id="p-398">We have already seen the proofs up to number 5. Numbers 6, 7 and 8 follow immediately from the definition, using a little algebra. To prove numbers 9 and 10 we just write out the definitions of the left hand sides and the right hand sides and observe that they are equal.</div> <div class="para logical" id="p-399"><dl class="description-list narrow">
+</dl></div></article><article class="hiddenproof" id="proof-5"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-5"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-5"><article class="hiddenproof"><div class="para" id="p-399">We have already seen the proofs up to number 5. Numbers 6, 7 and 8 follow immediately from the definition, using a little algebra. To prove numbers 9 and 10 we just write out the definitions of the left hand sides and the right hand sides and observe that they are equal.</div> <div class="para logical" id="p-400"><dl class="description-list narrow">
 <dt id="li-162">(9)</dt>
-<dd><div class="para logical" id="p-400">
+<dd><div class="para logical" id="p-401">
 <div class="para">The left hand side is</div>
 <div class="displaymath process-math" id="md-60">
 \begin{align*}
@@ -1404,12 +1405,12 @@ a_1(a_2b_3-a_3b_2)+a_2(a_3b_1-a_1b_3)+a_3(a_1b_2-a_2b_1)
 <div class="para">The left and right hand sides are the same.</div>
 </div></dd>
 <dt id="li-163">(10)</dt>
-<dd><div class="para" id="p-401">We will give the straightforward, but slightly tedious, computations in (the optional) §<a href="sec_vectors.html#sec_vector_identities" class="internal" title="Subsection: (Optional) Some Vector Identities">Subsection </a>.</div></dd>
+<dd><div class="para" id="p-402">We will give the straightforward, but slightly tedious, computations in (the optional) §<a href="sec_vectors.html#sec_vector_identities" class="internal" title="Subsection: (Optional) Some Vector Identities">Subsection </a>.</div></dd>
 </dl></div></article></div>
 <article class="warning remark-like" id="warning_GEOMcross"><h4 class="heading">
 <span class="type">Warning</span><span class="space"> </span><span class="codenumber">3.27</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-402">
+<div class="para logical" id="p-403">
 <div class="para">Take particular care with properties 6 and 10. They are counterintuitive and are a frequent source of errors. In particular, for general vectors <span class="process-math">\(\va\text{,}\)</span> <span class="process-math">\(\vb\text{,}\)</span> <span class="process-math">\(\vc\text{,}\)</span> the cross product is neither commutative nor associative, meaning that</div>
 <div class="displaymath process-math" id="md-62">
 \begin{align*}
@@ -1428,7 +1429,7 @@ a_1(a_2b_3-a_3b_2)+a_2(a_3b_1-a_1b_3)+a_3(a_1b_2-a_2b_1)
 </div></article><article class="example example-like" id="eg_GEOcross"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.28</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-403">As an illustration of the properties of the dot and cross product, we now derive the formula for the volume of the parallelepiped with edges <span class="process-math">\(\va=\llt a_1,a_2,a_3\rgt \text{,}\)</span> <span class="process-math">\(\vb = \llt b_1,b_2,b_3\rgt \text{,}\)</span> <span class="process-math">\(\vc = \llt c_1,c_2,c_3\rgt \)</span> that was mentioned in §<a href="sec_vectors.html#sec_GEOparallelogram" class="internal" title="Subsection: (Optional) Areas of Parallelograms">Subsection </a>.</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/pipedVolume.svg" role="img" class="contained"></div></div></div> <div class="para" id="p-404">The volume of the parallelepiped is the area of its base times its height<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-20" id="fn-20"><sup> 16 </sup></a>. The base is the parallelogram with sides <span class="process-math">\(\vb\)</span> and <span class="process-math">\(\vc\text{.}\)</span> Its area is the length of its base, which is <span class="process-math">\(|\vb|\text{,}\)</span> times its height, which is <span class="process-math">\(|\vc|\,\sin\theta\text{.}\)</span> (Drop a perpendicular from the head of <span class="process-math">\(\vc\)</span> to the line containing <span class="process-math">\(\vb\)</span>). Here <span class="process-math">\(\theta\)</span> is the angle between <span class="process-math">\(\vb\)</span> and <span class="process-math">\(\vc\text{.}\)</span> So the area of the base is <span class="process-math">\(|\vb|\,|\vc|\,\sin\theta= |\vb\times\vc|\text{,}\)</span> by property 2 of the cross product.</div> <div class="para" id="p-405">To get the height of the parallelepiped, we drop a perpendicular from the head of <span class="process-math">\(\va\)</span> to the line that passes through the tail of <span class="process-math">\(\va\)</span> and is perpendicular to the base of the parallelepiped. In other words, from the head of <span class="process-math">\(\va\)</span> to the line that contains both the head and the tail of <span class="process-math">\(\vb\times\vc\text{.}\)</span> So the height of the parallelepiped is <span class="process-math">\(|\va|\,|\cos\varphi|\text{.}\)</span>  (The absolute values have been included because if the angle between <span class="process-math">\(\vb\times\vc\)</span> and <span class="process-math">\(\va\)</span> happens to be greater than <span class="process-math">\(90^\circ\text{,}\)</span> the <span class="process-math">\(\cos\varphi\)</span> produced by taking the dot product of <span class="process-math">\(\va\)</span> and  <span class="process-math">\((\vb\times\vc\)</span>) will be negative.)</div> <div class="para logical" id="p-406">
+<div class="para" id="p-404">As an illustration of the properties of the dot and cross product, we now derive the formula for the volume of the parallelepiped with edges <span class="process-math">\(\va=\llt a_1,a_2,a_3\rgt \text{,}\)</span> <span class="process-math">\(\vb = \llt b_1,b_2,b_3\rgt \text{,}\)</span> <span class="process-math">\(\vc = \llt c_1,c_2,c_3\rgt \)</span> that was mentioned in §<a href="sec_vectors.html#sec_GEOparallelogram" class="internal" title="Subsection: (Optional) Areas of Parallelograms">Subsection </a>.</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/pipedVolume.svg" role="img" class="contained"></div></div></div> <div class="para" id="p-405">The volume of the parallelepiped is the area of its base times its height<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-21" id="fn-21"><sup> 16 </sup></a>. The base is the parallelogram with sides <span class="process-math">\(\vb\)</span> and <span class="process-math">\(\vc\text{.}\)</span> Its area is the length of its base, which is <span class="process-math">\(|\vb|\text{,}\)</span> times its height, which is <span class="process-math">\(|\vc|\,\sin\theta\text{.}\)</span> (Drop a perpendicular from the head of <span class="process-math">\(\vc\)</span> to the line containing <span class="process-math">\(\vb\)</span>). Here <span class="process-math">\(\theta\)</span> is the angle between <span class="process-math">\(\vb\)</span> and <span class="process-math">\(\vc\text{.}\)</span> So the area of the base is <span class="process-math">\(|\vb|\,|\vc|\,\sin\theta= |\vb\times\vc|\text{,}\)</span> by property 2 of the cross product.</div> <div class="para" id="p-406">To get the height of the parallelepiped, we drop a perpendicular from the head of <span class="process-math">\(\va\)</span> to the line that passes through the tail of <span class="process-math">\(\va\)</span> and is perpendicular to the base of the parallelepiped. In other words, from the head of <span class="process-math">\(\va\)</span> to the line that contains both the head and the tail of <span class="process-math">\(\vb\times\vc\text{.}\)</span> So the height of the parallelepiped is <span class="process-math">\(|\va|\,|\cos\varphi|\text{.}\)</span>  (The absolute values have been included because if the angle between <span class="process-math">\(\vb\times\vc\)</span> and <span class="process-math">\(\va\)</span> happens to be greater than <span class="process-math">\(90^\circ\text{,}\)</span> the <span class="process-math">\(\cos\varphi\)</span> produced by taking the dot product of <span class="process-math">\(\va\)</span> and  <span class="process-math">\((\vb\times\vc\)</span>) will be negative.)</div> <div class="para logical" id="p-407">
 <div class="para">All together</div>
 <div class="displaymath process-math" id="md-64">
 \begin{align*}
@@ -1447,7 +1448,7 @@ a_1(a_2b_3-a_3b_2)+a_2(a_3b_1-a_1b_3)+a_3(a_1b_2-a_2b_1)
 </div></article><article class="example example-like" id="eg_GEOcrossConcrete"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.29</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-407">
+<div class="para logical" id="p-408">
 <div class="para">As a concrete example of the computation of the volume of a parallelepiped, we consider the parallelepiped with edges</div>
 <div class="displaymath process-math" id="md-65">
 \begin{align*}
@@ -1457,7 +1458,7 @@ a_1(a_2b_3-a_3b_2)+a_2(a_3b_1-a_1b_3)+a_3(a_1b_2-a_2b_1)
 \end{align*}
 </div>
 <div class="para">Here is a sketch.</div>
-</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/pipedVolumeEg.svg" role="img" class="contained"></div></div></div> <div class="para logical" id="p-408">
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/pipedVolumeEg.svg" role="img" class="contained"></div></div></div> <div class="para logical" id="p-409">
 <div class="para">The base of the parallelepiped is the parallelogram with sides <span class="process-math">\(\vb\)</span> and <span class="process-math">\(\vc\text{.}\)</span> It is the shaded parallelogram in the sketch above. As</div>
 <div class="displaymath process-math" id="md-66">
 \begin{align*}
@@ -1497,17 +1498,17 @@ a_1(a_2b_3-a_3b_2)+a_2(a_3b_1-a_1b_3)+a_3(a_1b_2-a_2b_1)
 </div></article></section><section class="subsection" id="sec_vector_identities"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">(Optional) Some Vector Identities</span>
 </h3>
-<div class="para" id="p-409">Here are a few identities involving dot and cross products.</div>
+<div class="para" id="p-410">Here are a few identities involving dot and cross products.</div>
 <article class="lemma theorem-like" id="lem_tripProd"><h4 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">3.30</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-410"><ol class="lower-alpha">
+<div class="para logical" id="p-411"><ol class="lower-alpha">
 <li id="li-168"><div class="para" id="p-derived-li-168"><span class="process-math">\(\displaystyle \va\cdot(\vb\times\vc)=(\va\times\vb)\cdot\vc\)</span></div></li>
 <li id="li-169"><div class="para" id="p-derived-li-169"><span class="process-math">\(\displaystyle \va\times(\vb\times\vc)=(\vc\cdot\va)\vb-(\vb\cdot\va)\vc\)</span></div></li>
 <li id="li-170"><div class="para" id="p-derived-li-170"><span class="process-math">\(\displaystyle \va\times(\vb\times\vc) +
 \vb\times(\vc\times\va) +
 \vc\times(\va\times\vb) =\vZero\)</span></div></li>
-</ol></div></article><article class="hiddenproof" id="proof-6"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-6"><h4 class="heading"><span class="title">Proof of (a).</span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-6"><article class="hiddenproof"> <div class="para logical" id="p-411">
+</ol></div></article><article class="hiddenproof" id="proof-6"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-6"><h4 class="heading"><span class="title">Proof of (a).</span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-6"><article class="hiddenproof"> <div class="para logical" id="p-412">
 <div class="para">We proved this in Theorem <a href="" class="xref" data-knowl="./knowl/thm_crossPppties.html" title="Theorem 3.26: Properties of the Cross Product">Theorem 3.26</a>, by evaluating the left and right hand  sides, and observing that they are the same. Here is a second proof, in which we again write out both sides, but this time we express them in terms of determinants.</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_crossPppties.html" id="md-67">
 \begin{align*}
@@ -1537,7 +1538,7 @@ b_1&amp;b_2&amp;b_3
 </div>
 <div class="para">Exchanging two rows in a determinant changes the sign of the determinant. Moving the top row of a <span class="process-math">\(3\times 3\)</span> determinant to the bottom row requires two exchanges of rows. So the two <span class="process-math">\(3\times 3\)</span> determinants are equal.</div>
 </div></article></div>
-<article class="hiddenproof" id="proof-7"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-7"><h4 class="heading"><span class="title">Proof of (b).</span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-7"><article class="hiddenproof"> <div class="para logical" id="p-412">
+<article class="hiddenproof" id="proof-7"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-7"><h4 class="heading"><span class="title">Proof of (b).</span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-7"><article class="hiddenproof"> <div class="para logical" id="p-413">
 <div class="para">The proof is not exceptionally difficult — just write out both sides and grind. Substituting in</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1587,7 +1588,7 @@ b_2c_3-b_3c_2&amp;-b_1c_3+b_3c_1&amp;b_1c_2-b_2c_1
 </div>
 <div class="para">The last formula that we had for the left hand side is the same as the last formula we had for the right hand side. Oof! This is a little tedious to do by hand. But any computer algebra system will do it for you in a flash.</div>
 </div></article></div>
-<article class="hiddenproof" id="proof-8"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-8"><h4 class="heading"><span class="title">Proof of (c).</span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-8"><article class="hiddenproof"> <div class="para logical" id="p-413">
+<article class="hiddenproof" id="proof-8"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-8"><h4 class="heading"><span class="title">Proof of (c).</span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-8"><article class="hiddenproof"> <div class="para logical" id="p-414">
 <div class="para">We just apply part (b) three times</div>
 <div class="displaymath process-math" id="md-70">
 \begin{align*}
@@ -1603,12 +1604,12 @@ b_2c_3-b_3c_2&amp;-b_1c_3+b_3c_1&amp;b_1c_2-b_2c_1
 </div></article></div></section><section class="subsection" id="sec_rot_motion"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">(Optional) Application of Cross Products to Rotational Motion</span>
 </h3>
-<div class="para" id="p-414">In most computations involving rotational motion, the cross product shows up in one form or another. This is one of the main applications of the cross product. Consider, for example, a rigid body which is rotating at a constant rate of <span class="process-math">\(\Omega\)</span> radians per second about an axis whose direction is given by the unit vector <span class="process-math">\(\hat\va\text{.}\)</span> Let <span class="process-math">\(P\)</span> be any point on the body. Let’s figure out its velocity. Pick any point on the axis of rotation and designate it as the origin of our coordinate system. Denote by <span class="process-math">\(\vr\)</span> the vector from the origin to the point <span class="process-math">\(P\text{.}\)</span> Let <span class="process-math">\(\theta\)</span> denote the angle between <span class="process-math">\(\hat\va\)</span> and <span class="process-math">\(\vr\text{.}\)</span> As time progresses the point <span class="process-math">\(P\)</span> sweeps out a circle of radius <span class="process-math">\(R=|\vr\,|\sin\theta\text{.}\)</span>
+<div class="para" id="p-415">In most computations involving rotational motion, the cross product shows up in one form or another. This is one of the main applications of the cross product. Consider, for example, a rigid body which is rotating at a constant rate of <span class="process-math">\(\Omega\)</span> radians per second about an axis whose direction is given by the unit vector <span class="process-math">\(\hat\va\text{.}\)</span> Let <span class="process-math">\(P\)</span> be any point on the body. Let’s figure out its velocity. Pick any point on the axis of rotation and designate it as the origin of our coordinate system. Denote by <span class="process-math">\(\vr\)</span> the vector from the origin to the point <span class="process-math">\(P\text{.}\)</span> Let <span class="process-math">\(\theta\)</span> denote the angle between <span class="process-math">\(\hat\va\)</span> and <span class="process-math">\(\vr\text{.}\)</span> As time progresses the point <span class="process-math">\(P\)</span> sweeps out a circle of radius <span class="process-math">\(R=|\vr\,|\sin\theta\text{.}\)</span>
 </div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:33.5%;margin-right:33.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/rigid.svg" role="img" class="contained"></div></div></div>
-<div class="para" id="p-415">In one second <span class="process-math">\(P\)</span> travels along an arc that subtends an angle of <span class="process-math">\(\Omega\)</span> radians, which is the fraction <span class="process-math">\(\tfrac{\Omega}{2\pi}\)</span> of a full circle.  The length of this arc is <span class="process-math">\(\tfrac{\Omega}{2\pi}\times 2\pi R=\Omega R=\Omega|\vr\,|\sin\theta\)</span> so <span class="process-math">\(P\)</span> travels the distance <span class="process-math">\(\Omega|\vr\,|\sin\theta\)</span> in one second and its speed, which is also the length of its velocity vector, is <span class="process-math">\(\Omega|\vr\,|\sin\theta\text{.}\)</span>
+<div class="para" id="p-416">In one second <span class="process-math">\(P\)</span> travels along an arc that subtends an angle of <span class="process-math">\(\Omega\)</span> radians, which is the fraction <span class="process-math">\(\tfrac{\Omega}{2\pi}\)</span> of a full circle.  The length of this arc is <span class="process-math">\(\tfrac{\Omega}{2\pi}\times 2\pi R=\Omega R=\Omega|\vr\,|\sin\theta\)</span> so <span class="process-math">\(P\)</span> travels the distance <span class="process-math">\(\Omega|\vr\,|\sin\theta\)</span> in one second and its speed, which is also the length of its velocity vector, is <span class="process-math">\(\Omega|\vr\,|\sin\theta\text{.}\)</span>
 </div>
-<div class="para logical" id="p-416">
+<div class="para logical" id="p-417">
 <div class="para">Now we just need to figure out the direction of the velocity vector. That is, the direction of motion of the point <span class="process-math">\(P\text{.}\)</span> Imagine that both <span class="process-math">\(\hat\va\)</span> and <span class="process-math">\(\vr\)</span> lie in the plane of a piece of paper, as in the figure above. Then <span class="process-math">\(\vv\)</span> points either straight into or straight out of the page and consequently is perpendicular to both <span class="process-math">\(\hat\va\)</span> and <span class="process-math">\(\vr\text{.}\)</span> To distinguish between the “into the page” and “out of the page” cases, let’s impose the conventions that <span class="process-math">\(\Omega \gt 0\)</span> and the axis of rotation <span class="process-math">\(\hat\va\)</span> is chosen to obey the right hand rule, meaning that if the thumb of your right hand is pointing in the direction <span class="process-math">\(\hat\va\text{,}\)</span> then your fingers are pointing in the direction of motion of the rigid body.  Under these conventions, the velocity vector <span class="process-math">\(\vv\)</span> obeys</div>
 <ul class="disc">
 <li id="li-171"><div class="para" id="p-derived-li-171"><span class="process-math">\(\displaystyle |\vv|=\Omega|\vr||\hat\va|\sin\theta\)</span></div></li>
@@ -1625,7 +1626,7 @@ b_2c_3-b_3c_2&amp;-b_1c_3+b_3c_1&amp;b_1c_2-b_2c_1
 </div></section><section class="subsection" id="sec_rot_frame"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">(Optional) Application of Cross Products to Rotating Reference Frames</span>
 </h3>
-<div class="para logical" id="p-417">
+<div class="para logical" id="p-418">
 <div class="para">Imagine a moving particle that is being tracked by two observers.</div>
 <ol class="lower-alpha">
 <li id="li-174"><div class="para" id="p-derived-li-174">One observer is fixed (out in space) and measures the position of the particle to be <span class="process-math">\(\big(X(t), Y(t), Z(t)\big)\text{.}\)</span>
@@ -1639,9 +1640,9 @@ b_2c_3-b_3c_2&amp;-b_1c_3+b_3c_1&amp;b_1c_2-b_2c_1
 <div class="sbspanel middle" style="width:34.4827586206897%;"><img src="external/figs/merry.svg" role="img" class="contained"></div>
 <div class="sbspanel middle" style="width:27.5862068965517%;"><img src="external/figs/merryB.svg" role="img" class="contained"></div>
 </div></div>
-<div class="para" id="p-418">The <span class="process-math">\(x\)</span>- and <span class="process-math">\(y\)</span>-axes of the moving observer are painted in red on the merry-go-round. The figure on the right above shows a top view of the merry-go-round. The <span class="process-math">\(x\)</span>- and <span class="process-math">\(y\)</span>-axes of the moving observer are again red. The <span class="process-math">\(X\)</span>- and <span class="process-math">\(Y\)</span>-axes of the fixed observer are blue.  We are assuming that at time <span class="process-math">\(0\text{,}\)</span> the <span class="process-math">\(x\)</span>-axis of the moving observer and the <span class="process-math">\(X\)</span>-axis of the fixed observer coincide. As the merry-go-round is rotating at <span class="process-math">\(\Om\)</span> radians per second, the angle between the <span class="process-math">\(X\)</span>-axis and <span class="process-math">\(x\)</span>-axis after <span class="process-math">\(t\)</span> seconds is <span class="process-math">\(\Omega t\text{.}\)</span>
+<div class="para" id="p-419">The <span class="process-math">\(x\)</span>- and <span class="process-math">\(y\)</span>-axes of the moving observer are painted in red on the merry-go-round. The figure on the right above shows a top view of the merry-go-round. The <span class="process-math">\(x\)</span>- and <span class="process-math">\(y\)</span>-axes of the moving observer are again red. The <span class="process-math">\(X\)</span>- and <span class="process-math">\(Y\)</span>-axes of the fixed observer are blue.  We are assuming that at time <span class="process-math">\(0\text{,}\)</span> the <span class="process-math">\(x\)</span>-axis of the moving observer and the <span class="process-math">\(X\)</span>-axis of the fixed observer coincide. As the merry-go-round is rotating at <span class="process-math">\(\Om\)</span> radians per second, the angle between the <span class="process-math">\(X\)</span>-axis and <span class="process-math">\(x\)</span>-axis after <span class="process-math">\(t\)</span> seconds is <span class="process-math">\(\Omega t\text{.}\)</span>
 </div>
-<div class="para logical" id="p-419">
+<div class="para logical" id="p-420">
 <div class="para">As an example, suppose that the moving particle is tied to the tip of the moving observer’s unit <span class="process-math">\(x\)</span> vector. Then</div>
 <div class="displaymath process-math" id="md-72">
 \begin{align*}
@@ -1657,7 +1658,7 @@ X(t) &amp; = \cos(\Om t) &amp;  Y(t) &amp;=\sin(\Om t) &amp; Z(t) &amp;= 0
 \end{gather*}
 </div>
 </div>
-<div class="para logical" id="p-420">
+<div class="para logical" id="p-421">
 <div class="para">In general, denote by <span class="process-math">\(\hi(t)\)</span> the coordinates of the unit <span class="process-math">\(x\)</span>-vector of the moving observer at time <span class="process-math">\(t\text{,}\)</span> as measured by the fixed observer. Similarly <span class="process-math">\(\hj(t)\)</span> for the unit <span class="process-math">\(y\)</span>-vector, and <span class="process-math">\(\hk(t)\)</span> for the unit <span class="process-math">\(z\)</span>-vector. As the merry-go-round is rotating about the <span class="process-math">\(Z\)</span>-axis at a rate of <span class="process-math">\(\Omega\)</span> radians per second, the angle between the <span class="process-math">\(X\)</span>-axis and <span class="process-math">\(x\)</span>-axis after <span class="process-math">\(t\)</span> seconds is <span class="process-math">\(\Omega t\text{,}\)</span> and</div>
 <div class="displaymath process-math" id="md-74">
 \begin{align*}
@@ -1668,7 +1669,7 @@ X(t) &amp; = \cos(\Om t) &amp;  Y(t) &amp;=\sin(\Om t) &amp; Z(t) &amp;= 0
 </div>
 </div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:35%;margin-right:35%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/merryC.svg" role="img" class="contained"></div></div></div>
-<div class="para logical" id="p-421">
+<div class="para logical" id="p-422">
 <div class="para">The position of the moving particle, as seen by the fixed observer is</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/sec_rot_motion.html" id="md-75">
 \begin{align*}
@@ -1723,7 +1724,7 @@ x(t)\ \hi(t)
 \end{align*}
 </div>
 </div>
-<div class="para logical" id="p-422">
+<div class="para logical" id="p-423">
 <div class="para">Recall that the angular velocity <span class="process-math">\(\vOmega=(0,0,\Omega)\)</span> does not depend on time. The rotating observer sees <span class="process-math">\(\hi(t)\)</span> as <span class="process-math">\(\hi=(1,0,0)\text{,}\)</span> sees <span class="process-math">\(\hj(t)\)</span> as <span class="process-math">\(\hj=(0,1,0)\text{,}\)</span> and sees <span class="process-math">\(\hk(t)\)</span> as <span class="process-math">\(\hk=(0,0,1)\)</span> and so sees</div>
 <div class="displaymath process-math" id="md-80">
 \begin{align*}
@@ -1767,24 +1768,24 @@ x(t)\ \hi(t)
 <div class="sbspanel middle" style="width:30.5555555555556%;"><img src="external/figs/merryD.svg" role="img" class="contained"></div>
 <div class="sbspanel middle" style="width:30.5555555555556%;"><img src="external/figs/merryE.svg" role="img" class="contained"></div>
 </div></div>
-<div class="para" id="p-423">On a rotating ball, such as the Earth, the Coriolis force deflects wind to the right (counterclockwise) in the northern hemisphere and to the left (clockwise) is the southern hemisphere. In particular, hurricanes/cyclones/typhoons rotate counterclockwise in the northern hemisphere and clockwise in the southern hemisphere. On the other hand, when it comes to water draining out of, for example, a toilet, Coriolis force effects are dominated by other factors like asymmetry of the toilet.</div></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-7"><div class="fn">Some people use an underline, as in <span class="process-math">\(\underline{v}\text{,}\)</span> rather than an arrow.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-8"><div class="fn">Or, in the Wikipedia jargon, disambiguate.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-9"><div class="fn">OK. OK. Out in that (admittedly very small) part of the real world that actually knows what a vector is.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-10"><div class="fn">The notation <span class="process-math">\(\|\va\|\)</span> is also used for the length of <span class="process-math">\(\va\text{.}\)</span>
+<div class="para" id="p-424">On a rotating ball, such as the Earth, the Coriolis force deflects wind to the right (counterclockwise) in the northern hemisphere and to the left (clockwise) is the southern hemisphere. In particular, hurricanes/cyclones/typhoons rotate counterclockwise in the northern hemisphere and clockwise in the southern hemisphere. On the other hand, when it comes to water draining out of, for example, a toilet, Coriolis force effects are dominated by other factors like asymmetry of the toilet.</div></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-8"><div class="fn">Some people use an underline, as in <span class="process-math">\(\underline{v}\text{,}\)</span> rather than an arrow.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-9"><div class="fn">Or, in the Wikipedia jargon, disambiguate.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-10"><div class="fn">OK. OK. Out in that (admittedly very small) part of the real world that actually knows what a vector is.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-11"><div class="fn">The notation <span class="process-math">\(\|\va\|\)</span> is also used for the length of <span class="process-math">\(\va\text{.}\)</span>
 </div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-11"><div class="fn">You may be used to seeing it written as <span class="process-math">\(c^2=a^2+b^2-2 a b \cos C\text{,}\)</span> where <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\)</span> and <span class="process-math">\(c\)</span> are the lengths of the three sides of the triangle and <span class="process-math">\(C\)</span> is the angle opposite the side of length <span class="process-math">\(c\)</span>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-12"><div class="fn">You may be used to seeing it written as <span class="process-math">\(c^2=a^2+b^2-2 a b \cos C\text{,}\)</span> where <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\)</span> and <span class="process-math">\(c\)</span> are the lengths of the three sides of the triangle and <span class="process-math">\(C\)</span> is the angle opposite the side of length <span class="process-math">\(c\)</span>
 </div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-12"><div class="fn">The concepts of the dot product and perpendicularity have been generalized a lot in mathematics (for example, from 2d and 3d vectors to functions). The generalization of the dot product is called the “inner product” and the generalization of perpendicularity is called “orthogonality”.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-13"><div class="fn">The behaviour of air resistance (sometimes called drag) is pretty complicated. We’re using a reasonable low speed approximation. At high speeds drag is typically proportional to the square of the speed.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-14"><div class="fn">For a more comprehensive treatment of derivatives of vector valued functions <span class="process-math">\(\vr(t)\text{,}\)</span> and in particular of velocity and acceleration, see Section <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "sec_curves" missing or not unique]</code> in this text and Section 1.1 in the CLP-4 text.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-15"><div class="fn">The topics of matrices and determinants appear prominently in linear algebra courses. We are only going to use them as notation, and we will explicitly explain that notation. A linear algebra course is <em class="emphasis">not</em> a prerequisite for this text.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-16"><div class="fn">For a full derivation, see Example <a href="" class="xref" data-knowl="./knowl/eg_GEOcross.html" title="Example 3.28">Example 3.28</a>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-13"><div class="fn">The concepts of the dot product and perpendicularity have been generalized a lot in mathematics (for example, from 2d and 3d vectors to functions). The generalization of the dot product is called the “inner product” and the generalization of perpendicularity is called “orthogonality”.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-14"><div class="fn">The behaviour of air resistance (sometimes called drag) is pretty complicated. We’re using a reasonable low speed approximation. At high speeds drag is typically proportional to the square of the speed.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-15"><div class="fn">For a more comprehensive treatment of derivatives of vector valued functions <span class="process-math">\(\vr(t)\text{,}\)</span> and in particular of velocity and acceleration, see Section <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "sec_curves" missing or not unique]</code> in this text and Section 1.1 in the CLP-4 text.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-16"><div class="fn">The topics of matrices and determinants appear prominently in linear algebra courses. We are only going to use them as notation, and we will explicitly explain that notation. A linear algebra course is <em class="emphasis">not</em> a prerequisite for this text.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-17"><div class="fn">For a full derivation, see Example <a href="" class="xref" data-knowl="./knowl/eg_GEOcross.html" title="Example 3.28">Example 3.28</a>
 </div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-17"><div class="fn">That the cross product uses the right hand rule, rather than the left hand rule, is an example of the tyranny of the masses — only roughly 10\% of humans are left-handed.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-18"><div class="fn">This figure is a variant of <a class="external" href="https://commons.wikimedia.org/wiki/File:Right_hand_rule_simple.png" target="_blank"><code class="code-inline tex2jax_ignore">https://commons.wikimedia.org/wiki/File:Right_hand_rule_simple.png</code></a>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-18"><div class="fn">That the cross product uses the right hand rule, rather than the left hand rule, is an example of the tyranny of the masses — only roughly 10\% of humans are left-handed.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-19"><div class="fn">This figure is a variant of <a class="external" href="https://commons.wikimedia.org/wiki/File:Right_hand_rule_simple.png" target="_blank"><code class="code-inline tex2jax_ignore">https://commons.wikimedia.org/wiki/File:Right_hand_rule_simple.png</code></a>
 </div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-19"><div class="fn">Note that as you translate or rotate the coordinate system, the right hand rule is preserved. If <span class="process-math">\((\va,\vb,\hn)\)</span> obey the right hand rule so do their rotated and translated versions.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-20"><div class="fn">This is a simple integral calculus exercise.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-20"><div class="fn">Note that as you translate or rotate the coordinate system, the right hand rule is preserved. If <span class="process-math">\((\va,\vb,\hn)\)</span> obey the right hand rule so do their rotated and translated versions.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-21"><div class="fn">This is a simple integral calculus exercise.</div></div>
 </div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-points.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec_lines_2d.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>

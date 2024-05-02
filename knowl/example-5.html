@@ -9,53 +9,66 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script><script>// Make *any* pre with class 'sagecell-python' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-python",
+  "linked": true,
+  "languages": [
+    "python"
+  ],
+  "evalButtonText": "Evaluate (Python)"
+});
+</script>
 </head>
 <body class="ignore-math">
-<article class="example example-like"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1</span><span class="period">.</span>
-</h3>
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.10</span><span class="period">.</span>
+</h4>
 <div class="para logical">
-<div class="para">In this example, we sketch the region</div>
+<div class="para">Consider the system of equations</div>
 <div class="displaymath process-math">
-\begin{equation*}
-\Set{(x,y)}{ -12\le x^2-6x +y^2-4y \le -9,\ \ y\ge 1}
-\end{equation*}
+\begin{align*}
+0.8x -0.8y -0.4z \amp= 0 \\
+-0.3x +0.9y -0.4z \amp =0\\
+-0.4x -0.1y +0.8z\amp=0 
+\end{align*}
 </div>
-<div class="para">in the <span class="process-math">\(xy\)</span>-plane.</div>
-</div> <div class="para logical">
-<div class="para">We do so in two steps. In the first step, we sketch the curves <span class="process-math">\(x^2-6x +y^2-4y=-12\text{,}\)</span> <span class="process-math">\(x^2-6x +y^2-4y=-9\text{,}\)</span> and <span class="process-math">\(y=1\text{.}\)</span>
-</div>
-<ul class="disc">
-<li><div class="para">By completing squares, we see that the equation  <span class="process-math">\(x^2-6x +y^2-4y=-12\)</span> is equivalent to <span class="process-math">\((x-3)^2 +(y-2)^2 =1\text{,}\)</span> which is the circle of radius <span class="process-math">\(1\)</span> centred on <span class="process-math">\((3,2)\text{.}\)</span> It is sketched in the figure below.</div></li>
-<li><div class="para">By completing squares, we see that the equation  <span class="process-math">\(x^2-6x +y^2-4y=-9\)</span> is equivalent to <span class="process-math">\((x-3)^2 +(y-2)^2 =4\text{,}\)</span> which is the circle of radius <span class="process-math">\(2\)</span> centred on <span class="process-math">\((3,2)\text{.}\)</span> It is sketched in the figure below.</div></li>
-<li><div class="para">The point <span class="process-math">\((x,y)\)</span> obeys <span class="process-math">\(y=1\)</span> if and only if it is a distance <span class="process-math">\(1\)</span> vertically above the <span class="process-math">\(x\)</span>-axis. So <span class="process-math">\(y=1\)</span> is the line that is parallel to the <span class="process-math">\(x\)</span>-axis and is one unit above it. This line is also  sketched in the figure below.</div></li>
-</ul>
-</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:18.5%;margin-right:18.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/annulusPart.svg" role="img" class="contained"></div></div></div> <div class="para logical">
-<div class="para">In the second step we determine the impact that the inequalities have.</div>
-<ul class="disc">
-<li><div class="para">The inequality <span class="process-math">\(x^2-6x +y^2-4y\ge -12\)</span> is equivalent to <span class="process-math">\((x-3)^2 +(y-2)^2 \ge 1\)</span> and hence is equivalent to <span class="process-math">\(\sqrt{(x-3)^2 +(y-2)^2} \ge 1\text{.}\)</span> So the point <span class="process-math">\((x,y)\)</span> satisfies <span class="process-math">\(x^2-6x +y^2-4y\ge -12\)</span> if and only if the distance from <span class="process-math">\((x,y)\)</span> to <span class="process-math">\((3,2)\)</span> is at least <span class="process-math">\(1\text{,}\)</span> i.e. if and only if <span class="process-math">\((x,y)\)</span> is outside (or on) the circle <span class="process-math">\((x-3)^2 +(y-2)^2 = 1\text{.}\)</span>
-</div></li>
-<li><div class="para">The inequality <span class="process-math">\(x^2-6x +y^2-4y\le -9\)</span> is equivalent to <span class="process-math">\((x-3)^2 +(y-2)^2 \le 4\)</span> and hence is equivalent to <span class="process-math">\(\sqrt{(x-3)^2 +(y-2)^2} \le 2\text{.}\)</span> So the point <span class="process-math">\((x,y)\)</span> satisfies the inequality <span class="process-math">\(x^2-6x +y^2-4y\le -9\)</span> if and only if the distance from <span class="process-math">\((x,y)\)</span> to <span class="process-math">\((3,2)\)</span> is at most <span class="process-math">\(2\text{,}\)</span> i.e. if and only if <span class="process-math">\((x,y)\)</span> is inside (or on) the circle <span class="process-math">\((x-3)^2 +(y-2)^2 = 4\text{.}\)</span>
-</div></li>
-<li><div class="para">The point <span class="process-math">\((x,y)\)</span> obeys <span class="process-math">\(y\ge 1\)</span> if and only if <span class="process-math">\((x,y)\)</span> is a vertical distance at least <span class="process-math">\(1\)</span> above the <span class="process-math">\(x\)</span>-axis, i.e. is above (or on) the line <span class="process-math">\(y=1\text{.}\)</span>
-</div></li>
-<li><div class="para logical">
-<div class="para">So the region</div>
+<div class="para">If you multiply both sides of each equation by 10, you don’t change the solutions to the equations.</div>
 <div class="displaymath process-math">
-\begin{equation*}
-\Set{(x,y)}{ -12\le x^2-6x +y^2-4y \le -9,\ \ y\ge 1}
-\end{equation*}
+\begin{align*}
+8x -8y -4z \amp= 0 \\
+-3x +9y -4z \amp =0\\
+-4x -y +8z\amp=0 
+\end{align*}
 </div>
-<div class="para">consists of all points <span class="process-math">\((x,y)\)</span> that</div>
-<ul class="circle">
-<li><div class="para">are inside or on the circle <span class="process-math">\((x-3)^2 +(y-2)^2 = 4\)</span> and</div></li>
-<li><div class="para">are also outside or on the circle <span class="process-math">\((x-3)^2 +(y-2)^2 = 1\)</span> and</div></li>
-<li><div class="para">are also above or on the line <span class="process-math">\(y=1\text{.}\)</span>
-</div></li>
-</ul>
-<div class="para">It is the shaded region in the figure below.</div>
-</div></li>
-</ul>
-</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:18.5%;margin-right:18.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/annulusPartB.svg" role="img" class="contained"></div></div></div></article><span class="incontext"><a href="sec-points.html#example-5" class="internal">in-context</a></span>
+<div class="para">If you use Sympy to row reduce the system, however, you get a different answer.</div>
+</div> <pre class="ptx-sagecell sagecell-python" id="sage-56"><script type="text/x-sage">import sympy as sp
+
+#system of linear equations
+S = sp.Matrix([
+[ 0.8,-0.8,-0.4 ,0],
+[-0.3, 0.9,-0.4, 0],
+[-0.5,-0.1, 0.8, 0]])
+
+#same system multiplied by 10
+disguised_S = sp.Matrix([
+[ 8,-8,-4 ,0],
+[-3, 9,-4, 0],
+[-5,-1, 8, 0]])
+
+print("Reduced with decimals:", S.rref())
+print("Reduced with whole numbers:", disguised_S.rref())
+</script></pre></article><span class="incontext"><a href="section-systems.html#example-5" class="internal">in-context</a></span>
 </body>
 </html>

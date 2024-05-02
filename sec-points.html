@@ -301,13 +301,14 @@ window.MathJax = {
 <li><div class="toc-item"><a href="section-systems.html#graphsolution" class="internal"><span class="title">Graphing solutions to systems of equations</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#subsection-26" class="internal"><span class="title">Graphing vector equations and their solutions</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#subsec-" class="internal"><span class="title">Converting between Numpy arrays and Sympy Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-systems.html#subsecRoundingErrorRref" class="internal"><span class="title">Rounding error in Sympy’s rref()</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#exercises-systems" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="section-matrices.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix Arithmetic</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-matrices.html#subsection-28" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsection-29" class="internal"><span class="title">Title</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#subsec-BasicMatrices" class="internal"><span class="title">Basic Matrices</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#subsec-MatrixMultiplication" class="internal"><span class="title">Matrix Multiplication</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#subsec-MatrixInverses" class="internal"><span class="title">Matrix Inverses</span></a></div></li>
@@ -318,21 +319,21 @@ window.MathJax = {
 <li>
 <div class="toc-item"><a href="section-transformations.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Matrix Transformations</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-transformations.html#subsection-33" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-transformations.html#subsection-34" class="internal"><span class="title">Title</span></a></div></li>
 <li><div class="toc-item"><a href="section-transformations.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="section-determinants.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Determinants</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-determinants.html#subsection-34" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-determinants.html#subsection-35" class="internal"><span class="title">Title</span></a></div></li>
 <li><div class="toc-item"><a href="section-determinants.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="section-eigenthings.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Eigenthings</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-eigenthings.html#subsection-35" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-eigenthings.html#subsection-36" class="internal"><span class="title">Title</span></a></div></li>
 <li><div class="toc-item"><a href="section-eigenthings.html#exercises-" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -361,7 +362,7 @@ window.MathJax = {
 <li>
 <div class="toc-item"><a href="examples.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Samples of various pretext formats</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="examples.html#subsection-44" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
+<li><div class="toc-item"><a href="examples.html#subsection-45" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
 <li><div class="toc-item"><a href="examples.html#reading-questions-1" class="internal"><span class="title">Reading Questions</span></a></div></li>
 </ul>
 </li>
@@ -373,10 +374,10 @@ window.MathJax = {
 <section class="section" id="sec-points"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.1</span> <span class="title">Points</span>
 </h2>
-<div class="para" id="p-267">Each point in two dimensions may be labeled by two coordinates<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-5" id="fn-5"><sup> 1 </sup></a><span class="process-math">\((x,y)\)</span> which specify the position of the point in some units with respect to some axes as in the figure below.</div>
+<div class="para" id="p-268">Each point in two dimensions may be labeled by two coordinates<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-6" id="fn-6"><sup> 1 </sup></a><span class="process-math">\((x,y)\)</span> which specify the position of the point in some units with respect to some axes as in the figure below.</div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:36%;margin-right:36%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/point2d.svg" role="img" class="contained"></div></div></div>
-<div class="para logical" id="p-268">
-<div class="para">The set of all points in two dimensions is denoted<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-6" id="fn-6"><sup> 2 </sup></a> <span class="process-math">\(\bbbr^2\text{.}\)</span> Observe that</div>
+<div class="para logical" id="p-269">
+<div class="para">The set of all points in two dimensions is denoted<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-7" id="fn-7"><sup> 2 </sup></a> <span class="process-math">\(\bbbr^2\text{.}\)</span> Observe that</div>
 <ul class="disc">
 <li id="li-89"><div class="para" id="p-derived-li-89">the distance from the point <span class="process-math">\((x,y)\)</span> to the <span class="process-math">\(x\)</span>-axis is <span class="process-math">\(|y|\)</span>
 </div></li>
@@ -393,7 +394,7 @@ window.MathJax = {
 <div class="sbspanel top" style="width:39.7590361445783%;"><img src="external/figs/point3d.svg" role="img" class="contained"></div>
 <div class="sbspanel top" style="width:39.7590361445783%;"><img src="external/figs/point3db.svg" role="img" class="contained"></div>
 </div></div>
-<div class="para logical" id="p-269">
+<div class="para logical" id="p-270">
 <div class="para">The set of all points in three dimensions is denoted <span class="process-math">\(\bbbr^3\text{.}\)</span> The plane that contains, for example, the <span class="process-math">\(x\)</span>- and <span class="process-math">\(y\)</span>-axes is called the <span class="process-math">\(xy\)</span>-plane.</div>
 <ul class="disc">
 <li id="li-94"><div class="para" id="p-derived-li-94">The <span class="process-math">\(xy\)</span>-plane is the set of all points <span class="process-math">\((x,y,z)\)</span> that satisfy <span class="process-math">\(z=0\text{.}\)</span>
@@ -415,7 +416,7 @@ window.MathJax = {
 <div class="sbspanel top" style="width:33.3333333333333%;"><img src="external/figs/xzplaneN.svg" role="img" class="contained"></div>
 <div class="sbspanel top" style="width:33.3333333333333%;"><img src="external/figs/yzplaneN.svg" role="img" class="contained"></div>
 </div></div>
-<div class="para logical" id="p-270">
+<div class="para logical" id="p-271">
 <div class="para">Observe that our 2d distances extend quite easily to 3d.</div>
 <ul class="disc">
 <li id="li-100"><div class="para" id="p-derived-li-100">the distance from the point <span class="process-math">\((x,y,z)\)</span> to the <span class="process-math">\(xy\)</span>-plane is <span class="process-math">\(|z|\)</span>
@@ -437,7 +438,7 @@ window.MathJax = {
 </ul>
 </div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:30%;margin-right:30%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/pythag3d.svg" role="img" class="contained"></div></div></div>
-<div class="para logical" id="p-271">
+<div class="para logical" id="p-272">
 <div class="para">More generally, the distance from the point <span class="process-math">\((x,y,z)\)</span> to the point <span class="process-math">\((x',y',z')\)</span> is</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -451,11 +452,11 @@ window.MathJax = {
 \end{equation*}
 </div>
 </div>
-<div class="para" id="p-272">Here is an example in which we sketch a region in the <span class="process-math">\(xy\)</span>-plane that is specified using inequalities.</div>
+<div class="para" id="p-273">Here is an example in which we sketch a region in the <span class="process-math">\(xy\)</span>-plane that is specified using inequalities.</div>
 <article class="example example-like" id="example-5"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-273">
+<div class="para logical" id="p-274">
 <div class="para">In this example, we sketch the region</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -463,7 +464,7 @@ window.MathJax = {
 \end{equation*}
 </div>
 <div class="para">in the <span class="process-math">\(xy\)</span>-plane.</div>
-</div> <div class="para logical" id="p-274">
+</div> <div class="para logical" id="p-275">
 <div class="para">We do so in two steps. In the first step, we sketch the curves <span class="process-math">\(x^2-6x +y^2-4y=-12\text{,}\)</span> <span class="process-math">\(x^2-6x +y^2-4y=-9\text{,}\)</span> and <span class="process-math">\(y=1\text{.}\)</span>
 </div>
 <ul class="disc">
@@ -471,7 +472,7 @@ window.MathJax = {
 <li id="li-107"><div class="para" id="p-derived-li-107">By completing squares, we see that the equation  <span class="process-math">\(x^2-6x +y^2-4y=-9\)</span> is equivalent to <span class="process-math">\((x-3)^2 +(y-2)^2 =4\text{,}\)</span> which is the circle of radius <span class="process-math">\(2\)</span> centred on <span class="process-math">\((3,2)\text{.}\)</span> It is sketched in the figure below.</div></li>
 <li id="li-108"><div class="para" id="p-derived-li-108">The point <span class="process-math">\((x,y)\)</span> obeys <span class="process-math">\(y=1\)</span> if and only if it is a distance <span class="process-math">\(1\)</span> vertically above the <span class="process-math">\(x\)</span>-axis. So <span class="process-math">\(y=1\)</span> is the line that is parallel to the <span class="process-math">\(x\)</span>-axis and is one unit above it. This line is also  sketched in the figure below.</div></li>
 </ul>
-</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:18.5%;margin-right:18.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/annulusPart.svg" role="img" class="contained"></div></div></div> <div class="para logical" id="p-275">
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:18.5%;margin-right:18.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/annulusPart.svg" role="img" class="contained"></div></div></div> <div class="para logical" id="p-276">
 <div class="para">In the second step we determine the impact that the inequalities have.</div>
 <ul class="disc">
 <li id="li-109"><div class="para" id="p-derived-li-109">The inequality <span class="process-math">\(x^2-6x +y^2-4y\ge -12\)</span> is equivalent to <span class="process-math">\((x-3)^2 +(y-2)^2 \ge 1\)</span> and hence is equivalent to <span class="process-math">\(\sqrt{(x-3)^2 +(y-2)^2} \ge 1\text{.}\)</span> So the point <span class="process-math">\((x,y)\)</span> satisfies <span class="process-math">\(x^2-6x +y^2-4y\ge -12\)</span> if and only if the distance from <span class="process-math">\((x,y)\)</span> to <span class="process-math">\((3,2)\)</span> is at least <span class="process-math">\(1\text{,}\)</span> i.e. if and only if <span class="process-math">\((x,y)\)</span> is outside (or on) the circle <span class="process-math">\((x-3)^2 +(y-2)^2 = 1\text{.}\)</span>
@@ -480,7 +481,7 @@ window.MathJax = {
 </div></li>
 <li id="li-111"><div class="para" id="p-derived-li-111">The point <span class="process-math">\((x,y)\)</span> obeys <span class="process-math">\(y\ge 1\)</span> if and only if <span class="process-math">\((x,y)\)</span> is a vertical distance at least <span class="process-math">\(1\)</span> above the <span class="process-math">\(x\)</span>-axis, i.e. is above (or on) the line <span class="process-math">\(y=1\text{.}\)</span>
 </div></li>
-<li id="li-112"><div class="para logical" id="p-276">
+<li id="li-112"><div class="para logical" id="p-277">
 <div class="para">So the region</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -497,12 +498,12 @@ window.MathJax = {
 <div class="para">It is the shaded region in the figure below.</div>
 </div></li>
 </ul>
-</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:18.5%;margin-right:18.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/annulusPartB.svg" role="img" class="contained"></div></div></div></article><div class="para" id="p-277">Here are a couple of examples that involve spheres.</div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:18.5%;margin-right:18.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/annulusPartB.svg" role="img" class="contained"></div></div></div></article><div class="para" id="p-278">Here are a couple of examples that involve spheres.</div>
 <article class="example example-like" id="example-6"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-278">In this example, we are going to find the curve formed by the intersection of the <span class="process-math">\(xy\)</span>-plane and the sphere of radius <span class="process-math">\(5\)</span> centred on <span class="process-math">\((0,0,4)\text{.}\)</span>
-</div> <div class="para logical" id="p-279">
+<div class="para" id="p-279">In this example, we are going to find the curve formed by the intersection of the <span class="process-math">\(xy\)</span>-plane and the sphere of radius <span class="process-math">\(5\)</span> centred on <span class="process-math">\((0,0,4)\text{.}\)</span>
+</div> <div class="para logical" id="p-280">
 <div class="para">The point <span class="process-math">\((x,y,z)\)</span> lies on the <span class="process-math">\(xy\)</span>-plane if and only if <span class="process-math">\(z=0\text{,}\)</span> and lies on the sphere of radius <span class="process-math">\(5\)</span> centred on <span class="process-math">\((0,0,4)\)</span> if and only if <span class="process-math">\(x^2+y^2+(z-4)^2=25\text{.}\)</span> So the point <span class="process-math">\((x,y,z)\)</span> lies on the curve of intersection if and only if both <span class="process-math">\(z=0\)</span> and <span class="process-math">\(x^2+y^2+(z-4)^2=25\text{,}\)</span> or equivalently</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -516,8 +517,8 @@ z=0,\quad x^2+y^2 = 9
 </div> <div class="sidebyside"><div class="sbsrow" style="margin-left:33%;margin-right:33%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/sphereCircle.svg" role="img" class="contained"></div></div></div></article><article class="example example-like" id="example-7"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.3</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-280">In this example, we are going to find all points <span class="process-math">\((x,y,z)\)</span> for which the distance from <span class="process-math">\((x,y,z)\)</span> to <span class="process-math">\((9,-12,15)\)</span> is twice the distance from <span class="process-math">\((x,y,z)\)</span> to the origin <span class="process-math">\((0,0,0)\text{.}\)</span>
-</div> <div class="para logical" id="p-281">
+<div class="para" id="p-281">In this example, we are going to find all points <span class="process-math">\((x,y,z)\)</span> for which the distance from <span class="process-math">\((x,y,z)\)</span> to <span class="process-math">\((9,-12,15)\)</span> is twice the distance from <span class="process-math">\((x,y,z)\)</span> to the origin <span class="process-math">\((0,0,0)\text{.}\)</span>
+</div> <div class="para logical" id="p-282">
 <div class="para">The distance from <span class="process-math">\((x,y,z)\)</span> to <span class="process-math">\((9,-12,15)\)</span> is <span class="process-math">\(\sqrt{(x-9)^2+(y+12)^2+(z-15)^2}\text{.}\)</span> The distance from <span class="process-math">\((x,y,z)\)</span> to <span class="process-math">\((0,0,0)\)</span> is <span class="process-math">\(\sqrt{x^2+y^2+z^2}\text{.}\)</span> So we want to find all points <span class="process-math">\((x,y,z)\)</span> for which</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -542,8 +543,8 @@ x^2+6x +9 +y^2-8y +16  +z^2+10z +25 \amp= 200\ \text{or}\\
 </div>
 <div class="para">This is the sphere of radius <span class="process-math">\(10\sqrt{2}\)</span> centred on <span class="process-math">\((-3,4,-5)\text{.}\)</span>
 </div>
-</div></article></section><div class="hidden-content tex2jax_ignore" id="hk-fn-5"><div class="fn">This is why the <span class="process-math">\(xy\)</span>-plane is called “two dimensional” — the name of each point consists of two real numbers.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-6"><div class="fn">Not surprisingly, the <span class="process-math">\(2\)</span> in <span class="process-math">\(\bbbr^2\)</span> signifies that each point is labelled by two numbers and the <span class="process-math">\(\bbbr\)</span> in <span class="process-math">\(\bbbr^2\)</span> signifies that the numbers in question are real numbers. There are more advanced applications (for example in signal analysis and in quantum mechanics) where complex numbers are used. The space of all pairs <span class="process-math">\((z_1,z_2)\text{,}\)</span> with <span class="process-math">\(z_1\)</span> and <span class="process-math">\(z_2\)</span> complex numbers is denoted  <span class="process-math">\(\bbbc^2\text{.}\)</span>
+</div></article></section><div class="hidden-content tex2jax_ignore" id="hk-fn-6"><div class="fn">This is why the <span class="process-math">\(xy\)</span>-plane is called “two dimensional” — the name of each point consists of two real numbers.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-7"><div class="fn">Not surprisingly, the <span class="process-math">\(2\)</span> in <span class="process-math">\(\bbbr^2\)</span> signifies that each point is labelled by two numbers and the <span class="process-math">\(\bbbr\)</span> in <span class="process-math">\(\bbbr^2\)</span> signifies that the numbers in question are real numbers. There are more advanced applications (for example in signal analysis and in quantum mechanics) where complex numbers are used. The space of all pairs <span class="process-math">\((z_1,z_2)\text{,}\)</span> with <span class="process-math">\(z_1\)</span> and <span class="process-math">\(z_2\)</span> complex numbers is denoted  <span class="process-math">\(\bbbc^2\text{.}\)</span>
 </div></div>
 </div>
 <div class="ptx-content-footer">

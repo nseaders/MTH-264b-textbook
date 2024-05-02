@@ -13,37 +13,21 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">Here is the computation. We’ll choose <span class="process-math">\(P\)</span> to be the point on <span class="process-math">\(L\)</span> that has <span class="process-math">\(t=0\text{,}\)</span> which is <span class="process-math">\((1,2,3)\text{.}\)</span> So the vector from <span class="process-math">\(P=(1,2,3)\)</span> to <span class="process-math">\(Q=(2,3,-1)\)</span> is</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\vv = \llt 2-1,3-2,-1-3\rgt=\llt 1,1,-4\rgt
-\end{equation*}
-</div>
-<div class="para">The projection of <span class="process-math">\(\vv=\llt 1,1,-4\rgt\)</span> on <span class="process-math">\(\vd=\llt 1,1,2\rgt\)</span> is</div>
-<div class="displaymath process-math">
-\begin{equation*}
-{\rm proj}_{\vd}\,\vv
-=\frac{\llt 1,1,-4\rgt\cdot\llt 1,1,2\rgt}{|\llt 1,1,2\rgt|^2}\llt 1,1,2\rgt
-=\frac{-6}{6}\llt 1,1,2\rgt
-=\llt -1,-1,-2\rgt
-\end{equation*}
-</div>
-<div class="para">and then</div>
-<div class="displaymath process-math">
+<div class="para">Fortunately, it isn’t. Here is the strategy.</div>
+<ul class="disc">
+<li><div class="para">Pick any point on <span class="process-math">\(L\)</span> and call it <span class="process-math">\(P\text{.}\)</span>
+</div></li>
+<li><div class="para">It is very easy to find the vector from <span class="process-math">\(P\)</span> to <span class="process-math">\(N\)</span> — it is just the projection of the vector from <span class="process-math">\(P\)</span> to <span class="process-math">\(Q\)</span> (called <span class="process-math">\(\vv\)</span> in the figure above) on <span class="process-math">\(\vd\text{.}\)</span>
+</div></li>
+<li><div class="para">Once we know <span class="process-math">\({\rm proj}_{\vd}\,\vv\text{,}\)</span> we will be able to compute<div class="displaymath process-math">
 \begin{equation*}
 \vw = {\rm proj}_{\vd}\,\vv -\vv
-= \llt -1,-1,-2\rgt -\llt 1,1,-4\rgt
-= \llt -2,-2,2\rgt
 \end{equation*}
 </div>
-<div class="para">and finally the distance from <span class="process-math">\(Q\)</span> to the  line <span class="process-math">\(L\)</span> is</div>
-<div class="displaymath process-math">
-\begin{equation*}
-|\vw| = |\llt -2,-2,2\rgt|
-=|2\llt -1,-1,1\rgt|
-=2\sqrt{3}
-\end{equation*}
-</div>
+</div></li>
+<li><div class="para">and then the distance from <span class="process-math">\(Q\)</span> to the line <span class="process-math">\(L\)</span> is just <span class="process-math">\(|\vw|\text{.}\)</span>
+</div></li>
+</ul>
 </div>
 <span class="incontext"><a href="sec_lines_3d.html#p-483" class="internal">in-context</a></span>
 </body>

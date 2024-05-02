@@ -13,57 +13,12 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">The position of the moving particle, as seen by the fixed observer is</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec_rot_motion.html">
+<div class="para">In general, denote by <span class="process-math">\(\hi(t)\)</span> the coordinates of the unit <span class="process-math">\(x\)</span>-vector of the moving observer at time <span class="process-math">\(t\text{,}\)</span> as measured by the fixed observer. Similarly <span class="process-math">\(\hj(t)\)</span> for the unit <span class="process-math">\(y\)</span>-vector, and <span class="process-math">\(\hk(t)\)</span> for the unit <span class="process-math">\(z\)</span>-vector. As the merry-go-round is rotating about the <span class="process-math">\(Z\)</span>-axis at a rate of <span class="process-math">\(\Omega\)</span> radians per second, the angle between the <span class="process-math">\(X\)</span>-axis and <span class="process-math">\(x\)</span>-axis after <span class="process-math">\(t\)</span> seconds is <span class="process-math">\(\Omega t\text{,}\)</span> and</div>
+<div class="displaymath process-math">
 \begin{align*}
-\vR(t) &amp;= x(t)\,\hi(t) + y(t)\,\hj(t) +z(t)\,\hk(t)
-\end{align*}
-</div>
-<div class="para">Differentiating, the velocity of the moving particle, as measured by the fixed observer is</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec_rot_motion.html">
-\begin{align*}
-\vV(t)=\diff{\vR}{t} &amp;= \phantom{+}\diff{x}{t}\!(t)\ \hi(t)
-+ \diff{y}{t}\!(t)\ \hj(t)
-+ \diff{z}{t}\!(t)\ \hk(t)\\
-&amp;\phantom{=} +x(t)\diff{}{t} \hi(t)
-+y(t)\diff{}{t} \hj(t)
-+z(t)\diff{}{t} \hk(t)
-\end{align*}
-</div>
-<div class="para">We saw, in the last (optional) §<a href="sec_vectors.html#sec_rot_motion" class="internal" title="Subsection: (Optional) Application of Cross Products to Rotational Motion">Subsection </a>, that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec_rot_motion.html">
-\begin{gather*}
-\diff{}{t} \hi(t)=\vOmega\times\hi(t)\quad
-\diff{}{t} \hj(t)=\vOmega\times\hj(t)\quad
-\diff{}{t} \hk(t)=\vOmega\times\hk(t)
-\end{gather*}
-</div>
-<div class="para">(You could also verify that these are correct by putting in <span class="process-math">\(\vOmega = (0,0,\Om)\)</span> and explicitly computing the cross products.) So</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec_rot_motion.html">
-\begin{align*}
-\vV(t)&amp;= \Big(\diff{x}{t}\!(t)\ \hi(t)
-+ \diff{y}{t}\!(t)\ \hj(t)
-+ \diff{z}{t}\!(t)\ \hk(t)\Big)\\
-&amp;\hskip0.5in           +\vOmega\times\Big(x(t)\ \hi(t)
-+y(t)\ \hj(t)
-+z(t)\ \hk(t)\Big)
-\end{align*}
-</div>
-<div class="para">Differentiating a second time, the acceleration of the moving particle (which is also <span class="process-math">\(\frac{\vF}{m}\text{,}\)</span> where <span class="process-math">\(\vF\)</span> is the net force being applied to the particle and <span class="process-math">\(m\)</span> is the mass of the particle) as measured  by the fixed observer is</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec_rot_motion.html">
-\begin{align*}
-\frac{\vF}{m}
-=\vA(t)
-=&amp; \Big(\difftwo{x}{t}\!(t)\ \hi(t)
-+ \difftwo{y}{t}\!(t)\ \hj(t)
-+ \difftwo{z}{t}\!(t)\ \hk(t)\Big)\\
-&amp; +2\vOmega\times\Big(\diff{x}{t}\!(t)\ \hi(t)
-+\diff{y}{t}\!(t)\ \hj(t)
-+\diff{z}{t}\!(t)\ \hk(t)\Big)\\
-&amp;+\vOmega\times\Big(\vOmega\times\big[
-x(t)\ \hi(t)
-+y(t)\ \hj(t)
-+z(t)\ \hk(t)\big]\Big)
+\hi(t) &amp;= \big(\cos(\Om t)\,,\,\sin(\Om t)\,,\,0\Big)\\
+\hj(t) &amp;= \big(-\sin(\Om t)\,,\,\cos(\Om t)\,,\,0\Big)\\
+\hk(t) &amp;= \big(0\,,\,0\,,\,1\Big)
 \end{align*}
 </div>
 </div>

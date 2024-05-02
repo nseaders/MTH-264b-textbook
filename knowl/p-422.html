@@ -13,44 +13,59 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">Recall that the angular velocity <span class="process-math">\(\vOmega=(0,0,\Omega)\)</span> does not depend on time. The rotating observer sees <span class="process-math">\(\hi(t)\)</span> as <span class="process-math">\(\hi=(1,0,0)\text{,}\)</span> sees <span class="process-math">\(\hj(t)\)</span> as <span class="process-math">\(\hj=(0,1,0)\text{,}\)</span> and sees <span class="process-math">\(\hk(t)\)</span> as <span class="process-math">\(\hk=(0,0,1)\)</span> and so sees</div>
-<div class="displaymath process-math">
+<div class="para">The position of the moving particle, as seen by the fixed observer is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec_rot_motion.html">
 \begin{align*}
-\frac{\vF}{m}
-&amp;=\va(t) + 2\vOmega\times\vv(t) +\vOmega\times\big[\vOmega\times\vr(t)\big]
+\vR(t) &amp;= x(t)\,\hi(t) + y(t)\,\hj(t) +z(t)\,\hk(t)
 \end{align*}
 </div>
-<div class="para">where, as usual,</div>
-<div class="displaymath process-math">
-\begin{alignat*}{2}
-\vv(t) &amp;= \diff{}{t}\vr(t)
-&amp;&amp;= \Big(\diff{x}{t}(t)\,,\,\diff{y}{t}(t)\,,\,\diff{z}{t}(t)\Big)\\
-\va(t) &amp;= \difftwo{}{t}\vr(t)
-&amp;&amp;= \Big(\difftwo{x}{t}(t)\,,\,\difftwo{y}{t}(t)\,,\,\difftwo{z}{t}(t)\Big)
-\end{alignat*}
+<div class="para">Differentiating, the velocity of the moving particle, as measured by the fixed observer is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec_rot_motion.html">
+\begin{align*}
+\vV(t)=\diff{\vR}{t} &amp;= \phantom{+}\diff{x}{t}\!(t)\ \hi(t)
++ \diff{y}{t}\!(t)\ \hj(t)
++ \diff{z}{t}\!(t)\ \hk(t)\\
+&amp;\phantom{=} +x(t)\diff{}{t} \hi(t)
++y(t)\diff{}{t} \hj(t)
++z(t)\diff{}{t} \hk(t)
+\end{align*}
 </div>
-<div class="para">So the acceleration of the particle seen by the moving observer is</div>
-<div class="displaymath process-math">
+<div class="para">We saw, in the last (optional) §<a href="sec_vectors.html#sec_rot_motion" class="internal" title="Subsection: (Optional) Application of Cross Products to Rotational Motion">Subsection </a>, that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec_rot_motion.html">
 \begin{gather*}
-\va(t) = \frac{\vF}{m} -  2\vOmega\times\vv(t)
-- \vOmega\times\big[\vOmega\times\vr(t)\big]
+\diff{}{t} \hi(t)=\vOmega\times\hi(t)\quad
+\diff{}{t} \hj(t)=\vOmega\times\hj(t)\quad
+\diff{}{t} \hk(t)=\vOmega\times\hk(t)
 \end{gather*}
 </div>
-<div class="para">Here</div>
-<ul class="disc">
-<li><div class="para">
-<span class="process-math">\(\vF\)</span> is the sum of all external forces acting on the moving particle,</div></li>
-<li><div class="para">
-<span class="process-math">\(\vF_{{\rm cor}}=-2 \vOmega\times\vv(t)\)</span> is called the Coriolis force and</div></li>
-<li><div class="para">
-<span class="process-math">\(- \vOmega\times\big[\vOmega\times\vr(t)\big]\)</span> is called the centrifugal force.</div></li>
-</ul>
-<div class="para">As an example, suppose that you are the moving particle and that you are at the edge of the merry-go-round. Let’s say <span class="process-math">\(t=0\)</span> and you are at <span class="process-math">\(\hi\text{.}\)</span> Then <span class="process-math">\(\vF\)</span> is the friction that the surface of the merry-go-round applies to the soles of your shoes. If you are just standing there, <span class="process-math">\(\vv(t)=\vZero\text{,}\)</span> so that <span class="process-math">\(\vF_{{\rm cor}}=\vZero\text{,}\)</span> and the friction <span class="process-math">\(\vF\)</span> exactly cancels the centrifugal force <span class="process-math">\(-\vOmega\times\big[\vOmega\times\vr(t)\big]\)</span> so that you remain at <span class="process-math">\(\hi(t)\text{.}\)</span> Assume that <span class="process-math">\(\Om \gt 0\text{.}\)</span> Now suppose that you start walking around the edge of the merry-go-round. Then, at <span class="process-math">\(t=0\text{,}\)</span> <span class="process-math">\(\vr=\hi\)</span> and</div>
-<ul class="disc">
-<li><div class="para">if you walk in the direction of rotation (with speed one), as in the figure on the left below, <span class="process-math">\(\vv=\hj\)</span> and the Coriolis force <span class="process-math">\(\vF_{{\rm cor}}=
--2\Om\hk\times\hj = 2\Om\,\hi\)</span> tries to push you off of the merry-go-round, while</div></li>
-<li><div class="para">if you walk opposite to the direction of rotation (with speed one), as in the figure on the right below,  <span class="process-math">\(\vv=-\hj\)</span> so that the Coriolis force <span class="process-math">\(\vF_{{\rm cor}}=-2\Om\hk\times(-\hj) = -2\Om\,\hi\)</span> tries to pull you into the centre of the merry-go-round.</div></li>
-</ul>
+<div class="para">(You could also verify that these are correct by putting in <span class="process-math">\(\vOmega = (0,0,\Om)\)</span> and explicitly computing the cross products.) So</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec_rot_motion.html">
+\begin{align*}
+\vV(t)&amp;= \Big(\diff{x}{t}\!(t)\ \hi(t)
++ \diff{y}{t}\!(t)\ \hj(t)
++ \diff{z}{t}\!(t)\ \hk(t)\Big)\\
+&amp;\hskip0.5in           +\vOmega\times\Big(x(t)\ \hi(t)
++y(t)\ \hj(t)
++z(t)\ \hk(t)\Big)
+\end{align*}
+</div>
+<div class="para">Differentiating a second time, the acceleration of the moving particle (which is also <span class="process-math">\(\frac{\vF}{m}\text{,}\)</span> where <span class="process-math">\(\vF\)</span> is the net force being applied to the particle and <span class="process-math">\(m\)</span> is the mass of the particle) as measured  by the fixed observer is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec_rot_motion.html">
+\begin{align*}
+\frac{\vF}{m}
+=\vA(t)
+=&amp; \Big(\difftwo{x}{t}\!(t)\ \hi(t)
++ \difftwo{y}{t}\!(t)\ \hj(t)
++ \difftwo{z}{t}\!(t)\ \hk(t)\Big)\\
+&amp; +2\vOmega\times\Big(\diff{x}{t}\!(t)\ \hi(t)
++\diff{y}{t}\!(t)\ \hj(t)
++\diff{z}{t}\!(t)\ \hk(t)\Big)\\
+&amp;+\vOmega\times\Big(\vOmega\times\big[
+x(t)\ \hi(t)
++y(t)\ \hj(t)
++z(t)\ \hk(t)\big]\Big)
+\end{align*}
+</div>
 </div>
 <span class="incontext"><a href="sec_vectors.html#p-422" class="internal">in-context</a></span>
 </body>

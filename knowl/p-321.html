@@ -12,7 +12,29 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">Property 7 follows directly from property 6. First note that the dot product <span class="process-math">\(\va\cdot\vb=|\va|\,|\vb|\,\cos\theta\)</span> is zero if and only if at least one of the three factors <span class="process-math">\(|\va|,\ |\vb|,\ \cos\theta\)</span> is zero. The first factor is zero if and only if <span class="process-math">\(\va=\vZero \text{.}\)</span> The second factor is zero if and only if <span class="process-math">\(\vb=\vZero \text{.}\)</span> The third factor is zero if and only if <span class="process-math">\(\theta=\pm\tfrac{\pi}{2}+2k\pi\text{,}\)</span> for some integer <span class="process-math">\(k\text{,}\)</span> which in turn is true if and only if <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vb\)</span> are mutually perpendicular.</div>
+<div class="para logical">
+<div class="para">Setting our two expressions for <span class="process-math">\(|\va-\vb|^2\)</span> equal to each other,</div>
+<div class="displaymath process-math">
+\begin{gather*}
+|\va-\vb|^2=|\va|^2+|\vb|^2-2\va\cdot\vb
+=|\vb|^2-2|\va|\,|\vb|\,\cos\theta+|\va|^2
+\end{gather*}
+</div>
+<div class="para">cancelling the <span class="process-math">\(|\va|^2\)</span> and <span class="process-math">\(|\vb|^2\)</span> common to both sides</div>
+<div class="displaymath process-math">
+\begin{gather*}
+-2\va\cdot\vb
+=-2|\va|\,|\vb|\,\cos\theta
+\end{gather*}
+</div>
+<div class="para">and dividing by <span class="process-math">\(-2\)</span> gives</div>
+<div class="displaymath process-math">
+\begin{gather*}
+\va\cdot\vb=|\va|\,|\vb|\,\cos\theta
+\end{gather*}
+</div>
+<div class="para">which is exactly property 6.</div>
+</div>
 <span class="incontext"><a href="sec_vectors.html#p-321" class="internal">in-context</a></span>
 </body>
 </html>

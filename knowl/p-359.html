@@ -13,13 +13,22 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">There is a much better way to remember this definition. Recall that a <span class="process-math">\(2\times 2\)</span> matrix is an array of numbers having two rows and two columns and that the determinant of a <span class="process-math">\(2\times 2\)</span> matrix is  defined by</div>
+<div class="para">Note that each component has the form <span class="process-math">\(a_ib_j-a_jb_i\text{.}\)</span> The index <span class="process-math">\(i\)</span> of the first <span class="process-math">\(a\)</span> in component number <span class="process-math">\(k\)</span> of <span class="process-math">\(\va\times\vb\)</span> is just after <span class="process-math">\(k\)</span> in the list <span class="process-math">\(1,2,3,1,2,3,1,2,3,\cdots\text{.}\)</span> The index <span class="process-math">\(j\)</span> of the first <span class="process-math">\(b\)</span> is just before <span class="process-math">\(k\)</span> in the list.</div>
 <div class="displaymath process-math">
-\begin{align*}
-\det \left[\begin{matrix}a&amp; b \\ c&amp;d\end{matrix}\right]=ad-bc
-\end{align*}
+\begin{gather*}
+(\va\times\vb)_k
+=a_{{\rm just\  after\  }k}\ b_{{\rm just\  before\  }k}
+-a_{{\rm just\  before\  }k}\ b_{{\rm just\  after\  }k}
+\end{gather*}
 </div>
-<div class="para">It is the product of the entries on the diagonal minus the product of the entries not on the diagonal.</div>
+<div class="para">For example, for component number <span class="process-math">\(k=3\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{gather*}
+\left.{\text{''just after 3'' is 1}}\atop{\text{''just before 3'' is 2}}\right\}
+\implies (\va\times\vb)_3= a_1b_2-a_2b_1
+\end{gather*}
+</div>
 </div>
 <span class="incontext"><a href="sec_vectors.html#p-359" class="internal">in-context</a></span>
 </body>

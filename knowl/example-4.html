@@ -33,7 +33,7 @@ sagecell.makeSagecell({
 </head>
 <body class="ignore-math">
 <article class="example example-like"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.10</span><span class="period">.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.9</span><span class="period">.</span>
 </h4>
 <div class="para logical">
 <div class="para">For example the vector equation</div>
@@ -44,7 +44,7 @@ y\left[\begin{matrix} 2\\-1 \end{matrix} \right]=
 \left[\begin{matrix} 6\\1 \end{matrix} \right]
 \end{equation*}
 </div>
-<div class="para">corresponds to the linear system found in <a href="" class="xref" data-knowl="./knowl/twodsolutions.html" title="Example 2.7">Example 2.7</a> and still has solution <span class="process-math">\(x=4\)</span> and <span class="process-math">\(y=1\text{.}\)</span>
+<div class="para">corresponds to the linear system found in <a href="" class="xref" data-knowl="./knowl/twodsolutions.html" title="Example 2.6">Example 2.6</a> and still has solution <span class="process-math">\(x=4\)</span> and <span class="process-math">\(y=1\text{.}\)</span>
 </div>
 </div> <div class="para">The solution to the vector equation can be graphed using linear combinations of vectors. That is, <span class="process-math">\(4\vec{u}+\vec{v}=\vec{b}.\)</span>
 </div> <pre class="ptx-sagecell sagecell-python" id="sage-54"><script type="text/x-sage">import matplotlib.pyplot as plt
@@ -55,25 +55,26 @@ ax1 = plt.subplot(1,2,1) #1 row, 2 columns, first graph
 ax2 = plt.subplot(1,2,2) #1 row, 2 columns, second graph
 
 # add original vectors to axes
-ax1.quiver(0,0,1,1/2,label='u',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1) 
-ax1.quiver(0,0,2,-1,label='v',color='deepskyblue', angles='xy', scale_units='xy', scale=1) 
-ax1.quiver(0,0,6,1,label='b',color='green', angles='xy', scale_units='xy', scale=1) 
+ax1.quiver(0,0,1,1/2,label='$\\vec u$',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1) 
+ax1.quiver(0,0,2,-1,label='$\\vec v$',color='deepskyblue', angles='xy', scale_units='xy', scale=1) 
+ax1.quiver(0,0,6,1,label='$\\vec b$',color='green', angles='xy', scale_units='xy', scale=1) 
 
 #add solution vectors to axes
-ax2.quiver(0,0,4,2,label='4u',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1, alpha=0.6) 
-ax2.quiver(4,2,2,-1,label='v', color='deepskyblue', angles='xy', scale_units='xy', scale=1)
-ax2.quiver(0,0,6,1,label='b',color='green', angles='xy', scale_units='xy', scale=1) 
+ax2.quiver(0,0,4,2,label='$4 \\vec u$',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1, alpha=0.6) 
+ax2.quiver(4,2,2,-1,label='$\\vec v$', color='deepskyblue', angles='xy', scale_units='xy', scale=1)
+ax2.quiver(0,0,6,1,label='$\\vec b$',color='green', angles='xy', scale_units='xy', scale=1) 
 
 #annotate vectors option instead of legend
-ax1.annotate("u", xy=(0.25,0.25))
-ax1.annotate("v", xy=(0.5, -.65))
-ax1.annotate("b", xy=(3, 0.25))
-ax2.annotate("4u", xy=(2,1.2))
-ax2.annotate("v", xy=(5,1.65))
-ax2.annotate("b", xy=(3, 0.25))
+ax1.annotate("$\\vec u$", xy=(0.25,0.25))
+ax1.annotate("$\\vec v$", xy=(0.5, -.65))
+ax1.annotate("$\\vec b$", xy=(3, 0.25))
+ax2.annotate("$4\\vec u$", xy=(2,1.2))
+ax2.annotate("$\\vec v$", xy=(5,1.65))
+ax2.annotate("$\\vec b$", xy=(3, 0.25))
 
 #set title and axes labels and limits, legend, axis, grid
-ax1.set(title="Vector Equation xu+yv=b", xlabel="x", ylabel="y")
+ax1.set(title="Vector Equation $x\\vec u+y\\vec v=\\vec b$")
+ax1.set(xlabel="x", ylabel="y")
 ax1.set(xlim=(-1,7), ylim=(-1.5,3.5))
 ax1.legend() 
 ax1.axhline(0, color='black')

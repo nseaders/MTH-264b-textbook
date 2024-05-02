@@ -14,49 +14,28 @@
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
 <div class="para">
-<em class="emphasis">Method 2.</em> We first find one point on the line. There are lots of them. We’ll find the point with <span class="process-math">\(z=0\text{.}\)</span> (We could just as well use z=123.4, but arguably <span class="process-math">\(z=0\)</span> is a little easier.) If  <span class="process-math">\((x,y,z)\)</span> is on the line and <span class="process-math">\(z=0\text{,}\)</span> then</div>
+<em class="emphasis">Method 1.</em> Each point on the line has a different value of <span class="process-math">\(z\text{.}\)</span> We’ll use <span class="process-math">\(z\)</span> as the parameter. (We could just as well use <span class="process-math">\(x\)</span> or <span class="process-math">\(y\text{.}\)</span>) There is no law that requires us to use the parameter name <span class="process-math">\(t\text{,}\)</span> but that’s what we have done so far, so set <span class="process-math">\(t=z\text{.}\)</span> If <span class="process-math">\((x,y,z)\)</span> is on the line then <span class="process-math">\(z=t\)</span> and</div>
 <div class="displaymath process-math">
 \begin{align*}
-x+y&amp;=2\\
-x-y&amp;=0
+x+y+t&amp;=2\\
+x-y\phantom{\ \,+t}&amp;=0
 \end{align*}
 </div>
-<div class="para">The second equation again forces <span class="process-math">\(y=x\text{.}\)</span> Substituting this into the first equation gives</div>
+<div class="para">The second equation forces <span class="process-math">\(y=x\text{.}\)</span> Substituting this into the first equation gives</div>
 <div class="displaymath process-math">
 \begin{gather*}
-2x=2 \implies x=y=1
+2x+t=2 \implies x=y=1-\tfrac{t}{2}
 \end{gather*}
 </div>
-<div class="para">So <span class="process-math">\((1,1,0)\)</span> is on the line. Now we’ll find a direction vector, <span class="process-math">\(\vd\text{,}\)</span> for the line.</div>
-<ul class="disc">
-<li><div class="para">Since the line is contained in the plane <span class="process-math">\(x+y+z=2\text{,}\)</span> any vector lying on the line, like <span class="process-math">\(\vd\text{,}\)</span> is also completely contained in that plane. So <span class="process-math">\(\vd\)</span> must be perpendicular to the normal vector of <span class="process-math">\(x+y+z=2\text{,}\)</span> which is <span class="process-math">\(\llt 1,1,1\rgt \text{.}\)</span>
-</div></li>
-<li><div class="para">Similarly, since the line is contained in the plane <span class="process-math">\(x-y=0\text{,}\)</span> any vector lying on the line, like <span class="process-math">\(\vd\text{,}\)</span> is also completely contained in that plane.  So <span class="process-math">\(\vd\)</span> must be perpendicular to the normal vector of <span class="process-math">\(x-y=0\text{,}\)</span> which is <span class="process-math">\(\llt 1,-1,0\rgt \text{.}\)</span>
-</div></li>
-</ul>
-<div class="para">So we may choose for <span class="process-math">\(\vd\)</span> any vector which is perpendicular to both <span class="process-math">\(\llt 1,1,1\rgt \)</span> and <span class="process-math">\(\llt 1,-1,0\rgt\text{,}\)</span> like, for example,</div>
-<div class="displaymath process-math">
-\begin{align*}
-\vd&amp;=\llt 1,-1,0\rgt \times\llt 1,1,1\rgt\\
-&amp; =\det\left[ \begin{matrix}\hi &amp;\hj&amp;\hk\\
-1&amp;-1&amp;0\\ 1&amp;1&amp;1\end{matrix}\right]
-=\hi\det\left[\begin{matrix}-1&amp;0\\
-1&amp;1\end{matrix}\right]
--\hj\det\left[\begin{matrix}1&amp;0\\
-1&amp;1\end{matrix}\right]
-+\hk\det\left[\begin{matrix}1&amp;-1\\
-1&amp;1\end{matrix}\right]\\
-&amp;=-\hi-\hj+2\hk
-\end{align*}
-</div>
-<div class="para">We now have both a point on the line (namely <span class="process-math">\((1,1,0)\)</span>) and a direction vector for the line (namely <span class="process-math">\(\llt -1,-1,2\rgt\)</span>), so, as usual, the parametric equations for the line are</div>
+<div class="para">So the parametric equations are</div>
 <div class="displaymath process-math">
 \begin{gather*}
-\llt x-1,y-1,z\rgt =t\llt -1,-1,2\rgt \qquad\text{or}\qquad
-x=1-t,\ y=1-t,\ z=2t
+x=1-\frac{t}{2},\
+y=1-\frac{t}{2},\
+z=t\qquad\text{or}\qquad
+\llt x-1,y-1,z\rgt  = t\llt -\frac{1}{2}, -\frac{1}{2}, 1\rgt
 \end{gather*}
 </div>
-<div class="para">This looks a little different than the solution from method 1, but we’ll see in a moment that they are really the same. Before that, let’s do one more method.</div>
 </div>
 <span class="incontext"><a href="sec_lines_3d.html#p-472" class="internal">in-context</a></span>
 </body>
