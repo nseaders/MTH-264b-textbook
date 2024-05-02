@@ -72,7 +72,7 @@
       </p>
       </assemblage>
 
-      <exercises xml:id="exercises-">
+      <exercises xml:id="exercises-eigenthings">
         <exercise>
           <sage language='python'>
             <input>

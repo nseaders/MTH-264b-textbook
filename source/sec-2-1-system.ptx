@@ -113,18 +113,21 @@
         <exercise>
           <p>
             Edit the above code to print a matrix with decimals like <m>0.9</m> or <m>0.1</m>. 
+            Also print a matrix with fractions like <m>\frac{9}{10}</m> and <m>\frac{1}{10}</m> using sympy's <c>Rational(a,b)</c> command. 
           </p>
+          <hint>
+            <p>
+              Note that <c>Rational(a,b)</c> is not a Python command, but rather a command specific to Sympy.
+            </p>
+          </hint>
         </exercise>
-        <exercise>
-          <p>
-            Now input fractions like <c>sy.Rational(1,9)</c> and <c>sy.Rational(1,10)</c> and compare.
-          </p>
-        </exercise>
+
 
         <p>
           The Sympy functions <c>echelon_form()</c> and <c>rref()</c> can be used to row reduce 
           a matrix to reduced echelon form and row reduced echelon form, respectively. 
-          If you need a refresher on these two forms, read section (insert reference here). 
+          If you need a refresher on these two forms, read 
+          <url href="https://textbooks.math.gatech.edu/ila/row-reduction.html" visual="Interactive Linear Algebra 1.2 Row Reduction">Section 1.2</url> of Interactive Linear Algebra.
         </p>
 
         <exercise>
@@ -300,18 +303,18 @@
           </solution>
           <sage language='python'>
             <input>
-              import sympy as sy
+              import sympy as sp
 
-              A = sy.Matrix([ [1,1,1,1], [0,-1,1,1],[-1,1,-1,0]
+              A = sp.Matrix([ [1,1,1,1], [0,-1,1,1],[-1,1,-1,0]
               ]) #all three equations
 
-              I1 = sy.Matrix([ [1,1,1,1], [0,-1,1,1]
+              I1 = sp.Matrix([ [1,1,1,1], [0,-1,1,1]
               ]) #intersection first two equations
 
-              I2 = sy.Matrix([ [0,-1,1,1],[-1,1,-1,0]
+              I2 = sp.Matrix([ [0,-1,1,1],[-1,1,-1,0]
               ]) #intersection last two other equations
 
-              I3 = sy.Matrix([ [1,1,1,1], [-1,1,-1,0]
+              I3 = sp.Matrix([ [1,1,1,1], [-1,1,-1,0]
               ]) #intersection first and last equations
 
               print("A=", A.rref())
@@ -510,25 +513,26 @@
               ax2 = plt.subplot(1,2,2) #1 row, 2 columns, second graph
               
               # add original vectors to axes
-              ax1.quiver(0,0,1,1/2,label='u',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1) 
-              ax1.quiver(0,0,2,-1,label='v',color='deepskyblue', angles='xy', scale_units='xy', scale=1) 
-              ax1.quiver(0,0,6,1,label='b',color='green', angles='xy', scale_units='xy', scale=1) 
+              ax1.quiver(0,0,1,1/2,label='$\\vec u$',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1) 
+              ax1.quiver(0,0,2,-1,label='$\\vec v$',color='deepskyblue', angles='xy', scale_units='xy', scale=1) 
+              ax1.quiver(0,0,6,1,label='$\\vec b$',color='green', angles='xy', scale_units='xy', scale=1) 
               
               #add solution vectors to axes
-              ax2.quiver(0,0,4,2,label='4u',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1, alpha=0.6) 
-              ax2.quiver(4,2,2,-1,label='v', color='deepskyblue', angles='xy', scale_units='xy', scale=1)
-              ax2.quiver(0,0,6,1,label='b',color='green', angles='xy', scale_units='xy', scale=1) 
+              ax2.quiver(0,0,4,2,label='$4 \\vec u$',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1, alpha=0.6) 
+              ax2.quiver(4,2,2,-1,label='$\\vec v$', color='deepskyblue', angles='xy', scale_units='xy', scale=1)
+              ax2.quiver(0,0,6,1,label='$\\vec b$',color='green', angles='xy', scale_units='xy', scale=1) 
               
               #annotate vectors option instead of legend
-              ax1.annotate("u", xy=(0.25,0.25))
-              ax1.annotate("v", xy=(0.5, -.65))
-              ax1.annotate("b", xy=(3, 0.25))
-              ax2.annotate("4u", xy=(2,1.2))
-              ax2.annotate("v", xy=(5,1.65))
-              ax2.annotate("b", xy=(3, 0.25))
+              ax1.annotate("$\\vec u$", xy=(0.25,0.25))
+              ax1.annotate("$\\vec v$", xy=(0.5, -.65))
+              ax1.annotate("$\\vec b$", xy=(3, 0.25))
+              ax2.annotate("$4\\vec u$", xy=(2,1.2))
+              ax2.annotate("$\\vec v$", xy=(5,1.65))
+              ax2.annotate("$\\vec b$", xy=(3, 0.25))
 
               #set title and axes labels and limits, legend, axis, grid
-              ax1.set(title="Vector Equation xu+yv=b", xlabel="x", ylabel="y")
+              ax1.set(title="Vector Equation $x\\vec u+y\\vec v=\\vec b$")
+              ax1.set(xlabel="x", ylabel="y")
               ax1.set(xlim=(-1,7), ylim=(-1.5,3.5))
               ax1.legend() 
               ax1.axhline(0, color='black')
@@ -580,6 +584,12 @@
         </input>
       </sage>
       
+    </subsection>
+    <subsection xml:id="subsecRoundingErrorRref">
+      <title>Rounding error in Sympy's rref()</title>
+      <p>
+        blah
+      </p>
     </subsection>
 
       <assemblage><!--to assemble or summarize important connected ideas-->
