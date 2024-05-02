@@ -586,10 +586,94 @@
       
     </subsection>
     <subsection xml:id="subsecRoundingErrorRref">
-      <title>Rounding error in Sympy's rref()</title>
+      <title>Round-off error in Sympy's rref()</title>
       <p>
-        blah
+        Whenever you use a computer to perform repeated arithmetic
+        you have to consider round-off error. 
       </p>
+
+      <example xml:id="rounderror">
+        <p>
+          Consider the system of equations
+                <md>
+                  <mrow>0.8x -0.8y -0.4z \amp= 0 </mrow>
+                  <mrow> -0.3x +0.9y -0.4z \amp =0</mrow>
+                  <mrow> -0.4x -0.1y +0.8z\amp=0 </mrow>
+                </md>
+          
+          If you multiply both sides of each equation by 10, 
+          you don't change the solutions to the equations. 
+                <md>
+                  <mrow>8x -8y -4z \amp= 0 </mrow>
+                  <mrow> -3x +9y -4z \amp =0</mrow>
+                  <mrow> -4x -y +8z\amp=0 </mrow>
+                </md>
+          If you use Sympy to row reduce the system, however, you get a different answer.
+        </p>
+
+        <sage language='python'>
+          <input>
+            import sympy as sp
+            
+            #system of linear equations
+            S = sp.Matrix([
+            [ 0.8,-0.8,-0.4 ,0],
+            [-0.3, 0.9,-0.4, 0],
+            [-0.5,-0.1, 0.8, 0]])
+            
+            #same system multiplied by 10
+            disguised_S = sp.Matrix([
+            [ 8,-8,-4 ,0],
+            [-3, 9,-4, 0],
+            [-5,-1, 8, 0]])
+            
+            print("Reduced with decimals:", S.rref())
+            print("Reduced with whole numbers:", disguised_S.rref()) 
+          </input>
+        </sage>
+        A possible fix for the floating point number round-off error is to tell
+        Sympy explicitly when to round to zero by making a user defined <c>iszerofunc</c>.
+
+        <sage language='python'>
+          <input>
+            import sympy as sp
+            
+            #system of linear equations
+            S = sp.Matrix([
+            [ 0.8,-0.8,-0.4 ,0],
+            [-0.3, 0.9,-0.4, 0],
+            [-0.5,-0.1, 0.8, 0]])
+            
+            #same system multiplied by 10
+            disguised_S = sp.Matrix([
+            [ 8,-8,-4 ,0],
+            [-3, 9,-4, 0],
+            [-5,-1, 8, 0]])
+
+            SRREF = S.rref(iszerofunc=lambda x: abs(x) &lt; 1e-10)
+            
+            print("Reduced with decimals:", SRREF)
+            print("Reduced with whole numbers:", disguised_S.rref()) 
+          </input>
+        </sage>
+
+
+      </example>
+
+      <exercise>
+        <p>
+          Perhaps a better fix is to use exact values. That is, use Sympy's rational numbers 
+          instead of decimals since decimals use floating point representation. 
+          Fix the row reduction round-off error
+          for the original system in Example <xref ref="rounderror"/> by using Sympy's
+          <c>Rational()</c> function instead.
+        </p> 
+      </exercise>
+
+
+      
+
+
     </subsection>
 
       <assemblage><!--to assemble or summarize important connected ideas-->
