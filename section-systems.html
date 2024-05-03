@@ -439,7 +439,7 @@ A = sp.Matrix([ [2,-3,4], [1,4,2]])
 print(A.echelon_form()) #print REF of A
 print(A.rref()) #print RREF of A
 </script></pre>
-<div class="para" id="p-194">Note that <code class="code-inline tex2jax_ignore">rref()</code> returns not only the row reduced echelon form of a matrix, but also a tuple that tells you which columns have leading values of 1. These columns are called pivot columns, and give you a quick way to see any free variables (which are non-pivot columns).</div>
+<div class="para" id="p-194">Note that <code class="code-inline tex2jax_ignore">rref()</code> returns not only the row reduced echelon form of a matrix, but also a tuple that tells you which columns have leading values of 1 (where the left-most column is column 0). These columns are called pivot columns, and give you a quick way to see any free variables (which are non-pivot columns).</div>
 <article class="exercise exercise-like" id="exercise-46"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.5</span><span class="period">.</span>
 </h4>
@@ -450,7 +450,7 @@ print(A.rref()) #print RREF of A
 <li id="li-68"><div class="para" id="p-198">a unique solution, or</div></li>
 <li id="li-69"><div class="para" id="p-199">infinitely many solutions.</div></li>
 </ol>
-<div class="para">If you need a refresher on how to interpret the reduced echelon form of an augmented matrix to determine if there is no solution, write down the unique solution, or give the infinitely many solutions in parametric form, see section (insert section here).</div>
+<div class="para">If you need a refresher on how to interpret the reduced echelon form of an augmented matrix to determine if there is no solution, write down the unique solution, or give the infinitely many solutions in parametric form, see MTH 264 class notes Lesson 3.</div>
 </div></section><section class="subsection" id="graphsolution"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Graphing solutions to systems of equations</span>
 </h3>
@@ -681,7 +681,7 @@ ax.plot(Line3X,Line3Y,Line3Z, color='green')
 # Customize the view angle 
 #ax.view_init(elev=20, azim=30, roll=0)
 
-set title and axes labels
+#set title and axes labels
 ax.set(title="Solutions to 3D System", xlabel="x", ylabel="y", zlabel="z")
 
 plt.show()
@@ -858,7 +858,7 @@ x  -y  \amp =3\\
 </div>
 <div class="para">Convert the system of linear equations to a vector equation.</div>
 </div>
-<div class="para" id="p-236">Find the unique solution and graph your answer as a vector equation using Matplotlib3D. (That is, use vectors instead of planes to visualize the solution to this system.)</div></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-4"><div class="fn">Row reduction is sometimes called Gaussian elimination, after the mathematician Gauss. The method was actually popularized in Europe by Cambridge University who published notes of Newton. Soon algebra textbooks across Europe included the method. Long before Gauss or Newton, Chinese scholars demonstrated this method of solving systems of linear equations in chapter 8 of The Nine Chapters on the Mathematical Art.</div></div>
+<div class="para" id="p-236">Find the unique solution and graph your answer as a vector equation using Matplotlib3D. (That is, use vectors instead of planes to visualize the solution to this system.)</div></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-4"><div class="fn">Row reduction is sometimes called Gaussian elimination, after the mathematician Gauss, whose notation was adopted by . The method was actually popularized in Europe by Cambridge University who published notes of Newton. Soon algebra textbooks across Europe included the method. Long before Gauss or Newton, Chinese scholars demonstrated this method of solving systems of linear equations in chapter 8 of The Nine Chapters on the Mathematical Art.</div></div>
 <div class="hidden-content tex2jax_ignore" id="hk-fn-5"><div class="fn"><code class="code-inline tex2jax_ignore">Interactive Linear Algebra 1.2 Row Reduction</code></div></div>
 </div>
 <div class="ptx-content-footer">
