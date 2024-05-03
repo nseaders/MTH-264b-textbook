@@ -13,7 +13,7 @@
         Systems of linear equations can be solved using multiple methods. 
         In this section we will learn how to solve systems of linear equations using a process called row reduction.
         <fn>
-          Row reduction is sometimes called Gaussian elimination, after the mathematician Gauss. 
+          Row reduction is sometimes called Gaussian elimination, after the mathematician Gauss, whose notation was adopted by . 
           The method was actually popularized in Europe by Cambridge University who published notes of Newton. 
           Soon algebra textbooks across Europe included the method.  
           Long before Gauss or Newton, Chinese scholars demonstrated this method of solving systems of linear equations in chapter 8 of 
@@ -152,7 +152,8 @@
 
         <p>
           Note that <c>rref()</c> returns not only the row reduced echelon form of a matrix, but also a 
-          tuple that tells you which columns have leading values of 1. These columns are called <emph>pivot columns</emph>, 
+          tuple that tells you which columns have leading values of 1 (where the left-most column is column 0). 
+          These columns are called <emph>pivot columns</emph>, 
           and give you a quick way to see any free variables (which are non-pivot columns).
         </p>
 
@@ -183,7 +184,7 @@
           </ol>
           If you need a refresher on how to interpret the reduced echelon form of an augmented matrix to determine if there is no solution, 
           write down the unique solution, or give the infinitely many solutions in parametric form, 
-          see section (insert section here).
+          see MTH 264 class notes Lesson 3.
         </p>
       </subsection>
 
@@ -466,7 +467,7 @@
               # Customize the view angle 
               #ax.view_init(elev=20, azim=30, roll=0)
 
-              set title and axes labels
+              #set title and axes labels
               ax.set(title="Solutions to 3D System", xlabel="x", ylabel="y", zlabel="z")
               
               plt.show()
