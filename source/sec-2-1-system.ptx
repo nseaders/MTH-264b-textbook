@@ -588,8 +588,12 @@
     <subsection xml:id="subsecRoundingErrorRref">
       <title>Round-off error in Sympy's rref()</title>
       <p>
-        Whenever you use a computer to perform repeated arithmetic
-        you have to consider round-off error. 
+        Whenever you use a computer to perform arithmetic
+        you have to consider round-off error.
+        Numbers in Python are either stored as an integer data type, a floating point number data type,
+        or a complex number data type. 
+        Although <m>0.1</m> has a finite decimal representation, in binary it requires an infinite 
+        repeating floating point representation which cannot be stored without being truncated or rounded. 
       </p>
 
       <example xml:id="rounderror">
@@ -608,12 +612,7 @@
                   <mrow> -3x +9y -4z \amp =0</mrow>
                   <mrow> -4x -y +8z\amp=0 </mrow>
                 </md>
-          If you use Sympy to row reduce the system, however, you get a different answer.<fn>
-            Numbers in Python are either stored as an integer data type, a floating point number data type,
-            or a complex number data type. 
-            Although <m>0.1</m> has a finite decimal representation, in binary it requires an infinite 
-            repeating floating point representation which cannot be stored without being truncated or rounded. 
-          </fn>
+          If you use Sympy to row reduce the system, however, you get a different answer.
         </p>
 
         <sage language='python'>
@@ -667,8 +666,7 @@
 
       <exercise>
         <p>
-          Perhaps a better fix is to use exact values. That is, use Sympy's rational numbers 
-          instead of decimals since decimals use floating point representation. 
+          Sympy's rational number data type stores fractions as two integers to avoid floating point representation. 
           Fix the row reduction round-off error
           for the original system in <xref ref="rounderror"/> by using Sympy's
           <c>Rational()</c> function instead.
