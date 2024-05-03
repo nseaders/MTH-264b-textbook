@@ -608,7 +608,12 @@
                   <mrow> -3x +9y -4z \amp =0</mrow>
                   <mrow> -4x -y +8z\amp=0 </mrow>
                 </md>
-          If you use Sympy to row reduce the system, however, you get a different answer.
+          If you use Sympy to row reduce the system, however, you get a different answer.<fn>
+            Numbers in Python are either stored as an integer data type, a floating point number data type,
+            or a complex number data type. 
+            Although <m>0.1</m> has a finite decimal representation, in binary it requires an infinite 
+            repeating floating point representation which cannot be stored without being truncated or rounded. 
+          </fn>
         </p>
 
         <sage language='python'>
@@ -631,7 +636,7 @@
             print("Reduced with whole numbers:", disguised_S.rref()) 
           </input>
         </sage>
-        A possible fix for the floating point number round-off error is to tell
+        A possible fix for the floating point round-off error is to tell
         Sympy explicitly when to round to zero by making a user defined <c>iszerofunc</c>.
 
         <sage language='python'>
@@ -665,7 +670,7 @@
           Perhaps a better fix is to use exact values. That is, use Sympy's rational numbers 
           instead of decimals since decimals use floating point representation. 
           Fix the row reduction round-off error
-          for the original system in Example <xref ref="rounderror"/> by using Sympy's
+          for the original system in <xref ref="rounderror"/> by using Sympy's
           <c>Rational()</c> function instead.
         </p> 
       </exercise>
