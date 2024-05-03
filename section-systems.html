@@ -767,7 +767,7 @@ print(np.array(RREF).astype(np.float64)) #specify float type, which will work
 </script></pre></section><section class="subsection" id="subsecRoundingErrorRref"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Round-off error in Sympy’s rref()</span>
 </h3>
-<div class="para" id="p-227">Whenever you use a computer to perform repeated arithmetic you have to consider round-off error.</div>
+<div class="para" id="p-227">Whenever you use a computer to perform arithmetic you have to consider round-off error. Numbers in Python are either stored as an integer data type, a floating point number data type, or a complex number data type. Although <span class="process-math">\(0.1\)</span> has a finite decimal representation, in binary it requires an infinite repeating floating point representation which cannot be stored without being truncated or rounded.</div>
 <article class="example example-like" id="rounderror"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.10</span><span class="period">.</span>
 </h4>
@@ -788,8 +788,7 @@ print(np.array(RREF).astype(np.float64)) #specify float type, which will work
 -4x -y +8z\amp=0 
 \end{align*}
 </div>
-<div class="para">If you use Sympy to row reduce the system, however, you get a different answer.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-6" id="fn-6"><sup> 3 </sup></a>
-</div>
+<div class="para">If you use Sympy to row reduce the system, however, you get a different answer.</div>
 </div> <pre class="ptx-sagecell sagecell-python" id="sage-56"><script type="text/x-sage">import sympy as sp
 
 #system of linear equations
@@ -827,7 +826,7 @@ print("Reduced with whole numbers:", disguised_S.rref())
 </script></pre></article><article class="exercise exercise-like" id="exercise-48"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.11</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-229">Perhaps a better fix is to use exact values. That is, use Sympy’s rational numbers instead of decimals since decimals use floating point representation. Fix the row reduction round-off error for the original system in Example <a href="" class="xref" data-knowl="./knowl/rounderror.html" title="Example 2.10">Example 2.10</a> by using Sympy’s <code class="code-inline tex2jax_ignore">Rational()</code> function instead.</div></article></section><article class="assemblage assemblage-like" id="assemblage-6"><h3 class="heading"><span class="title">Summary.</span></h3>
+<div class="para" id="p-229">Sympy’s rational number data type stores fractions as two integers to avoid floating point representation. Fix the row reduction round-off error for the original system in <a href="" class="xref" data-knowl="./knowl/rounderror.html" title="Example 2.10">Example 2.10</a> by using Sympy’s <code class="code-inline tex2jax_ignore">Rational()</code> function instead.</div></article></section><article class="assemblage assemblage-like" id="assemblage-6"><h3 class="heading"><span class="title">Summary.</span></h3>
 <div class="para logical" id="p-230">
 <ul class="disc"><li id="li-70"><div class="para" id="p-231">TBD</div></li></ul>
 <ul class="disc"><li id="li-71"><div class="para" id="p-232">TBD</div></li></ul>
@@ -861,7 +860,6 @@ x  -y  \amp =3\\
 </div>
 <div class="para" id="p-236">Find the unique solution and graph your answer as a vector equation using Matplotlib3D. (That is, use vectors instead of planes to visualize the solution to this system.)</div></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-4"><div class="fn">Row reduction is sometimes called Gaussian elimination, after the mathematician Gauss. The method was actually popularized in Europe by Cambridge University who published notes of Newton. Soon algebra textbooks across Europe included the method. Long before Gauss or Newton, Chinese scholars demonstrated this method of solving systems of linear equations in chapter 8 of The Nine Chapters on the Mathematical Art.</div></div>
 <div class="hidden-content tex2jax_ignore" id="hk-fn-5"><div class="fn"><code class="code-inline tex2jax_ignore">Interactive Linear Algebra 1.2 Row Reduction</code></div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-6"><div class="fn">Numbers in Python are either stored as an integer data type, a floating point number data type, or a complex number data type. Although <span class="process-math">\(0.1\)</span> has a finite decimal representation, in binary it requires an infinite repeating floating point representation which cannot be stored without being truncated or rounded.</div></div>
 </div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="chapter2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="section-matrices.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
