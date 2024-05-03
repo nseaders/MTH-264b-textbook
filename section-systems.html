@@ -788,7 +788,8 @@ print(np.array(RREF).astype(np.float64)) #specify float type, which will work
 -4x -y +8z\amp=0 
 \end{align*}
 </div>
-<div class="para">If you use Sympy to row reduce the system, however, you get a different answer.</div>
+<div class="para">If you use Sympy to row reduce the system, however, you get a different answer.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-6" id="fn-6"><sup> 3 </sup></a>
+</div>
 </div> <pre class="ptx-sagecell sagecell-python" id="sage-56"><script type="text/x-sage">import sympy as sp
 
 #system of linear equations
@@ -805,7 +806,7 @@ disguised_S = sp.Matrix([
 
 print("Reduced with decimals:", S.rref())
 print("Reduced with whole numbers:", disguised_S.rref())
-</script></pre> A possible fix for the floating point number round-off error is to tell Sympy explicitly when to round to zero by making a user defined <code class="code-inline tex2jax_ignore">iszerofunc</code>. <pre class="ptx-sagecell sagecell-python" id="sage-57"><script type="text/x-sage">import sympy as sp
+</script></pre> A possible fix for the floating point round-off error is to tell Sympy explicitly when to round to zero by making a user defined <code class="code-inline tex2jax_ignore">iszerofunc</code>. <pre class="ptx-sagecell sagecell-python" id="sage-57"><script type="text/x-sage">import sympy as sp
 
 #system of linear equations
 S = sp.Matrix([
@@ -860,6 +861,7 @@ x  -y  \amp =3\\
 </div>
 <div class="para" id="p-236">Find the unique solution and graph your answer as a vector equation using Matplotlib3D. (That is, use vectors instead of planes to visualize the solution to this system.)</div></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-4"><div class="fn">Row reduction is sometimes called Gaussian elimination, after the mathematician Gauss. The method was actually popularized in Europe by Cambridge University who published notes of Newton. Soon algebra textbooks across Europe included the method. Long before Gauss or Newton, Chinese scholars demonstrated this method of solving systems of linear equations in chapter 8 of The Nine Chapters on the Mathematical Art.</div></div>
 <div class="hidden-content tex2jax_ignore" id="hk-fn-5"><div class="fn"><code class="code-inline tex2jax_ignore">Interactive Linear Algebra 1.2 Row Reduction</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-6"><div class="fn">Numbers in Python are either stored as an integer data type, a floating point number data type, or a complex number data type. Although <span class="process-math">\(0.1\)</span> has a finite decimal representation, in binary it requires an infinite repeating floating point representation which cannot be stored without being truncated or rounded.</div></div>
 </div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="chapter2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="section-matrices.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>

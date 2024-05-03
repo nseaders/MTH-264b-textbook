@@ -52,7 +52,8 @@ sagecell.makeSagecell({
 -4x -y +8z\amp=0 
 \end{align*}
 </div>
-<div class="para">If you use Sympy to row reduce the system, however, you get a different answer.</div>
+<div class="para">If you use Sympy to row reduce the system, however, you get a different answer.<a href="" class="fn-knowl original" data-knowl="./knowl/fn-6-hidden.html" title="Footnote 2.3"><sup> 3 </sup></a>
+</div>
 </div> <pre class="ptx-sagecell sagecell-python" id="sage-56"><script type="text/x-sage">import sympy as sp
 
 #system of linear equations
@@ -69,7 +70,7 @@ disguised_S = sp.Matrix([
 
 print("Reduced with decimals:", S.rref())
 print("Reduced with whole numbers:", disguised_S.rref())
-</script></pre> A possible fix for the floating point number round-off error is to tell Sympy explicitly when to round to zero by making a user defined <code class="code-inline tex2jax_ignore">iszerofunc</code>. <pre class="ptx-sagecell sagecell-python" id="sage-57"><script type="text/x-sage">import sympy as sp
+</script></pre> A possible fix for the floating point round-off error is to tell Sympy explicitly when to round to zero by making a user defined <code class="code-inline tex2jax_ignore">iszerofunc</code>. <pre class="ptx-sagecell sagecell-python" id="sage-57"><script type="text/x-sage">import sympy as sp
 
 #system of linear equations
 S = sp.Matrix([
