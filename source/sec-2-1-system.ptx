@@ -573,7 +573,7 @@
           import numpy as np
           import sympy as sp
 
-          npA = np.matrix([[1, 2], [3, 4]]) #Create a numpy matrix
+          npA = np.array([[1, 2], [3, 4]]) #Create a numpy array
           spA = sp.Matrix(npA) #convert to a sympy matrix
 
           RREF = spA.rref()[0] #Get RREF in sympy
