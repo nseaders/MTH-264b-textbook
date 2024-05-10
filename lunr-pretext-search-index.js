@@ -637,7 +637,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.2",
   "title": "Matrix Arithmetic",
-  "body": " Matrix Arithmetic  In this section we will learn how to     Add, subtract, scale, and multiply matrices in Numpy and Sympy    Find matrix inverses using Numpy and Sympy    Use matrix inverses to solve systems of linear equations      Title      Basic Matrices  Matrices are just 2D arrays and we can compute with them in both the Sympy and Numpy libraries. Some common matrices that we can generate automatically include the (multiplicative) identity matrix, a zero matrix, and a matrix of all ones.    You can add, subtract and scale matrices in both numpy and sympy.      Matrix Multiplication  Note that if you naively multiply Numpy arrays you get the Hadamard product, which is NOT the same as matrix multiplication.    Meanwhile in Sympy you get matrix multiplication by default and have to specify a Hadamard product (element-wise multiplication of matrices).    Put something in here about Matrix vector multiplication     Matrix Inverses  We can find a matrix inverse in sympy just using rref() with our original matrix augmented with the identity matrix. But sympy has a dedicated matrix inverse command, and numpy has a numerical matrix inverse command as well.     Ill Conditioned Matrices  While inverting a matrix helps us solve matrix equations symbolically and can be a helpful way to solve by hand, in practice, you seldom want to invert a matrix to solve a system with technology. The primary reason being that some matrices are ill-conditioned , that is, small changes in the entries of the matrix can give radical changes in the inverse given by technology. So then any rounding error can output radically different inverses.  For example, consider the two systems   which obtain vastly different answers given the small change in the target. The corresponding matrix is ill-conditioned and can give different solutions with technology.          Summary     blah      blah         "
+  "body": " Matrix Arithmetic  Matrices have emerged as an essential mathematical tool to model complicated systems and solve problems far beyond the early usage to simplify the process of solving systems of linear equations. In this section we will learn how to use both SymPy and NumPy to perform matrix arithmetic. We will also briefly discuss numerical pitfalls to try and avoid.     Add, subtract, scale, and multiply matrices in NumPy and SymPy    Find matrix inverses using NumPy and SymPy    Use matrix inverses to solve systems of linear equations      NumPy vs SymPy  We can compute with matrices in both the Sympy and Numpy libraries. Numerical Python is intended for numerical computations and estimates. Symbolic Python can do symbolic computations like rref() or compute with matrices having undetermined variables in the mix. NumPy automatically treats matrices like a 2D array, that is, a higher dimensional vector. SymPy defaults to working with matrices from the linear transformation perspective.  After some internal debate, I decided to intermingle NumPy and SymPy syntax for working with matrices. Please give feedback if it seems this section should be re-organized into NumPy and Matrics followed by SymPy and Matrices .    Basic Matrices  Some matrices are frequently needed for computations. Common matrices that we can generate automatically include a (multiplicative) identity matrix, a zero matrix, and a matrix of all ones.  The commands for the multiplicative identity matrix are different: SymPy's eye(n) vs NumPy's identity(n) .   The commands for matrices of ones() and zeros() are identical, and take in the number of rows and columns as arguments. For NumPy, however, you must enter the shape of the array as an ordered pair with parentheses.  In the code above, create a matrix of all ones using both NumPy and SymPy. Next create a matrix of all zeroes. Play with various dimensions.  With NumPy don't forget to use extra parentheses for the shape of the array.     Matrix Arithmetic  You can add, subtract and scale matrices using both NumPy and SymPy.  In both NumPy and SymPy create matrices to compute   Scale a one matrix and an identity matrix.     What happens if the two matrices do not have the same number of rows and columns?    Matrix Multiplication  Recall that matrix multiplication is more sophisticated than the Hadamard product, a basic element-wise multiplication of two arrays, since it developed to be independent of coordinates and correspond to function composition. Recall further that NumPy automatically treats matrices like a 2D array, that is, a higher dimensional vector. If you naively multiply NumPy arrays you get the Hadamard product, rather than traditional matrix multiplication (try below).   If instead you want matrix multiplication, you tell NumPy to multiply using the matmul() command, or as a short-hand using @ (try below).   Meanwhile SymPy defaults to working with matrices from the linear transformation perspective giving you matrix multiplication by default and requiring us to specify any Hadamard product, or element-wise multiplication.       What happens if you try to compute using matrix multiplication?    What happens if you try to compute the Hadamard Product of ?   Play with various dimensions of , and to come up with necessary criteria for the Hadamard product to work vs Matrix multiplication to work.  Square matrices can be multiplied by themselves and at times we want to multiply repeatedly, e.g. . In SymPy we can perform repeated matrix multiplication using Python's exponent operator A**3 . In NumPy we can call linalg.matrixpower(matrix, integer power).   Compute Note:      Matrix Inverses  Recall that we can find multiplicative matrix inverses by hand by augmenting a matrix with the identity matrix and row reducing to the identity. Thus we can find a matrix inverse in SymPy simply by applying rref() to a matrix augmented with the identity matrix, which we can not do with NumPy.  Both SymPy and NumPy have a dedicated matrix inverse command, however, NumPy's linalg.inv() and SymPy's inv() .      Solving Matrix Equations via Inverses  We can solve matrix equations using matrix inverses.   Consider the matrix equation where   and   Solve the matrix equation for   Can you compute using both SymPy and NumPy?    Ill-Conditioned Matrices  While inverting a matrix helps us solve matrix equations symbolically and develop theory, in practice, we seldom invert a matrix with technology in order to solve systems of linear equations. Some matrices are ill-conditioned in that small changes in the entries of the matrix can create big changes in our inverse or solution. Since rounding produces small changes, ill-conditioned matrices can create terminal errors in our solutions.  Consider the matrix equation in . Compare the solutions obtained in the example, to the solutions if   the entries of are rounded to the nearest hundredth, and    if the entries of are rounded to the nearest tenth.   What do you notice?   In general, matrices that are nearly singular, that is, almost not invertible, can be ill-conditioned. In we will learn how to use determinants to discover whether or not a matrix is singular or close to singular.    Both NumPy and SymPy can be used for matrix arithmetic. As a symbolic manipulator, SymPy can avoid some rounding error issues. Often, however, we are already using NumPy to manipulate or graph our data and the linear algebra tools in NumPy directly are convenient as long as we know what pitfalls to avoid.    Summary     TBD      TBD         "
 },
 {
   "id": "objectives-7",
@@ -646,7 +646,7 @@ var ptx_lunr_docs = [
   "type": "Objectives",
   "number": "2.2",
   "title": "",
-  "body": "   Add, subtract, scale, and multiply matrices in Numpy and Sympy    Find matrix inverses using Numpy and Sympy    Use matrix inverses to solve systems of linear equations    "
+  "body": "   Add, subtract, scale, and multiply matrices in NumPy and SymPy    Find matrix inverses using NumPy and SymPy    Use matrix inverses to solve systems of linear equations    "
 },
 {
   "id": "exercise-51",
@@ -655,12 +655,66 @@ var ptx_lunr_docs = [
   "type": "You Try",
   "number": "2.12",
   "title": "",
-  "body": ""
+  "body": "In the code above, create a matrix of all ones using both NumPy and SymPy. Next create a matrix of all zeroes. Play with various dimensions.  With NumPy don't forget to use extra parentheses for the shape of the array.  "
 },
 {
   "id": "exercise-52",
   "level": "2",
   "url": "section-matrices.html#exercise-52",
+  "type": "You Try",
+  "number": "2.13",
+  "title": "",
+  "body": "In both NumPy and SymPy create matrices to compute   Scale a one matrix and an identity matrix.  "
+},
+{
+  "id": "exercise-53",
+  "level": "2",
+  "url": "section-matrices.html#exercise-53",
+  "type": "You Try",
+  "number": "2.14",
+  "title": "",
+  "body": "What happens if the two matrices do not have the same number of rows and columns? "
+},
+{
+  "id": "exercise-54",
+  "level": "2",
+  "url": "section-matrices.html#exercise-54",
+  "type": "You Try",
+  "number": "2.15",
+  "title": "",
+  "body": "   What happens if you try to compute using matrix multiplication?    What happens if you try to compute the Hadamard Product of ?   Play with various dimensions of , and to come up with necessary criteria for the Hadamard product to work vs Matrix multiplication to work. "
+},
+{
+  "id": "exercise-55",
+  "level": "2",
+  "url": "section-matrices.html#exercise-55",
+  "type": "You Try",
+  "number": "2.16",
+  "title": "",
+  "body": "Compute Note:  "
+},
+{
+  "id": "illconditioned",
+  "level": "2",
+  "url": "section-matrices.html#illconditioned",
+  "type": "Example",
+  "number": "2.17",
+  "title": "",
+  "body": " Consider the matrix equation where   and   Solve the matrix equation for   Can you compute using both SymPy and NumPy? "
+},
+{
+  "id": "exercise-56",
+  "level": "2",
+  "url": "section-matrices.html#exercise-56",
+  "type": "You Try",
+  "number": "2.18",
+  "title": "",
+  "body": "Consider the matrix equation in . Compare the solutions obtained in the example, to the solutions if   the entries of are rounded to the nearest hundredth, and    if the entries of are rounded to the nearest tenth.   What do you notice? "
+},
+{
+  "id": "exercise-57",
+  "level": "2",
+  "url": "section-matrices.html#exercise-57",
   "type": "Exercise",
   "number": "1",
   "title": "",
@@ -685,18 +739,18 @@ var ptx_lunr_docs = [
   "body": "   C    D    "
 },
 {
-  "id": "exercise-53",
+  "id": "exercise-58",
   "level": "2",
-  "url": "section-transformations.html#exercise-53",
+  "url": "section-transformations.html#exercise-58",
   "type": "You Try",
-  "number": "2.13",
+  "number": "2.19",
   "title": "",
   "body": ""
 },
 {
-  "id": "exercise-54",
+  "id": "exercise-59",
   "level": "2",
-  "url": "section-transformations.html#exercise-54",
+  "url": "section-transformations.html#exercise-59",
   "type": "Exercise",
   "number": "1",
   "title": "",
@@ -721,18 +775,18 @@ var ptx_lunr_docs = [
   "body": "   C    D    "
 },
 {
-  "id": "exercise-55",
+  "id": "exercise-60",
   "level": "2",
-  "url": "section-determinants.html#exercise-55",
+  "url": "section-determinants.html#exercise-60",
   "type": "You Try",
-  "number": "2.14",
+  "number": "2.20",
   "title": "",
   "body": ""
 },
 {
-  "id": "exercise-56",
+  "id": "exercise-61",
   "level": "2",
-  "url": "section-determinants.html#exercise-56",
+  "url": "section-determinants.html#exercise-61",
   "type": "Exercise",
   "number": "1",
   "title": "",
@@ -757,18 +811,18 @@ var ptx_lunr_docs = [
   "body": "   C    D    "
 },
 {
-  "id": "exercise-57",
+  "id": "exercise-62",
   "level": "2",
-  "url": "section-eigenthings.html#exercise-57",
+  "url": "section-eigenthings.html#exercise-62",
   "type": "You Try",
-  "number": "2.15",
+  "number": "2.21",
   "title": "",
   "body": ""
 },
 {
-  "id": "exercise-58",
+  "id": "exercise-63",
   "level": "2",
-  "url": "section-eigenthings.html#exercise-58",
+  "url": "section-eigenthings.html#exercise-63",
   "type": "Exercise",
   "number": "1",
   "title": "",
@@ -802,18 +856,18 @@ var ptx_lunr_docs = [
   "body": "   C    D    "
 },
 {
-  "id": "p-282",
+  "id": "p-305",
   "level": "2",
-  "url": "examples.html#p-282",
+  "url": "examples.html#p-305",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "integral integral integral integral integral integral variable "
 },
 {
-  "id": "exercise-60",
+  "id": "exercise-65",
   "level": "2",
-  "url": "examples.html#exercise-60",
+  "url": "examples.html#exercise-65",
   "type": "You Try",
   "number": "3.4",
   "title": "Exercise What.",
@@ -829,9 +883,9 @@ var ptx_lunr_docs = [
   "body": "   C    D    "
 },
 {
-  "id": "exercise-61",
+  "id": "exercise-66",
   "level": "2",
-  "url": "examples.html#exercise-61",
+  "url": "examples.html#exercise-66",
   "type": "Reading Question",
   "number": "1",
   "title": "",

@@ -328,32 +328,34 @@ sagecell.makeSagecell({
 <li>
 <div class="toc-item"><a href="section-matrices.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix Arithmetic</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-matrices.html#subsection-29" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsection-29" class="internal"><span class="title">NumPy vs SymPy</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#subsec-BasicMatrices" class="internal"><span class="title">Basic Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsec-MatrixArithmetic" class="internal"><span class="title">Matrix Arithmetic</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#subsec-MatrixMultiplication" class="internal"><span class="title">Matrix Multiplication</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#subsec-MatrixInverses" class="internal"><span class="title">Matrix Inverses</span></a></div></li>
-<li><div class="toc-item"><a href="section-matrices.html#subsec-ill-conditioned" class="internal"><span class="title">Ill Conditioned Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsec-solving-with-inverses" class="internal"><span class="title">Solving Matrix Equations via Inverses</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsec-ill-conditioned" class="internal"><span class="title">Ill-Conditioned Matrices</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#exercises-matrices" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="section-transformations.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Matrix Transformations</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-transformations.html#subsection-34" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-transformations.html#subsection-36" class="internal"><span class="title">Title</span></a></div></li>
 <li><div class="toc-item"><a href="section-transformations.html#exercises-transformations" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="section-determinants.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Determinants</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-determinants.html#subsection-35" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-determinants.html#subsection-37" class="internal"><span class="title">Title</span></a></div></li>
 <li><div class="toc-item"><a href="section-determinants.html#exercises-determinants" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="section-eigenthings.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Eigenthings</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-eigenthings.html#subsection-36" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-eigenthings.html#subsection-38" class="internal"><span class="title">Title</span></a></div></li>
 <li><div class="toc-item"><a href="section-eigenthings.html#exercises-eigenthings" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -364,7 +366,7 @@ sagecell.makeSagecell({
 <ul class="structural"><li>
 <div class="toc-item"><a href="examples.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Samples of various pretext formats</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="examples.html#subsection-37" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
+<li><div class="toc-item"><a href="examples.html#subsection-39" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
 <li><div class="toc-item"><a href="examples.html#reading-questions-1" class="internal"><span class="title">Reading Questions</span></a></div></li>
 </ul>
 </li></ul>
@@ -756,7 +758,7 @@ plt.show()
 <pre class="ptx-sagecell sagecell-python" id="sage-55"><script type="text/x-sage">import numpy as np
 import sympy as sp
 
-npA = np.matrix([[1, 2], [3, 4]]) #Create a numpy matrix
+npA = np.array([[1, 2], [3, 4]]) #Create a numpy array
 spA = sp.Matrix(npA) #convert to a sympy matrix
 
 RREF = spA.rref()[0] #Get RREF in sympy

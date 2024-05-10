@@ -308,32 +308,34 @@ window.MathJax = {
 <li>
 <div class="toc-item"><a href="section-matrices.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix Arithmetic</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-matrices.html#subsection-29" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsection-29" class="internal"><span class="title">NumPy vs SymPy</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#subsec-BasicMatrices" class="internal"><span class="title">Basic Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsec-MatrixArithmetic" class="internal"><span class="title">Matrix Arithmetic</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#subsec-MatrixMultiplication" class="internal"><span class="title">Matrix Multiplication</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#subsec-MatrixInverses" class="internal"><span class="title">Matrix Inverses</span></a></div></li>
-<li><div class="toc-item"><a href="section-matrices.html#subsec-ill-conditioned" class="internal"><span class="title">Ill Conditioned Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsec-solving-with-inverses" class="internal"><span class="title">Solving Matrix Equations via Inverses</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsec-ill-conditioned" class="internal"><span class="title">Ill-Conditioned Matrices</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#exercises-matrices" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="section-transformations.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Matrix Transformations</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-transformations.html#subsection-34" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-transformations.html#subsection-36" class="internal"><span class="title">Title</span></a></div></li>
 <li><div class="toc-item"><a href="section-transformations.html#exercises-transformations" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="section-determinants.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Determinants</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-determinants.html#subsection-35" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-determinants.html#subsection-37" class="internal"><span class="title">Title</span></a></div></li>
 <li><div class="toc-item"><a href="section-determinants.html#exercises-determinants" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="section-eigenthings.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Eigenthings</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-eigenthings.html#subsection-36" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-eigenthings.html#subsection-38" class="internal"><span class="title">Title</span></a></div></li>
 <li><div class="toc-item"><a href="section-eigenthings.html#exercises-eigenthings" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -344,7 +346,7 @@ window.MathJax = {
 <ul class="structural"><li class="active">
 <div class="toc-item"><a href="examples.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Samples of various pretext formats</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="examples.html#subsection-37" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
+<li><div class="toc-item"><a href="examples.html#subsection-39" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
 <li><div class="toc-item"><a href="examples.html#reading-questions-1" class="internal"><span class="title">Reading Questions</span></a></div></li>
 </ul>
 </li></ul>
@@ -355,56 +357,56 @@ window.MathJax = {
 <section class="section" id="examples"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.1</span> <span class="title">Samples of various pretext formats</span>
 </h2>
-<section class="introduction" id="introduction-13"><div class="para" id="p-270">Does this make a difference?</div> <article class="investigation project-like" id="investigation-1"><h3 class="heading">
+<section class="introduction" id="introduction-13"><div class="para" id="p-293">Does this make a difference?</div> <article class="investigation project-like" id="investigation-1"><h3 class="heading">
 <span class="type">Investigation</span><span class="space"> </span><span class="codenumber">3.1</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-271">Does this make a difference?</div></article></section><article class="objectives goal-like" id="objectives-11"><h3 class="heading"><span class="type">Objectives</span></h3>
+<div class="para" id="p-294">Does this make a difference?</div></article></section><article class="objectives goal-like" id="objectives-11"><h3 class="heading"><span class="type">Objectives</span></h3>
 <ul class="disc">
-<li id="li-89"><div class="para" id="p-272">C</div></li>
-<li id="li-90"><div class="para" id="p-273">D</div></li>
-</ul></article><div class="para" id="p-274">Here is a paragraph. With “quotations” and ‘single quotes’, <em class="emphasis">emphasis</em> and 〈angles〉.</div>
-<div class="para logical" id="p-275">
+<li id="li-93"><div class="para" id="p-295">C</div></li>
+<li id="li-94"><div class="para" id="p-296">D</div></li>
+</ul></article><div class="para" id="p-297">Here is a paragraph. With “quotations” and ‘single quotes’, <em class="emphasis">emphasis</em> and 〈angles〉.</div>
+<div class="para logical" id="p-298">
 <div class="para">Here are examples of the OscarLevin css style. <a class="external" href="https://pretextbook.org/examples/sample-article/oscar/interesting-corollary.html" target="_blank"><code class="code-inline tex2jax_ignore">https://pretextbook.org/examples/sample-article/oscar/interesting-corollary.html</code></a> </div>
 <ol class="decimal">
-<li id="li-91"><div class="para" id="p-276">Here is a part of an ordered list</div></li>
-<li id="li-92"><div class="para" id="p-277">next part</div></li>
+<li id="li-95"><div class="para" id="p-299">Here is a part of an ordered list</div></li>
+<li id="li-96"><div class="para" id="p-300">next part</div></li>
 </ol>
-<ol class="upper-alpha"><li id="li-93"><div class="para" id="p-278">try again</div></li></ol>
-<ul class="disc"><li id="li-94"><div class="para" id="p-279">Here is an itemized list</div></li></ul>
-<ul class="circle"><li id="li-95"><div class="para" id="p-280">Here is an itemized list</div></li></ul>
+<ol class="upper-alpha"><li id="li-97"><div class="para" id="p-301">try again</div></li></ol>
+<ul class="disc"><li id="li-98"><div class="para" id="p-302">Here is an itemized list</div></li></ul>
+<ul class="circle"><li id="li-99"><div class="para" id="p-303">Here is an itemized list</div></li></ul>
 </div>
-<div class="para" id="p-281"></div>
-<div class="para" id="p-282">
+<div class="para" id="p-304"></div>
+<div class="para" id="p-305">
 <article class="definition definition-like" id="def-integral"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1</span><span class="period">.</span><span class="space"> </span><span class="title">integral.</span>
-</h3> <div class="para" id="p-283">An <dfn class="terminology">integral</dfn> is a sum.</div></article> <article class="example example-like" id="example-6"><h3 class="heading">
+</h3> <div class="para" id="p-306">An <dfn class="terminology">integral</dfn> is a sum.</div></article> <article class="example example-like" id="example-7"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2</span><span class="period">.</span><span class="space"> </span><span class="title">integral.</span>
 </h3>
-<div class="para" id="p-284">An <dfn class="terminology">integral</dfn> is a sum.</div></article> <article class="investigation project-like" id="I"><h3 class="heading">
+<div class="para" id="p-307">An <dfn class="terminology">integral</dfn> is a sum.</div></article> <article class="investigation project-like" id="I"><h3 class="heading">
 <span class="type">Investigation</span><span class="space"> </span><span class="codenumber">3.2</span><span class="period">.</span><span class="space"> </span><span class="title">integral.</span>
 </h3>
-<div class="para" id="p-285">An <dfn class="terminology">integral</dfn> is a sum.</div></article> <article class="assemblage assemblage-like" id="assemblage-11"><h3 class="heading"><span class="title">integral.</span></h3>
-<div class="para" id="p-286">An <dfn class="terminology">integral</dfn> is a sum.</div></article> <article class="note remark-like" id="note-1"><h3 class="heading">
+<div class="para" id="p-308">An <dfn class="terminology">integral</dfn> is a sum.</div></article> <article class="assemblage assemblage-like" id="assemblage-11"><h3 class="heading"><span class="title">integral.</span></h3>
+<div class="para" id="p-309">An <dfn class="terminology">integral</dfn> is a sum.</div></article> <article class="note remark-like" id="note-1"><h3 class="heading">
 <span class="type">Note</span><span class="space"> </span><span class="codenumber">3.3</span><span class="period">.</span><span class="space"> </span><span class="title">integral.</span>
-</h3> <div class="para" id="p-287">An <dfn class="terminology">integral</dfn> is a sum.</div></article> <article class="exercise exercise-like" id="exercise-59"> integral </article> A <dfn class="terminology">variable</dfn> is a container for information.</div>
+</h3> <div class="para" id="p-310">An <dfn class="terminology">integral</dfn> is a sum.</div></article> <article class="exercise exercise-like" id="exercise-64"> integral </article> A <dfn class="terminology">variable</dfn> is a container for information.</div>
 <aside class="aside aside-like" id="aside-1"><h3 class="heading"><span class="title">How to do an aside.</span></h3>
-<div class="para" id="p-289">here is an aside.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-6" id="fn-6"><sup> 1 </sup></a>
+<div class="para" id="p-312">here is an aside.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-6" id="fn-6"><sup> 1 </sup></a>
 </div>
-<div class="para" id="p-290">with two paragraphs and <span class="process-math">\(2^2\)</span>
-</div></aside><div class="para" id="p-291">It seems that asides get lost a little on the right, so I think I should use them sparingly. How in the heck do you write a paragraph that is readable?</div>
-<article class="exercise exercise-like" id="exercise-60"><h3 class="heading">
+<div class="para" id="p-313">with two paragraphs and <span class="process-math">\(2^2\)</span>
+</div></aside><div class="para" id="p-314">It seems that asides get lost a little on the right, so I think I should use them sparingly. How in the heck do you write a paragraph that is readable?</div>
+<article class="exercise exercise-like" id="exercise-65"><h3 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">3.4</span><span class="period">.</span><span class="space"> </span><span class="title">Exercise What.</span>
 </h3>
-<div class="para" id="p-292">Does this work at all?</div></article><section class="subsection" id="subsection-37"><h3 class="heading hide-type">
+<div class="para" id="p-315">Does this work at all?</div></article><section class="subsection" id="subsection-39"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">What happens if I do this?</span>
 </h3></section><article class="outcomes goal-like" id="outcomes-1"><h3 class="heading"><span class="type">Outcomes</span></h3>
 <ul class="disc">
-<li id="li-96"><div class="para" id="p-293">C</div></li>
-<li id="li-97"><div class="para" id="p-294">D</div></li>
+<li id="li-100"><div class="para" id="p-316">C</div></li>
+<li id="li-101"><div class="para" id="p-317">D</div></li>
 </ul></article><section class="reading-questions" id="reading-questions-1"><h3 class="heading hide-type">
 <span class="type">Reading Questions</span> <span class="codenumber"></span> <span class="title">Reading Questions</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-61"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>blah blah</article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-6"><div class="fn">can you footnote an aside?</div></div>
+<article class="exercise exercise-like" id="exercise-66"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>blah blah</article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-6"><div class="fn">can you footnote an aside?</div></div>
 </div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="appendix.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
