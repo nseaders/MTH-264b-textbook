@@ -341,21 +341,23 @@ sagecell.makeSagecell({
 <li>
 <div class="toc-item"><a href="section-transformations.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Matrix Transformations</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-transformations.html#subsection-36" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-transformations.html#subsec-ComputingMatrixTransformations" class="internal"><span class="title">Computing Matrix Transformations</span></a></div></li>
+<li><div class="toc-item"><a href="section-transformations.html#subsection-37" class="internal"><span class="title">Graph of a Matrix Transformation</span></a></div></li>
+<li><div class="toc-item"><a href="section-transformations.html#subsection-38" class="internal"><span class="title">Title</span></a></div></li>
 <li><div class="toc-item"><a href="section-transformations.html#exercises-transformations" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="section-determinants.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Determinants</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-determinants.html#subsection-37" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-determinants.html#subsection-39" class="internal"><span class="title">Title</span></a></div></li>
 <li><div class="toc-item"><a href="section-determinants.html#exercises-determinants" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="section-eigenthings.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Eigenthings</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-eigenthings.html#subsection-38" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-eigenthings.html#subsection-40" class="internal"><span class="title">Title</span></a></div></li>
 <li><div class="toc-item"><a href="section-eigenthings.html#exercises-eigenthings" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -366,7 +368,7 @@ sagecell.makeSagecell({
 <ul class="structural"><li>
 <div class="toc-item"><a href="examples.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Samples of various pretext formats</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="examples.html#subsection-39" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
+<li><div class="toc-item"><a href="examples.html#subsection-41" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
 <li><div class="toc-item"><a href="examples.html#reading-questions-1" class="internal"><span class="title">Reading Questions</span></a></div></li>
 </ul>
 </li></ul>
@@ -569,15 +571,16 @@ print(spA_inverse, spA2_inverse)
 <div class="para">Consider the matrix equation in <a href="" class="xref" data-knowl="./knowl/illconditioned.html" title="Example 2.17">Example 2.17</a>. Compare the solutions <span class="process-math">\(\vec{x}=A^{-1}\vec{b}\)</span> obtained in the example, to the solutions if</div>
 <ul class="disc">
 <li id="li-77"><div class="para" id="p-268">the entries of <span class="process-math">\(\vec{b}\)</span> are rounded to the nearest hundredth, and</div></li>
-<li id="li-78"><div class="para" id="p-269">if the entries of <span class="process-math">\(\vec{b}\)</span> are rounded to the nearest tenth.</div></li>
+<li id="li-78"><div class="para" id="p-269">if the entries of <span class="process-math">\(\vec{b}\)</span> are rounded to the nearest tenth, and</div></li>
+<li id="li-79"><div class="para" id="p-270">if the entries of <span class="process-math">\(\vec{b}\)</span> are rounded to the nearest one.</div></li>
 </ul>
 <div class="para">What do you notice?</div>
 </div></article><pre class="ptx-sagecell sagecell-python" id="sage-69"><script type="text/x-sage">
 </script></pre>
-<div class="para" id="p-270">In general, matrices that are nearly <em class="emphasis">singular,</em> that is, almost <em class="emphasis">not</em> invertible, can be ill-conditioned. In <a href="section-determinants.html" class="internal" title="Section 2.4: Determinants">Section 2.4</a> we will learn how to use determinants to discover whether or not a matrix is singular or close to singular.</div></section><section class="conclusion" id="conclusion-5"><div class="para" id="p-271">Both NumPy and SymPy can be used for matrix arithmetic. As a symbolic manipulator, SymPy can avoid some rounding error issues. Often, however, we are already using NumPy to manipulate or graph our data and the linear algebra tools in NumPy directly are convenient as long as we know what pitfalls to avoid.</div></section><article class="assemblage assemblage-like" id="assemblage-7"><h3 class="heading"><span class="title">Summary.</span></h3>
-<div class="para logical" id="p-272">
-<ul class="disc"><li id="li-79"><div class="para" id="p-273">TBD</div></li></ul>
+<div class="para" id="p-271">In general, matrices that are nearly <em class="emphasis">singular,</em> that is, almost <em class="emphasis">not</em> invertible, can be ill-conditioned. In <a href="section-determinants.html" class="internal" title="Section 2.4: Determinants">Section 2.4</a> we will learn how to use determinants to discover whether or not a matrix is singular or close to singular.</div></section><section class="conclusion" id="conclusion-5"><div class="para" id="p-272">Both NumPy and SymPy can be used for matrix arithmetic. As a symbolic manipulator, SymPy can avoid some rounding error issues. Often, however, we are already using NumPy to manipulate or graph our data and the linear algebra tools in NumPy directly are convenient as long as we know what pitfalls to avoid.</div></section><article class="assemblage assemblage-like" id="assemblage-7"><h3 class="heading"><span class="title">Summary.</span></h3>
+<div class="para logical" id="p-273">
 <ul class="disc"><li id="li-80"><div class="para" id="p-274">TBD</div></li></ul>
+<ul class="disc"><li id="li-81"><div class="para" id="p-275">TBD</div></li></ul>
 </div></article><section class="exercises" id="exercises-matrices"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h3>
