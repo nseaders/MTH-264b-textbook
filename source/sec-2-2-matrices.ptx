@@ -406,7 +406,12 @@
               </li>
               <li>
                 <p>
-                  if the entries of <m>\vec{b}</m> are rounded to the nearest tenth.
+                  if the entries of <m>\vec{b}</m> are rounded to the nearest tenth, and
+                </p>
+              </li>
+              <li>
+                <p>
+                  if the entries of <m>\vec{b}</m> are rounded to the nearest one.
                 </p>
               </li>
             </ul>
