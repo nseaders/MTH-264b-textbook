@@ -29,6 +29,128 @@
         </ul>
       </objectives>
 
+      <subsection xml:id="subsec-ComputingMatrixTransformations">
+        <title>Computing Matrix Transformations</title>
+
+        <p>
+          We can compute the matrix transformation of a vector simply by using matrix multiplication. 
+          Note that you need column vectors to perform matrix vector multiplication. 
+          You can use NumPy's <c>transpose</c> function to convert if needed. 
+        </p>
+
+        <sage language ='python'>
+          <input>
+            import numpy as np
+
+            e1 = np.array([1,0])
+            e2 = np.array([0,1])
+            A = np.array([[2,0], [0,3]])
+
+            Ae1 = np.matmul(A,np.transpose(e1))
+            Ae2 = np.matmul(A,np.transpose(e2))
+
+            print(e1, e2)
+            print(Ae1, Ae2)
+
+          </input>
+        </sage>
+
+        <p>
+          We can visualize the effect by plotting individual vectors and their transformation.  
+          We will first demonstrate on a standard basis. 
+        </p>
+
+        <sage language='python'>
+          <input>
+            import matplotlib.pyplot as plt
+            import numpy as np
+
+            e1 = np.array([1,0])
+            e2 = np.array([0,1])
+            A = np.array([[2,2], [0,3]])
+            Ae1 = np.transpose(np.matmul(A,np.transpose(e1)))
+            Ae2 = np.transpose(np.matmul(A,np.transpose(e2)))
+            
+            fig = plt.figure(figsize=(8,5)) #create a figure
+            #create one row and two columns of plots
+            ax1 = plt.subplot(1,2,1) #1 row, 2 columns, first graph
+            ax2 = plt.subplot(1,2,2) #1 row, 2 columns, second graph
+            
+            # add original vectors to axes
+            ax1.quiver(0,0,e1[0],e1[1],label='$\\vec e_1$',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1) 
+            ax1.quiver(0,0,e2[0],e2[1],label='$\\vec e_2$',color='deepskyblue', angles='xy', scale_units='xy', scale=1) 
+            
+            #add transformed vectors to axes
+            ax2.quiver(0,0,Ae1[0],Ae1[1],label='$A \\vec e_1$',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1) 
+            ax2.quiver(0,0,Ae2[0],Ae2[1],label='$A \\vec e_2$', color='deepskyblue', angles='xy', scale_units='xy', scale=1)
+            
+
+            #set title and axes labels and limits, legend, axis, grid
+            ax1.set(title="Standard Basis")
+            ax1.set(xlim=(-1,4), ylim=(-1.5,3.5))
+            ax1.legend() 
+            ax1.grid()
+            
+            #set title and axes labels and limits, legend, axis, grid
+            ax2.set(title="Transformed Basis")
+            ax2.set(xlim=(-1,4), ylim=(-1.5,3.5))
+            ax2.legend() 
+            ax2.grid() 
+            
+            plt.show()
+          </input>
+        </sage>
+
+        <p>
+          We can animate the transformation using what we learned in <xref ref="section-animation"/>
+        </p>
+
+        
+        
+      </subsection>
+
+      <subsection>
+        <title>Graph of a Matrix Transformation</title>
+        <p>
+          If we can graph what the transformation does to a grid in <m>\mathbb{R}^2</m> we can better visualize the transformation.
+        </p>
+
+        
+
+        <sage language='python'>
+          <input>
+            import numpy as np
+            import matplotlib.pyplot as plt
+
+            fig, ax = plt.subplots()
+
+            Xvals = np.linspace(-2,2, num=5)
+            Yvals = np.linspace(-2,2, num=5)
+            #X, Y = np.meshgrid(X,Y) 
+            xygrid = np.column_stack([[x, y] for x in Xvals for y in Yvals])
+
+            A = np.array([
+            [2,2],
+            [0,3]
+            ])
+
+            uvgrid = np.matmul(A,xygrid)
+
+            ax.set(xlim=(-10,10), ylim=(-10,10))
+            ax.scatter(xygrid[0],xygrid[1], color = "gray", alpha = 0.5)
+
+            ax.scatter(uvgrid[0],uvgrid[1])
+
+            plt.show()
+          </input>
+        </sage>
+
+        <exercise>
+          
+        </exercise>
+
+      </subsection>
+
       <subsection>
         <title>Title</title>
 
