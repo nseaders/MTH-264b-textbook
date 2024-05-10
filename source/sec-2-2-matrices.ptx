@@ -14,7 +14,7 @@
         Matrices have emerged as an essential mathematical tool to model complicated systems and solve problems 
         far beyond the early usage to simplify the process of solving systems of linear equations. 
         In this section we will learn how to use both SymPy and NumPy to perform matrix arithmetic. 
-        We will briefly discuss possible numerical pitfalls and what to watch out for.   
+        We will also briefly discuss numerical pitfalls to try and avoid.   
     </introduction>
 
     <objectives>
@@ -345,6 +345,41 @@
 
           </input>
         </sage>
+
+      </subsection>
+      <subsection xml:id = "subsec-solving-with-inverses">
+        <title>Solving Matrix Equations via Inverses</title>
+
+        <p>
+          We can solve matrix equations using matrix inverses. 
+        </p>
+
+        <example xml:id = "illconditioned">
+          <p>
+            Consider the matrix equation <m>A \vec{x}=\vec{b},</m> where 
+          </p>
+          <p>
+            <m>A = \left[ 
+              \begin{matrix}
+              4.5 \amp 3.1\\
+              1.6 \amp 1.1 \\
+              \end{matrix}
+              \right]
+            </m>
+            and 
+            <m> \vec{b} = \left[ \begin{matrix} 19.249\\ 6.843 \end{matrix}\right] </m>
+          </p>
+          <p>
+            Solve the matrix equation for <m>\vec{x}=A^{-1}\vec{b}.</m>
+          </p>
+          <sage language='python'>
+            <input>
+              
+            </input> 
+          </sage>
+
+          Can you compute <m>\vec{x}=A^{-1}\vec{b}</m> using both SymPy and NumPy? 
+        </example>
       </subsection>
 
       <subsection xml:id="subsec-ill-conditioned">
@@ -352,61 +387,54 @@
 
         <p>
           While inverting a matrix helps us solve matrix equations symbolically and develop theory,
-          in practice, you seldom want to invert a matrix with technology in order to solve systems of linear equations.
-          The primary reason being that some matrices are <em>ill-conditioned</em>, that is, 
-          small changes in the entries of the matrix can give radical changes in the inverse returned.
-          So then any rounding error can output radically different inverses. 
+          in practice, we seldom invert a matrix with technology in order to solve systems of linear equations.
+          Some matrices are <em>ill-conditioned</em> in that
+          small changes in the entries of the matrix can create big changes in our inverse or solution. 
+          Since rounding produces small changes, <em>ill-conditioned</em> matrices 
+          can create terminal errors in our solutions.   
         </p>
-        <p>
-          For example, consider the two systems
-          <!--sidebyside widths="40% 40%" margins="auto" valign="middle"-->
-           <md>
-             <mrow>x  +y  \amp= 2 </mrow>
-             <mrow>x  +1.001y  \amp =2 </mrow>
-           </md>
-
-           <md>
-            <mrow> x+y \amp= 2</mrow>
-            <mrow> x+1.001y \amp= 2.001</mrow>
-          </md>
-          which obtain vastly different answers given the small change in the target. 
-          The corresponding matrix is ill-conditioned and can give different solutions with technology.
-
-         <!--/sidebyside-->
-        </p>
+        <exercise>
+          <p>
+            Consider the matrix equation in <xref ref="illconditioned"/>. 
+            Compare the solutions <m>\vec{x}=A^{-1}\vec{b}</m> obtained in the example, 
+            to the solutions if 
+            <ul>
+              <li>
+                <p>
+                  the entries of <m>\vec{b}</m> are rounded to the nearest hundredth, and
+                </p>
+              </li>
+              <li>
+                <p>
+                  if the entries of <m>\vec{b}</m> are rounded to the nearest tenth.
+                </p>
+              </li>
+            </ul>
+            What do you notice?
+          </p>
+        </exercise>
 
         <sage language='python'>
           <input>
-            import sympy as sp
-            import numpy as np
 
-            #define your sympy matrix
-            sA = sp.Matrix([ [1,1], [1,1.001]])
-            #invert using sympy 
-            sA_inverse = sA.inv()
-            print("In sympy A inverse is:", sA_inverse)
-
-            #solve system using sympy inverse
-
-            #define our numpy matrix
-            nA = np.array([[1,1], [1,1.001]])
-            # or convert from sympy to numpy
-            #nA2 = np.array(sA).astype(np.float64)
-            #invert using numpy
-            nA_inverse = np.linalg.inv(nA)
-            print("In numpy A inverse is:", nA_inverse)
-
-            #solve system using numpy inverse
 
           </input>
         </sage>
+
+        <p>
+          In general, matrices that are nearly <em>singular,</em> that is, almost <em>not</em> invertible,
+          can be ill-conditioned. In <xref ref="section-determinants"/> we will learn how to use determinants to  
+          discover whether or not a matrix is singular or close to singular. 
+        </p>
         
       </subsection>
 
 
       <conclusion>
         <p>
-
+          Both NumPy and SymPy can be used for matrix arithmetic. As a symbolic manipulator, SymPy can avoid some rounding error issues.  
+          Often, however, we are already using NumPy to manipulate or graph our data and the linear algebra tools in 
+          NumPy directly are convenient as long as we know what pitfalls to avoid.
         </p>
       </conclusion>
 
