@@ -9,7 +9,7 @@
 
 
 <chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="chapter1">
-      <title>Basics and Modules for Matrix Algebra</title>
+      <title>Basics, Modules, and Graphing</title>
       <introduction>
 
       <p> In this chapter we will introduce just enough about Python to get started before introducing

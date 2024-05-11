@@ -9,6 +9,16 @@
 <chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="chapter2">
       <title>Matrix Algebra in Python</title>
 
+      <introduction>
+
+        <p> Now that we have learned some basics in NumPy and graphing in Matplotlib, 
+          we are ready to dive into computations for matrix algebra. 
+          In this chapter we will look at the traditional topics in MTH 264 Introduction to Matrix Algebra
+          from a computational perspective, using Python to do the computations. 
+
+        </p> 
+      </introduction>
+
       <xi:include href="./sec-2-1-system.ptx"/>
       <xi:include href="./sec-2-2-matrices.ptx"/>
       <xi:include href="./sec-2-3-transformations.ptx"/>

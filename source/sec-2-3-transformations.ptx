@@ -34,7 +34,7 @@
 
         <p>
           We can compute the matrix transformation of a vector simply by using matrix multiplication. 
-          Note that you need column vectors to perform matrix vector multiplication. 
+          Note that you need the vector to be a column vector in order to perform matrix vector multiplication. 
           You can use NumPy's <c>transpose</c> function to convert if needed. 
         </p>
 
@@ -42,22 +42,24 @@
           <input>
             import numpy as np
 
-            e1 = np.array([1,0])
-            e2 = np.array([0,1])
+            x = np.array([1,2])
             A = np.array([[2,0], [0,3]])
 
-            Ae1 = np.matmul(A,np.transpose(e1))
-            Ae2 = np.matmul(A,np.transpose(e2))
+            Ax = np.matmul(A,np.transpose(x))
 
-            print(e1, e2)
-            print(Ae1, Ae2)
+            print(x)
+            print(Ax)
 
           </input>
         </sage>
 
         <p>
-          We can visualize the effect by plotting individual vectors and their transformation.  
-          We will first demonstrate on a standard basis. 
+          We can visualize the effect of a transformation by considering where a set of basis vectors are mapped.
+          Since every other vector in the domain is a linear combination of vectors in the basis, 
+          we can then picture where every linear combination gets mapped.  
+        </p>
+        <p>
+          We will demonstrate on a standard basis. 
         </p>
 
         <sage language='python'>
@@ -92,7 +94,7 @@
             ax1.grid()
             
             #set title and axes labels and limits, legend, axis, grid
-            ax2.set(title="Transformed Basis")
+            ax2.set(title="After the Transformation")
             ax2.set(xlim=(-1,4), ylim=(-1.5,3.5))
             ax2.legend() 
             ax2.grid() 
@@ -102,8 +104,61 @@
         </sage>
 
         <p>
-          We can animate the transformation using what we learned in <xref ref="section-animation"/>
+          What if we wanted to visualize the transformation as a gradual change?
+          We can create a gradual transformation using percentages of the identity transformation 
+          and our matrix transformation. If we start with 100% of our identity transformation and 
+          end with 100% of our matrix transformation, we obtain a sliding scale between the two. 
         </p>
+
+        <p>
+          We can animate the gradual transformation using what we learned in <xref ref="section-animation"/>
+        </p>
+
+        <sage language='python'>
+          <input>
+            import matplotlib.pyplot as plt
+            import numpy as np
+
+            e1 = np.array([1,0])
+            e2 = np.array([0,1])
+            A = np.array([[2,2], [0,3]])
+            t = np.linspace(-1, 20, 22) #user inputs
+
+            #define function that plots intermediate transformation up to user input
+            def plot_transform(current_t):
+                #define an intermediate transformation
+                #When t=0 you get the identity, when t=20 you get A
+                IA = (1-current_t/20)*np.identity(2)+(current_t/20)*A 
+
+                IAe1 = np.transpose(np.matmul(IA,np.transpose(e1)))
+                IAe2 = np.transpose(np.matmul(IA,np.transpose(e2)))
+              
+                fig = plt.figure() #create a figure
+                ax = plt.subplot() #create a plot
+                
+                #add transformed vectors to axes
+                ax.quiver(0,0,IAe1[0],IAe1[1],label='$A \\vec e_1$',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1) 
+                ax.quiver(0,0,IAe2[0],IAe2[1],label='$A \\vec e_2$', color='deepskyblue', angles='xy', scale_units='xy', scale=1)
+                
+                #set title and axes labels and limits, legend, axis, grid
+                ax.set(title="Transformation of Standard Basis")
+                ax.set(xlim=(-2,5), ylim=(-2,5))
+                ax.legend() 
+                ax.grid()
+                
+                plt.show()
+
+            #define function to create graph based on user input
+            @interact() #create interactive element, this one is a slider
+            def respond_to_user_input(frame=slider(1,20,1)): 
+              
+                #Get intermediate transformation up to frame user chooses.
+                current_t = t[frame]
+                
+                #Call our function that plots the transformation        
+                plot_transform(current_t)
+          </input>
+        </sage>
 
         
         
