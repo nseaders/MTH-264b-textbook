@@ -727,7 +727,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.3",
   "title": "Matrix Transformations",
-  "body": " Matrix Transformations  In this section we will learn how to     C    D      Computing Matrix Transformations  We can compute the matrix transformation of a vector simply by using matrix multiplication. Note that you need column vectors to perform matrix vector multiplication. You can use NumPy's transpose function to convert if needed.   We can visualize the effect by plotting individual vectors and their transformation. We will first demonstrate on a standard basis.   We can animate the transformation using what we learned in     Graph of a Matrix Transformation  If we can graph what the transformation does to a grid in we can better visualize the transformation.      Title          Summary     blah      blah         "
+  "body": " Matrix Transformations  In this section we will learn how to     C    D      Computing Matrix Transformations  We can compute the matrix transformation of a vector simply by using matrix multiplication. Note that you need the vector to be a column vector in order to perform matrix vector multiplication. You can use NumPy's transpose function to convert if needed.   We can visualize the effect of a transformation by considering where a set of basis vectors are mapped. Since every other vector in the domain is a linear combination of vectors in the basis, we can then picture where every linear combination gets mapped.  We will demonstrate on a standard basis.   What if we wanted to visualize the transformation as a gradual change? We can create a gradual transformation using percentages of the identity transformation and our matrix transformation. If we start with 100% of our identity transformation and end with 100% of our matrix transformation, we obtain a sliding scale between the two.  We can animate the gradual transformation using what we learned in      Graph of a Matrix Transformation  If we can graph what the transformation does to a grid in we can better visualize the transformation.      Title          Summary     blah      blah         "
 },
 {
   "id": "objectives-8",
@@ -865,9 +865,9 @@ var ptx_lunr_docs = [
   "body": "   C    D    "
 },
 {
-  "id": "p-310",
+  "id": "p-313",
   "level": "2",
-  "url": "examples.html#p-310",
+  "url": "examples.html#p-313",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",

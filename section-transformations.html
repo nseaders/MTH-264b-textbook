@@ -254,7 +254,7 @@ sagecell.makeSagecell({
 <li><div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
 <li><div class="toc-item"><a href="prologue.html" class="internal"><span class="codenumber">0</span> <span class="title">Prologue</span></a></div></li>
 <li>
-<div class="toc-item"><a href="chapter1.html" class="internal"><span class="codenumber">1</span> <span class="title">Basics and Modules for Matrix Algebra</span></a></div>
+<div class="toc-item"><a href="chapter1.html" class="internal"><span class="codenumber">1</span> <span class="title">Basics, Modules, and Graphing</span></a></div>
 <ul class="structural">
 <li>
 <div class="toc-item"><a href="section-variables.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Variables</span></a></div>
@@ -378,27 +378,26 @@ sagecell.makeSagecell({
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-transformations"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.3</span> <span class="title">Matrix Transformations</span>
 </h2>
-<section class="introduction" id="introduction-10">In this section we will learn how to</section><article class="objectives goal-like" id="objectives-8"><h3 class="heading"><span class="type">Objectives</span></h3>
+<section class="introduction" id="introduction-11">In this section we will learn how to</section><article class="objectives goal-like" id="objectives-8"><h3 class="heading"><span class="type">Objectives</span></h3>
 <ul class="disc">
-<li id="li-82"><div class="para" id="p-276">C</div></li>
-<li id="li-83"><div class="para" id="p-277">D</div></li>
+<li id="li-82"><div class="para" id="p-277">C</div></li>
+<li id="li-83"><div class="para" id="p-278">D</div></li>
 </ul></article><section class="subsection" id="subsec-ComputingMatrixTransformations"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Computing Matrix Transformations</span>
 </h3>
-<div class="para" id="p-278">We can compute the matrix transformation of a vector simply by using matrix multiplication. Note that you need column vectors to perform matrix vector multiplication. You can use NumPy’s <code class="code-inline tex2jax_ignore">transpose</code> function to convert if needed.</div>
+<div class="para" id="p-279">We can compute the matrix transformation of a vector simply by using matrix multiplication. Note that you need the vector to be a column vector in order to perform matrix vector multiplication. You can use NumPy’s <code class="code-inline tex2jax_ignore">transpose</code> function to convert if needed.</div>
 <pre class="ptx-sagecell sagecell-python" id="sage-71"><script type="text/x-sage">import numpy as np
 
-e1 = np.array([1,0])
-e2 = np.array([0,1])
+x = np.array([1,2])
 A = np.array([[2,0], [0,3]])
 
-Ae1 = np.matmul(A,np.transpose(e1))
-Ae2 = np.matmul(A,np.transpose(e2))
+Ax = np.matmul(A,np.transpose(x))
 
-print(e1, e2)
-print(Ae1, Ae2)
+print(x)
+print(Ax)
 </script></pre>
-<div class="para" id="p-279">We can visualize the effect by plotting individual vectors and their transformation. We will first demonstrate on a standard basis.</div>
+<div class="para" id="p-280">We can visualize the effect of a transformation by considering where a set of basis vectors are mapped. Since every other vector in the domain is a linear combination of vectors in the basis, we can then picture where every linear combination gets mapped.</div>
+<div class="para" id="p-281">We will demonstrate on a standard basis.</div>
 <pre class="ptx-sagecell sagecell-python" id="sage-72"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
@@ -429,19 +428,62 @@ ax1.legend()
 ax1.grid()
 
 #set title and axes labels and limits, legend, axis, grid
-ax2.set(title="Transformed Basis")
+ax2.set(title="After the Transformation")
 ax2.set(xlim=(-1,4), ylim=(-1.5,3.5))
 ax2.legend() 
 ax2.grid() 
 
 plt.show()
 </script></pre>
-<div class="para" id="p-280">We can animate the transformation using what we learned in <a href="section-animation.html" class="internal" title="Section 1.5: Basic Animation">Section 1.5</a>
-</div></section><section class="subsection" id="subsection-37"><h3 class="heading hide-type">
+<div class="para" id="p-282">What if we wanted to visualize the transformation as a gradual change? We can create a gradual transformation using percentages of the identity transformation and our matrix transformation. If we start with 100% of our identity transformation and end with 100% of our matrix transformation, we obtain a sliding scale between the two.</div>
+<div class="para" id="p-283">We can animate the gradual transformation using what we learned in <a href="section-animation.html" class="internal" title="Section 1.5: Basic Animation">Section 1.5</a>
+</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-73"><script type="text/x-sage">import matplotlib.pyplot as plt
+import numpy as np
+
+e1 = np.array([1,0])
+e2 = np.array([0,1])
+A = np.array([[2,2], [0,3]])
+t = np.linspace(-1, 10, 12) #user inputs
+
+#define function that plots intermediate transformation up to user input
+def plot_transform(current_t):
+    #define an intermediate transformation
+    #When t=0 you get the identity, when t=20 you get A
+    IA = (1-current_t/10)*np.identity(2)+(current_t/10)*A 
+
+    IAe1 = np.transpose(np.matmul(IA,np.transpose(e1)))
+    IAe2 = np.transpose(np.matmul(IA,np.transpose(e2)))
+  
+    fig = plt.figure() #create a figure
+    ax = plt.subplot() #create a plot
+    
+    #add transformed vectors to axes
+    ax.quiver(0,0,IAe1[0],IAe1[1],label='$A \\vec e_1$',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1) 
+    ax.quiver(0,0,IAe2[0],IAe2[1],label='$A \\vec e_2$', color='deepskyblue', angles='xy', scale_units='xy', scale=1)
+    
+    #set title and axes labels and limits, legend, axis, grid
+    ax.set(title="Transformation of Standard Basis")
+    ax.set(xlim=(-2,5), ylim=(-2,5))
+    ax.legend() 
+    ax.grid()
+    
+    plt.show()
+
+#define function to create graph based on user input
+@interact() #create interactive element, this one is a slider
+def respond_to_user_input(frame=slider(1,10,1)): 
+  
+    #Get intermediate transformation up to frame user chooses.
+    current_t = t[frame]
+    
+    #Call our function that plots the transformation        
+    plot_transform(current_t)
+</script></pre></section><section class="subsection" id="subsection-37"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Graph of a Matrix Transformation</span>
 </h3>
-<div class="para" id="p-281">If we can graph what the transformation does to a grid in <span class="process-math">\(\mathbb{R}^2\)</span> we can better visualize the transformation.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-73"><script type="text/x-sage">import numpy as np
+<div class="para" id="p-284">If we can graph what the transformation does to a grid in <span class="process-math">\(\mathbb{R}^2\)</span> we can better visualize the transformation.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-74"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots()
@@ -470,19 +512,19 @@ plt.show()
 </h4></article></section><section class="subsection" id="subsection-38"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Title</span>
 </h3>
-<pre class="ptx-sagecell sagecell-python" id="sage-74"><script type="text/x-sage">python
+<pre class="ptx-sagecell sagecell-python" id="sage-75"><script type="text/x-sage">python
 </script></pre>
 <article class="exercise exercise-like" id="exercise-59"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.20</span><span class="period">.</span>
-</h4></article></section><section class="conclusion" id="conclusion-6"><div class="para" id="p-282"></div></section><article class="assemblage assemblage-like" id="assemblage-8"><h3 class="heading"><span class="title">Summary.</span></h3>
-<div class="para logical" id="p-283">
-<ul class="disc"><li id="li-84"><div class="para" id="p-284">blah</div></li></ul>
-<ul class="disc"><li id="li-85"><div class="para" id="p-285">blah</div></li></ul>
+</h4></article></section><section class="conclusion" id="conclusion-6"><div class="para" id="p-285"></div></section><article class="assemblage assemblage-like" id="assemblage-8"><h3 class="heading"><span class="title">Summary.</span></h3>
+<div class="para logical" id="p-286">
+<ul class="disc"><li id="li-84"><div class="para" id="p-287">blah</div></li></ul>
+<ul class="disc"><li id="li-85"><div class="para" id="p-288">blah</div></li></ul>
 </div></article><section class="exercises" id="exercises-transformations"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="exercise-60"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<pre class="ptx-sagecell sagecell-python" id="sage-75"><script type="text/x-sage">#
+<pre class="ptx-sagecell sagecell-python" id="sage-76"><script type="text/x-sage">#
 #
 #
 #
