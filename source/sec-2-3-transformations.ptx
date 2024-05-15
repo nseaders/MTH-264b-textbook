@@ -122,13 +122,13 @@
             e1 = np.array([1,0])
             e2 = np.array([0,1])
             A = np.array([[2,2], [0,3]])
-            t = np.linspace(-1, 20, 22) #user inputs
+            t = np.linspace(-1, 10, 12) #user inputs
 
             #define function that plots intermediate transformation up to user input
             def plot_transform(current_t):
                 #define an intermediate transformation
                 #When t=0 you get the identity, when t=20 you get A
-                IA = (1-current_t/20)*np.identity(2)+(current_t/20)*A 
+                IA = (1-current_t/10)*np.identity(2)+(current_t/10)*A 
 
                 IAe1 = np.transpose(np.matmul(IA,np.transpose(e1)))
                 IAe2 = np.transpose(np.matmul(IA,np.transpose(e2)))
@@ -150,7 +150,7 @@
 
             #define function to create graph based on user input
             @interact() #create interactive element, this one is a slider
-            def respond_to_user_input(frame=slider(1,20,1)): 
+            def respond_to_user_input(frame=slider(1,10,1)): 
               
                 #Get intermediate transformation up to frame user chooses.
                 current_t = t[frame]
