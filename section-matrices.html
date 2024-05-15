@@ -383,15 +383,16 @@ sagecell.makeSagecell({
 <li id="li-72"><div class="para" id="p-238">Add, subtract, scale, and multiply matrices in NumPy and SymPy</div></li>
 <li id="li-73"><div class="para" id="p-239">Find matrix inverses using NumPy and SymPy</div></li>
 <li id="li-74"><div class="para" id="p-240">Use matrix inverses to solve systems of linear equations</div></li>
+<li id="li-75"><div class="para" id="p-241">Discover the pitfalls of ill-conditioned matrices</div></li>
 </ul></article><section class="subsection" id="subsection-29"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">NumPy vs SymPy</span>
 </h3>
-<div class="para" id="p-241">We can compute with matrices in both the Sympy and Numpy libraries. Numerical Python is intended for numerical computations and estimates. Symbolic Python can do symbolic computations like <code class="code-inline tex2jax_ignore">rref()</code> or compute with matrices having undetermined variables in the mix. NumPy automatically treats matrices like a 2D array, that is, a higher dimensional vector. SymPy defaults to working with matrices from the linear transformation perspective.</div>
-<div class="para" id="p-242">After some internal debate, I decided to intermingle NumPy and SymPy syntax for working with matrices. Please give feedback if it seems this section should be re-organized into <em class="emphasis">NumPy and Matrics</em> followed by <em class="emphasis">SymPy and Matrices</em>.</div></section><section class="subsection" id="subsec-BasicMatrices"><h3 class="heading hide-type">
+<div class="para" id="p-242">We can compute with matrices in both the Sympy and Numpy libraries. Numerical Python is intended for numerical computations and estimates. Symbolic Python can do symbolic computations like <code class="code-inline tex2jax_ignore">rref()</code> or compute with matrices having undetermined variables in the mix. NumPy automatically treats matrices like a 2D array, that is, a higher dimensional vector. SymPy defaults to working with matrices from the linear transformation perspective.</div>
+<div class="para" id="p-243">After some internal debate, I decided to intermingle NumPy and SymPy syntax for working with matrices. Please give feedback if it seems this section should be re-organized into <em class="emphasis">NumPy and Matrics</em> followed by <em class="emphasis">SymPy and Matrices</em>.</div></section><section class="subsection" id="subsec-BasicMatrices"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Basic Matrices</span>
 </h3>
-<div class="para" id="p-243">Some matrices are frequently needed for computations. Common matrices that we can generate automatically include a (multiplicative) identity matrix, a zero matrix, and a matrix of all ones.</div>
-<div class="para" id="p-244">The commands for the <span class="process-math">\(n\times n\)</span> multiplicative identity matrix are different: SymPy’s <code class="code-inline tex2jax_ignore">eye(n)</code> vs NumPy’s <code class="code-inline tex2jax_ignore">identity(n)</code>.</div>
+<div class="para" id="p-244">Some matrices are frequently needed for computations. Common matrices that we can generate automatically include a (multiplicative) identity matrix, a zero matrix, and a matrix of all ones.</div>
+<div class="para" id="p-245">The commands for the <span class="process-math">\(n\times n\)</span> multiplicative identity matrix are different: SymPy’s <code class="code-inline tex2jax_ignore">eye(n)</code> vs NumPy’s <code class="code-inline tex2jax_ignore">identity(n)</code>.</div>
 <pre class="ptx-sagecell sagecell-python" id="sage-58"><script type="text/x-sage">import numpy as np
 import sympy as sp
 npIdentity = np.identity(7)
@@ -400,20 +401,20 @@ spIdentity = sp.eye(4)
 print(npIdentity)
 print(spIdentity)
 </script></pre>
-<div class="para" id="p-245">The commands for matrices of <code class="code-inline tex2jax_ignore">ones()</code> and <code class="code-inline tex2jax_ignore">zeros()</code> are identical, and take in the number of rows and columns as arguments. For NumPy, however, you must enter the shape of the array as an ordered pair with parentheses.</div>
+<div class="para" id="p-246">The commands for matrices of <code class="code-inline tex2jax_ignore">ones()</code> and <code class="code-inline tex2jax_ignore">zeros()</code> are identical, and take in the number of rows and columns as arguments. For NumPy, however, you must enter the shape of the array as an ordered pair with parentheses.</div>
 <article class="exercise exercise-like" id="exercise-51"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.12</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-246">In the code above, create a <span class="process-math">\(3 \times 4\)</span> matrix of all ones using both NumPy and SymPy. Next create a matrix of all zeroes.</div>
-<div class="para" id="p-247">Play with various dimensions.</div>
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-7" id="hint-7"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-7"><div class="hint solution-like"><div class="para" id="p-248">With NumPy don’t forget to use extra parentheses for the shape of the array.</div></div></div></article></section><section class="subsection" id="subsec-MatrixArithmetic"><h3 class="heading hide-type">
+<div class="para" id="p-247">In the code above, create a <span class="process-math">\(3 \times 4\)</span> matrix of all ones using both NumPy and SymPy. Next create a matrix of all zeroes.</div>
+<div class="para" id="p-248">Play with various dimensions.</div>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-7" id="hint-7"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-7"><div class="hint solution-like"><div class="para" id="p-249">With NumPy don’t forget to use extra parentheses for the shape of the array.</div></div></div></article></section><section class="subsection" id="subsec-MatrixArithmetic"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Matrix Arithmetic</span>
 </h3>
-<div class="para" id="p-249">You can add, subtract and scale matrices using both NumPy and SymPy.</div>
+<div class="para" id="p-250">You can add, subtract and scale matrices using both NumPy and SymPy.</div>
 <article class="exercise exercise-like" id="exercise-52"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.13</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-250">
+<div class="para logical" id="p-251">
 <div class="para">In both NumPy and SymPy create matrices to compute</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -436,7 +437,7 @@ print(spIdentity)
 \end{equation*}
 </div>
 </div>
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-8" id="hint-8"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-8"><div class="hint solution-like"><div class="para" id="p-251">Scale a one matrix and an identity matrix.</div></div></div></article><pre class="ptx-sagecell sagecell-python" id="sage-59"><script type="text/x-sage">import numpy as np
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-8" id="hint-8"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-8"><div class="hint solution-like"><div class="para" id="p-252">Scale a one matrix and an identity matrix.</div></div></div></article><pre class="ptx-sagecell sagecell-python" id="sage-59"><script type="text/x-sage">import numpy as np
 # create numpy arrays and try it out
 # add, subtract, scale
 #
@@ -451,10 +452,10 @@ print(spIdentity)
 <article class="exercise exercise-like" id="exercise-53"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.14</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-252">What happens if the two matrices do not have the same number of rows and columns?</div></article></section><section class="subsection" id="subsec-MatrixMultiplication"><h3 class="heading hide-type">
+<div class="para" id="p-253">What happens if the two matrices do not have the same number of rows and columns?</div></article></section><section class="subsection" id="subsec-MatrixMultiplication"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Matrix Multiplication</span>
 </h3>
-<div class="para" id="p-253">Recall that matrix multiplication is more sophisticated than the Hadamard product, a basic element-wise multiplication of two arrays, since it developed to be independent of coordinates and correspond to function composition. Recall further that NumPy automatically treats matrices like a 2D array, that is, a higher dimensional vector. If you naively multiply NumPy arrays you get the Hadamard product, rather than traditional matrix multiplication (try below).</div>
+<div class="para" id="p-254">Recall that matrix multiplication is more sophisticated than the Hadamard product, a basic element-wise multiplication of two arrays, since it developed to be independent of coordinates and correspond to function composition. Recall further that NumPy automatically treats matrices like a 2D array, that is, a higher dimensional vector. If you naively multiply NumPy arrays you get the Hadamard product, rather than traditional matrix multiplication (try below).</div>
 <pre class="ptx-sagecell sagecell-python" id="sage-61"><script type="text/x-sage">import numpy as np
 
 A = np.array([[1,2,3], [4,5,6]])
@@ -463,7 +464,7 @@ B = np.array([[0,0,0],[1,1,1]])
 
 print(A*B)
 </script></pre>
-<div class="para" id="p-254">If instead you want matrix multiplication, you tell NumPy to multiply using the <code class="code-inline tex2jax_ignore">matmul()</code> command, or as a short-hand using <code class="code-inline tex2jax_ignore">@</code> (try below).</div>
+<div class="para" id="p-255">If instead you want matrix multiplication, you tell NumPy to multiply using the <code class="code-inline tex2jax_ignore">matmul()</code> command, or as a short-hand using <code class="code-inline tex2jax_ignore">@</code> (try below).</div>
 <pre class="ptx-sagecell sagecell-python" id="sage-62"><script type="text/x-sage">import numpy as np
 
 A = np.array([[1,2,3], [4,5,6]])
@@ -473,7 +474,7 @@ C = np.array([[2,0], [2,0],[2,0]])
 print(np.matmul(A,C))
 #print(A@C)
 </script></pre>
-<div class="para" id="p-255">Meanwhile SymPy defaults to working with matrices from the linear transformation perspective giving you matrix multiplication by default and requiring us to specify any Hadamard product, or element-wise multiplication.</div>
+<div class="para" id="p-256">Meanwhile SymPy defaults to working with matrices from the linear transformation perspective giving you matrix multiplication by default and requiring us to specify any Hadamard product, or element-wise multiplication.</div>
 <pre class="ptx-sagecell sagecell-python" id="sage-63"><script type="text/x-sage">import sympy as sp
 
 A = sp.Matrix([[1,2,3], [4,5,6]])
@@ -493,19 +494,19 @@ print(A.multiply_elementwise(B))
 <article class="exercise exercise-like" id="exercise-54"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.15</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-256">
+<div class="para logical" id="p-257">
 <ul class="disc">
-<li id="li-75"><div class="para" id="p-257">What happens if you try to compute <span class="process-math">\(AB\)</span> using matrix multiplication?</div></li>
-<li id="li-76"><div class="para" id="p-258">What happens if you try to compute the Hadamard Product of <span class="process-math">\(A*C\text{?}\)</span>
+<li id="li-76"><div class="para" id="p-258">What happens if you try to compute <span class="process-math">\(AB\)</span> using matrix multiplication?</div></li>
+<li id="li-77"><div class="para" id="p-259">What happens if you try to compute the Hadamard Product of <span class="process-math">\(A*C\text{?}\)</span>
 </div></li>
 </ul>
 <div class="para">Play with various dimensions of <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\)</span> and <span class="process-math">\(C\)</span> to come up with necessary criteria for the Hadamard product to work vs Matrix multiplication to work.</div>
-</div></article><div class="para" id="p-259">Square matrices can be multiplied by themselves and at times we want to multiply repeatedly, e.g. <span class="process-math">\(A^3=A\cdot A \cdot A\text{.}\)</span> In SymPy we can perform repeated matrix multiplication using Python’s exponent operator <code class="code-inline tex2jax_ignore">A**3</code>. In NumPy we can call <code class="code-inline tex2jax_ignore">linalg.matrixpower(matrix, integer power).</code>
+</div></article><div class="para" id="p-260">Square matrices can be multiplied by themselves and at times we want to multiply repeatedly, e.g. <span class="process-math">\(A^3=A\cdot A \cdot A\text{.}\)</span> In SymPy we can perform repeated matrix multiplication using Python’s exponent operator <code class="code-inline tex2jax_ignore">A**3</code>. In NumPy we can call <code class="code-inline tex2jax_ignore">linalg.matrixpower(matrix, integer power).</code>
 </div>
 <article class="exercise exercise-like" id="exercise-55"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.16</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-260">Compute <span class="process-math">\(\left[
+<div class="para" id="p-261">Compute <span class="process-math">\(\left[
 \begin{matrix}
 5 \amp 5 \amp 5 \amp 5 \\
 5 \amp 5 \amp 5 \amp 5 \\
@@ -524,8 +525,8 @@ print(A.multiply_elementwise(B))
 </script></pre></section><section class="subsection" id="subsec-MatrixInverses"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Matrix Inverses</span>
 </h3>
-<div class="para" id="p-261">Recall that we can find multiplicative matrix inverses by hand by augmenting a matrix with the identity matrix and row reducing to the identity. Thus we can find a matrix inverse in SymPy simply by applying <code class="code-inline tex2jax_ignore">rref()</code> to a matrix augmented with the identity matrix, which we can<em class="emphasis">not</em> do with NumPy.</div>
-<div class="para" id="p-262">Both SymPy and NumPy have a dedicated matrix inverse command, however, NumPy’s <code class="code-inline tex2jax_ignore">linalg.inv()</code> and SymPy’s <code class="code-inline tex2jax_ignore">inv()</code>.</div>
+<div class="para" id="p-262">Recall that we can find multiplicative matrix inverses by hand by augmenting a matrix with the identity matrix and row reducing to the identity. Thus we can find a matrix inverse in SymPy simply by applying <code class="code-inline tex2jax_ignore">rref()</code> to a matrix augmented with the identity matrix, which we can<em class="emphasis">not</em> do with NumPy.</div>
+<div class="para" id="p-263">Both SymPy and NumPy have a dedicated matrix inverse command, however, NumPy’s <code class="code-inline tex2jax_ignore">linalg.inv()</code> and SymPy’s <code class="code-inline tex2jax_ignore">inv()</code>.</div>
 <pre class="ptx-sagecell sagecell-python" id="sage-66"><script type="text/x-sage">import numpy as np
 
 npA = np.array([[2,-3], [1,4]])
@@ -547,40 +548,40 @@ print(spA_inverse, spA2_inverse)
 </script></pre></section><section class="subsection" id="subsec-solving-with-inverses"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Solving Matrix Equations via Inverses</span>
 </h3>
-<div class="para" id="p-263">We can solve matrix equations using matrix inverses.</div>
+<div class="para" id="p-264">We can solve matrix equations using matrix inverses.</div>
 <article class="example example-like" id="illconditioned"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.17</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-264">Consider the matrix equation <span class="process-math">\(A \vec{x}=\vec{b},\)</span> where</div> <div class="para" id="p-265">
+<div class="para" id="p-265">Consider the matrix equation <span class="process-math">\(A \vec{x}=\vec{b},\)</span> where</div> <div class="para" id="p-266">
 <span class="process-math">\(A = \left[ 
 \begin{matrix}
 4.5 \amp 3.1\\
 1.6 \amp 1.1 \\
 \end{matrix}
 \right]\)</span> and <span class="process-math">\(\vec{b} = \left[ \begin{matrix} 19.249\\ 6.843 \end{matrix}\right] \)</span>
-</div> <div class="para" id="p-266">Solve the matrix equation for <span class="process-math">\(\vec{x}=A^{-1}\vec{b}.\)</span>
+</div> <div class="para" id="p-267">Solve the matrix equation for <span class="process-math">\(\vec{x}=A^{-1}\vec{b}.\)</span>
 </div> <pre class="ptx-sagecell sagecell-python" id="sage-68"><script type="text/x-sage">
 </script></pre> Can you compute <span class="process-math">\(\vec{x}=A^{-1}\vec{b}\)</span> using both SymPy and NumPy?</article></section><section class="subsection" id="subsec-ill-conditioned"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Ill-Conditioned Matrices</span>
 </h3>
-<div class="para" id="p-267">While inverting a matrix helps us solve matrix equations symbolically and develop theory, in practice, we seldom invert a matrix with technology in order to solve systems of linear equations. Some matrices are <em class="emphasis">ill-conditioned</em> in that small changes in the entries of the matrix can create big changes in our inverse or solution. Since rounding produces small changes, <em class="emphasis">ill-conditioned</em> matrices can create terminal errors in our solutions.</div>
+<div class="para" id="p-268">While inverting a matrix helps us solve matrix equations symbolically and develop theory, in practice, we seldom invert a matrix with technology in order to solve systems of linear equations. Some matrices are <em class="emphasis">ill-conditioned</em> in that small changes in the entries of the matrix can create big changes in our inverse or solution. Since rounding produces small changes, <em class="emphasis">ill-conditioned</em> matrices can create terminal errors in our solutions.</div>
 <article class="exercise exercise-like" id="exercise-56"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.18</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-268">
+<div class="para logical" id="p-269">
 <div class="para">Consider the matrix equation in <a href="" class="xref" data-knowl="./knowl/illconditioned.html" title="Example 2.17">Example 2.17</a>. Compare the solutions <span class="process-math">\(\vec{x}=A^{-1}\vec{b}\)</span> obtained in the example, to the solutions if</div>
 <ul class="disc">
-<li id="li-77"><div class="para" id="p-269">the entries of <span class="process-math">\(\vec{b}\)</span> are rounded to the nearest hundredth, and</div></li>
-<li id="li-78"><div class="para" id="p-270">if the entries of <span class="process-math">\(\vec{b}\)</span> are rounded to the nearest tenth, and</div></li>
-<li id="li-79"><div class="para" id="p-271">if the entries of <span class="process-math">\(\vec{b}\)</span> are rounded to the nearest one.</div></li>
+<li id="li-78"><div class="para" id="p-270">the entries of <span class="process-math">\(\vec{b}\)</span> are rounded to the nearest hundredth, and</div></li>
+<li id="li-79"><div class="para" id="p-271">if the entries of <span class="process-math">\(\vec{b}\)</span> are rounded to the nearest tenth, and</div></li>
+<li id="li-80"><div class="para" id="p-272">if the entries of <span class="process-math">\(\vec{b}\)</span> are rounded to the nearest one.</div></li>
 </ul>
 <div class="para">What do you notice?</div>
 </div></article><pre class="ptx-sagecell sagecell-python" id="sage-69"><script type="text/x-sage">
 </script></pre>
-<div class="para" id="p-272">In general, matrices that are nearly <em class="emphasis">singular,</em> that is, almost <em class="emphasis">not</em> invertible, can be ill-conditioned. In <a href="section-determinants.html" class="internal" title="Section 2.4: Determinants">Section 2.4</a> we will learn how to use determinants to discover whether or not a matrix is singular or close to singular.</div></section><section class="conclusion" id="conclusion-5"><div class="para" id="p-273">Both NumPy and SymPy can be used for matrix arithmetic. As a symbolic manipulator, SymPy can avoid some rounding error issues. Often, however, we are already using NumPy to manipulate or graph our data and the linear algebra tools in NumPy directly are convenient as long as we know what pitfalls to avoid.</div></section><article class="assemblage assemblage-like" id="assemblage-7"><h3 class="heading"><span class="title">Summary.</span></h3>
-<div class="para logical" id="p-274">
-<ul class="disc"><li id="li-80"><div class="para" id="p-275">TBD</div></li></ul>
+<div class="para" id="p-273">In general, matrices that are nearly <em class="emphasis">singular,</em> that is, almost <em class="emphasis">not</em> invertible, can be ill-conditioned. In <a href="section-determinants.html" class="internal" title="Section 2.4: Determinants">Section 2.4</a> we will learn how to use determinants to discover whether or not a matrix is singular or close to singular.</div></section><section class="conclusion" id="conclusion-5"><div class="para" id="p-274">Both NumPy and SymPy can be used for matrix arithmetic. As a symbolic manipulator, SymPy can avoid some rounding error issues. Often, however, we are already using NumPy to manipulate or graph our data and the linear algebra tools in NumPy directly are convenient as long as we know what pitfalls to avoid.</div></section><article class="assemblage assemblage-like" id="assemblage-7"><h3 class="heading"><span class="title">Summary.</span></h3>
+<div class="para logical" id="p-275">
 <ul class="disc"><li id="li-81"><div class="para" id="p-276">TBD</div></li></ul>
+<ul class="disc"><li id="li-82"><div class="para" id="p-277">TBD</div></li></ul>
 </div></article><section class="exercises" id="exercises-matrices"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h3>

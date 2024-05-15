@@ -380,12 +380,12 @@ sagecell.makeSagecell({
 </h2>
 <section class="introduction" id="introduction-11">In this section we will learn how to</section><article class="objectives goal-like" id="objectives-8"><h3 class="heading"><span class="type">Objectives</span></h3>
 <ul class="disc">
-<li id="li-82"><div class="para" id="p-277">C</div></li>
-<li id="li-83"><div class="para" id="p-278">D</div></li>
+<li id="li-83"><div class="para" id="p-278">C</div></li>
+<li id="li-84"><div class="para" id="p-279">D</div></li>
 </ul></article><section class="subsection" id="subsec-ComputingMatrixTransformations"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Computing Matrix Transformations</span>
 </h3>
-<div class="para" id="p-279">We can compute the matrix transformation of a vector simply by using matrix multiplication. Note that you need the vector to be a column vector in order to perform matrix vector multiplication. You can use NumPy’s <code class="code-inline tex2jax_ignore">transpose</code> function to convert if needed.</div>
+<div class="para" id="p-280">We can compute the matrix transformation of a vector simply by using matrix multiplication. Note that you need the vector to be a column vector in order to perform matrix vector multiplication. You can use NumPy’s <code class="code-inline tex2jax_ignore">transpose</code> function to convert if needed.</div>
 <pre class="ptx-sagecell sagecell-python" id="sage-71"><script type="text/x-sage">import numpy as np
 
 x = np.array([1,2])
@@ -396,8 +396,8 @@ Ax = np.matmul(A,np.transpose(x))
 print(x)
 print(Ax)
 </script></pre>
-<div class="para" id="p-280">We can visualize the effect of a transformation by considering where a set of basis vectors are mapped. Since every other vector in the domain is a linear combination of vectors in the basis, we can then picture where every linear combination gets mapped.</div>
-<div class="para" id="p-281">We will demonstrate on a standard basis.</div>
+<div class="para" id="p-281">We can visualize the effect of a transformation by considering where a set of basis vectors are mapped. Since every other vector in the domain is a linear combination of vectors in the basis, we can then picture where every linear combination gets mapped.</div>
+<div class="para" id="p-282">We will demonstrate on a standard basis.</div>
 <pre class="ptx-sagecell sagecell-python" id="sage-72"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
@@ -435,8 +435,8 @@ ax2.grid()
 
 plt.show()
 </script></pre>
-<div class="para" id="p-282">What if we wanted to visualize the transformation as a gradual change? We can create a gradual transformation using percentages of the identity transformation and our matrix transformation. If we start with 100% of our identity transformation and end with 100% of our matrix transformation, we obtain a sliding scale between the two.</div>
-<div class="para" id="p-283">We can animate the gradual transformation using what we learned in <a href="section-animation.html" class="internal" title="Section 1.5: Basic Animation">Section 1.5</a>
+<div class="para" id="p-283">What if we wanted to visualize the transformation as a gradual change? We can create a gradual transformation using percentages of the identity transformation and our matrix transformation. If we start with 100% of our identity transformation and end with 100% of our matrix transformation, we obtain a sliding scale between the two.</div>
+<div class="para" id="p-284">We can animate the gradual transformation using what we learned in <a href="section-animation.html" class="internal" title="Section 1.5: Basic Animation">Section 1.5</a>
 </div>
 <pre class="ptx-sagecell sagecell-python" id="sage-73"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
@@ -482,7 +482,7 @@ def respond_to_user_input(frame=slider(1,10,1)):
 </script></pre></section><section class="subsection" id="subsection-37"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Graph of a Matrix Transformation</span>
 </h3>
-<div class="para" id="p-284">If we can graph what the transformation does to a grid in <span class="process-math">\(\mathbb{R}^2\)</span> we can better visualize the transformation.</div>
+<div class="para" id="p-285">If we can graph what the transformation does to a grid in <span class="process-math">\(\mathbb{R}^2\)</span> we can better visualize the transformation.</div>
 <pre class="ptx-sagecell sagecell-python" id="sage-74"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 
@@ -516,10 +516,10 @@ plt.show()
 </script></pre>
 <article class="exercise exercise-like" id="exercise-59"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.20</span><span class="period">.</span>
-</h4></article></section><section class="conclusion" id="conclusion-6"><div class="para" id="p-285"></div></section><article class="assemblage assemblage-like" id="assemblage-8"><h3 class="heading"><span class="title">Summary.</span></h3>
-<div class="para logical" id="p-286">
-<ul class="disc"><li id="li-84"><div class="para" id="p-287">blah</div></li></ul>
+</h4></article></section><section class="conclusion" id="conclusion-6"><div class="para" id="p-286"></div></section><article class="assemblage assemblage-like" id="assemblage-8"><h3 class="heading"><span class="title">Summary.</span></h3>
+<div class="para logical" id="p-287">
 <ul class="disc"><li id="li-85"><div class="para" id="p-288">blah</div></li></ul>
+<ul class="disc"><li id="li-86"><div class="para" id="p-289">blah</div></li></ul>
 </div></article><section class="exercises" id="exercises-transformations"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h3>
