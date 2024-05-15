@@ -34,6 +34,11 @@
               Use matrix inverses to solve systems of linear equations
             </p>
           </li>
+          <li>
+            <p>
+              Discover the pitfalls of ill-conditioned matrices
+            </p>
+          </li>
         </ul>
       </objectives>
 
