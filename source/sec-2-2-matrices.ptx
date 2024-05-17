@@ -263,8 +263,14 @@
                 </p>
               </li>
             </ul>
+          </p>
+        </exercise>
+
+        <exercise>
+          <p>
             Play with various dimensions of 
-            <m>A</m>, <m>B</m> and <m>C</m> to come up with necessary criteria for the Hadamard product to work vs Matrix multiplication to work.
+            <m>A</m>, <m>B</m> and <m>C</m> to come up with necessary criteria 
+            for the Hadamard product to work vs Matrix multiplication to work.
           </p>
         </exercise>
 
@@ -394,7 +400,7 @@
           While inverting a matrix helps us solve matrix equations symbolically and develop theory,
           in practice, we seldom invert a matrix with technology in order to solve systems of linear equations.
           Some matrices are <em>ill-conditioned</em> in that
-          small changes in the entries of the matrix can create big changes in our inverse or solution. 
+          small changes what we multiply them by can create big changes in the product. 
           Since rounding produces small changes, <em>ill-conditioned</em> matrices 
           can create terminal errors in our solutions.   
         </p>
@@ -442,7 +448,7 @@
 
       <conclusion>
         <p>
-          Both NumPy and SymPy can be used for matrix arithmetic. As a symbolic manipulator, SymPy can avoid some rounding error issues.  
+          Both NumPy and SymPy can be used for matrix arithmetic.  
           Often, however, we are already using NumPy to manipulate or graph our data and the linear algebra tools in 
           NumPy directly are convenient as long as we know what pitfalls to avoid.
         </p>
