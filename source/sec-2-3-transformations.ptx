@@ -11,7 +11,19 @@
     <title>Matrix Transformations</title>
 
     <introduction>
-        In this section we will learn how to  
+      <p>
+        Matrix-vector multiplication can fundamentally be interpreted as linear transformations of a vector space. 
+        We can directly graph these transformations in <m>\mathbb{R}^2</m> and <m>\mathbb{R}^3</m>.
+        We can usually generalize our understanding to <m>\mathbb{R}^n</m> even though we can't graph the higher dimensions.  
+      </p>
+      <p>
+        Since we will graph in Matplotlib, which uses NumPy arrays, 
+        in this section we will default to NumPy for our matrix computations. 
+        Note: SymPy can do the same things with similar commands. 
+      </p>
+      <p>
+        In this section we will learn how to
+      </p>  
     </introduction>
 
     <objectives>
@@ -38,21 +50,22 @@
         <title>Computing Matrix Transformations</title>
 
         <p>
-          We can compute the matrix transformation of a vector simply by using matrix multiplication. 
-          Recall that in order to multiply a matrix and a vector, you need a column vector. 
-          You can use NumPy's <c>transpose</c> function to convert if needed. 
+          We can compute the matrix transformation of a vector simply by using matrix-vector multiplication. 
+          Recall that in order to multiply a vector by a matrix, you need a column vector. 
+          You can use NumPy's <c>transpose</c> or <c>.T</c> function to convert if needed.<fn> 
+          Similarly you can use SymPy's <c>Transpose()</c> or <c>.T</c> to convert.</fn>
         </p>
 
         <sage language ='python'>
           <input>
             import numpy as np
 
-            x = np.array([[1,2,3]])
-            A = np.array([[2,0,1], [0,3,-2]])
+            x = np.array([[1,2,3]]) #vector
+            A = np.array([[2,0,1], [0,3,-2]]) #matrix
 
-            Ax = np.matmul(A,x)
+            Ax = np.matmul(A,x) #image under transformation
 
-            print(A, x)
+            print('Multiplying', A, 'by', x, 'gives:')
             print(Ax)
           </input>
         </sage>
@@ -60,11 +73,11 @@
         <exercise>
           <p>
             Note the above code throws an error. Use NumPy's <c>transpose()</c> function to make <m>\vec{x}</m> a column vector
-            in the above code. 
+            to fix the error. 
           </p>
           <hint>
             <p>
-              You can use <c>transpose()</c>, or the <c>numpymatrixname.T</c>
+              You can use <c>transpose(arrayname)</c>, or <c>arrayname.T</c>
             </p>
           </hint>
         </exercise>
@@ -72,6 +85,51 @@
           <p>
             Recall that NumPy has an alternate command for matrix multiplication. 
             Alter the above code to use the alternate command. 
+          </p>
+        </exercise>
+
+        <p>
+          Because matrix multiplication extends matrix-vector multiplication linearly, 
+          we can use it to find the image under <m>A</m> of multiple vectors all at once.
+          We simply make the vectors we want to transform the columns of a new matrix, 
+          then we can extract their image under <m>A</m> as the corresponding column of the resulting matrix product.
+          <me>
+            A 
+            \left[
+            \vec{x}_1,  \vec{x}_2,  \cdots,  \vec{x}_n
+            \right] =
+            \left[
+             A\vec{x}_1,  A\vec{x}_2,  \cdots  A\vec{x}_n
+             \right]
+          </me>
+          
+        </p>
+
+        <sage language ='python'>
+          <input>
+            import numpy as np
+
+            #matrix transformation
+            A = np.array([[2,0,1], [0,3,-2]])
+
+            #multiple vectors
+            xrows = np.array([[1,2,3],[4,5,6], [7,8,9],[0,0,0]])
+            xcols = xrows.T #transposed to column vector
+            Ax = np.matmul(A,xcols) #image of multiple vectors
+
+            #single vector (from above)
+            x1 = xrows[3] 
+            x1col = x1.T #transposed to column vector
+            Ax1 = np.matmul(A,x1col) #image of one vector
+
+            print('The resulting matrix multiplication is:',Ax)
+            print('Meanwhile, the image of', x1, 'is:', Ax1 )
+          </input>
+        </sage>
+
+        <exercise>
+          <p>
+            Change the above code to select a different single vector and compare to the corresponding column of the resulting matrix product.
           </p>
         </exercise>
 
@@ -85,13 +143,13 @@
           the image of basis vectors under the transformation <m>A</m>.<fn>
             We say <m>A\vec{e}_1</m> is the image of the standard basis vector under the transformation <m>A</m>.
           That is, the output of <m>A\vec{e}_1</m> under the transformation, i.e. where <m>\vec{e}_1</m> gets mapped via <m>A</m>.</fn>
-          We can then picture the image any linear combinations of basis vectors using
+          We can then picture the image of any linear combinations of basis vectors using
           scaling and adding tail to tip.
           Since every other vector is a linear combination of the basis vectors,
           that allows us to visualize the image of every vector in the space.  
         </p>
         <p>
-          Note that for a square matrix, the image can be graphed in on the same axes as the domain. 
+          Note that for a square matrix, the image can be visualized in the same space as the domain. 
           We will demonstrate for a transformation <m>A:\mathbb{R}^2 \to \mathbb{R}^2</m> using the standard basis. 
         </p>
 
@@ -108,16 +166,16 @@
             
             fig, ax = plt.subplots() #create a figure and axes
             
-            # add basis vectors 
+            # graph basis vectors 
             ax.quiver(0,0,e1.T[0,0],e1.T[1,0],label='$\\vec e_1$',color='deepskyblue', angles='xy', scale_units='xy', scale=1, alpha=0.25) 
             ax.quiver(0,0,e2.T[0,0],e2.T[1,0],label='$\\vec e_2$',color='teal', angles='xy', scale_units='xy', scale=1, alpha=0.25) 
-            #add transformed vectors to axes 2
+            #graph transformed vectors
             ax.quiver(0,0,Ae1[0,0],Ae1[1,0],label='$A \\vec e_1$',color='deepskyblue', angles='xy', scale_units='xy', scale=1) 
             ax.quiver(0,0,Ae2[0,0],Ae2[1,0],label='$A \\vec e_2$', color='teal', angles='xy', scale_units='xy', scale=1)
             
             #add labeling
             ax.set(title="Standard Basis")
-            ax.set(xlim=(-1,5), ylim=(-1,4))
+            ax.set(xlim=(-4,5), ylim=(-3,4))
             ax.legend() 
             ax.grid()
             
@@ -125,10 +183,18 @@
           </input>
         </sage>
 
+        <exercise>
+          <p>
+            Edit the above code to consolidate the basis vectors into columns of one matrix instead. 
+            Then extract their images under <m>A</m> from the resulting matrix product. What do you notice? 
+          </p>
+        </exercise>
+
         <p>
-          We can use scalar multiples of the standard basis to grid out the space. 
-          Note that the vector <m>2\vec{e}_1 -\vec{e}_2</m> gets mapped to <m>2A\vec{e}_1-A\vec{e_2}</m>.
-          We can then visualize the result of the transformation using the transformed grid. 
+          We can use scalar multiples of the standard basis to grid out the space.
+          Since the vector <m>2\vec{e}_1 -\vec{e}_2</m> gets mapped to <m>2A\vec{e}_1-A\vec{e_2}</m>,
+          we can then visualize the result of the transformation using the transformed grid. 
+          We will first apply <m>A</m> to a grid of coordinate dots. 
         </p>
 
         <sage language='python'>
@@ -136,63 +202,101 @@
             import numpy as np
             import matplotlib.pyplot as plt
 
-            fig, ax = plt.subplots()
+            fig, ax = plt.subplots() #create fig, axes
 
+            A = np.array([[2,2],[0,3]]) #transformation
+            
+            #grid out x and y values
             Xvals = np.linspace(-4,4, num=9)
             Yvals = np.linspace(-4,4, num=9)
-            #X, Y = np.meshgrid(X,Y) 
+            #for each fixed x, iterate through all y's
+            #stack as a row of xs then a row of y's
             xygrid = np.column_stack([[x, y] for x in Xvals for y in Yvals])
+            #note: cols of xygrid are 2D coordinates
+            #print(xygrid) 
 
-            A = np.array([
-            [2,2],
-            [0,3]
-            ])
-
+            #transform via matrix mult
             uvgrid = np.matmul(A,xygrid)
+            #note: the columns of uvgrid are the transformed xygrid coord
+            #print(uvgrid)
 
-            ax.set(xlim=(-10,10), ylim=(-10,10))
-            ax.set_xticks(np.arange(-10,10,1))
-            ax.set_yticks(np.arange(-10,10,1))
-            ax.grid()
-
+            #plot original points, and transformed points
+            ax.scatter(xygrid[0],xygrid[1], c=xygrid[0], alpha = 0.25) 
             ax.scatter(uvgrid[0],uvgrid[1], c=xygrid[0])
+            ax.set(xlim=(-10,10), ylim=(-10,10))
 
             plt.show()
           </input>
         </sage>
-        
+
+        <p>
+          To extend this idea to a grid of lines instead of a grid of dots, 
+          we must first create our own grid of vertical and horizontal lines. 
+          Note: horizontal lines have incrementing x-values and constant y-values,
+          while vertical lines have incrementing y-values and constant x-values. 
+          NumPy's <c>meshgrid()</c> provides an efficient way to create points on our lines. 
+        </p>
 
         <sage language='python'>
           <input>
             import numpy as np
             import matplotlib.pyplot as plt
-
+            cmap = plt.get_cmap('viridis')
             fig, ax = plt.subplots()
-
-            Xvals = np.linspace(-4,4, num=9)
-            Yvals = np.linspace(-4,4, num=9)
-            #X, Y = np.meshgrid(X,Y) 
-            xygrid = np.column_stack([[x, y] for x in Xvals for y in Yvals])
-
-            A = np.array([
-            [2,2],
-            [0,3]
-            ])
-
-            uvgrid = np.matmul(A,xygrid)
-
+            N=9
+            
+            Xvals = np.linspace(-4,4, num=N)
+            Yvals = np.linspace(0,6, num=N)
+            X,Y = np.meshgrid(Xvals, Yvals)
+            
             ax.set(xlim=(-10,10), ylim=(-10,10))
-            ax.scatter(xygrid[0],xygrid[1], c=xygrid[0], alpha = 0.25)
-
-            ax.scatter(uvgrid[0],uvgrid[1], c=xygrid[0])
-
+            #for i in np.arange(0,N,step=1):
+            #    p = i / (N-1)  # Normalize to 0-1
+            #    ax.plot(X[i],Y[i],color=cmap(p) ) 
+                
+            #for i in np.arange(0,N,step=1):
+            #    p = i / (N-1)  # Normalize to 0-1
+            #    ax.plot(X.T[i], Y.T[i], color=cmap(p))
+                
+            A = np.array([[2,2],[0,1]])
+            
+            X1 = X.reshape((N**2,))
+            Y1 = Y.reshape((N**2,))
+            
+            xygrid = np.row_stack([X1, Y1])
+            uvgrid = np.matmul(A,xygrid)
+            
+            u1 = uvgrid[0]
+            v1 = uvgrid[1]
+            u = u1.reshape(-1,N)
+            v = v1.reshape(-1,N)
+            
+            for i in np.arange(0,N,step=1):
+                p = i / (N-1)  # Normalize to 0-1
+                ax.plot(u[i],v[i],color=cmap(p) ) 
+            
+            for i in np.arange(0,N,step=1):
+                p = i / (N-1)  # Normalize to 0-1.
+                ax.plot(u.T[i], v.T[i], color=cmap(p))
+                
             plt.show()
           </input>
         </sage>
 
-        <exercise>
+        <p>
           
-        </exercise>
+        </p>
+        
+
+        
+
+        <p>
+          If instead the transformation maps higher dimensional vectors to lower dimensional vectors,
+          or vice versa, we can still visualize the transformation. 
+          One approach is to plot two graphs: (1) the standard basis in the domain and 
+          (2) the corresponding transformed basis in the co-domain color-coded to match. 
+          Another approach is to embed everything in the the higher dimensional space and graph everything there. 
+        </p>
 
       </subsection>
 
