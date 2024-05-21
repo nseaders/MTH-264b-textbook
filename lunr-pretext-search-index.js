@@ -637,7 +637,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.2",
   "title": "Matrix Arithmetic",
-  "body": " Matrix Arithmetic  Matrices have emerged as an essential mathematical tool to model complicated systems and solve problems far beyond the early usage to simplify the process of solving systems of linear equations. In this section we will learn how to use both SymPy and NumPy to perform matrix arithmetic. We will also briefly discuss numerical pitfalls to try and avoid.     Add, subtract, scale, and multiply matrices in NumPy and SymPy    Find matrix inverses using NumPy and SymPy    Use matrix inverses to solve systems of linear equations    Discover the pitfalls of ill-conditioned matrices      NumPy vs SymPy  We can compute with matrices in both the Sympy and Numpy libraries. Numerical Python is intended for numerical computations and estimates. Symbolic Python can do symbolic computations like rref() or compute with matrices having undetermined variables in the mix. NumPy automatically treats matrices like a 2D array, that is, a higher dimensional vector. SymPy defaults to working with matrices from the linear transformation perspective.  After some internal debate, I decided to intermingle NumPy and SymPy syntax for working with matrices. Please give feedback if it seems this section should be re-organized into NumPy and Matrics followed by SymPy and Matrices .    Basic Matrices  Some matrices are frequently needed for computations. Common matrices that we can generate automatically include a (multiplicative) identity matrix, a zero matrix, and a matrix of all ones.  The commands for the multiplicative identity matrix are different: SymPy's eye(n) vs NumPy's identity(n) .   The commands for matrices of ones() and zeros() are identical, and take in the number of rows and columns as arguments. For NumPy, however, you must enter the shape of the array as an ordered pair with parentheses.  In the code above, create a matrix of all ones using both NumPy and SymPy. Next create a matrix of all zeroes. Play with various dimensions.  With NumPy don't forget to use extra parentheses for the shape of the array.     Matrix Arithmetic  You can add, subtract and scale matrices using both NumPy and SymPy.  In both NumPy and SymPy create matrices to compute   Scale a one matrix and an identity matrix.     What happens if the two matrices do not have the same number of rows and columns?    Matrix Multiplication  Recall that matrix multiplication is more sophisticated than the Hadamard product, a basic element-wise multiplication of two arrays, since it developed to be independent of coordinates and correspond to function composition. Recall further that NumPy automatically treats matrices like a 2D array, that is, a higher dimensional vector. If you naively multiply NumPy arrays you get the Hadamard product, rather than traditional matrix multiplication (try below).   If instead you want matrix multiplication, you tell NumPy to multiply using the matmul() command, or as a short-hand using @ (try below).   Meanwhile SymPy defaults to working with matrices from the linear transformation perspective giving you matrix multiplication by default and requiring us to specify any Hadamard product, or element-wise multiplication.       What happens if you try to compute using matrix multiplication?    What happens if you try to compute the Hadamard Product of ?   Play with various dimensions of , and to come up with necessary criteria for the Hadamard product to work vs Matrix multiplication to work.  Square matrices can be multiplied by themselves and at times we want to multiply repeatedly, e.g. . In SymPy we can perform repeated matrix multiplication using Python's exponent operator A**3 . In NumPy we can call linalg.matrixpower(matrix, integer power).   Compute Note:      Matrix Inverses  Recall that we can find multiplicative matrix inverses by hand by augmenting a matrix with the identity matrix and row reducing to the identity. Thus we can find a matrix inverse in SymPy simply by applying rref() to a matrix augmented with the identity matrix, which we can not do with NumPy.  Both SymPy and NumPy have a dedicated matrix inverse command, however, NumPy's linalg.inv() and SymPy's inv() .      Solving Matrix Equations via Inverses  We can solve matrix equations using matrix inverses.   Consider the matrix equation where   and   Solve the matrix equation for   Can you compute using both SymPy and NumPy?    Ill-Conditioned Matrices  While inverting a matrix helps us solve matrix equations symbolically and develop theory, in practice, we seldom invert a matrix with technology in order to solve systems of linear equations. Some matrices are ill-conditioned in that small changes in the entries of the matrix can create big changes in our inverse or solution. Since rounding produces small changes, ill-conditioned matrices can create terminal errors in our solutions.  Consider the matrix equation in . Compare the solutions obtained in the example, to the solutions if   the entries of are rounded to the nearest hundredth, and    if the entries of are rounded to the nearest tenth, and    if the entries of are rounded to the nearest one.   What do you notice?   In general, matrices that are nearly singular, that is, almost not invertible, can be ill-conditioned. In we will learn how to use determinants to discover whether or not a matrix is singular or close to singular.    Both NumPy and SymPy can be used for matrix arithmetic. As a symbolic manipulator, SymPy can avoid some rounding error issues. Often, however, we are already using NumPy to manipulate or graph our data and the linear algebra tools in NumPy directly are convenient as long as we know what pitfalls to avoid.    Summary     TBD      TBD         "
+  "body": " Matrix Arithmetic  Matrices have emerged as an essential mathematical tool to model complicated systems and solve problems far beyond the early usage to simplify the process of solving systems of linear equations. In this section we will learn how to use both SymPy and NumPy to perform matrix arithmetic. We will also briefly discuss numerical pitfalls to try and avoid.     Add, subtract, scale, and multiply matrices in NumPy and SymPy    Find matrix inverses using NumPy and SymPy    Use matrix inverses to solve systems of linear equations    Discover the pitfalls of ill-conditioned matrices      NumPy vs SymPy  We can compute with matrices in both the Sympy and Numpy libraries. Numerical Python is intended for numerical computations and estimates. Symbolic Python can do symbolic computations like rref() or compute with matrices having undetermined variables in the mix. NumPy automatically treats matrices like a 2D array, that is, a higher dimensional vector. SymPy defaults to working with matrices from the linear transformation perspective.  After some internal debate, I decided to intermingle NumPy and SymPy syntax for working with matrices. Please give feedback if it seems this section should be re-organized into NumPy and Matrics followed by SymPy and Matrices .    Basic Matrices  Some matrices are frequently needed for computations. Common matrices that we can generate automatically include a (multiplicative) identity matrix, a zero matrix, and a matrix of all ones.  The commands for the multiplicative identity matrix are different: SymPy's eye(n) vs NumPy's identity(n) .   The commands for matrices of ones() and zeros() are identical, and take in the number of rows and columns as arguments. For NumPy, however, you must enter the shape of the array as an ordered pair with parentheses.  In the code above, create a matrix of all ones using both NumPy and SymPy. Next create a matrix of all zeroes. Play with various dimensions.  With NumPy don't forget to use extra parentheses for the shape of the array.     Matrix Arithmetic  You can add, subtract and scale matrices using both NumPy and SymPy.  In both NumPy and SymPy create matrices to compute   Scale a one matrix and an identity matrix.     What happens if the two matrices do not have the same number of rows and columns?    Matrix Multiplication  Recall that matrix multiplication is more sophisticated than the Hadamard product, a basic element-wise multiplication of two arrays, since it developed to be independent of coordinates and correspond to function composition. Recall further that NumPy automatically treats matrices like a 2D array, that is, a higher dimensional vector. If you naively multiply NumPy arrays you get the Hadamard product, rather than traditional matrix multiplication (try below).   If instead you want matrix multiplication, you tell NumPy to multiply using the matmul() command, or as a short-hand using @ (try below).   Meanwhile SymPy defaults to working with matrices from the linear transformation perspective giving you matrix multiplication by default and requiring us to specify any Hadamard product, or element-wise multiplication.       What happens if you try to compute using matrix multiplication?    What happens if you try to compute the Hadamard Product of ?     Play with various dimensions of , and to come up with necessary criteria for the Hadamard product to work vs Matrix multiplication to work.  Square matrices can be multiplied by themselves and at times we want to multiply repeatedly, e.g. . In SymPy we can perform repeated matrix multiplication using Python's exponent operator A**3 . In NumPy we can call linalg.matrixpower(matrix, integer power).   Compute Note:      Matrix Inverses  Recall that we can find multiplicative matrix inverses by hand by augmenting a matrix with the identity matrix and row reducing to the identity. Thus we can find a matrix inverse in SymPy simply by applying rref() to a matrix augmented with the identity matrix, which we can not do with NumPy.  Both SymPy and NumPy have a dedicated matrix inverse command, however, NumPy's linalg.inv() and SymPy's inv() .      Solving Matrix Equations via Inverses  We can solve matrix equations using matrix inverses.   Consider the matrix equation where   and   Solve the matrix equation for   Can you compute using both SymPy and NumPy?    Ill-Conditioned Matrices  While inverting a matrix helps us solve matrix equations symbolically and develop theory, in practice, we seldom invert a matrix with technology in order to solve systems of linear equations. Some matrices are ill-conditioned in that small changes what we multiply them by can create big changes in the product. Since rounding produces small changes, ill-conditioned matrices can create terminal errors in our solutions.  Consider the matrix equation in . Compare the solutions obtained in the example, to the solutions if   the entries of are rounded to the nearest hundredth, and    if the entries of are rounded to the nearest tenth, and    if the entries of are rounded to the nearest one.   What do you notice?   In general, matrices that are nearly singular, that is, almost not invertible, can be ill-conditioned. In we will learn how to use determinants to discover whether or not a matrix is singular or close to singular.    Both NumPy and SymPy can be used for matrix arithmetic. Often, however, we are already using NumPy to manipulate or graph our data and the linear algebra tools in NumPy directly are convenient as long as we know what pitfalls to avoid.    Summary     TBD      TBD         "
 },
 {
   "id": "objectives-7",
@@ -682,7 +682,7 @@ var ptx_lunr_docs = [
   "type": "You Try",
   "number": "2.15",
   "title": "",
-  "body": "   What happens if you try to compute using matrix multiplication?    What happens if you try to compute the Hadamard Product of ?   Play with various dimensions of , and to come up with necessary criteria for the Hadamard product to work vs Matrix multiplication to work. "
+  "body": "   What happens if you try to compute using matrix multiplication?    What happens if you try to compute the Hadamard Product of ?    "
 },
 {
   "id": "exercise-55",
@@ -691,6 +691,15 @@ var ptx_lunr_docs = [
   "type": "You Try",
   "number": "2.16",
   "title": "",
+  "body": "Play with various dimensions of , and to come up with necessary criteria for the Hadamard product to work vs Matrix multiplication to work. "
+},
+{
+  "id": "exercise-56",
+  "level": "2",
+  "url": "section-matrices.html#exercise-56",
+  "type": "You Try",
+  "number": "2.17",
+  "title": "",
   "body": "Compute Note:  "
 },
 {
@@ -698,23 +707,23 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matrices.html#illconditioned",
   "type": "Example",
-  "number": "2.17",
-  "title": "",
-  "body": " Consider the matrix equation where   and   Solve the matrix equation for   Can you compute using both SymPy and NumPy? "
-},
-{
-  "id": "exercise-56",
-  "level": "2",
-  "url": "section-matrices.html#exercise-56",
-  "type": "You Try",
   "number": "2.18",
   "title": "",
-  "body": "Consider the matrix equation in . Compare the solutions obtained in the example, to the solutions if   the entries of are rounded to the nearest hundredth, and    if the entries of are rounded to the nearest tenth, and    if the entries of are rounded to the nearest one.   What do you notice? "
+  "body": " Consider the matrix equation where   and   Solve the matrix equation for   Can you compute using both SymPy and NumPy? "
 },
 {
   "id": "exercise-57",
   "level": "2",
   "url": "section-matrices.html#exercise-57",
+  "type": "You Try",
+  "number": "2.19",
+  "title": "",
+  "body": "Consider the matrix equation in . Compare the solutions obtained in the example, to the solutions if   the entries of are rounded to the nearest hundredth, and    if the entries of are rounded to the nearest tenth, and    if the entries of are rounded to the nearest one.   What do you notice? "
+},
+{
+  "id": "exercise-58",
+  "level": "2",
+  "url": "section-matrices.html#exercise-58",
   "type": "Exercise",
   "number": "1",
   "title": "",
@@ -727,7 +736,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.3",
   "title": "Matrix Transformations",
-  "body": " Matrix Transformations  In this section we will learn how to     C    D      Computing Matrix Transformations  We can compute the matrix transformation of a vector simply by using matrix multiplication. Note that you need the vector to be a column vector in order to perform matrix vector multiplication. You can use NumPy's transpose function to convert if needed.   We can visualize the effect of a transformation by considering where a set of basis vectors are mapped. Since every other vector in the domain is a linear combination of vectors in the basis, we can then picture where every linear combination gets mapped.  We will demonstrate on a standard basis.   What if we wanted to visualize the transformation as a gradual change? We can create a gradual transformation using percentages of the identity transformation and our matrix transformation. If we start with 100% of our identity transformation and end with 100% of our matrix transformation, we obtain a sliding scale between the two.  We can animate the gradual transformation using what we learned in      Graph of a Matrix Transformation  If we can graph what the transformation does to a grid in we can better visualize the transformation.      Title          Summary     blah      blah         "
+  "body": " Matrix Transformations   Matrix-vector multiplication can fundamentally be interpreted as linear transformations of a vector space. We can directly graph these transformations in and . We can usually generalize our understanding to even though we can't graph the higher dimensions.  Since we will graph in Matplotlib, which uses NumPy arrays, we will default to NumPy (instead of SymPy) for our matrix computations.  In this section we will learn how to      Compute a matrix transformation using NumPy.    Visualize a matrix transformation using basis vectors or a grid in Matplotlib.    Animate a visual of a Matrix Transformation.      Computing Matrix Transformations  We can compute the matrix transformation of a vector simply by using matrix-vector multiplication. Recall that in order to multiply a vector by a matrix, you need a column vector. You can use NumPy's transpose or .T function to convert if needed. Similarly you can use SymPy's Transpose() or .T to convert.    Note the above code throws an error. Use NumPy's transpose() function to make a column vector to fix the error.  You can use transpose(arrayname) , or arrayname.T    Recall that NumPy has an alternate command for matrix multiplication. Alter the above code to use the alternate command.  Because matrix multiplication extends matrix-vector multiplication linearly, we can find the image of multiple input vectors all at once. We simply use the vectors we want to transform as the columns of a matrix, then we can extract their image from the matrix product as the corresponding column.    Change the above code to select a different input vector and compare to the corresponding column of the matrix product.    Visualizing a Matrix Transformation  We can visualize the effect of a transformation by considering the transformed basis vectors. That is, the image of basis vectors under the transformation . We say is the image of the standard basis vector under the transformation . That is, the output of under the transformation, i.e. where gets mapped via . We can then picture the image of any linear combinations of basis vectors using scaling and adding tail to tip. Since every other vector is a linear combination of the basis vectors, that allows us to visualize the image of every vector in the space.  Note that for a square matrix, the image can be visualized in the same space as the domain. We will demonstrate for a transformation using the standard basis.   First we will visualize just the transformed basis vectors.    Edit the code in to consolidate the basis vectors into columns of one matrix instead. Then extract their images under from the resulting matrix product. What do you notice?  To visualize how the rest of the space is transformed, we can use scalar multiples of the standard basis to grid out the space. Since the vector gets mapped to , we can then visualize the result of the transformation using the transformed grid.   We will first apply to a grid of coordinate dots. While NumPy's meshgrid() works great for plotting a grid of points, the arrays are not the right size to act as input vectors for the matrix-vector multiplication.  For matrix-vector multiplication we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a array.reshape(size) function that allows us to reshape each array of x-values and y-values from meshgrid() into rows. We can then row_stack() those two rows to form the desired input matrix.    It can be easier to visualize a matrix transformation using a line grid (or coordinate grid) rather than a collection of points. We will use our points to create a grid of lines instead. Note: horizontal lines have incrementing x-values and constant y-values, while vertical lines have incrementing y-values and constant x-values.   First we will create a grid of lines without applying a transformation.   Next we will add in the matrix transformation. In order to find the transformed line grid, we will need to again .reshape() the X,Y grid into a row of x-values then a row of y-values.   To better see the effects of a reflection, we will use a sequential color map to color our lines. Below is a standard basis grid.   Below is the corresponding transformed grid with a sequential color map.    If instead the transformation maps higher dimensional vectors to lower dimensional vectors, or vice versa, we can still visualize the transformation. One approach is to plot two graphs: (1) the standard basis in the domain and (2) the corresponding transformed basis in the co-domain color-coded to match. Another approach is to embed everything in the the higher dimensional space and graph there.    Animating Matrix Transformations  What if we wanted to visualize the transformation as a gradual change? We can create a gradual transformation using percentages of the identity transformation and our matrix transformation. If we start with 100% of our identity transformation and end with 100% of our matrix transformation, we obtain a sliding scale between the two.  We can animate the gradual transformation using what we learned in . Using PillowWriter we will start with a somewhat simple .gif of the transformation, then add features.   Add a title, grid, and legend to the above animation. Where do these need to be added in the code to show up in every frame?  Note that the animation would look better visually if we started with the standard basis plot for a few more seconds before beginning the transformation. We can add that by grabbing frames of the standard basis plot first.   Note that the .gif would also look better if the animation lingered for a few more seconds at the end where the transformation is complete.  Edit the above code so the animation pauses at the completed transformation.  We could instead create a slider that starts with the identity transformation and gradually gives us the transformation by    Animating a gradual transformation of our collection of points from the identity to the matrix transformation can be done similarly.   Animate a gradual matrix transformation using the line grid.     Because linear transformations can be fully determined by a basis, we can visualize the transformation based on how a basis is transformed. We can visualize matrix transformations on vectors in using basis grids (points or lines) and in using basis vectors (and perhaps a point grid).    Summary     TBD      TBD         "
 },
 {
   "id": "objectives-8",
@@ -736,16 +745,7 @@ var ptx_lunr_docs = [
   "type": "Objectives",
   "number": "2.3",
   "title": "",
-  "body": "   C    D    "
-},
-{
-  "id": "exercise-58",
-  "level": "2",
-  "url": "section-transformations.html#exercise-58",
-  "type": "You Try",
-  "number": "2.19",
-  "title": "",
-  "body": ""
+  "body": "   Compute a matrix transformation using NumPy.    Visualize a matrix transformation using basis vectors or a grid in Matplotlib.    Animate a visual of a Matrix Transformation.    "
 },
 {
   "id": "exercise-59",
@@ -754,12 +754,93 @@ var ptx_lunr_docs = [
   "type": "You Try",
   "number": "2.20",
   "title": "",
-  "body": ""
+  "body": "Note the above code throws an error. Use NumPy's transpose() function to make a column vector to fix the error.  You can use transpose(arrayname) , or arrayname.T   "
 },
 {
   "id": "exercise-60",
   "level": "2",
   "url": "section-transformations.html#exercise-60",
+  "type": "You Try",
+  "number": "2.21",
+  "title": "",
+  "body": "Recall that NumPy has an alternate command for matrix multiplication. Alter the above code to use the alternate command. "
+},
+{
+  "id": "exercise-61",
+  "level": "2",
+  "url": "section-transformations.html#exercise-61",
+  "type": "You Try",
+  "number": "2.22",
+  "title": "",
+  "body": "Change the above code to select a different input vector and compare to the corresponding column of the matrix product. "
+},
+{
+  "id": "e1e2transform",
+  "level": "2",
+  "url": "section-transformations.html#e1e2transform",
+  "type": "Example",
+  "number": "2.23",
+  "title": "",
+  "body": " First we will visualize just the transformed basis vectors.   "
+},
+{
+  "id": "exercise-62",
+  "level": "2",
+  "url": "section-transformations.html#exercise-62",
+  "type": "You Try",
+  "number": "2.24",
+  "title": "",
+  "body": "Edit the code in to consolidate the basis vectors into columns of one matrix instead. Then extract their images under from the resulting matrix product. What do you notice? "
+},
+{
+  "id": "pointgrid",
+  "level": "2",
+  "url": "section-transformations.html#pointgrid",
+  "type": "Example",
+  "number": "2.25",
+  "title": "",
+  "body": " We will first apply to a grid of coordinate dots. While NumPy's meshgrid() works great for plotting a grid of points, the arrays are not the right size to act as input vectors for the matrix-vector multiplication.  For matrix-vector multiplication we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a array.reshape(size) function that allows us to reshape each array of x-values and y-values from meshgrid() into rows. We can then row_stack() those two rows to form the desired input matrix.   "
+},
+{
+  "id": "example-9",
+  "level": "2",
+  "url": "section-transformations.html#example-9",
+  "type": "Example",
+  "number": "2.26",
+  "title": "",
+  "body": " First we will create a grid of lines without applying a transformation.   Next we will add in the matrix transformation. In order to find the transformed line grid, we will need to again .reshape() the X,Y grid into a row of x-values then a row of y-values.   To better see the effects of a reflection, we will use a sequential color map to color our lines. Below is a standard basis grid.   Below is the corresponding transformed grid with a sequential color map.   "
+},
+{
+  "id": "exercise-63",
+  "level": "2",
+  "url": "section-transformations.html#exercise-63",
+  "type": "You Try",
+  "number": "2.27",
+  "title": "",
+  "body": "Add a title, grid, and legend to the above animation. Where do these need to be added in the code to show up in every frame? "
+},
+{
+  "id": "exercise-64",
+  "level": "2",
+  "url": "section-transformations.html#exercise-64",
+  "type": "You Try",
+  "number": "2.28",
+  "title": "",
+  "body": "Edit the above code so the animation pauses at the completed transformation. "
+},
+{
+  "id": "exercise-65",
+  "level": "2",
+  "url": "section-transformations.html#exercise-65",
+  "type": "You Try",
+  "number": "2.29",
+  "title": "",
+  "body": "Animate a gradual matrix transformation using the line grid. "
+},
+{
+  "id": "exercise-66",
+  "level": "2",
+  "url": "section-transformations.html#exercise-66",
   "type": "Exercise",
   "number": "1",
   "title": "",
@@ -784,18 +865,18 @@ var ptx_lunr_docs = [
   "body": "   C    D    "
 },
 {
-  "id": "exercise-61",
+  "id": "exercise-67",
   "level": "2",
-  "url": "section-determinants.html#exercise-61",
+  "url": "section-determinants.html#exercise-67",
   "type": "You Try",
-  "number": "2.21",
+  "number": "2.30",
   "title": "",
   "body": ""
 },
 {
-  "id": "exercise-62",
+  "id": "exercise-68",
   "level": "2",
-  "url": "section-determinants.html#exercise-62",
+  "url": "section-determinants.html#exercise-68",
   "type": "Exercise",
   "number": "1",
   "title": "",
@@ -820,18 +901,18 @@ var ptx_lunr_docs = [
   "body": "   C    D    "
 },
 {
-  "id": "exercise-63",
+  "id": "exercise-69",
   "level": "2",
-  "url": "section-eigenthings.html#exercise-63",
+  "url": "section-eigenthings.html#exercise-69",
   "type": "You Try",
-  "number": "2.22",
+  "number": "2.31",
   "title": "",
   "body": ""
 },
 {
-  "id": "exercise-64",
+  "id": "exercise-70",
   "level": "2",
-  "url": "section-eigenthings.html#exercise-64",
+  "url": "section-eigenthings.html#exercise-70",
   "type": "Exercise",
   "number": "1",
   "title": "",
@@ -865,18 +946,18 @@ var ptx_lunr_docs = [
   "body": "   C    D    "
 },
 {
-  "id": "p-314",
+  "id": "p-341",
   "level": "2",
-  "url": "examples.html#p-314",
+  "url": "examples.html#p-341",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "integral integral integral integral integral integral variable "
 },
 {
-  "id": "exercise-66",
+  "id": "exercise-72",
   "level": "2",
-  "url": "examples.html#exercise-66",
+  "url": "examples.html#exercise-72",
   "type": "You Try",
   "number": "3.4",
   "title": "Exercise What.",
@@ -892,9 +973,9 @@ var ptx_lunr_docs = [
   "body": "   C    D    "
 },
 {
-  "id": "exercise-67",
+  "id": "exercise-73",
   "level": "2",
-  "url": "examples.html#exercise-67",
+  "url": "examples.html#exercise-73",
   "type": "Reading Question",
   "number": "1",
   "title": "",

@@ -342,8 +342,8 @@ sagecell.makeSagecell({
 <div class="toc-item"><a href="section-transformations.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Matrix Transformations</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="section-transformations.html#subsec-ComputingMatrixTransformations" class="internal"><span class="title">Computing Matrix Transformations</span></a></div></li>
-<li><div class="toc-item"><a href="section-transformations.html#subsection-37" class="internal"><span class="title">Graph of a Matrix Transformation</span></a></div></li>
-<li><div class="toc-item"><a href="section-transformations.html#subsection-38" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-transformations.html#subsection-37" class="internal"><span class="title">Visualizing a Matrix Transformation</span></a></div></li>
+<li><div class="toc-item"><a href="section-transformations.html#subsection-38" class="internal"><span class="title">Animating Matrix Transformations</span></a></div></li>
 <li><div class="toc-item"><a href="section-transformations.html#exercises-transformations" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -375,161 +375,464 @@ sagecell.makeSagecell({
 </li>
 <li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-transformations"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="section-transformations"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.3</span> <span class="title">Matrix Transformations</span>
 </h2>
-<section class="introduction" id="introduction-11">In this section we will learn how to</section><article class="objectives goal-like" id="objectives-8"><h3 class="heading"><span class="type">Objectives</span></h3>
+<section class="introduction" id="introduction-11"><div class="para" id="p-279">Matrix-vector multiplication can fundamentally be interpreted as linear transformations of a vector space. We can directly graph these transformations in <span class="process-math">\(\mathbb{R}^2\)</span> and <span class="process-math">\(\mathbb{R}^3\text{.}\)</span> We can usually generalize our understanding to <span class="process-math">\(\mathbb{R}^n\)</span> even though we can’t graph the higher dimensions.</div> <div class="para" id="p-280">Since we will graph in Matplotlib, which uses NumPy arrays, we will default to NumPy (instead of SymPy) for our matrix computations.</div> <div class="para" id="p-281">In this section we will learn how to</div></section><article class="objectives goal-like" id="objectives-8"><h3 class="heading"><span class="type">Objectives</span></h3>
 <ul class="disc">
-<li id="li-83"><div class="para" id="p-278">C</div></li>
-<li id="li-84"><div class="para" id="p-279">D</div></li>
+<li id="li-83"><div class="para" id="p-282">Compute a matrix transformation using NumPy.</div></li>
+<li id="li-84"><div class="para" id="p-283">Visualize a matrix transformation using basis vectors or a grid in Matplotlib.</div></li>
+<li id="li-85"><div class="para" id="p-284">Animate a visual of a Matrix Transformation.</div></li>
 </ul></article><section class="subsection" id="subsec-ComputingMatrixTransformations"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Computing Matrix Transformations</span>
 </h3>
-<div class="para" id="p-280">We can compute the matrix transformation of a vector simply by using matrix multiplication. Note that you need the vector to be a column vector in order to perform matrix vector multiplication. You can use NumPy’s <code class="code-inline tex2jax_ignore">transpose</code> function to convert if needed.</div>
+<div class="para" id="p-285">We can compute the matrix transformation of a vector simply by using matrix-vector multiplication. Recall that in order to multiply a vector by a matrix, you need a column vector. You can use NumPy’s <code class="code-inline tex2jax_ignore">transpose</code> or <code class="code-inline tex2jax_ignore">.T</code> function to convert if needed.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-6" id="fn-6"><sup> 3 </sup></a>
+</div>
 <pre class="ptx-sagecell sagecell-python" id="sage-71"><script type="text/x-sage">import numpy as np
 
-x = np.array([1,2])
-A = np.array([[2,0], [0,3]])
+x = np.array([[1,2,3]]) #vector
+A = np.array([[2,0,1], [0,3,-2]]) #matrix
 
-Ax = np.matmul(A,np.transpose(x))
+Ax = np.matmul(A,x) #image under transformation
 
-print(x)
+print('Multiplying', A, 'by', x, 'gives:')
 print(Ax)
 </script></pre>
-<div class="para" id="p-281">We can visualize the effect of a transformation by considering where a set of basis vectors are mapped. Since every other vector in the domain is a linear combination of vectors in the basis, we can then picture where every linear combination gets mapped.</div>
-<div class="para" id="p-282">We will demonstrate on a standard basis.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-72"><script type="text/x-sage">import matplotlib.pyplot as plt
+<article class="exercise exercise-like" id="exercise-59"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.20</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-286">Note the above code throws an error. Use NumPy’s <code class="code-inline tex2jax_ignore">transpose()</code> function to make <span class="process-math">\(\vec{x}\)</span> a column vector to fix the error.</div>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-9" id="hint-9"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-9"><div class="hint solution-like"><div class="para" id="p-287">You can use <code class="code-inline tex2jax_ignore">transpose(arrayname)</code>, or <code class="code-inline tex2jax_ignore">arrayname.T</code>
+</div></div></div></article><article class="exercise exercise-like" id="exercise-60"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.21</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-288">Recall that NumPy has an alternate command for matrix multiplication. Alter the above code to use the alternate command.</div></article><div class="para logical" id="p-289">
+<div class="para">Because matrix multiplication extends matrix-vector multiplication linearly, we can find the image of multiple input vectors all at once. We simply use the vectors we want to transform as the columns of a matrix, then we can extract their image from the matrix product as the corresponding column.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A 
+\left[
+\vec{x}_1,  \vec{x}_2,  \cdots,  \vec{x}_n
+\right] =
+\left[
+A\vec{x}_1,  A\vec{x}_2,  \cdots,  A\vec{x}_n
+\right]
+\end{equation*}
+</div>
+</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-72"><script type="text/x-sage">import numpy as np
+
+#matrix transformation
+A = np.array([[2,0,1], [0,3,-2]])
+
+#multiple vectors
+xrows = np.array([[1,2,3],[4,5,6], [7,8,9],[0,0,0]])
+xcols = xrows.T #transposed to column vector
+Ax = np.matmul(A,xcols) #image of multiple vectors
+
+#single vector (from above)
+x1 = xrows[3] 
+x1col = x1.T #transposed to column vector
+Ax1 = np.matmul(A,x1col) #image of one vector
+
+print('The resulting matrix multiplication is:')
+print(Ax)
+print('Meanwhile, the image of', x1, 'is:', Ax1 )
+</script></pre>
+<article class="exercise exercise-like" id="exercise-61"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.22</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-290">Change the above code to select a different input vector and compare to the corresponding column of the matrix product.</div></article></section><section class="subsection" id="subsection-37"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Visualizing a Matrix Transformation</span>
+</h3>
+<div class="para" id="p-291">We can visualize the effect of a transformation by considering the transformed basis vectors. That is, the image of basis vectors under the transformation <span class="process-math">\(A\text{.}\)</span><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-7" id="fn-7"><sup> 4 </sup></a> We can then picture the image of any linear combinations of basis vectors using scaling and adding tail to tip. Since every other vector is a linear combination of the basis vectors, that allows us to visualize the image of every vector in the space.</div>
+<div class="para" id="p-292">Note that for a square matrix, the image can be visualized in the same space as the domain. We will demonstrate for a transformation <span class="process-math">\(A:\mathbb{R}^2 \to \mathbb{R}^2\)</span> using the standard basis.</div>
+<article class="example example-like" id="e1e2transform"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.23</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-293">First we will visualize just the transformed basis vectors.</div> <pre class="ptx-sagecell sagecell-python" id="sage-73"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
-e1 = np.array([1,0])
-e2 = np.array([0,1])
-A = np.array([[2,2], [0,3]])
-Ae1 = np.transpose(np.matmul(A,np.transpose(e1)))
-Ae2 = np.transpose(np.matmul(A,np.transpose(e2)))
+A = np.array([[2,2], [0,3]]) #Transformation
+e1 = np.array([[1,0]]) #e1
+e2 = np.array([[0,1]]) #e2
+Ae1 = np.matmul(A,e1.T) #image of e1
+Ae2 = np.matmul(A,e2.T) #image of e2
 
-fig = plt.figure(figsize=(8,5)) #create a figure
-#create one row and two columns of plots
-ax1 = plt.subplot(1,2,1) #1 row, 2 columns, first graph
-ax2 = plt.subplot(1,2,2) #1 row, 2 columns, second graph
+fig, ax = plt.subplots() #create a figure and axes
 
-# add original vectors to axes
-ax1.quiver(0,0,e1[0],e1[1],label='$\\vec e_1$',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1) 
-ax1.quiver(0,0,e2[0],e2[1],label='$\\vec e_2$',color='deepskyblue', angles='xy', scale_units='xy', scale=1) 
+# graph basis vectors 
+ax.quiver(0,0,e1.T[0,0],e1.T[1,0],label='$\\vec e_1$',color='deepskyblue', angles='xy', scale_units='xy', scale=1, alpha=0.25) 
+ax.quiver(0,0,e2.T[0,0],e2.T[1,0],label='$\\vec e_2$',color='teal', angles='xy', scale_units='xy', scale=1, alpha=0.25) 
+#graph transformed vectors
+ax.quiver(0,0,Ae1[0,0],Ae1[1,0],label='$A \\vec e_1$',color='deepskyblue', angles='xy', scale_units='xy', scale=1) 
+ax.quiver(0,0,Ae2[0,0],Ae2[1,0],label='$A \\vec e_2$', color='teal', angles='xy', scale_units='xy', scale=1)
 
-#add transformed vectors to axes
-ax2.quiver(0,0,Ae1[0],Ae1[1],label='$A \\vec e_1$',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1) 
-ax2.quiver(0,0,Ae2[0],Ae2[1],label='$A \\vec e_2$', color='deepskyblue', angles='xy', scale_units='xy', scale=1)
+#label and grid
+ax.set(title="Standard Basis")
+ax.set(xlim=(-4,5), ylim=(-3,4))
+ax.legend() 
+ax.grid()
 
+plt.show() #display graph
+</script></pre></article><article class="exercise exercise-like" id="exercise-62"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.24</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-294">Edit the code in <a href="" class="xref" data-knowl="./knowl/e1e2transform.html" title="Example 2.23">Example 2.23</a> to consolidate the basis vectors into columns of one matrix instead. Then extract their images under <span class="process-math">\(A\)</span> from the resulting matrix product. What do you notice?</div></article><div class="para" id="p-295">To visualize how the rest of the space is transformed, we can use scalar multiples of the standard basis to grid out the space. Since the vector <span class="process-math">\(2\vec{e}_1 -\vec{e}_2\)</span> gets mapped to <span class="process-math">\(2A\vec{e}_1-A\vec{e_2}\text{,}\)</span> we can then visualize the result of the transformation using the transformed grid.</div>
+<article class="example example-like" id="pointgrid"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.25</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-296">We will first apply <span class="process-math">\(A\)</span> to a grid of coordinate dots. While NumPy’s <code class="code-inline tex2jax_ignore">meshgrid()</code> works great for plotting a grid of points, the arrays are not the right size to act as input vectors for the matrix-vector multiplication.</div> <div class="para" id="p-297">For matrix-vector multiplication we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a <code class="code-inline tex2jax_ignore">array.reshape(size)</code> function that allows us to reshape each array of x-values and y-values from <code class="code-inline tex2jax_ignore">meshgrid()</code> into rows. We can then <code class="code-inline tex2jax_ignore">row_stack()</code> those two rows to form the desired input matrix.</div> <pre class="ptx-sagecell sagecell-python" id="sage-74"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
 
-#set title and axes labels and limits, legend, axis, grid
-ax1.set(title="Standard Basis")
-ax1.set(xlim=(-1,4), ylim=(-1.5,3.5))
-ax1.legend() 
-ax1.grid()
+fig, ax = plt.subplots() #create fig, axes
 
-#set title and axes labels and limits, legend, axis, grid
-ax2.set(title="After the Transformation")
-ax2.set(xlim=(-1,4), ylim=(-1.5,3.5))
-ax2.legend() 
-ax2.grid() 
+A = np.array([[2,2],[0,3]]) #transformation
+
+#create a grid of xy-values
+Xvals = np.linspace(-4,4, num=9)
+Yvals = np.linspace(-4,4, num=9)
+X,Y = np.meshgrid(Xvals, Yvals) 
+#reshape the 9x9 grid into an x row and y row
+X1 = X.reshape((9**2,)) 
+Y1 = Y.reshape((9**2,))
+xygrid = np.row_stack([X1, Y1])
+
+#transform via matrix mult
+uvgrid = np.matmul(A,xygrid)
+#note: the columns of uvgrid are the transformed xygrid coord
+
+#plot original points, and transformed points
+ax.scatter(xygrid[0],xygrid[1], c=xygrid[0], alpha = 0.25) 
+ax.scatter(uvgrid[0],uvgrid[1], c=xygrid[0])
+ax.set(xlim=(-10,10), ylim=(-10,10))
 
 plt.show()
+</script></pre></article><div class="para" id="p-298">It can be easier to visualize a matrix transformation using a line grid (or coordinate grid) rather than a collection of points. We will use our points to create a grid of lines instead. Note: horizontal lines have incrementing x-values and constant y-values, while vertical lines have incrementing y-values and constant x-values.</div>
+<article class="example example-like" id="example-9"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.26</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-299">First we will create a grid of lines without applying a transformation.</div> <pre class="ptx-sagecell sagecell-python" id="sage-75"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots() #create fig, axes
+
+#Create grid of points
+NLines=9 
+Xvals = np.linspace(-4,4, num=NLines)
+Yvals = np.linspace(0,6, num=NLines)
+X,Y = np.meshgrid(Xvals, Yvals)
+
+#graph horizontal lines 
+for i in np.arange(0,NLines,step=1):
+    ax.plot(X[i],Y[i], color='gray') 
+    
+#graph vertical lines using transpose
+for i in np.arange(0,NLines,step=1):
+    ax.plot(X.T[i], Y.T[i], color='gray') 
+
+ax.set(xlim=(-10,10), ylim=(-10,10))
+
+plt.show()
+</script></pre> <div class="para" id="p-300">Next we will add in the matrix transformation. In order to find the transformed line grid, we will need to again <code class="code-inline tex2jax_ignore">.reshape()</code> the X,Y grid into a row of x-values then a row of y-values.</div> <pre class="ptx-sagecell sagecell-python" id="sage-76"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots() #create fig and axes
+
+A = np.array([[2,2],[0,1]]) #matrix transformation
+
+#create grid of points
+NLines=9
+Xvals = np.linspace(-4,4, num=NLines)
+Yvals = np.linspace(0,6, num=NLines)
+X,Y = np.meshgrid(Xvals, Yvals)
+
+#reshape into row of x and row of y
+X1 = X.reshape((NLines**2,))
+Y1 = Y.reshape((NLines**2,))
+xygrid = np.row_stack([X1, Y1])
+
+#transform via matrix mult
+uvgrid = np.matmul(A,xygrid)
+
+#reshape transformed grid into uvgrid
+U1 = uvgrid[0]
+V1 = uvgrid[1]
+U = U1.reshape(-1,NLines)
+V = V1.reshape(-1,NLines)
+
+#graph transformed horizontal lines
+for i in np.arange(0,NLines,step=1):
+    ax.plot(U[i],V[i], color='gray') 
+
+#graph transformed vertical lines
+for i in np.arange(0,NLines,step=1):
+    ax.plot(U.T[i], V.T[i], color='gray')
+
+ax.set(xlim=(-10,10), ylim=(-10,10))
+    
+plt.show()
+</script></pre> <div class="para" id="p-301">To better see the effects of a reflection, we will use a sequential color map to color our lines. Below is a standard basis grid.</div> <pre class="ptx-sagecell sagecell-python" id="sage-77"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+cmap = plt.get_cmap('viridis') #get colormap
+
+fig, ax = plt.subplots() #create fig and axes
+
+A = np.array([[2,2],[0,1]]) #matrix transformation
+
+#create grid of points
+NLines=9
+Xvals = np.linspace(-4,4, num=NLines)
+Yvals = np.linspace(0,6, num=NLines)
+X,Y = np.meshgrid(Xvals, Yvals)
+
+#graph lines
+for i in np.arange(0,NLines,step=1):
+    p = i / (NLines-1)  # Normalize index to 0-1 
+    ax.plot(X[i],Y[i],color=cmap(p)) #call colors
+    
+for i in np.arange(0,NLines,step=1):
+    p = i / (NLines-1)  # Normalize index to 0-1
+    ax.plot(X.T[i], Y.T[i], color=cmap(p)) #call colors
+
+ax.set(xlim=(-10,10), ylim=(-10,10))
+    
+plt.show()
+</script></pre> <div class="para" id="p-302">Below is the corresponding transformed grid with a sequential color map.</div> <pre class="ptx-sagecell sagecell-python" id="sage-78"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+cmap = plt.get_cmap('viridis') #get colormap
+
+fig, ax = plt.subplots() #create fig and axes
+
+A = np.array([[2,2],[0,1]]) #matrix transformation
+
+#create grid of points
+NLines=9
+Xvals = np.linspace(-4,4, num=NLines)
+Yvals = np.linspace(0,6, num=NLines)
+X,Y = np.meshgrid(Xvals, Yvals)
+    
+#reshape to x-row and y-row
+X1 = X.reshape((NLines**2,))
+Y1 = Y.reshape((NLines**2,))
+xygrid = np.row_stack([X1, Y1])
+
+uvgrid = np.matmul(A,xygrid)
+
+U1 = uvgrid[0]
+V1 = uvgrid[1]
+U = U1.reshape(-1,NLines)
+V = V1.reshape(-1,NLines)
+
+for i in np.arange(0,NLines,step=1):
+    p = i / (NLines-1)  # Normalize to 0-1
+    ax.plot(U[i],V[i],color=cmap(p) ) 
+
+for i in np.arange(0,NLines,step=1):
+    p = i / (NLines-1)  # Normalize to 0-1.
+    ax.plot(U.T[i], V.T[i], color=cmap(p))
+
+ax.set(xlim=(-10,10), ylim=(-10,10))
+    
+plt.show()
+</script></pre></article><div class="para" id="p-303">If instead the transformation maps higher dimensional vectors to lower dimensional vectors, or vice versa, we can still visualize the transformation. One approach is to plot two graphs: (1) the standard basis in the domain and (2) the corresponding transformed basis in the co-domain color-coded to match. Another approach is to embed everything in the the higher dimensional space and graph there.</div></section><section class="subsection" id="subsection-38"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Animating Matrix Transformations</span>
+</h3>
+<div class="para" id="p-304">What if we wanted to visualize the transformation as a gradual change? We can create a gradual transformation using percentages of the identity transformation and our matrix transformation. If we start with 100% of our identity transformation and end with 100% of our matrix transformation, we obtain a sliding scale between the two.</div>
+<div class="para" id="p-305">We can animate the gradual transformation using what we learned in <a href="section-animation.html" class="internal" title="Section 1.5: Basic Animation">Section 1.5</a>. Using <code class="code-inline tex2jax_ignore">PillowWriter</code> we will start with a somewhat simple .gif of the transformation, then add features.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-79"><script type="text/x-sage">import numpy as np 
+import matplotlib.pyplot as plt
+from matplotlib.animation import PillowWriter
+
+fig, ax = plt.subplots() #create figure and axes
+
+e1 = np.array([[1],[0]]) #e1
+e2 = np.array([[0],[1]]) #e2
+A = np.array([[2,2], [0,3]]) #transformation matrix
+
+#set up writer object to grab frames for a gif
+writer = PillowWriter(fps=15)
+
+with writer.saving(fig, "TransformVectors1.gif", 100): #100 is the dpi
+  for tval in np.linspace(0,10,50):                
+    #create an intermediate matrix transformation that gradually
+    #transitions between the identity when tval=0 and A when tval=10
+    IA = (1-tval/10)*np.identity(2)+(tval/10)*A 
+
+    #matrix multiply to find intermediate image of e1 and e2 
+    IAe1 = np.matmul(IA,e1)
+    IAe2 = np.matmul(IA,e2) 
+
+    plt.cla() #clear plot of previous vectors  
+    #plot intermediate transformed vectors 
+    ax.quiver(0,0,IAe1[0,0],IAe1[1,0],label='$A \\vec e_1$', color='deepskyblue', angles='xy', scale_units='xy', scale=1)
+    ax.quiver(0,0,IAe2[0,0],IAe2[1,0],label='$A \\vec e_2$', color='teal', angles='xy', scale_units='xy', scale=1)
+    ax.set(xlim=(-1,5), ylim=(-1,4))  
+    
+    writer.grab_frame() #grab frame of current intermediate transformation
 </script></pre>
-<div class="para" id="p-283">What if we wanted to visualize the transformation as a gradual change? We can create a gradual transformation using percentages of the identity transformation and our matrix transformation. If we start with 100% of our identity transformation and end with 100% of our matrix transformation, we obtain a sliding scale between the two.</div>
-<div class="para" id="p-284">We can animate the gradual transformation using what we learned in <a href="section-animation.html" class="internal" title="Section 1.5: Basic Animation">Section 1.5</a>
-</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-73"><script type="text/x-sage">import matplotlib.pyplot as plt
-import numpy as np
+<article class="exercise exercise-like" id="exercise-63"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.27</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-306">Add a title, grid, and legend to the above animation. Where do these need to be added in the code to show up in every frame?</div></article><div class="para" id="p-307">Note that the animation would look better visually if we started with the standard basis plot for a few more seconds before beginning the transformation. We can add that by grabbing frames of the standard basis plot first.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-80"><script type="text/x-sage">import numpy as np 
+import matplotlib.pyplot as plt
+from matplotlib.animation import PillowWriter
 
-e1 = np.array([1,0])
-e2 = np.array([0,1])
-A = np.array([[2,2], [0,3]])
-t = np.linspace(-1, 10, 12) #user inputs
+fig, ax = plt.subplots() #create figure and axes
 
-#define function that plots intermediate transformation up to user input
-def plot_transform(current_t):
-    #define an intermediate transformation
-    #When t=0 you get the identity, when t=20 you get A
-    IA = (1-current_t/10)*np.identity(2)+(current_t/10)*A 
+e1 = np.array([[1],[0]]) #horizontal basis vector
+e2 = np.array([[0],[1]]) #vertical basis vector
+A = np.array([[2,2], [0,3]]) #transformation matrix
 
-    IAe1 = np.transpose(np.matmul(IA,np.transpose(e1)))
-    IAe2 = np.transpose(np.matmul(IA,np.transpose(e2)))
-  
-    fig = plt.figure() #create a figure
-    ax = plt.subplot() #create a plot
-    
-    #add transformed vectors to axes
-    ax.quiver(0,0,IAe1[0],IAe1[1],label='$A \\vec e_1$',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1) 
-    ax.quiver(0,0,IAe2[0],IAe2[1],label='$A \\vec e_2$', color='deepskyblue', angles='xy', scale_units='xy', scale=1)
-    
-    #set title and axes labels and limits, legend, axis, grid
-    ax.set(title="Transformation of Standard Basis")
-    ax.set(xlim=(-2,5), ylim=(-2,5))
+#set up initial graph of standard basis vectors
+ax.quiver(0,0,1,0,label='$ \\vec e_1$',color='deepskyblue', angles='xy', scale_units='xy', scale=1)
+ax.quiver(0,0,0,1,label='$ \\vec e_2$', color='teal', angles='xy', scale_units='xy', scale=1) 
+ax.set(title="Transformation of Standard Basis", xlim=(-2,5), ylim=(-2,5))
+ax.grid()
+ax.legend()
+
+#set up writer object to grab frames for a gif
+writer = PillowWriter(fps=15)
+
+with writer.saving(fig, "TransformVectors2.gif", 100): #100 is the dpi
+  for tval in np.linspace(0,10,20):
+    writer.grab_frame() #grab frame of initial graph
+  for tval in np.linspace(0,10,50):                
+    #create an intermediate matrix transformation
+    IA = (1-tval/10)*np.identity(2)+(tval/10)*A 
+
+    #matrix multiply to find intermediate image of e1 and e2
+    IAe1 = np.matmul(IA,e1) #image of e1
+    IAe2 = np.matmul(IA,e2) #image of e2
+
+    plt.cla() #clear plot of previous vectors 
+    #plot intermediate transformed vectors 
+    ax.quiver(0,0,IAe1[0,0],IAe1[1,0],label='$A \\vec e_1$', color='deepskyblue', angles='xy', scale_units='xy', scale=1)
+    ax.quiver(0,0,IAe2[0,0],IAe2[1,0],label='$A \\vec e_2$', color='teal', angles='xy', scale_units='xy', scale=1)                    
+    ax.set(title="Transformation of Standard Basis", xlim=(-2,5), ylim=(-2,5))
     ax.legend() 
     ax.grid()
     
+    writer.grab_frame() #grab frame of current intermediate transformation
+</script></pre>
+<div class="para" id="p-308">Note that the .gif would also look better if the animation lingered for a few more seconds at the end where the transformation is complete.</div>
+<article class="exercise exercise-like" id="exercise-64"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.28</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-309">Edit the above code so the animation pauses at the completed transformation.</div></article><div class="para" id="p-310">We could instead create a slider that starts with the identity transformation and gradually gives us the transformation by <span class="process-math">\(A.\)</span>
+</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-81"><script type="text/x-sage">import matplotlib.pyplot as plt
+import numpy as np
+
+e1 = np.array([[1],[0]]) #standard basis
+e2 = np.array([[0],[1]]) #standard basis
+A = np.array([[2,2], [0,3]]) #matrix transformation
+t = np.linspace(0, 10, 11) #user inputs for intermediate transformation
+
+#define function that plots intermediate transformation at user input
+def plot_transform(current_t):
+    #define an intermediate transformation
+    #When t=0 you get the identity, when t=10 you get A
+    IA = (1-current_t/10)*np.identity(2)+(current_t/10)*A 
+
+    #plot intermediate transformation
+    fig, ax = plt.subplots() #create a figure and axes 
+    IAe1 = np.matmul(IA,e1)
+    IAe2 = np.matmul(IA,e2)
+
+    ax.quiver(0,0,IAe1[0,0],IAe1[1,0],label='$A \\vec e_1$',color='deepskyblue', angles='xy', scale_units='xy', scale=1) 
+    ax.quiver(0,0,IAe2[0,0],IAe2[1,0],label='$A \\vec e_2$', color='teal', angles='xy', scale_units='xy', scale=1)
+    ax.set(title="Transformation of Standard Basis", xlim=(-2,5), ylim=(-2,5))
+    ax.legend() 
+    ax.grid()
     plt.show()
 
 #define function to create graph based on user input
 @interact() #create interactive element, this one is a slider
-def respond_to_user_input(frame=slider(1,10,1)): 
-  
+def respond_to_user_input(frame=slider(0,10,1)): 
+
     #Get intermediate transformation up to frame user chooses.
     current_t = t[frame]
-    
+
     #Call our function that plots the transformation        
     plot_transform(current_t)
-</script></pre></section><section class="subsection" id="subsection-37"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Graph of a Matrix Transformation</span>
-</h3>
-<div class="para" id="p-285">If we can graph what the transformation does to a grid in <span class="process-math">\(\mathbb{R}^2\)</span> we can better visualize the transformation.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-74"><script type="text/x-sage">import numpy as np
+</script></pre>
+<div class="para" id="p-311">Animating a gradual transformation of our collection of points from the identity to the matrix transformation can be done similarly.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-82"><script type="text/x-sage">import numpy as np 
 import matplotlib.pyplot as plt
+from matplotlib.animation import PillowWriter
 
-fig, ax = plt.subplots()
+fig, ax = plt.subplots() #create figure and axes
 
-Xvals = np.linspace(-2,2, num=5)
-Yvals = np.linspace(-2,2, num=5)
-#X, Y = np.meshgrid(X,Y) 
-xygrid = np.column_stack([[x, y] for x in Xvals for y in Yvals])
+A = np.array([[2,2], [0,3]]) #transformation matrix
 
-A = np.array([
-[2,2],
-[0,3]
-])
+#create grid of points
+Xvals = np.linspace(-4,4, num=9)
+Yvals = np.linspace(0,6, num=9)
+X,Y = np.meshgrid(Xvals, Yvals)
 
-uvgrid = np.matmul(A,xygrid)
+#reshape to x-row and y-row
+X1 = X.reshape((9**2,))
+Y1 = Y.reshape((9**2,))
+xygrid = np.row_stack([X1, Y1])
 
-ax.set(xlim=(-10,10), ylim=(-10,10))
-ax.scatter(xygrid[0],xygrid[1], color = "gray", alpha = 0.5)
+#set up writer object to grab frames for a gif
+writer = PillowWriter(fps=15)
 
-ax.scatter(uvgrid[0],uvgrid[1])
+with writer.saving(fig, "TransformPoints.gif", 100): #100 is the dpi
+  for tval in np.linspace(0,10,30):
+    ax.scatter(xygrid[0],xygrid[1], c=xygrid[0])
+    ax.set(xlim=(-10,10), ylim=(-5,15))
+    
+    writer.grab_frame() #grab frames
+    
+  for tval in np.linspace(0,10,50):                
+    #create an intermediate matrix transformation that gradually
+    #transitions between the identity when tval=0 and A when tval=10
+    IA = (1-tval/10)*np.identity(2)+(tval/10)*A 
 
-plt.show()
+    #matrix multiply to find intermediate image of points
+    uvgrid = np.matmul(IA,xygrid) 
+
+    plt.cla() #clear plot of previous points  
+    #plot intermediate transformed points 
+    ax.scatter(uvgrid[0],uvgrid[1], c=xygrid[0])
+    ax.set(xlim=(-10,10), ylim=(-5,15))
+    
+    writer.grab_frame() #grab frames
+
+  for tval in np.linspace(0,10,30):
+    plt.cla() #clear plot of previous points 
+    #plot transformed points
+    uvgrid = np.matmul(A,xygrid) 
+    ax.scatter(uvgrid[0],uvgrid[1], c=xygrid[0])
+    ax.set(xlim=(-10,10), ylim=(-5,15))  
+    
+    writer.grab_frame() #grab frames
 </script></pre>
-<article class="exercise exercise-like" id="exercise-58"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.19</span><span class="period">.</span>
-</h4></article></section><section class="subsection" id="subsection-38"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Title</span>
-</h3>
-<pre class="ptx-sagecell sagecell-python" id="sage-75"><script type="text/x-sage">python
-</script></pre>
-<article class="exercise exercise-like" id="exercise-59"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.20</span><span class="period">.</span>
-</h4></article></section><section class="conclusion" id="conclusion-6"><div class="para" id="p-286"></div></section><article class="assemblage assemblage-like" id="assemblage-8"><h3 class="heading"><span class="title">Summary.</span></h3>
-<div class="para logical" id="p-287">
-<ul class="disc"><li id="li-85"><div class="para" id="p-288">blah</div></li></ul>
-<ul class="disc"><li id="li-86"><div class="para" id="p-289">blah</div></li></ul>
+<article class="exercise exercise-like" id="exercise-65"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.29</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-312">Animate a gradual matrix transformation using the line grid.</div></article><pre class="ptx-sagecell sagecell-python" id="sage-83"><script type="text/x-sage">python
+</script></pre></section><section class="conclusion" id="conclusion-6"><div class="para" id="p-313">Because linear transformations can be fully determined by a basis, we can visualize the transformation based on how a basis is transformed. We can visualize matrix transformations on vectors in <span class="process-math">\(\mathbb{R}^2\)</span> using basis grids (points or lines) and in <span class="process-math">\(\mathbb{R}^3\)</span> using basis vectors (and perhaps a point grid).</div></section><article class="assemblage assemblage-like" id="assemblage-8"><h3 class="heading"><span class="title">Summary.</span></h3>
+<div class="para logical" id="p-314">
+<ul class="disc"><li id="li-86"><div class="para" id="p-315">TBD</div></li></ul>
+<ul class="disc"><li id="li-87"><div class="para" id="p-316">TBD</div></li></ul>
 </div></article><section class="exercises" id="exercises-transformations"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-60"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<pre class="ptx-sagecell sagecell-python" id="sage-76"><script type="text/x-sage">#
+<article class="exercise exercise-like" id="exercise-66"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<pre class="ptx-sagecell sagecell-python" id="sage-84"><script type="text/x-sage">#
 #
 #
 #
 #
-</script></pre></article></section></section></div>
+</script></pre></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-6"><div class="fn">Similarly you can use SymPy’s <code class="code-inline tex2jax_ignore">Transpose()</code> or <code class="code-inline tex2jax_ignore">.T</code> to convert.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-7"><div class="fn">We say <span class="process-math">\(A\vec{e}_1\)</span> is the image of the standard basis vector under the transformation <span class="process-math">\(A\text{.}\)</span> That is, the output of <span class="process-math">\(A\vec{e}_1\)</span> under the transformation, i.e. where <span class="process-math">\(\vec{e}_1\)</span> gets mapped via <span class="process-math">\(A\text{.}\)</span>
+</div></div>
+</div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="section-matrices.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="section-determinants.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
