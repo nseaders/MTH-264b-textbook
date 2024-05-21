@@ -211,8 +211,12 @@
             for the matrix-vector multiplication.  
           </p>
           <p>
-            For matrix-vector multiplication we need a matrix with first row the x-values and 
-            second row the corresponding y-values.
+            For matrix-vector multiplication we need column vectors. 
+            If we want to compute the image of several vectors all at once
+            we want a matrix where each column is one of our vectors with top entry
+            an x-value and bottom entry a corresponding y-value. 
+            In other words, we need a matrix with first row the x-values and 
+            second row the corresponding y-values. 
             NumPy has a <c>array.reshape(size)</c> function that allows us to reshape each 
             array of x-values and y-values from <c>meshgrid()</c> into rows.
             We can then <c>row_stack()</c> those two rows to form the desired input matrix. 
@@ -232,6 +236,7 @@
               Yvals = np.linspace(-4,4, num=9)
               X,Y = np.meshgrid(Xvals, Yvals) 
               #reshape the 9x9 grid into an x row and y row
+              #where each column is a single vector
               X1 = X.reshape((9**2,)) 
               Y1 = Y.reshape((9**2,))
               xygrid = np.row_stack([X1, Y1])
@@ -717,6 +722,10 @@
 
       <exercises xml:id="exercises-transformations">
         <exercise>
+          <p>
+            Visualize a linear transformation <m>\mathbb{R}^3</m> 
+            using similar methods and a point grid in Matplotlib.
+          </p>
           <sage language='python'>
             <input>
               #
