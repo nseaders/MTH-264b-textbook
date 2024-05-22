@@ -723,8 +723,8 @@
       <exercises xml:id="exercises-transformations">
         <exercise>
           <p>
-            Visualize a linear transformation <m>\mathbb{R}^3</m> 
-            using similar methods and a point grid in Matplotlib.
+            Visualize a linear transformation using similar methods
+            on a point grid in <m>\mathbb{R}^3</m> in Matplotlib.
           </p>
           <sage language='python'>
             <input>
