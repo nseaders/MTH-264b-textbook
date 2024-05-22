@@ -483,7 +483,7 @@ plt.show() #display graph
 <article class="example example-like" id="pointgrid"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.25</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-296">We will first apply <span class="process-math">\(A\)</span> to a grid of coordinate dots. While NumPy’s <code class="code-inline tex2jax_ignore">meshgrid()</code> works great for plotting a grid of points, the arrays are not the right size to act as input vectors for the matrix-vector multiplication.</div> <div class="para" id="p-297">For matrix-vector multiplication we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a <code class="code-inline tex2jax_ignore">array.reshape(size)</code> function that allows us to reshape each array of x-values and y-values from <code class="code-inline tex2jax_ignore">meshgrid()</code> into rows. We can then <code class="code-inline tex2jax_ignore">row_stack()</code> those two rows to form the desired input matrix.</div> <pre class="ptx-sagecell sagecell-python" id="sage-74"><script type="text/x-sage">import numpy as np
+<div class="para" id="p-296">We will first apply <span class="process-math">\(A\)</span> to a grid of coordinate dots. While NumPy’s <code class="code-inline tex2jax_ignore">meshgrid()</code> works great for plotting a grid of points, the arrays are not the right size to act as input vectors for the matrix-vector multiplication.</div> <div class="para" id="p-297">For matrix-vector multiplication we need column vectors. If we want to compute the image of several vectors all at once we want a matrix where each column is one of our vectors with top entry an x-value and bottom entry a corresponding y-value. In other words, we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a <code class="code-inline tex2jax_ignore">array.reshape(size)</code> function that allows us to reshape each array of x-values and y-values from <code class="code-inline tex2jax_ignore">meshgrid()</code> into rows. We can then <code class="code-inline tex2jax_ignore">row_stack()</code> those two rows to form the desired input matrix.</div> <pre class="ptx-sagecell sagecell-python" id="sage-74"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots() #create fig, axes
@@ -495,6 +495,7 @@ Xvals = np.linspace(-4,4, num=9)
 Yvals = np.linspace(-4,4, num=9)
 X,Y = np.meshgrid(Xvals, Yvals) 
 #reshape the 9x9 grid into an x row and y row
+#where each column is a single vector
 X1 = X.reshape((9**2,)) 
 Y1 = Y.reshape((9**2,))
 xygrid = np.row_stack([X1, Y1])
@@ -824,6 +825,7 @@ with writer.saving(fig, "TransformPoints.gif", 100): #100 is the dpi
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="exercise-66"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para" id="p-317">Visualize a linear transformation using similar methods on a point grid in <span class="process-math">\(\mathbb{R}^3\)</span> in Matplotlib.</div>
 <pre class="ptx-sagecell sagecell-python" id="sage-84"><script type="text/x-sage">#
 #
 #
