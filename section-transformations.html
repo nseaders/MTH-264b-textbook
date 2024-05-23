@@ -674,7 +674,15 @@ plt.show()
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Animating Matrix Transformations</span>
 </h3>
 <div class="para" id="p-316">What if we wanted to visualize the transformation as a gradual change?</div>
-<div class="para" id="p-317">We can create an intermediate transformation adding complimentary percentages <span class="process-math">\(p\)</span> of the identity transformation and our matrix transformation, <span class="process-math">\((1-p)*I_n +p*A \text{.}\)</span> We obtain a sliding scale between the two by incrementing through our percentage <span class="process-math">\(p\)</span> from 0 to 1, starting with 100% of our identity transformation and ending with 100% of our matrix transformation.</div>
+<div class="para logical" id="p-317">
+<div class="para">We can think of where we start as applying the identity matrix <span class="process-math">\(I_n.\)</span> Meanwhile we can think of where we end as applying the final transformation matrix <span class="process-math">\(A\text{.}\)</span> We can create intermediate transformation matrices <span class="process-math">\(IA_p \)</span> between <span class="process-math">\(I_n\)</span>  and <span class="process-math">\(A\)</span> by adding complimentary percentages <span class="process-math">\(p\)</span> of the identity transformation and our matrix transformation,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+IA_p = (1-p)*I_n +p*A \text{.}
+\end{equation*}
+</div>
+<div class="para">We obtain a sliding scale between the two by incrementing through our percentage <span class="process-math">\(p\)</span> from 0 to 1, starting with 100% of our identity transformation and ending with 100% of our matrix transformation.</div>
+</div>
 <article class="example example-like" id="basisslider"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.33</span><span class="period">.</span><span class="space"> </span><span class="title">"Using an interactive slider".</span>
 </h4> <div class="para" id="p-318">First we create a slider that starts with the identity transformation on two basis vectors and gradually gives us the transformation by <span class="process-math">\(A.\)</span>
