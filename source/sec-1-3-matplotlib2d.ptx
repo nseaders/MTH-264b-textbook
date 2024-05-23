@@ -405,6 +405,7 @@
       </input>
     </sage>
 
+
     <p>
       The comma separated list of possible commands inside the parentheses of a function like <c>plot()</c>
       are called the <em>arguments</em> of the function. The functions <c>plot</c> and <c>scatter</c>

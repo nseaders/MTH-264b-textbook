@@ -104,6 +104,7 @@
           
         </p>
 
+
         <sage language ='python'>
           <input>
             import numpy as np
@@ -179,7 +180,7 @@
               ax.quiver(0,0,Ae2[0,0],Ae2[1,0],label='$A \\vec e_2$', color='teal', angles='xy', scale_units='xy', scale=1)
               
               #label and grid
-              ax.set(title="Standard Basis")
+              ax.set(title="Transformation of Standard Basis")
               ax.set(xlim=(-4,5), ylim=(-3,4))
               ax.legend() 
               ax.grid()
@@ -205,15 +206,16 @@
 
         <example xml:id="pointgrid">
           <p>
-            We will first apply <m>A</m> to a grid of coordinate dots. 
+            We will first apply <m>A</m> to a grid of coordinate dots.
             While NumPy's <c>meshgrid()</c> works great for plotting a grid of points, 
             the arrays are not the right size to act as input vectors
             for the matrix-vector multiplication.  
           </p>
           <p>
-            For matrix-vector multiplication we need column vectors. 
-            If we want to compute the image of several vectors all at once
-            we want a matrix where each column is one of our vectors with top entry
+            For matrix-vector multiplication we need column vectors, and 
+            if we want to compute the image of several vectors all at once
+            we need a matrix where <em>each</em> column is one of our vectors. 
+            Here we want each column to be a coordinate, having top entry
             an x-value and bottom entry a corresponding y-value. 
             In other words, we need a matrix with first row the x-values and 
             second row the corresponding y-values. 
@@ -230,42 +232,78 @@
               fig, ax = plt.subplots() #create fig, axes
 
               A = np.array([[2,2],[0,3]]) #transformation
-              
+
               #create a grid of xy-values
-              Xvals = np.linspace(-4,4, num=9)
-              Yvals = np.linspace(-4,4, num=9)
+              Xvals = np.linspace(-4,4, num=3)
+              Yvals = np.linspace(-4,4, num=3)
               X,Y = np.meshgrid(Xvals, Yvals) 
-              #reshape the 9x9 grid into an x row and y row
-              #where each column is a single vector
-              X1 = X.reshape((9**2,)) 
-              Y1 = Y.reshape((9**2,))
-              xygrid = np.row_stack([X1, Y1])
+              #reshape the 3x3 grid into an x row and y row
+              X1 = X.reshape((3**2,))#x-value row 
+              Y1 = Y.reshape((3**2,)) #y-value row
+              #stack the two so each column is a coordinate
+              xygrid = np.row_stack([X1, Y1]) 
 
               #transform via matrix mult
               uvgrid = np.matmul(A,xygrid)
-              #note: the columns of uvgrid are the transformed xygrid coord
+              #note: the columns of uvgrid are transformed xygrid coord
 
               #plot original points, and transformed points
               ax.scatter(xygrid[0],xygrid[1], c=xygrid[0], alpha = 0.25) 
               ax.scatter(uvgrid[0],uvgrid[1], c=xygrid[0])
-              ax.set(xlim=(-10,10), ylim=(-10,10))
+              ax.set(xlim=(-20,20), ylim=(-20,20))
 
               plt.show()
             </input>
           </sage>
+
         </example>
+
+        <exercise>
+          <p>
+            Edit the code in <xref ref="pointgrid"/> to print every array to see how 
+            the same arrays are reshaped, recombined, and transformed. 
+          </p>
+          <hint>
+            <p>
+              Print arrays so you can compare X to X1 and Y to Y1. Also compare xygrid to xygrid[i]
+              and xygrid to uvgrid to see the difference. 
+            </p>
+          </hint>
+        </exercise>
+
+        <exercise>
+          <p>
+            Edit the code in <xref ref="pointgrid"/> to make a <m>9\times 9</m> point grid instead.<fn>We
+              used a <m>3\times 3</m> grid at first so you could print the arrays to follow along. 
+              Now we want to generalize to more points.
+            </fn> 
+          </p>
+        </exercise>
+
+        <exercise>
+          <p>
+            Note: the argument <c>c=</c> inside <c>scatter</c> tells Matplotlib how to assign colors to our scatterplot. 
+            Here we assign colors according to the first array in xygrid. 
+            What happens if you assign colors according to the second array inside xygrid?
+          </p>
+        </exercise>
 
         <p>
           It can be easier to visualize a matrix transformation using a 
           line grid (or coordinate grid) rather than a collection of points.
-          We will use our points to create a grid of lines instead. 
+          To use our points to create a grid of lines instead, we need at least two points on each line.
+          We will use <c>plot</c> instead of <c>scatter</c>.
           Note: horizontal lines have incrementing x-values and constant y-values,
-          while vertical lines have incrementing y-values and constant x-values. 
+          while vertical lines have incrementing y-values and constant x-values, 
+          so we will need to be careful about which arrays we pass into <c>plot</c>. 
         </p>
 
-        <example>
+        <example xml:id="linegrid">
           <p>
-            First we will create a grid of lines without applying a transformation. 
+            We will build up to the transformed grid a step at a time. 
+          </p>
+          <p>
+            Step 1: First we will learn how to graph a basic grid of lines. 
           </p>
 
           <sage language='python'>
@@ -281,11 +319,14 @@
               Yvals = np.linspace(0,6, num=NLines)
               X,Y = np.meshgrid(Xvals, Yvals)
               
-              #graph horizontal lines 
+              #graph NLine horizontal lines
+              #increment through y-value arrays for each line 
               for i in np.arange(0,NLines,step=1):
                   ax.plot(X[i],Y[i], color='gray') 
                   
-              #graph vertical lines using transpose
+              #graph NLine vertical lines 
+              #increment through x-value arrays for each line
+              #exercise: why transpose?
               for i in np.arange(0,NLines,step=1):
                   ax.plot(X.T[i], Y.T[i], color='gray') 
 
@@ -296,10 +337,16 @@
           </sage>
           
           <p>
-            Next we will add in the matrix transformation.
-            In order to find the transformed line grid, 
-            we will need to again <c>.reshape()</c> the X,Y grid
-            into a row of x-values then a row of y-values. 
+            Step 2: Graph a transformed grid of lines.
+          </p>
+          <p> 
+            Now we add in the matrix transformation.
+            Note: in order to find the transformed line grid, 
+            we again <c>.reshape()</c> the X,Y grid
+            into a row of x-values and a row of y-values 
+            so we can matrix multiply each point as a column of a matrix. 
+            We will then <c>.reshape()</c> back into a transformed meshgrid
+            in order to graph our grid of transformed lines. 
           </p>
 
 
@@ -326,7 +373,7 @@
               #transform via matrix mult
               uvgrid = np.matmul(A,xygrid)
               
-              #reshape transformed grid into uvgrid
+              #reshape transformed rows into uvgrid
               U1 = uvgrid[0]
               V1 = uvgrid[1]
               U = U1.reshape(-1,NLines)
@@ -346,10 +393,39 @@
             </input>
           </sage>
 
+        </example>
+
+        <exercise>
           <p>
+            In the first step of <xref ref="linegrid"/>, graphing the basic grid of lines,
+           change the number of lines to 3.
+            Now print each array to better see which array is used for each plot. 
+            Why do we need the transpose for our vertical lines? 
+          </p>
+        </exercise>
+
+        <exercise>
+          <p>
+            In the second step of <xref ref="linegrid"/>, graphing the transformed grid of lines,
+           change the number of lines to 3.
+            Now print each array to better see which array is used for each plot. 
+            What happens if you only increment through the X or the Y and not both? 
+          </p>
+        </exercise>
+
+        <example>
+
+          <p>
+            Unlike <c>scatter</c> which has an argument <c>c=array</c>
+            that allows us to color code based on an x-coordinate or y-coordinate,
+            <c>plot</c> does not. 
             To better see the effects of a reflection, 
             we will use a sequential color map to color our
-            lines. Below is a standard basis grid.           
+            lines.            
+          </p>
+
+          <p>
+            Step 1: Color a basic grid
           </p>
 
           <sage language='python'>
@@ -368,21 +444,27 @@
               Yvals = np.linspace(0,6, num=NLines)
               X,Y = np.meshgrid(Xvals, Yvals)
               
-              #graph lines
-              for i in np.arange(0,NLines,step=1):
-                  p = i / (NLines-1)  # Normalize index to 0-1 
-                  ax.plot(X[i],Y[i],color=cmap(p)) #call colors
-                  
+              #graph NLines horizontal lines
               for i in np.arange(0,NLines,step=1):
                   p = i / (NLines-1)  # Normalize index to 0-1
-                  ax.plot(X.T[i], Y.T[i], color=cmap(p)) #call colors
+                  #graph line with index p color 
+                  ax.plot(X[i],Y[i],color=cmap(p)) 
+              
+              #graph NLines vertical lines
+              for i in np.arange(0,NLines,step=1): 
+                  p = i / (NLines-1)  # Normalize index to 0-1 
+                  #graph line with index p color
+                  ax.plot(X.T[i], Y.T[i], color=cmap(p)) 
 
-              ax.set(xlim=(-10,10), ylim=(-10,10))
+              ax.set(xlim=(-9,9), ylim=(-9,9))
                   
               plt.show()
             </input>
           </sage>
           
+          <p>
+            Step 2: Color a transformed grid using corresponding coloring. 
+          </p>
           <p>
             Below is the corresponding transformed grid with a sequential color map.
           </p>
@@ -423,7 +505,7 @@
                   p = i / (NLines-1)  # Normalize to 0-1.
                   ax.plot(U.T[i], V.T[i], color=cmap(p))
 
-              ax.set(xlim=(-10,10), ylim=(-10,10))
+              ax.set(xlim=(-9,15), ylim=(-9,9))
                   
               plt.show()
             </input>
@@ -436,10 +518,26 @@
 
         <p>
           If instead the transformation maps higher dimensional vectors to lower dimensional vectors,
-          or vice versa, we can still visualize the transformation. 
-          One approach is to plot two graphs: (1) the standard basis in the domain and 
-          (2) the corresponding transformed basis in the co-domain color-coded to match. 
-          Another approach is to embed everything in the the higher dimensional space and graph there. 
+          or vice versa, we can still visualize the transformation.
+          <ul>
+            <li>
+              <p>
+                One approach is to plot two graphs side-by-side color-coded to match:
+                (1) the standard basis (or grid) in the domain and 
+                (2)the corresponding transformed basis (or transformed grid) in the co-domain.
+              </p>
+            </li>
+            <li>
+              <p>
+                Another approach is to embed everything in the higher dimensional space and
+                animate the transformation there.<fn>Note: every <m>m\times n</m> matrix transformation,
+                  say <m>m\geq n</m>
+                  can be extended to a <m>m \times m </m> matrix transformation by adding an zero column.
+                  (Respectively if <m>m \leq n</m> we extend to <m>n\times n</m> and add a zero row).
+                </fn>
+              </p>
+            </li>
+          </ul> 
         </p>
 
       </subsection>
@@ -450,16 +548,77 @@
 
         <p>
           What if we wanted to visualize the transformation as a gradual change?
-          We can create a gradual transformation using percentages of the identity transformation 
-          and our matrix transformation. If we start with 100% of our identity transformation and 
-          end with 100% of our matrix transformation, we obtain a sliding scale between the two. 
         </p>
+        <p>
+          We can create an intermediate transformation adding complimentary percentages <m>p</m> of the identity transformation 
+          and our matrix transformation, <m>(1-p)*I_n +p*A </m>. 
+          We obtain a sliding scale between the two by incrementing through our percentage
+          <m>p</m> from 0 to 1, starting with 100% of our identity transformation and 
+          ending with 100% of our matrix transformation. 
+        </p>
+
+        <example xml:id="basisslider">
+          <title>"Using an interactive slider"</title>
+
+          <p>
+            First we create a slider that starts with the identity transformation
+            on two basis vectors and gradually gives us the transformation by <m>A.</m>   
+          </p>
+
+          <sage language='python'>
+            <input>
+              import matplotlib.pyplot as plt
+              import numpy as np
+
+              e1 = np.array([[1],[0]]) #standard basis
+              e2 = np.array([[0],[1]]) #standard basis
+              A = np.array([[2,2], [0,3]]) #matrix transformation
+              t = np.linspace(0, 10, 11) #user inputs for intermediate transformation
+
+              #define function that plots intermediate transformation at user input
+              def plot_transform(current_t):
+                  #define an intermediate transformation
+                  #When t=0 you get the identity, when t=10 you get A
+                  IA = (1-current_t/10)*np.identity(2)+(current_t/10)*A 
+
+                  #plot intermediate transformation
+                  fig, ax = plt.subplots() #create a figure and axes 
+                  IAe1 = np.matmul(IA,e1)
+                  IAe2 = np.matmul(IA,e2)
+
+                  ax.quiver(0,0,IAe1[0,0],IAe1[1,0],label='$A \\vec e_1$',color='salmon', angles='xy', scale_units='xy', scale=1) 
+                  ax.quiver(0,0,IAe2[0,0],IAe2[1,0],label='$A \\vec e_2$', color='teal', angles='xy', scale_units='xy', scale=1)
+                  ax.set(title="Transformation of Standard Basis", xlim=(-2,5), ylim=(-2,5))
+                  ax.legend() 
+                  ax.grid()
+                  plt.show()
+
+              #define function to create graph based on user input
+              @interact() #create interactive element, this one is a slider
+              def respond_to_user_input(frame=slider(0,10,1)): 
+
+                  #Get current frame chosen by user.
+                  current_t = t[frame]
+
+                  #Call our function that plots the transformation        
+                  plot_transform(current_t)
+            </input>
+          </sage>
+
+          <p>
+            Note that in this interactive, we only want the current frame, and not all the frames up to the current frame. 
+            Do you know why? 
+          </p>
+        </example> 
 
         <p>
           We can animate the gradual transformation using what we learned in <xref ref="section-animation"/>.
           Using <c>PillowWriter</c> we will start with a somewhat simple .gif of the transformation, then add features.
         </p>
 
+        <example xml:id="basisgif">
+          <title>"Using PillowWriter to make a .gif</title>
+          
           <sage language='python'>
             <input>
               import numpy as np 
@@ -487,7 +646,7 @@
 
                   plt.cla() #clear plot of previous vectors  
                   #plot intermediate transformed vectors 
-                  ax.quiver(0,0,IAe1[0,0],IAe1[1,0],label='$A \\vec e_1$', color='deepskyblue', angles='xy', scale_units='xy', scale=1)
+                  ax.quiver(0,0,IAe1[0,0],IAe1[1,0],label='$A \\vec e_1$', color='salmon', angles='xy', scale_units='xy', scale=1)
                   ax.quiver(0,0,IAe2[0,0],IAe2[1,0],label='$A \\vec e_2$', color='teal', angles='xy', scale_units='xy', scale=1)
                   ax.set(xlim=(-1,5), ylim=(-1,4))  
                   
@@ -495,63 +654,75 @@
             </input>
           </sage>
 
+        </example>
+
+        <exercise>
+          <p>
+            Comment out <c>plt.cla()</c> in <xref ref="basisgif"/>. What happens to your animation? 
+          </p>
+        </exercise>
+
           <exercise>
             <p>
-              Add a title, grid, and legend to the above animation. 
+              Add a title, grid, and legend to the animation in <xref ref="basisgif"/>. 
               Where do these need to be added in the code to show up in every frame? 
             </p>
           </exercise>
 
-          <p>
-            Note that the animation would look better visually if we started with the
-            standard basis plot for a few more seconds before beginning the transformation. 
-            We can add that by grabbing frames of the standard basis plot first. 
-          </p>
+          <example xml:id="basisgiflinger">
+            <title>Buffering your .gif</title>
 
-          <sage language='python'>
-            <input>
-              import numpy as np 
-              import matplotlib.pyplot as plt
-              from matplotlib.animation import PillowWriter
+            <p>
+              Note that the animation would look better visually if we started with the
+              standard basis plot and lingered for a few seconds before beginning the transformation. 
+              We can add that by grabbing frames of the standard basis plot first. 
+            </p>
 
-              fig, ax = plt.subplots() #create figure and axes
-              
-              e1 = np.array([[1],[0]]) #horizontal basis vector
-              e2 = np.array([[0],[1]]) #vertical basis vector
-              A = np.array([[2,2], [0,3]]) #transformation matrix
-              
-              #set up initial graph of standard basis vectors
-              ax.quiver(0,0,1,0,label='$ \\vec e_1$',color='deepskyblue', angles='xy', scale_units='xy', scale=1)
-              ax.quiver(0,0,0,1,label='$ \\vec e_2$', color='teal', angles='xy', scale_units='xy', scale=1) 
-              ax.set(title="Transformation of Standard Basis", xlim=(-2,5), ylim=(-2,5))
-              ax.grid()
-              ax.legend()
+            <sage language='python'>
+              <input>
+                import numpy as np 
+                import matplotlib.pyplot as plt
+                from matplotlib.animation import PillowWriter
 
-              #set up writer object to grab frames for a gif
-              writer = PillowWriter(fps=15)
+                fig, ax = plt.subplots() #create figure and axes
+                
+                e1 = np.array([[1],[0]]) #horizontal basis vector
+                e2 = np.array([[0],[1]]) #vertical basis vector
+                A = np.array([[2,2], [0,3]]) #transformation matrix
+                
+                #set up initial graph of standard basis vectors
+                ax.quiver(0,0,1,0,label='$ \\vec e_1$',color='salmon', angles='xy', scale_units='xy', scale=1)
+                ax.quiver(0,0,0,1,label='$ \\vec e_2$', color='teal', angles='xy', scale_units='xy', scale=1) 
+                ax.set(title="Transformation of Standard Basis", xlim=(-2,5), ylim=(-2,5))
+                ax.grid()
+                ax.legend()
 
-              with writer.saving(fig, "TransformVectors2.gif", 100): #100 is the dpi
-                for tval in np.linspace(0,10,20):
-                  writer.grab_frame() #grab frame of initial graph
-                for tval in np.linspace(0,10,50):                
-                  #create an intermediate matrix transformation
-                  IA = (1-tval/10)*np.identity(2)+(tval/10)*A 
+                #set up writer object to grab frames for a gif
+                writer = PillowWriter(fps=15)
 
-                  #matrix multiply to find intermediate image of e1 and e2
-                  IAe1 = np.matmul(IA,e1) #image of e1
-                  IAe2 = np.matmul(IA,e2) #image of e2
+                with writer.saving(fig, "TransformVectors2.gif", 100): #100 is the dpi
+                  for tval in np.linspace(0,10,20):
+                    writer.grab_frame() #grab frame of initial graph
+                  for tval in np.linspace(0,10,50):                
+                    #create an intermediate matrix transformation
+                    IA = (1-tval/10)*np.identity(2)+(tval/10)*A 
 
-                  plt.cla() #clear plot of previous vectors 
-                  #plot intermediate transformed vectors 
-                  ax.quiver(0,0,IAe1[0,0],IAe1[1,0],label='$A \\vec e_1$', color='deepskyblue', angles='xy', scale_units='xy', scale=1)
-                  ax.quiver(0,0,IAe2[0,0],IAe2[1,0],label='$A \\vec e_2$', color='teal', angles='xy', scale_units='xy', scale=1)                    
-                  ax.set(title="Transformation of Standard Basis", xlim=(-2,5), ylim=(-2,5))
-                  ax.legend() 
-                  ax.grid()
-                  
-                  writer.grab_frame() #grab frame of current intermediate transformation
-            </input>
-          </sage>
+                    #matrix multiply to find intermediate image of e1 and e2
+                    IAe1 = np.matmul(IA,e1) #image of e1
+                    IAe2 = np.matmul(IA,e2) #image of e2
+
+                    plt.cla() #clear plot of previous vectors 
+                    #plot intermediate transformed vectors 
+                    ax.quiver(0,0,IAe1[0,0],IAe1[1,0],label='$A \\vec e_1$', color='deepskyblue', angles='xy', scale_units='xy', scale=1)
+                    ax.quiver(0,0,IAe2[0,0],IAe2[1,0],label='$A \\vec e_2$', color='teal', angles='xy', scale_units='xy', scale=1)                    
+                    ax.set(title="Transformation of Standard Basis", xlim=(-2,5), ylim=(-2,5))
+                    ax.legend() 
+                    ax.grid()
+                    
+                    writer.grab_frame() #grab frame of current intermediate transformation
+              </input>
+            </sage>
+          </example> 
 
           <p>
             Note that the .gif would also look better if the animation lingered 
@@ -560,115 +731,73 @@
 
           <exercise>
             <p>
-              Edit the above code so the animation pauses at the completed transformation. 
+              Edit the code in <xref ref="basisgiflinger"/> so the animation pauses at the completed transformation.
+              Where do you need to add the loop to grab the correct frames?  
             </p>
           </exercise>
 
-          <p>
-            We could instead create a slider that starts with the identity transformation
-            and gradually gives us the transformation by <m>A.</m>
-          </p>
-
-          <sage language='python'>
-            <input>
-              import matplotlib.pyplot as plt
-              import numpy as np
-
-              e1 = np.array([[1],[0]]) #standard basis
-              e2 = np.array([[0],[1]]) #standard basis
-              A = np.array([[2,2], [0,3]]) #matrix transformation
-              t = np.linspace(0, 10, 11) #user inputs for intermediate transformation
-
-              #define function that plots intermediate transformation at user input
-              def plot_transform(current_t):
-                  #define an intermediate transformation
-                  #When t=0 you get the identity, when t=10 you get A
-                  IA = (1-current_t/10)*np.identity(2)+(current_t/10)*A 
-
-                  #plot intermediate transformation
-                  fig, ax = plt.subplots() #create a figure and axes 
-                  IAe1 = np.matmul(IA,e1)
-                  IAe2 = np.matmul(IA,e2)
-
-                  ax.quiver(0,0,IAe1[0,0],IAe1[1,0],label='$A \\vec e_1$',color='deepskyblue', angles='xy', scale_units='xy', scale=1) 
-                  ax.quiver(0,0,IAe2[0,0],IAe2[1,0],label='$A \\vec e_2$', color='teal', angles='xy', scale_units='xy', scale=1)
-                  ax.set(title="Transformation of Standard Basis", xlim=(-2,5), ylim=(-2,5))
-                  ax.legend() 
-                  ax.grid()
-                  plt.show()
-
-              #define function to create graph based on user input
-              @interact() #create interactive element, this one is a slider
-              def respond_to_user_input(frame=slider(0,10,1)): 
-
-                  #Get intermediate transformation up to frame user chooses.
-                  current_t = t[frame]
-
-                  #Call our function that plots the transformation        
-                  plot_transform(current_t)
-            </input>
-          </sage>
+          
 
           <p>
             Animating a gradual transformation of our collection of points 
             from the identity to the matrix transformation can be done similarly. 
+            We will include one example using a .gif animating the transformation of a grid of points
+            and leave the slider and animating a grid of lines as an exercise for the reader.
           </p>
 
-          <sage language='python'>
-            <input>
-              import numpy as np 
-              import matplotlib.pyplot as plt
-              from matplotlib.animation import PillowWriter
+          <example>
+            <title>Animating a grid transformation using PillowWriter</title>
 
-              fig, ax = plt.subplots() #create figure and axes
-              
-              A = np.array([[2,2], [0,3]]) #transformation matrix
+            <sage language='python'>
+              <input>
+                import numpy as np 
+                import matplotlib.pyplot as plt
+                from matplotlib.animation import PillowWriter
 
-              #create grid of points
-              Xvals = np.linspace(-4,4, num=9)
-              Yvals = np.linspace(0,6, num=9)
-              X,Y = np.meshgrid(Xvals, Yvals)
+                fig, ax = plt.subplots() #create figure and axes
+                
+                A = np.array([[2,2], [0,3]]) #transformation matrix
 
-              #reshape to x-row and y-row
-              X1 = X.reshape((9**2,))
-              Y1 = Y.reshape((9**2,))
-              xygrid = np.row_stack([X1, Y1])
+                #create grid of points
+                Xvals = np.linspace(-4,4, num=9)
+                Yvals = np.linspace(0,6, num=9)
+                X,Y = np.meshgrid(Xvals, Yvals)
 
-              #set up writer object to grab frames for a gif
-              writer = PillowWriter(fps=15)
+                #reshape to x-row and y-row
+                X1 = X.reshape((9**2,))
+                Y1 = Y.reshape((9**2,))
+                xygrid = np.row_stack([X1, Y1])
 
-              with writer.saving(fig, "TransformPoints.gif", 100): #100 is the dpi
-                for tval in np.linspace(0,10,30):
-                  ax.scatter(xygrid[0],xygrid[1], c=xygrid[0])
-                  ax.set(xlim=(-10,10), ylim=(-5,15))
-                  
-                  writer.grab_frame() #grab frames
-                  
-                for tval in np.linspace(0,10,50):                
-                  #create an intermediate matrix transformation that gradually
-                  #transitions between the identity when tval=0 and A when tval=10
-                  IA = (1-tval/10)*np.identity(2)+(tval/10)*A 
+                #set up writer object to grab frames for a gif
+                writer = PillowWriter(fps=15)
 
-                  #matrix multiply to find intermediate image of points
-                  uvgrid = np.matmul(IA,xygrid) 
+                with writer.saving(fig, "TransformPoints.gif", 100): #100 is the dpi
+                  for tval in np.linspace(0,10,30):
+                    ax.scatter(xygrid[0],xygrid[1], c=xygrid[0])
+                    ax.set(xlim=(-10,10), ylim=(-5,15))
+                    
+                    writer.grab_frame() #grab frames
+                    
+                  for tval in np.linspace(0,10,50):                
+                    #create an intermediate matrix transformation that gradually
+                    #transitions between the identity when tval=0 and A when tval=10
+                    IA = (1-tval/10)*np.identity(2)+(tval/10)*A 
 
-                  plt.cla() #clear plot of previous points  
-                  #plot intermediate transformed points 
-                  ax.scatter(uvgrid[0],uvgrid[1], c=xygrid[0])
-                  ax.set(xlim=(-10,10), ylim=(-5,15))
-                  
-                  writer.grab_frame() #grab frames
-              
-                for tval in np.linspace(0,10,30):
-                  plt.cla() #clear plot of previous points 
-                  #plot transformed points
-                  uvgrid = np.matmul(A,xygrid) 
-                  ax.scatter(uvgrid[0],uvgrid[1], c=xygrid[0])
-                  ax.set(xlim=(-10,10), ylim=(-5,15))  
-                  
-                  writer.grab_frame() #grab frames
-            </input>
-          </sage>
+                    #matrix multiply to find intermediate image of points
+                    uvgrid = np.matmul(IA,xygrid) 
+
+                    plt.cla() #clear plot of previous points  
+                    #plot intermediate transformed points 
+                    ax.scatter(uvgrid[0],uvgrid[1], c=xygrid[0])
+                    ax.set(xlim=(-10,10), ylim=(-5,15))
+                    
+                    writer.grab_frame() #grab frames
+                
+                  for tval in np.linspace(0,10,30): 
+                    writer.grab_frame() #grab frames
+              </input>
+            </sage>
+          </example> 
 
 
           <exercise>
@@ -725,6 +854,39 @@
           <p>
             Visualize a linear transformation using similar methods
             on a point grid in <m>\mathbb{R}^3</m> in Matplotlib.
+          </p>
+          <sage language='python'>
+            <input>
+              #
+              #
+              #
+              #
+              #
+            </input>
+          </sage>
+          
+        </exercise>
+        <exercise>
+          <p>
+            Animate a linear transformation on a line grid in Matplotlib.
+          </p>
+          <sage language='python'>
+            <input>
+              #
+              #
+              #
+              #
+              #
+            </input>
+          </sage>
+          
+        </exercise>
+        <exercise>
+
+          <p>
+            Animate a linear transformation that goes up or down a dimension
+           in Matplotlib. E.g. <m>\mathbb{R}^3 \rightarrow \mathbb{R}^2</m> 
+            or <m>\mathbb{R}^2 \rightarrow \mathbb{R}^3 </m> all visualized or embedded inside <m>\mathbb{R}^3</m>.
           </p>
           <sage language='python'>
             <input>
