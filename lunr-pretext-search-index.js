@@ -736,7 +736,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.3",
   "title": "Matrix Transformations",
-  "body": " Matrix Transformations   Matrix-vector multiplication can fundamentally be interpreted as linear transformations of a vector space. We can directly graph these transformations in and . We can usually generalize our understanding to even though we can't graph the higher dimensions.  Since we will graph in Matplotlib, which uses NumPy arrays, we will default to NumPy (instead of SymPy) for our matrix computations.  In this section we will learn how to      Compute a matrix transformation using NumPy.    Visualize a matrix transformation using basis vectors or a grid in Matplotlib.    Animate a visual of a Matrix Transformation.      Computing Matrix Transformations  We can compute the matrix transformation of a vector simply by using matrix-vector multiplication. Recall that in order to multiply a vector by a matrix, you need a column vector. You can use NumPy's transpose or .T function to convert if needed. Similarly you can use SymPy's Transpose() or .T to convert.    Note the above code throws an error. Use NumPy's transpose() function to make a column vector to fix the error.  You can use transpose(arrayname) , or arrayname.T    Recall that NumPy has an alternate command for matrix multiplication. Alter the above code to use the alternate command.  Because matrix multiplication extends matrix-vector multiplication linearly, we can find the image of multiple input vectors all at once. We simply use the vectors we want to transform as the columns of a matrix, then we can extract their image from the matrix product as the corresponding column.    Change the above code to select a different input vector and compare to the corresponding column of the matrix product.    Visualizing a Matrix Transformation  We can visualize the effect of a transformation by considering the transformed basis vectors. That is, the image of basis vectors under the transformation . We say is the image of the standard basis vector under the transformation . That is, the output of under the transformation, i.e. where gets mapped via . We can then picture the image of any linear combinations of basis vectors using scaling and adding tail to tip. Since every other vector is a linear combination of the basis vectors, that allows us to visualize the image of every vector in the space.  Note that for a square matrix, the image can be visualized in the same space as the domain. We will demonstrate for a transformation using the standard basis.   First we will visualize just the transformed basis vectors.    Edit the code in to consolidate the basis vectors into columns of one matrix instead. Then extract their images under from the resulting matrix product. What do you notice?  To visualize how the rest of the space is transformed, we can use scalar multiples of the standard basis to grid out the space. Since the vector gets mapped to , we can then visualize the result of the transformation using the transformed grid.   We will first apply to a grid of coordinate dots. While NumPy's meshgrid() works great for plotting a grid of points, the arrays are not the right size to act as input vectors for the matrix-vector multiplication.  For matrix-vector multiplication we need column vectors. If we want to compute the image of several vectors all at once we want a matrix where each column is one of our vectors with top entry an x-value and bottom entry a corresponding y-value. In other words, we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a array.reshape(size) function that allows us to reshape each array of x-values and y-values from meshgrid() into rows. We can then row_stack() those two rows to form the desired input matrix.    It can be easier to visualize a matrix transformation using a line grid (or coordinate grid) rather than a collection of points. We will use our points to create a grid of lines instead. Note: horizontal lines have incrementing x-values and constant y-values, while vertical lines have incrementing y-values and constant x-values.   First we will create a grid of lines without applying a transformation.   Next we will add in the matrix transformation. In order to find the transformed line grid, we will need to again .reshape() the X,Y grid into a row of x-values then a row of y-values.   To better see the effects of a reflection, we will use a sequential color map to color our lines. Below is a standard basis grid.   Below is the corresponding transformed grid with a sequential color map.    If instead the transformation maps higher dimensional vectors to lower dimensional vectors, or vice versa, we can still visualize the transformation. One approach is to plot two graphs: (1) the standard basis in the domain and (2) the corresponding transformed basis in the co-domain color-coded to match. Another approach is to embed everything in the the higher dimensional space and graph there.    Animating Matrix Transformations  What if we wanted to visualize the transformation as a gradual change? We can create a gradual transformation using percentages of the identity transformation and our matrix transformation. If we start with 100% of our identity transformation and end with 100% of our matrix transformation, we obtain a sliding scale between the two.  We can animate the gradual transformation using what we learned in . Using PillowWriter we will start with a somewhat simple .gif of the transformation, then add features.   Add a title, grid, and legend to the above animation. Where do these need to be added in the code to show up in every frame?  Note that the animation would look better visually if we started with the standard basis plot for a few more seconds before beginning the transformation. We can add that by grabbing frames of the standard basis plot first.   Note that the .gif would also look better if the animation lingered for a few more seconds at the end where the transformation is complete.  Edit the above code so the animation pauses at the completed transformation.  We could instead create a slider that starts with the identity transformation and gradually gives us the transformation by    Animating a gradual transformation of our collection of points from the identity to the matrix transformation can be done similarly.   Animate a gradual matrix transformation using the line grid.     Because linear transformations can be fully determined by a basis, we can visualize the transformation based on how a basis is transformed. We can visualize matrix transformations on vectors in using basis grids (points or lines) and in using basis vectors (and perhaps a point grid).    Summary     TBD      TBD       Visualize a linear transformation using similar methods on a point grid in in Matplotlib.   "
+  "body": " Matrix Transformations   Matrix-vector multiplication can fundamentally be interpreted as linear transformations of a vector space. We can directly graph these transformations in and . We can usually generalize our understanding to even though we can't graph the higher dimensions.  Since we will graph in Matplotlib, which uses NumPy arrays, we will default to NumPy (instead of SymPy) for our matrix computations.  In this section we will learn how to      Compute a matrix transformation using NumPy.    Visualize a matrix transformation using basis vectors or a grid in Matplotlib.    Animate a visual of a Matrix Transformation.      Computing Matrix Transformations  We can compute the matrix transformation of a vector simply by using matrix-vector multiplication. Recall that in order to multiply a vector by a matrix, you need a column vector. You can use NumPy's transpose or .T function to convert if needed. Similarly you can use SymPy's Transpose() or .T to convert.    Note the above code throws an error. Use NumPy's transpose() function to make a column vector to fix the error.  You can use transpose(arrayname) , or arrayname.T    Recall that NumPy has an alternate command for matrix multiplication. Alter the above code to use the alternate command.  Because matrix multiplication extends matrix-vector multiplication linearly, we can find the image of multiple input vectors all at once. We simply use the vectors we want to transform as the columns of a matrix, then we can extract their image from the matrix product as the corresponding column.    Change the above code to select a different input vector and compare to the corresponding column of the matrix product.    Visualizing a Matrix Transformation  We can visualize the effect of a transformation by considering the transformed basis vectors. That is, the image of basis vectors under the transformation . We say is the image of the standard basis vector under the transformation . That is, the output of under the transformation, i.e. where gets mapped via . We can then picture the image of any linear combinations of basis vectors using scaling and adding tail to tip. Since every other vector is a linear combination of the basis vectors, that allows us to visualize the image of every vector in the space.  Note that for a square matrix, the image can be visualized in the same space as the domain. We will demonstrate for a transformation using the standard basis.   First we will visualize just the transformed basis vectors.    Edit the code in to consolidate the basis vectors into columns of one matrix instead. Then extract their images under from the resulting matrix product. What do you notice?  To visualize how the rest of the space is transformed, we can use scalar multiples of the standard basis to grid out the space. Since the vector gets mapped to , we can then visualize the result of the transformation using the transformed grid.   We will first apply to a grid of coordinate dots. While NumPy's meshgrid() works great for plotting a grid of points, the arrays are not the right size to act as input vectors for the matrix-vector multiplication.  For matrix-vector multiplication we need column vectors, and if we want to compute the image of several vectors all at once we need a matrix where each column is one of our vectors. Here we want each column to be a coordinate, having top entry an x-value and bottom entry a corresponding y-value. In other words, we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a array.reshape(size) function that allows us to reshape each array of x-values and y-values from meshgrid() into rows. We can then row_stack() those two rows to form the desired input matrix.    Edit the code in to print every array to see how the same arrays are reshaped, recombined, and transformed.  Print arrays so you can compare X to X1 and Y to Y1. Also compare xygrid to xygrid[i] and xygrid to uvgrid to see the difference.   Edit the code in to make a point grid instead. We used a grid at first so you could print the arrays to follow along. Now we want to generalize to more points.   Note: the argument c= inside scatter tells Matplotlib how to assign colors to our scatterplot. Here we assign colors according to the first array in xygrid. What happens if you assign colors according to the second array inside xygrid?  It can be easier to visualize a matrix transformation using a line grid (or coordinate grid) rather than a collection of points. To use our points to create a grid of lines instead, we need at least two points on each line. We will use plot instead of scatter . Note: horizontal lines have incrementing x-values and constant y-values, while vertical lines have incrementing y-values and constant x-values, so we will need to be careful about which arrays we pass into plot .   We will build up to the transformed grid a step at a time.  Step 1: First we will learn how to graph a basic grid of lines.   Step 2: Graph a transformed grid of lines.  Now we add in the matrix transformation. Note: in order to find the transformed line grid, we again .reshape() the X,Y grid into a row of x-values and a row of y-values so we can matrix multiply each point as a column of a matrix. We will then .reshape() back into a transformed meshgrid in order to graph our grid of transformed lines.    In the first step of , graphing the basic grid of lines, change the number of lines to 3. Now print each array to better see which array is used for each plot. Why do we need the transpose for our vertical lines?  In the second step of , graphing the transformed grid of lines, change the number of lines to 3. Now print each array to better see which array is used for each plot. What happens if you only increment through the X or the Y and not both?   Unlike scatter which has an argument c=array that allows us to color code based on an x-coordinate or y-coordinate, plot does not. To better see the effects of a reflection, we will use a sequential color map to color our lines.  Step 1: Color a basic grid   Step 2: Color a transformed grid using corresponding coloring.  Below is the corresponding transformed grid with a sequential color map.    If instead the transformation maps higher dimensional vectors to lower dimensional vectors, or vice versa, we can still visualize the transformation.   One approach is to plot two graphs side-by-side color-coded to match: (1) the standard basis (or grid) in the domain and (2)the corresponding transformed basis (or transformed grid) in the co-domain.    Another approach is to embed everything in the higher dimensional space and animate the transformation there. Note: every matrix transformation, say can be extended to a matrix transformation by adding an zero column. (Respectively if we extend to and add a zero row).        Animating Matrix Transformations  What if we wanted to visualize the transformation as a gradual change?  We can create an intermediate transformation adding complimentary percentages of the identity transformation and our matrix transformation, . We obtain a sliding scale between the two by incrementing through our percentage from 0 to 1, starting with 100% of our identity transformation and ending with 100% of our matrix transformation.   \"Using an interactive slider\"  First we create a slider that starts with the identity transformation on two basis vectors and gradually gives us the transformation by    Note that in this interactive, we only want the current frame, and not all the frames up to the current frame. Do you know why?   We can animate the gradual transformation using what we learned in . Using PillowWriter we will start with a somewhat simple .gif of the transformation, then add features.   \"Using PillowWriter to make a .gif    Comment out plt.cla() in . What happens to your animation?  Add a title, grid, and legend to the animation in . Where do these need to be added in the code to show up in every frame?   Buffering your .gif  Note that the animation would look better visually if we started with the standard basis plot and lingered for a few seconds before beginning the transformation. We can add that by grabbing frames of the standard basis plot first.    Note that the .gif would also look better if the animation lingered for a few more seconds at the end where the transformation is complete.  Edit the code in so the animation pauses at the completed transformation. Where do you need to add the loop to grab the correct frames?  Animating a gradual transformation of our collection of points from the identity to the matrix transformation can be done similarly. We will include one example using a .gif animating the transformation of a grid of points and leave the slider and animating a grid of lines as an exercise for the reader.   Animating a grid transformation using PillowWriter    Animate a gradual matrix transformation using the line grid.     Because linear transformations can be fully determined by a basis, we can visualize the transformation based on how a basis is transformed. We can visualize matrix transformations on vectors in using basis grids (points or lines) and in using basis vectors (and perhaps a point grid).    Summary     TBD      TBD       Visualize a linear transformation using similar methods on a point grid in in Matplotlib.  Animate a linear transformation on a line grid in Matplotlib.  Animate a linear transformation that goes up or down a dimension in Matplotlib. E.g. or all visualized or embedded inside .   "
 },
 {
   "id": "objectives-8",
@@ -799,52 +799,169 @@ var ptx_lunr_docs = [
   "type": "Example",
   "number": "2.25",
   "title": "",
-  "body": " We will first apply to a grid of coordinate dots. While NumPy's meshgrid() works great for plotting a grid of points, the arrays are not the right size to act as input vectors for the matrix-vector multiplication.  For matrix-vector multiplication we need column vectors. If we want to compute the image of several vectors all at once we want a matrix where each column is one of our vectors with top entry an x-value and bottom entry a corresponding y-value. In other words, we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a array.reshape(size) function that allows us to reshape each array of x-values and y-values from meshgrid() into rows. We can then row_stack() those two rows to form the desired input matrix.   "
-},
-{
-  "id": "example-9",
-  "level": "2",
-  "url": "section-transformations.html#example-9",
-  "type": "Example",
-  "number": "2.26",
-  "title": "",
-  "body": " First we will create a grid of lines without applying a transformation.   Next we will add in the matrix transformation. In order to find the transformed line grid, we will need to again .reshape() the X,Y grid into a row of x-values then a row of y-values.   To better see the effects of a reflection, we will use a sequential color map to color our lines. Below is a standard basis grid.   Below is the corresponding transformed grid with a sequential color map.   "
+  "body": " We will first apply to a grid of coordinate dots. While NumPy's meshgrid() works great for plotting a grid of points, the arrays are not the right size to act as input vectors for the matrix-vector multiplication.  For matrix-vector multiplication we need column vectors, and if we want to compute the image of several vectors all at once we need a matrix where each column is one of our vectors. Here we want each column to be a coordinate, having top entry an x-value and bottom entry a corresponding y-value. In other words, we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a array.reshape(size) function that allows us to reshape each array of x-values and y-values from meshgrid() into rows. We can then row_stack() those two rows to form the desired input matrix.   "
 },
 {
   "id": "exercise-63",
   "level": "2",
   "url": "section-transformations.html#exercise-63",
   "type": "You Try",
-  "number": "2.27",
+  "number": "2.26",
   "title": "",
-  "body": "Add a title, grid, and legend to the above animation. Where do these need to be added in the code to show up in every frame? "
+  "body": "Edit the code in to print every array to see how the same arrays are reshaped, recombined, and transformed.  Print arrays so you can compare X to X1 and Y to Y1. Also compare xygrid to xygrid[i] and xygrid to uvgrid to see the difference.  "
 },
 {
   "id": "exercise-64",
   "level": "2",
   "url": "section-transformations.html#exercise-64",
   "type": "You Try",
-  "number": "2.28",
+  "number": "2.27",
   "title": "",
-  "body": "Edit the above code so the animation pauses at the completed transformation. "
+  "body": "Edit the code in to make a point grid instead. We used a grid at first so you could print the arrays to follow along. Now we want to generalize to more points.  "
 },
 {
   "id": "exercise-65",
   "level": "2",
   "url": "section-transformations.html#exercise-65",
   "type": "You Try",
+  "number": "2.28",
+  "title": "",
+  "body": "Note: the argument c= inside scatter tells Matplotlib how to assign colors to our scatterplot. Here we assign colors according to the first array in xygrid. What happens if you assign colors according to the second array inside xygrid? "
+},
+{
+  "id": "linegrid",
+  "level": "2",
+  "url": "section-transformations.html#linegrid",
+  "type": "Example",
   "number": "2.29",
   "title": "",
-  "body": "Animate a gradual matrix transformation using the line grid. "
+  "body": " We will build up to the transformed grid a step at a time.  Step 1: First we will learn how to graph a basic grid of lines.   Step 2: Graph a transformed grid of lines.  Now we add in the matrix transformation. Note: in order to find the transformed line grid, we again .reshape() the X,Y grid into a row of x-values and a row of y-values so we can matrix multiply each point as a column of a matrix. We will then .reshape() back into a transformed meshgrid in order to graph our grid of transformed lines.   "
 },
 {
   "id": "exercise-66",
   "level": "2",
   "url": "section-transformations.html#exercise-66",
+  "type": "You Try",
+  "number": "2.30",
+  "title": "",
+  "body": "In the first step of , graphing the basic grid of lines, change the number of lines to 3. Now print each array to better see which array is used for each plot. Why do we need the transpose for our vertical lines? "
+},
+{
+  "id": "exercise-67",
+  "level": "2",
+  "url": "section-transformations.html#exercise-67",
+  "type": "You Try",
+  "number": "2.31",
+  "title": "",
+  "body": "In the second step of , graphing the transformed grid of lines, change the number of lines to 3. Now print each array to better see which array is used for each plot. What happens if you only increment through the X or the Y and not both? "
+},
+{
+  "id": "example-10",
+  "level": "2",
+  "url": "section-transformations.html#example-10",
+  "type": "Example",
+  "number": "2.32",
+  "title": "",
+  "body": " Unlike scatter which has an argument c=array that allows us to color code based on an x-coordinate or y-coordinate, plot does not. To better see the effects of a reflection, we will use a sequential color map to color our lines.  Step 1: Color a basic grid   Step 2: Color a transformed grid using corresponding coloring.  Below is the corresponding transformed grid with a sequential color map.   "
+},
+{
+  "id": "basisslider",
+  "level": "2",
+  "url": "section-transformations.html#basisslider",
+  "type": "Example",
+  "number": "2.33",
+  "title": "\"Using an interactive slider\".",
+  "body": " \"Using an interactive slider\"  First we create a slider that starts with the identity transformation on two basis vectors and gradually gives us the transformation by    Note that in this interactive, we only want the current frame, and not all the frames up to the current frame. Do you know why?  "
+},
+{
+  "id": "basisgif",
+  "level": "2",
+  "url": "section-transformations.html#basisgif",
+  "type": "Example",
+  "number": "2.34",
+  "title": "\"Using PillowWriter to make a .gif.",
+  "body": " \"Using PillowWriter to make a .gif   "
+},
+{
+  "id": "exercise-68",
+  "level": "2",
+  "url": "section-transformations.html#exercise-68",
+  "type": "You Try",
+  "number": "2.35",
+  "title": "",
+  "body": "Comment out plt.cla() in . What happens to your animation? "
+},
+{
+  "id": "exercise-69",
+  "level": "2",
+  "url": "section-transformations.html#exercise-69",
+  "type": "You Try",
+  "number": "2.36",
+  "title": "",
+  "body": "Add a title, grid, and legend to the animation in . Where do these need to be added in the code to show up in every frame? "
+},
+{
+  "id": "basisgiflinger",
+  "level": "2",
+  "url": "section-transformations.html#basisgiflinger",
+  "type": "Example",
+  "number": "2.37",
+  "title": "Buffering your .gif.",
+  "body": " Buffering your .gif  Note that the animation would look better visually if we started with the standard basis plot and lingered for a few seconds before beginning the transformation. We can add that by grabbing frames of the standard basis plot first.   "
+},
+{
+  "id": "exercise-70",
+  "level": "2",
+  "url": "section-transformations.html#exercise-70",
+  "type": "You Try",
+  "number": "2.38",
+  "title": "",
+  "body": "Edit the code in so the animation pauses at the completed transformation. Where do you need to add the loop to grab the correct frames? "
+},
+{
+  "id": "example-14",
+  "level": "2",
+  "url": "section-transformations.html#example-14",
+  "type": "Example",
+  "number": "2.39",
+  "title": "Animating a grid transformation using PillowWriter.",
+  "body": " Animating a grid transformation using PillowWriter   "
+},
+{
+  "id": "exercise-71",
+  "level": "2",
+  "url": "section-transformations.html#exercise-71",
+  "type": "You Try",
+  "number": "2.40",
+  "title": "",
+  "body": "Animate a gradual matrix transformation using the line grid. "
+},
+{
+  "id": "exercise-72",
+  "level": "2",
+  "url": "section-transformations.html#exercise-72",
   "type": "Exercise",
   "number": "1",
   "title": "",
   "body": "Visualize a linear transformation using similar methods on a point grid in in Matplotlib. "
+},
+{
+  "id": "exercise-73",
+  "level": "2",
+  "url": "section-transformations.html#exercise-73",
+  "type": "Exercise",
+  "number": "2",
+  "title": "",
+  "body": "Animate a linear transformation on a line grid in Matplotlib. "
+},
+{
+  "id": "exercise-74",
+  "level": "2",
+  "url": "section-transformations.html#exercise-74",
+  "type": "Exercise",
+  "number": "3",
+  "title": "",
+  "body": "Animate a linear transformation that goes up or down a dimension in Matplotlib. E.g. or all visualized or embedded inside . "
 },
 {
   "id": "section-determinants",
@@ -865,18 +982,18 @@ var ptx_lunr_docs = [
   "body": "   C    D    "
 },
 {
-  "id": "exercise-67",
+  "id": "exercise-75",
   "level": "2",
-  "url": "section-determinants.html#exercise-67",
+  "url": "section-determinants.html#exercise-75",
   "type": "You Try",
-  "number": "2.30",
+  "number": "2.41",
   "title": "",
   "body": ""
 },
 {
-  "id": "exercise-68",
+  "id": "exercise-76",
   "level": "2",
-  "url": "section-determinants.html#exercise-68",
+  "url": "section-determinants.html#exercise-76",
   "type": "Exercise",
   "number": "1",
   "title": "",
@@ -901,18 +1018,18 @@ var ptx_lunr_docs = [
   "body": "   C    D    "
 },
 {
-  "id": "exercise-69",
+  "id": "exercise-77",
   "level": "2",
-  "url": "section-eigenthings.html#exercise-69",
+  "url": "section-eigenthings.html#exercise-77",
   "type": "You Try",
-  "number": "2.31",
+  "number": "2.42",
   "title": "",
   "body": ""
 },
 {
-  "id": "exercise-70",
+  "id": "exercise-78",
   "level": "2",
-  "url": "section-eigenthings.html#exercise-70",
+  "url": "section-eigenthings.html#exercise-78",
   "type": "Exercise",
   "number": "1",
   "title": "",
@@ -946,18 +1063,18 @@ var ptx_lunr_docs = [
   "body": "   C    D    "
 },
 {
-  "id": "p-342",
+  "id": "p-359",
   "level": "2",
-  "url": "examples.html#p-342",
+  "url": "examples.html#p-359",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "integral integral integral integral integral integral variable "
 },
 {
-  "id": "exercise-72",
+  "id": "exercise-80",
   "level": "2",
-  "url": "examples.html#exercise-72",
+  "url": "examples.html#exercise-80",
   "type": "You Try",
   "number": "3.4",
   "title": "Exercise What.",
@@ -973,9 +1090,9 @@ var ptx_lunr_docs = [
   "body": "   C    D    "
 },
 {
-  "id": "exercise-73",
+  "id": "exercise-81",
   "level": "2",
-  "url": "examples.html#exercise-73",
+  "url": "examples.html#exercise-81",
   "type": "Reading Question",
   "number": "1",
   "title": "",

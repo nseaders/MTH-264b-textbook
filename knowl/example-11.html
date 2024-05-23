@@ -9,42 +9,66 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script><script>// Make *any* pre with class 'sagecell-python' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-python",
+  "linked": true,
+  "languages": [
+    "python"
+  ],
+  "evalButtonText": "Evaluate (Python)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <article class="example example-like"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.15</span><span class="period">.</span>
-</h4>
-<div class="para logical">
-<div class="para">Consider the three vectors</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\va=\llt 1,1,0 \rgt\qquad
-\vb=\llt 1,0,1 \rgt \qquad
-\vc=\llt -1,1,1\rgt
-\end{equation*}
-</div>
-<div class="para">Their dot products</div>
-<div class="displaymath process-math">
-\begin{alignat*}{3}
-\va\cdot\vb &amp; = \llt 1,1,0 \rgt \cdot \llt 1,0,1 \rgt
-&amp;&amp; = 1\times 1 +1\times 0+0\times 1
-&amp;&amp; = 1\\
-\va\cdot\vc &amp; = \llt 1,1,0 \rgt \cdot \llt -1,1,1 \rgt
-&amp;&amp; = 1\times(-1) +1\times 1+0\times 1
-&amp;&amp; = 0\\
-\vb\cdot\vc &amp; = \llt 1,0,1 \rgt \cdot \llt -1,1,1 \rgt
-&amp;&amp; = 1\times(-1) +0\times 1+1\times 1
-&amp;&amp; = 0
-\end{alignat*}
-</div>
-<div class="para">tell us that <span class="process-math">\(\vc\)</span> is perpendicular to both <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vb\text{.}\)</span> Since both <span class="process-math">\(|\va|=|\vb|=\sqrt{1^2+1^2+0^2}=\sqrt{2}\)</span> the first dot product tells us that the angle, <span class="process-math">\(\theta\text{,}\)</span> between <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vb\)</span> obeys</div>
-<div class="displaymath process-math">
-\begin{gather*}
-\cos\theta =\frac{\va\cdot\vb}{|\va|\,|\vb|}=\frac{1}{2}
-\implies
-\theta =\frac{\pi}{3}
-\end{gather*}
-</div>
-</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:30%;margin-right:30%;"><div class="sbspanel top" style="width:100%;"><img src="external/figs/dotProd.svg" role="img" class="contained"></div></div></div></article><span class="incontext"><a href="sec_vectors.html#example-11" class="internal">in-context</a></span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.33</span><span class="period">.</span><span class="space"> </span><span class="title">"Using an interactive slider".</span>
+</h4> <pre class="ptx-sagecell sagecell-python" id="sage-79"><script type="text/x-sage">import matplotlib.pyplot as plt
+import numpy as np
+
+e1 = np.array([[1],[0]]) #standard basis
+e2 = np.array([[0],[1]]) #standard basis
+A = np.array([[2,2], [0,3]]) #matrix transformation
+t = np.linspace(0, 10, 11) #user inputs for intermediate transformation
+
+#define function that plots intermediate transformation at user input
+def plot_transform(current_t):
+    #define an intermediate transformation
+    #When t=0 you get the identity, when t=10 you get A
+    IA = (1-current_t/10)*np.identity(2)+(current_t/10)*A 
+
+    #plot intermediate transformation
+    fig, ax = plt.subplots() #create a figure and axes 
+    IAe1 = np.matmul(IA,e1)
+    IAe2 = np.matmul(IA,e2)
+
+    ax.quiver(0,0,IAe1[0,0],IAe1[1,0],label='$A \\vec e_1$',color='salmon', angles='xy', scale_units='xy', scale=1) 
+    ax.quiver(0,0,IAe2[0,0],IAe2[1,0],label='$A \\vec e_2$', color='teal', angles='xy', scale_units='xy', scale=1)
+    ax.set(title="Transformation of Standard Basis", xlim=(-2,5), ylim=(-2,5))
+    ax.legend() 
+    ax.grid()
+    plt.show()
+
+#define function to create graph based on user input
+@interact() #create interactive element, this one is a slider
+def respond_to_user_input(frame=slider(0,10,1)): 
+
+    #Get intermediate transformation up to frame user chooses.
+    current_t = t[frame]
+
+    #Call our function that plots the transformation        
+    plot_transform(current_t)
+</script></pre></article><span class="incontext"><a href="section-transformations.html#example-11" class="internal">in-context</a></span>
 </body>
 </html>

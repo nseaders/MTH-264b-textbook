@@ -33,9 +33,9 @@ sagecell.makeSagecell({
 </head>
 <body class="ignore-math">
 <article class="example example-like"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.26</span><span class="period">.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.29</span><span class="period">.</span>
 </h4>
-<div class="para">First we will create a grid of lines without applying a transformation.</div> <pre class="ptx-sagecell sagecell-python" id="sage-75"><script type="text/x-sage">import numpy as np
+<div class="para">In order to build up to a more complicated answer, first we will create a grid of lines without applying a transformation.</div> <pre class="ptx-sagecell sagecell-python" id="sage-75"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots() #create fig, axes
@@ -48,11 +48,11 @@ X,Y = np.meshgrid(Xvals, Yvals)
 
 #graph horizontal lines 
 for i in np.arange(0,NLines,step=1):
-    ax.plot(X[i],Y[i], color='gray') 
+    ax.plot(X[0],Y[i], color='gray') 
     
 #graph vertical lines using transpose
 for i in np.arange(0,NLines,step=1):
-    ax.plot(X.T[i], Y.T[i], color='gray') 
+    ax.plot(X.T[i], Y.T[0], color='gray') 
 
 ax.set(xlim=(-10,10), ylim=(-10,10))
 
