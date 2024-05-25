@@ -560,6 +560,16 @@
           How is what you found different than what you learned in this section? Explain.
           </p>
         </exercise>
+
+        <exercise>
+          <p>
+            Use <c>meshgrid()</c> to create a <m>5 \times 5</m> grid of x and y-values. 
+             Plot a <m>5\times 5</m> grid of vertical and horizontal lines in <m>\mathbb{R}^2</m> 
+             by extracting the appropriate rows and columns from your <c>meshgrid()</c>.<fn> 
+              We will use a related approach in <xref ref="section-transformations"/> to visualize matrix transformations.
+            </fn> 
+          </p>
+        </exercise>
         
       </exercises>
 

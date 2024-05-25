@@ -34,7 +34,46 @@
 
         <sage language='python'>
           <input>
-            python
+            import numpy as np
+            import sympy as sp
+            
+            sp.init_printing()
+            B = np.array([[0,2],[1,-3]])
+            B2 = np.array([[1,1],[1,1]])
+            B3 = np.array([[1,2,3],[4,4,4],[0,1,0]])
+            C = sp.Matrix([[0,2],[1,-3]])
+            C3 = sp.Matrix([[1,2,3],[4,4,4],[0,1,0]])
+            
+            #Find the determinant
+            npDet = np.linalg.det(B)
+            spDet = sp.det(C)
+            
+            #Find characteristic polynomial
+            np.poly(B)
+            P = C.charpoly()
+            display(P)
+            display(sp.factor(P)) #factor poly
+            #factor(p.as_expr())
+            
+            #Find the eigenvalues
+            np.linalg.eig(B)
+            e1,e2 = C.eigenvals() #returns a tuple
+            display(e1)
+            display(e1.evalf()) #evaluate or approximate
+            #SymPy expressions can be converted to floating-point approximations using .evalf() or N()
+            #result_1 = (1/x).evalf(subs={x: 3.0}, n=25) can evaluate up to a certain precision
+            
+            #Find the eigenvectors
+            eig, vects = np.linalg.eig(B)
+            print(eig, vects)
+            display(C.eigenvects())
+            
+            #compute the condition number
+            print(np.linalg.cond(B))
+            
+            #solve a linear matrix equation
+            b= np.array([1,1])
+            print(np.linalg.solve(B2,b))
 
           </input>
         </sage>
