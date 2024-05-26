@@ -18,63 +18,127 @@
         <ul>
           <li>
             <p>
-              C
+              Compute eigenvalues and eigenvectors using NumPy and SymPy.
             </p>
           </li>
           <li>
             <p>
-              D
+              Visualize a matrix transformation using eigen-information.
             </p>
           </li>
         </ul>
       </objectives>
 
-      <subsection>
-        <title>Title</title>
+      <subsection xml:id="subsec-computing-eigenthings">
+        <title>Computing Eigenthings</title>
+
+        <p>
+          Although we could use determinants to solve for eigenvalues and row reducing to solve for eigenvectors, 
+          both NumPy and SymPy have commands to directly determine eigenthings.
+        </p>
+        <p>
+          NumPy's <c>linalg.eig(matrix_name)</c> can be used to find numerical approximations for the eigenvalues and 
+          eigenvectors (where the latter are normalized to have magnitude 1). Note that <c>linalg.eig(matrix_name)</c> returns a tuple of both the eigenvalues 
+          and the eigenvectors.  
+        </p>
+        <p>
+          You can also find just the characteristic polynomial using <c>poly(matrix_name)</c> and just the
+          eigenvalues using <c>linalg.eigvals(matrix_name)</c>.
+        </p>
 
         <sage language='python'>
           <input>
             import numpy as np
-            import sympy as sp
-            
-            sp.init_printing()
+
+            A = np.array([[1,1],[-2,4]])
             B = np.array([[0,2],[1,-3]])
-            B2 = np.array([[1,1],[1,1]])
-            B3 = np.array([[1,2,3],[4,4,4],[0,1,0]])
-            C = sp.Matrix([[0,2],[1,-3]])
-            C3 = sp.Matrix([[1,2,3],[4,4,4],[0,1,0]])
-            
-            #Find the determinant
-            npDet = np.linalg.det(B)
-            spDet = sp.det(C)
-            
+
             #Find characteristic polynomial
-            np.poly(B)
-            P = C.charpoly()
-            display(P)
-            display(sp.factor(P)) #factor poly
-            #factor(p.as_expr())
-            
-            #Find the eigenvalues
-            np.linalg.eig(B)
-            e1,e2 = C.eigenvals() #returns a tuple
-            display(e1)
-            display(e1.evalf()) #evaluate or approximate
-            #SymPy expressions can be converted to floating-point approximations using .evalf() or N()
-            #result_1 = (1/x).evalf(subs={x: 3.0}, n=25) can evaluate up to a certain precision
-            
-            #Find the eigenvectors
-            eig, vects = np.linalg.eig(B)
-            print(eig, vects)
-            display(C.eigenvects())
-          
-            
-            #solve a linear matrix equation
-            b= np.array([1,1])
-            print(np.linalg.solve(B2,b))
+            P = np.poly(A)
+
+            #Find just the eigenvalues
+            E = np.linalg.eigvals(A)
+
+            #Find eigenvalues and eigenvectors
+            eig, vects = np.linalg.eig(A)
+
+            print(P)
+            print(eig,vects)
 
           </input>
         </sage>
+
+        <exercise>
+          <p>
+            Use the above code to write down the characteristic polynomials for both matrices. 
+            Note that you have to interpret the output correctly. 
+          </p>
+        </exercise>
+
+        <exercise>
+          <p>
+            Use the above NumPy code to write down the eigenvalues and eigenvectors for both matrices. 
+            Why might someone prefer to solve a <m>2\times 2</m> eigenvalue question by hand instead? 
+          </p>
+        </exercise>
+
+        <p>
+          As before, SymPy works well with symbolic manipulation. 
+          You can find the characteristic polynomial via <c>matrix.charpoly()</c>.
+          SymPy's <c>.eigenvects()</c> also returns a tuple of exact eigenvalues, their multiplicities, 
+          and exact eigenvectors. Since computing eigenvectors can be costly, we have the option
+          of just computing eigenvalues using <c>.eigvals()</c> instead. 
+          If instead of exact values you want a decimal approximation you can use the 
+          command <c>.evalf()</c> or <c>N()</c>. 
+        </p>
+
+        <sage language='python'>
+          <input>
+            import sympy as sp
+            sp.init_printing()
+
+            A = sp.Matrix([[1,1],[-2,4]])
+            B = sp.Matrix([[0,2],[1,-3]])
+
+            #Find characteristic polynomial
+            P = A.charpoly()
+            display(P)
+
+            #Find the eigenvalues
+            e1,e2 = A.eigenvals() #returns a tuple
+            #display(e1, e2)
+            #SymPy expressions can be converted to floating-point approximations using .evalf() or N()
+            #display(e1.evalf()) #floating point approximations
+            #display(e1.evalf(subs={x: 3.0}, n=25))#floating point up to a certain precision
+
+            #Find the eigenvectors
+            display(A.eigenvects())
+
+          </input>
+        </sage>
+
+        <exercise>
+          <p>
+            Use the above SymPy code to write down the characteristic polynomial for matrix <m>A</m>. 
+            Note that you have to interpret the output correctly. 
+          </p>
+        </exercise>
+
+        <exercise>
+          <p>
+            Use the above code to write down the eigenvalues and eigenvectors for matrix <m>A</m>. 
+          </p>
+        </exercise>
+        <exercise>
+          <p>
+            Repeat the above two exercises for matrix <m>B</m>. 
+          </p>
+        </exercise>
+        
+      </subsection>
+
+      <subsection>
+        <title>Title</title>
 
         <sage language='python'>
           <input>
