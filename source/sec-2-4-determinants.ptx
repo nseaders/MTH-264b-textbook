@@ -18,69 +18,247 @@
         <ul>
           <li>
             <p>
-              C
+              Compute the determinant in NumPy and SymPy.
             </p>
           </li>
           <li>
             <p>
-              D
+              Solve invertible square matrices numerically in NumPy.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use the determinant to see if a matrix might be ill-conditioned.
             </p>
           </li>
         </ul>
       </objectives>
 
-      <subsection>
-        <title>Title</title>
+      <subsection xml:id="subsec-what-is-determinant">
+        <title>What is the determinant?</title>
+        <p>
+          Recall that the action of a linear transformation from <m>\mathbb{R}^n \rightarrow \mathbb{R}^n</m>
+          can be completely determined by a set of <m>n</m> basis vectors. 
+          These basis vectors create a coordinate grid. 
+          For example, in <m>\mathbb{R}^2</m> any set of two non-parallel vectors form a basis
+          and a corresponding coordinate grid of parallelograms.
+          The coordinate grid determines a basic area,  
+          the area of the parallelogram between the two basis vectors. 
+          Since the transformation is linear, the
+          transformed basis vectors either create a transformed parallelogram, or they collapse to a line or the origin. 
+          In particular, the areas of the parallelograms are scaled by the transformation and, since we started with a basis,
+          all areas in the plane are scaled by that same amount.  
+          How the area is scaled by a transformation on <m>\mathbb{R}^2</m> is the value of the determinant. 
+        </p>
+        <p>
+          In <m>\mathbb{R}^3</m> the coordinate grid determines a basic volume.
+          Here how the volume is scaled by a transformation on <m>\mathbb{R}^3</m> is the value of the determinant. 
+          Finally in <m>\mathbb{R}^n</m> the coordinate grid determines a basic hypervolume 
+          and the value by which the volume is scaled by a transformation on <m>\mathbb{R}^n</m> is the value of the determinant.          
+        </p>
+
+        <p>
+          The determinant can be positive or negative depending on whether or not the orientation 
+          of the basis vectors changes or not. For example, a reflection in <m>\mathbb{R}^2</m> 
+          will switch the orientation and change the sign of the determinant. 
+        </p>
+      </subsection>
+      
+      <subsection xml:id="subsec-computing-determinant">
+        <title>Computing the Determinant</title>
+        <p>
+          We can compute the determinant of square matrices both in NumPy and in SymPy as follows.
+        </p>
 
         <sage language='python'>
           <input>
             import numpy as np
             import sympy as sp
             
-            sp.init_printing()
-            B = np.array([[0,2],[1,-3]])
-            B2 = np.array([[1,1],[1,1]])
-            B3 = np.array([[1,2,3],[4,4,4],[0,1,0]])
-            C = sp.Matrix([[0,2],[1,-3]])
-            C3 = sp.Matrix([[1,2,3],[4,4,4],[0,1,0]])
+            B = np.array([[1,2],[3,4]]) #numpy array
+            C = sp.Matrix([[0,1],[1,0]]) #sympy matrix
             
             #Find the determinant
-            npDet = np.linalg.det(B)
-            spDet = sp.det(C)
-            
-            #Find characteristic polynomial
-            np.poly(B)
-            P = C.charpoly()
-            display(P)
-            display(sp.factor(P)) #factor poly
-            #factor(p.as_expr())
-            
-            #Find the eigenvalues
-            np.linalg.eig(B)
-            e1,e2 = C.eigenvals() #returns a tuple
-            display(e1)
-            display(e1.evalf()) #evaluate or approximate
-            #SymPy expressions can be converted to floating-point approximations using .evalf() or N()
-            #result_1 = (1/x).evalf(subs={x: 3.0}, n=25) can evaluate up to a certain precision
-            
-            #Find the eigenvectors
-            eig, vects = np.linalg.eig(B)
-            print(eig, vects)
-            display(C.eigenvects())
-            
-            #compute the condition number
-            print(np.linalg.cond(B))
-            
-            #solve a linear matrix equation
-            b= np.array([1,1])
-            print(np.linalg.solve(B2,b))
+            npDet = np.linalg.det(B) #numpy
+            spDet = sp.det(C) #sympy
 
           </input>
         </sage>
 
         <exercise>
-          
+          <p>
+            Find the determinants of the matrices in the code above. What can you conclude
+          about the transformations of <m>\mathbb{R}^2</m>?  
+          </p>
         </exercise>
+        <exercise>
+          <p>
+            Find a matrix with determinant 0. 
+            Check your determinant in the above code.  
+            What can you conclude about the transformation?
+          </p>
+        </exercise>
+        <exercise>
+          <p>
+            Play with finding the determinant of higher dimensional matrices. 
+            What can you conclude about the transformations? 
+          </p>
+        </exercise>
+      </subsection>
+
+      <subsection xml:id="subsec-determinants-linear-systems">
+        <title>Determinants and Systems of Linear Equations</title>
+        <p>
+          The determinant gives us a quick way to tell whether or not a 
+          system of linear equations has a unique solution or not. 
+          Recall that every system of linear equations corresponds to 
+          a matrix-vector equation. 
+        </p>
+
+        <example xml:id="determinant-and-systems">
+          <p> For example, the systems
+            <md>
+              <mrow>2x  -3y \amp= 1 \amp\text{ and } \amp\amp x+2y \amp = 1 </mrow>
+              <mrow>  x  +4y \amp =2 \amp \amp \amp 3x+6y \amp = 2</mrow>
+            </md> 
+            correspond to matrix equations
+            <me>
+              \left[ \begin{matrix} 2 \amp -3 \\ 1 \amp 4  
+              \end{matrix} \right]
+              \left[ \begin{matrix} x\\ y \end{matrix} \right]=
+              \left[ \begin{matrix} 1\\ 2 \end{matrix} \right]
+            </me> and <me>
+              \left[ \begin{matrix} 1 \amp 2 \\ 3 \amp 6  
+              \end{matrix} \right]
+              \left[ \begin{matrix} x\\ y \end{matrix} \right]=
+              \left[ \begin{matrix} 1\\ 2 \end{matrix} \right]
+            </me>
+          </p>
+        </example>
+
+        <p>
+          If the corresponding matrix transformation collapses down a dimension, 
+          more than one vector gets mapped to the same place, preventing an inverse transformation
+          (since one output would have to map back to several inputs). 
+          In this case, the determinant of the transformation is 0.
+          This corresponds exactly to linear systems of equations with either infinitely many solutions or no solution. 
+        </p>
+        <p>
+          When the determinant is non-zero, however, the matrix transformation is invertible.
+          This corresponds exactly to when a system of linear equations has a unique solution,
+          since you can solve for it using <m>A^{-1}.</m>  
+        </p>
+
+        <exercise>
+          <p>
+            Consider the linear systems in <xref ref="determinant-and-systems"/>. 
+            <ul>
+              <li>
+                <p>
+                  Compute the determinant.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What can you conclude about solutions to each system? 
+                </p>
+              </li>
+            </ul>  
+          </p>
+          <sage language='python'>
+            <input>
+              #solve above exercise here
+  
+            </input>
+          </sage>
+        </exercise>
+          
+      </subsection>
+
+      <subsection xml:id="subsec-numerical-solve">
+        <title>Numerically Solving System of Equations</title>
+        
+        <p>
+          In <xref ref="section-systems"/>, we learned how to solve systems of linear equations
+          using <c>rref()</c> in SymPy. 
+          More efficient algorithms<fn>e.g. using <m>LU</m>-decomposition
+          of our matrix</fn> can be implemented when we know we have a unique solution. 
+          NumPy's <c>linalg.solve(A,b)</c> uses one such algorithm to solve <m>A\vec{x}=\vec{b}</m>. 
+        </p>
+
+        <exercise>
+          <p>
+            Use NumPy's <c>linalg.solve(A,b)</c> to solve the systems of linear equations in 
+            <xref ref="determinant-and-systems"/>. 
+            What happens? 
+          </p>
+          <sage language='python'>
+            <input>
+              import numpy as np
+              
+              A = np.array([[2,-3],[1,4]])
+              B = np.array([[1,2],[3,6]])
+              
+              #solve above exercise here
+            </input>
+          </sage>
+        </exercise>
+
+
+        <p>
+          In practice, we often check the determinant to determine whether or not
+          an algorithm such as <c>linalg.solve()</c> will work before solving the system
+          numerically.<fn>Many stackoverflow questions have been written asking about 
+            the <q>singular</q> error when attempting to solve a large system
+          numerically. The response always involves someone in the know checking the determinant.</fn>
+        </p>
+      </subsection>
+
+      <subsection xml:id="subsec-Ill-conditionedTransformations">
+        <title>Ill-conditioned Matrices</title>
+        
+        <p>
+          Recall in <xref ref="illconditioned"/> 
+          we explored solutions to a system of equations where the corresponding matrix was ill-conditioned.
+          How does ill-conditioning relate to the determinant and the matrix transformation?  
+        </p>
+
+        <exercise>
+          <p>
+            Compute the determinant of the matrix in <xref ref="illconditioned"/>. 
+            Hypothesize a property of ill-conditioned matrices and explain
+            how this property is related to the rounding issues we experienced. 
+          </p>
+          <sage language='python'>
+            <input>
+              #solve above exercise here
+            </input>
+          </sage>
+        </exercise>
+
+        <p>
+          If we visualize the linear system of equations as a matrix transformation of <m>\mathbb{R}^2</m>
+          we can graphically see the problem. 
+        </p>
+
+        <exercise>
+          <p>
+            Using what we learned in <xref ref="section-transformations"/>, plot the matrix
+            transformation corresponding to <xref ref="ill-conditioned-example-exercise"/> on a point grid. 
+          </p>
+          <p>
+            Use your visual to clearly show what is happening with the solutions in <xref ref="ill-conditioned-example-exercise"/>.
+            <em> Note: Solving a matrix equation <m>\vec{x}=A^{=1}\vec{b}</m> corresponds to then reversing the transformation.</em>
+          </p> 
+          <sage language='python'>
+            <input>
+              #solve above exercise here
+            </input>
+          </sage>
+        </exercise>
+
+      
+
 
       </subsection>
 
@@ -97,14 +275,14 @@
         <ul>
           <li>
             <p>
-              blah 
+              TBD 
             </p>
           </li>
         </ul>
         <ul>
           <li>
             <p>
-                blah
+                TBD
             </p>
           </li>
         </ul>
@@ -113,6 +291,11 @@
 
       <exercises xml:id="exercises-determinants">
         <exercise>
+          <p>
+            Compute the determinant of the matrix in <xref ref="illconditioned"/>. 
+            Hypothesize a property of ill-conditioned matrices and explain
+            how this property is related to the rounding issues we experienced. 
+          </p>
           <sage language='python'>
             <input>
               #
@@ -124,7 +307,24 @@
           </sage>
           
         </exercise>
-        
+        <exercise>
+          <p>
+            Using what we learned in <xref ref="section-transformations"/>, plot the matrix
+            transformation corresponding to <xref ref="ill-conditioned-example-exercise"/> on a point grid. 
+            Use your visual to clearly show what is happening with the solutions in <xref ref="ill-conditioned-example-exercise"/>.
+            <em>Note: animating can make this even clearer.</em> 
+          </p>
+          <sage language='python'>
+            <input>
+              #
+              #
+              #
+              #
+              #
+            </input>
+          </sage>
+        </exercise>
+
       </exercises>
 
 

@@ -404,7 +404,7 @@
           Since rounding produces small changes, <em>ill-conditioned</em> matrices 
           can create terminal errors in our solutions.   
         </p>
-        <exercise>
+        <exercise xml:id="ill-conditioned-example-exercise">
           <p>
             Consider the matrix equation in <xref ref="illconditioned"/>. 
             Compare the solutions <m>\vec{x}=A^{-1}\vec{b}</m> obtained in the example, 
@@ -475,14 +475,56 @@
       </assemblage>
 
       <exercises xml:id="exercises-matrices">
-        <exercise>
+        <exercise xml:id="exercise-ill-conditioned">
+          <p>
+            Consider the matrix equation <m>A\vec{x}=\vec{b}</m> where 
+            <m> \vec{b} = \left[ \begin{matrix} 19.249\\ 6.843 \end{matrix}\right]. </m>
+          </p>
+          <p>
+            Compare the solutions <m>\vec{x}=A^{-1}\vec{b}</m> if
+            <ul>
+              <li>
+                <p>
+                  the entries of <m>\vec{b}</m> are rounded to the nearest hundredth, and
+                </p>
+              </li>
+              <li>
+                <p>
+                  if the entries of <m>\vec{b}</m> are rounded to the nearest tenth, and
+                </p>
+              </li>
+              <li>
+                <p>
+                  if the entries of <m>\vec{b}</m> are rounded to the nearest one.
+                </p>
+              </li>
+            </ul>
+          </p>
+          <p>
+            First use 
+            <m>A = \left[ 
+              \begin{matrix}
+              1 \amp 2\\
+              3 \amp 4 \\
+              \end{matrix}
+              \right].
+            </m> 
+
+            Then use
+            <m>A = \left[ 
+              \begin{matrix}
+              4.5 \amp 3.1\\
+              1.6 \amp 1.1 \\
+              \end{matrix}
+              \right]
+            </m>.
+          </p>
+          <p>
+            What do you notice? 
+          </p>
           <sage language='python'>
             <input>
-              #
-              #
-              #
-              #
-              #
+              
             </input>
           </sage>
           
