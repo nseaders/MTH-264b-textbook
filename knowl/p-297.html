@@ -11,8 +11,21 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">For matrix-vector multiplication we need column vectors, and if we want to compute the image of several vectors all at once we need a matrix where <em class="emphasis">each</em> column is one of our vectors. Here we want each column to be a coordinate, having top entry an x-value and bottom entry a corresponding y-value. In other words, we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a <code class="code-inline tex2jax_ignore">array.reshape(size)</code> function that allows us to reshape each array of x-values and y-values from <code class="code-inline tex2jax_ignore">meshgrid()</code> into rows. We can then <code class="code-inline tex2jax_ignore">row_stack()</code> those two rows to form the desired input matrix.</div>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">Because matrix multiplication extends matrix-vector multiplication linearly, we can find the image of multiple input vectors all at once. We simply use the vectors we want to transform as the columns of a matrix, then we can extract their image from the matrix product as the corresponding column.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A 
+\left[
+\vec{x}_1,  \vec{x}_2,  \cdots,  \vec{x}_n
+\right] =
+\left[
+A\vec{x}_1,  A\vec{x}_2,  \cdots,  A\vec{x}_n
+\right]
+\end{equation*}
+</div>
+</div>
 <span class="incontext"><a href="section-transformations.html#p-297" class="internal">in-context</a></span>
 </body>
 </html>

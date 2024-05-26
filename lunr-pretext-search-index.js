@@ -304,7 +304,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.4",
   "title": "Matplotlib and 3D graphing",
-  "body": " Matplotlib and 3D graphing   Now that we have some experience making 2D graphs, let's learn how to make 3D graphs. Note that we can graph both curves and surfaces in 3D. If you have taken a multivariable class hopefully you remember that surfaces arise as solutions to equations of three variables, while points on a space curve are parametric equations or vector-valued functions. The code for the points on a space curve is a little more straightforward so we will start with those examples.      Use Matplotlib to graph parametric curves in 3D.    Use Matplotlib to graph surfaces and scatterplots in 3D.      3D axes  First, for 3D graphs we will need to add 3D plots to our figure using the keyword projection='3d' . Read through and run the code below to see the default 3D axes.     Parametric Curves in 3D  Matplotlib graphs 3D curves by plotting points and connecting the dots. The , , and coordinates are still given by numpy arrays and then plotted on the axes.  Run the code below to graph the equation of a line between the points and .   Edit the above code to graph the equation of a line between the points and .  Edit the above code to add a third number to each numpy array. What happens? Can you explain what plot() just graphed?  We can also graph curves by making coordinates dependent on another. For example, the curve below looks like a parabola in the -direction above the shadow    As before, we need enough input points to get a smooth curve.  Parametric curves in 3D are just like 2D (see ( )) with an added -coordinate. For example, we can graph a horizontal circle at using              Play with the above code for , , and to see what other interesting curves you can create. In 3-space can you graph  a line?  a spiral?  a different circle?      Surfaces and scatterplots in 3D  To graph a surface or 3D scatterplot, we will need two-dimensional numpy arrays for all of our inputs and outputs. As a shortcut we can create 1D arrays for the and inputs first, then use NumPy's function meshgrid() to create a coordinate grid of inputs (two 2D arrays). Last we define our outputs on that coordinate grid.  The function scatter() will plot a scatterplot just like in 2D. The function plot_surface() plots the points and connect those dots with a surface. Just like we need enough points to get a curve that looks smooth, we will need enough points to get a surface that looks smooth.  Run the code below trying both the command plot_surface() (current default) and scatter() to see the difference.   For the surface, increase the step in each input and run the above code again. When does the surface start to look polygonal instead of smooth?  Modify the above code to graph the surface . Choose a reasonable range of inputs that shows the important features of the graph.  Change the surface to . What step size is needed to make the input window [-2,2] and [-2,2] display a smooth surface?  As in the 2D case, the function scatter() plots the points without connecting the dots.    Axes and Labels  Adding titles or labels to our 3D axes uses the same commands as in 2D. the commands set_title(\"title_here\") , set_xlabel(\"label_here\") , set_ylabel(\"label_here\") .   In the above code, use parallel syntax to add a label to the -axis.  Note that the default viewing window makes the -axis positive left to right and -axis positive front to back. Something new in the 3D setting, however, is the ability to choose our viewing angle for the 3D axes using view_init(elev= , azim=, roll=) .  In the code below, play with the values for elev , azim and roll .   What does each change?  What custom viewing angle do you think showcases this particular surface the best?       Plotting Multiple Surfaces  Unfortunately Matplotlib does NOT actually graph in 3D, but paints each surface in a 2D projection, one on top of the other, which can cause the resulting graphs to look weird. Sometimes it is enough to change the viewing angle.  In the above code add a second surface to your graph using Z2 for the new outputs and ax.plot_surface(X,Y,Z2) .   Can you find a viewing angle where both surfaces look good?    Can you find a viewing angle where they don't quite look right?     A possible workaround involves making the surfaces transparent and plotting their intersection as well. If you find another workaround that is fairly simple and doesn't involve dark magic and paying with programmer souls as one stack overflow user suggested, let us know and we can include it in future iterations of this book.  Run the code below to see a Matplotlib 3D fail.   You can make your graphs transparent using the argument alpha = inside plot_surface .  In the code above add alpha=0.5 after each of Z1, Z2, and Z3 inside plot_surface to see a partial fix. Play with values of alpha to see which transparency setting you prefer. You can also graph the lines of intersection for each plane, which we will do later in the term.    Customizing  Like in 2D, we can customize our plots: the style, colors, markers, meshes, contours, line width, etc. There are many features available that we didn't cover here, but hopefully you have enough to get you started with 3D graphing using Matplotlib in Python.  So how do you learn more?  Look up Matplotlib's documentation on the web and find their page of examples, 3D plotting . Pick a 3D graph you want to learn to code and use the cell below to try it out. How is what you found different than what you learned in this section? Experiment by adjusting Matplotlib's example code to see what happens.     This section gave us just an introduction to 3D graphing possibilities using Matplotlib in Python. We will continue to learn more about graphing as we move into using Python for matrix algebra.    Summary     We can add 3D graphs and axes using the argument projection='3d' inside pyplot's axes command.    We can plot curves using plot() and three numpy arrays representing the , , and -coordinates for points on our curve.    We can use numpy.meshgrid() to create input coordinates on a grid and then use plot_surface() or scatter() to plot a surface or scatter plot on 3D axes.    As before we need enough points for plot_surface() or plot() to make smooth graphs.       The function meshgrid() has other uses, so it is nice to familiarize yourself with what it actually does. First make two small Numpy arrays, say one, X, with three entries and the other, Y, with five entries. Next make a meshgrid() of those two arrays and print the result. What do you notice?    Experiment with different sizes of arrays X and Y. Explain in your own words what meshgrid does with the two arrays. Demonstrate with some example code.    What happens if you multiply the arrays that result from meshgrid together? Demonstrate with some example code.     In one figure create a gallery of examples containing at least one of each:   A curve in 3D    A suface in 3D    A scatterplot in 3D   Make sure your graphs are appropriately labelled for your reader.  Look up Matplotlib’s documentation on the web and find their page of examples, 3D plotting. Pick a 3D graph you want to learn to code and try it out. Experiment with the code to make it your own. How is what you found different than what you learned in this section? Explain.   "
+  "body": " Matplotlib and 3D graphing   Now that we have some experience making 2D graphs, let's learn how to make 3D graphs. Note that we can graph both curves and surfaces in 3D. If you have taken a multivariable class hopefully you remember that surfaces arise as solutions to equations of three variables, while points on a space curve are parametric equations or vector-valued functions. The code for the points on a space curve is a little more straightforward so we will start with those examples.      Use Matplotlib to graph parametric curves in 3D.    Use Matplotlib to graph surfaces and scatterplots in 3D.      3D axes  First, for 3D graphs we will need to add 3D plots to our figure using the keyword projection='3d' . Read through and run the code below to see the default 3D axes.     Parametric Curves in 3D  Matplotlib graphs 3D curves by plotting points and connecting the dots. The , , and coordinates are still given by numpy arrays and then plotted on the axes.  Run the code below to graph the equation of a line between the points and .   Edit the above code to graph the equation of a line between the points and .  Edit the above code to add a third number to each numpy array. What happens? Can you explain what plot() just graphed?  We can also graph curves by making coordinates dependent on another. For example, the curve below looks like a parabola in the -direction above the shadow    As before, we need enough input points to get a smooth curve.  Parametric curves in 3D are just like 2D (see ( )) with an added -coordinate. For example, we can graph a horizontal circle at using              Play with the above code for , , and to see what other interesting curves you can create. In 3-space can you graph  a line?  a spiral?  a different circle?      Surfaces and scatterplots in 3D  To graph a surface or 3D scatterplot, we will need two-dimensional numpy arrays for all of our inputs and outputs. As a shortcut we can create 1D arrays for the and inputs first, then use NumPy's function meshgrid() to create a coordinate grid of inputs (two 2D arrays). Last we define our outputs on that coordinate grid.  The function scatter() will plot a scatterplot just like in 2D. The function plot_surface() plots the points and connect those dots with a surface. Just like we need enough points to get a curve that looks smooth, we will need enough points to get a surface that looks smooth.  Run the code below trying both the command plot_surface() (current default) and scatter() to see the difference.   For the surface, increase the step in each input and run the above code again. When does the surface start to look polygonal instead of smooth?  Modify the above code to graph the surface . Choose a reasonable range of inputs that shows the important features of the graph.  Change the surface to . What step size is needed to make the input window [-2,2] and [-2,2] display a smooth surface?  As in the 2D case, the function scatter() plots the points without connecting the dots.    Axes and Labels  Adding titles or labels to our 3D axes uses the same commands as in 2D. the commands set_title(\"title_here\") , set_xlabel(\"label_here\") , set_ylabel(\"label_here\") .   In the above code, use parallel syntax to add a label to the -axis.  Note that the default viewing window makes the -axis positive left to right and -axis positive front to back. Something new in the 3D setting, however, is the ability to choose our viewing angle for the 3D axes using view_init(elev= , azim=, roll=) .  In the code below, play with the values for elev , azim and roll .   What does each change?  What custom viewing angle do you think showcases this particular surface the best?       Plotting Multiple Surfaces  Unfortunately Matplotlib does NOT actually graph in 3D, but paints each surface in a 2D projection, one on top of the other, which can cause the resulting graphs to look weird. Sometimes it is enough to change the viewing angle.  In the above code add a second surface to your graph using Z2 for the new outputs and ax.plot_surface(X,Y,Z2) .   Can you find a viewing angle where both surfaces look good?    Can you find a viewing angle where they don't quite look right?     A possible workaround involves making the surfaces transparent and plotting their intersection as well. If you find another workaround that is fairly simple and doesn't involve dark magic and paying with programmer souls as one stack overflow user suggested, let us know and we can include it in future iterations of this book.  Run the code below to see a Matplotlib 3D fail.   You can make your graphs transparent using the argument alpha = inside plot_surface .  In the code above add alpha=0.5 after each of Z1, Z2, and Z3 inside plot_surface to see a partial fix. Play with values of alpha to see which transparency setting you prefer. You can also graph the lines of intersection for each plane, which we will do later in the term.    Customizing  Like in 2D, we can customize our plots: the style, colors, markers, meshes, contours, line width, etc. There are many features available that we didn't cover here, but hopefully you have enough to get you started with 3D graphing using Matplotlib in Python.  So how do you learn more?  Look up Matplotlib's documentation on the web and find their page of examples, 3D plotting . Pick a 3D graph you want to learn to code and use the cell below to try it out. How is what you found different than what you learned in this section? Experiment by adjusting Matplotlib's example code to see what happens.     This section gave us just an introduction to 3D graphing possibilities using Matplotlib in Python. We will continue to learn more about graphing as we move into using Python for matrix algebra.    Summary     We can add 3D graphs and axes using the argument projection='3d' inside pyplot's axes command.    We can plot curves using plot() and three numpy arrays representing the , , and -coordinates for points on our curve.    We can use numpy.meshgrid() to create input coordinates on a grid and then use plot_surface() or scatter() to plot a surface or scatter plot on 3D axes.    As before we need enough points for plot_surface() or plot() to make smooth graphs.       The function meshgrid() has other uses, so it is nice to familiarize yourself with what it actually does. First make two small Numpy arrays, say one, X, with three entries and the other, Y, with five entries. Next make a meshgrid() of those two arrays and print the result. What do you notice?    Experiment with different sizes of arrays X and Y. Explain in your own words what meshgrid does with the two arrays. Demonstrate with some example code.    What happens if you multiply the arrays that result from meshgrid together? Demonstrate with some example code.     In one figure create a gallery of examples containing at least one of each:   A curve in 3D    A suface in 3D    A scatterplot in 3D   Make sure your graphs are appropriately labelled for your reader.  Look up Matplotlib’s documentation on the web and find their page of examples, 3D plotting. Pick a 3D graph you want to learn to code and try it out. Experiment with the code to make it your own. How is what you found different than what you learned in this section? Explain.  Use meshgrid() to create a grid of x and y-values. Plot a grid of vertical and horizontal lines in by extracting the appropriate rows and columns from your meshgrid() . We will use a related approach in to visualize matrix transformations.    "
 },
 {
   "id": "objectives-4",
@@ -451,6 +451,15 @@ var ptx_lunr_docs = [
   "body": "Look up Matplotlib’s documentation on the web and find their page of examples, 3D plotting. Pick a 3D graph you want to learn to code and try it out. Experiment with the code to make it your own. How is what you found different than what you learned in this section? Explain. "
 },
 {
+  "id": "exercise-40",
+  "level": "2",
+  "url": "section-matplotlib3d.html#exercise-40",
+  "type": "Exercise",
+  "number": "4",
+  "title": "",
+  "body": "Use meshgrid() to create a grid of x and y-values. Plot a grid of vertical and horizontal lines in by extracting the appropriate rows and columns from your meshgrid() . We will use a related approach in to visualize matrix transformations.  "
+},
+{
   "id": "section-animation",
   "level": "1",
   "url": "section-animation.html",
@@ -469,27 +478,27 @@ var ptx_lunr_docs = [
   "body": "   Create an interactive plot with a slider.    Create a gif animating a graph.    "
 },
 {
-  "id": "exercise-40",
+  "id": "exercise-41",
   "level": "2",
-  "url": "section-animation.html#exercise-40",
+  "url": "section-animation.html#exercise-41",
   "type": "You Try",
   "number": "1.31",
   "title": "",
   "body": "  Play with various graph features and customizations.    Change the number of frames to see how the interactive is affected.    Try aligning and misaligning the number of frames and the number of inputs plotted.  "
 },
 {
-  "id": "exercise-41",
+  "id": "exercise-42",
   "level": "2",
-  "url": "section-animation.html#exercise-41",
+  "url": "section-animation.html#exercise-42",
   "type": "You Try",
   "number": "1.32",
   "title": "",
   "body": "What graph do you want to animate? Create it! "
 },
 {
-  "id": "exercise-42",
+  "id": "exercise-43",
   "level": "2",
-  "url": "section-animation.html#exercise-42",
+  "url": "section-animation.html#exercise-43",
   "type": "Exercise",
   "number": "1",
   "title": "",
@@ -523,36 +532,36 @@ var ptx_lunr_docs = [
   "body": " Augmented Matrix   For example, the system becomes    "
 },
 {
-  "id": "exercise-43",
+  "id": "exercise-44",
   "level": "2",
-  "url": "section-systems.html#exercise-43",
+  "url": "section-systems.html#exercise-44",
   "type": "You Try",
   "number": "2.2",
   "title": "",
   "body": "Edit the above code to print the augmented matrix for the system of linear equations in . "
 },
 {
-  "id": "exercise-44",
+  "id": "exercise-45",
   "level": "2",
-  "url": "section-systems.html#exercise-44",
+  "url": "section-systems.html#exercise-45",
   "type": "You Try",
   "number": "2.3",
   "title": "",
   "body": "Edit the above code to print a matrix with decimals like or . Also print a matrix with fractions like and using sympy's Rational(a,b) command.  Note that Rational(a,b) is not a Python command, but rather a command specific to Sympy.  "
 },
 {
-  "id": "exercise-45",
+  "id": "exercise-46",
   "level": "2",
-  "url": "section-systems.html#exercise-45",
+  "url": "section-systems.html#exercise-46",
   "type": "You Try",
   "number": "2.4",
   "title": "",
   "body": "Edit the code below to print the reduced echelon form and the row reduced echelon form for the augmented matrix of the system of linear equations from . "
 },
 {
-  "id": "exercise-46",
+  "id": "exercise-47",
   "level": "2",
-  "url": "section-systems.html#exercise-46",
+  "url": "section-systems.html#exercise-47",
   "type": "You Try",
   "number": "2.5",
   "title": "",
@@ -568,9 +577,9 @@ var ptx_lunr_docs = [
   "body": " The system has solutions and .  Linear equations with two variables can be graphed as lines in the xy-plane, either by plotting two points on the line or solving for . The solution is one point in a scatter plot.   "
 },
 {
-  "id": "exercise-47",
+  "id": "exercise-48",
   "level": "2",
-  "url": "section-systems.html#exercise-47",
+  "url": "section-systems.html#exercise-48",
   "type": "You Try",
   "number": "2.7",
   "title": "",
@@ -604,27 +613,27 @@ var ptx_lunr_docs = [
   "body": " Consider the system of equations If you multiply both sides of each equation by 10, you don't change the solutions to the equations. If you use Sympy to row reduce the system, however, you get a different answer.  A possible fix for the floating point round-off error is to tell Sympy explicitly when to round to zero by making a user defined iszerofunc .  "
 },
 {
-  "id": "exercise-48",
+  "id": "exercise-49",
   "level": "2",
-  "url": "section-systems.html#exercise-48",
+  "url": "section-systems.html#exercise-49",
   "type": "You Try",
   "number": "2.11",
   "title": "",
   "body": "Sympy's rational number data type stores fractions as two integers to avoid floating point representation. Fix the row reduction round-off error for the original system in by using Sympy's Rational() function instead. "
 },
 {
-  "id": "exercise-49",
+  "id": "exercise-50",
   "level": "2",
-  "url": "section-systems.html#exercise-49",
+  "url": "section-systems.html#exercise-50",
   "type": "Exercise",
   "number": "1",
   "title": "",
   "body": "The system has a unique solution. Use Python code to find the solution. Graph the system of equations and the solution using Matplot3D. Lable your axes. Note: part of the challenge is making sure you have a good viewing window and perspective so the graph helps illuminate the solution.  "
 },
 {
-  "id": "exercise-50",
+  "id": "exercise-51",
   "level": "2",
-  "url": "section-systems.html#exercise-50",
+  "url": "section-systems.html#exercise-51",
   "type": "Exercise",
   "number": "2",
   "title": "",
@@ -637,7 +646,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.2",
   "title": "Matrix Arithmetic",
-  "body": " Matrix Arithmetic  Matrices have emerged as an essential mathematical tool to model complicated systems and solve problems far beyond the early usage to simplify the process of solving systems of linear equations. In this section we will learn how to use both SymPy and NumPy to perform matrix arithmetic. We will also briefly discuss numerical pitfalls to try and avoid.     Add, subtract, scale, and multiply matrices in NumPy and SymPy    Find matrix inverses using NumPy and SymPy    Use matrix inverses to solve systems of linear equations    Discover the pitfalls of ill-conditioned matrices      NumPy vs SymPy  We can compute with matrices in both the Sympy and Numpy libraries. Numerical Python is intended for numerical computations and estimates. Symbolic Python can do symbolic computations like rref() or compute with matrices having undetermined variables in the mix. NumPy automatically treats matrices like a 2D array, that is, a higher dimensional vector. SymPy defaults to working with matrices from the linear transformation perspective.  After some internal debate, I decided to intermingle NumPy and SymPy syntax for working with matrices. Please give feedback if it seems this section should be re-organized into NumPy and Matrics followed by SymPy and Matrices .    Basic Matrices  Some matrices are frequently needed for computations. Common matrices that we can generate automatically include a (multiplicative) identity matrix, a zero matrix, and a matrix of all ones.  The commands for the multiplicative identity matrix are different: SymPy's eye(n) vs NumPy's identity(n) .   The commands for matrices of ones() and zeros() are identical, and take in the number of rows and columns as arguments. For NumPy, however, you must enter the shape of the array as an ordered pair with parentheses.  In the code above, create a matrix of all ones using both NumPy and SymPy. Next create a matrix of all zeroes. Play with various dimensions.  With NumPy don't forget to use extra parentheses for the shape of the array.     Matrix Arithmetic  You can add, subtract and scale matrices using both NumPy and SymPy.  In both NumPy and SymPy create matrices to compute   Scale a one matrix and an identity matrix.     What happens if the two matrices do not have the same number of rows and columns?    Matrix Multiplication  Recall that matrix multiplication is more sophisticated than the Hadamard product, a basic element-wise multiplication of two arrays, since it developed to be independent of coordinates and correspond to function composition. Recall further that NumPy automatically treats matrices like a 2D array, that is, a higher dimensional vector. If you naively multiply NumPy arrays you get the Hadamard product, rather than traditional matrix multiplication (try below).   If instead you want matrix multiplication, you tell NumPy to multiply using the matmul() command, or as a short-hand using @ (try below).   Meanwhile SymPy defaults to working with matrices from the linear transformation perspective giving you matrix multiplication by default and requiring us to specify any Hadamard product, or element-wise multiplication.       What happens if you try to compute using matrix multiplication?    What happens if you try to compute the Hadamard Product of ?     Play with various dimensions of , and to come up with necessary criteria for the Hadamard product to work vs Matrix multiplication to work.  Square matrices can be multiplied by themselves and at times we want to multiply repeatedly, e.g. . In SymPy we can perform repeated matrix multiplication using Python's exponent operator A**3 . In NumPy we can call linalg.matrixpower(matrix, integer power).   Compute Note:      Matrix Inverses  Recall that we can find multiplicative matrix inverses by hand by augmenting a matrix with the identity matrix and row reducing to the identity. Thus we can find a matrix inverse in SymPy simply by applying rref() to a matrix augmented with the identity matrix, which we can not do with NumPy.  Both SymPy and NumPy have a dedicated matrix inverse command, however, NumPy's linalg.inv() and SymPy's inv() .      Solving Matrix Equations via Inverses  We can solve matrix equations using matrix inverses.   Consider the matrix equation where   and   Solve the matrix equation for   Can you compute using both SymPy and NumPy?    Ill-Conditioned Matrices  While inverting a matrix helps us solve matrix equations symbolically and develop theory, in practice, we seldom invert a matrix with technology in order to solve systems of linear equations. Some matrices are ill-conditioned in that small changes what we multiply them by can create big changes in the product. Since rounding produces small changes, ill-conditioned matrices can create terminal errors in our solutions.  Consider the matrix equation in . Compare the solutions obtained in the example, to the solutions if   the entries of are rounded to the nearest hundredth, and    if the entries of are rounded to the nearest tenth, and    if the entries of are rounded to the nearest one.   What do you notice?   In general, matrices that are nearly singular, that is, almost not invertible, can be ill-conditioned. In we will learn how to use determinants to discover whether or not a matrix is singular or close to singular.    Both NumPy and SymPy can be used for matrix arithmetic. Often, however, we are already using NumPy to manipulate or graph our data and the linear algebra tools in NumPy directly are convenient as long as we know what pitfalls to avoid.    Summary     TBD      TBD         "
+  "body": " Matrix Arithmetic  Matrices have emerged as an essential mathematical tool to model complicated systems and solve problems far beyond the early usage to simplify the process of solving systems of linear equations. In this section we will learn how to use both SymPy and NumPy to perform matrix arithmetic. We will also briefly discuss numerical pitfalls to try and avoid.     Add, subtract, scale, and multiply matrices in NumPy and SymPy    Find matrix inverses using NumPy and SymPy    Use matrix inverses to solve systems of linear equations    Discover the pitfalls of ill-conditioned matrices      NumPy vs SymPy  We can compute with matrices in both the Sympy and Numpy libraries. Numerical Python is intended for numerical computations and estimates. Symbolic Python can do symbolic computations like rref() or compute with matrices having undetermined variables in the mix. NumPy automatically treats matrices like a 2D array, that is, a higher dimensional vector. SymPy defaults to working with matrices from the linear transformation perspective.  After some internal debate, I decided to intermingle NumPy and SymPy syntax for working with matrices. Please give feedback if it seems this section should be re-organized into NumPy and Matrics followed by SymPy and Matrices .    Basic Matrices  Some matrices are frequently needed for computations. Common matrices that we can generate automatically include a (multiplicative) identity matrix, a zero matrix, and a matrix of all ones.  The commands for the multiplicative identity matrix are different: SymPy's eye(n) vs NumPy's identity(n) .   The commands for matrices of ones() and zeros() are identical, and take in the number of rows and columns as arguments. For NumPy, however, you must enter the shape of the array as an ordered pair with parentheses.  In the code above, create a matrix of all ones using both NumPy and SymPy. Next create a matrix of all zeroes. Play with various dimensions.  With NumPy don't forget to use extra parentheses for the shape of the array.     Matrix Arithmetic  You can add, subtract and scale matrices using both NumPy and SymPy.  In both NumPy and SymPy create matrices to compute   Scale a one matrix and an identity matrix.     What happens if the two matrices do not have the same number of rows and columns?    Matrix Multiplication  Recall that matrix multiplication is more sophisticated than the Hadamard product, a basic element-wise multiplication of two arrays, since it developed to be independent of coordinates and correspond to function composition. Recall further that NumPy automatically treats matrices like a 2D array, that is, a higher dimensional vector. If you naively multiply NumPy arrays you get the Hadamard product, rather than traditional matrix multiplication (try below).   If instead you want matrix multiplication, you tell NumPy to multiply using the matmul() command, or as a short-hand using @ (try below).   Meanwhile SymPy defaults to working with matrices from the linear transformation perspective giving you matrix multiplication by default and requiring us to specify any Hadamard product, or element-wise multiplication.       What happens if you try to compute using matrix multiplication?    What happens if you try to compute the Hadamard Product of ?     Play with various dimensions of , and to come up with necessary criteria for the Hadamard product to work vs Matrix multiplication to work.  Square matrices can be multiplied by themselves and at times we want to multiply repeatedly, e.g. . In SymPy we can perform repeated matrix multiplication using Python's exponent operator A**3 . In NumPy we can call linalg.matrixpower(matrix, integer power).   Compute Note:      Matrix Inverses  Recall that we can find multiplicative matrix inverses by hand by augmenting a matrix with the identity matrix and row reducing to the identity. Thus we can find a matrix inverse in SymPy simply by applying rref() to a matrix augmented with the identity matrix, which we can not do with NumPy.  Both SymPy and NumPy have a dedicated matrix inverse command, however, NumPy's linalg.inv() and SymPy's inv() .      Solving Matrix Equations via Inverses  We can solve matrix equations using matrix inverses.   Consider the matrix equation where   and   Solve the matrix equation for   Can you compute using both SymPy and NumPy?    Ill-Conditioned Matrices  While inverting a matrix helps us solve matrix equations symbolically and develop theory, in practice, we seldom invert a matrix with technology in order to solve systems of linear equations. Some matrices are ill-conditioned in that small changes what we multiply them by can create big changes in the product. Since rounding produces small changes, ill-conditioned matrices can create terminal errors in our solutions.  Consider the matrix equation in . Compare the solutions obtained in the example, to the solutions if   the entries of are rounded to the nearest hundredth, and    if the entries of are rounded to the nearest tenth, and    if the entries of are rounded to the nearest one.   What do you notice?   In general, matrices that are nearly singular, that is, almost not invertible, can be ill-conditioned. In we will learn how to use determinants to discover whether or not a matrix is singular or close to singular.    Both NumPy and SymPy can be used for matrix arithmetic. Often, however, we are already using NumPy to manipulate or graph our data and the linear algebra tools in NumPy directly are convenient as long as we know what pitfalls to avoid.    Summary     TBD      TBD       Consider the matrix equation where  Compare the solutions if   the entries of are rounded to the nearest hundredth, and    if the entries of are rounded to the nearest tenth, and    if the entries of are rounded to the nearest one.    First use Then use . What do you notice?   "
 },
 {
   "id": "objectives-7",
@@ -649,54 +658,54 @@ var ptx_lunr_docs = [
   "body": "   Add, subtract, scale, and multiply matrices in NumPy and SymPy    Find matrix inverses using NumPy and SymPy    Use matrix inverses to solve systems of linear equations    Discover the pitfalls of ill-conditioned matrices    "
 },
 {
-  "id": "exercise-51",
+  "id": "exercise-52",
   "level": "2",
-  "url": "section-matrices.html#exercise-51",
+  "url": "section-matrices.html#exercise-52",
   "type": "You Try",
   "number": "2.12",
   "title": "",
   "body": "In the code above, create a matrix of all ones using both NumPy and SymPy. Next create a matrix of all zeroes. Play with various dimensions.  With NumPy don't forget to use extra parentheses for the shape of the array.  "
 },
 {
-  "id": "exercise-52",
+  "id": "exercise-53",
   "level": "2",
-  "url": "section-matrices.html#exercise-52",
+  "url": "section-matrices.html#exercise-53",
   "type": "You Try",
   "number": "2.13",
   "title": "",
   "body": "In both NumPy and SymPy create matrices to compute   Scale a one matrix and an identity matrix.  "
 },
 {
-  "id": "exercise-53",
+  "id": "exercise-54",
   "level": "2",
-  "url": "section-matrices.html#exercise-53",
+  "url": "section-matrices.html#exercise-54",
   "type": "You Try",
   "number": "2.14",
   "title": "",
   "body": "What happens if the two matrices do not have the same number of rows and columns? "
 },
 {
-  "id": "exercise-54",
+  "id": "exercise-55",
   "level": "2",
-  "url": "section-matrices.html#exercise-54",
+  "url": "section-matrices.html#exercise-55",
   "type": "You Try",
   "number": "2.15",
   "title": "",
   "body": "   What happens if you try to compute using matrix multiplication?    What happens if you try to compute the Hadamard Product of ?    "
 },
 {
-  "id": "exercise-55",
+  "id": "exercise-56",
   "level": "2",
-  "url": "section-matrices.html#exercise-55",
+  "url": "section-matrices.html#exercise-56",
   "type": "You Try",
   "number": "2.16",
   "title": "",
   "body": "Play with various dimensions of , and to come up with necessary criteria for the Hadamard product to work vs Matrix multiplication to work. "
 },
 {
-  "id": "exercise-56",
+  "id": "exercise-57",
   "level": "2",
-  "url": "section-matrices.html#exercise-56",
+  "url": "section-matrices.html#exercise-57",
   "type": "You Try",
   "number": "2.17",
   "title": "",
@@ -712,22 +721,22 @@ var ptx_lunr_docs = [
   "body": " Consider the matrix equation where   and   Solve the matrix equation for   Can you compute using both SymPy and NumPy? "
 },
 {
-  "id": "exercise-57",
+  "id": "ill-conditioned-example-exercise",
   "level": "2",
-  "url": "section-matrices.html#exercise-57",
+  "url": "section-matrices.html#ill-conditioned-example-exercise",
   "type": "You Try",
   "number": "2.19",
   "title": "",
   "body": "Consider the matrix equation in . Compare the solutions obtained in the example, to the solutions if   the entries of are rounded to the nearest hundredth, and    if the entries of are rounded to the nearest tenth, and    if the entries of are rounded to the nearest one.   What do you notice? "
 },
 {
-  "id": "exercise-58",
+  "id": "exercise-ill-conditioned",
   "level": "2",
-  "url": "section-matrices.html#exercise-58",
+  "url": "section-matrices.html#exercise-ill-conditioned",
   "type": "Exercise",
   "number": "1",
   "title": "",
-  "body": ""
+  "body": "Consider the matrix equation where  Compare the solutions if   the entries of are rounded to the nearest hundredth, and    if the entries of are rounded to the nearest tenth, and    if the entries of are rounded to the nearest one.    First use Then use . What do you notice? "
 },
 {
   "id": "section-transformations",
@@ -748,27 +757,27 @@ var ptx_lunr_docs = [
   "body": "   Compute a matrix transformation using NumPy.    Visualize a matrix transformation using basis vectors or a grid in Matplotlib.    Animate a visual of a Matrix Transformation.    "
 },
 {
-  "id": "exercise-59",
+  "id": "exercise-60",
   "level": "2",
-  "url": "section-transformations.html#exercise-59",
+  "url": "section-transformations.html#exercise-60",
   "type": "You Try",
   "number": "2.20",
   "title": "",
   "body": "Note the above code throws an error. Use NumPy's transpose() function to make a column vector to fix the error.  You can use transpose(arrayname) , or arrayname.T   "
 },
 {
-  "id": "exercise-60",
+  "id": "exercise-61",
   "level": "2",
-  "url": "section-transformations.html#exercise-60",
+  "url": "section-transformations.html#exercise-61",
   "type": "You Try",
   "number": "2.21",
   "title": "",
   "body": "Recall that NumPy has an alternate command for matrix multiplication. Alter the above code to use the alternate command. "
 },
 {
-  "id": "exercise-61",
+  "id": "exercise-62",
   "level": "2",
-  "url": "section-transformations.html#exercise-61",
+  "url": "section-transformations.html#exercise-62",
   "type": "You Try",
   "number": "2.22",
   "title": "",
@@ -784,9 +793,9 @@ var ptx_lunr_docs = [
   "body": " First we will visualize just the transformed basis vectors.   "
 },
 {
-  "id": "exercise-62",
+  "id": "exercise-63",
   "level": "2",
-  "url": "section-transformations.html#exercise-62",
+  "url": "section-transformations.html#exercise-63",
   "type": "You Try",
   "number": "2.24",
   "title": "",
@@ -802,27 +811,27 @@ var ptx_lunr_docs = [
   "body": " We will first apply to a grid of coordinate dots. While NumPy's meshgrid() works great for plotting a grid of points, the arrays are not the right size to act as input vectors for the matrix-vector multiplication.  For matrix-vector multiplication we need column vectors, and if we want to compute the image of several vectors all at once we need a matrix where each column is one of our vectors. Here we want each column to be a coordinate, having top entry an x-value and bottom entry a corresponding y-value. In other words, we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a array.reshape(size) function that allows us to reshape each array of x-values and y-values from meshgrid() into rows. We can then row_stack() those two rows to form the desired input matrix.   "
 },
 {
-  "id": "exercise-63",
+  "id": "exercise-64",
   "level": "2",
-  "url": "section-transformations.html#exercise-63",
+  "url": "section-transformations.html#exercise-64",
   "type": "You Try",
   "number": "2.26",
   "title": "",
   "body": "Edit the code in to print every array to see how the same arrays are reshaped, recombined, and transformed.  Print arrays so you can compare X to X1 and Y to Y1. Also compare xygrid to xygrid[i] and xygrid to uvgrid to see the difference.  "
 },
 {
-  "id": "exercise-64",
+  "id": "exercise-65",
   "level": "2",
-  "url": "section-transformations.html#exercise-64",
+  "url": "section-transformations.html#exercise-65",
   "type": "You Try",
   "number": "2.27",
   "title": "",
   "body": "Edit the code in to make a point grid instead. We used a grid at first so you could print the arrays to follow along. Now we want to generalize to more points.  "
 },
 {
-  "id": "exercise-65",
+  "id": "exercise-66",
   "level": "2",
-  "url": "section-transformations.html#exercise-65",
+  "url": "section-transformations.html#exercise-66",
   "type": "You Try",
   "number": "2.28",
   "title": "",
@@ -838,18 +847,18 @@ var ptx_lunr_docs = [
   "body": " We will build up to the transformed grid a step at a time.  Step 1: First we will learn how to graph a basic grid of lines.   Step 2: Graph a transformed grid of lines.  Now we add in the matrix transformation. Note: in order to find the transformed line grid, we again .reshape() the X,Y grid into a row of x-values and a row of y-values so we can matrix multiply each point as a column of a matrix. We will then .reshape() back into a transformed meshgrid in order to graph our grid of transformed lines.   "
 },
 {
-  "id": "exercise-66",
+  "id": "exercise-67",
   "level": "2",
-  "url": "section-transformations.html#exercise-66",
+  "url": "section-transformations.html#exercise-67",
   "type": "You Try",
   "number": "2.30",
   "title": "",
   "body": "In the first step of , graphing the basic grid of lines, change the number of lines to 3. Now print each array to better see which array is used for each plot. Why do we need the transpose for our vertical lines? "
 },
 {
-  "id": "exercise-67",
+  "id": "exercise-68",
   "level": "2",
-  "url": "section-transformations.html#exercise-67",
+  "url": "section-transformations.html#exercise-68",
   "type": "You Try",
   "number": "2.31",
   "title": "",
@@ -883,18 +892,18 @@ var ptx_lunr_docs = [
   "body": " \"Using PillowWriter to make a .gif   "
 },
 {
-  "id": "exercise-68",
+  "id": "exercise-69",
   "level": "2",
-  "url": "section-transformations.html#exercise-68",
+  "url": "section-transformations.html#exercise-69",
   "type": "You Try",
   "number": "2.35",
   "title": "",
   "body": "Comment out plt.cla() in . What happens to your animation? "
 },
 {
-  "id": "exercise-69",
+  "id": "exercise-70",
   "level": "2",
-  "url": "section-transformations.html#exercise-69",
+  "url": "section-transformations.html#exercise-70",
   "type": "You Try",
   "number": "2.36",
   "title": "",
@@ -910,9 +919,9 @@ var ptx_lunr_docs = [
   "body": " Buffering your .gif  Note that the animation would look better visually if we started with the standard basis plot and lingered for a few seconds before beginning the transformation. We can add that by grabbing frames of the standard basis plot first.   "
 },
 {
-  "id": "exercise-70",
+  "id": "exercise-71",
   "level": "2",
-  "url": "section-transformations.html#exercise-70",
+  "url": "section-transformations.html#exercise-71",
   "type": "You Try",
   "number": "2.38",
   "title": "",
@@ -928,36 +937,36 @@ var ptx_lunr_docs = [
   "body": " Animating a grid transformation using PillowWriter   "
 },
 {
-  "id": "exercise-71",
+  "id": "exercise-72",
   "level": "2",
-  "url": "section-transformations.html#exercise-71",
+  "url": "section-transformations.html#exercise-72",
   "type": "You Try",
   "number": "2.40",
   "title": "",
   "body": "Animate a gradual matrix transformation using the line grid. "
 },
 {
-  "id": "exercise-72",
+  "id": "exercise-73",
   "level": "2",
-  "url": "section-transformations.html#exercise-72",
+  "url": "section-transformations.html#exercise-73",
   "type": "Exercise",
   "number": "1",
   "title": "",
   "body": "Visualize a linear transformation using similar methods on a point grid in in Matplotlib. "
 },
 {
-  "id": "exercise-73",
+  "id": "exercise-74",
   "level": "2",
-  "url": "section-transformations.html#exercise-73",
+  "url": "section-transformations.html#exercise-74",
   "type": "Exercise",
   "number": "2",
   "title": "",
   "body": "Animate a linear transformation on a line grid in Matplotlib. "
 },
 {
-  "id": "exercise-74",
+  "id": "exercise-75",
   "level": "2",
-  "url": "section-transformations.html#exercise-74",
+  "url": "section-transformations.html#exercise-75",
   "type": "Exercise",
   "number": "3",
   "title": "",
@@ -970,7 +979,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.4",
   "title": "Determinants",
-  "body": " Determinants  In this section we will learn how to     C    D      Title          Summary     blah      blah         "
+  "body": " Determinants  In this section we will learn how to     Compute the determinant in NumPy and SymPy.    Solve invertible square matrices numerically in NumPy.    Use the determinant to see if a matrix might be ill-conditioned.      What is the determinant?  Recall that the action of a linear transformation from can be completely determined by a set of basis vectors. These basis vectors create a coordinate grid. For example, in any set of two non-parallel vectors form a basis and a corresponding coordinate grid of parallelograms. The coordinate grid determines a basic area, the area of the parallelogram between the two basis vectors. Since the transformation is linear, the transformed basis vectors either create a transformed parallelogram, or they collapse to a line or the origin. In particular, the areas of the parallelograms are scaled by the transformation and, since we started with a basis, all areas in the plane are scaled by that same amount. How the area is scaled by a transformation on is the value of the determinant.  In the coordinate grid determines a basic volume. Here how the volume is scaled by a transformation on is the value of the determinant. Finally in the coordinate grid determines a basic hypervolume and the value by which the volume is scaled by a transformation on is the value of the determinant.  The determinant can be positive or negative depending on whether or not the orientation of the basis vectors changes or not. For example, a reflection in will switch the orientation and change the sign of the determinant.    Computing the Determinant  We can compute the determinant of square matrices both in NumPy and in SymPy as follows.   Find the determinants of the matrices in the code above. What can you conclude about the transformations of ?  Find a matrix with determinant 0. Check your determinant in the above code. What can you conclude about the transformation?  Play with finding the determinant of higher dimensional matrices. What can you conclude about the transformations?    Determinants and Systems of Linear Equations  The determinant gives us a quick way to tell whether or not a system of linear equations has a unique solution or not. Recall that every system of linear equations corresponds to a matrix-vector equation.   For example, the systems correspond to matrix equations and    If the corresponding matrix transformation collapses down a dimension, more than one vector gets mapped to the same place, preventing an inverse transformation (since one output would have to map back to several inputs). In this case, the determinant of the transformation is 0. This corresponds exactly to linear systems of equations with either infinitely many solutions or no solution.  When the determinant is non-zero, however, the matrix transformation is invertible. This corresponds exactly to when a system of linear equations has a unique solution, since you can solve for it using   Consider the linear systems in .   Compute the determinant.    What can you conclude about solutions to each system?       Numerically Solving System of Equations  In , we learned how to solve systems of linear equations using rref() in SymPy. More efficient algorithms e.g. using -decomposition of our matrix can be implemented when we know we have a unique solution. NumPy's linalg.solve(A,b) uses one such algorithm to solve .  Use NumPy's linalg.solve(A,b) to solve the systems of linear equations in . What happens?  In practice, we often check the determinant to determine whether or not an algorithm such as linalg.solve() will work before solving the system numerically. Many stackoverflow questions have been written asking about the singular error when attempting to solve a large system numerically. The response always involves someone in the know checking the determinant.     Ill-conditioned Matrices  Recall in we explored solutions to a system of equations where the corresponding matrix was ill-conditioned. How does ill-conditioning relate to the determinant and the matrix transformation?  Compute the determinant of the matrix in . Hypothesize a property of ill-conditioned matrices and explain how this property is related to the rounding issues we experienced.  If we visualize the linear system of equations as a matrix transformation of we can graphically see the problem.  Using what we learned in , plot the matrix transformation corresponding to on a point grid. Use your visual to clearly show what is happening with the solutions in . Note: Solving a matrix equation corresponds to then reversing the transformation.         Summary     TBD      TBD       Compute the determinant of the matrix in . Hypothesize a property of ill-conditioned matrices and explain how this property is related to the rounding issues we experienced.  Using what we learned in , plot the matrix transformation corresponding to on a point grid. Use your visual to clearly show what is happening with the solutions in . Note: animating can make this even clearer.    "
 },
 {
   "id": "objectives-9",
@@ -979,25 +988,97 @@ var ptx_lunr_docs = [
   "type": "Objectives",
   "number": "2.4",
   "title": "",
-  "body": "   C    D    "
-},
-{
-  "id": "exercise-75",
-  "level": "2",
-  "url": "section-determinants.html#exercise-75",
-  "type": "You Try",
-  "number": "2.41",
-  "title": "",
-  "body": ""
+  "body": "   Compute the determinant in NumPy and SymPy.    Solve invertible square matrices numerically in NumPy.    Use the determinant to see if a matrix might be ill-conditioned.    "
 },
 {
   "id": "exercise-76",
   "level": "2",
   "url": "section-determinants.html#exercise-76",
+  "type": "You Try",
+  "number": "2.41",
+  "title": "",
+  "body": "Find the determinants of the matrices in the code above. What can you conclude about the transformations of ? "
+},
+{
+  "id": "exercise-77",
+  "level": "2",
+  "url": "section-determinants.html#exercise-77",
+  "type": "You Try",
+  "number": "2.42",
+  "title": "",
+  "body": "Find a matrix with determinant 0. Check your determinant in the above code. What can you conclude about the transformation? "
+},
+{
+  "id": "exercise-78",
+  "level": "2",
+  "url": "section-determinants.html#exercise-78",
+  "type": "You Try",
+  "number": "2.43",
+  "title": "",
+  "body": "Play with finding the determinant of higher dimensional matrices. What can you conclude about the transformations? "
+},
+{
+  "id": "determinant-and-systems",
+  "level": "2",
+  "url": "section-determinants.html#determinant-and-systems",
+  "type": "Example",
+  "number": "2.44",
+  "title": "",
+  "body": " For example, the systems correspond to matrix equations and   "
+},
+{
+  "id": "exercise-79",
+  "level": "2",
+  "url": "section-determinants.html#exercise-79",
+  "type": "You Try",
+  "number": "2.45",
+  "title": "",
+  "body": "Consider the linear systems in .   Compute the determinant.    What can you conclude about solutions to each system?    "
+},
+{
+  "id": "exercise-80",
+  "level": "2",
+  "url": "section-determinants.html#exercise-80",
+  "type": "You Try",
+  "number": "2.46",
+  "title": "",
+  "body": "Use NumPy's linalg.solve(A,b) to solve the systems of linear equations in . What happens? "
+},
+{
+  "id": "exercise-81",
+  "level": "2",
+  "url": "section-determinants.html#exercise-81",
+  "type": "You Try",
+  "number": "2.47",
+  "title": "",
+  "body": "Compute the determinant of the matrix in . Hypothesize a property of ill-conditioned matrices and explain how this property is related to the rounding issues we experienced. "
+},
+{
+  "id": "exercise-82",
+  "level": "2",
+  "url": "section-determinants.html#exercise-82",
+  "type": "You Try",
+  "number": "2.48",
+  "title": "",
+  "body": "Using what we learned in , plot the matrix transformation corresponding to on a point grid. Use your visual to clearly show what is happening with the solutions in . Note: Solving a matrix equation corresponds to then reversing the transformation.  "
+},
+{
+  "id": "exercise-83",
+  "level": "2",
+  "url": "section-determinants.html#exercise-83",
   "type": "Exercise",
   "number": "1",
   "title": "",
-  "body": ""
+  "body": "Compute the determinant of the matrix in . Hypothesize a property of ill-conditioned matrices and explain how this property is related to the rounding issues we experienced. "
+},
+{
+  "id": "exercise-84",
+  "level": "2",
+  "url": "section-determinants.html#exercise-84",
+  "type": "Exercise",
+  "number": "2",
+  "title": "",
+  "body": "Using what we learned in , plot the matrix transformation corresponding to on a point grid. Use your visual to clearly show what is happening with the solutions in . Note: animating can make this even clearer.  "
 },
 {
   "id": "section-eigenthings",
@@ -1006,7 +1087,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.5",
   "title": "Eigenthings",
-  "body": " Eigenthings  In this section we will learn how to     C    D      Title          Summary     blah      blah         "
+  "body": " Eigenthings  In this section we will learn how to     Compute eigenvalues and eigenvectors using NumPy and SymPy.    Visualize a matrix transformation using eigen-information.      Computing Eigenthings  Although we could use determinants to solve for eigenvalues and row reducing to solve for eigenvectors, both NumPy and SymPy have commands to directly determine eigenthings.  NumPy's linalg.eig(matrix_name) can be used to find numerical approximations for the eigenvalues and eigenvectors (where the latter are normalized to have magnitude 1). Note that linalg.eig(matrix_name) returns a tuple of both the eigenvalues and the eigenvectors.  You can also find just the characteristic polynomial using poly(matrix_name) and just the eigenvalues using linalg.eigvals(matrix_name) .   Use the above code to write down the characteristic polynomials for matrix . Note that you have to interpret the output correctly.  Use the above NumPy code to write down the eigenvalues and eigenvectors for matrix .  Repeat both of the above exercises for the matrix . Why might someone prefer to solve a eigenvalue question by hand instead?  As before, SymPy works well with symbolic manipulation. You can find the characteristic polynomial via matrix.charpoly() . SymPy's .eigenvects() also returns a tuple of exact eigenvalues, their multiplicities, and exact eigenvectors. Since computing eigenvectors can be costly, we have the option of just computing eigenvalues using .eigvals() instead. If instead of exact values you want a decimal approximation you can use the command .evalf() or N() .   Use the above SymPy code to write down the characteristic polynomial for matrix . Note that you have to interpret the output correctly.  Use the above code to write down the eigenvalues and eigenvectors for matrix .  Repeat the above two exercises for matrix .    Visualizing with Eigenthings         Summary     blah      blah         "
 },
 {
   "id": "objectives-10",
@@ -1015,21 +1096,66 @@ var ptx_lunr_docs = [
   "type": "Objectives",
   "number": "2.5",
   "title": "",
-  "body": "   C    D    "
+  "body": "   Compute eigenvalues and eigenvectors using NumPy and SymPy.    Visualize a matrix transformation using eigen-information.    "
 },
 {
-  "id": "exercise-77",
+  "id": "exercise-85",
   "level": "2",
-  "url": "section-eigenthings.html#exercise-77",
+  "url": "section-eigenthings.html#exercise-85",
   "type": "You Try",
-  "number": "2.42",
+  "number": "2.49",
   "title": "",
-  "body": ""
+  "body": "Use the above code to write down the characteristic polynomials for matrix . Note that you have to interpret the output correctly. "
 },
 {
-  "id": "exercise-78",
+  "id": "exercise-86",
   "level": "2",
-  "url": "section-eigenthings.html#exercise-78",
+  "url": "section-eigenthings.html#exercise-86",
+  "type": "You Try",
+  "number": "2.50",
+  "title": "",
+  "body": "Use the above NumPy code to write down the eigenvalues and eigenvectors for matrix . "
+},
+{
+  "id": "exercise-87",
+  "level": "2",
+  "url": "section-eigenthings.html#exercise-87",
+  "type": "You Try",
+  "number": "2.51",
+  "title": "",
+  "body": "Repeat both of the above exercises for the matrix . Why might someone prefer to solve a eigenvalue question by hand instead? "
+},
+{
+  "id": "exercise-88",
+  "level": "2",
+  "url": "section-eigenthings.html#exercise-88",
+  "type": "You Try",
+  "number": "2.52",
+  "title": "",
+  "body": "Use the above SymPy code to write down the characteristic polynomial for matrix . Note that you have to interpret the output correctly. "
+},
+{
+  "id": "exercise-89",
+  "level": "2",
+  "url": "section-eigenthings.html#exercise-89",
+  "type": "You Try",
+  "number": "2.53",
+  "title": "",
+  "body": "Use the above code to write down the eigenvalues and eigenvectors for matrix . "
+},
+{
+  "id": "exercise-90",
+  "level": "2",
+  "url": "section-eigenthings.html#exercise-90",
+  "type": "You Try",
+  "number": "2.54",
+  "title": "",
+  "body": "Repeat the above two exercises for matrix . "
+},
+{
+  "id": "exercise-91",
+  "level": "2",
+  "url": "section-eigenthings.html#exercise-91",
   "type": "Exercise",
   "number": "1",
   "title": "",
@@ -1063,18 +1189,18 @@ var ptx_lunr_docs = [
   "body": "   C    D    "
 },
 {
-  "id": "p-359",
+  "id": "p-402",
   "level": "2",
-  "url": "examples.html#p-359",
+  "url": "examples.html#p-402",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "integral integral integral integral integral integral variable "
 },
 {
-  "id": "exercise-80",
+  "id": "exercise-93",
   "level": "2",
-  "url": "examples.html#exercise-80",
+  "url": "examples.html#exercise-93",
   "type": "You Try",
   "number": "3.4",
   "title": "Exercise What.",
@@ -1090,9 +1216,9 @@ var ptx_lunr_docs = [
   "body": "   C    D    "
 },
 {
-  "id": "exercise-81",
+  "id": "exercise-94",
   "level": "2",
-  "url": "examples.html#exercise-81",
+  "url": "examples.html#exercise-94",
   "type": "Reading Question",
   "number": "1",
   "title": "",

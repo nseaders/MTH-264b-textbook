@@ -350,14 +350,19 @@ sagecell.makeSagecell({
 <li>
 <div class="toc-item"><a href="section-determinants.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Determinants</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-determinants.html#subsection-39" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-determinants.html#subsec-what-is-determinant" class="internal"><span class="title">What is the determinant?</span></a></div></li>
+<li><div class="toc-item"><a href="section-determinants.html#subsec-computing-determinant" class="internal"><span class="title">Computing the Determinant</span></a></div></li>
+<li><div class="toc-item"><a href="section-determinants.html#subsec-determinants-linear-systems" class="internal"><span class="title">Determinants and Systems of Linear Equations</span></a></div></li>
+<li><div class="toc-item"><a href="section-determinants.html#subsec-numerical-solve" class="internal"><span class="title">Numerically Solving System of Equations</span></a></div></li>
+<li><div class="toc-item"><a href="section-determinants.html#subsec-Ill-conditionedTransformations" class="internal"><span class="title">Ill-conditioned Matrices</span></a></div></li>
 <li><div class="toc-item"><a href="section-determinants.html#exercises-determinants" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="section-eigenthings.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Eigenthings</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-eigenthings.html#subsection-40" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-eigenthings.html#subsec-computing-eigenthings" class="internal"><span class="title">Computing Eigenthings</span></a></div></li>
+<li><div class="toc-item"><a href="section-eigenthings.html#subsec-visualizing-eigenthings" class="internal"><span class="title">Visualizing with Eigenthings</span></a></div></li>
 <li><div class="toc-item"><a href="section-eigenthings.html#exercises-eigenthings" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -368,7 +373,7 @@ sagecell.makeSagecell({
 <ul class="structural"><li>
 <div class="toc-item"><a href="examples.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Samples of various pretext formats</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="examples.html#subsection-41" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
+<li><div class="toc-item"><a href="examples.html#subsection-46" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
 <li><div class="toc-item"><a href="examples.html#reading-questions-1" class="internal"><span class="title">Reading Questions</span></a></div></li>
 </ul>
 </li></ul>
@@ -379,15 +384,15 @@ sagecell.makeSagecell({
 <section class="section" id="section-transformations"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.3</span> <span class="title">Matrix Transformations</span>
 </h2>
-<section class="introduction" id="introduction-11"><div class="para" id="p-279">Matrix-vector multiplication can fundamentally be interpreted as linear transformations of a vector space. We can directly graph these transformations in <span class="process-math">\(\mathbb{R}^2\)</span> and <span class="process-math">\(\mathbb{R}^3\text{.}\)</span> We can usually generalize our understanding to <span class="process-math">\(\mathbb{R}^n\)</span> even though we can’t graph the higher dimensions.</div> <div class="para" id="p-280">Since we will graph in Matplotlib, which uses NumPy arrays, we will default to NumPy (instead of SymPy) for our matrix computations.</div> <div class="para" id="p-281">In this section we will learn how to</div></section><article class="objectives goal-like" id="objectives-8"><h3 class="heading"><span class="type">Objectives</span></h3>
+<section class="introduction" id="introduction-11"><div class="para" id="p-287">Matrix-vector multiplication can fundamentally be interpreted as linear transformations of a vector space. We can directly graph these transformations in <span class="process-math">\(\mathbb{R}^2\)</span> and <span class="process-math">\(\mathbb{R}^3\text{.}\)</span> We can usually generalize our understanding to <span class="process-math">\(\mathbb{R}^n\)</span> even though we can’t graph the higher dimensions.</div> <div class="para" id="p-288">Since we will graph in Matplotlib, which uses NumPy arrays, we will default to NumPy (instead of SymPy) for our matrix computations.</div> <div class="para" id="p-289">In this section we will learn how to</div></section><article class="objectives goal-like" id="objectives-8"><h3 class="heading"><span class="type">Objectives</span></h3>
 <ul class="disc">
-<li id="li-83"><div class="para" id="p-282">Compute a matrix transformation using NumPy.</div></li>
-<li id="li-84"><div class="para" id="p-283">Visualize a matrix transformation using basis vectors or a grid in Matplotlib.</div></li>
-<li id="li-85"><div class="para" id="p-284">Animate a visual of a Matrix Transformation.</div></li>
+<li id="li-86"><div class="para" id="p-290">Compute a matrix transformation using NumPy.</div></li>
+<li id="li-87"><div class="para" id="p-291">Visualize a matrix transformation using basis vectors or a grid in Matplotlib.</div></li>
+<li id="li-88"><div class="para" id="p-292">Animate a visual of a Matrix Transformation.</div></li>
 </ul></article><section class="subsection" id="subsec-ComputingMatrixTransformations"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Computing Matrix Transformations</span>
 </h3>
-<div class="para" id="p-285">We can compute the matrix transformation of a vector simply by using matrix-vector multiplication. Recall that in order to multiply a vector by a matrix, you need a column vector. You can use NumPy’s <code class="code-inline tex2jax_ignore">transpose</code> or <code class="code-inline tex2jax_ignore">.T</code> function to convert if needed.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-6" id="fn-6"><sup> 3 </sup></a>
+<div class="para" id="p-293">We can compute the matrix transformation of a vector simply by using matrix-vector multiplication. Recall that in order to multiply a vector by a matrix, you need a column vector. You can use NumPy’s <code class="code-inline tex2jax_ignore">transpose</code> or <code class="code-inline tex2jax_ignore">.T</code> function to convert if needed.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-7" id="fn-7"><sup> 3 </sup></a>
 </div>
 <pre class="ptx-sagecell sagecell-python" id="sage-71"><script type="text/x-sage">import numpy as np
 
@@ -399,15 +404,15 @@ Ax = np.matmul(A,x) #image under transformation
 print('Multiplying', A, 'by', x, 'gives:')
 print(Ax)
 </script></pre>
-<article class="exercise exercise-like" id="exercise-59"><h4 class="heading">
+<article class="exercise exercise-like" id="exercise-60"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.20</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-286">Note the above code throws an error. Use NumPy’s <code class="code-inline tex2jax_ignore">transpose()</code> function to make <span class="process-math">\(\vec{x}\)</span> a column vector to fix the error.</div>
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-9" id="hint-9"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-9"><div class="hint solution-like"><div class="para" id="p-287">You can use <code class="code-inline tex2jax_ignore">transpose(arrayname)</code>, or <code class="code-inline tex2jax_ignore">arrayname.T</code>
-</div></div></div></article><article class="exercise exercise-like" id="exercise-60"><h4 class="heading">
+<div class="para" id="p-294">Note the above code throws an error. Use NumPy’s <code class="code-inline tex2jax_ignore">transpose()</code> function to make <span class="process-math">\(\vec{x}\)</span> a column vector to fix the error.</div>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-9" id="hint-9"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-9"><div class="hint solution-like"><div class="para" id="p-295">You can use <code class="code-inline tex2jax_ignore">transpose(arrayname)</code>, or <code class="code-inline tex2jax_ignore">arrayname.T</code>
+</div></div></div></article><article class="exercise exercise-like" id="exercise-61"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.21</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-288">Recall that NumPy has an alternate command for matrix multiplication. Alter the above code to use the alternate command.</div></article><div class="para logical" id="p-289">
+<div class="para" id="p-296">Recall that NumPy has an alternate command for matrix multiplication. Alter the above code to use the alternate command.</div></article><div class="para logical" id="p-297">
 <div class="para">Because matrix multiplication extends matrix-vector multiplication linearly, we can find the image of multiple input vectors all at once. We simply use the vectors we want to transform as the columns of a matrix, then we can extract their image from the matrix product as the corresponding column.</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -440,18 +445,18 @@ print('The resulting matrix multiplication is:')
 print(Ax)
 print('Meanwhile, the image of', x1, 'is:', Ax1 )
 </script></pre>
-<article class="exercise exercise-like" id="exercise-61"><h4 class="heading">
+<article class="exercise exercise-like" id="exercise-62"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.22</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-290">Change the above code to select a different input vector and compare to the corresponding column of the matrix product.</div></article></section><section class="subsection" id="subsection-37"><h3 class="heading hide-type">
+<div class="para" id="p-298">Change the above code to select a different input vector and compare to the corresponding column of the matrix product.</div></article></section><section class="subsection" id="subsection-37"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Visualizing a Matrix Transformation</span>
 </h3>
-<div class="para" id="p-291">We can visualize the effect of a transformation by considering the transformed basis vectors. That is, the image of basis vectors under the transformation <span class="process-math">\(A\text{.}\)</span><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-7" id="fn-7"><sup> 4 </sup></a> We can then picture the image of any linear combinations of basis vectors using scaling and adding tail to tip. Since every other vector is a linear combination of the basis vectors, that allows us to visualize the image of every vector in the space.</div>
-<div class="para" id="p-292">Note that for a square matrix, the image can be visualized in the same space as the domain. We will demonstrate for a transformation <span class="process-math">\(A:\mathbb{R}^2 \to \mathbb{R}^2\)</span> using the standard basis.</div>
+<div class="para" id="p-299">We can visualize the effect of a transformation by considering the transformed basis vectors. That is, the image of basis vectors under the transformation <span class="process-math">\(A\text{.}\)</span><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-8" id="fn-8"><sup> 4 </sup></a> We can then picture the image of any linear combinations of basis vectors using scaling and adding tail to tip. Since every other vector is a linear combination of the basis vectors, that allows us to visualize the image of every vector in the space.</div>
+<div class="para" id="p-300">Note that for a square matrix, the image can be visualized in the same space as the domain. We will demonstrate for a transformation <span class="process-math">\(A:\mathbb{R}^2 \to \mathbb{R}^2\)</span> using the standard basis.</div>
 <article class="example example-like" id="e1e2transform"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.23</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-293">First we will visualize just the transformed basis vectors.</div> <pre class="ptx-sagecell sagecell-python" id="sage-73"><script type="text/x-sage">import matplotlib.pyplot as plt
+<div class="para" id="p-301">First we will visualize just the transformed basis vectors.</div> <pre class="ptx-sagecell sagecell-python" id="sage-73"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 A = np.array([[2,2], [0,3]]) #Transformation
@@ -476,14 +481,14 @@ ax.legend()
 ax.grid()
 
 plt.show() #display graph
-</script></pre></article><article class="exercise exercise-like" id="exercise-62"><h4 class="heading">
+</script></pre></article><article class="exercise exercise-like" id="exercise-63"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.24</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-294">Edit the code in <a href="" class="xref" data-knowl="./knowl/e1e2transform.html" title="Example 2.23">Example 2.23</a> to consolidate the basis vectors into columns of one matrix instead. Then extract their images under <span class="process-math">\(A\)</span> from the resulting matrix product. What do you notice?</div></article><div class="para" id="p-295">To visualize how the rest of the space is transformed, we can use scalar multiples of the standard basis to grid out the space. Since the vector <span class="process-math">\(2\vec{e}_1 -\vec{e}_2\)</span> gets mapped to <span class="process-math">\(2A\vec{e}_1-A\vec{e_2}\text{,}\)</span> we can then visualize the result of the transformation using the transformed grid.</div>
+<div class="para" id="p-302">Edit the code in <a href="" class="xref" data-knowl="./knowl/e1e2transform.html" title="Example 2.23">Example 2.23</a> to consolidate the basis vectors into columns of one matrix instead. Then extract their images under <span class="process-math">\(A\)</span> from the resulting matrix product. What do you notice?</div></article><div class="para" id="p-303">To visualize how the rest of the space is transformed, we can use scalar multiples of the standard basis to grid out the space. Since the vector <span class="process-math">\(2\vec{e}_1 -\vec{e}_2\)</span> gets mapped to <span class="process-math">\(2A\vec{e}_1-A\vec{e_2}\text{,}\)</span> we can then visualize the result of the transformation using the transformed grid.</div>
 <article class="example example-like" id="pointgrid"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.25</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-296">We will first apply <span class="process-math">\(A\)</span> to a grid of coordinate dots. While NumPy’s <code class="code-inline tex2jax_ignore">meshgrid()</code> works great for plotting a grid of points, the arrays are not the right size to act as input vectors for the matrix-vector multiplication.</div> <div class="para" id="p-297">For matrix-vector multiplication we need column vectors, and if we want to compute the image of several vectors all at once we need a matrix where <em class="emphasis">each</em> column is one of our vectors. Here we want each column to be a coordinate, having top entry an x-value and bottom entry a corresponding y-value. In other words, we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a <code class="code-inline tex2jax_ignore">array.reshape(size)</code> function that allows us to reshape each array of x-values and y-values from <code class="code-inline tex2jax_ignore">meshgrid()</code> into rows. We can then <code class="code-inline tex2jax_ignore">row_stack()</code> those two rows to form the desired input matrix.</div> <pre class="ptx-sagecell sagecell-python" id="sage-74"><script type="text/x-sage">import numpy as np
+<div class="para" id="p-304">We will first apply <span class="process-math">\(A\)</span> to a grid of coordinate dots. While NumPy’s <code class="code-inline tex2jax_ignore">meshgrid()</code> works great for plotting a grid of points, the arrays are not the right size to act as input vectors for the matrix-vector multiplication.</div> <div class="para" id="p-305">For matrix-vector multiplication we need column vectors, and if we want to compute the image of several vectors all at once we need a matrix where <em class="emphasis">each</em> column is one of our vectors. Here we want each column to be a coordinate, having top entry an x-value and bottom entry a corresponding y-value. In other words, we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a <code class="code-inline tex2jax_ignore">array.reshape(size)</code> function that allows us to reshape each array of x-values and y-values from <code class="code-inline tex2jax_ignore">meshgrid()</code> into rows. We can then <code class="code-inline tex2jax_ignore">row_stack()</code> those two rows to form the desired input matrix.</div> <pre class="ptx-sagecell sagecell-python" id="sage-74"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots() #create fig, axes
@@ -510,22 +515,22 @@ ax.scatter(uvgrid[0],uvgrid[1], c=xygrid[0])
 ax.set(xlim=(-20,20), ylim=(-20,20))
 
 plt.show()
-</script></pre></article><article class="exercise exercise-like" id="exercise-63"><h4 class="heading">
+</script></pre></article><article class="exercise exercise-like" id="exercise-64"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.26</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-298">Edit the code in <a href="" class="xref" data-knowl="./knowl/pointgrid.html" title="Example 2.25">Example 2.25</a> to print every array to see how the same arrays are reshaped, recombined, and transformed.</div>
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-10" id="hint-10"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-10"><div class="hint solution-like"><div class="para" id="p-299">Print arrays so you can compare X to X1 and Y to Y1. Also compare xygrid to xygrid[i] and xygrid to uvgrid to see the difference.</div></div></div></article><article class="exercise exercise-like" id="exercise-64"><h4 class="heading">
+<div class="para" id="p-306">Edit the code in <a href="" class="xref" data-knowl="./knowl/pointgrid.html" title="Example 2.25">Example 2.25</a> to print every array to see how the same arrays are reshaped, recombined, and transformed.</div>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-10" id="hint-10"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-10"><div class="hint solution-like"><div class="para" id="p-307">Print arrays so you can compare X to X1 and Y to Y1. Also compare xygrid to xygrid[i] and xygrid to uvgrid to see the difference.</div></div></div></article><article class="exercise exercise-like" id="exercise-65"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.27</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-300">Edit the code in <a href="" class="xref" data-knowl="./knowl/pointgrid.html" title="Example 2.25">Example 2.25</a> to make a <span class="process-math">\(9\times 9\)</span> point grid instead.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-8" id="fn-8"><sup> 5 </sup></a>
-</div></article><article class="exercise exercise-like" id="exercise-65"><h4 class="heading">
+<div class="para" id="p-308">Edit the code in <a href="" class="xref" data-knowl="./knowl/pointgrid.html" title="Example 2.25">Example 2.25</a> to make a <span class="process-math">\(9\times 9\)</span> point grid instead.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-9" id="fn-9"><sup> 5 </sup></a>
+</div></article><article class="exercise exercise-like" id="exercise-66"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.28</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-301">Note: the argument <code class="code-inline tex2jax_ignore">c=</code> inside <code class="code-inline tex2jax_ignore">scatter</code> tells Matplotlib how to assign colors to our scatterplot. Here we assign colors according to the first array in xygrid. What happens if you assign colors according to the second array inside xygrid?</div></article><div class="para" id="p-302">It can be easier to visualize a matrix transformation using a line grid (or coordinate grid) rather than a collection of points. To use our points to create a grid of lines instead, we need at least two points on each line. We will use <code class="code-inline tex2jax_ignore">plot</code> instead of <code class="code-inline tex2jax_ignore">scatter</code>. Note: horizontal lines have incrementing x-values and constant y-values, while vertical lines have incrementing y-values and constant x-values, so we will need to be careful about which arrays we pass into <code class="code-inline tex2jax_ignore">plot</code>.</div>
+<div class="para" id="p-309">Note: the argument <code class="code-inline tex2jax_ignore">c=</code> inside <code class="code-inline tex2jax_ignore">scatter</code> tells Matplotlib how to assign colors to our scatterplot. Here we assign colors according to the first array in xygrid. What happens if you assign colors according to the second array inside xygrid?</div></article><div class="para" id="p-310">It can be easier to visualize a matrix transformation using a line grid (or coordinate grid) rather than a collection of points. To use our points to create a grid of lines instead, we need at least two points on each line. We will use <code class="code-inline tex2jax_ignore">plot</code> instead of <code class="code-inline tex2jax_ignore">scatter</code>. Note: horizontal lines have incrementing x-values and constant y-values, while vertical lines have incrementing y-values and constant x-values, so we will need to be careful about which arrays we pass into <code class="code-inline tex2jax_ignore">plot</code>.</div>
 <article class="example example-like" id="linegrid"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.29</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-303">We will build up to the transformed grid a step at a time.</div> <div class="para" id="p-304">Step 1: First we will learn how to graph a basic grid of lines.</div> <pre class="ptx-sagecell sagecell-python" id="sage-75"><script type="text/x-sage">import numpy as np
+<div class="para" id="p-311">We will build up to the transformed grid a step at a time.</div> <div class="para" id="p-312">Step 1: First we will learn how to graph a basic grid of lines.</div> <pre class="ptx-sagecell sagecell-python" id="sage-75"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots() #create fig, axes
@@ -550,7 +555,7 @@ for i in np.arange(0,NLines,step=1):
 ax.set(xlim=(-10,10), ylim=(-10,10))
 
 plt.show()
-</script></pre> <div class="para" id="p-305">Step 2: Graph a transformed grid of lines.</div> <div class="para" id="p-306">Now we add in the matrix transformation. Note: in order to find the transformed line grid, we again <code class="code-inline tex2jax_ignore">.reshape()</code> the X,Y grid into a row of x-values and a row of y-values so we can matrix multiply each point as a column of a matrix. We will then <code class="code-inline tex2jax_ignore">.reshape()</code> back into a transformed meshgrid in order to graph our grid of transformed lines.</div> <pre class="ptx-sagecell sagecell-python" id="sage-76"><script type="text/x-sage">import numpy as np
+</script></pre> <div class="para" id="p-313">Step 2: Graph a transformed grid of lines.</div> <div class="para" id="p-314">Now we add in the matrix transformation. Note: in order to find the transformed line grid, we again <code class="code-inline tex2jax_ignore">.reshape()</code> the X,Y grid into a row of x-values and a row of y-values so we can matrix multiply each point as a column of a matrix. We will then <code class="code-inline tex2jax_ignore">.reshape()</code> back into a transformed meshgrid in order to graph our grid of transformed lines.</div> <pre class="ptx-sagecell sagecell-python" id="sage-76"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots() #create fig and axes
@@ -588,16 +593,16 @@ for i in np.arange(0,NLines,step=1):
 ax.set(xlim=(-10,10), ylim=(-10,10))
     
 plt.show()
-</script></pre></article><article class="exercise exercise-like" id="exercise-66"><h4 class="heading">
+</script></pre></article><article class="exercise exercise-like" id="exercise-67"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.30</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-307">In the first step of <a href="" class="xref" data-knowl="./knowl/linegrid.html" title="Example 2.29">Example 2.29</a>, graphing the basic grid of lines, change the number of lines to 3. Now print each array to better see which array is used for each plot. Why do we need the transpose for our vertical lines?</div></article><article class="exercise exercise-like" id="exercise-67"><h4 class="heading">
+<div class="para" id="p-315">In the first step of <a href="" class="xref" data-knowl="./knowl/linegrid.html" title="Example 2.29">Example 2.29</a>, graphing the basic grid of lines, change the number of lines to 3. Now print each array to better see which array is used for each plot. Why do we need the transpose for our vertical lines?</div></article><article class="exercise exercise-like" id="exercise-68"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.31</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-308">In the second step of <a href="" class="xref" data-knowl="./knowl/linegrid.html" title="Example 2.29">Example 2.29</a>, graphing the transformed grid of lines, change the number of lines to 3. Now print each array to better see which array is used for each plot. What happens if you only increment through the X or the Y and not both?</div></article><article class="example example-like" id="example-10"><h4 class="heading">
+<div class="para" id="p-316">In the second step of <a href="" class="xref" data-knowl="./knowl/linegrid.html" title="Example 2.29">Example 2.29</a>, graphing the transformed grid of lines, change the number of lines to 3. Now print each array to better see which array is used for each plot. What happens if you only increment through the X or the Y and not both?</div></article><article class="example example-like" id="example-10"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.32</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-309">Unlike <code class="code-inline tex2jax_ignore">scatter</code> which has an argument <code class="code-inline tex2jax_ignore">c=array</code> that allows us to color code based on an x-coordinate or y-coordinate, <code class="code-inline tex2jax_ignore">plot</code> does not. To better see the effects of a reflection, we will use a sequential color map to color our lines.</div> <div class="para" id="p-310">Step 1: Color a basic grid</div> <pre class="ptx-sagecell sagecell-python" id="sage-77"><script type="text/x-sage">import numpy as np
+<div class="para" id="p-317">Unlike <code class="code-inline tex2jax_ignore">scatter</code> which has an argument <code class="code-inline tex2jax_ignore">c=array</code> that allows us to color code based on an x-coordinate or y-coordinate, <code class="code-inline tex2jax_ignore">plot</code> does not. To better see the effects of a reflection, we will use a sequential color map to color our lines.</div> <div class="para" id="p-318">Step 1: Color a basic grid</div> <pre class="ptx-sagecell sagecell-python" id="sage-77"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 cmap = plt.get_cmap('viridis') #get colormap
 
@@ -626,7 +631,7 @@ for i in np.arange(0,NLines,step=1):
 ax.set(xlim=(-9,9), ylim=(-9,9))
     
 plt.show()
-</script></pre> <div class="para" id="p-311">Step 2: Color a transformed grid using corresponding coloring.</div> <div class="para" id="p-312">Below is the corresponding transformed grid with a sequential color map.</div> <pre class="ptx-sagecell sagecell-python" id="sage-78"><script type="text/x-sage">import numpy as np
+</script></pre> <div class="para" id="p-319">Step 2: Color a transformed grid using corresponding coloring.</div> <div class="para" id="p-320">Below is the corresponding transformed grid with a sequential color map.</div> <pre class="ptx-sagecell sagecell-python" id="sage-78"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 cmap = plt.get_cmap('viridis') #get colormap
 
@@ -663,18 +668,18 @@ for i in np.arange(0,NLines,step=1):
 ax.set(xlim=(-9,15), ylim=(-9,9))
     
 plt.show()
-</script></pre></article><div class="para logical" id="p-313">
+</script></pre></article><div class="para logical" id="p-321">
 <div class="para">If instead the transformation maps higher dimensional vectors to lower dimensional vectors, or vice versa, we can still visualize the transformation.</div>
 <ul class="disc">
-<li id="li-86"><div class="para" id="p-314">One approach is to plot two graphs side-by-side color-coded to match: (1) the standard basis (or grid) in the domain and (2)the corresponding transformed basis (or transformed grid) in the co-domain.</div></li>
-<li id="li-87"><div class="para" id="p-315">Another approach is to embed everything in the higher dimensional space and animate the transformation there.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-9" id="fn-9"><sup> 6 </sup></a>
+<li id="li-89"><div class="para" id="p-322">One approach is to plot two graphs side-by-side color-coded to match: (1) the standard basis (or grid) in the domain and (2)the corresponding transformed basis (or transformed grid) in the co-domain.</div></li>
+<li id="li-90"><div class="para" id="p-323">Another approach is to embed everything in the higher dimensional space and animate the transformation there.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-10" id="fn-10"><sup> 6 </sup></a>
 </div></li>
 </ul>
 </div></section><section class="subsection" id="subsection-38"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Animating Matrix Transformations</span>
 </h3>
-<div class="para" id="p-316">What if we wanted to visualize the transformation as a gradual change?</div>
-<div class="para logical" id="p-317">
+<div class="para" id="p-324">What if we wanted to visualize the transformation as a gradual change?</div>
+<div class="para logical" id="p-325">
 <div class="para">We can think of where we start as applying the identity matrix <span class="process-math">\(I_n.\)</span> Meanwhile we can think of where we end as applying the final transformation matrix <span class="process-math">\(A\text{.}\)</span> We can create intermediate transformation matrices <span class="process-math">\(IA_p \)</span> between <span class="process-math">\(I_n\)</span>  and <span class="process-math">\(A\)</span> by adding complimentary percentages <span class="process-math">\(p\)</span> of the identity transformation and our matrix transformation,</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -685,7 +690,7 @@ IA_p = (1-p)*I_n +p*A \text{.}
 </div>
 <article class="example example-like" id="basisslider"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.33</span><span class="period">.</span><span class="space"> </span><span class="title">"Using an interactive slider".</span>
-</h4> <div class="para" id="p-318">First we create a slider that starts with the identity transformation on two basis vectors and gradually gives us the transformation by <span class="process-math">\(A.\)</span>
+</h4> <div class="para" id="p-326">First we create a slider that starts with the identity transformation on two basis vectors and gradually gives us the transformation by <span class="process-math">\(A.\)</span>
 </div> <pre class="ptx-sagecell sagecell-python" id="sage-79"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
@@ -721,7 +726,7 @@ def respond_to_user_input(frame=slider(0,10,1)):
 
     #Call our function that plots the transformation        
     plot_transform(current_t)
-</script></pre> <div class="para" id="p-319">Note that in this interactive, we only want the current frame, and not all the frames up to the current frame. Do you know why?</div></article><div class="para" id="p-320">We can animate the gradual transformation using what we learned in <a href="section-animation.html" class="internal" title="Section 1.5: Basic Animation">Section 1.5</a>. Using <code class="code-inline tex2jax_ignore">PillowWriter</code> we will start with a somewhat simple .gif of the transformation, then add features.</div>
+</script></pre> <div class="para" id="p-327">Note that in this interactive, we only want the current frame, and not all the frames up to the current frame. Do you know why?</div></article><div class="para" id="p-328">We can animate the gradual transformation using what we learned in <a href="section-animation.html" class="internal" title="Section 1.5: Basic Animation">Section 1.5</a>. Using <code class="code-inline tex2jax_ignore">PillowWriter</code> we will start with a somewhat simple .gif of the transformation, then add features.</div>
 <article class="example example-like" id="basisgif"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.34</span><span class="period">.</span><span class="space"> </span><span class="title">"Using PillowWriter to make a .gif.</span>
 </h4> <pre class="ptx-sagecell sagecell-python" id="sage-80"><script type="text/x-sage">import numpy as np 
@@ -754,15 +759,15 @@ with writer.saving(fig, "TransformVectors1.gif", 100): #100 is the dpi
     ax.set(xlim=(-1,5), ylim=(-1,4))  
     
     writer.grab_frame() #grab frame of current intermediate transformation
-</script></pre></article><article class="exercise exercise-like" id="exercise-68"><h4 class="heading">
+</script></pre></article><article class="exercise exercise-like" id="exercise-69"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.35</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-321">Comment out <code class="code-inline tex2jax_ignore">plt.cla()</code> in <a href="" class="xref" data-knowl="./knowl/basisgif.html" title='Example 2.34: "Using PillowWriter to make a .gif'>Example 2.34</a>. What happens to your animation?</div></article><article class="exercise exercise-like" id="exercise-69"><h4 class="heading">
+<div class="para" id="p-329">Comment out <code class="code-inline tex2jax_ignore">plt.cla()</code> in <a href="" class="xref" data-knowl="./knowl/basisgif.html" title='Example 2.34: "Using PillowWriter to make a .gif'>Example 2.34</a>. What happens to your animation?</div></article><article class="exercise exercise-like" id="exercise-70"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.36</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-322">Add a title, grid, and legend to the animation in <a href="" class="xref" data-knowl="./knowl/basisgif.html" title='Example 2.34: "Using PillowWriter to make a .gif'>Example 2.34</a>. Where do these need to be added in the code to show up in every frame?</div></article><article class="example example-like" id="basisgiflinger"><h4 class="heading">
+<div class="para" id="p-330">Add a title, grid, and legend to the animation in <a href="" class="xref" data-knowl="./knowl/basisgif.html" title='Example 2.34: "Using PillowWriter to make a .gif'>Example 2.34</a>. Where do these need to be added in the code to show up in every frame?</div></article><article class="example example-like" id="basisgiflinger"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.37</span><span class="period">.</span><span class="space"> </span><span class="title">Buffering your .gif.</span>
-</h4> <div class="para" id="p-323">Note that the animation would look better visually if we started with the standard basis plot and lingered for a few seconds before beginning the transformation. We can add that by grabbing frames of the standard basis plot first.</div> <pre class="ptx-sagecell sagecell-python" id="sage-81"><script type="text/x-sage">import numpy as np 
+</h4> <div class="para" id="p-331">Note that the animation would look better visually if we started with the standard basis plot and lingered for a few seconds before beginning the transformation. We can add that by grabbing frames of the standard basis plot first.</div> <pre class="ptx-sagecell sagecell-python" id="sage-81"><script type="text/x-sage">import numpy as np 
 import matplotlib.pyplot as plt
 from matplotlib.animation import PillowWriter
 
@@ -802,11 +807,11 @@ with writer.saving(fig, "TransformVectors2.gif", 100): #100 is the dpi
     ax.grid()
     
     writer.grab_frame() #grab frame of current intermediate transformation
-</script></pre></article><div class="para" id="p-324">Note that the .gif would also look better if the animation lingered for a few more seconds at the end where the transformation is complete.</div>
-<article class="exercise exercise-like" id="exercise-70"><h4 class="heading">
+</script></pre></article><div class="para" id="p-332">Note that the .gif would also look better if the animation lingered for a few more seconds at the end where the transformation is complete.</div>
+<article class="exercise exercise-like" id="exercise-71"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.38</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-325">Edit the code in <a href="" class="xref" data-knowl="./knowl/basisgiflinger.html" title="Example 2.37: Buffering your .gif">Example 2.37</a> so the animation pauses at the completed transformation. Where do you need to add the loop to grab the correct frames?</div></article><div class="para" id="p-326">Animating a gradual transformation of our collection of points from the identity to the matrix transformation can be done similarly. We will include one example using a .gif animating the transformation of a grid of points and leave the slider and animating a grid of lines as an exercise for the reader.</div>
+<div class="para" id="p-333">Edit the code in <a href="" class="xref" data-knowl="./knowl/basisgiflinger.html" title="Example 2.37: Buffering your .gif">Example 2.37</a> so the animation pauses at the completed transformation. Where do you need to add the loop to grab the correct frames?</div></article><div class="para" id="p-334">Animating a gradual transformation of our collection of points from the identity to the matrix transformation can be done similarly. We will include one example using a .gif animating the transformation of a grid of points and leave the slider and animating a grid of lines as an exercise for the reader.</div>
 <article class="example example-like" id="example-14"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.39</span><span class="period">.</span><span class="space"> </span><span class="title">Animating a grid transformation using PillowWriter.</span>
 </h4> <pre class="ptx-sagecell sagecell-python" id="sage-82"><script type="text/x-sage">import numpy as np 
@@ -854,44 +859,44 @@ with writer.saving(fig, "TransformPoints.gif", 100): #100 is the dpi
 
   for tval in np.linspace(0,10,30): 
     writer.grab_frame() #grab frames
-</script></pre></article><article class="exercise exercise-like" id="exercise-71"><h4 class="heading">
+</script></pre></article><article class="exercise exercise-like" id="exercise-72"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.40</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-327">Animate a gradual matrix transformation using the line grid.</div></article><pre class="ptx-sagecell sagecell-python" id="sage-83"><script type="text/x-sage">python
-</script></pre></section><section class="conclusion" id="conclusion-6"><div class="para" id="p-328">Because linear transformations can be fully determined by a basis, we can visualize the transformation based on how a basis is transformed. We can visualize matrix transformations on vectors in <span class="process-math">\(\mathbb{R}^2\)</span> using basis grids (points or lines) and in <span class="process-math">\(\mathbb{R}^3\)</span> using basis vectors (and perhaps a point grid).</div></section><article class="assemblage assemblage-like" id="assemblage-8"><h3 class="heading"><span class="title">Summary.</span></h3>
-<div class="para logical" id="p-329">
-<ul class="disc"><li id="li-88"><div class="para" id="p-330">TBD</div></li></ul>
-<ul class="disc"><li id="li-89"><div class="para" id="p-331">TBD</div></li></ul>
+<div class="para" id="p-335">Animate a gradual matrix transformation using the line grid.</div></article><pre class="ptx-sagecell sagecell-python" id="sage-83"><script type="text/x-sage">python
+</script></pre></section><section class="conclusion" id="conclusion-6"><div class="para" id="p-336">Because linear transformations can be fully determined by a basis, we can visualize the transformation based on how a basis is transformed. We can visualize matrix transformations on vectors in <span class="process-math">\(\mathbb{R}^2\)</span> using basis grids (points or lines) and in <span class="process-math">\(\mathbb{R}^3\)</span> using basis vectors (and perhaps a point grid).</div></section><article class="assemblage assemblage-like" id="assemblage-8"><h3 class="heading"><span class="title">Summary.</span></h3>
+<div class="para logical" id="p-337">
+<ul class="disc"><li id="li-91"><div class="para" id="p-338">TBD</div></li></ul>
+<ul class="disc"><li id="li-92"><div class="para" id="p-339">TBD</div></li></ul>
 </div></article><section class="exercises" id="exercises-transformations"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-72"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para" id="p-332">Visualize a linear transformation using similar methods on a point grid in <span class="process-math">\(\mathbb{R}^3\)</span> in Matplotlib.</div>
+<article class="exercise exercise-like" id="exercise-73"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para" id="p-340">Visualize a linear transformation using similar methods on a point grid in <span class="process-math">\(\mathbb{R}^3\)</span> in Matplotlib.</div>
 <pre class="ptx-sagecell sagecell-python" id="sage-84"><script type="text/x-sage">#
 #
 #
 #
 #
-</script></pre></article><article class="exercise exercise-like" id="exercise-73"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="para" id="p-333">Animate a linear transformation on a line grid in Matplotlib.</div>
+</script></pre></article><article class="exercise exercise-like" id="exercise-74"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para" id="p-341">Animate a linear transformation on a line grid in Matplotlib.</div>
 <pre class="ptx-sagecell sagecell-python" id="sage-85"><script type="text/x-sage">#
 #
 #
 #
 #
-</script></pre></article><article class="exercise exercise-like" id="exercise-74"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="para" id="p-334">Animate a linear transformation that goes up or down a dimension in Matplotlib. E.g. <span class="process-math">\(\mathbb{R}^3 \rightarrow \mathbb{R}^2\)</span> or <span class="process-math">\(\mathbb{R}^2 \rightarrow \mathbb{R}^3 \)</span> all visualized or embedded inside <span class="process-math">\(\mathbb{R}^3\text{.}\)</span>
+</script></pre></article><article class="exercise exercise-like" id="exercise-75"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="para" id="p-342">Animate a linear transformation that goes up or down a dimension in Matplotlib. E.g. <span class="process-math">\(\mathbb{R}^3 \rightarrow \mathbb{R}^2\)</span> or <span class="process-math">\(\mathbb{R}^2 \rightarrow \mathbb{R}^3 \)</span> all visualized or embedded inside <span class="process-math">\(\mathbb{R}^3\text{.}\)</span>
 </div>
 <pre class="ptx-sagecell sagecell-python" id="sage-86"><script type="text/x-sage">#
 #
 #
 #
 #
-</script></pre></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-6"><div class="fn">Similarly you can use SymPy’s <code class="code-inline tex2jax_ignore">Transpose()</code> or <code class="code-inline tex2jax_ignore">.T</code> to convert.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-7"><div class="fn">We say <span class="process-math">\(A\vec{e}_1\)</span> is the image of the standard basis vector under the transformation <span class="process-math">\(A\text{.}\)</span> That is, the output of <span class="process-math">\(A\vec{e}_1\)</span> under the transformation, i.e. where <span class="process-math">\(\vec{e}_1\)</span> gets mapped via <span class="process-math">\(A\text{.}\)</span>
+</script></pre></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-7"><div class="fn">Similarly you can use SymPy’s <code class="code-inline tex2jax_ignore">Transpose()</code> or <code class="code-inline tex2jax_ignore">.T</code> to convert.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-8"><div class="fn">We say <span class="process-math">\(A\vec{e}_1\)</span> is the image of the standard basis vector under the transformation <span class="process-math">\(A\text{.}\)</span> That is, the output of <span class="process-math">\(A\vec{e}_1\)</span> under the transformation, i.e. where <span class="process-math">\(\vec{e}_1\)</span> gets mapped via <span class="process-math">\(A\text{.}\)</span>
 </div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-8"><div class="fn">We used a <span class="process-math">\(3\times 3\)</span> grid at first so you could print the arrays to follow along. Now we want to generalize to more points.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-9"><div class="fn">Note: every <span class="process-math">\(m\times n\)</span> matrix transformation, say <span class="process-math">\(m\geq n\)</span> can be extended to a <span class="process-math">\(m \times m \)</span> matrix transformation by adding an zero column. (Respectively if <span class="process-math">\(m \leq n\)</span> we extend to <span class="process-math">\(n\times n\)</span> and add a zero row).</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-9"><div class="fn">We used a <span class="process-math">\(3\times 3\)</span> grid at first so you could print the arrays to follow along. Now we want to generalize to more points.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-10"><div class="fn">Note: every <span class="process-math">\(m\times n\)</span> matrix transformation, say <span class="process-math">\(m\geq n\)</span> can be extended to a <span class="process-math">\(m \times m \)</span> matrix transformation by adding an zero column. (Respectively if <span class="process-math">\(m \leq n\)</span> we extend to <span class="process-math">\(n\times n\)</span> and add a zero row).</div></div>
 </div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="section-matrices.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="section-determinants.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>

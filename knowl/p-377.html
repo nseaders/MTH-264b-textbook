@@ -12,32 +12,7 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para logical">
-<div class="para">The formula <span class="process-math">\(|\va\times\vb|=|\va|\,|\vb|\sin\theta\)</span> is gotten by verifying that</div>
-<div class="displaymath process-math">
-\begin{align*}
-|\va\times\vb|^2
-&amp;=\big(\va\times\vb\big)\cdot\big(\va\times\vb\big)\\
-&amp;=(a_2b_3-a_3b_2)^2+(a_3b_1-a_1b_3)^2+ (a_1b_2-a_2b_1)^2\\
-&amp;=a_2^2b_3^2-2a_2b_3a_3b_2+a_3^2b_2^2
-+a_3^2b_1^2-2a_3b_1a_1b_3+a_1^2b_3^2\\
-&amp;\hskip0.5in
-+a_1^2b_2^2-2a_1b_2a_2b_1+a_2^2b_1^2\\
-\end{align*}
-<p class="intertext">is equal to</p>
-\begin{align*}
-|\va|^2\,|\vb|^2\sin^2\theta
-&amp;=|\va|^2|\vb|^2(1-\cos^2\theta)\\
-&amp;=|\va|^2|\vb|^2-(\va\cdot\vb)^2\\
-&amp;=\big(a_1^2+a_2^2+a_3^2\big)\big(b_1^2+b_2^2+b_3^2\big)
--\big(a_1b_1+a_2b_2+a_3b_3\big)^2\\
-&amp;=a_1^2b_2^2+a_1^2b_3^2+a_2^2b_1^2+a_2^2b_3^2+a_3^2b_1^2+a_3^2b_2^2\\
-&amp;\hskip0.5in
--\big(2a_1b_1a_2b_2+2a_1b_1a_3b_3+2a_2b_2a_3b_3\big)
-\end{align*}
-</div>
-<div class="para">To see that <span class="process-math">\(|\va|\,|\vb|\sin\theta\)</span> is the area of the parallelogram with sides <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vb\text{,}\)</span> just recall that the area of any parallelogram is given by the length of its base times its height. Think of <span class="process-math">\(\va\)</span> as the base of the parallelogram. Then <span class="process-math">\(|\va|\)</span> is the length of the base and <span class="process-math">\(|\vb|\sin\theta\)</span> is the height.</div>
-</div>
-<span class="incontext"><a href="sec_vectors.html#p-377" class="internal">in-context</a></span>
+<div class="para">NumPy’s <code class="code-inline tex2jax_ignore">linalg.eig(matrix_name)</code> can be used to find numerical approximations for the eigenvalues and eigenvectors (where the latter are normalized to have magnitude 1). Note that <code class="code-inline tex2jax_ignore">linalg.eig(matrix_name)</code> returns a tuple of both the eigenvalues and the eigenvectors.</div>
+<span class="incontext"><a href="section-eigenthings.html#p-377" class="internal">in-context</a></span>
 </body>
 </html>

@@ -350,14 +350,19 @@ sagecell.makeSagecell({
 <li>
 <div class="toc-item"><a href="section-determinants.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Determinants</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-determinants.html#subsection-39" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-determinants.html#subsec-what-is-determinant" class="internal"><span class="title">What is the determinant?</span></a></div></li>
+<li><div class="toc-item"><a href="section-determinants.html#subsec-computing-determinant" class="internal"><span class="title">Computing the Determinant</span></a></div></li>
+<li><div class="toc-item"><a href="section-determinants.html#subsec-determinants-linear-systems" class="internal"><span class="title">Determinants and Systems of Linear Equations</span></a></div></li>
+<li><div class="toc-item"><a href="section-determinants.html#subsec-numerical-solve" class="internal"><span class="title">Numerically Solving System of Equations</span></a></div></li>
+<li><div class="toc-item"><a href="section-determinants.html#subsec-Ill-conditionedTransformations" class="internal"><span class="title">Ill-conditioned Matrices</span></a></div></li>
 <li><div class="toc-item"><a href="section-determinants.html#exercises-determinants" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="active">
 <div class="toc-item"><a href="section-eigenthings.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Eigenthings</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-eigenthings.html#subsection-40" class="internal"><span class="title">Title</span></a></div></li>
+<li><div class="toc-item"><a href="section-eigenthings.html#subsec-computing-eigenthings" class="internal"><span class="title">Computing Eigenthings</span></a></div></li>
+<li><div class="toc-item"><a href="section-eigenthings.html#subsec-visualizing-eigenthings" class="internal"><span class="title">Visualizing with Eigenthings</span></a></div></li>
 <li><div class="toc-item"><a href="section-eigenthings.html#exercises-eigenthings" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -368,7 +373,7 @@ sagecell.makeSagecell({
 <ul class="structural"><li>
 <div class="toc-item"><a href="examples.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Samples of various pretext formats</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="examples.html#subsection-41" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
+<li><div class="toc-item"><a href="examples.html#subsection-46" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
 <li><div class="toc-item"><a href="examples.html#reading-questions-1" class="internal"><span class="title">Reading Questions</span></a></div></li>
 </ul>
 </li></ul>
@@ -380,24 +385,86 @@ sagecell.makeSagecell({
 </h2>
 <section class="introduction" id="introduction-13">In this section we will learn how to</section><article class="objectives goal-like" id="objectives-10"><h3 class="heading"><span class="type">Objectives</span></h3>
 <ul class="disc">
-<li id="li-94"><div class="para" id="p-341">C</div></li>
-<li id="li-95"><div class="para" id="p-342">D</div></li>
-</ul></article><section class="subsection" id="subsection-40"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Title</span>
+<li id="li-100"><div class="para" id="p-374">Compute eigenvalues and eigenvectors using NumPy and SymPy.</div></li>
+<li id="li-101"><div class="para" id="p-375">Visualize a matrix transformation using eigen-information.</div></li>
+</ul></article><section class="subsection" id="subsec-computing-eigenthings"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Computing Eigenthings</span>
 </h3>
-<pre class="ptx-sagecell sagecell-python" id="sage-89"><script type="text/x-sage">python
+<div class="para" id="p-376">Although we could use determinants to solve for eigenvalues and row reducing to solve for eigenvectors, both NumPy and SymPy have commands to directly determine eigenthings.</div>
+<div class="para" id="p-377">NumPy’s <code class="code-inline tex2jax_ignore">linalg.eig(matrix_name)</code> can be used to find numerical approximations for the eigenvalues and eigenvectors (where the latter are normalized to have magnitude 1). Note that <code class="code-inline tex2jax_ignore">linalg.eig(matrix_name)</code> returns a tuple of both the eigenvalues and the eigenvectors.</div>
+<div class="para" id="p-378">You can also find just the characteristic polynomial using <code class="code-inline tex2jax_ignore">poly(matrix_name)</code> and just the eigenvalues using <code class="code-inline tex2jax_ignore">linalg.eigvals(matrix_name)</code>.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-94"><script type="text/x-sage">import numpy as np
+
+A = np.array([[1,1],[-2,4]])
+B = np.array([[0,2],[1,-3]])
+
+#Find characteristic polynomial
+P = np.poly(A)
+
+#Find just the eigenvalues
+E = np.linalg.eigvals(A)
+
+#Find eigenvalues and eigenvectors
+eig, vects = np.linalg.eig(A)
+
+print(P)
+print(eig,vects)
 </script></pre>
-<article class="exercise exercise-like" id="exercise-77"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.42</span><span class="period">.</span>
-</h4></article></section><section class="conclusion" id="conclusion-8"><div class="para" id="p-343"></div></section><article class="assemblage assemblage-like" id="assemblage-10"><h3 class="heading"><span class="title">Summary.</span></h3>
-<div class="para logical" id="p-344">
-<ul class="disc"><li id="li-96"><div class="para" id="p-345">blah</div></li></ul>
-<ul class="disc"><li id="li-97"><div class="para" id="p-346">blah</div></li></ul>
+<article class="exercise exercise-like" id="exercise-85"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.49</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-379">Use the above code to write down the characteristic polynomials for matrix <span class="process-math">\(A\text{.}\)</span> Note that you have to interpret the output correctly.</div></article><article class="exercise exercise-like" id="exercise-86"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.50</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-380">Use the above NumPy code to write down the eigenvalues and eigenvectors for matrix <span class="process-math">\(A\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-87"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.51</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-381">Repeat both of the above exercises for the matrix <span class="process-math">\(B\text{.}\)</span> Why might someone prefer to solve a <span class="process-math">\(2\times 2\)</span> eigenvalue question by hand instead?</div></article><div class="para" id="p-382">As before, SymPy works well with symbolic manipulation. You can find the characteristic polynomial via <code class="code-inline tex2jax_ignore">matrix.charpoly()</code>. SymPy’s <code class="code-inline tex2jax_ignore">.eigenvects()</code> also returns a tuple of exact eigenvalues, their multiplicities, and exact eigenvectors. Since computing eigenvectors can be costly, we have the option of just computing eigenvalues using <code class="code-inline tex2jax_ignore">.eigvals()</code> instead. If instead of exact values you want a decimal approximation you can use the command <code class="code-inline tex2jax_ignore">.evalf()</code> or <code class="code-inline tex2jax_ignore">N()</code>.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-95"><script type="text/x-sage">import sympy as sp
+sp.init_printing()
+
+A = sp.Matrix([[1,1],[-2,4]])
+B = sp.Matrix([[0,2],[1,-3]])
+
+#Find characteristic polynomial
+P = A.charpoly()
+display(P)
+
+#Find the eigenvalues
+e1,e2 = A.eigenvals() #returns a tuple
+#display(e1, e2)
+#SymPy expressions can be converted to floating-point approximations using .evalf() or N()
+#display(e1.evalf()) #floating point approximations
+#display(e1.evalf(subs={x: 3.0}, n=25))#floating point up to a certain precision
+
+#Find the eigenvectors
+display(A.eigenvects())
+</script></pre>
+<article class="exercise exercise-like" id="exercise-88"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.52</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-383">Use the above SymPy code to write down the characteristic polynomial for matrix <span class="process-math">\(A\text{.}\)</span> Note that you have to interpret the output correctly.</div></article><article class="exercise exercise-like" id="exercise-89"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.53</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-384">Use the above code to write down the eigenvalues and eigenvectors for matrix <span class="process-math">\(A\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-90"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.54</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-385">Repeat the above two exercises for matrix <span class="process-math">\(B\text{.}\)</span>
+</div></article></section><section class="subsection" id="subsec-visualizing-eigenthings"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Visualizing with Eigenthings</span>
+</h3>
+<pre class="ptx-sagecell sagecell-python" id="sage-96"><script type="text/x-sage">python
+</script></pre></section><section class="conclusion" id="conclusion-8"><div class="para" id="p-386"></div></section><article class="assemblage assemblage-like" id="assemblage-10"><h3 class="heading"><span class="title">Summary.</span></h3>
+<div class="para logical" id="p-387">
+<ul class="disc"><li id="li-102"><div class="para" id="p-388">blah</div></li></ul>
+<ul class="disc"><li id="li-103"><div class="para" id="p-389">blah</div></li></ul>
 </div></article><section class="exercises" id="exercises-eigenthings"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-78"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<pre class="ptx-sagecell sagecell-python" id="sage-90"><script type="text/x-sage">#
+<article class="exercise exercise-like" id="exercise-91"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<pre class="ptx-sagecell sagecell-python" id="sage-97"><script type="text/x-sage">#
 #
 #
 #
