@@ -70,14 +70,19 @@
 
         <exercise>
           <p>
-            Use the above code to write down the characteristic polynomials for both matrices. 
+            Use the above code to write down the characteristic polynomials for matrix <m>A</m>. 
             Note that you have to interpret the output correctly. 
           </p>
         </exercise>
 
         <exercise>
           <p>
-            Use the above NumPy code to write down the eigenvalues and eigenvectors for both matrices. 
+            Use the above NumPy code to write down the eigenvalues and eigenvectors for matrix <m>A</m>. 
+          </p>
+        </exercise>
+        <exercise>
+          <p>
+            Repeat both of the above exercises for the matrix <m>B</m>.
             Why might someone prefer to solve a <m>2\times 2</m> eigenvalue question by hand instead? 
           </p>
         </exercise>
@@ -137,8 +142,8 @@
         
       </subsection>
 
-      <subsection>
-        <title>Title</title>
+      <subsection xml:id="subsec-visualizing-eigenthings">
+        <title>Visualizing with Eigenthings</title>
 
         <sage language='python'>
           <input>
@@ -146,14 +151,9 @@
 
           </input>
         </sage>
-
-        <exercise>
-          
-        </exercise>
-
+        
       </subsection>
-
-
+      
       <conclusion>
         <p>
 
