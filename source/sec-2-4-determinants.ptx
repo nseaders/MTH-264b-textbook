@@ -248,7 +248,7 @@
           </p>
           <p>
             Use your visual to clearly show what is happening with the solutions in <xref ref="ill-conditioned-example-exercise"/>.
-            <em> Note: Solving a matrix equation <m>\vec{x}=A^{=1}\vec{b}</m> corresponds to then reversing the transformation.</em>
+            <em> Note: Solving a matrix equation <m>\vec{x}=A^{-1}\vec{b}</m> corresponds to then reversing the transformation.</em>
           </p> 
           <sage language='python'>
             <input>
