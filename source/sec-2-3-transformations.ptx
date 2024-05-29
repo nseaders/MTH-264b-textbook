@@ -155,6 +155,9 @@
         </p>
 
         <example xml:id="e1e2transform">
+          <title>Transformed Basis Vectors</title>
+          
+          
           <p>
             First we will visualize just the transformed basis vectors.
           </p>
@@ -205,6 +208,9 @@
         </p>
 
         <example xml:id="pointgrid">
+          <title>Transformed Point Grid</title>
+          
+          
           <p>
             We will first apply <m>A</m> to a grid of coordinate dots.
             While NumPy's <c>meshgrid()</c> works great for plotting a grid of points, 
@@ -299,6 +305,9 @@
         </p>
 
         <example xml:id="linegrid">
+          <title>Transformed Line Grid </title>
+          
+          
           <p>
             We will build up to the transformed grid a step at a time. 
           </p>
@@ -414,6 +423,9 @@
         </exercise>
 
         <example>
+          <title>Coloring the Transformed Line Grid</title>
+          
+          
 
           <p>
             Unlike <c>scatter</c> which has an argument <c>c=array</c>
@@ -561,7 +573,7 @@
         </p>
 
         <example xml:id="basisslider">
-          <title>"Using an interactive slider"</title>
+          <title>Transformed Basis Vectors with Interactive Slider</title>
 
           <p>
             First we create a slider that starts with the identity transformation
@@ -620,7 +632,7 @@
         </p>
 
         <example xml:id="basisgif">
-          <title>"Using PillowWriter to make a .gif</title>
+          <title>Transformed Basis Vectors with PillowWriter .gif</title>
           
           <sage language='python'>
             <input>
@@ -673,7 +685,7 @@
           </exercise>
 
           <example xml:id="basisgiflinger">
-            <title>Buffering your .gif</title>
+            <title>Buffering a .gif</title>
 
             <p>
               Note that the animation would look better visually if we started with the
@@ -749,7 +761,7 @@
           </p>
 
           <example>
-            <title>Animating a grid transformation using PillowWriter</title>
+            <title>Animated Point Grid Transformation .gif</title>
 
             <sage language='python'>
               <input>
