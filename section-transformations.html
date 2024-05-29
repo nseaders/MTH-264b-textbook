@@ -454,9 +454,8 @@ print('Meanwhile, the image of', x1, 'is:', Ax1 )
 <div class="para" id="p-299">We can visualize the effect of a transformation by considering the transformed basis vectors. That is, the image of basis vectors under the transformation <span class="process-math">\(A\text{.}\)</span><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-8" id="fn-8"><sup> 4 </sup></a> We can then picture the image of any linear combinations of basis vectors using scaling and adding tail to tip. Since every other vector is a linear combination of the basis vectors, that allows us to visualize the image of every vector in the space.</div>
 <div class="para" id="p-300">Note that for a square matrix, the image can be visualized in the same space as the domain. We will demonstrate for a transformation <span class="process-math">\(A:\mathbb{R}^2 \to \mathbb{R}^2\)</span> using the standard basis.</div>
 <article class="example example-like" id="e1e2transform"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.23</span><span class="period">.</span>
-</h4>
-<div class="para" id="p-301">First we will visualize just the transformed basis vectors.</div> <pre class="ptx-sagecell sagecell-python" id="sage-73"><script type="text/x-sage">import matplotlib.pyplot as plt
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.23</span><span class="period">.</span><span class="space"> </span><span class="title">Transformed Basis Vectors.</span>
+</h4> <div class="para" id="p-301">First we will visualize just the transformed basis vectors.</div> <pre class="ptx-sagecell sagecell-python" id="sage-73"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
 A = np.array([[2,2], [0,3]]) #Transformation
@@ -484,11 +483,10 @@ plt.show() #display graph
 </script></pre></article><article class="exercise exercise-like" id="exercise-63"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.24</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-302">Edit the code in <a href="" class="xref" data-knowl="./knowl/e1e2transform.html" title="Example 2.23">Example 2.23</a> to consolidate the basis vectors into columns of one matrix instead. Then extract their images under <span class="process-math">\(A\)</span> from the resulting matrix product. What do you notice?</div></article><div class="para" id="p-303">To visualize how the rest of the space is transformed, we can use scalar multiples of the standard basis to grid out the space. Since the vector <span class="process-math">\(2\vec{e}_1 -\vec{e}_2\)</span> gets mapped to <span class="process-math">\(2A\vec{e}_1-A\vec{e_2}\text{,}\)</span> we can then visualize the result of the transformation using the transformed grid.</div>
+<div class="para" id="p-302">Edit the code in <a href="" class="xref" data-knowl="./knowl/e1e2transform.html" title="Example 2.23: Transformed Basis Vectors">Example 2.23</a> to consolidate the basis vectors into columns of one matrix instead. Then extract their images under <span class="process-math">\(A\)</span> from the resulting matrix product. What do you notice?</div></article><div class="para" id="p-303">To visualize how the rest of the space is transformed, we can use scalar multiples of the standard basis to grid out the space. Since the vector <span class="process-math">\(2\vec{e}_1 -\vec{e}_2\)</span> gets mapped to <span class="process-math">\(2A\vec{e}_1-A\vec{e_2}\text{,}\)</span> we can then visualize the result of the transformation using the transformed grid.</div>
 <article class="example example-like" id="pointgrid"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.25</span><span class="period">.</span>
-</h4>
-<div class="para" id="p-304">We will first apply <span class="process-math">\(A\)</span> to a grid of coordinate dots. While NumPy’s <code class="code-inline tex2jax_ignore">meshgrid()</code> works great for plotting a grid of points, the arrays are not the right size to act as input vectors for the matrix-vector multiplication.</div> <div class="para" id="p-305">For matrix-vector multiplication we need column vectors, and if we want to compute the image of several vectors all at once we need a matrix where <em class="emphasis">each</em> column is one of our vectors. Here we want each column to be a coordinate, having top entry an x-value and bottom entry a corresponding y-value. In other words, we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a <code class="code-inline tex2jax_ignore">array.reshape(size)</code> function that allows us to reshape each array of x-values and y-values from <code class="code-inline tex2jax_ignore">meshgrid()</code> into rows. We can then <code class="code-inline tex2jax_ignore">row_stack()</code> those two rows to form the desired input matrix.</div> <pre class="ptx-sagecell sagecell-python" id="sage-74"><script type="text/x-sage">import numpy as np
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.25</span><span class="period">.</span><span class="space"> </span><span class="title">Transformed Point Grid.</span>
+</h4> <div class="para" id="p-304">We will first apply <span class="process-math">\(A\)</span> to a grid of coordinate dots. While NumPy’s <code class="code-inline tex2jax_ignore">meshgrid()</code> works great for plotting a grid of points, the arrays are not the right size to act as input vectors for the matrix-vector multiplication.</div> <div class="para" id="p-305">For matrix-vector multiplication we need column vectors, and if we want to compute the image of several vectors all at once we need a matrix where <em class="emphasis">each</em> column is one of our vectors. Here we want each column to be a coordinate, having top entry an x-value and bottom entry a corresponding y-value. In other words, we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a <code class="code-inline tex2jax_ignore">array.reshape(size)</code> function that allows us to reshape each array of x-values and y-values from <code class="code-inline tex2jax_ignore">meshgrid()</code> into rows. We can then <code class="code-inline tex2jax_ignore">row_stack()</code> those two rows to form the desired input matrix.</div> <pre class="ptx-sagecell sagecell-python" id="sage-74"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots() #create fig, axes
@@ -518,19 +516,18 @@ plt.show()
 </script></pre></article><article class="exercise exercise-like" id="exercise-64"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.26</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-306">Edit the code in <a href="" class="xref" data-knowl="./knowl/pointgrid.html" title="Example 2.25">Example 2.25</a> to print every array to see how the same arrays are reshaped, recombined, and transformed.</div>
+<div class="para" id="p-306">Edit the code in <a href="" class="xref" data-knowl="./knowl/pointgrid.html" title="Example 2.25: Transformed Point Grid">Example 2.25</a> to print every array to see how the same arrays are reshaped, recombined, and transformed.</div>
 <a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-10" id="hint-10"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-10"><div class="hint solution-like"><div class="para" id="p-307">Print arrays so you can compare X to X1 and Y to Y1. Also compare xygrid to xygrid[i] and xygrid to uvgrid to see the difference.</div></div></div></article><article class="exercise exercise-like" id="exercise-65"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.27</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-308">Edit the code in <a href="" class="xref" data-knowl="./knowl/pointgrid.html" title="Example 2.25">Example 2.25</a> to make a <span class="process-math">\(9\times 9\)</span> point grid instead.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-9" id="fn-9"><sup> 5 </sup></a>
+<div class="para" id="p-308">Edit the code in <a href="" class="xref" data-knowl="./knowl/pointgrid.html" title="Example 2.25: Transformed Point Grid">Example 2.25</a> to make a <span class="process-math">\(9\times 9\)</span> point grid instead.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-9" id="fn-9"><sup> 5 </sup></a>
 </div></article><article class="exercise exercise-like" id="exercise-66"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.28</span><span class="period">.</span>
 </h4>
 <div class="para" id="p-309">Note: the argument <code class="code-inline tex2jax_ignore">c=</code> inside <code class="code-inline tex2jax_ignore">scatter</code> tells Matplotlib how to assign colors to our scatterplot. Here we assign colors according to the first array in xygrid. What happens if you assign colors according to the second array inside xygrid?</div></article><div class="para" id="p-310">It can be easier to visualize a matrix transformation using a line grid (or coordinate grid) rather than a collection of points. To use our points to create a grid of lines instead, we need at least two points on each line. We will use <code class="code-inline tex2jax_ignore">plot</code> instead of <code class="code-inline tex2jax_ignore">scatter</code>. Note: horizontal lines have incrementing x-values and constant y-values, while vertical lines have incrementing y-values and constant x-values, so we will need to be careful about which arrays we pass into <code class="code-inline tex2jax_ignore">plot</code>.</div>
 <article class="example example-like" id="linegrid"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.29</span><span class="period">.</span>
-</h4>
-<div class="para" id="p-311">We will build up to the transformed grid a step at a time.</div> <div class="para" id="p-312">Step 1: First we will learn how to graph a basic grid of lines.</div> <pre class="ptx-sagecell sagecell-python" id="sage-75"><script type="text/x-sage">import numpy as np
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.29</span><span class="period">.</span><span class="space"> </span><span class="title">Transformed Line Grid.</span>
+</h4> <div class="para" id="p-311">We will build up to the transformed grid a step at a time.</div> <div class="para" id="p-312">Step 1: First we will learn how to graph a basic grid of lines.</div> <pre class="ptx-sagecell sagecell-python" id="sage-75"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots() #create fig, axes
@@ -596,13 +593,12 @@ plt.show()
 </script></pre></article><article class="exercise exercise-like" id="exercise-67"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.30</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-315">In the first step of <a href="" class="xref" data-knowl="./knowl/linegrid.html" title="Example 2.29">Example 2.29</a>, graphing the basic grid of lines, change the number of lines to 3. Now print each array to better see which array is used for each plot. Why do we need the transpose for our vertical lines?</div></article><article class="exercise exercise-like" id="exercise-68"><h4 class="heading">
+<div class="para" id="p-315">In the first step of <a href="" class="xref" data-knowl="./knowl/linegrid.html" title="Example 2.29: Transformed Line Grid">Example 2.29</a>, graphing the basic grid of lines, change the number of lines to 3. Now print each array to better see which array is used for each plot. Why do we need the transpose for our vertical lines?</div></article><article class="exercise exercise-like" id="exercise-68"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.31</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-316">In the second step of <a href="" class="xref" data-knowl="./knowl/linegrid.html" title="Example 2.29">Example 2.29</a>, graphing the transformed grid of lines, change the number of lines to 3. Now print each array to better see which array is used for each plot. What happens if you only increment through the X or the Y and not both?</div></article><article class="example example-like" id="example-10"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.32</span><span class="period">.</span>
-</h4>
-<div class="para" id="p-317">Unlike <code class="code-inline tex2jax_ignore">scatter</code> which has an argument <code class="code-inline tex2jax_ignore">c=array</code> that allows us to color code based on an x-coordinate or y-coordinate, <code class="code-inline tex2jax_ignore">plot</code> does not. To better see the effects of a reflection, we will use a sequential color map to color our lines.</div> <div class="para" id="p-318">Step 1: Color a basic grid</div> <pre class="ptx-sagecell sagecell-python" id="sage-77"><script type="text/x-sage">import numpy as np
+<div class="para" id="p-316">In the second step of <a href="" class="xref" data-knowl="./knowl/linegrid.html" title="Example 2.29: Transformed Line Grid">Example 2.29</a>, graphing the transformed grid of lines, change the number of lines to 3. Now print each array to better see which array is used for each plot. What happens if you only increment through the X or the Y and not both?</div></article><article class="example example-like" id="example-10"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.32</span><span class="period">.</span><span class="space"> </span><span class="title">Coloring the Transformed Line Grid.</span>
+</h4> <div class="para" id="p-317">Unlike <code class="code-inline tex2jax_ignore">scatter</code> which has an argument <code class="code-inline tex2jax_ignore">c=array</code> that allows us to color code based on an x-coordinate or y-coordinate, <code class="code-inline tex2jax_ignore">plot</code> does not. To better see the effects of a reflection, we will use a sequential color map to color our lines.</div> <div class="para" id="p-318">Step 1: Color a basic grid</div> <pre class="ptx-sagecell sagecell-python" id="sage-77"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 cmap = plt.get_cmap('viridis') #get colormap
 
@@ -689,7 +685,7 @@ IA_p = (1-p)*I_n +p*A \text{.}
 <div class="para">We obtain a sliding scale between the two by incrementing through our percentage <span class="process-math">\(p\)</span> from 0 to 1, starting with 100% of our identity transformation and ending with 100% of our matrix transformation.</div>
 </div>
 <article class="example example-like" id="basisslider"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.33</span><span class="period">.</span><span class="space"> </span><span class="title">"Using an interactive slider".</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.33</span><span class="period">.</span><span class="space"> </span><span class="title">Transformed Basis Vectors with Interactive Slider.</span>
 </h4> <div class="para" id="p-326">First we create a slider that starts with the identity transformation on two basis vectors and gradually gives us the transformation by <span class="process-math">\(A.\)</span>
 </div> <pre class="ptx-sagecell sagecell-python" id="sage-79"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
@@ -728,7 +724,7 @@ def respond_to_user_input(frame=slider(0,10,1)):
     plot_transform(current_t)
 </script></pre> <div class="para" id="p-327">Note that in this interactive, we only want the current frame, and not all the frames up to the current frame. Do you know why?</div></article><div class="para" id="p-328">We can animate the gradual transformation using what we learned in <a href="section-animation.html" class="internal" title="Section 1.5: Basic Animation">Section 1.5</a>. Using <code class="code-inline tex2jax_ignore">PillowWriter</code> we will start with a somewhat simple .gif of the transformation, then add features.</div>
 <article class="example example-like" id="basisgif"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.34</span><span class="period">.</span><span class="space"> </span><span class="title">"Using PillowWriter to make a .gif.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.34</span><span class="period">.</span><span class="space"> </span><span class="title">Transformed Basis Vectors with PillowWriter .gif.</span>
 </h4> <pre class="ptx-sagecell sagecell-python" id="sage-80"><script type="text/x-sage">import numpy as np 
 import matplotlib.pyplot as plt
 from matplotlib.animation import PillowWriter
@@ -762,11 +758,11 @@ with writer.saving(fig, "TransformVectors1.gif", 100): #100 is the dpi
 </script></pre></article><article class="exercise exercise-like" id="exercise-69"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.35</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-329">Comment out <code class="code-inline tex2jax_ignore">plt.cla()</code> in <a href="" class="xref" data-knowl="./knowl/basisgif.html" title='Example 2.34: "Using PillowWriter to make a .gif'>Example 2.34</a>. What happens to your animation?</div></article><article class="exercise exercise-like" id="exercise-70"><h4 class="heading">
+<div class="para" id="p-329">Comment out <code class="code-inline tex2jax_ignore">plt.cla()</code> in <a href="" class="xref" data-knowl="./knowl/basisgif.html" title="Example 2.34: Transformed Basis Vectors with PillowWriter .gif">Example 2.34</a>. What happens to your animation?</div></article><article class="exercise exercise-like" id="exercise-70"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.36</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-330">Add a title, grid, and legend to the animation in <a href="" class="xref" data-knowl="./knowl/basisgif.html" title='Example 2.34: "Using PillowWriter to make a .gif'>Example 2.34</a>. Where do these need to be added in the code to show up in every frame?</div></article><article class="example example-like" id="basisgiflinger"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.37</span><span class="period">.</span><span class="space"> </span><span class="title">Buffering your .gif.</span>
+<div class="para" id="p-330">Add a title, grid, and legend to the animation in <a href="" class="xref" data-knowl="./knowl/basisgif.html" title="Example 2.34: Transformed Basis Vectors with PillowWriter .gif">Example 2.34</a>. Where do these need to be added in the code to show up in every frame?</div></article><article class="example example-like" id="basisgiflinger"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.37</span><span class="period">.</span><span class="space"> </span><span class="title">Buffering a .gif.</span>
 </h4> <div class="para" id="p-331">Note that the animation would look better visually if we started with the standard basis plot and lingered for a few seconds before beginning the transformation. We can add that by grabbing frames of the standard basis plot first.</div> <pre class="ptx-sagecell sagecell-python" id="sage-81"><script type="text/x-sage">import numpy as np 
 import matplotlib.pyplot as plt
 from matplotlib.animation import PillowWriter
@@ -811,9 +807,9 @@ with writer.saving(fig, "TransformVectors2.gif", 100): #100 is the dpi
 <article class="exercise exercise-like" id="exercise-71"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.38</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-333">Edit the code in <a href="" class="xref" data-knowl="./knowl/basisgiflinger.html" title="Example 2.37: Buffering your .gif">Example 2.37</a> so the animation pauses at the completed transformation. Where do you need to add the loop to grab the correct frames?</div></article><div class="para" id="p-334">Animating a gradual transformation of our collection of points from the identity to the matrix transformation can be done similarly. We will include one example using a .gif animating the transformation of a grid of points and leave the slider and animating a grid of lines as an exercise for the reader.</div>
+<div class="para" id="p-333">Edit the code in <a href="" class="xref" data-knowl="./knowl/basisgiflinger.html" title="Example 2.37: Buffering a .gif">Example 2.37</a> so the animation pauses at the completed transformation. Where do you need to add the loop to grab the correct frames?</div></article><div class="para" id="p-334">Animating a gradual transformation of our collection of points from the identity to the matrix transformation can be done similarly. We will include one example using a .gif animating the transformation of a grid of points and leave the slider and animating a grid of lines as an exercise for the reader.</div>
 <article class="example example-like" id="example-14"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.39</span><span class="period">.</span><span class="space"> </span><span class="title">Animating a grid transformation using PillowWriter.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.39</span><span class="period">.</span><span class="space"> </span><span class="title">Animated Point Grid Transformation .gif.</span>
 </h4> <pre class="ptx-sagecell sagecell-python" id="sage-82"><script type="text/x-sage">import numpy as np 
 import matplotlib.pyplot as plt
 from matplotlib.animation import PillowWriter
