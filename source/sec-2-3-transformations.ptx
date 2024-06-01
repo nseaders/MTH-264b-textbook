@@ -294,14 +294,15 @@
           </p>
         </exercise>
 
+
         <p>
           It can be easier to visualize a matrix transformation using a 
           line grid (or coordinate grid) rather than a collection of points.
-          To use our points to create a grid of lines instead, we need at least two points on each line.
-          We will use <c>plot</c> instead of <c>scatter</c>.
+          To use our points to create a grid of lines instead, we need at least two points on each line
+          and we will use <c>plot</c> instead of <c>scatter</c>.
           Note: horizontal lines have incrementing x-values and constant y-values,
-          while vertical lines have incrementing y-values and constant x-values, 
-          so we will need to be careful about which arrays we pass into <c>plot</c>. 
+          while vertical lines have incrementing y-values and constant x-values. 
+          We will need to think carefully about which arrays we pass into <c>plot</c>. 
         </p>
 
         <example xml:id="linegrid">
@@ -594,7 +595,8 @@
               def plot_transform(current_t):
                   #define an intermediate transformation
                   #When t=0 you get the identity, when t=10 you get A
-                  IA = (1-current_t/10)*np.identity(2)+(current_t/10)*A 
+                  percent = current_t/10
+                  IA = (1-percent)*np.identity(2)+(percent)*A 
 
                   #plot intermediate transformation
                   fig, ax = plt.subplots() #create a figure and axes 
@@ -653,7 +655,8 @@
                 for tval in np.linspace(0,10,50):                
                   #create an intermediate matrix transformation that gradually
                   #transitions between the identity when tval=0 and A when tval=10
-                  IA = (1-tval/10)*np.identity(2)+(tval/10)*A 
+                  percent = tval/10
+                  IA = (1-percent)*np.identity(2)+(percent)*A 
 
                   #matrix multiply to find intermediate image of e1 and e2 
                   IAe1 = np.matmul(IA,e1)
@@ -720,7 +723,8 @@
                     writer.grab_frame() #grab frame of initial graph
                   for tval in np.linspace(0,10,50):                
                     #create an intermediate matrix transformation
-                    IA = (1-tval/10)*np.identity(2)+(tval/10)*A 
+                    percent = tval/10
+                    IA = (1-percent)*np.identity(2)+(percent)*A 
 
                     #matrix multiply to find intermediate image of e1 and e2
                     IAe1 = np.matmul(IA,e1) #image of e1
@@ -728,7 +732,7 @@
 
                     plt.cla() #clear plot of previous vectors 
                     #plot intermediate transformed vectors 
-                    ax.quiver(0,0,IAe1[0,0],IAe1[1,0],label='$A \\vec e_1$', color='deepskyblue', angles='xy', scale_units='xy', scale=1)
+                    ax.quiver(0,0,IAe1[0,0],IAe1[1,0],label='$A \\vec e_1$', color='salmon', angles='xy', scale_units='xy', scale=1)
                     ax.quiver(0,0,IAe2[0,0],IAe2[1,0],label='$A \\vec e_2$', color='teal', angles='xy', scale_units='xy', scale=1)                    
                     ax.set(title="Transformation of Standard Basis", xlim=(-2,5), ylim=(-2,5))
                     ax.legend() 
@@ -796,7 +800,8 @@
                   for tval in np.linspace(0,10,50):                
                     #create an intermediate matrix transformation that gradually
                     #transitions between the identity when tval=0 and A when tval=10
-                    IA = (1-tval/10)*np.identity(2)+(tval/10)*A 
+                    percent = tval/10
+                    IA = (1-percent)*np.identity(2)+(percent)*A 
 
                     #matrix multiply to find intermediate image of points
                     uvgrid = np.matmul(IA,xygrid) 

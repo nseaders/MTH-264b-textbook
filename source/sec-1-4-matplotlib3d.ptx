@@ -563,11 +563,30 @@
 
         <exercise>
           <p>
+            NumPy's <c>meshgrid()</c> will be used later to create a grid of points that we transform. 
             Use <c>meshgrid()</c> to create a <m>5 \times 5</m> grid of x and y-values. 
-             Plot a <m>5\times 5</m> grid of vertical and horizontal lines in <m>\mathbb{R}^2</m> 
-             by extracting the appropriate rows and columns from your <c>meshgrid()</c>.<fn> 
-              We will use a related approach in <xref ref="section-transformations"/> to visualize matrix transformations.
-            </fn> 
+            <ol>
+              <li>
+                <p>
+                  Print out the arrays from  <c>meshgrid()</c>. How does one array encode the  
+                  increasing vs constant x-values? How does the other array
+                  encode the increasing vs constant y-values? 
+                </p>
+              </li>
+              <li>
+                <p>
+                  Make a 2D scatterplot using just your two arrays from <c>meshgrid()</c>. 
+                  Explain how this graph relates to your answer in part (a).
+                </p>
+              </li>
+              <li>
+                <p>
+                  Plot a <m>5\times 5</m> grid of vertical and horizontal lines in <m>\mathbb{R}^2</m> 
+                  by extracting the appropriate rows and columns from your <c>meshgrid()</c>.<fn> 
+                  We will use a related approach in <xref ref="section-transformations"/> to visualize matrix transformations.</fn>
+                </p>
+              </li>
+            </ol>
           </p>
         </exercise>
         

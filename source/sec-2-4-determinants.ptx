@@ -183,21 +183,22 @@
           using <c>rref()</c> in SymPy. 
           More efficient algorithms<fn>e.g. using <m>LU</m>-decomposition
           of our matrix</fn> can be implemented when we know we have a unique solution. 
-          NumPy's <c>linalg.solve(A,b)</c> uses one such algorithm to solve <m>A\vec{x}=\vec{b}</m>. 
+          NumPy's <c>linalg.solve(A,b)</c> and SymPy's <c>A.solve(b)</c> uses 
+          such algorithms to solve <m>A\vec{x}=\vec{b}</m>. 
         </p>
 
         <exercise>
           <p>
             Use NumPy's <c>linalg.solve(A,b)</c> to solve the systems of linear equations in 
-            <xref ref="determinant-and-systems"/>. 
-            What happens? 
+            <xref ref="determinant-and-systems"/>. Next try SymPy's <c>A.solve(b)</c>.
+            What happens? Why?
           </p>
           <sage language='python'>
             <input>
               import numpy as np
               
-              A = np.array([[2,-3],[1,4]])
-              B = np.array([[1,2],[3,6]])
+              A1 = np.array([[2,-3],[1,4]])
+              A2 = np.array([[1,2],[3,6]])
               
               #solve above exercise here
             </input>
