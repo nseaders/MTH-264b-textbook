@@ -47,7 +47,8 @@ t = np.linspace(0, 10, 11) #user inputs for intermediate transformation
 def plot_transform(current_t):
     #define an intermediate transformation
     #When t=0 you get the identity, when t=10 you get A
-    IA = (1-current_t/10)*np.identity(2)+(current_t/10)*A 
+    percent = current_t/10
+    IA = (1-percent)*np.identity(2)+(percent)*A 
 
     #plot intermediate transformation
     fig, ax = plt.subplots() #create a figure and axes 

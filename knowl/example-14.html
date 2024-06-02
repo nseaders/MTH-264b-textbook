@@ -65,7 +65,8 @@ with writer.saving(fig, "TransformPoints.gif", 100): #100 is the dpi
   for tval in np.linspace(0,10,50):                
     #create an intermediate matrix transformation that gradually
     #transitions between the identity when tval=0 and A when tval=10
-    IA = (1-tval/10)*np.identity(2)+(tval/10)*A 
+    percent = tval/10
+    IA = (1-percent)*np.identity(2)+(percent)*A 
 
     #matrix multiply to find intermediate image of points
     uvgrid = np.matmul(IA,xygrid) 

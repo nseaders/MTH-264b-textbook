@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script><script>// Make *any* pre with class 'sagecell-python' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-python",
+  "linked": true,
+  "languages": [
+    "python"
+  ],
+  "evalButtonText": "Evaluate (Python)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.39</span><span class="period">.</span><span class="space"> </span><span class="title">Animated Point Grid Transformation .gif.</span>
+</h4> <pre class="ptx-sagecell sagecell-python" id="sage-82"><script type="text/x-sage">import numpy as np 
+import matplotlib.pyplot as plt
+from matplotlib.animation import PillowWriter
+
+fig, ax = plt.subplots() #create figure and axes
+
+A = np.array([[2,2], [0,3]]) #transformation matrix
+
+#create grid of points
+Xvals = np.linspace(-4,4, num=9)
+Yvals = np.linspace(0,6, num=9)
+X,Y = np.meshgrid(Xvals, Yvals)
+
+#reshape to x-row and y-row
+X1 = X.reshape((9**2,))
+Y1 = Y.reshape((9**2,))
+xygrid = np.row_stack([X1, Y1])
+
+#set up writer object to grab frames for a gif
+writer = PillowWriter(fps=15)
+
+with writer.saving(fig, "TransformPoints.gif", 100): #100 is the dpi
+  for tval in np.linspace(0,10,30):
+    ax.scatter(xygrid[0],xygrid[1], c=xygrid[0])
+    ax.set(xlim=(-10,10), ylim=(-5,15))
+    
+    writer.grab_frame() #grab frames
+    
+  for tval in np.linspace(0,10,50):                
+    #create an intermediate matrix transformation that gradually
+    #transitions between the identity when tval=0 and A when tval=10
+    percent = tval/10
+    IA = (1-percent)*np.identity(2)+(percent)*A 
+
+    #matrix multiply to find intermediate image of points
+    uvgrid = np.matmul(IA,xygrid) 
+
+    plt.cla() #clear plot of previous points  
+    #plot intermediate transformed points 
+    ax.scatter(uvgrid[0],uvgrid[1], c=xygrid[0])
+    ax.set(xlim=(-10,10), ylim=(-5,15))
+    
+    writer.grab_frame() #grab frames
+
+  for tval in np.linspace(0,10,30): 
+    writer.grab_frame() #grab frames
+</script></pre></article><span class="incontext"><a href="section-transformations.html#anim-point-grid" class="internal">in-context</a></span>
+</body>
+</html>

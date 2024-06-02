@@ -11,19 +11,42 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<article class="example example-like"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.34</span><span class="period">.</span>
-</h3>
-<div class="para logical">
-<div class="para">Consider, for example, the line <span class="process-math">\(y=3x+7\text{.}\)</span> To rewrite this equation in the form</div>
-<div class="displaymath process-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.58</span><span class="period">.</span><span class="space"> </span><span class="title">Diagonalizing A.</span>
+</h4> <div class="para logical">
+<div class="para">Consider the matrix transformation given by <span class="process-math">\(A = \left[
+\begin{matrix}
+3 \amp 1  \\
+2 \amp 2  \\
+\end{matrix}
+\right].\)</span> As we saw in <a href="" class="xref" data-knowl="./knowl/eigentransformation.html" title="Example 2.56: Visualizing using an Eigen-basis grid">Example 2.56</a>, <span class="process-math">\(A\)</span> has an eigen-basis for <span class="process-math">\(\mathbb{R}^2\text{.}\)</span> Moreover, we found a transformation from the standard basis to those eigenvectors is given by</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eigentransformation.html">
 \begin{equation*}
-n_xx+n_yy= n_xx_0+n_yy_0
+E =\left[ \begin{matrix} 1 \amp -1  \\  1 \amp 2  \\ \end{matrix} \right]. 
 \end{equation*}
 </div>
-<div class="para">we have to move terms around so that <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> are on one side of the equation and <span class="process-math">\(7\)</span> is  on the other side: <span class="process-math">\(3x-y=-7\text{.}\)</span> Then <span class="process-math">\(n_x\)</span> is the coefficient of <span class="process-math">\(x\text{,}\)</span> namely <span class="process-math">\(3\text{,}\)</span> and <span class="process-math">\(n_y\)</span> is the coefficient of <span class="process-math">\(y\text{,}\)</span> namely <span class="process-math">\(-1\text{.}\)</span> One normal vector for <span class="process-math">\(y=3x+7\)</span> is <span class="process-math">\(\llt 3,-1\rgt \text{.}\)</span>
+<div class="para">If we want to instead scale an eigenbasis we can first transform our eigen-basis vectors to the standard basis vectors, use a dilation matrix then transform back to our eigenbasis as follows.</div>
+</div> <div class="para logical"><ol class="decimal">
+<li><div class="para logical">
+<div class="para">Step 1: Find the matrix transformation from the standard basis to the eigenbasis.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E =\left[ \begin{matrix} -1 \amp 2  \\  1 \amp 1  \\ \end{matrix} \right] 
+\end{equation*}
 </div>
-</div> <div class="para">Of course, if <span class="process-math">\(\llt 3,-1\rgt \)</span> is perpendicular to <span class="process-math">\(y=3x+7\text{,}\)</span> so is <span class="process-math">\(-5\llt 3,-1\rgt =\llt -15,5\rgt \text{.}\)</span> In fact, if we first multiply the equation <span class="process-math">\(3x-y=-7\)</span> by <span class="process-math">\(-5\)</span> to get <span class="process-math">\(-15x+5y=35\)</span> and then set <span class="process-math">\(n_x\)</span> and <span class="process-math">\(n_y\)</span> to the coefficients of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> respectively, we get <span class="process-math">\(\vn=\llt -15,5\rgt \text{.}\)</span>
-</div></article><span class="incontext"><a href="sec_lines_2d.html#example-18" class="internal">in-context</a></span>
+</div></li>
+<li><div class="para">Step 2: Use the inverse <span class="process-math">\(E^{-1}\)</span> to transform from the eigenbasis to the standard basis.</div></li>
+<li>
+<div class="para">Step 3: Find the corresponding dilation matrix</div>
+<div class="para logical">
+<div class="para">Since we mapped the eigenvector with eigenvalue of 1 to <span class="process-math">\(\vec{e}_1\)</span> and the eigenvector with eigenvalue of 4 to <span class="process-math">\(\vec{e}_2\text{,}\)</span> we want to scale <span class="process-math">\(\vec{e}_1\)</span> by the eigenvalue of 1 and <span class="process-math">\(\vec{e}_2\)</span> by the eigenvalue of 4.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+D =\left[ \begin{matrix} 1 \amp 0  \\  0 \amp 4  \\ \end{matrix} \right] 
+\end{equation*}
+</div>
+</div>
+</li>
+</ol></div></article><span class="incontext"><a href="section-eigenthings.html#example-18" class="internal">in-context</a></span>
 </body>
 </html>

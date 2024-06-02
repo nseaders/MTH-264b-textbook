@@ -12,7 +12,15 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">We can animate the gradual transformation using what we learned in <a href="section-animation.html" class="internal" title="Section 1.5: Basic Animation">Section 1.5</a>. Using <code class="code-inline tex2jax_ignore">PillowWriter</code> we will start with a somewhat simple .gif of the transformation, then add features.</div>
+<div class="para logical">
+<div class="para">We can think of where we start as applying the identity matrix <span class="process-math">\(I_n.\)</span> Meanwhile we can think of where we end as applying the final transformation matrix <span class="process-math">\(A\text{.}\)</span> We can create intermediate transformation matrices <span class="process-math">\(IA_p \)</span> between <span class="process-math">\(I_n\)</span>  and <span class="process-math">\(A\)</span> by adding complimentary percentages <span class="process-math">\(p\)</span> of the identity transformation and our matrix transformation,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+IA_p = (1-p)*I_n +p*A \text{.}
+\end{equation*}
+</div>
+<div class="para">We obtain a sliding scale between the two by incrementing through our percentage <span class="process-math">\(p\)</span> from 0 to 1, starting with 100% of our identity transformation and ending with 100% of our matrix transformation.</div>
+</div>
 <span class="incontext"><a href="section-transformations.html#p-328" class="internal">in-context</a></span>
 </body>
 </html>

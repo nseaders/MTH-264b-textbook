@@ -363,6 +363,7 @@ sagecell.makeSagecell({
 <ul class="structural">
 <li><div class="toc-item"><a href="section-eigenthings.html#subsec-computing-eigenthings" class="internal"><span class="title">Computing Eigenthings</span></a></div></li>
 <li><div class="toc-item"><a href="section-eigenthings.html#subsec-visualizing-eigenthings" class="internal"><span class="title">Visualizing with Eigenthings</span></a></div></li>
+<li><div class="toc-item"><a href="section-eigenthings.html#subsec-Diagonalization" class="internal"><span class="title">Diagonalization</span></a></div></li>
 <li><div class="toc-item"><a href="section-eigenthings.html#exercises-eigenthings" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -373,7 +374,7 @@ sagecell.makeSagecell({
 <ul class="structural"><li>
 <div class="toc-item"><a href="examples.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Samples of various pretext formats</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="examples.html#subsection-46" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
+<li><div class="toc-item"><a href="examples.html#subsection-47" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
 <li><div class="toc-item"><a href="examples.html#reading-questions-1" class="internal"><span class="title">Reading Questions</span></a></div></li>
 </ul>
 </li></ul>
@@ -651,7 +652,14 @@ plt.show() #display the result
 <div class="para">Make sure your graphs are appropriately labelled for your reader.</div>
 </div></article><article class="exercise exercise-like" id="exercise-39"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
 <div class="para" id="p-164">Look up Matplotlib’s documentation on the web and find their page of examples, 3D plotting. Pick a 3D graph you want to learn to code and try it out. Experiment with the code to make it your own. How is what you found different than what you learned in this section? Explain.</div></article><article class="exercise exercise-like" id="exercise-40"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div class="para" id="p-165">Use <code class="code-inline tex2jax_ignore">meshgrid()</code> to create a <span class="process-math">\(5 \times 5\)</span> grid of x and y-values. Plot a <span class="process-math">\(5\times 5\)</span> grid of vertical and horizontal lines in <span class="process-math">\(\mathbb{R}^2\)</span> by extracting the appropriate rows and columns from your <code class="code-inline tex2jax_ignore">meshgrid()</code>.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-4" id="fn-4"><sup> 3 </sup></a>
+<div class="para logical" id="p-165">
+<div class="para">NumPy’s <code class="code-inline tex2jax_ignore">meshgrid()</code> will be used later to create a grid of points that we transform. Use <code class="code-inline tex2jax_ignore">meshgrid()</code> to create a <span class="process-math">\(5 \times 5\)</span> grid of x and y-values.</div>
+<ol class="lower-alpha">
+<li id="li-57"><div class="para" id="p-166">Print out the arrays from  <code class="code-inline tex2jax_ignore">meshgrid()</code>. How does one array encode the increasing vs constant x-values? How does the other array encode the increasing vs constant y-values?</div></li>
+<li id="li-58"><div class="para" id="p-167">Make a 2D scatterplot using just your two arrays from <code class="code-inline tex2jax_ignore">meshgrid()</code>. Explain how this graph relates to your answer in part (a).</div></li>
+<li id="li-59"><div class="para" id="p-168">Plot a <span class="process-math">\(5\times 5\)</span> grid of vertical and horizontal lines in <span class="process-math">\(\mathbb{R}^2\)</span> by extracting the appropriate rows and columns from your <code class="code-inline tex2jax_ignore">meshgrid()</code>.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-4" id="fn-4"><sup> 3 </sup></a>
+</div></li>
+</ol>
 </div></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-4"><div class="fn">We will use a related approach in <a href="section-transformations.html" class="internal" title="Section 2.3: Matrix Transformations">Section 2.3</a> to visualize matrix transformations.</div></div>
 </div>
 <div class="ptx-content-footer">
