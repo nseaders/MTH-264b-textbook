@@ -764,7 +764,7 @@
             and leave the slider and animating a grid of lines as an exercise for the reader.
           </p>
 
-          <example>
+          <example xml:id="anim-point-grid">
             <title>Animated Point Grid Transformation .gif</title>
 
             <sage language='python'>

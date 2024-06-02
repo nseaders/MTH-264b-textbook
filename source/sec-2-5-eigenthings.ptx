@@ -23,7 +23,12 @@
           </li>
           <li>
             <p>
-              Visualize a matrix transformation using eigen-information.
+              Visualize a matrix transformation using an eigenbasis (if possible).
+            </p>
+          </li>
+          <li>
+            <p>
+              Diagonalize a matrix (if possible).
             </p>
           </li>
         </ul>
@@ -145,6 +150,397 @@
       <subsection xml:id="subsec-visualizing-eigenthings">
         <title>Visualizing with Eigenthings</title>
 
+        <p>
+          Recall from <xref ref="section-transformations"/> since a matrix transformation is linear,
+          we can visualize using a standard basis grid and the transformed basis grid. 
+          Every other point in space is a linear combination. 
+          We can visualize with either a standard basis coordinate point grid and its image
+           or a standard basis coordinate line grid and its image under the transformation.  
+        </p>
+
+        <example xml:id="standardtransformation">
+          <title> Visualizing using the Standard Basis grid</title>
+          <p>
+            Consider the matrix transformation <m>\mathbb{R}^2 \rightarrow \mathbb{R}^2</m> given by <m>
+              A = \left[
+              \begin{matrix}
+              3 \amp 1  \\
+              2 \amp 2  \\
+              \end{matrix}
+              \right].
+            </m>
+          </p>
+          <p>
+            We can visualize the matrix transformation using the standard basis. 
+            Here <m>
+              A = \left[
+              \begin{matrix}
+              3 \amp 1  \\
+              2 \amp 2  \\
+              \end{matrix}
+              \right] 
+              \left[ \begin{matrix} 1 \\ 0  \\ \end{matrix} \right]
+              = \left[ \begin{matrix} 3 \\ 2  \\ \end{matrix} \right]
+            </m>
+            and
+            <m>
+              A = \left[
+              \begin{matrix}
+              3 \amp 1  \\
+              2 \amp 2  \\
+              \end{matrix}
+              \right] 
+              \left[ \begin{matrix} 0 \\ 1  \\ \end{matrix} \right]
+              = \left[ \begin{matrix} 1 \\ 2  \\ \end{matrix} \right].
+            </m>
+          </p>
+          <p>
+            First we will visualize the transformation using the standard basis vectors and a resulting coordinate
+            point grid and their transformations.
+          </p>
+
+          <sage language='python'>
+            <input>
+              import numpy as np
+              import matplotlib.pyplot as plt
+
+              fig, ax = plt.subplots() #create fig, axes
+
+              A = np.array([[3,1],[2,2]]) #transformation
+              ndots = 9 #determine number of nxn dots
+
+              #create a grid of xy-values
+              Xvals = np.linspace(-4,4, num=ndots)
+              Yvals = np.linspace(-4,4, num=ndots)
+              X,Y = np.meshgrid(Xvals, Yvals)
+
+              #reshape the ndots x ndots grid into an x row and y row
+              X1 = X.reshape((ndots**2,))#x-value row 
+              Y1 = Y.reshape((ndots**2,)) #y-value row
+              #stack the two so each column is a coordinate
+              xygrid = np.row_stack([X1, Y1]) 
+
+              #transform via matrix mult
+              uvgrid = np.matmul(A,xygrid)
+              #note: the columns of uvgrid are transformed xygrid coord
+
+              #plot original points, and transformed points
+              ax.scatter(xygrid[0],xygrid[1], c=xygrid[0], alpha = 0.25) 
+              ax.scatter(uvgrid[0],uvgrid[1], c=xygrid[0])
+              ax.set(xlim=(-9,9), ylim=(-9,9))
+
+              #plot standard basis vectors and transformed basis vectors
+              e1 = np.array([1,0])
+              e2 = np.array([0,1])
+              Ae1 = A@e1
+              Ae2 = A@e2
+              ax.quiver(0,0,e1[0],e1[1],color='salmon', angles='xy', scale_units='xy', scale=1, alpha=0.25) 
+              ax.quiver(0,0,e2[0],e2[1],color='teal', angles='xy', scale_units='xy', scale=1, alpha=0.25) 
+              ax.quiver(0,0,Ae1[0],Ae1[1],label='$A \\vec e_1$',color='salmon', angles='xy', scale_units='xy', scale=1) 
+              ax.quiver(0,0,Ae2[0],Ae2[1],label='$A \\vec e_2$',color='teal', angles='xy', scale_units='xy', scale=1) 
+              ax.legend()
+
+              plt.show()
+            </input>
+          </sage>
+
+          <p>
+            We could also visualize the transformation using a coordinate line grid from the standard basis and 
+            the resulting transformed line grid.
+          </p>
+
+          <sage language='python'>
+            <input>
+              import numpy as np
+              import matplotlib.pyplot as plt
+              cmap = plt.get_cmap('viridis') #get colormap
+              
+              fig, ax = plt.subplots() #create fig and axes
+
+              A = np.array([[3,1],[2,2]]) #matrix transformation
+              
+              #create grid of points
+              NLines=9
+              Xvals = np.linspace(-4,4, num=NLines)
+              Yvals = np.linspace(-4,4, num=NLines)
+              X,Y = np.meshgrid(Xvals, Yvals)
+                  
+              #reshape to x-row and y-row
+              X1 = X.reshape((NLines**2,))
+              Y1 = Y.reshape((NLines**2,))
+              xygrid = np.row_stack([X1, Y1])
+
+              uvgrid = np.matmul(A,xygrid) #transform grid
+              
+              #reshapte to uv meshgrid
+              U1 = uvgrid[0]
+              V1 = uvgrid[1]
+              U = U1.reshape(-1,NLines)
+              V = V1.reshape(-1,NLines)
+              
+              #plot transformed horizontal lines
+              for i in np.arange(0,NLines,step=1):
+                  p = i / (NLines-1)  # Normalize to 0-1
+                  #ax.plot(X[i],Y[i], color = "gray", alpha =0.25) #original 
+                  ax.plot(U[i],V[i],color=cmap(p) )  #transformed 
+              
+              #plot transformed vertical lines
+              for i in np.arange(0,NLines,step=1):
+                  p = i / (NLines-1)  # Normalize to 0-1.
+                  #ax.plot(X.T[i],Y.T[i], color = "gray", alpha =0.25) #original 
+                  ax.plot(U.T[i], V.T[i], color=cmap(p)) #transformed 
+
+              ax.set(xlim=(-9,9), ylim=(-9,9))
+
+              #axis grid lines 
+              #ax.set_xticks(np.arange(-8, 9, 1))
+              #ax.set_yticks(np.arange(-8, 9, 1))
+              #ax.grid()
+                  
+              plt.show()
+            </input>
+          </sage>
+        </example>
+
+        <p>
+          Eigenvalues and eigenvectors give us additional information about a matrix transformation, however. 
+          And we can use that information to better understand the transformation of our space. 
+          In particular, if the eigenvectors of our transformation form a basis for the domain of our transformation,
+          we can use the eigenbasis instead of the standard basis. 
+        </p>
+
+        <example xml:id="eigentransformation">
+          <title> Visualizing using an Eigen-basis grid </title>
+          <p>
+            Consider the matrix transformation from <xref ref="standardtransformation"/> given by <m>
+              A = \left[
+              \begin{matrix}
+              3 \amp 1  \\
+              2 \amp 2  \\
+              \end{matrix}
+              \right].
+            </m>
+          </p>
+          <p>
+            <m>A</m> has eigenvalues of <m>\lambda_1 =1</m> and <m>\lambda_2 = 4</m> with corresponding
+            eigenspaces <m>E_{\lambda_1 =1} = span \left\{ \left[ \begin{matrix} -1 \\ 2  \\ \end{matrix} \right]\right\} </m>
+            and <m>E_{\lambda_2 =4} = span \left\{ \left[ \begin{matrix} 1 \\ 1  \\ \end{matrix} \right]\right\}. </m>
+            (See below.)
+          </p>
+
+          <sage language='python'>
+            <input>
+              import sympy as sp
+              sp.init_printing()
+              
+              A = sp.Matrix([[3,1],[2,2]])
+              
+              #Find the eigenvectors
+              display(A.eigenvects())
+            </input>
+          </sage>
+
+          <p>
+            Since we have two linearly independent eigenvectors, 
+            <m>\left\{  \left[ \begin{matrix} 1 \\ 1  \\ \end{matrix} \right], \left[ \begin{matrix} -1 \\ 2  \\ \end{matrix} \right] \right\}</m>
+            forms an alternate basis of eigenvectors for <m>\mathbb{R}^2</m>. 
+            Now consider what the transformation does to this eigenbasis for <m>\mathbb{R}^2</m>.
+          </p>
+          <p>
+            Since these are eigenvectors with eigenvalues <m>4</m> and <m>1</m> respectively,
+            we know the first eigenvector is scaled by 4, while the second eigenvector remains the same (scaled by 1).
+            Any grid of linear combinations of these eigen-basis vectors will scale similarly. 
+          </p>
+          <p> But how can we create a grid based on these eigenvectors?
+          </p>
+          <p> 
+            Simple. We can take a standard basis grid and use a matrix transformation that sends 
+            <m>\vec{e}_1</m> to one eigenvector and <m>\vec{e}_2</m> to our linearly independent eigenvector. 
+          </p>
+          <p>
+            The matrix transformation that takes <m>\vec{e}_1</m> to <m>\left[ \begin{matrix} 1 \\ 1  \\ \end{matrix} \right]</m>
+            and <m>\vec{e}_2</m> to <m>\left[ \begin{matrix} -1 \\ 2  \\ \end{matrix} \right]</m> is given by 
+                  <me>E =\left[ \begin{matrix} 1 \amp -1  \\  1 \amp 2  \\ \end{matrix} \right] </me>
+          </p>
+          <p>
+            Below is a coordinate grid of points generated by the eigenbasis vectors. 
+          </p>
+
+          <sage language='python'>
+            <input>
+              import numpy as np
+              import matplotlib.pyplot as plt
+
+              fig, ax = plt.subplots() #create fig, axes
+
+              E = np.array([[1,-1],[1,2]]) #transform standard to eigenbasis
+              ndots = 9 #determine number of nxn dots
+
+              #create a grid of xy-values
+              Xvals = np.linspace(-4,4, num=ndots)
+              Yvals = np.linspace(-4,4, num=ndots)
+              X,Y = np.meshgrid(Xvals, Yvals)
+
+              #reshape the ndots x ndots grid into an x row and y row
+              X1 = X.reshape((ndots**2,))#x-value row 
+              Y1 = Y.reshape((ndots**2,)) #y-value row
+              #stack the two so each column is a coordinate
+              xygrid = np.row_stack([X1, Y1]) 
+
+              #transform to eigengrid via matrix mult
+              eigrid = np.matmul(E,xygrid) # can also use @
+              #note: the columns of eigrid are xygrid coord transformed to eigenbasis coord
+
+              #plot original points, and transformed points
+              ax.scatter(xygrid[0],xygrid[1], c=xygrid[0], alpha = 0.05) 
+              ax.scatter(eigrid[0],eigrid[1], c=eigrid[0])
+              ax.set(xlim=(-9,9), ylim=(-9,9))
+
+              #plot eigenbasis vectors
+              eig1 = np.array([1,1])
+              eig2 = np.array([-1,2])
+              ax.quiver(0,0,eig1[0],eig1[1],label='eigenvector $ \\vec v_1$',color='purple', angles='xy', scale_units='xy', scale=1, alpha=0.25) 
+              ax.quiver(0,0,eig2[0],eig2[1],label='eigenvector $ \\vec v_2$',color='crimson', angles='xy', scale_units='xy', scale=1, alpha=0.25) 
+              ax.legend()
+
+              plt.show()
+            </input>
+          </sage>
+
+          <p>
+            Now we can apply our matrix transformation <m>A</m> to this alternate eigenbasis point grid. 
+          </p>
+
+          <sage language='python'>
+            <input>
+              import numpy as np
+              import matplotlib.pyplot as plt
+
+              fig, ax = plt.subplots() #create fig, axes
+
+              E = np.array([[1,-1],[1,2]]) #transform standard to eigenbasis
+              A = np.array([[3,1],[2,2]]) #matrix transformation
+              ndots = 9 #determine number of nxn dots
+
+              #create a grid of xy-values
+              Xvals = np.linspace(-4,4, num=ndots)
+              Yvals = np.linspace(-4,4, num=ndots)
+              X,Y = np.meshgrid(Xvals, Yvals)
+
+              #reshape the ndots x ndots grid into an x row and y row
+              X1 = X.reshape((ndots**2,))#x-value row 
+              Y1 = Y.reshape((ndots**2,)) #y-value row
+              #stack the two so each column is a coordinate
+              xygrid = np.row_stack([X1, Y1]) 
+
+              #transform to eigengrid 
+              eigrid = np.matmul(E,xygrid) # can also use @
+              #note: the columns of eigrid are xygrid coord transformed to eigenbasis coord
+
+              #transform eigengrid by A via matrix mult
+              uveigrid = np.matmul(A, eigrid) #can also use @
+              #note: the columns of uveigrid are transformed eigrid coord
+
+              #plot original points, and transformed points
+              #ax.scatter(xygrid[0],xygrid[1], c=xygrid[0], alpha = 0.05) 
+              ax.scatter(eigrid[0],eigrid[1], c=eigrid[0], alpha = 0.25)
+              ax.scatter(uveigrid[0],uveigrid[1], c=eigrid[0])
+              ax.set(xlim=(-9,9), ylim=(-9,9))
+
+              #plot eigenbasis vectors and transformed eigenbasis vectors
+              eig1 = np.array([1,1])
+              eig2 = np.array([-1,2])
+              Aeig1 = A@eig1
+              Aeig2 = A@eig2
+              ax.quiver(0,0,eig1[0],eig1[1],color='purple', angles='xy', scale_units='xy', scale=1, alpha=0.25) 
+              ax.quiver(0,0,eig2[0],eig2[1],color='crimson', angles='xy', scale_units='xy', scale=1, alpha=0.25) 
+              ax.quiver(0,0,Aeig1[0],Aeig1[1],label='$A \\vec v_1$',color='purple', angles='xy', scale_units='xy', scale=1) 
+              ax.quiver(0,0,Aeig2[0],Aeig2[1],label='$A \\vec v_2$',color='crimson', angles='xy', scale_units='xy', scale=1) 
+              ax.legend()
+
+              plt.show()
+            </input>
+          </sage> 
+          <p>
+            We can also animate this transformation with a small adjustment to <xref ref="anim-point-grid"/>.
+          </p>  
+        </example>
+        <exercise>
+          <p>
+            Edit <xref ref="anim-point-grid"/> to plot and animate the eigenbasis grid 
+            under the transformation by <m>A</m> in the above example.
+          </p>
+        </exercise>
+
+        <p>
+          Thus we can use an eigenbasis for an alternative
+          visualization of a transformation. Note that the process of converting from the standard basis 
+          to an eigenbasis using a matrix transformation is more than just a hand up in visualizing these
+          matrix transformations, however. A similar approach allows us to relate any matrix transformation
+          with a basis of eigenvectors to a simple scaling matrix, which are diagonal matrices
+          and very easy to work with. 
+        </p>
+        </subsection>
+
+        <subsection xml:id="subsec-Diagonalization">
+          <title>Diagonalization</title>
+          
+
+        
+        <example>
+          <title>Diagonalizing A</title>
+          <p>
+            Consider the matrix transformation given by <m>
+              A = \left[
+              \begin{matrix}
+              3 \amp 1  \\
+              2 \amp 2  \\
+              \end{matrix}
+              \right].
+            </m> 
+            As we saw in <xref ref="eigentransformation"/>, <m>A</m> has an eigen-basis for <m>\mathbb{R}^2</m>.
+            Moreover, we found a transformation from the standard basis to those eigenvectors is given by 
+            <me>E =\left[ \begin{matrix} 1 \amp -1  \\  1 \amp 2  \\ \end{matrix} \right]. </me>
+            If we want to instead scale an eigenbasis we can first transform our eigen-basis vectors to the standard basis vectors,
+            use a dilation matrix then transform back to our eigenbasis as follows.
+          </p>
+
+          <p>
+            <ol>
+              <li>
+                <p>
+                  Step 1: Find the matrix transformation from the standard basis to the eigenbasis. 
+                  <me>E =\left[ \begin{matrix} -1 \amp 2  \\  1 \amp 1  \\ \end{matrix} \right] </me>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Step 2: Use the inverse <m>E^{-1}</m> to transform from the eigenbasis to the standard basis. 
+                </p>
+              </li>
+              <li>
+                <p>
+                  Step 3: Find the corresponding dilation matrix 
+                </p>
+                <p>
+                  Since we mapped the eigenvector with eigenvalue of 1 to <m>\vec{e}_1</m> and the 
+                  eigenvector with eigenvalue of 4 to <m>\vec{e}_2</m>, we want to 
+                  scale <m>\vec{e}_1</m> by the eigenvalue of 1 and <m>\vec{e}_2</m> by the eigenvalue 
+                  of 4. 
+                  <me>D =\left[ \begin{matrix} 1 \amp 0  \\  0 \amp 4  \\ \end{matrix} \right] </me>
+                </p>
+              </li>
+            </ol>
+          </p>
+          
+          
+        </example>
+
+        <p>
+          Note the above example worked because we could find a real eigen-basis for the domain of our transformation. 
+          If instead, we only had one real eigenvector or complex eigenvectors we find...
+        </p>
+
         <sage language='python'>
           <input>
             python
@@ -166,14 +562,14 @@
         <ul>
           <li>
             <p>
-              blah 
+              TBD 
             </p>
           </li>
         </ul>
         <ul>
           <li>
             <p>
-                blah
+                TBD
             </p>
           </li>
         </ul>
