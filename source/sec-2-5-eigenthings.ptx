@@ -501,52 +501,165 @@
             As we saw in <xref ref="eigentransformation"/>, <m>A</m> has an eigen-basis for <m>\mathbb{R}^2</m>.
             Moreover, we found a transformation from the standard basis to those eigenvectors is given by 
             <me>E =\left[ \begin{matrix} 1 \amp -1  \\  1 \amp 2  \\ \end{matrix} \right]. </me>
-            If we want to instead scale an eigenbasis we can first transform our eigen-basis vectors to the standard basis vectors,
-            use a dilation matrix then transform back to our eigenbasis as follows.
-          </p>
-
-          <p>
+            Since the eigenvectors are merely scaled by <m>A</m> we can relate <m>A</m> to a scaling (dilation) matrix 
+            coming from the eigenvalues corresponding to the eigenvectors in <m>E</m>, namely,
+            <me>D =\left[ \begin{matrix} 4 \amp 0  \\  0 \amp 1  \\ \end{matrix} \right]. </me>
+            But the scaling matrix <m>D</m> scales the standard basis vectors by 4 and 1. 
+            If we want to instead scale our eigenvectors we can 
             <ol>
               <li>
                 <p>
-                  Step 1: Find the matrix transformation from the standard basis to the eigenbasis. 
-                  <me>E =\left[ \begin{matrix} -1 \amp 2  \\  1 \amp 1  \\ \end{matrix} \right] </me>
+                  Transform our eigenbasis vectors to standard basis vectors using <m>E^{-1}</m>. 
                 </p>
               </li>
               <li>
                 <p>
-                  Step 2: Use the inverse <m>E^{-1}</m> to transform from the eigenbasis to the standard basis. 
+                  Scale the target standard basis vectors by the corresponding eigenvalues using <m>D</m>. 
                 </p>
               </li>
               <li>
                 <p>
-                  Step 3: Find the corresponding dilation matrix 
-                </p>
-                <p>
-                  Since we mapped the eigenvector with eigenvalue of 1 to <m>\vec{e}_1</m> and the 
-                  eigenvector with eigenvalue of 4 to <m>\vec{e}_2</m>, we want to 
-                  scale <m>\vec{e}_1</m> by the eigenvalue of 1 and <m>\vec{e}_2</m> by the eigenvalue 
-                  of 4. 
-                  <me>D =\left[ \begin{matrix} 1 \amp 0  \\  0 \amp 4  \\ \end{matrix} \right] </me>
+                  Transform back to the eigenbasis grid of <m>\mathbb{R}^2</m> using <m>E</m>.
                 </p>
               </li>
             </ol>
           </p>
-          
+          <p>
+            Since we mapped the eigenvector with eigenvalue of 4 to <m>\vec{e}_1</m> and the 
+            eigenvector with eigenvalue of 1 to <m>\vec{e}_2</m>, we want to 
+            scale <m>\vec{e}_1</m> by the eigenvalue of 4 and <m>\vec{e}_2</m> by the eigenvalue 
+            of 1. If instead we had swapped those, we would need to swap in both <m>E</m> and <m>D</m>.
+          </p>
+
+          <sage language='python'>
+            <input>
+              import numpy as np
+              import matplotlib.pyplot as plt
+              import matplotlib.gridspec as gridspec
+
+              # Create a figure
+              fig = plt.figure(figsize=(6, 8))
+              
+              # Create a gridspec layout
+              gs = gridspec.GridSpec(3, 2, height_ratios=[1, 1, 2])
+              
+              #create two rows and three column of plots
+              ax1 = fig.add_subplot(gs[0, 0])  # First plot in the first row
+              ax2 = fig.add_subplot(gs[0, 1])  # Second plot in the first row
+              ax3 = fig.add_subplot(gs[1, 0])  # Third plot in the second row
+              ax4 = fig.add_subplot(gs[1, 1])  # Fourth plot in the second row
+              ax5 = fig.add_subplot(gs[2, :])  # Single plot in the third col spanning all rows
+
+              A = np.array([[3,1],[2,2]]) #matrix transformation
+              E = np.array([[1,-1],[1,2]]) #transform standard to eigenbasis
+              D = np.array([[4,0],[0,1]]) #scaling matrix, scales first by 4, second by 1
+              eig1 = np.array([1,1]) #eigenvector
+              eig2 = np.array([-1,2]) #eigenvector
+              ndots = 9 #determine number of nxn dots
+              window = 7 #determine viewing window size
+
+              #create a grid of xy-values
+              Xvals = np.linspace(-4,4, num=ndots)
+              Yvals = np.linspace(-4,4, num=ndots)
+              X,Y = np.meshgrid(Xvals, Yvals)
+
+              #reshape the ndots x ndots grid into an x row and y row
+              X1 = X.reshape((ndots**2,))#x-value row 
+              Y1 = Y.reshape((ndots**2,)) #y-value row
+              #stack the two so each column is a coordinate
+              xygrid = np.row_stack([X1, Y1]) 
+
+              #transform to eigengrid 
+              eigrid = np.matmul(E,xygrid) # can also use @
+              #note: the columns of eigrid are xygrid coord transformed to eigenbasis coord
+
+              #plot R2 using eigenbasis grid 
+              ax1.scatter(eigrid[0],eigrid[1], c=eigrid[0])
+              ax1.quiver(0,0,eig1[0],eig1[1],label='$eigenvector \\vec v_1$', color='purple', angles='xy', scale_units='xy', scale=1) 
+              ax1.quiver(0,0,eig2[0],eig2[1],label='$eigenvector \\vec v_1$', color='crimson', angles='xy', scale_units='xy', scale=1) 
+              ax1.set(xlim=(-window,window), ylim=(-window,window), title=r"Eigenbasis grid of $\mathbb{R}^2$")
+
+              #use inverse to transform eigengrid to standard grid
+              Einv = np.linalg.inv(E)
+              inveigrid = np.matmul(Einv, eigrid)
+              inveig1 = Einv@eig1
+              inveig2 = Einv@eig2
+              #plot result
+              ax2.scatter(inveigrid[0],inveigrid[1], c=eigrid[0])
+              ax2.quiver(0,0,inveig1[0],inveig1[1],label='$eigenvector \\vec v_1$', color='purple', angles='xy', scale_units='xy', scale=1) 
+              ax2.quiver(0,0,inveig2[0],inveig2[1],label='$eigenvector \\vec v_1$', color='crimson', angles='xy', scale_units='xy', scale=1) 
+              ax2.set(xlim=(-window,window), ylim=(-window,window), title=r"Transform to standard via $E^{-1}$")
+
+              #scale the standard grid
+              scalgrid = np.matmul(D, inveigrid)
+              scalinveig1 = D@inveig1
+              scalinveig2 = D@inveig2
+              #plot result
+              ax3.scatter(scalgrid[0],scalgrid[1], c=eigrid[0])
+              ax3.quiver(0,0,scalinveig1[0],scalinveig1[1],label='$eigenvector \\vec v_1$', color='purple', angles='xy', scale_units='xy', scale=1) 
+              ax3.quiver(0,0,scalinveig2[0],scalinveig2[1],label='$eigenvector \\vec v_1$', color='crimson', angles='xy', scale_units='xy', scale=1) 
+              ax3.set(xlim=(-window,window), ylim=(-window,window), title=r"Scale by eigenvalues 4 and 1")
+
+              #transform scaled grid back to eigengrid
+              eigscalgrid = np.matmul(E, scalgrid)
+              scaleig1 = E@scalinveig1
+              scaleig2 = E@scalinveig2
+              #plot result
+              ax4.scatter(eigscalgrid[0],eigscalgrid[1], c=eigrid[0])
+              ax4.quiver(0,0,scaleig1[0],scaleig1[1],label='$eigenvector \\vec v_1$', color='purple', angles='xy', scale_units='xy', scale=1) 
+              ax4.quiver(0,0,scaleig2[0],scaleig2[1],label='$eigenvector \\vec v_1$', color='crimson', angles='xy', scale_units='xy', scale=1) 
+              ax4.set(xlim=(-window,window), ylim=(-window,window), title=r"Transform back via $E$")
+
+              #transform standard grid by A via matrix mult
+              uveigrid = np.matmul(A, eigrid) #can also use @
+              Aeig1 = A@eig1
+              Aeig2 = A@eig2
+
+              #plot transformed eigengrid directly
+              ax5.scatter(uveigrid[0],uveigrid[1], c=eigrid[0])
+              ax5.quiver(0,0,Aeig1[0],Aeig1[1],label='$A \\vec v_1$',color='purple', angles='xy', scale_units='xy', scale=1) 
+              ax5.quiver(0,0,Aeig2[0],Aeig2[1],label='$A \\vec v_2$',color='crimson', angles='xy', scale_units='xy', scale=1) 
+              ax5.set(xlim=(-window,window), ylim=(-window,window), title=r"Apply $A$ to the eigenbasis grid directly")
+              #ax5.legend()
+
+              plt.tight_layout()
+              plt.show()
+            </input>
+          </sage> 
+
+          <p> 
+            In other words, the matrix transformation <m>A = EDE^{-1}</m>. 
+          </p>
           
         </example>
+        <exercise>
+          <p>
+            Confirm that <m>A=EDE^{-1}</m> by computing the matrix product in NumPy or SymPy in the code below. 
+          </p>
+        </exercise>
+        <sage language = 'python'>
+          <input>
+            
+          </input>
+          <output>
+            
+          </output>
+        </sage>
 
         <p>
           Note the above example worked because we could find a real eigen-basis for the domain of our transformation. 
-          If instead, we only had one real eigenvector or complex eigenvectors we find...
+          If instead, we can not find a real eigenbasis for the domain we say that the matrix <em>is NOT diagonalizable.</em> 
         </p>
+        
+      </subsection>
 
-        <sage language='python'>
-          <input>
-            python
+      <subsection xml:id="subsec-complex-decomposition">
+        <title>Complex Eigen-thing Decomposition</title>
 
-          </input>
-        </sage>
+        <p>
+          If we have complex eigenvalues, we necessarily have complex eigenvectors. While our matrix
+          is not diagonalizable, we can still decompose into <q>nicer</q> transformations.
+        </p>
         
       </subsection>
       
