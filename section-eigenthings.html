@@ -364,6 +364,7 @@ sagecell.makeSagecell({
 <li><div class="toc-item"><a href="section-eigenthings.html#subsec-computing-eigenthings" class="internal"><span class="title">Computing Eigenthings</span></a></div></li>
 <li><div class="toc-item"><a href="section-eigenthings.html#subsec-visualizing-eigenthings" class="internal"><span class="title">Visualizing with Eigenthings</span></a></div></li>
 <li><div class="toc-item"><a href="section-eigenthings.html#subsec-Diagonalization" class="internal"><span class="title">Diagonalization</span></a></div></li>
+<li><div class="toc-item"><a href="section-eigenthings.html#subsec-complex-decomposition" class="internal"><span class="title">Complex Eigen-thing Decomposition</span></a></div></li>
 <li><div class="toc-item"><a href="section-eigenthings.html#exercises-eigenthings" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -374,7 +375,7 @@ sagecell.makeSagecell({
 <ul class="structural"><li>
 <div class="toc-item"><a href="examples.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Samples of various pretext formats</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="examples.html#subsection-47" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
+<li><div class="toc-item"><a href="examples.html#subsection-48" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
 <li><div class="toc-item"><a href="examples.html#reading-questions-1" class="internal"><span class="title">Reading Questions</span></a></div></li>
 </ul>
 </li></ul>
@@ -695,39 +696,132 @@ plt.show()
 E =\left[ \begin{matrix} 1 \amp -1  \\  1 \amp 2  \\ \end{matrix} \right]. 
 \end{equation*}
 </div>
-<div class="para">If we want to instead scale an eigenbasis we can first transform our eigen-basis vectors to the standard basis vectors, use a dilation matrix then transform back to our eigenbasis as follows.</div>
-</div> <div class="para logical" id="p-409"><ol class="decimal">
-<li id="li-106"><div class="para logical" id="p-410">
-<div class="para">Step 1: Find the matrix transformation from the standard basis to the eigenbasis.</div>
-<div class="displaymath process-math">
+<div class="para">Since the eigenvectors are merely scaled by <span class="process-math">\(A\)</span> we can relate <span class="process-math">\(A\)</span> to a scaling (dilation) matrix coming from the eigenvalues corresponding to the eigenvectors in <span class="process-math">\(E\text{,}\)</span> namely,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eigentransformation.html">
 \begin{equation*}
-E =\left[ \begin{matrix} -1 \amp 2  \\  1 \amp 1  \\ \end{matrix} \right] 
+D =\left[ \begin{matrix} 4 \amp 0  \\  0 \amp 1  \\ \end{matrix} \right]. 
 \end{equation*}
 </div>
+<div class="para">But the scaling matrix <span class="process-math">\(D\)</span> scales the standard basis vectors by 4 and 1. If we want to instead scale our eigenvectors we can</div>
+<ol class="decimal">
+<li id="li-106"><div class="para" id="p-409">Transform our eigenbasis vectors to standard basis vectors using <span class="process-math">\(E^{-1}\text{.}\)</span>
 </div></li>
-<li id="li-107"><div class="para" id="p-411">Step 2: Use the inverse <span class="process-math">\(E^{-1}\)</span> to transform from the eigenbasis to the standard basis.</div></li>
-<li id="li-108">
-<div class="para" id="p-412">Step 3: Find the corresponding dilation matrix</div>
-<div class="para logical" id="p-413">
-<div class="para">Since we mapped the eigenvector with eigenvalue of 1 to <span class="process-math">\(\vec{e}_1\)</span> and the eigenvector with eigenvalue of 4 to <span class="process-math">\(\vec{e}_2\text{,}\)</span> we want to scale <span class="process-math">\(\vec{e}_1\)</span> by the eigenvalue of 1 and <span class="process-math">\(\vec{e}_2\)</span> by the eigenvalue of 4.</div>
-<div class="displaymath process-math">
-\begin{equation*}
-D =\left[ \begin{matrix} 1 \amp 0  \\  0 \amp 4  \\ \end{matrix} \right] 
-\end{equation*}
-</div>
-</div>
-</li>
-</ol></div></article><div class="para" id="p-414">Note the above example worked because we could find a real eigen-basis for the domain of our transformation. If instead, we only had one real eigenvector or complex eigenvectors we find...</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-101"><script type="text/x-sage">python
-</script></pre></section><section class="conclusion" id="conclusion-8"><div class="para" id="p-415"></div></section><article class="assemblage assemblage-like" id="assemblage-10"><h3 class="heading"><span class="title">Summary.</span></h3>
-<div class="para logical" id="p-416">
-<ul class="disc"><li id="li-109"><div class="para" id="p-417">TBD</div></li></ul>
-<ul class="disc"><li id="li-110"><div class="para" id="p-418">TBD</div></li></ul>
+<li id="li-107"><div class="para" id="p-410">Scale the target standard basis vectors by the corresponding eigenvalues using <span class="process-math">\(D\text{.}\)</span>
+</div></li>
+<li id="li-108"><div class="para" id="p-411">Transform back to the eigenbasis grid of <span class="process-math">\(\mathbb{R}^2\)</span> using <span class="process-math">\(E\text{.}\)</span>
+</div></li>
+</ol>
+</div> <div class="para" id="p-412">Since we mapped the eigenvector with eigenvalue of 4 to <span class="process-math">\(\vec{e}_1\)</span> and the eigenvector with eigenvalue of 1 to <span class="process-math">\(\vec{e}_2\text{,}\)</span> we want to scale <span class="process-math">\(\vec{e}_1\)</span> by the eigenvalue of 4 and <span class="process-math">\(\vec{e}_2\)</span> by the eigenvalue of 1. If instead we had swapped those, we would need to swap in both <span class="process-math">\(E\)</span> and <span class="process-math">\(D\text{.}\)</span>
+</div> <pre class="ptx-sagecell sagecell-python" id="sage-101"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
+
+# Create a figure
+fig = plt.figure(figsize=(6, 8))
+
+# Create a gridspec layout
+gs = gridspec.GridSpec(3, 2, height_ratios=[1, 1, 2])
+
+#create two rows and three column of plots
+ax1 = fig.add_subplot(gs[0, 0])  # First plot in the first row
+ax2 = fig.add_subplot(gs[0, 1])  # Second plot in the first row
+ax3 = fig.add_subplot(gs[1, 0])  # Third plot in the second row
+ax4 = fig.add_subplot(gs[1, 1])  # Fourth plot in the second row
+ax5 = fig.add_subplot(gs[2, :])  # Single plot in the third col spanning all rows
+
+A = np.array([[3,1],[2,2]]) #matrix transformation
+E = np.array([[1,-1],[1,2]]) #transform standard to eigenbasis
+D = np.array([[4,0],[0,1]]) #scaling matrix, scales first by 4, second by 1
+eig1 = np.array([1,1]) #eigenvector
+eig2 = np.array([-1,2]) #eigenvector
+ndots = 9 #determine number of nxn dots
+window = 7 #determine viewing window size
+
+#create a grid of xy-values
+Xvals = np.linspace(-4,4, num=ndots)
+Yvals = np.linspace(-4,4, num=ndots)
+X,Y = np.meshgrid(Xvals, Yvals)
+
+#reshape the ndots x ndots grid into an x row and y row
+X1 = X.reshape((ndots**2,))#x-value row 
+Y1 = Y.reshape((ndots**2,)) #y-value row
+#stack the two so each column is a coordinate
+xygrid = np.row_stack([X1, Y1]) 
+
+#transform to eigengrid 
+eigrid = np.matmul(E,xygrid) # can also use @
+#note: the columns of eigrid are xygrid coord transformed to eigenbasis coord
+
+#plot R2 using eigenbasis grid 
+ax1.scatter(eigrid[0],eigrid[1], c=eigrid[0])
+ax1.quiver(0,0,eig1[0],eig1[1],label='$eigenvector \\vec v_1$', color='purple', angles='xy', scale_units='xy', scale=1) 
+ax1.quiver(0,0,eig2[0],eig2[1],label='$eigenvector \\vec v_1$', color='crimson', angles='xy', scale_units='xy', scale=1) 
+ax1.set(xlim=(-window,window), ylim=(-window,window), title=r"Eigenbasis grid of $\mathbb{R}^2$")
+
+#use inverse to transform eigengrid to standard grid
+Einv = np.linalg.inv(E)
+inveigrid = np.matmul(Einv, eigrid)
+inveig1 = Einv@eig1
+inveig2 = Einv@eig2
+#plot result
+ax2.scatter(inveigrid[0],inveigrid[1], c=eigrid[0])
+ax2.quiver(0,0,inveig1[0],inveig1[1],label='$eigenvector \\vec v_1$', color='purple', angles='xy', scale_units='xy', scale=1) 
+ax2.quiver(0,0,inveig2[0],inveig2[1],label='$eigenvector \\vec v_1$', color='crimson', angles='xy', scale_units='xy', scale=1) 
+ax2.set(xlim=(-window,window), ylim=(-window,window), title=r"Transform to standard via $E^{-1}$")
+
+#scale the standard grid
+scalgrid = np.matmul(D, inveigrid)
+scalinveig1 = D@inveig1
+scalinveig2 = D@inveig2
+#plot result
+ax3.scatter(scalgrid[0],scalgrid[1], c=eigrid[0])
+ax3.quiver(0,0,scalinveig1[0],scalinveig1[1],label='$eigenvector \\vec v_1$', color='purple', angles='xy', scale_units='xy', scale=1) 
+ax3.quiver(0,0,scalinveig2[0],scalinveig2[1],label='$eigenvector \\vec v_1$', color='crimson', angles='xy', scale_units='xy', scale=1) 
+ax3.set(xlim=(-window,window), ylim=(-window,window), title=r"Scale by eigenvalues 4 and 1")
+
+#transform scaled grid back to eigengrid
+eigscalgrid = np.matmul(E, scalgrid)
+scaleig1 = E@scalinveig1
+scaleig2 = E@scalinveig2
+#plot result
+ax4.scatter(eigscalgrid[0],eigscalgrid[1], c=eigrid[0])
+ax4.quiver(0,0,scaleig1[0],scaleig1[1],label='$eigenvector \\vec v_1$', color='purple', angles='xy', scale_units='xy', scale=1) 
+ax4.quiver(0,0,scaleig2[0],scaleig2[1],label='$eigenvector \\vec v_1$', color='crimson', angles='xy', scale_units='xy', scale=1) 
+ax4.set(xlim=(-window,window), ylim=(-window,window), title=r"Transform back via $E$")
+
+#transform standard grid by A via matrix mult
+uveigrid = np.matmul(A, eigrid) #can also use @
+Aeig1 = A@eig1
+Aeig2 = A@eig2
+
+#plot transformed eigengrid directly
+ax5.scatter(uveigrid[0],uveigrid[1], c=eigrid[0])
+ax5.quiver(0,0,Aeig1[0],Aeig1[1],label='$A \\vec v_1$',color='purple', angles='xy', scale_units='xy', scale=1) 
+ax5.quiver(0,0,Aeig2[0],Aeig2[1],label='$A \\vec v_2$',color='crimson', angles='xy', scale_units='xy', scale=1) 
+ax5.set(xlim=(-window,window), ylim=(-window,window), title=r"Apply $A$ to the eigenbasis grid directly")
+#ax5.legend()
+
+plt.tight_layout()
+plt.show()
+</script></pre> <div class="para" id="p-413">In other words, the matrix transformation <span class="process-math">\(A = EDE^{-1}\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-92"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.59</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-414">Confirm that <span class="process-math">\(A=EDE^{-1}\)</span> by computing the matrix product in NumPy or SymPy in the code below.</div></article><pre class="ptx-sagecell sagecell-python" id="sage-102"><script type="text/x-sage">
+</script></pre>
+<div class="para" id="p-415">Note the above example worked because we could find a real eigen-basis for the domain of our transformation. If instead, we can not find a real eigenbasis for the domain we say that the matrix <em class="emphasis">is NOT diagonalizable.</em>
+</div></section><section class="subsection" id="subsec-complex-decomposition"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Complex Eigen-thing Decomposition</span>
+</h3>
+<div class="para" id="p-416">If we have complex eigenvalues, we necessarily have complex eigenvectors. While our matrix is not diagonalizable, we can still decompose into “nicer” transformations.</div></section><section class="conclusion" id="conclusion-8"><div class="para" id="p-417"></div></section><article class="assemblage assemblage-like" id="assemblage-10"><h3 class="heading"><span class="title">Summary.</span></h3>
+<div class="para logical" id="p-418">
+<ul class="disc"><li id="li-109"><div class="para" id="p-419">TBD</div></li></ul>
+<ul class="disc"><li id="li-110"><div class="para" id="p-420">TBD</div></li></ul>
 </div></article><section class="exercises" id="exercises-eigenthings"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-92"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<pre class="ptx-sagecell sagecell-python" id="sage-102"><script type="text/x-sage">#
+<article class="exercise exercise-like" id="exercise-93"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<pre class="ptx-sagecell sagecell-python" id="sage-103"><script type="text/x-sage">#
 #
 #
 #

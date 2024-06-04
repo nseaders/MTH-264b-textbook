@@ -24,7 +24,21 @@
 E =\left[ \begin{matrix} 1 \amp -1  \\  1 \amp 2  \\ \end{matrix} \right]. 
 \end{equation*}
 </div>
-<div class="para">If we want to instead scale an eigenbasis we can first transform our eigen-basis vectors to the standard basis vectors, use a dilation matrix then transform back to our eigenbasis as follows.</div>
+<div class="para">Since the eigenvectors are merely scaled by <span class="process-math">\(A\)</span> we can relate <span class="process-math">\(A\)</span> to a scaling (dilation) matrix coming from the eigenvalues corresponding to the eigenvectors in <span class="process-math">\(E\text{,}\)</span> namely,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eigentransformation.html">
+\begin{equation*}
+D =\left[ \begin{matrix} 4 \amp 0  \\  0 \amp 1  \\ \end{matrix} \right]. 
+\end{equation*}
+</div>
+<div class="para">But the scaling matrix <span class="process-math">\(D\)</span> scales the standard basis vectors by 4 and 1. If we want to instead scale our eigenvectors we can</div>
+<ol class="decimal">
+<li><div class="para">Transform our eigenbasis vectors to standard basis vectors using <span class="process-math">\(E^{-1}\text{.}\)</span>
+</div></li>
+<li><div class="para">Scale the target standard basis vectors by the corresponding eigenvalues using <span class="process-math">\(D\text{.}\)</span>
+</div></li>
+<li><div class="para">Transform back to the eigenbasis grid of <span class="process-math">\(\mathbb{R}^2\)</span> using <span class="process-math">\(E\text{.}\)</span>
+</div></li>
+</ol>
 </div>
 <span class="incontext"><a href="section-eigenthings.html#p-408" class="internal">in-context</a></span>
 </body>
