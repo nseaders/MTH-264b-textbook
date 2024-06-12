@@ -11,30 +11,152 @@
     <title>Basic Animation</title>
 
     <introduction>
-        In this section we will create some basic animations,
-        by creating frames for the animation in Matplotlib.
+        In this section we will create some basic animations in Matplotlib.
+        Static graphs convey a lot of information in one visual. 
+        The right animation can help you convey complicated information simply.
     </introduction>
 
     <objectives>
         <ul>
           <li>
             <p>
-              Create an interactive plot with a slider.
+              Create a gif animating a graph.
             </p>
           </li>
           <li>
             <p>
-              Create a gif animating a graph.
+              Create an interactive plot with a slider.
             </p>
           </li>
         </ul>
       </objectives>
 
       <subsection>
-        <title>Animating in Matplotlib</title>
+        <title>Creating a .gif in Matplotlib</title>
+
 
         <p>
-          This first example uses <c>interact</c> to create a slider to plot one point at a time. 
+          Matplotlib has a module called <c>animation</c> 
+          with a <c>FuncAnimation</c> class that allows you easily make frames of a changing graph.<fn>Animation
+            is basically a slideshow of pictures or frames.
+          </fn> 
+          A class called <c>PillowWriter</c> allows you to grab
+          frames and save them to a file to make gifs.  
+        </p>
+        <p>
+          There are many ways to alter a graph over time. For these examples we will 
+          start with an empty graph and use NumPy's <c>append</c> to add points one at a time to our graph.
+        </p>
+
+        <sage language='python'>
+          <input>
+            import numpy as np
+            from matplotlib import pyplot as plt
+            #from matplotlib import animation
+            from matplotlib.animation import PillowWriter
+            #PillowWriter used for creating gifs
+
+            fig = plt.figure()
+            ax = plt.axes()
+            curve, = ax.plot([],[]) #create an empty graph to animate
+
+            ax.set(xlim=(-5,5), ylim = (-5,5))
+
+            #set up writer object to grab frames for a gif
+            writer = PillowWriter(fps=15)
+
+            x = [] #empty start
+            y = []
+
+            with writer.saving(fig, "sinWave.gif", 100): #100 is the dpi
+              for xval in np.linspace(-5,5,100):
+                x.append(xval)
+                y.append(3*np.sin(xval))
+
+                curve.set_data(x,y)
+
+                writer.grab_frame() #grab current frame in figure for writer object
+
+          </input> 
+        </sage>
+
+        <exercise>
+          <ul>
+            <li>
+              <p>
+                Play with various graph features and customizations. 
+              </p>
+            </li>
+            <li>
+              <p>
+                Add a title and labels to your graph.  
+              </p>
+            </li>
+          </ul>
+
+        </exercise>
+        <exercise>
+          <ul>
+            <li>
+              <p>
+                Change the dpi and see how the .gif is affected.
+              </p>
+            </li>
+            <li>
+              <p>
+                Change the frames per second and see how the .gif is affected.
+              </p>
+            </li>
+          </ul>
+        </exercise>
+
+        <p>
+          Here is an example animating two curves on the same graph. 
+        </p>
+
+        <sage language='python'>
+          <input>
+            import numpy as np
+            from matplotlib import pyplot as plt
+            #from matplotlib import animation
+            from matplotlib.animation import PillowWriter
+
+            fig = plt.figure()
+            ax = plt.axes()
+            curve, = ax.plot([],[], label='sine') #create an empty graph to animate
+            curve2, = ax.plot([],[],color='purple', linestyle='dashed', label='cosine')
+
+            ax.set(xlim=[-5,5], ylim=[-5,5])
+            ax.legend()
+
+            #set up writer object to grab frames for a gif
+            writer = PillowWriter(fps=15)
+
+            x = [] #empty start
+            y = []
+            y2 = []
+
+            with writer.saving(fig, "sincosWave.gif", 100): #100 is the dpi
+              for xval in np.linspace(-5,5,100):
+                x.append(xval)
+                y.append(3*np.sin(xval))
+                y2.append(3*np.cos(xval))
+
+                curve.set_data(x,y)
+                curve2.set_data(x,y2)
+
+                writer.grab_frame() #grab current frame in figure for writer object
+
+          </input> 
+        </sage>
+
+
+      </subsection>
+
+      <subsection xml:id="subsec-interactive-slider">
+        <title>Creating an interactive slider</title>
+        <p>
+          This second example uses <c>interact</c> to create a slider to plot one point at a time. 
           We will need to create two user defined (computer science) functions: 
           one that increments through the input points for the slider and 
           another that plots the graph for just those input points. 
@@ -130,93 +252,167 @@
                 plot_data(current_t, current_y) 
           </input>
         </sage>
+      </subsection>
 
+      <subsection xml:id="subsec-student-showcase">
+        <title>Student Showcase</title>
         <p>
-          Matplotlib has a module called <c>animation</c> 
-          with a <c>FuncAnimation</c> class that allows you easily make frames of a graph. 
-          A class called <c>PillowWriter</c> allows you to grab
-          frames and save them to a file to make gifs.  
+          Former students gave us permission to share some of their work as well.  
         </p>
 
-        <sage language='python'>
-          <input>
-            import numpy as np
-            from matplotlib import pyplot as plt
-            from matplotlib import animation
-            from matplotlib.animation import PillowWriter
-            #PillowWriter used for creating gifs
-
-            fig = plt.figure()
-            ax = plt.axes()
-            curve, = ax.plot([],[]) #create an empty graph to animate
-
-            ax.set(xlim=(-5,5), ylim = (-5,5))
-
-            #set up writer object to grab frames for a gif
-            writer = PillowWriter(fps=15)
-
-            x = [] #empty start
-            y = []
-
-            with writer.saving(fig, "sinWave.gif", 100): #100 is the dpi
-              for xval in np.linspace(-5,5,100):
-                x.append(xval)
-                y.append(3*np.sin(xval))
-
-                curve.set_data(x,y)
-
-                writer.grab_frame() #grab current frame in figure for writer object
-
-          </input> 
-        </sage>
-
-        <p>
-          Here is an example animating two curves on the same graph. 
-        </p>
-
-        <sage language='python'>
-          <input>
-            import numpy as np
-            from matplotlib import pyplot as plt
-            from matplotlib import animation
-            from matplotlib.animation import PillowWriter
-
-            fig = plt.figure()
-            ax = plt.axes()
-            curve, = ax.plot([],[], label='sine') #create an empty graph to animate
-            curve2, = ax.plot([],[],color='purple', linestyle='dashed', label='cosine')
-
-            ax.set(xlim=[-5,5], ylim=[-5,5])
-            ax.legend()
-
-            #set up writer object to grab frames for a gif
-            writer = PillowWriter(fps=15)
-
-            x = [] #empty start
-            y = []
-            y2 = []
-
-            with writer.saving(fig, "sincosWave.gif", 100): #100 is the dpi
-              for xval in np.linspace(-5,5,100):
-                x.append(xval)
-                y.append(3*np.sin(xval))
-                y2.append(3*np.cos(xval))
-
-                curve.set_data(x,y)
-                curve2.set_data(x,y2)
-
-                writer.grab_frame() #grab current frame in figure for writer object
-
-          </input> 
-        </sage>
-
-        <exercise>
-          <p>
-            What graph do <em>you</em> want to animate? Create it!  
-          </p>
+        <example>
+          <title>Anonymous (Spring 2024)</title>
+          <sage language='python'>
+            <input>
+              #This code generates a Graph demonstrating the motion of a hypothetical falling Space Shark on numerous different planets and moons
+              import numpy as np
+              from matplotlib import pyplot as plt
+              from matplotlib.animation import PillowWriter
+              
+              fig = plt.figure()
+              ax = plt.axes()
+              ax.minorticks_on()
+              
+              curve1, = ax.plot([],[], label='Position on Earth',color='green',linestyle='solid')
+              curve2, = ax.plot([],[],label='Position on Moon',color='gray', linestyle='dashed') 
+              curve3, = ax.plot([],[],label='Position on Mercury',color='indigo', linestyle='dashed') 
+              curve4, = ax.plot([],[],label='Position on Mars',color='darkorange', linestyle='dotted') 
+              curve5, = ax.plot([],[],label='Position on Jupiter',color='maroon', linestyle='dotted') 
+              curve6, = ax.plot([],[],label='Position on Neptune',color='magenta', linestyle='dashdot') 
+              curve7, = ax.plot([],[],label='Position on Pluto',color='blue', linestyle='dashdot')
+              
+              ax.set(xlim=(0,5), ylim = (0,150),xlabel='Time(s)',ylabel='Position (m)',title="Position of a falling Space Shark on different Planets and Moons Graph")
+              ax.legend()
+              
+              writer = PillowWriter(fps=15)
+              x = [] 
+              y1= [] 
+              y2 = [] 
+              y3= [] 
+              y4= [] 
+              y5= [] 
+              y6= [] 
+              y7= []
+              
+              with writer.saving(fig,"FallingShark.gif", 200): 
+                for xval in np.linspace(0,10,100):
+                  x.append(xval) 
+                  y1.append(9.81*((xval)**2)) 
+                  y2.append(1.6*((xval)**2))
+                  y3.append(3.7*((xval)**2)) 
+                  y4.append(3.72*((xval)**2)) 
+                  y5.append(23.1*((xval)**2)) 
+                  y6.append(11*((xval)**2)) 
+                  y7.append(.7*((xval)**2))
+                  curve1.set_data(x,y1) 
+                  curve2.set_data(x,y2) 
+                  curve3.set_data(x,y3) 
+                  curve4.set_data(x,y4) 
+                  curve5.set_data(x,y5) 
+                  curve6.set_data(x,y6) 
+                  curve7.set_data(x,y7)
+                  writer.grab_frame()
+            </input>
+          </sage>
           
-        </exercise>
+        </example>
 
+        <example>
+          <title>Luke Clark (Spring 2024)</title>
+          <sage language='python'>
+            <input>
+              import matplotlib.pyplot as plt 
+              import numpy as np
+
+              G = 6.67 * 10**-2 #Tera Grams
+              # the equation has to be factored down because it does't like really big numbers 
+              @interact
+              def plot_gravitational_well(Mass=(100, 1000, 10)): #Tera grams
+                t = np.linspace(-20, 20, 100)
+                X, Y = np.meshgrid(t, t)
+                Z = -(Mass * G) / (np.sqrt((X**2) + (Y**2))) 
+                fig = plt.figure()
+                ax = fig.add_subplot(111, projection='3d')
+                ax.plot_surface(X, Y, Z)
+                ax.set(xlim=[-20, 20], ylim=[-20, 20], zlim=[-100, 100]) 
+                ax.set(xlabel=r'$X$ (Giga $m^2$)', ylabel=r'$Y$ (Giga $m^2$)', zlabel=r'Warping of space ($N/m^3$)')
+                ax.set(title="Gravitational Well of a object with variable Mass") 
+                plt.show()
+            </input>
+          </sage>
+          
+          
+        </example>
+
+        <example>
+          <title>Ben Canterero (Spring 2024)</title>
+          
+          <sage language='python'>
+            <input>
+              import matplotlib.pyplot as plt
+              import numpy as np
+              from matplotlib.animation import FuncAnimation, PillowWriter
+
+              #set grid arrays
+              mx = 10
+              my = 10
+              mz = 7
+              S = 250
+              x = np.linspace(-mx,mx,num=S) 
+              y = np.linspace(-my,my,num=S)
+              x,y = np.meshgrid(x,y)
+
+              #set up a 2D and 3D graphing area
+              fig = plt.figure()
+              ax2D = fig.add_subplot(122)
+              ax3D = fig.add_subplot(121, projection='3d') 
+              ax3D.set_xlim3d(-mx, my) 
+              ax3D.set_ylim3d(-my, my) 
+              ax3D.set_zlim3d(-mz, mz)
+
+              #increase spacing between graphs
+              plt.subplots_adjust(wspace = 0.75)
+
+              #arbitrary equation for 3D surface
+              wave = 2*np.cos(y+x)+2*np.sin(-0.05*y*x)
+
+              #Replot all graphs based on the value of the slider
+              def update(sliderval): #update position of plane
+                plane = np.full((S,S,),sliderval)
+
+                #plot plane and surface
+                ax3D.clear() 
+                ax3D.plot_surface(x,y,wave,cmap='plasma') 
+                ax3D.plot_wireframe(x,plane,y,alpha=0.25)
+
+                #plot intersection of plane and surface
+                ax2D.clear()
+                ax2D.contour(x,wave,y,levels=[sliderval],colors='b',linestyles='solid') #Label the graphs and axes
+                ax2D.set_title('Intersection of Plane and Surface') 
+                ax2D.set_xlabel('x')
+                ax2D.set_ylabel('z') 
+                ax3D.set_title('3D Surface and Plane') 
+                ax3D.set_xlabel('x') 
+                ax3D.set_ylabel('y') 
+                ax3D.set_zlabel('z')
+
+              #Create and save an animation
+              ani = FuncAnimation(fig, update, frames=np.linspace(-my, my, num=S), interval=100) 
+              ani.save('animation.gif', writer=PillowWriter(fps=30))
+              print("successfully saved!")
+
+              '''
+              #Create a slider to control the position of the plane 
+              @interact()
+              def moveslider(position=slider(-my,my,0.01)):
+                update(position)
+              plt.show()
+              '''
+            </input>
+          </sage>
+        </example>
+        
+        
       </subsection>
 
 
@@ -235,17 +431,17 @@
         <ul>
           <li>
             <p>
-              We can use <c>interact</c> to create a slider element and 
-              create two user defined functions: one that takes the slider information 
-              to create points and another that makes graphs for just those points. 
+              The <c>FuncAnimation</c> class can be used to animate your graphs and 
+              <c>PillowWriter</c> saves those frames into a gif.
             </p>
           </li>
         </ul>
         <ul>
           <li>
             <p>
-              The <c>FuncAnimation</c>> class can be used to animate your graphs and 
-              <c>PillowWriter</c> saves those frames into a gif.
+              We can use <c>interact</c> to create a slider element and 
+              create two user defined functions: one that takes the slider information 
+              to create points and another that makes graphs for just those points. 
             </p>
           </li>
         </ul>
@@ -253,6 +449,20 @@
       </assemblage>
 
       <exercises xml:id="exercises-animation">
+        <exercise>
+          <p>
+            Animate a 3D graph.
+          </p>
+          <sage language='python'>
+            <input>
+              #
+              #
+              #
+              #
+              #
+            </input>
+          </sage>
+        </exercise>
         <exercise>
           <p>
             Showcase your skills from so far in the term to create an animated graph in Matplotlib for any other class 
@@ -267,6 +477,12 @@
               #
             </input>
           </sage>
+          
+        </exercise>
+        <exercise>
+          <p>
+            What graph do <em>you</em> want to animate? Create it!  
+          </p>
           
         </exercise>
         

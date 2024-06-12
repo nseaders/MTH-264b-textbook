@@ -97,7 +97,7 @@
           You can find the characteristic polynomial via <c>matrix.charpoly()</c>.
           SymPy's <c>.eigenvects()</c> also returns a tuple of exact eigenvalues, their multiplicities, 
           and exact eigenvectors. Since computing eigenvectors can be costly, we have the option
-          of just computing eigenvalues using <c>.eigvals()</c> instead. 
+          of just computing eigenvalues using <c>.eigenvals()</c> instead. 
           If instead of exact values you want a decimal approximation you can use the 
           command <c>.evalf()</c> or <c>N()</c>. 
         </p>
@@ -658,8 +658,24 @@
 
         <p>
           If we have complex eigenvalues, we necessarily have complex eigenvectors. While our matrix
-          is not diagonalizable, we can still decompose into <q>nicer</q> transformations.
+          is not diagonalizable, we can still decompose into <q>nicer</q> transformations. 
+          The Rotation Scaling Theorem 
+          provides a way to decompose <m>A = CBC^{-1}</m> where <m>B</m> is a rotation scaling matrix. 
         </p>
+
+        <theorem xml:id="thm-rotationscaling">
+          <statement>
+            <p>
+              Let <m>A</m> be a <m>2\times 2</m> real matrix with a complex eigenvalue <m>\lambda</m> and 
+              let <m>\vec{v}</m> be a corresponding eigenvector. Then <me>A=CBC^{-1}</me>
+              where and <m>C = \left[\begin{matrix} | \amp | \\ Re(v) \amp Im(v) \\ | \amp | \end{matrix}\right]</m> and <m>B=\left[ \begin{matrix} Re(\lambda) \amp Im(\lambda) \\-Im(\lambda) \amp Re(\lambda) \end{matrix}\right]</m>
+              See <url href="https://textbooks.math.gatech.edu/ila/complex-eigenvalues.html">Rotation Scaling Theorem in Section 5.5 of Interactive Linear Algebra.</url> 
+            </p>
+          </statement>
+        </theorem>
+        
+
+        
         
       </subsection>
       
