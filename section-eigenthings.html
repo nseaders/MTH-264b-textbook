@@ -305,7 +305,9 @@ sagecell.makeSagecell({
 <li>
 <div class="toc-item"><a href="section-animation.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Basic Animation</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-animation.html#subsection-23" class="internal"><span class="title">Animating in Matplotlib</span></a></div></li>
+<li><div class="toc-item"><a href="section-animation.html#subsection-23" class="internal"><span class="title">Creating a .gif in Matplotlib</span></a></div></li>
+<li><div class="toc-item"><a href="section-animation.html#subsec-interactive-slider" class="internal"><span class="title">Creating an interactive slider</span></a></div></li>
+<li><div class="toc-item"><a href="section-animation.html#subsec-student-showcase" class="internal"><span class="title">Student Showcase</span></a></div></li>
 <li><div class="toc-item"><a href="section-animation.html#exercises-animation" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -319,7 +321,7 @@ sagecell.makeSagecell({
 <ul class="structural">
 <li><div class="toc-item"><a href="section-systems.html#rref" class="internal"><span class="title">Row Reduction</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#graphsolution" class="internal"><span class="title">Graphing solutions to systems of equations</span></a></div></li>
-<li><div class="toc-item"><a href="section-systems.html#subsection-26" class="internal"><span class="title">Graphing vector equations and their solutions</span></a></div></li>
+<li><div class="toc-item"><a href="section-systems.html#subsection-28" class="internal"><span class="title">Graphing vector equations and their solutions</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#subsec-" class="internal"><span class="title">Converting between Numpy arrays and Sympy Matrices</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#subsecRoundingErrorRref" class="internal"><span class="title">Round-off error in Sympy’s rref()</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#exercises-systems" class="internal"><span class="title">Exercises</span></a></div></li>
@@ -328,7 +330,7 @@ sagecell.makeSagecell({
 <li>
 <div class="toc-item"><a href="section-matrices.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix Arithmetic</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-matrices.html#subsection-29" class="internal"><span class="title">NumPy vs SymPy</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsection-31" class="internal"><span class="title">NumPy vs SymPy</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#subsec-BasicMatrices" class="internal"><span class="title">Basic Matrices</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#subsec-MatrixArithmetic" class="internal"><span class="title">Matrix Arithmetic</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#subsec-MatrixMultiplication" class="internal"><span class="title">Matrix Multiplication</span></a></div></li>
@@ -342,8 +344,8 @@ sagecell.makeSagecell({
 <div class="toc-item"><a href="section-transformations.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Matrix Transformations</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="section-transformations.html#subsec-ComputingMatrixTransformations" class="internal"><span class="title">Computing Matrix Transformations</span></a></div></li>
-<li><div class="toc-item"><a href="section-transformations.html#subsection-37" class="internal"><span class="title">Visualizing a Matrix Transformation</span></a></div></li>
-<li><div class="toc-item"><a href="section-transformations.html#subsection-38" class="internal"><span class="title">Animating Matrix Transformations</span></a></div></li>
+<li><div class="toc-item"><a href="section-transformations.html#subsection-39" class="internal"><span class="title">Visualizing a Matrix Transformation</span></a></div></li>
+<li><div class="toc-item"><a href="section-transformations.html#subsection-40" class="internal"><span class="title">Animating Matrix Transformations</span></a></div></li>
 <li><div class="toc-item"><a href="section-transformations.html#exercises-transformations" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -375,28 +377,29 @@ sagecell.makeSagecell({
 <ul class="structural"><li>
 <div class="toc-item"><a href="examples.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Samples of various pretext formats</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="examples.html#subsection-48" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
+<li><div class="toc-item"><a href="examples.html#subsection-50" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
 <li><div class="toc-item"><a href="examples.html#reading-questions-1" class="internal"><span class="title">Reading Questions</span></a></div></li>
 </ul>
 </li></ul>
 </li>
 <li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-eigenthings"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="section-eigenthings"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.5</span> <span class="title">Eigenthings</span>
 </h2>
 <section class="introduction" id="introduction-13">In this section we will learn how to</section><article class="objectives goal-like" id="objectives-10"><h3 class="heading"><span class="type">Objectives</span></h3>
 <ul class="disc">
-<li id="li-103"><div class="para" id="p-377">Compute eigenvalues and eigenvectors using NumPy and SymPy.</div></li>
-<li id="li-104"><div class="para" id="p-378">Visualize a matrix transformation using an eigenbasis (if possible).</div></li>
-<li id="li-105"><div class="para" id="p-379">Diagonalize a matrix (if possible).</div></li>
+<li id="li-107"><div class="para" id="p-384">Compute eigenvalues and eigenvectors using NumPy and SymPy.</div></li>
+<li id="li-108"><div class="para" id="p-385">Visualize a matrix transformation using an eigenbasis (if possible).</div></li>
+<li id="li-109"><div class="para" id="p-386">Diagonalize a matrix (if possible).</div></li>
 </ul></article><section class="subsection" id="subsec-computing-eigenthings"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Computing Eigenthings</span>
 </h3>
-<div class="para" id="p-380">Although we could use determinants to solve for eigenvalues and row reducing to solve for eigenvectors, both NumPy and SymPy have commands to directly determine eigenthings.</div>
-<div class="para" id="p-381">NumPy’s <code class="code-inline tex2jax_ignore">linalg.eig(matrix_name)</code> can be used to find numerical approximations for the eigenvalues and eigenvectors (where the latter are normalized to have magnitude 1). Note that <code class="code-inline tex2jax_ignore">linalg.eig(matrix_name)</code> returns a tuple of both the eigenvalues and the eigenvectors.</div>
-<div class="para" id="p-382">You can also find just the characteristic polynomial using <code class="code-inline tex2jax_ignore">poly(matrix_name)</code> and just the eigenvalues using <code class="code-inline tex2jax_ignore">linalg.eigvals(matrix_name)</code>.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-94"><script type="text/x-sage">import numpy as np
+<div class="para" id="p-387">Although we could use determinants to solve for eigenvalues and row reducing to solve for eigenvectors, both NumPy and SymPy have commands to directly determine eigenthings.</div>
+<div class="para" id="p-388">NumPy’s <code class="code-inline tex2jax_ignore">linalg.eig(matrix_name)</code> can be used to find numerical approximations for the eigenvalues and eigenvectors (where the latter are normalized to have magnitude 1). Note that <code class="code-inline tex2jax_ignore">linalg.eig(matrix_name)</code> returns a tuple of both the eigenvalues and the eigenvectors.</div>
+<div class="para" id="p-389">You can also find just the characteristic polynomial using <code class="code-inline tex2jax_ignore">poly(matrix_name)</code> and just the eigenvalues using <code class="code-inline tex2jax_ignore">linalg.eigvals(matrix_name)</code>.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-98"><script type="text/x-sage">import numpy as np
 
 A = np.array([[1,1],[-2,4]])
 B = np.array([[0,2],[1,-3]])
@@ -413,18 +416,18 @@ eig, vects = np.linalg.eig(A)
 print(P)
 print(eig,vects)
 </script></pre>
-<article class="exercise exercise-like" id="exercise-85"><h4 class="heading">
+<article class="exercise exercise-like" id="exercise-88"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.49</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-383">Use the above code to write down the characteristic polynomials for matrix <span class="process-math">\(A\text{.}\)</span> Note that you have to interpret the output correctly.</div></article><article class="exercise exercise-like" id="exercise-86"><h4 class="heading">
+<div class="para" id="p-390">Use the above code to write down the characteristic polynomials for matrix <span class="process-math">\(A\text{.}\)</span> Note that you have to interpret the output correctly.</div></article><article class="exercise exercise-like" id="exercise-89"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.50</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-384">Use the above NumPy code to write down the eigenvalues and eigenvectors for matrix <span class="process-math">\(A\text{.}\)</span>
-</div></article><article class="exercise exercise-like" id="exercise-87"><h4 class="heading">
+<div class="para" id="p-391">Use the above NumPy code to write down the eigenvalues and eigenvectors for matrix <span class="process-math">\(A\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-90"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.51</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-385">Repeat both of the above exercises for the matrix <span class="process-math">\(B\text{.}\)</span> Why might someone prefer to solve a <span class="process-math">\(2\times 2\)</span> eigenvalue question by hand instead?</div></article><div class="para" id="p-386">As before, SymPy works well with symbolic manipulation. You can find the characteristic polynomial via <code class="code-inline tex2jax_ignore">matrix.charpoly()</code>. SymPy’s <code class="code-inline tex2jax_ignore">.eigenvects()</code> also returns a tuple of exact eigenvalues, their multiplicities, and exact eigenvectors. Since computing eigenvectors can be costly, we have the option of just computing eigenvalues using <code class="code-inline tex2jax_ignore">.eigvals()</code> instead. If instead of exact values you want a decimal approximation you can use the command <code class="code-inline tex2jax_ignore">.evalf()</code> or <code class="code-inline tex2jax_ignore">N()</code>.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-95"><script type="text/x-sage">import sympy as sp
+<div class="para" id="p-392">Repeat both of the above exercises for the matrix <span class="process-math">\(B\text{.}\)</span> Why might someone prefer to solve a <span class="process-math">\(2\times 2\)</span> eigenvalue question by hand instead?</div></article><div class="para" id="p-393">As before, SymPy works well with symbolic manipulation. You can find the characteristic polynomial via <code class="code-inline tex2jax_ignore">matrix.charpoly()</code>. SymPy’s <code class="code-inline tex2jax_ignore">.eigenvects()</code> also returns a tuple of exact eigenvalues, their multiplicities, and exact eigenvectors. Since computing eigenvectors can be costly, we have the option of just computing eigenvalues using <code class="code-inline tex2jax_ignore">.eigenvals()</code> instead. If instead of exact values you want a decimal approximation you can use the command <code class="code-inline tex2jax_ignore">.evalf()</code> or <code class="code-inline tex2jax_ignore">N()</code>.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-99"><script type="text/x-sage">import sympy as sp
 sp.init_printing()
 
 A = sp.Matrix([[1,1],[-2,4]])
@@ -444,30 +447,30 @@ e1,e2 = A.eigenvals() #returns a tuple
 #Find the eigenvectors
 display(A.eigenvects())
 </script></pre>
-<article class="exercise exercise-like" id="exercise-88"><h4 class="heading">
+<article class="exercise exercise-like" id="exercise-91"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.52</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-387">Use the above SymPy code to write down the characteristic polynomial for matrix <span class="process-math">\(A\text{.}\)</span> Note that you have to interpret the output correctly.</div></article><article class="exercise exercise-like" id="exercise-89"><h4 class="heading">
+<div class="para" id="p-394">Use the above SymPy code to write down the characteristic polynomial for matrix <span class="process-math">\(A\text{.}\)</span> Note that you have to interpret the output correctly.</div></article><article class="exercise exercise-like" id="exercise-92"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.53</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-388">Use the above code to write down the eigenvalues and eigenvectors for matrix <span class="process-math">\(A\text{.}\)</span>
-</div></article><article class="exercise exercise-like" id="exercise-90"><h4 class="heading">
+<div class="para" id="p-395">Use the above code to write down the eigenvalues and eigenvectors for matrix <span class="process-math">\(A\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-93"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.54</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-389">Repeat the above two exercises for matrix <span class="process-math">\(B\text{.}\)</span>
+<div class="para" id="p-396">Repeat the above two exercises for matrix <span class="process-math">\(B\text{.}\)</span>
 </div></article></section><section class="subsection" id="subsec-visualizing-eigenthings"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Visualizing with Eigenthings</span>
 </h3>
-<div class="para" id="p-390">Recall from <a href="section-transformations.html" class="internal" title="Section 2.3: Matrix Transformations">Section 2.3</a> since a matrix transformation is linear, we can visualize using a standard basis grid and the transformed basis grid. Every other point in space is a linear combination. We can visualize with either a standard basis coordinate point grid and its image or a standard basis coordinate line grid and its image under the transformation.</div>
+<div class="para" id="p-397">Recall from <a href="section-transformations.html" class="internal" title="Section 2.3: Matrix Transformations">Section 2.3</a> since a matrix transformation is linear, we can visualize using a standard basis grid and the transformed basis grid. Every other point in space is a linear combination. We can visualize with either a standard basis coordinate point grid and its image or a standard basis coordinate line grid and its image under the transformation.</div>
 <article class="example example-like" id="standardtransformation"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.55</span><span class="period">.</span><span class="space"> </span><span class="title">Visualizing using the Standard Basis grid.</span>
-</h4> <div class="para" id="p-391">Consider the matrix transformation <span class="process-math">\(\mathbb{R}^2 \rightarrow \mathbb{R}^2\)</span> given by <span class="process-math">\(A = \left[
+</h4> <div class="para" id="p-398">Consider the matrix transformation <span class="process-math">\(\mathbb{R}^2 \rightarrow \mathbb{R}^2\)</span> given by <span class="process-math">\(A = \left[
 \begin{matrix}
 3 \amp 1  \\
 2 \amp 2  \\
 \end{matrix}
 \right].\)</span>
-</div> <div class="para" id="p-392">We can visualize the matrix transformation using the standard basis. Here <span class="process-math">\(A = \left[
+</div> <div class="para" id="p-399">We can visualize the matrix transformation using the standard basis. Here <span class="process-math">\(A = \left[
 \begin{matrix}
 3 \amp 1  \\
 2 \amp 2  \\
@@ -482,7 +485,7 @@ display(A.eigenvects())
 \right] 
 \left[ \begin{matrix} 0 \\ 1  \\ \end{matrix} \right]
 = \left[ \begin{matrix} 1 \\ 2  \\ \end{matrix} \right].\)</span>
-</div> <div class="para" id="p-393">First we will visualize the transformation using the standard basis vectors and a resulting coordinate point grid and their transformations.</div> <pre class="ptx-sagecell sagecell-python" id="sage-96"><script type="text/x-sage">import numpy as np
+</div> <div class="para" id="p-400">First we will visualize the transformation using the standard basis vectors and a resulting coordinate point grid and their transformations.</div> <pre class="ptx-sagecell sagecell-python" id="sage-100"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots() #create fig, axes
@@ -522,7 +525,7 @@ ax.quiver(0,0,Ae2[0],Ae2[1],label='$A \\vec e_2$',color='teal', angles='xy', sca
 ax.legend()
 
 plt.show()
-</script></pre> <div class="para" id="p-394">We could also visualize the transformation using a coordinate line grid from the standard basis and the resulting transformed line grid.</div> <pre class="ptx-sagecell sagecell-python" id="sage-97"><script type="text/x-sage">import numpy as np
+</script></pre> <div class="para" id="p-401">We could also visualize the transformation using a coordinate line grid from the standard basis and the resulting transformed line grid.</div> <pre class="ptx-sagecell sagecell-python" id="sage-101"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 cmap = plt.get_cmap('viridis') #get colormap
 
@@ -569,32 +572,32 @@ ax.set(xlim=(-9,9), ylim=(-9,9))
 #ax.grid()
     
 plt.show()
-</script></pre></article><div class="para" id="p-395">Eigenvalues and eigenvectors give us additional information about a matrix transformation, however. And we can use that information to better understand the transformation of our space. In particular, if the eigenvectors of our transformation form a basis for the domain of our transformation, we can use the eigenbasis instead of the standard basis.</div>
+</script></pre></article><div class="para" id="p-402">Eigenvalues and eigenvectors give us additional information about a matrix transformation, however. And we can use that information to better understand the transformation of our space. In particular, if the eigenvectors of our transformation form a basis for the domain of our transformation, we can use the eigenbasis instead of the standard basis.</div>
 <article class="example example-like" id="eigentransformation"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.56</span><span class="period">.</span><span class="space"> </span><span class="title">Visualizing using an Eigen-basis grid.</span>
-</h4> <div class="para" id="p-396">Consider the matrix transformation from <a href="" class="xref" data-knowl="./knowl/standardtransformation.html" title="Example 2.55: Visualizing using the Standard Basis grid">Example 2.55</a> given by <span class="process-math">\(A = \left[
+</h4> <div class="para" id="p-403">Consider the matrix transformation from <a href="" class="xref" data-knowl="./knowl/standardtransformation.html" title="Example 2.55: Visualizing using the Standard Basis grid">Example 2.55</a> given by <span class="process-math">\(A = \left[
 \begin{matrix}
 3 \amp 1  \\
 2 \amp 2  \\
 \end{matrix}
 \right].\)</span>
-</div> <div class="para" id="p-397">
-<span class="process-math">\(A\)</span> has eigenvalues of <span class="process-math">\(\lambda_1 =1\)</span> and <span class="process-math">\(\lambda_2 = 4\)</span> with corresponding eigenspaces <span class="process-math">\(E_{\lambda_1 =1} = span \left\{ \left[ \begin{matrix} -1 \\ 2  \\ \end{matrix} \right]\right\} \)</span> and <span class="process-math">\(E_{\lambda_2 =4} = span \left\{ \left[ \begin{matrix} 1 \\ 1  \\ \end{matrix} \right]\right\}. \)</span> (See below.)</div> <pre class="ptx-sagecell sagecell-python" id="sage-98"><script type="text/x-sage">import sympy as sp
+</div> <div class="para" id="p-404">
+<span class="process-math">\(A\)</span> has eigenvalues of <span class="process-math">\(\lambda_1 =1\)</span> and <span class="process-math">\(\lambda_2 = 4\)</span> with corresponding eigenspaces <span class="process-math">\(E_{\lambda_1 =1} = span \left\{ \left[ \begin{matrix} -1 \\ 2  \\ \end{matrix} \right]\right\} \)</span> and <span class="process-math">\(E_{\lambda_2 =4} = span \left\{ \left[ \begin{matrix} 1 \\ 1  \\ \end{matrix} \right]\right\}. \)</span> (See below.)</div> <pre class="ptx-sagecell sagecell-python" id="sage-102"><script type="text/x-sage">import sympy as sp
 sp.init_printing()
 
 A = sp.Matrix([[3,1],[2,2]])
 
 #Find the eigenvectors
 display(A.eigenvects())
-</script></pre> <div class="para" id="p-398">Since we have two linearly independent eigenvectors, <span class="process-math">\(\left\{  \left[ \begin{matrix} 1 \\ 1  \\ \end{matrix} \right], \left[ \begin{matrix} -1 \\ 2  \\ \end{matrix} \right] \right\}\)</span> forms an alternate basis of eigenvectors for <span class="process-math">\(\mathbb{R}^2\text{.}\)</span> Now consider what the transformation does to this eigenbasis for <span class="process-math">\(\mathbb{R}^2\text{.}\)</span>
-</div> <div class="para" id="p-399">Since these are eigenvectors with eigenvalues <span class="process-math">\(4\)</span> and <span class="process-math">\(1\)</span> respectively, we know the first eigenvector is scaled by 4, while the second eigenvector remains the same (scaled by 1). Any grid of linear combinations of these eigen-basis vectors will scale similarly.</div> <div class="para" id="p-400">But how can we create a grid based on these eigenvectors?</div> <div class="para" id="p-401">Simple. We can take a standard basis grid and use a matrix transformation that sends <span class="process-math">\(\vec{e}_1\)</span> to one eigenvector and <span class="process-math">\(\vec{e}_2\)</span> to our linearly independent eigenvector.</div> <div class="para logical" id="p-402">
+</script></pre> <div class="para" id="p-405">Since we have two linearly independent eigenvectors, <span class="process-math">\(\left\{  \left[ \begin{matrix} 1 \\ 1  \\ \end{matrix} \right], \left[ \begin{matrix} -1 \\ 2  \\ \end{matrix} \right] \right\}\)</span> forms an alternate basis of eigenvectors for <span class="process-math">\(\mathbb{R}^2\text{.}\)</span> Now consider what the transformation does to this eigenbasis for <span class="process-math">\(\mathbb{R}^2\text{.}\)</span>
+</div> <div class="para" id="p-406">Since these are eigenvectors with eigenvalues <span class="process-math">\(4\)</span> and <span class="process-math">\(1\)</span> respectively, we know the first eigenvector is scaled by 4, while the second eigenvector remains the same (scaled by 1). Any grid of linear combinations of these eigen-basis vectors will scale similarly.</div> <div class="para" id="p-407">But how can we create a grid based on these eigenvectors?</div> <div class="para" id="p-408">Simple. We can take a standard basis grid and use a matrix transformation that sends <span class="process-math">\(\vec{e}_1\)</span> to one eigenvector and <span class="process-math">\(\vec{e}_2\)</span> to our linearly independent eigenvector.</div> <div class="para logical" id="p-409">
 <div class="para">The matrix transformation that takes <span class="process-math">\(\vec{e}_1\)</span> to <span class="process-math">\(\left[ \begin{matrix} 1 \\ 1  \\ \end{matrix} \right]\)</span> and <span class="process-math">\(\vec{e}_2\)</span> to <span class="process-math">\(\left[ \begin{matrix} -1 \\ 2  \\ \end{matrix} \right]\)</span> is given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
 E =\left[ \begin{matrix} 1 \amp -1  \\  1 \amp 2  \\ \end{matrix} \right] 
 \end{equation*}
 </div>
-</div> <div class="para" id="p-403">Below is a coordinate grid of points generated by the eigenbasis vectors.</div> <pre class="ptx-sagecell sagecell-python" id="sage-99"><script type="text/x-sage">import numpy as np
+</div> <div class="para" id="p-410">Below is a coordinate grid of points generated by the eigenbasis vectors.</div> <pre class="ptx-sagecell sagecell-python" id="sage-103"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots() #create fig, axes
@@ -630,7 +633,7 @@ ax.quiver(0,0,eig2[0],eig2[1],label='eigenvector $ \\vec v_2$',color='crimson', 
 ax.legend()
 
 plt.show()
-</script></pre> <div class="para" id="p-404">Now we can apply our matrix transformation <span class="process-math">\(A\)</span> to this alternate eigenbasis point grid.</div> <pre class="ptx-sagecell sagecell-python" id="sage-100"><script type="text/x-sage">import numpy as np
+</script></pre> <div class="para" id="p-411">Now we can apply our matrix transformation <span class="process-math">\(A\)</span> to this alternate eigenbasis point grid.</div> <pre class="ptx-sagecell sagecell-python" id="sage-104"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots() #create fig, axes
@@ -676,15 +679,15 @@ ax.quiver(0,0,Aeig2[0],Aeig2[1],label='$A \\vec v_2$',color='crimson', angles='x
 ax.legend()
 
 plt.show()
-</script></pre> <div class="para" id="p-405">We can also animate this transformation with a small adjustment to <a href="" class="xref" data-knowl="./knowl/anim-point-grid.html" title="Example 2.39: Animated Point Grid Transformation .gif">Example 2.39</a>.</div></article><article class="exercise exercise-like" id="exercise-91"><h4 class="heading">
+</script></pre> <div class="para" id="p-412">We can also animate this transformation with a small adjustment to <a href="" class="xref" data-knowl="./knowl/anim-point-grid.html" title="Example 2.39: Animated Point Grid Transformation .gif">Example 2.39</a>.</div></article><article class="exercise exercise-like" id="exercise-94"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.57</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-406">Edit <a href="" class="xref" data-knowl="./knowl/anim-point-grid.html" title="Example 2.39: Animated Point Grid Transformation .gif">Example 2.39</a> to plot and animate the eigenbasis grid under the transformation by <span class="process-math">\(A\)</span> in the above example.</div></article><div class="para" id="p-407">Thus we can use an eigenbasis for an alternative visualization of a transformation. Note that the process of converting from the standard basis to an eigenbasis using a matrix transformation is more than just a hand up in visualizing these matrix transformations, however. A similar approach allows us to relate any matrix transformation with a basis of eigenvectors to a simple scaling matrix, which are diagonal matrices and very easy to work with.</div></section><section class="subsection" id="subsec-Diagonalization"><h3 class="heading hide-type">
+<div class="para" id="p-413">Edit <a href="" class="xref" data-knowl="./knowl/anim-point-grid.html" title="Example 2.39: Animated Point Grid Transformation .gif">Example 2.39</a> to plot and animate the eigenbasis grid under the transformation by <span class="process-math">\(A\)</span> in the above example.</div></article><div class="para" id="p-414">Thus we can use an eigenbasis for an alternative visualization of a transformation. Note that the process of converting from the standard basis to an eigenbasis using a matrix transformation is more than just a hand up in visualizing these matrix transformations, however. A similar approach allows us to relate any matrix transformation with a basis of eigenvectors to a simple scaling matrix, which are diagonal matrices and very easy to work with.</div></section><section class="subsection" id="subsec-Diagonalization"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Diagonalization</span>
 </h3>
-<article class="example example-like" id="example-18"><h4 class="heading">
+<article class="example example-like" id="example-21"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.58</span><span class="period">.</span><span class="space"> </span><span class="title">Diagonalizing A.</span>
-</h4> <div class="para logical" id="p-408">
+</h4> <div class="para logical" id="p-415">
 <div class="para">Consider the matrix transformation given by <span class="process-math">\(A = \left[
 \begin{matrix}
 3 \amp 1  \\
@@ -704,15 +707,15 @@ D =\left[ \begin{matrix} 4 \amp 0  \\  0 \amp 1  \\ \end{matrix} \right].
 </div>
 <div class="para">But the scaling matrix <span class="process-math">\(D\)</span> scales the standard basis vectors by 4 and 1. If we want to instead scale our eigenvectors we can</div>
 <ol class="decimal">
-<li id="li-106"><div class="para" id="p-409">Transform our eigenbasis vectors to standard basis vectors using <span class="process-math">\(E^{-1}\text{.}\)</span>
+<li id="li-110"><div class="para" id="p-416">Transform our eigenbasis vectors to standard basis vectors using <span class="process-math">\(E^{-1}\text{.}\)</span>
 </div></li>
-<li id="li-107"><div class="para" id="p-410">Scale the target standard basis vectors by the corresponding eigenvalues using <span class="process-math">\(D\text{.}\)</span>
+<li id="li-111"><div class="para" id="p-417">Scale the target standard basis vectors by the corresponding eigenvalues using <span class="process-math">\(D\text{.}\)</span>
 </div></li>
-<li id="li-108"><div class="para" id="p-411">Transform back to the eigenbasis grid of <span class="process-math">\(\mathbb{R}^2\)</span> using <span class="process-math">\(E\text{.}\)</span>
+<li id="li-112"><div class="para" id="p-418">Transform back to the eigenbasis grid of <span class="process-math">\(\mathbb{R}^2\)</span> using <span class="process-math">\(E\text{.}\)</span>
 </div></li>
 </ol>
-</div> <div class="para" id="p-412">Since we mapped the eigenvector with eigenvalue of 4 to <span class="process-math">\(\vec{e}_1\)</span> and the eigenvector with eigenvalue of 1 to <span class="process-math">\(\vec{e}_2\text{,}\)</span> we want to scale <span class="process-math">\(\vec{e}_1\)</span> by the eigenvalue of 4 and <span class="process-math">\(\vec{e}_2\)</span> by the eigenvalue of 1. If instead we had swapped those, we would need to swap in both <span class="process-math">\(E\)</span> and <span class="process-math">\(D\text{.}\)</span>
-</div> <pre class="ptx-sagecell sagecell-python" id="sage-101"><script type="text/x-sage">import numpy as np
+</div> <div class="para" id="p-419">Since we mapped the eigenvector with eigenvalue of 4 to <span class="process-math">\(\vec{e}_1\)</span> and the eigenvector with eigenvalue of 1 to <span class="process-math">\(\vec{e}_2\text{,}\)</span> we want to scale <span class="process-math">\(\vec{e}_1\)</span> by the eigenvalue of 4 and <span class="process-math">\(\vec{e}_2\)</span> by the eigenvalue of 1. If instead we had swapped those, we would need to swap in both <span class="process-math">\(E\)</span> and <span class="process-math">\(D\text{.}\)</span>
+</div> <pre class="ptx-sagecell sagecell-python" id="sage-105"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 
@@ -803,30 +806,44 @@ ax5.set(xlim=(-window,window), ylim=(-window,window), title=r"Apply $A$ to the e
 
 plt.tight_layout()
 plt.show()
-</script></pre> <div class="para" id="p-413">In other words, the matrix transformation <span class="process-math">\(A = EDE^{-1}\text{.}\)</span>
-</div></article><article class="exercise exercise-like" id="exercise-92"><h4 class="heading">
+</script></pre> <div class="para" id="p-420">In other words, the matrix transformation <span class="process-math">\(A = EDE^{-1}\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-95"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.59</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-414">Confirm that <span class="process-math">\(A=EDE^{-1}\)</span> by computing the matrix product in NumPy or SymPy in the code below.</div></article><pre class="ptx-sagecell sagecell-python" id="sage-102"><script type="text/x-sage">
+<div class="para" id="p-421">Confirm that <span class="process-math">\(A=EDE^{-1}\)</span> by computing the matrix product in NumPy or SymPy in the code below.</div></article><pre class="ptx-sagecell sagecell-python" id="sage-106"><script type="text/x-sage">
 </script></pre>
-<div class="para" id="p-415">Note the above example worked because we could find a real eigen-basis for the domain of our transformation. If instead, we can not find a real eigenbasis for the domain we say that the matrix <em class="emphasis">is NOT diagonalizable.</em>
+<div class="para" id="p-422">Note the above example worked because we could find a real eigen-basis for the domain of our transformation. If instead, we can not find a real eigenbasis for the domain we say that the matrix <em class="emphasis">is NOT diagonalizable.</em>
 </div></section><section class="subsection" id="subsec-complex-decomposition"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Complex Eigen-thing Decomposition</span>
 </h3>
-<div class="para" id="p-416">If we have complex eigenvalues, we necessarily have complex eigenvectors. While our matrix is not diagonalizable, we can still decompose into “nicer” transformations.</div></section><section class="conclusion" id="conclusion-8"><div class="para" id="p-417"></div></section><article class="assemblage assemblage-like" id="assemblage-10"><h3 class="heading"><span class="title">Summary.</span></h3>
-<div class="para logical" id="p-418">
-<ul class="disc"><li id="li-109"><div class="para" id="p-419">TBD</div></li></ul>
-<ul class="disc"><li id="li-110"><div class="para" id="p-420">TBD</div></li></ul>
+<div class="para" id="p-423">If we have complex eigenvalues, we necessarily have complex eigenvectors. While our matrix is not diagonalizable, we can still decompose into “nicer” transformations. The Rotation Scaling Theorem provides a way to decompose <span class="process-math">\(A = CBC^{-1}\)</span> where <span class="process-math">\(B\)</span> is a rotation scaling matrix.</div>
+<article class="theorem theorem-like" id="thm-rotationscaling"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.60</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-424">
+<div class="para">Let <span class="process-math">\(A\)</span> be a <span class="process-math">\(2\times 2\)</span> real matrix with a complex eigenvalue <span class="process-math">\(\lambda\)</span> and let <span class="process-math">\(\vec{v}\)</span> be a corresponding eigenvector. Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A=CBC^{-1}
+\end{equation*}
+</div>
+<div class="para">where and <span class="process-math">\(C = \left[\begin{matrix} | \amp | \\ Re(v) \amp Im(v) \\ | \amp | \end{matrix}\right]\)</span> and <span class="process-math">\(B=\left[ \begin{matrix} Re(\lambda) \amp Im(\lambda) \\-Im(\lambda) \amp Re(\lambda) \end{matrix}\right]\)</span> See <a class="external" href="https://textbooks.math.gatech.edu/ila/complex-eigenvalues.html" target="_blank">Rotation Scaling Theorem in Section 5.5 of Interactive Linear Algebra.</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-14" id="fn-14"><sup> 9 </sup></a>
+</div>
+</div></article></section><section class="conclusion" id="conclusion-8"><div class="para" id="p-425"></div></section><article class="assemblage assemblage-like" id="assemblage-10"><h3 class="heading"><span class="title">Summary.</span></h3>
+<div class="para logical" id="p-426">
+<ul class="disc"><li id="li-113"><div class="para" id="p-427">TBD</div></li></ul>
+<ul class="disc"><li id="li-114"><div class="para" id="p-428">TBD</div></li></ul>
 </div></article><section class="exercises" id="exercises-eigenthings"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-93"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<pre class="ptx-sagecell sagecell-python" id="sage-103"><script type="text/x-sage">#
+<article class="exercise exercise-like" id="exercise-96"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<pre class="ptx-sagecell sagecell-python" id="sage-107"><script type="text/x-sage">#
 #
 #
 #
 #
-</script></pre></article></section></section></div>
+</script></pre></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-14"><div class="fn"><code class="code-inline tex2jax_ignore">textbooks.math.gatech.edu/ila/complex-eigenvalues.html</code></div></div>
+</div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="section-determinants.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="appendix.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

@@ -9,30 +9,48 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script><script>// Make *any* pre with class 'sagecell-python' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-python",
+  "linked": true,
+  "languages": [
+    "python"
+  ],
+  "evalButtonText": "Evaluate (Python)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <article class="example example-like"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Augmented Matrix.</span>
-</h4>
-<div class="para logical">
-<div class="para">For example the system</div>
-<div class="displaymath process-math">
-\begin{align*}
-2x \amp -3y \amp= 4 \\
-x \amp +4y \amp =2
-\end{align*}
-</div>
-<div class="para">becomes</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\left[
-\begin{matrix}
-2 \amp -3 \amp | \amp 4\\
-1 \amp 4 \amp | \amp 2
-\end{matrix}
-\right].
-\end{equation*}
-</div>
-</div></article><span class="incontext"><a href="section-systems.html#example-2" class="internal">in-context</a></span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.35</span><span class="period">.</span><span class="space"> </span><span class="title">Luke Clark (Spring 2024).</span>
+</h4> <pre class="ptx-sagecell sagecell-python" id="sage-48"><script type="text/x-sage">import matplotlib.pyplot as plt 
+import numpy as np
+
+G = 6.67 * 10**-2 #Tera Grams
+# the equation has to be factored down because it does't like really big numbers 
+@interact
+def plot_gravitational_well(Mass=(100, 1000, 10)): #Tera grams
+  t = np.linspace(-20, 20, 100)
+  X, Y = np.meshgrid(t, t)
+  Z = -(Mass * G) / (np.sqrt((X**2) + (Y**2))) 
+  fig = plt.figure()
+  ax = fig.add_subplot(111, projection='3d')
+  ax.plot_surface(X, Y, Z)
+  ax.set(xlim=[-20, 20], ylim=[-20, 20], zlim=[-100, 100]) 
+  ax.set(xlabel=r'$X$ (Giga $m^2$)', ylabel=r'$Y$ (Giga $m^2$)', zlabel=r'Warping of space ($N/m^3$)')
+  ax.set(title="Gravitational Well of a object with variable Mass") 
+  plt.show()
+</script></pre></article><span class="incontext"><a href="section-animation.html#example-2" class="internal">in-context</a></span>
 </body>
 </html>

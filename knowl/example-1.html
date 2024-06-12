@@ -9,11 +9,79 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script><script>// Make *any* pre with class 'sagecell-python' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-python",
+  "linked": true,
+  "languages": [
+    "python"
+  ],
+  "evalButtonText": "Evaluate (Python)"
+});
+</script>
 </head>
 <body class="ignore-math">
-<article class="example example-like"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2</span><span class="period">.</span><span class="space"> </span><span class="title">integral.</span>
-</h3>
-<div class="para">An <dfn class="terminology">integral</dfn> is a sum.</div></article><span class="incontext"><a href="examples.html#example-1" class="internal">in-context</a></span>
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.34</span><span class="period">.</span><span class="space"> </span><span class="title">Anonymous (Spring 2024).</span>
+</h4> <pre class="ptx-sagecell sagecell-python" id="sage-47"><script type="text/x-sage">#This code generates a Graph demonstrating the motion of a hypothetical falling Space Shark on numerous different planets and moons
+import numpy as np
+from matplotlib import pyplot as plt
+from matplotlib.animation import PillowWriter
+
+fig = plt.figure()
+ax = plt.axes()
+ax.minorticks_on()
+
+curve1, = ax.plot([],[], label='Position on Earth',color='green',linestyle='solid')
+curve2, = ax.plot([],[],label='Position on Moon',color='gray', linestyle='dashed') 
+curve3, = ax.plot([],[],label='Position on Mercury',color='indigo', linestyle='dashed') 
+curve4, = ax.plot([],[],label='Position on Mars',color='darkorange', linestyle='dotted') 
+curve5, = ax.plot([],[],label='Position on Jupiter',color='maroon', linestyle='dotted') 
+curve6, = ax.plot([],[],label='Position on Neptune',color='magenta', linestyle='dashdot') 
+curve7, = ax.plot([],[],label='Position on Pluto',color='blue', linestyle='dashdot')
+
+ax.set(xlim=(0,5), ylim = (0,150),xlabel='Time(s)',ylabel='Position (m)',title="Position of a falling Space Shark on different Planets and Moons Graph")
+ax.legend()
+
+writer = PillowWriter(fps=15)
+x = [] 
+y1= [] 
+y2 = [] 
+y3= [] 
+y4= [] 
+y5= [] 
+y6= [] 
+y7= []
+
+with writer.saving(fig,"FallingShark.gif", 200): 
+  for xval in np.linspace(0,10,100):
+    x.append(xval) 
+    y1.append(9.81*((xval)**2)) 
+    y2.append(1.6*((xval)**2))
+    y3.append(3.7*((xval)**2)) 
+    y4.append(3.72*((xval)**2)) 
+    y5.append(23.1*((xval)**2)) 
+    y6.append(11*((xval)**2)) 
+    y7.append(.7*((xval)**2))
+    curve1.set_data(x,y1) 
+    curve2.set_data(x,y2) 
+    curve3.set_data(x,y3) 
+    curve4.set_data(x,y4) 
+    curve5.set_data(x,y5) 
+    curve6.set_data(x,y6) 
+    curve7.set_data(x,y7)
+    writer.grab_frame()
+</script></pre></article><span class="incontext"><a href="section-animation.html#example-1" class="internal">in-context</a></span>
 </body>
 </html>

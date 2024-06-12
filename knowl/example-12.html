@@ -33,37 +33,73 @@ sagecell.makeSagecell({
 </head>
 <body class="ignore-math">
 <article class="example example-like"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.34</span><span class="period">.</span><span class="space"> </span><span class="title">"Using PillowWriter to make a .gif.</span>
-</h4> <pre class="ptx-sagecell sagecell-python" id="sage-80"><script type="text/x-sage">import numpy as np 
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.32</span><span class="period">.</span><span class="space"> </span><span class="title">Coloring the Transformed Line Grid.</span>
+</h4> <div class="para">Unlike <code class="code-inline tex2jax_ignore">scatter</code> which has an argument <code class="code-inline tex2jax_ignore">c=array</code> that allows us to color code based on an x-coordinate or y-coordinate, <code class="code-inline tex2jax_ignore">plot</code> does not. To better see the effects of a reflection, we will use a sequential color map to color our lines.</div> <div class="para">Step 1: Color a basic grid</div> <pre class="ptx-sagecell sagecell-python" id="sage-80"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.animation import PillowWriter
+cmap = plt.get_cmap('viridis') #get colormap
 
-fig, ax = plt.subplots() #create figure and axes
+fig, ax = plt.subplots() #create fig and axes
 
-e1 = np.array([[1],[0]]) #e1
-e2 = np.array([[0],[1]]) #e2
-A = np.array([[2,2], [0,3]]) #transformation matrix
+A = np.array([[2,2],[0,1]]) #matrix transformation
 
-#set up writer object to grab frames for a gif
-writer = PillowWriter(fps=15)
+#create grid of points
+NLines=9
+Xvals = np.linspace(-4,4, num=NLines)
+Yvals = np.linspace(0,6, num=NLines)
+X,Y = np.meshgrid(Xvals, Yvals)
 
-with writer.saving(fig, "TransformVectors1.gif", 100): #100 is the dpi
-  for tval in np.linspace(0,10,50):                
-    #create an intermediate matrix transformation that gradually
-    #transitions between the identity when tval=0 and A when tval=10
-    IA = (1-tval/10)*np.identity(2)+(tval/10)*A 
+#graph NLines horizontal lines
+for i in np.arange(0,NLines,step=1):
+    p = i / (NLines-1)  # Normalize index to 0-1
+    #graph line with index p color 
+    ax.plot(X[i],Y[i],color=cmap(p)) 
 
-    #matrix multiply to find intermediate image of e1 and e2 
-    IAe1 = np.matmul(IA,e1)
-    IAe2 = np.matmul(IA,e2) 
+#graph NLines vertical lines
+for i in np.arange(0,NLines,step=1): 
+    p = i / (NLines-1)  # Normalize index to 0-1 
+    #graph line with index p color
+    ax.plot(X.T[i], Y.T[i], color=cmap(p)) 
 
-    plt.cla() #clear plot of previous vectors  
-    #plot intermediate transformed vectors 
-    ax.quiver(0,0,IAe1[0,0],IAe1[1,0],label='$A \\vec e_1$', color='deepskyblue', angles='xy', scale_units='xy', scale=1)
-    ax.quiver(0,0,IAe2[0,0],IAe2[1,0],label='$A \\vec e_2$', color='teal', angles='xy', scale_units='xy', scale=1)
-    ax.set(xlim=(-1,5), ylim=(-1,4))  
+ax.set(xlim=(-9,9), ylim=(-9,9))
     
-    writer.grab_frame() #grab frame of current intermediate transformation
+plt.show()
+</script></pre> <div class="para">Step 2: Color a transformed grid using corresponding coloring.</div> <div class="para">Below is the corresponding transformed grid with a sequential color map.</div> <pre class="ptx-sagecell sagecell-python" id="sage-81"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+cmap = plt.get_cmap('viridis') #get colormap
+
+fig, ax = plt.subplots() #create fig and axes
+
+A = np.array([[2,2],[0,1]]) #matrix transformation
+
+#create grid of points
+NLines=9
+Xvals = np.linspace(-4,4, num=NLines)
+Yvals = np.linspace(0,6, num=NLines)
+X,Y = np.meshgrid(Xvals, Yvals)
+    
+#reshape to x-row and y-row
+X1 = X.reshape((NLines**2,))
+Y1 = Y.reshape((NLines**2,))
+xygrid = np.row_stack([X1, Y1])
+
+uvgrid = np.matmul(A,xygrid)
+
+U1 = uvgrid[0]
+V1 = uvgrid[1]
+U = U1.reshape(-1,NLines)
+V = V1.reshape(-1,NLines)
+
+for i in np.arange(0,NLines,step=1):
+    p = i / (NLines-1)  # Normalize to 0-1
+    ax.plot(U[i],V[i],color=cmap(p) ) 
+
+for i in np.arange(0,NLines,step=1):
+    p = i / (NLines-1)  # Normalize to 0-1.
+    ax.plot(U.T[i], V.T[i], color=cmap(p))
+
+ax.set(xlim=(-9,15), ylim=(-9,9))
+    
+plt.show()
 </script></pre></article><span class="incontext"><a href="section-transformations.html#example-12" class="internal">in-context</a></span>
 </body>
 </html>

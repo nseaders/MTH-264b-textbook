@@ -55,7 +55,7 @@ sagecell.makeSagecell({
 \right] 
 \left[ \begin{matrix} 0 \\ 1  \\ \end{matrix} \right]
 = \left[ \begin{matrix} 1 \\ 2  \\ \end{matrix} \right].\)</span>
-</div> <div class="para">First we will visualize the transformation using the standard basis vectors and a resulting coordinate point grid and their transformations.</div> <pre class="ptx-sagecell sagecell-python" id="sage-96"><script type="text/x-sage">import numpy as np
+</div> <div class="para">First we will visualize the transformation using the standard basis vectors and a resulting coordinate point grid and their transformations.</div> <pre class="ptx-sagecell sagecell-python" id="sage-100"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots() #create fig, axes
@@ -95,7 +95,7 @@ ax.quiver(0,0,Ae2[0],Ae2[1],label='$A \\vec e_2$',color='teal', angles='xy', sca
 ax.legend()
 
 plt.show()
-</script></pre> <div class="para">We could also visualize the transformation using a coordinate line grid from the standard basis and the resulting transformed line grid.</div> <pre class="ptx-sagecell sagecell-python" id="sage-97"><script type="text/x-sage">import numpy as np
+</script></pre> <div class="para">We could also visualize the transformation using a coordinate line grid from the standard basis and the resulting transformed line grid.</div> <pre class="ptx-sagecell sagecell-python" id="sage-101"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 cmap = plt.get_cmap('viridis') #get colormap
 

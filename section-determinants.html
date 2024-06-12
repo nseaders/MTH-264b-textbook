@@ -305,7 +305,9 @@ sagecell.makeSagecell({
 <li>
 <div class="toc-item"><a href="section-animation.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Basic Animation</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-animation.html#subsection-23" class="internal"><span class="title">Animating in Matplotlib</span></a></div></li>
+<li><div class="toc-item"><a href="section-animation.html#subsection-23" class="internal"><span class="title">Creating a .gif in Matplotlib</span></a></div></li>
+<li><div class="toc-item"><a href="section-animation.html#subsec-interactive-slider" class="internal"><span class="title">Creating an interactive slider</span></a></div></li>
+<li><div class="toc-item"><a href="section-animation.html#subsec-student-showcase" class="internal"><span class="title">Student Showcase</span></a></div></li>
 <li><div class="toc-item"><a href="section-animation.html#exercises-animation" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -319,7 +321,7 @@ sagecell.makeSagecell({
 <ul class="structural">
 <li><div class="toc-item"><a href="section-systems.html#rref" class="internal"><span class="title">Row Reduction</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#graphsolution" class="internal"><span class="title">Graphing solutions to systems of equations</span></a></div></li>
-<li><div class="toc-item"><a href="section-systems.html#subsection-26" class="internal"><span class="title">Graphing vector equations and their solutions</span></a></div></li>
+<li><div class="toc-item"><a href="section-systems.html#subsection-28" class="internal"><span class="title">Graphing vector equations and their solutions</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#subsec-" class="internal"><span class="title">Converting between Numpy arrays and Sympy Matrices</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#subsecRoundingErrorRref" class="internal"><span class="title">Round-off error in Sympy’s rref()</span></a></div></li>
 <li><div class="toc-item"><a href="section-systems.html#exercises-systems" class="internal"><span class="title">Exercises</span></a></div></li>
@@ -328,7 +330,7 @@ sagecell.makeSagecell({
 <li>
 <div class="toc-item"><a href="section-matrices.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix Arithmetic</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="section-matrices.html#subsection-29" class="internal"><span class="title">NumPy vs SymPy</span></a></div></li>
+<li><div class="toc-item"><a href="section-matrices.html#subsection-31" class="internal"><span class="title">NumPy vs SymPy</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#subsec-BasicMatrices" class="internal"><span class="title">Basic Matrices</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#subsec-MatrixArithmetic" class="internal"><span class="title">Matrix Arithmetic</span></a></div></li>
 <li><div class="toc-item"><a href="section-matrices.html#subsec-MatrixMultiplication" class="internal"><span class="title">Matrix Multiplication</span></a></div></li>
@@ -342,8 +344,8 @@ sagecell.makeSagecell({
 <div class="toc-item"><a href="section-transformations.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Matrix Transformations</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="section-transformations.html#subsec-ComputingMatrixTransformations" class="internal"><span class="title">Computing Matrix Transformations</span></a></div></li>
-<li><div class="toc-item"><a href="section-transformations.html#subsection-37" class="internal"><span class="title">Visualizing a Matrix Transformation</span></a></div></li>
-<li><div class="toc-item"><a href="section-transformations.html#subsection-38" class="internal"><span class="title">Animating Matrix Transformations</span></a></div></li>
+<li><div class="toc-item"><a href="section-transformations.html#subsection-39" class="internal"><span class="title">Visualizing a Matrix Transformation</span></a></div></li>
+<li><div class="toc-item"><a href="section-transformations.html#subsection-40" class="internal"><span class="title">Animating Matrix Transformations</span></a></div></li>
 <li><div class="toc-item"><a href="section-transformations.html#exercises-transformations" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -375,7 +377,7 @@ sagecell.makeSagecell({
 <ul class="structural"><li>
 <div class="toc-item"><a href="examples.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Samples of various pretext formats</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="examples.html#subsection-48" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
+<li><div class="toc-item"><a href="examples.html#subsection-50" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
 <li><div class="toc-item"><a href="examples.html#reading-questions-1" class="internal"><span class="title">Reading Questions</span></a></div></li>
 </ul>
 </li></ul>
@@ -388,19 +390,19 @@ sagecell.makeSagecell({
 </h2>
 <section class="introduction" id="introduction-12">In this section we will learn how to</section><article class="objectives goal-like" id="objectives-9"><h3 class="heading"><span class="type">Objectives</span></h3>
 <ul class="disc">
-<li id="li-96"><div class="para" id="p-346">Compute the determinant in NumPy and SymPy.</div></li>
-<li id="li-97"><div class="para" id="p-347">Solve invertible square matrices numerically in NumPy.</div></li>
-<li id="li-98"><div class="para" id="p-348">Use the determinant to see if a matrix might be ill-conditioned.</div></li>
+<li id="li-100"><div class="para" id="p-353">Compute the determinant in NumPy and SymPy.</div></li>
+<li id="li-101"><div class="para" id="p-354">Solve invertible square matrices numerically in NumPy.</div></li>
+<li id="li-102"><div class="para" id="p-355">Use the determinant to see if a matrix might be ill-conditioned.</div></li>
 </ul></article><section class="subsection" id="subsec-what-is-determinant"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">What is the determinant?</span>
 </h3>
-<div class="para" id="p-349">Recall that the action of a linear transformation from <span class="process-math">\(\mathbb{R}^n \rightarrow \mathbb{R}^n\)</span> can be completely determined by a set of <span class="process-math">\(n\)</span> basis vectors. These basis vectors create a coordinate grid. For example, in <span class="process-math">\(\mathbb{R}^2\)</span> any set of two non-parallel vectors form a basis and a corresponding coordinate grid of parallelograms. The coordinate grid determines a basic area, the area of the parallelogram between the two basis vectors. Since the transformation is linear, the transformed basis vectors either create a transformed parallelogram, or they collapse to a line or the origin. In particular, the areas of the parallelograms are scaled by the transformation and, since we started with a basis, all areas in the plane are scaled by that same amount. How the area is scaled by a transformation on <span class="process-math">\(\mathbb{R}^2\)</span> is the value of the determinant.</div>
-<div class="para" id="p-350">In <span class="process-math">\(\mathbb{R}^3\)</span> the coordinate grid determines a basic volume. Here how the volume is scaled by a transformation on <span class="process-math">\(\mathbb{R}^3\)</span> is the value of the determinant. Finally in <span class="process-math">\(\mathbb{R}^n\)</span> the coordinate grid determines a basic hypervolume and the value by which the volume is scaled by a transformation on <span class="process-math">\(\mathbb{R}^n\)</span> is the value of the determinant.</div>
-<div class="para" id="p-351">The determinant can be positive or negative depending on whether or not the orientation of the basis vectors changes or not. For example, a reflection in <span class="process-math">\(\mathbb{R}^2\)</span> will switch the orientation and change the sign of the determinant.</div></section><section class="subsection" id="subsec-computing-determinant"><h3 class="heading hide-type">
+<div class="para" id="p-356">Recall that the action of a linear transformation from <span class="process-math">\(\mathbb{R}^n \rightarrow \mathbb{R}^n\)</span> can be completely determined by a set of <span class="process-math">\(n\)</span> basis vectors. These basis vectors create a coordinate grid. For example, in <span class="process-math">\(\mathbb{R}^2\)</span> any set of two non-parallel vectors form a basis and a corresponding coordinate grid of parallelograms. The coordinate grid determines a basic area, the area of the parallelogram between the two basis vectors. Since the transformation is linear, the transformed basis vectors either create a transformed parallelogram, or they collapse to a line or the origin. In particular, the areas of the parallelograms are scaled by the transformation and, since we started with a basis, all areas in the plane are scaled by that same amount. How the area is scaled by a transformation on <span class="process-math">\(\mathbb{R}^2\)</span> is the value of the determinant.</div>
+<div class="para" id="p-357">In <span class="process-math">\(\mathbb{R}^3\)</span> the coordinate grid determines a basic volume. Here how the volume is scaled by a transformation on <span class="process-math">\(\mathbb{R}^3\)</span> is the value of the determinant. Finally in <span class="process-math">\(\mathbb{R}^n\)</span> the coordinate grid determines a basic hypervolume and the value by which the volume is scaled by a transformation on <span class="process-math">\(\mathbb{R}^n\)</span> is the value of the determinant.</div>
+<div class="para" id="p-358">The determinant can be positive or negative depending on whether or not the orientation of the basis vectors changes or not. For example, a reflection in <span class="process-math">\(\mathbb{R}^2\)</span> will switch the orientation and change the sign of the determinant.</div></section><section class="subsection" id="subsec-computing-determinant"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Computing the Determinant</span>
 </h3>
-<div class="para" id="p-352">We can compute the determinant of square matrices both in NumPy and in SymPy as follows.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-87"><script type="text/x-sage">import numpy as np
+<div class="para" id="p-359">We can compute the determinant of square matrices both in NumPy and in SymPy as follows.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-91"><script type="text/x-sage">import numpy as np
 import sympy as sp
 
 B = np.array([[1,2],[3,4]]) #numpy array
@@ -410,24 +412,24 @@ C = sp.Matrix([[0,1],[1,0]]) #sympy matrix
 npDet = np.linalg.det(B) #numpy
 spDet = sp.det(C) #sympy
 </script></pre>
-<article class="exercise exercise-like" id="exercise-76"><h4 class="heading">
+<article class="exercise exercise-like" id="exercise-79"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.41</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-353">Find the determinants of the matrices in the code above. What can you conclude about the transformations of <span class="process-math">\(\mathbb{R}^2\text{?}\)</span>
-</div></article><article class="exercise exercise-like" id="exercise-77"><h4 class="heading">
+<div class="para" id="p-360">Find the determinants of the matrices in the code above. What can you conclude about the transformations of <span class="process-math">\(\mathbb{R}^2\text{?}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-80"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.42</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-354">Find a matrix with determinant 0. Check your determinant in the above code. What can you conclude about the transformation?</div></article><article class="exercise exercise-like" id="exercise-78"><h4 class="heading">
+<div class="para" id="p-361">Find a matrix with determinant 0. Check your determinant in the above code. What can you conclude about the transformation?</div></article><article class="exercise exercise-like" id="exercise-81"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.43</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-355">Play with finding the determinant of higher dimensional matrices. What can you conclude about the transformations?</div></article></section><section class="subsection" id="subsec-determinants-linear-systems"><h3 class="heading hide-type">
+<div class="para" id="p-362">Play with finding the determinant of higher dimensional matrices. What can you conclude about the transformations?</div></article></section><section class="subsection" id="subsec-determinants-linear-systems"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Determinants and Systems of Linear Equations</span>
 </h3>
-<div class="para" id="p-356">The determinant gives us a quick way to tell whether or not a system of linear equations has a unique solution or not. Recall that every system of linear equations corresponds to a matrix-vector equation.</div>
+<div class="para" id="p-363">The determinant gives us a quick way to tell whether or not a system of linear equations has a unique solution or not. Recall that every system of linear equations corresponds to a matrix-vector equation.</div>
 <article class="example example-like" id="determinant-and-systems"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.44</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-357">
+<div class="para logical" id="p-364">
 <div class="para">For example, the systems</div>
 <div class="displaymath process-math" id="md-12">
 \begin{align*}
@@ -453,77 +455,77 @@ x  +4y \amp =2 \amp \amp \amp 3x+6y \amp = 2
 \left[ \begin{matrix} 1\\ 2 \end{matrix} \right]
 \end{equation*}
 </div>
-</div></article><div class="para" id="p-358">If the corresponding matrix transformation collapses down a dimension, more than one vector gets mapped to the same place, preventing an inverse transformation (since one output would have to map back to several inputs). In this case, the determinant of the transformation is 0. This corresponds exactly to linear systems of equations with either infinitely many solutions or no solution.</div>
-<div class="para" id="p-359">When the determinant is non-zero, however, the matrix transformation is invertible. This corresponds exactly to when a system of linear equations has a unique solution, since you can solve for it using <span class="process-math">\(A^{-1}.\)</span>
+</div></article><div class="para" id="p-365">If the corresponding matrix transformation collapses down a dimension, more than one vector gets mapped to the same place, preventing an inverse transformation (since one output would have to map back to several inputs). In this case, the determinant of the transformation is 0. This corresponds exactly to linear systems of equations with either infinitely many solutions or no solution.</div>
+<div class="para" id="p-366">When the determinant is non-zero, however, the matrix transformation is invertible. This corresponds exactly to when a system of linear equations has a unique solution, since you can solve for it using <span class="process-math">\(A^{-1}.\)</span>
 </div>
-<article class="exercise exercise-like" id="exercise-79"><h4 class="heading">
+<article class="exercise exercise-like" id="exercise-82"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.45</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-360">
+<div class="para logical" id="p-367">
 <div class="para">Consider the linear systems in <a href="" class="xref" data-knowl="./knowl/determinant-and-systems.html" title="Example 2.44">Example 2.44</a>.</div>
 <ul class="disc">
-<li id="li-99"><div class="para" id="p-361">Compute the determinant.</div></li>
-<li id="li-100"><div class="para" id="p-362">What can you conclude about solutions to each system?</div></li>
+<li id="li-103"><div class="para" id="p-368">Compute the determinant.</div></li>
+<li id="li-104"><div class="para" id="p-369">What can you conclude about solutions to each system?</div></li>
 </ul>
 </div>
-<pre class="ptx-sagecell sagecell-python" id="sage-88"><script type="text/x-sage">#solve above exercise here
+<pre class="ptx-sagecell sagecell-python" id="sage-92"><script type="text/x-sage">#solve above exercise here
 </script></pre></article></section><section class="subsection" id="subsec-numerical-solve"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Numerically Solving System of Equations</span>
 </h3>
-<div class="para" id="p-363">In <a href="section-systems.html" class="internal" title="Section 2.1: Solving and Graphing Systems of Linear Equations">Section 2.1</a>, we learned how to solve systems of linear equations using <code class="code-inline tex2jax_ignore">rref()</code> in SymPy. More efficient algorithms<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-11" id="fn-11"><sup> 7 </sup></a> can be implemented when we know we have a unique solution. NumPy’s <code class="code-inline tex2jax_ignore">linalg.solve(A,b)</code> and SymPy’s <code class="code-inline tex2jax_ignore">A.solve(b)</code> uses such algorithms to solve <span class="process-math">\(A\vec{x}=\vec{b}\text{.}\)</span>
+<div class="para" id="p-370">In <a href="section-systems.html" class="internal" title="Section 2.1: Solving and Graphing Systems of Linear Equations">Section 2.1</a>, we learned how to solve systems of linear equations using <code class="code-inline tex2jax_ignore">rref()</code> in SymPy. More efficient algorithms<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-12" id="fn-12"><sup> 7 </sup></a> can be implemented when we know we have a unique solution. NumPy’s <code class="code-inline tex2jax_ignore">linalg.solve(A,b)</code> and SymPy’s <code class="code-inline tex2jax_ignore">A.solve(b)</code> uses such algorithms to solve <span class="process-math">\(A\vec{x}=\vec{b}\text{.}\)</span>
 </div>
-<article class="exercise exercise-like" id="exercise-80"><h4 class="heading">
+<article class="exercise exercise-like" id="exercise-83"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.46</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-364">Use NumPy’s <code class="code-inline tex2jax_ignore">linalg.solve(A,b)</code> to solve the systems of linear equations in <a href="" class="xref" data-knowl="./knowl/determinant-and-systems.html" title="Example 2.44">Example 2.44</a>. Next try SymPy’s <code class="code-inline tex2jax_ignore">A.solve(b)</code>. What happens? Why?</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-89"><script type="text/x-sage">import numpy as np
+<div class="para" id="p-371">Use NumPy’s <code class="code-inline tex2jax_ignore">linalg.solve(A,b)</code> to solve the systems of linear equations in <a href="" class="xref" data-knowl="./knowl/determinant-and-systems.html" title="Example 2.44">Example 2.44</a>. Next try SymPy’s <code class="code-inline tex2jax_ignore">A.solve(b)</code>. What happens? Why?</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-93"><script type="text/x-sage">import numpy as np
 
 A1 = np.array([[2,-3],[1,4]])
 A2 = np.array([[1,2],[3,6]])
 
 #solve above exercise here
-</script></pre></article><div class="para" id="p-365">In practice, we often check the determinant to determine whether or not an algorithm such as <code class="code-inline tex2jax_ignore">linalg.solve()</code> will work before solving the system numerically.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-12" id="fn-12"><sup> 8 </sup></a>
+</script></pre></article><div class="para" id="p-372">In practice, we often check the determinant to determine whether or not an algorithm such as <code class="code-inline tex2jax_ignore">linalg.solve()</code> will work before solving the system numerically.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-13" id="fn-13"><sup> 8 </sup></a>
 </div></section><section class="subsection" id="subsec-Ill-conditionedTransformations"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Ill-conditioned Matrices</span>
 </h3>
-<div class="para" id="p-366">Recall in <a href="" class="xref" data-knowl="./knowl/illconditioned.html" title="Example 2.18">Example 2.18</a> we explored solutions to a system of equations where the corresponding matrix was ill-conditioned. How does ill-conditioning relate to the determinant and the matrix transformation?</div>
-<article class="exercise exercise-like" id="exercise-81"><h4 class="heading">
+<div class="para" id="p-373">Recall in <a href="" class="xref" data-knowl="./knowl/illconditioned.html" title="Example 2.18">Example 2.18</a> we explored solutions to a system of equations where the corresponding matrix was ill-conditioned. How does ill-conditioning relate to the determinant and the matrix transformation?</div>
+<article class="exercise exercise-like" id="exercise-84"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.47</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-367">Compute the determinant of the matrix in <a href="" class="xref" data-knowl="./knowl/illconditioned.html" title="Example 2.18">Example 2.18</a>. Hypothesize a property of ill-conditioned matrices and explain how this property is related to the rounding issues we experienced.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-90"><script type="text/x-sage">#solve above exercise here
-</script></pre></article><div class="para" id="p-368">If we visualize the linear system of equations as a matrix transformation of <span class="process-math">\(\mathbb{R}^2\)</span> we can graphically see the problem.</div>
-<article class="exercise exercise-like" id="exercise-82"><h4 class="heading">
+<div class="para" id="p-374">Compute the determinant of the matrix in <a href="" class="xref" data-knowl="./knowl/illconditioned.html" title="Example 2.18">Example 2.18</a>. Hypothesize a property of ill-conditioned matrices and explain how this property is related to the rounding issues we experienced.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-94"><script type="text/x-sage">#solve above exercise here
+</script></pre></article><div class="para" id="p-375">If we visualize the linear system of equations as a matrix transformation of <span class="process-math">\(\mathbb{R}^2\)</span> we can graphically see the problem.</div>
+<article class="exercise exercise-like" id="exercise-85"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.48</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-369">Using what we learned in <a href="section-transformations.html" class="internal" title="Section 2.3: Matrix Transformations">Section 2.3</a>, plot the matrix transformation corresponding to <a href="" class="xref" data-knowl="./knowl/ill-conditioned-example-exercise.html" title="You Try 2.19">You Try 2.19</a> on a point grid.</div>
-<div class="para" id="p-370">Use your visual to clearly show what is happening with the solutions in <a href="" class="xref" data-knowl="./knowl/ill-conditioned-example-exercise.html" title="You Try 2.19">You Try 2.19</a>. <em class="emphasis">Note: Solving a matrix equation <span class="process-math">\(\vec{x}=A^{-1}\vec{b}\)</span> corresponds to then reversing the transformation.</em>
+<div class="para" id="p-376">Using what we learned in <a href="section-transformations.html" class="internal" title="Section 2.3: Matrix Transformations">Section 2.3</a>, plot the matrix transformation corresponding to <a href="" class="xref" data-knowl="./knowl/ill-conditioned-example-exercise.html" title="You Try 2.19">You Try 2.19</a> on a point grid.</div>
+<div class="para" id="p-377">Use your visual to clearly show what is happening with the solutions in <a href="" class="xref" data-knowl="./knowl/ill-conditioned-example-exercise.html" title="You Try 2.19">You Try 2.19</a>. <em class="emphasis">Note: Solving a matrix equation <span class="process-math">\(\vec{x}=A^{-1}\vec{b}\)</span> corresponds to then reversing the transformation.</em>
 </div>
-<pre class="ptx-sagecell sagecell-python" id="sage-91"><script type="text/x-sage">#solve above exercise here
-</script></pre></article></section><section class="conclusion" id="conclusion-7"><div class="para" id="p-371"></div></section><article class="assemblage assemblage-like" id="assemblage-9"><h3 class="heading"><span class="title">Summary.</span></h3>
-<div class="para logical" id="p-372">
-<ul class="disc"><li id="li-101"><div class="para" id="p-373">TBD</div></li></ul>
-<ul class="disc"><li id="li-102"><div class="para" id="p-374">TBD</div></li></ul>
+<pre class="ptx-sagecell sagecell-python" id="sage-95"><script type="text/x-sage">#solve above exercise here
+</script></pre></article></section><section class="conclusion" id="conclusion-7"><div class="para" id="p-378"></div></section><article class="assemblage assemblage-like" id="assemblage-9"><h3 class="heading"><span class="title">Summary.</span></h3>
+<div class="para logical" id="p-379">
+<ul class="disc"><li id="li-105"><div class="para" id="p-380">TBD</div></li></ul>
+<ul class="disc"><li id="li-106"><div class="para" id="p-381">TBD</div></li></ul>
 </div></article><section class="exercises" id="exercises-determinants"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-83"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para" id="p-375">Compute the determinant of the matrix in <a href="" class="xref" data-knowl="./knowl/illconditioned.html" title="Example 2.18">Example 2.18</a>. Hypothesize a property of ill-conditioned matrices and explain how this property is related to the rounding issues we experienced.</div>
-<pre class="ptx-sagecell sagecell-python" id="sage-92"><script type="text/x-sage">#
+<article class="exercise exercise-like" id="exercise-86"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para" id="p-382">Compute the determinant of the matrix in <a href="" class="xref" data-knowl="./knowl/illconditioned.html" title="Example 2.18">Example 2.18</a>. Hypothesize a property of ill-conditioned matrices and explain how this property is related to the rounding issues we experienced.</div>
+<pre class="ptx-sagecell sagecell-python" id="sage-96"><script type="text/x-sage">#
 #
 #
 #
 #
-</script></pre></article><article class="exercise exercise-like" id="exercise-84"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="para" id="p-376">Using what we learned in <a href="section-transformations.html" class="internal" title="Section 2.3: Matrix Transformations">Section 2.3</a>, plot the matrix transformation corresponding to <a href="" class="xref" data-knowl="./knowl/ill-conditioned-example-exercise.html" title="You Try 2.19">You Try 2.19</a> on a point grid. Use your visual to clearly show what is happening with the solutions in <a href="" class="xref" data-knowl="./knowl/ill-conditioned-example-exercise.html" title="You Try 2.19">You Try 2.19</a>. <em class="emphasis">Note: animating can make this even clearer.</em>
+</script></pre></article><article class="exercise exercise-like" id="exercise-87"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para" id="p-383">Using what we learned in <a href="section-transformations.html" class="internal" title="Section 2.3: Matrix Transformations">Section 2.3</a>, plot the matrix transformation corresponding to <a href="" class="xref" data-knowl="./knowl/ill-conditioned-example-exercise.html" title="You Try 2.19">You Try 2.19</a> on a point grid. Use your visual to clearly show what is happening with the solutions in <a href="" class="xref" data-knowl="./knowl/ill-conditioned-example-exercise.html" title="You Try 2.19">You Try 2.19</a>. <em class="emphasis">Note: animating can make this even clearer.</em>
 </div>
-<pre class="ptx-sagecell sagecell-python" id="sage-93"><script type="text/x-sage">#
+<pre class="ptx-sagecell sagecell-python" id="sage-97"><script type="text/x-sage">#
 #
 #
 #
 #
-</script></pre></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-11"><div class="fn">e.g. using <span class="process-math">\(LU\)</span>-decomposition of our matrix</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-12"><div class="fn">Many stackoverflow questions have been written asking about the “singular” error when attempting to solve a large system numerically. The response always involves someone in the know checking the determinant.</div></div>
+</script></pre></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-12"><div class="fn">e.g. using <span class="process-math">\(LU\)</span>-decomposition of our matrix</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-13"><div class="fn">Many stackoverflow questions have been written asking about the “singular” error when attempting to solve a large system numerically. The response always involves someone in the know checking the determinant.</div></div>
 </div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="section-transformations.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="section-eigenthings.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>

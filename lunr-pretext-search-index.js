@@ -466,7 +466,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.5",
   "title": "Basic Animation",
-  "body": " Basic Animation  In this section we will create some basic animations, by creating frames for the animation in Matplotlib.     Create an interactive plot with a slider.    Create a gif animating a graph.      Animating in Matplotlib  This first example uses interact to create a slider to plot one point at a time. We will need to create two user defined (computer science) functions: one that increments through the input points for the slider and another that plots the graph for just those input points.     Play with various graph features and customizations.    Change the number of frames to see how the interactive is affected.    Try aligning and misaligning the number of frames and the number of inputs plotted.   Here is the same interactive for projectile motion.   Matplotlib has a module called animation with a FuncAnimation class that allows you easily make frames of a graph. A class called PillowWriter allows you to grab frames and save them to a file to make gifs.   Here is an example animating two curves on the same graph.   What graph do you want to animate? Create it!    Matplotlib allows you to not only graph, but make your graphs interactive. You can use interact to create interactive elements. The animation module can be used to animate your graphs. Hopefully this is enough to get you started.    Summary     We can use interact to create a slider element and create two user defined functions: one that takes the slider information to create points and another that makes graphs for just those points.      The FuncAnimation > class can be used to animate your graphs and PillowWriter saves those frames into a gif.       Showcase your skills from so far in the term to create an animated graph in Matplotlib for any other class (and using one feature we haven't learned in class).   "
+  "body": " Basic Animation  In this section we will create some basic animations in Matplotlib. Static graphs convey a lot of information in one visual. The right animation can help you convey complicated information simply.     Create a gif animating a graph.    Create an interactive plot with a slider.      Creating a .gif in Matplotlib  Matplotlib has a module called animation with a FuncAnimation class that allows you easily make frames of a changing graph. Animation is basically a slideshow of pictures or frames. A class called PillowWriter allows you to grab frames and save them to a file to make gifs.  There are many ways to alter a graph over time. For these examples we will start with an empty graph and use NumPy's append to add points one at a time to our graph.     Play with various graph features and customizations.    Add a title and labels to your graph.      Change the dpi and see how the .gif is affected.    Change the frames per second and see how the .gif is affected.    Here is an example animating two curves on the same graph.     Creating an interactive slider  This second example uses interact to create a slider to plot one point at a time. We will need to create two user defined (computer science) functions: one that increments through the input points for the slider and another that plots the graph for just those input points.     Play with various graph features and customizations.    Change the number of frames to see how the interactive is affected.    Try aligning and misaligning the number of frames and the number of inputs plotted.   Here is the same interactive for projectile motion.     Student Showcase  Former students gave us permission to share some of their work as well.   Anonymous (Spring 2024)     Luke Clark (Spring 2024)     Ben Canterero (Spring 2024)      Matplotlib allows you to not only graph, but make your graphs interactive. You can use interact to create interactive elements. The animation module can be used to animate your graphs. Hopefully this is enough to get you started.    Summary     The FuncAnimation class can be used to animate your graphs and PillowWriter saves those frames into a gif.      We can use interact to create a slider element and create two user defined functions: one that takes the slider information to create points and another that makes graphs for just those points.       Animate a 3D graph.  Showcase your skills from so far in the term to create an animated graph in Matplotlib for any other class (and using one feature we haven't learned in class).  What graph do you want to animate? Create it!   "
 },
 {
   "id": "objectives-5",
@@ -475,7 +475,7 @@ var ptx_lunr_docs = [
   "type": "Objectives",
   "number": "1.5",
   "title": "",
-  "body": "   Create an interactive plot with a slider.    Create a gif animating a graph.    "
+  "body": "   Create a gif animating a graph.    Create an interactive plot with a slider.    "
 },
 {
   "id": "exercise-41",
@@ -484,7 +484,7 @@ var ptx_lunr_docs = [
   "type": "You Try",
   "number": "1.31",
   "title": "",
-  "body": "  Play with various graph features and customizations.    Change the number of frames to see how the interactive is affected.    Try aligning and misaligning the number of frames and the number of inputs plotted.  "
+  "body": "  Play with various graph features and customizations.    Add a title and labels to your graph.   "
 },
 {
   "id": "exercise-42",
@@ -493,16 +493,70 @@ var ptx_lunr_docs = [
   "type": "You Try",
   "number": "1.32",
   "title": "",
-  "body": "What graph do you want to animate? Create it! "
+  "body": "  Change the dpi and see how the .gif is affected.    Change the frames per second and see how the .gif is affected.   "
 },
 {
   "id": "exercise-43",
   "level": "2",
   "url": "section-animation.html#exercise-43",
+  "type": "You Try",
+  "number": "1.33",
+  "title": "",
+  "body": "  Play with various graph features and customizations.    Change the number of frames to see how the interactive is affected.    Try aligning and misaligning the number of frames and the number of inputs plotted.  "
+},
+{
+  "id": "example-1",
+  "level": "2",
+  "url": "section-animation.html#example-1",
+  "type": "Example",
+  "number": "1.34",
+  "title": "Anonymous (Spring 2024).",
+  "body": " Anonymous (Spring 2024)   "
+},
+{
+  "id": "example-2",
+  "level": "2",
+  "url": "section-animation.html#example-2",
+  "type": "Example",
+  "number": "1.35",
+  "title": "Luke Clark (Spring 2024).",
+  "body": " Luke Clark (Spring 2024)   "
+},
+{
+  "id": "example-3",
+  "level": "2",
+  "url": "section-animation.html#example-3",
+  "type": "Example",
+  "number": "1.36",
+  "title": "Ben Canterero (Spring 2024).",
+  "body": " Ben Canterero (Spring 2024)   "
+},
+{
+  "id": "exercise-44",
+  "level": "2",
+  "url": "section-animation.html#exercise-44",
   "type": "Exercise",
   "number": "1",
   "title": "",
+  "body": "Animate a 3D graph. "
+},
+{
+  "id": "exercise-45",
+  "level": "2",
+  "url": "section-animation.html#exercise-45",
+  "type": "Exercise",
+  "number": "2",
+  "title": "",
   "body": "Showcase your skills from so far in the term to create an animated graph in Matplotlib for any other class (and using one feature we haven't learned in class). "
+},
+{
+  "id": "exercise-46",
+  "level": "2",
+  "url": "section-animation.html#exercise-46",
+  "type": "Exercise",
+  "number": "3",
+  "title": "",
+  "body": "What graph do you want to animate? Create it! "
 },
 {
   "id": "section-systems",
@@ -532,36 +586,36 @@ var ptx_lunr_docs = [
   "body": " Augmented Matrix   For example, the system becomes    "
 },
 {
-  "id": "exercise-44",
+  "id": "exercise-47",
   "level": "2",
-  "url": "section-systems.html#exercise-44",
+  "url": "section-systems.html#exercise-47",
   "type": "You Try",
   "number": "2.2",
   "title": "",
   "body": "Edit the above code to print the augmented matrix for the system of linear equations in . "
 },
 {
-  "id": "exercise-45",
+  "id": "exercise-48",
   "level": "2",
-  "url": "section-systems.html#exercise-45",
+  "url": "section-systems.html#exercise-48",
   "type": "You Try",
   "number": "2.3",
   "title": "",
   "body": "Edit the above code to print a matrix with decimals like or . Also print a matrix with fractions like and using sympy's Rational(a,b) command.  Note that Rational(a,b) is not a Python command, but rather a command specific to Sympy.  "
 },
 {
-  "id": "exercise-46",
+  "id": "exercise-49",
   "level": "2",
-  "url": "section-systems.html#exercise-46",
+  "url": "section-systems.html#exercise-49",
   "type": "You Try",
   "number": "2.4",
   "title": "",
   "body": "Edit the code below to print the reduced echelon form and the row reduced echelon form for the augmented matrix of the system of linear equations from . "
 },
 {
-  "id": "exercise-47",
+  "id": "exercise-50",
   "level": "2",
-  "url": "section-systems.html#exercise-47",
+  "url": "section-systems.html#exercise-50",
   "type": "You Try",
   "number": "2.5",
   "title": "",
@@ -577,9 +631,9 @@ var ptx_lunr_docs = [
   "body": " The system has solutions and .  Linear equations with two variables can be graphed as lines in the xy-plane, either by plotting two points on the line or solving for . The solution is one point in a scatter plot.   "
 },
 {
-  "id": "exercise-48",
+  "id": "exercise-51",
   "level": "2",
-  "url": "section-systems.html#exercise-48",
+  "url": "section-systems.html#exercise-51",
   "type": "You Try",
   "number": "2.7",
   "title": "",
@@ -595,9 +649,9 @@ var ptx_lunr_docs = [
   "body": " Graph solutions to the system by finding the equations of the lines of intersection of the planes and plotting the planes, the lines, and the point of intersection.  Solution 1 walks through the process, followed by a Python implementation of the rref() .   First row reducing the augmented matrix for the system of all three equations we obtain a unique solution , , .  Row reducing the augmented matrix for the first two equations we obtain which can be written in parametric form,   Row reducing the augmented matrix for the last two equations we obtain which can be written in parametric form,   Row reducing the augmented matrix for the first and last equations we obtain which can be written in parametric form,     Next we will use Matplotlib to graph these results. First note that if we are careless with our input domains for the planes and lines, our graph will be inconsistent.   Note: you can change the viewing angle to try and get a better graph.  The real problem in the code above is that we graph our surfaces with domain and , but use for the parametric equation of our lines. There are several fixes for this.  One fix is to adjust the parametric input values for the lines to better match the planes. For example, you can make to get a more consistent graph. Try several adjustments for the range in the above code. To get a fully consistent graph, each line would need a different parametric domain that matches the domain of the planes.  Another fix is to solve each pair of equations for two points on the line in the domain of the planes. You can then plot the line between the two points.  Solution 2 walks through the process of finding the points, followed by an alternative Python implementation to graph the solutions.   Recall the first two equations intersect in the line Solving for when , we see . Plugging into the parametric equation for the line we obtain the point . Similarly when , we find , giving the point .  The last two equations intersect in the line Here is always . Instead we solve for when and . We find and , giving us the two points and .  The first and last equations intersect in the line Here when giving us the points and .  Recall to plot the lines between two points we create arrays of the -values, -values, and -values, then plot the line between them.    Can you find other fixes? If so, share them so we can add them here.   "
 },
 {
-  "id": "example-4",
+  "id": "example-7",
   "level": "2",
-  "url": "section-systems.html#example-4",
+  "url": "section-systems.html#example-7",
   "type": "Example",
   "number": "2.9",
   "title": "",
@@ -613,27 +667,27 @@ var ptx_lunr_docs = [
   "body": " Consider the system of equations If you multiply both sides of each equation by 10, you don't change the solutions to the equations. If you use Sympy to row reduce the system, however, you get a different answer.  A possible fix for the floating point round-off error is to tell Sympy explicitly when to round to zero by making a user defined iszerofunc .  "
 },
 {
-  "id": "exercise-49",
+  "id": "exercise-52",
   "level": "2",
-  "url": "section-systems.html#exercise-49",
+  "url": "section-systems.html#exercise-52",
   "type": "You Try",
   "number": "2.11",
   "title": "",
   "body": "Sympy's rational number data type stores fractions as two integers to avoid floating point representation. Fix the row reduction round-off error for the original system in by using Sympy's Rational() function instead. "
 },
 {
-  "id": "exercise-50",
+  "id": "exercise-53",
   "level": "2",
-  "url": "section-systems.html#exercise-50",
+  "url": "section-systems.html#exercise-53",
   "type": "Exercise",
   "number": "1",
   "title": "",
   "body": "The system has a unique solution. Use Python code to find the solution. Graph the system of equations and the solution using Matplot3D. Lable your axes. Note: part of the challenge is making sure you have a good viewing window and perspective so the graph helps illuminate the solution.  "
 },
 {
-  "id": "exercise-51",
+  "id": "exercise-54",
   "level": "2",
-  "url": "section-systems.html#exercise-51",
+  "url": "section-systems.html#exercise-54",
   "type": "Exercise",
   "number": "2",
   "title": "",
@@ -658,54 +712,54 @@ var ptx_lunr_docs = [
   "body": "   Add, subtract, scale, and multiply matrices in NumPy and SymPy    Find matrix inverses using NumPy and SymPy    Use matrix inverses to solve systems of linear equations    Discover the pitfalls of ill-conditioned matrices    "
 },
 {
-  "id": "exercise-52",
+  "id": "exercise-55",
   "level": "2",
-  "url": "section-matrices.html#exercise-52",
+  "url": "section-matrices.html#exercise-55",
   "type": "You Try",
   "number": "2.12",
   "title": "",
   "body": "In the code above, create a matrix of all ones using both NumPy and SymPy. Next create a matrix of all zeroes. Play with various dimensions.  With NumPy don't forget to use extra parentheses for the shape of the array.  "
 },
 {
-  "id": "exercise-53",
+  "id": "exercise-56",
   "level": "2",
-  "url": "section-matrices.html#exercise-53",
+  "url": "section-matrices.html#exercise-56",
   "type": "You Try",
   "number": "2.13",
   "title": "",
   "body": "In both NumPy and SymPy create matrices to compute   Scale a one matrix and an identity matrix.  "
 },
 {
-  "id": "exercise-54",
+  "id": "exercise-57",
   "level": "2",
-  "url": "section-matrices.html#exercise-54",
+  "url": "section-matrices.html#exercise-57",
   "type": "You Try",
   "number": "2.14",
   "title": "",
   "body": "What happens if the two matrices do not have the same number of rows and columns? "
 },
 {
-  "id": "exercise-55",
+  "id": "exercise-58",
   "level": "2",
-  "url": "section-matrices.html#exercise-55",
+  "url": "section-matrices.html#exercise-58",
   "type": "You Try",
   "number": "2.15",
   "title": "",
   "body": "   What happens if you try to compute using matrix multiplication?    What happens if you try to compute the Hadamard Product of ?    "
 },
 {
-  "id": "exercise-56",
+  "id": "exercise-59",
   "level": "2",
-  "url": "section-matrices.html#exercise-56",
+  "url": "section-matrices.html#exercise-59",
   "type": "You Try",
   "number": "2.16",
   "title": "",
   "body": "Play with various dimensions of , and to come up with necessary criteria for the Hadamard product to work vs Matrix multiplication to work. "
 },
 {
-  "id": "exercise-57",
+  "id": "exercise-60",
   "level": "2",
-  "url": "section-matrices.html#exercise-57",
+  "url": "section-matrices.html#exercise-60",
   "type": "You Try",
   "number": "2.17",
   "title": "",
@@ -757,27 +811,27 @@ var ptx_lunr_docs = [
   "body": "   Compute a matrix transformation using NumPy.    Visualize a matrix transformation using basis vectors or a grid in Matplotlib.    Animate a visual of a Matrix Transformation.    "
 },
 {
-  "id": "exercise-60",
+  "id": "exercise-63",
   "level": "2",
-  "url": "section-transformations.html#exercise-60",
+  "url": "section-transformations.html#exercise-63",
   "type": "You Try",
   "number": "2.20",
   "title": "",
   "body": "Note the above code throws an error. Use NumPy's transpose() function to make a column vector to fix the error.  You can use transpose(arrayname) , or arrayname.T   "
 },
 {
-  "id": "exercise-61",
+  "id": "exercise-64",
   "level": "2",
-  "url": "section-transformations.html#exercise-61",
+  "url": "section-transformations.html#exercise-64",
   "type": "You Try",
   "number": "2.21",
   "title": "",
   "body": "Recall that NumPy has an alternate command for matrix multiplication. Alter the above code to use the alternate command. "
 },
 {
-  "id": "exercise-62",
+  "id": "exercise-65",
   "level": "2",
-  "url": "section-transformations.html#exercise-62",
+  "url": "section-transformations.html#exercise-65",
   "type": "You Try",
   "number": "2.22",
   "title": "",
@@ -793,9 +847,9 @@ var ptx_lunr_docs = [
   "body": " Transformed Basis Vectors  First we will visualize just the transformed basis vectors.   "
 },
 {
-  "id": "exercise-63",
+  "id": "exercise-66",
   "level": "2",
-  "url": "section-transformations.html#exercise-63",
+  "url": "section-transformations.html#exercise-66",
   "type": "You Try",
   "number": "2.24",
   "title": "",
@@ -811,27 +865,27 @@ var ptx_lunr_docs = [
   "body": " Transformed Point Grid  We will first apply to a grid of coordinate dots. While NumPy's meshgrid() works great for plotting a grid of points, the arrays are not the right size to act as input vectors for the matrix-vector multiplication.  For matrix-vector multiplication we need column vectors, and if we want to compute the image of several vectors all at once we need a matrix where each column is one of our vectors. Here we want each column to be a coordinate, having top entry an x-value and bottom entry a corresponding y-value. In other words, we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a array.reshape(size) function that allows us to reshape each array of x-values and y-values from meshgrid() into rows. We can then row_stack() those two rows to form the desired input matrix.   "
 },
 {
-  "id": "exercise-64",
+  "id": "exercise-67",
   "level": "2",
-  "url": "section-transformations.html#exercise-64",
+  "url": "section-transformations.html#exercise-67",
   "type": "You Try",
   "number": "2.26",
   "title": "",
   "body": "Edit the code in to print every array to see how the same arrays are reshaped, recombined, and transformed.  Print arrays so you can compare X to X1 and Y to Y1. Also compare xygrid to xygrid[i] and xygrid to uvgrid to see the difference.  "
 },
 {
-  "id": "exercise-65",
+  "id": "exercise-68",
   "level": "2",
-  "url": "section-transformations.html#exercise-65",
+  "url": "section-transformations.html#exercise-68",
   "type": "You Try",
   "number": "2.27",
   "title": "",
   "body": "Edit the code in to make a point grid instead. We used a grid at first so you could print the arrays to follow along. Now we want to generalize to more points.  "
 },
 {
-  "id": "exercise-66",
+  "id": "exercise-69",
   "level": "2",
-  "url": "section-transformations.html#exercise-66",
+  "url": "section-transformations.html#exercise-69",
   "type": "You Try",
   "number": "2.28",
   "title": "",
@@ -847,27 +901,27 @@ var ptx_lunr_docs = [
   "body": " Transformed Line Grid  We will build up to the transformed grid a step at a time.  Step 1: First we will learn how to graph a basic grid of lines.   Step 2: Graph a transformed grid of lines.  Now we add in the matrix transformation. Note: in order to find the transformed line grid, we again .reshape() the X,Y grid into a row of x-values and a row of y-values so we can matrix multiply each point as a column of a matrix. We will then .reshape() back into a transformed meshgrid in order to graph our grid of transformed lines.   "
 },
 {
-  "id": "exercise-67",
+  "id": "exercise-70",
   "level": "2",
-  "url": "section-transformations.html#exercise-67",
+  "url": "section-transformations.html#exercise-70",
   "type": "You Try",
   "number": "2.30",
   "title": "",
   "body": "In the first step of , graphing the basic grid of lines, change the number of lines to 3. Now print each array to better see which array is used for each plot. Why do we need the transpose for our vertical lines? "
 },
 {
-  "id": "exercise-68",
+  "id": "exercise-71",
   "level": "2",
-  "url": "section-transformations.html#exercise-68",
+  "url": "section-transformations.html#exercise-71",
   "type": "You Try",
   "number": "2.31",
   "title": "",
   "body": "In the second step of , graphing the transformed grid of lines, change the number of lines to 3. Now print each array to better see which array is used for each plot. What happens if you only increment through the X or the Y and not both? "
 },
 {
-  "id": "example-10",
+  "id": "example-13",
   "level": "2",
-  "url": "section-transformations.html#example-10",
+  "url": "section-transformations.html#example-13",
   "type": "Example",
   "number": "2.32",
   "title": "Coloring the Transformed Line Grid.",
@@ -892,18 +946,18 @@ var ptx_lunr_docs = [
   "body": " Transformed Basis Vectors with PillowWriter .gif   "
 },
 {
-  "id": "exercise-69",
+  "id": "exercise-72",
   "level": "2",
-  "url": "section-transformations.html#exercise-69",
+  "url": "section-transformations.html#exercise-72",
   "type": "You Try",
   "number": "2.35",
   "title": "",
   "body": "Comment out plt.cla() in . What happens to your animation? "
 },
 {
-  "id": "exercise-70",
+  "id": "exercise-73",
   "level": "2",
-  "url": "section-transformations.html#exercise-70",
+  "url": "section-transformations.html#exercise-73",
   "type": "You Try",
   "number": "2.36",
   "title": "",
@@ -919,9 +973,9 @@ var ptx_lunr_docs = [
   "body": " Buffering a .gif  Note that the animation would look better visually if we started with the standard basis plot and lingered for a few seconds before beginning the transformation. We can add that by grabbing frames of the standard basis plot first.   "
 },
 {
-  "id": "exercise-71",
+  "id": "exercise-74",
   "level": "2",
-  "url": "section-transformations.html#exercise-71",
+  "url": "section-transformations.html#exercise-74",
   "type": "You Try",
   "number": "2.38",
   "title": "",
@@ -937,36 +991,36 @@ var ptx_lunr_docs = [
   "body": " Animated Point Grid Transformation .gif   "
 },
 {
-  "id": "exercise-72",
+  "id": "exercise-75",
   "level": "2",
-  "url": "section-transformations.html#exercise-72",
+  "url": "section-transformations.html#exercise-75",
   "type": "You Try",
   "number": "2.40",
   "title": "",
   "body": "Animate a gradual matrix transformation using the line grid. "
 },
 {
-  "id": "exercise-73",
+  "id": "exercise-76",
   "level": "2",
-  "url": "section-transformations.html#exercise-73",
+  "url": "section-transformations.html#exercise-76",
   "type": "Exercise",
   "number": "1",
   "title": "",
   "body": "Visualize a linear transformation using similar methods on a point grid in in Matplotlib. "
 },
 {
-  "id": "exercise-74",
+  "id": "exercise-77",
   "level": "2",
-  "url": "section-transformations.html#exercise-74",
+  "url": "section-transformations.html#exercise-77",
   "type": "Exercise",
   "number": "2",
   "title": "",
   "body": "Animate a linear transformation on a line grid in Matplotlib. "
 },
 {
-  "id": "exercise-75",
+  "id": "exercise-78",
   "level": "2",
-  "url": "section-transformations.html#exercise-75",
+  "url": "section-transformations.html#exercise-78",
   "type": "Exercise",
   "number": "3",
   "title": "",
@@ -991,27 +1045,27 @@ var ptx_lunr_docs = [
   "body": "   Compute the determinant in NumPy and SymPy.    Solve invertible square matrices numerically in NumPy.    Use the determinant to see if a matrix might be ill-conditioned.    "
 },
 {
-  "id": "exercise-76",
+  "id": "exercise-79",
   "level": "2",
-  "url": "section-determinants.html#exercise-76",
+  "url": "section-determinants.html#exercise-79",
   "type": "You Try",
   "number": "2.41",
   "title": "",
   "body": "Find the determinants of the matrices in the code above. What can you conclude about the transformations of ? "
 },
 {
-  "id": "exercise-77",
+  "id": "exercise-80",
   "level": "2",
-  "url": "section-determinants.html#exercise-77",
+  "url": "section-determinants.html#exercise-80",
   "type": "You Try",
   "number": "2.42",
   "title": "",
   "body": "Find a matrix with determinant 0. Check your determinant in the above code. What can you conclude about the transformation? "
 },
 {
-  "id": "exercise-78",
+  "id": "exercise-81",
   "level": "2",
-  "url": "section-determinants.html#exercise-78",
+  "url": "section-determinants.html#exercise-81",
   "type": "You Try",
   "number": "2.43",
   "title": "",
@@ -1027,54 +1081,54 @@ var ptx_lunr_docs = [
   "body": " For example, the systems correspond to matrix equations and   "
 },
 {
-  "id": "exercise-79",
+  "id": "exercise-82",
   "level": "2",
-  "url": "section-determinants.html#exercise-79",
+  "url": "section-determinants.html#exercise-82",
   "type": "You Try",
   "number": "2.45",
   "title": "",
   "body": "Consider the linear systems in .   Compute the determinant.    What can you conclude about solutions to each system?    "
 },
 {
-  "id": "exercise-80",
+  "id": "exercise-83",
   "level": "2",
-  "url": "section-determinants.html#exercise-80",
+  "url": "section-determinants.html#exercise-83",
   "type": "You Try",
   "number": "2.46",
   "title": "",
   "body": "Use NumPy's linalg.solve(A,b) to solve the systems of linear equations in . Next try SymPy's A.solve(b) . What happens? Why? "
 },
 {
-  "id": "exercise-81",
+  "id": "exercise-84",
   "level": "2",
-  "url": "section-determinants.html#exercise-81",
+  "url": "section-determinants.html#exercise-84",
   "type": "You Try",
   "number": "2.47",
   "title": "",
   "body": "Compute the determinant of the matrix in . Hypothesize a property of ill-conditioned matrices and explain how this property is related to the rounding issues we experienced. "
 },
 {
-  "id": "exercise-82",
+  "id": "exercise-85",
   "level": "2",
-  "url": "section-determinants.html#exercise-82",
+  "url": "section-determinants.html#exercise-85",
   "type": "You Try",
   "number": "2.48",
   "title": "",
   "body": "Using what we learned in , plot the matrix transformation corresponding to on a point grid. Use your visual to clearly show what is happening with the solutions in . Note: Solving a matrix equation corresponds to then reversing the transformation.  "
 },
 {
-  "id": "exercise-83",
+  "id": "exercise-86",
   "level": "2",
-  "url": "section-determinants.html#exercise-83",
+  "url": "section-determinants.html#exercise-86",
   "type": "Exercise",
   "number": "1",
   "title": "",
   "body": "Compute the determinant of the matrix in . Hypothesize a property of ill-conditioned matrices and explain how this property is related to the rounding issues we experienced. "
 },
 {
-  "id": "exercise-84",
+  "id": "exercise-87",
   "level": "2",
-  "url": "section-determinants.html#exercise-84",
+  "url": "section-determinants.html#exercise-87",
   "type": "Exercise",
   "number": "2",
   "title": "",
@@ -1087,7 +1141,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.5",
   "title": "Eigenthings",
-  "body": " Eigenthings  In this section we will learn how to     Compute eigenvalues and eigenvectors using NumPy and SymPy.    Visualize a matrix transformation using an eigenbasis (if possible).    Diagonalize a matrix (if possible).      Computing Eigenthings  Although we could use determinants to solve for eigenvalues and row reducing to solve for eigenvectors, both NumPy and SymPy have commands to directly determine eigenthings.  NumPy's linalg.eig(matrix_name) can be used to find numerical approximations for the eigenvalues and eigenvectors (where the latter are normalized to have magnitude 1). Note that linalg.eig(matrix_name) returns a tuple of both the eigenvalues and the eigenvectors.  You can also find just the characteristic polynomial using poly(matrix_name) and just the eigenvalues using linalg.eigvals(matrix_name) .   Use the above code to write down the characteristic polynomials for matrix . Note that you have to interpret the output correctly.  Use the above NumPy code to write down the eigenvalues and eigenvectors for matrix .  Repeat both of the above exercises for the matrix . Why might someone prefer to solve a eigenvalue question by hand instead?  As before, SymPy works well with symbolic manipulation. You can find the characteristic polynomial via matrix.charpoly() . SymPy's .eigenvects() also returns a tuple of exact eigenvalues, their multiplicities, and exact eigenvectors. Since computing eigenvectors can be costly, we have the option of just computing eigenvalues using .eigvals() instead. If instead of exact values you want a decimal approximation you can use the command .evalf() or N() .   Use the above SymPy code to write down the characteristic polynomial for matrix . Note that you have to interpret the output correctly.  Use the above code to write down the eigenvalues and eigenvectors for matrix .  Repeat the above two exercises for matrix .    Visualizing with Eigenthings  Recall from since a matrix transformation is linear, we can visualize using a standard basis grid and the transformed basis grid. Every other point in space is a linear combination. We can visualize with either a standard basis coordinate point grid and its image or a standard basis coordinate line grid and its image under the transformation.   Visualizing using the Standard Basis grid  Consider the matrix transformation given by   We can visualize the matrix transformation using the standard basis. Here and   First we will visualize the transformation using the standard basis vectors and a resulting coordinate point grid and their transformations.   We could also visualize the transformation using a coordinate line grid from the standard basis and the resulting transformed line grid.    Eigenvalues and eigenvectors give us additional information about a matrix transformation, however. And we can use that information to better understand the transformation of our space. In particular, if the eigenvectors of our transformation form a basis for the domain of our transformation, we can use the eigenbasis instead of the standard basis.   Visualizing using an Eigen-basis grid  Consider the matrix transformation from given by    has eigenvalues of and with corresponding eigenspaces and (See below.)   Since we have two linearly independent eigenvectors, forms an alternate basis of eigenvectors for . Now consider what the transformation does to this eigenbasis for .  Since these are eigenvectors with eigenvalues and respectively, we know the first eigenvector is scaled by 4, while the second eigenvector remains the same (scaled by 1). Any grid of linear combinations of these eigen-basis vectors will scale similarly.  But how can we create a grid based on these eigenvectors?  Simple. We can take a standard basis grid and use a matrix transformation that sends to one eigenvector and to our linearly independent eigenvector.  The matrix transformation that takes to and to is given by   Below is a coordinate grid of points generated by the eigenbasis vectors.   Now we can apply our matrix transformation to this alternate eigenbasis point grid.   We can also animate this transformation with a small adjustment to .   Edit to plot and animate the eigenbasis grid under the transformation by in the above example.  Thus we can use an eigenbasis for an alternative visualization of a transformation. Note that the process of converting from the standard basis to an eigenbasis using a matrix transformation is more than just a hand up in visualizing these matrix transformations, however. A similar approach allows us to relate any matrix transformation with a basis of eigenvectors to a simple scaling matrix, which are diagonal matrices and very easy to work with.    Diagonalization   Diagonalizing A  Consider the matrix transformation given by As we saw in , has an eigen-basis for . Moreover, we found a transformation from the standard basis to those eigenvectors is given by Since the eigenvectors are merely scaled by we can relate to a scaling (dilation) matrix coming from the eigenvalues corresponding to the eigenvectors in , namely, But the scaling matrix scales the standard basis vectors by 4 and 1. If we want to instead scale our eigenvectors we can   Transform our eigenbasis vectors to standard basis vectors using .    Scale the target standard basis vectors by the corresponding eigenvalues using .    Transform back to the eigenbasis grid of using .     Since we mapped the eigenvector with eigenvalue of 4 to and the eigenvector with eigenvalue of 1 to , we want to scale by the eigenvalue of 4 and by the eigenvalue of 1. If instead we had swapped those, we would need to swap in both and .   In other words, the matrix transformation .   Confirm that by computing the matrix product in NumPy or SymPy in the code below.   Note the above example worked because we could find a real eigen-basis for the domain of our transformation. If instead, we can not find a real eigenbasis for the domain we say that the matrix is NOT diagonalizable.     Complex Eigen-thing Decomposition  If we have complex eigenvalues, we necessarily have complex eigenvectors. While our matrix is not diagonalizable, we can still decompose into nicer transformations.        Summary     TBD      TBD         "
+  "body": " Eigenthings  In this section we will learn how to     Compute eigenvalues and eigenvectors using NumPy and SymPy.    Visualize a matrix transformation using an eigenbasis (if possible).    Diagonalize a matrix (if possible).      Computing Eigenthings  Although we could use determinants to solve for eigenvalues and row reducing to solve for eigenvectors, both NumPy and SymPy have commands to directly determine eigenthings.  NumPy's linalg.eig(matrix_name) can be used to find numerical approximations for the eigenvalues and eigenvectors (where the latter are normalized to have magnitude 1). Note that linalg.eig(matrix_name) returns a tuple of both the eigenvalues and the eigenvectors.  You can also find just the characteristic polynomial using poly(matrix_name) and just the eigenvalues using linalg.eigvals(matrix_name) .   Use the above code to write down the characteristic polynomials for matrix . Note that you have to interpret the output correctly.  Use the above NumPy code to write down the eigenvalues and eigenvectors for matrix .  Repeat both of the above exercises for the matrix . Why might someone prefer to solve a eigenvalue question by hand instead?  As before, SymPy works well with symbolic manipulation. You can find the characteristic polynomial via matrix.charpoly() . SymPy's .eigenvects() also returns a tuple of exact eigenvalues, their multiplicities, and exact eigenvectors. Since computing eigenvectors can be costly, we have the option of just computing eigenvalues using .eigenvals() instead. If instead of exact values you want a decimal approximation you can use the command .evalf() or N() .   Use the above SymPy code to write down the characteristic polynomial for matrix . Note that you have to interpret the output correctly.  Use the above code to write down the eigenvalues and eigenvectors for matrix .  Repeat the above two exercises for matrix .    Visualizing with Eigenthings  Recall from since a matrix transformation is linear, we can visualize using a standard basis grid and the transformed basis grid. Every other point in space is a linear combination. We can visualize with either a standard basis coordinate point grid and its image or a standard basis coordinate line grid and its image under the transformation.   Visualizing using the Standard Basis grid  Consider the matrix transformation given by   We can visualize the matrix transformation using the standard basis. Here and   First we will visualize the transformation using the standard basis vectors and a resulting coordinate point grid and their transformations.   We could also visualize the transformation using a coordinate line grid from the standard basis and the resulting transformed line grid.    Eigenvalues and eigenvectors give us additional information about a matrix transformation, however. And we can use that information to better understand the transformation of our space. In particular, if the eigenvectors of our transformation form a basis for the domain of our transformation, we can use the eigenbasis instead of the standard basis.   Visualizing using an Eigen-basis grid  Consider the matrix transformation from given by    has eigenvalues of and with corresponding eigenspaces and (See below.)   Since we have two linearly independent eigenvectors, forms an alternate basis of eigenvectors for . Now consider what the transformation does to this eigenbasis for .  Since these are eigenvectors with eigenvalues and respectively, we know the first eigenvector is scaled by 4, while the second eigenvector remains the same (scaled by 1). Any grid of linear combinations of these eigen-basis vectors will scale similarly.  But how can we create a grid based on these eigenvectors?  Simple. We can take a standard basis grid and use a matrix transformation that sends to one eigenvector and to our linearly independent eigenvector.  The matrix transformation that takes to and to is given by   Below is a coordinate grid of points generated by the eigenbasis vectors.   Now we can apply our matrix transformation to this alternate eigenbasis point grid.   We can also animate this transformation with a small adjustment to .   Edit to plot and animate the eigenbasis grid under the transformation by in the above example.  Thus we can use an eigenbasis for an alternative visualization of a transformation. Note that the process of converting from the standard basis to an eigenbasis using a matrix transformation is more than just a hand up in visualizing these matrix transformations, however. A similar approach allows us to relate any matrix transformation with a basis of eigenvectors to a simple scaling matrix, which are diagonal matrices and very easy to work with.    Diagonalization   Diagonalizing A  Consider the matrix transformation given by As we saw in , has an eigen-basis for . Moreover, we found a transformation from the standard basis to those eigenvectors is given by Since the eigenvectors are merely scaled by we can relate to a scaling (dilation) matrix coming from the eigenvalues corresponding to the eigenvectors in , namely, But the scaling matrix scales the standard basis vectors by 4 and 1. If we want to instead scale our eigenvectors we can   Transform our eigenbasis vectors to standard basis vectors using .    Scale the target standard basis vectors by the corresponding eigenvalues using .    Transform back to the eigenbasis grid of using .     Since we mapped the eigenvector with eigenvalue of 4 to and the eigenvector with eigenvalue of 1 to , we want to scale by the eigenvalue of 4 and by the eigenvalue of 1. If instead we had swapped those, we would need to swap in both and .   In other words, the matrix transformation .   Confirm that by computing the matrix product in NumPy or SymPy in the code below.   Note the above example worked because we could find a real eigen-basis for the domain of our transformation. If instead, we can not find a real eigenbasis for the domain we say that the matrix is NOT diagonalizable.     Complex Eigen-thing Decomposition  If we have complex eigenvalues, we necessarily have complex eigenvectors. While our matrix is not diagonalizable, we can still decompose into nicer transformations. The Rotation Scaling Theorem provides a way to decompose where is a rotation scaling matrix.    Let be a real matrix with a complex eigenvalue and let be a corresponding eigenvector. Then where and and See Rotation Scaling Theorem in Section 5.5 of Interactive Linear Algebra.           Summary     TBD      TBD         "
 },
 {
   "id": "objectives-10",
@@ -1099,54 +1153,54 @@ var ptx_lunr_docs = [
   "body": "   Compute eigenvalues and eigenvectors using NumPy and SymPy.    Visualize a matrix transformation using an eigenbasis (if possible).    Diagonalize a matrix (if possible).    "
 },
 {
-  "id": "exercise-85",
+  "id": "exercise-88",
   "level": "2",
-  "url": "section-eigenthings.html#exercise-85",
+  "url": "section-eigenthings.html#exercise-88",
   "type": "You Try",
   "number": "2.49",
   "title": "",
   "body": "Use the above code to write down the characteristic polynomials for matrix . Note that you have to interpret the output correctly. "
 },
 {
-  "id": "exercise-86",
+  "id": "exercise-89",
   "level": "2",
-  "url": "section-eigenthings.html#exercise-86",
+  "url": "section-eigenthings.html#exercise-89",
   "type": "You Try",
   "number": "2.50",
   "title": "",
   "body": "Use the above NumPy code to write down the eigenvalues and eigenvectors for matrix . "
 },
 {
-  "id": "exercise-87",
+  "id": "exercise-90",
   "level": "2",
-  "url": "section-eigenthings.html#exercise-87",
+  "url": "section-eigenthings.html#exercise-90",
   "type": "You Try",
   "number": "2.51",
   "title": "",
   "body": "Repeat both of the above exercises for the matrix . Why might someone prefer to solve a eigenvalue question by hand instead? "
 },
 {
-  "id": "exercise-88",
+  "id": "exercise-91",
   "level": "2",
-  "url": "section-eigenthings.html#exercise-88",
+  "url": "section-eigenthings.html#exercise-91",
   "type": "You Try",
   "number": "2.52",
   "title": "",
   "body": "Use the above SymPy code to write down the characteristic polynomial for matrix . Note that you have to interpret the output correctly. "
 },
 {
-  "id": "exercise-89",
+  "id": "exercise-92",
   "level": "2",
-  "url": "section-eigenthings.html#exercise-89",
+  "url": "section-eigenthings.html#exercise-92",
   "type": "You Try",
   "number": "2.53",
   "title": "",
   "body": "Use the above code to write down the eigenvalues and eigenvectors for matrix . "
 },
 {
-  "id": "exercise-90",
+  "id": "exercise-93",
   "level": "2",
-  "url": "section-eigenthings.html#exercise-90",
+  "url": "section-eigenthings.html#exercise-93",
   "type": "You Try",
   "number": "2.54",
   "title": "",
@@ -1171,36 +1225,45 @@ var ptx_lunr_docs = [
   "body": " Visualizing using an Eigen-basis grid  Consider the matrix transformation from given by    has eigenvalues of and with corresponding eigenspaces and (See below.)   Since we have two linearly independent eigenvectors, forms an alternate basis of eigenvectors for . Now consider what the transformation does to this eigenbasis for .  Since these are eigenvectors with eigenvalues and respectively, we know the first eigenvector is scaled by 4, while the second eigenvector remains the same (scaled by 1). Any grid of linear combinations of these eigen-basis vectors will scale similarly.  But how can we create a grid based on these eigenvectors?  Simple. We can take a standard basis grid and use a matrix transformation that sends to one eigenvector and to our linearly independent eigenvector.  The matrix transformation that takes to and to is given by   Below is a coordinate grid of points generated by the eigenbasis vectors.   Now we can apply our matrix transformation to this alternate eigenbasis point grid.   We can also animate this transformation with a small adjustment to .  "
 },
 {
-  "id": "exercise-91",
+  "id": "exercise-94",
   "level": "2",
-  "url": "section-eigenthings.html#exercise-91",
+  "url": "section-eigenthings.html#exercise-94",
   "type": "You Try",
   "number": "2.57",
   "title": "",
   "body": "Edit to plot and animate the eigenbasis grid under the transformation by in the above example. "
 },
 {
-  "id": "example-18",
+  "id": "example-21",
   "level": "2",
-  "url": "section-eigenthings.html#example-18",
+  "url": "section-eigenthings.html#example-21",
   "type": "Example",
   "number": "2.58",
   "title": "Diagonalizing A.",
   "body": " Diagonalizing A  Consider the matrix transformation given by As we saw in , has an eigen-basis for . Moreover, we found a transformation from the standard basis to those eigenvectors is given by Since the eigenvectors are merely scaled by we can relate to a scaling (dilation) matrix coming from the eigenvalues corresponding to the eigenvectors in , namely, But the scaling matrix scales the standard basis vectors by 4 and 1. If we want to instead scale our eigenvectors we can   Transform our eigenbasis vectors to standard basis vectors using .    Scale the target standard basis vectors by the corresponding eigenvalues using .    Transform back to the eigenbasis grid of using .     Since we mapped the eigenvector with eigenvalue of 4 to and the eigenvector with eigenvalue of 1 to , we want to scale by the eigenvalue of 4 and by the eigenvalue of 1. If instead we had swapped those, we would need to swap in both and .   In other words, the matrix transformation .  "
 },
 {
-  "id": "exercise-92",
+  "id": "exercise-95",
   "level": "2",
-  "url": "section-eigenthings.html#exercise-92",
+  "url": "section-eigenthings.html#exercise-95",
   "type": "You Try",
   "number": "2.59",
   "title": "",
   "body": "Confirm that by computing the matrix product in NumPy or SymPy in the code below. "
 },
 {
-  "id": "exercise-93",
+  "id": "thm-rotationscaling",
   "level": "2",
-  "url": "section-eigenthings.html#exercise-93",
+  "url": "section-eigenthings.html#thm-rotationscaling",
+  "type": "Theorem",
+  "number": "2.60",
+  "title": "",
+  "body": "  Let be a real matrix with a complex eigenvalue and let be a corresponding eigenvector. Then where and and See Rotation Scaling Theorem in Section 5.5 of Interactive Linear Algebra.    "
+},
+{
+  "id": "exercise-96",
+  "level": "2",
+  "url": "section-eigenthings.html#exercise-96",
   "type": "Exercise",
   "number": "1",
   "title": "",
@@ -1234,18 +1297,18 @@ var ptx_lunr_docs = [
   "body": "   C    D    "
 },
 {
-  "id": "p-433",
+  "id": "p-441",
   "level": "2",
-  "url": "examples.html#p-433",
+  "url": "examples.html#p-441",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "integral integral integral integral integral integral variable "
 },
 {
-  "id": "exercise-95",
+  "id": "exercise-98",
   "level": "2",
-  "url": "examples.html#exercise-95",
+  "url": "examples.html#exercise-98",
   "type": "You Try",
   "number": "3.4",
   "title": "Exercise What.",
@@ -1261,9 +1324,9 @@ var ptx_lunr_docs = [
   "body": "   C    D    "
 },
 {
-  "id": "exercise-96",
+  "id": "exercise-99",
   "level": "2",
-  "url": "examples.html#exercise-96",
+  "url": "examples.html#exercise-99",
   "type": "Reading Question",
   "number": "1",
   "title": "",
