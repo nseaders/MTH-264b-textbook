@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* div with class 'sagecell-python' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-python",
+  "linked": true,
+  "linkKey": "linked-python",
+  "autoeval": false,
+  "languages": [
+    "python"
+  ],
+  "evalButtonText": "Evaluate (Python)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.29</span><span class="period">.</span><span class="space"> </span><span class="title">Transformed Line Grid.</span>
+</h4> <div class="para">We will build up to the transformed grid a step at a time.</div> <div class="para">Step 1: First we will learn how to graph a basic grid of lines.</div> <div id="linegrid-4" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots() #create fig, axes
+
+#Create grid of points
+NLines=9 
+Xvals = np.linspace(-4,4, num=NLines)
+Yvals = np.linspace(0,6, num=NLines)
+X,Y = np.meshgrid(Xvals, Yvals)
+
+#graph NLine horizontal lines
+#increment through y-value arrays for each line 
+for i in np.arange(0,NLines,step=1):
+    ax.plot(X[i],Y[i], color='gray') 
+    
+#graph NLine vertical lines 
+#increment through x-value arrays for each line
+#exercise: why transpose?
+for i in np.arange(0,NLines,step=1):
+    ax.plot(X.T[i], Y.T[i], color='gray') 
+
+ax.set(xlim=(-10,10), ylim=(-10,10))
+
+plt.show()
+</script></div> <div class="para">Step 2: Graph a transformed grid of lines.</div> <div class="para">Now we add in the matrix transformation. Note: in order to find the transformed line grid, we again <code class="code-inline tex2jax_ignore">.reshape()</code> the X,Y grid into a row of x-values and a row of y-values so we can matrix multiply each point as a column of a matrix. We will then <code class="code-inline tex2jax_ignore">.reshape()</code> back into a transformed meshgrid in order to graph our grid of transformed lines.</div> <div id="linegrid-7" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots() #create fig and axes
+
+A = np.array([[2,2],[0,1]]) #matrix transformation
+
+#create grid of points
+NLines=9
+Xvals = np.linspace(-4,4, num=NLines)
+Yvals = np.linspace(0,6, num=NLines)
+X,Y = np.meshgrid(Xvals, Yvals)
+
+#reshape into row of x and row of y
+X1 = X.reshape((NLines**2,))
+Y1 = Y.reshape((NLines**2,))
+xygrid = np.row_stack([X1, Y1])
+
+#transform via matrix mult
+uvgrid = np.matmul(A,xygrid)
+
+#reshape transformed rows into uvgrid
+U1 = uvgrid[0]
+V1 = uvgrid[1]
+U = U1.reshape(-1,NLines)
+V = V1.reshape(-1,NLines)
+
+#graph transformed horizontal lines
+for i in np.arange(0,NLines,step=1):
+    ax.plot(U[i],V[i], color='gray') 
+
+#graph transformed vertical lines
+for i in np.arange(0,NLines,step=1):
+    ax.plot(U.T[i], V.T[i], color='gray')
+
+ax.set(xlim=(-10,10), ylim=(-10,10))
+    
+plt.show()
+</script></div></article><span class="incontext"><a class="internal" href="section-transformations.html#linegrid">in-context</a></span>
+</body>
+</html>

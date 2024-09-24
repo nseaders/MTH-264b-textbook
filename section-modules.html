@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Python Packages and NumPy</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="An Introduction to Matrix Computations in Python">
+<meta property="book:author" content="Nicole Seaders and Claire Burke">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* div with class 'sagecell-python' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-python",
+  "linked": true,
+  "linkKey": "linked-python",
+  "autoeval": false,
+  "languages": [
+    "python"
+  ],
+  "evalButtonText": "Evaluate (Python)"
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/style_oscarlevin.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom.css">
+<style>
+#exercises-modules-1-2 { counter-set: exercises-modules-1-2 0; }
+#exercises-modules-1-2 > li::marker { content: "("counter(exercises-modules-1-2,lower-alpha)")"; }
+#exercises-modules-1-2 > li { counter-increment: exercises-modules-1-2; }
+#exercises-modules-1-4-1-1 { counter-set: exercises-modules-1-4-1-1 0; }
+#exercises-modules-1-4-1-1 > li::marker { content: "("counter(exercises-modules-1-4-1-1,lower-alpha)")"; }
+#exercises-modules-1-4-1-1 > li { counter-increment: exercises-modules-1-4-1-1; }
+#exercises-matplotlib3D-1-3-1 { counter-set: exercises-matplotlib3D-1-3-1 0; }
+#exercises-matplotlib3D-1-3-1 > li::marker { content: "("counter(exercises-matplotlib3D-1-3-1,lower-alpha)")"; }
+#exercises-matplotlib3D-1-3-1 > li { counter-increment: exercises-matplotlib3D-1-3-1; }
+#exercises-matplotlib3D-4-1-4 { counter-set: exercises-matplotlib3D-4-1-4 0; }
+#exercises-matplotlib3D-4-1-4 > li::marker { content: "("counter(exercises-matplotlib3D-4-1-4,lower-alpha)")"; }
+#exercises-matplotlib3D-4-1-4 > li { counter-increment: exercises-matplotlib3D-4-1-4; }
+#rref-15-1 { counter-set: rref-15-1 0; }
+#rref-15-1 > li::marker { content: ""counter(rref-15-1,decimal)"."; }
+#rref-15-1 > li { counter-increment: rref-15-1; }
+#subsec-Diagonalization-2-2-11 { counter-set: subsec-Diagonalization-2-2-11 0; }
+#subsec-Diagonalization-2-2-11 > li::marker { content: ""counter(subsec-Diagonalization-2-2-11,decimal)"."; }
+#subsec-Diagonalization-2-2-11 > li { counter-increment: subsec-Diagonalization-2-2-11; }
+#examples-5-2 { counter-set: examples-5-2 0; }
+#examples-5-2 > li::marker { content: ""counter(examples-5-2,decimal)"."; }
+#examples-5-2 > li { counter-increment: examples-5-2; }
+#examples-5-3 { counter-set: examples-5-3 0; }
+#examples-5-3 > li::marker { content: "("counter(examples-5-3,upper-alpha)")"; }
+#examples-5-3 > li { counter-increment: examples-5-3; }
+</style>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="Matrix-Computations.html"><span class="title">An Introduction to Matrix Computations in Python:</span> <span class="subtitle">Just the basics</span></a></h1>
+<p class="byline">Nicole Seaders and Claire Burke</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="section-variables.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="chapter1.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="section-matplotlib.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="prologue.html" class="internal"><span class="codenumber">0</span> <span class="title">Prologue</span></a></div></li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="chapter1.html" class="internal"><span class="codenumber">1</span> <span class="title">Basics, Modules, and Graphing</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-variables.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-variables.html#section-variables-4" class="internal"><span class="title"></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-variables.html#subsec-naming-variables" class="internal"><span class="title">Naming Variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-variables.html#subsec_comments_in_Python" class="internal"><span class="title">Arithmetic and Comments in Python</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-variables.html#subsec_more_vars" class="internal"><span class="title">More about Variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-variables.html#subsec_errors" class="internal"><span class="title">Syntax and Semantic errors</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-variables.html#exercises-variable" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="section-modules.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Python Packages and NumPy</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-4" class="internal"><span class="title">Importing the package NumPy</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-5" class="internal"><span class="title">Standard functions in NumPy</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-6" class="internal"><span class="title">NumPy arrays</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-modules.html#exercises-modules" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-matplotlib.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Matplotlib and 2D graphing</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib.html#subsec-figures" class="internal"><span class="title">Creating a graph or plot</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib.html#section-matplotlib-5" class="internal"><span class="title">Curves in 2D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib.html#subsec-scatterplots" class="internal"><span class="title">Scatter Plots in 2D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib.html#section-matplotlib-7" class="internal"><span class="title">Parametric Curves in 2D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib.html#labels" class="internal"><span class="title">Titles and Axes Labels</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib.html#custom-graphs" class="internal"><span class="title">Customizing</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib.html#subsec-Vectorsin2D" class="internal"><span class="title">Vectors in 2D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib.html#subsec-subplots" class="internal"><span class="title">Multiple plots in the same figure</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-matplotlib.html#exercises-matplotlib2D" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-matplotlib3d.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Matplotlib and 3D graphing</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib3d.html#subsec-3Daxes" class="internal"><span class="title">3D axes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib3d.html#subsec-3DParam" class="internal"><span class="title">Parametric Curves in 3D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib3d.html#subsec-Graphing-a-surface" class="internal"><span class="title">Surfaces and scatterplots in 3D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib3d.html#subsec-3DAxesandLabels" class="internal"><span class="title">Axes and Labels</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib3d.html#subsec-multiplesurfaces" class="internal"><span class="title">Plotting Multiple Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib3d.html#section-matplotlib3d-9" class="internal"><span class="title">Customizing</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-matplotlib3d.html#exercises-matplotlib3D" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-animation.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Basic Animation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-animation.html#section-animation-4" class="internal"><span class="title">Creating a .gif in Matplotlib</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-animation.html#subsec-interactive-slider" class="internal"><span class="title">Creating an interactive slider</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-animation.html#subsec-student-showcase" class="internal"><span class="title">Student Showcase</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-animation.html#exercises-animation" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chapter2.html" class="internal"><span class="codenumber">2</span> <span class="title">Matrix Algebra in Python</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-systems.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Solving and Graphing Systems of Linear Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-systems.html#rref" class="internal"><span class="title">Row Reduction</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-systems.html#graphsolution" class="internal"><span class="title">Graphing solutions to systems of equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-systems.html#section-systems-6" class="internal"><span class="title">Graphing vector equations and their solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-systems.html#subsec-" class="internal"><span class="title">Converting between Numpy arrays and Sympy Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-systems.html#subsecRoundingErrorRref" class="internal"><span class="title">Round-off error in Sympy’s rref()</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-systems.html#exercises-systems" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-matrices.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix Arithmetic</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matrices.html#section-matrices-4" class="internal"><span class="title">NumPy vs SymPy</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matrices.html#subsec-BasicMatrices" class="internal"><span class="title">Basic Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matrices.html#subsec-MatrixArithmetic" class="internal"><span class="title">Matrix Arithmetic</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matrices.html#subsec-MatrixMultiplication" class="internal"><span class="title">Matrix Multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matrices.html#subsec-MatrixInverses" class="internal"><span class="title">Matrix Inverses</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matrices.html#subsec-solving-with-inverses" class="internal"><span class="title">Solving Matrix Equations via Inverses</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matrices.html#subsec-ill-conditioned" class="internal"><span class="title">Ill-Conditioned Matrices</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-matrices.html#exercises-matrices" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-transformations.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Matrix Transformations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-transformations.html#subsec-ComputingMatrixTransformations" class="internal"><span class="title">Computing Matrix Transformations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-transformations.html#section-transformations-5" class="internal"><span class="title">Visualizing a Matrix Transformation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-transformations.html#section-transformations-6" class="internal"><span class="title">Animating Matrix Transformations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-transformations.html#exercises-transformations" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-determinants.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Determinants</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-determinants.html#subsec-what-is-determinant" class="internal"><span class="title">What is the determinant?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-determinants.html#subsec-computing-determinant" class="internal"><span class="title">Computing the Determinant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-determinants.html#subsec-determinants-linear-systems" class="internal"><span class="title">Determinants and Systems of Linear Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-determinants.html#subsec-numerical-solve" class="internal"><span class="title">Numerically Solving System of Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-determinants.html#subsec-Ill-conditionedTransformations" class="internal"><span class="title">Ill-conditioned Matrices</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-determinants.html#exercises-determinants" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-eigenthings.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Eigenthings</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-eigenthings.html#subsec-computing-eigenthings" class="internal"><span class="title">Computing Eigenthings</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-eigenthings.html#subsec-visualizing-eigenthings" class="internal"><span class="title">Visualizing with Eigenthings</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-eigenthings.html#subsec-Diagonalization" class="internal"><span class="title">Diagonalization</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-eigenthings.html#subsec-complex-decomposition" class="internal"><span class="title">Complex Eigen-thing Decomposition</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-eigenthings.html#exercises-eigenthings" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="appendix.html" class="internal"><span class="codenumber">3</span> <span class="title">Appendix</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="examples.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Samples of various pretext formats</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="examples.html#examples-11" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="examples.html#examples-13" class="internal"><span class="title">Reading Questions</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-modules"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.2</span><span class="space"> </span><span class="title">Python Packages and NumPy</span>
+</h2>
+<section class="introduction" id="section-modules-2">Python packages and libraries are collections of functions and modules centered around a common theme. In this section we will learn how to import a Python package and use functions from that package.</section><article class="objectives goal-like" id="section-modules-3"><h3 class="heading"><span class="type">Objectives</span></h3>
+<ul class="disc" id="section-modules-3-1">
+<li id="section-modules-3-1-1"><div class="para" id="section-modules-3-1-1-1">Import a Python package or library (our example NumPy).</div></li>
+<li id="section-modules-3-1-2"><div class="para" id="section-modules-3-1-2-1">Use functions from a Python package.</div></li>
+</ul></article><section class="subsection" id="section-modules-4"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Importing the package NumPy</span>
+</h3>
+<div class="para" id="section-modules-4-2">NumPy is an open source scientific computing package that allows you to use standard mathematical functions and constants like sine or pi. NumPy also allows you to work with arrays of numbers so you can efficiently perform computations.</div>
+<div id="section-modules-4-3" class="ptx-sagecell sagecell-python"><script type="text/x-sage">#first import the package numpy
+import numpy
+
+#compute sin(2) 
+x = numpy.sin(2)
+print(x)
+</script></div>
+<div class="para" id="section-modules-4-4">Note to call a function from an imported package you must use the syntax <code class="code-inline tex2jax_ignore">package.function</code>. To avoid retyping the long name of a package every time, it is standard practice to rename the package as you import.</div>
+<article class="exercise exercise-like" id="section-modules-4-5"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.4</span><span class="period">.</span>
+</h4>
+<div class="para" id="section-modules-4-5-1">Rename the package numpy in the above code by replacing the import line with <code class="code-inline tex2jax_ignore">import numpy as np</code>. Next use the new name of the package to call the function <code class="code-inline tex2jax_ignore">np.sin()</code> and re-run.</div></article></section><section class="subsection" id="section-modules-5"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Standard functions in NumPy</span>
+</h3>
+<div class="para" id="section-modules-5-2">In addition to the standard trigonometric functions, NumPy also contains <span class="process-math">\(e^x\)</span> as <code class="code-inline tex2jax_ignore">exp()</code> and natural log as <code class="code-inline tex2jax_ignore">log()</code>, as well as the standard mathematical constants like <code class="code-inline tex2jax_ignore">pi</code> and <code class="code-inline tex2jax_ignore">e</code>.</div>
+<article class="exercise exercise-like" id="section-modules-5-3"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.5</span><span class="period">.</span>
+</h4>
+<div class="para" id="section-modules-5-3-1">Use the NumPy package to compute the area of a circle using pi.</div>
+<details id="section-modules-5-3-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">If you import numpy as np, you will use np.pi</div></details></article><div id="section-modules-5-4" class="ptx-sagecell sagecell-python"><script type="text/x-sage">#import the package numpy first - you fill in
+
+#decide the radius of the circle
+radius = 4
+
+#fill in the formula for the calculation here
+circle_area = 
+
+print(circle_area)
+</script></div></section><section class="subsection" id="section-modules-6"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">NumPy arrays</span>
+</h3>
+<div class="para" id="section-modules-6-2">NumPy arrays can help us efficiently do computations with a collection of numbers all at once. We can also represent vectors or matrices using NumPy arrays. Run the code below that calls the NumPy function <code class="code-inline tex2jax_ignore">array</code> to see how it works.</div>
+<div id="section-modules-6-3" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
+
+#create an array containing the numbers 1, 2, 3, 4
+X = np.array([1,2,3,4])
+
+print(X)
+print(2*X)
+</script></div>
+<div class="para" id="section-modules-6-4">NumPy also has built in functions to automatically create an array with certain conditions. For example <code class="code-inline tex2jax_ignore">linspace()</code> takes a given interval and sets up an array of evenly spaced numbers on that interval.</div>
+<div id="section-modules-6-5" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
+
+#create array of 11 evenly spaced numbers between 0 and 5
+X = np.linspace(0,5,num=11) 
+ 
+print(X)
+</script></div>
+<div class="para" id="section-modules-6-6">Note that the array includes 5, so it takes 11 evenly spaced numbers to get numbers 0.5 apart. Note also that although the number values are evenly spaced, the printed array is not. Namely the default is to space out the entries by the maximum number of decimal places with blank spaces instead of extra zeroes.</div>
+<article class="exercise exercise-like" id="section-modules-6-7"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.6</span><span class="period">.</span>
+</h4>
+<div class="para" id="section-modules-6-7-1">Edit the above code to use linspace to create an array of numbers between 0 and 5 that are one-quarter apart. When you evaluate your code should print the list 0, 0.25, 0.5, 0.75, etc.</div></article><div class="para" id="section-modules-6-8">Another way to create an array of values for a given interval is <code class="code-inline tex2jax_ignore">arange()</code>, which uses a step value to set up a sequence of numbers within that interval.</div>
+<div id="section-modules-6-9" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
+
+#create array of numbers between 0 and 5 with step size 2 
+X = np.arange(0,5,step=2) 
+ 
+print(X)
+</script></div>
+<div class="para" id="section-modules-6-10">Note that the array gets cut off before the right endpoint of the interval if your stepsize doesn’t divide the interval evenly.</div>
+<article class="exercise exercise-like" id="section-modules-6-11"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.7</span><span class="period">.</span>
+</h4>
+<div class="para" id="section-modules-6-11-1">Edit the above code to use <code class="code-inline tex2jax_ignore">arange</code> to create an array of numbers between 0 and 5 that are one-quarter apart. When you evaluate your code should print the list 0, 0.25, 0.5, 0.75, etc.</div></article></section><section class="conclusion" id="section-modules-7"><div class="para" id="section-modules-7-1">You can find more information about the package NumPy at <a class="external" href="https://numpy.org/" target="_blank"><code class="code-inline tex2jax_ignore">numpy.org</code></a>. Python’s wiki has a list of other commonly used <a class="external" href="https://wiki.python.org/moin/UsefulModules" target="_blank">modules and packages</a><details class="ptx-footnote" aria-live="polite" id="section-modules-7-1-3"><summary class="ptx-footnote__number" title="Footnote 1.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="section-modules-7-1-3"><code class="code-inline tex2jax_ignore">wiki.python.org/moin/UsefulModules</code></div></details>.</div></section><article class="assemblage assemblage-like" id="section-modules-8"><h3 class="heading"><span class="title">Summary.</span></h3>
+<div class="para logical" id="section-modules-8-2"><ul class="disc" id="section-modules-8-2-1">
+<li id="section-modules-8-2-1-1"><div class="para" id="section-modules-8-2-1-1-1">You can import a Python package and rename it by using <code class="code-inline tex2jax_ignore">import package as name</code>.</div></li>
+<li id="section-modules-8-2-1-2"><div class="para" id="section-modules-8-2-1-2-1">You can call a function from a package using <code class="code-inline tex2jax_ignore">packagename.function</code>
+</div></li>
+<li id="section-modules-8-2-1-3"><div class="para" id="section-modules-8-2-1-3-1">Numpy arrays can help us efficiently do computations.</div></li>
+<li id="section-modules-8-2-1-4"><div class="para" id="section-modules-8-2-1-4-1">The Numpy functions <code class="code-inline tex2jax_ignore">linspace()</code> and <code class="code-inline tex2jax_ignore">arange()</code> set up an array of values over an interval.</div></li>
+</ul></div></article><section class="exercises" id="exercises-modules"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exercises-modules-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para" id="exercises-modules-1-1">Research NumPy</div>
+<ol class="lower-alpha" id="exercises-modules-1-2">
+<li id="exercises-modules-1-2-1"><div class="para" id="exercises-modules-1-2-1-1">Look up how to efficiently create a 15 element array of all <span class="process-math">\(1\)</span>’s.</div></li>
+<li id="exercises-modules-1-2-2"><div class="para" id="exercises-modules-1-2-2-1">Use this to create a 15 element array of all <span class="process-math">\(100\)</span>’s.</div></li>
+</ol>
+<div id="exercises-modules-1-3" class="ptx-sagecell sagecell-python"><script type="text/x-sage">#
+#
+#
+#
+#
+</script></div>
+<details id="exercises-modules-1-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="exercises-modules-1-4-1"><ol class="lower-alpha" id="exercises-modules-1-4-1-1">
+<li id="exercises-modules-1-4-1-1-1"><div class="para" id="exercises-modules-1-4-1-1-1-1">There is more than one way to do this. One approach is to use the <code class="code-inline tex2jax_ignore">numpy</code> function <code class="code-inline tex2jax_ignore">ones().</code>
+</div></li>
+<li id="exercises-modules-1-4-1-1-2"><div class="para" id="exercises-modules-1-4-1-1-2-1">Once you have an array of all 1’s, you can multiply it by any number you want.</div></li>
+</ol></div></div></details></article><article class="exercise exercise-like" id="exercises-modules-2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para" id="exercises-modules-2-1">The magnitude of an earthquake is measured using the Richter Scale, which is a logarithmic scale. The amount of energy <span class="process-math">\(E\)</span> in ergs an earthquake releases can be determined from the magnitude <span class="process-math">\(M\)</span> using the formula</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\log_{10}(E)=11.8+1.5M
+\end{equation*}
+</div>
+<div class="para" id="exercises-modules-2-3">The <a class="external" href="https://earthquake.usgs.gov/earthquakes/map" target="_blank">USGS</a><details class="ptx-footnote" aria-live="polite" id="exercises-modules-2-3-2"><summary class="ptx-footnote__number" title="Footnote 1.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="exercises-modules-2-3-2"><code class="code-inline tex2jax_ignore">earthquake.usgs.gov/earthquakes/map</code></div></details> website lets you download magnitude data for the 30 most recent earthquakes in the world with magnitude <span class="process-math">\(&gt;2.5\text{.}\)</span>
+</div>
+<div class="para" id="exercises-modules-2-4">Use Numpy to determine how much energy has been released in the 30 most recent earthquakes. <em class="emphasis">Note that you can copy and paste data from a csv file into SageMathCell. You will just need to then format that data for Numpy.</em>
+</div>
+<div id="exercises-modules-2-5" class="ptx-sagecell sagecell-python"><script type="text/x-sage">#
+#
+#
+#
+#
+</script></div></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="section-variables.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="section-matplotlib.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

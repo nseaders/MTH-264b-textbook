@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* div with class 'sagecell-python' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-python",
+  "linked": true,
+  "linkKey": "linked-python",
+  "autoeval": false,
+  "languages": [
+    "python"
+  ],
+  "evalButtonText": "Evaluate (Python)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.37</span><span class="period">.</span><span class="space"> </span><span class="title">Buffering a .gif.</span>
+</h4> <div class="para">Note that the animation would look better visually if we started with the standard basis plot and lingered for a few seconds before beginning the transformation. We can add that by grabbing frames of the standard basis plot first.</div> <div id="basisgiflinger-3" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np 
+import matplotlib.pyplot as plt
+from matplotlib.animation import PillowWriter
+
+fig, ax = plt.subplots() #create figure and axes
+
+e1 = np.array([[1],[0]]) #horizontal basis vector
+e2 = np.array([[0],[1]]) #vertical basis vector
+A = np.array([[2,2], [0,3]]) #transformation matrix
+
+#set up initial graph of standard basis vectors
+ax.quiver(0,0,1,0,label='$ \\vec e_1$',color='salmon', angles='xy', scale_units='xy', scale=1)
+ax.quiver(0,0,0,1,label='$ \\vec e_2$', color='teal', angles='xy', scale_units='xy', scale=1) 
+ax.set(title="Transformation of Standard Basis", xlim=(-2,5), ylim=(-2,5))
+ax.grid()
+ax.legend()
+
+#set up writer object to grab frames for a gif
+writer = PillowWriter(fps=15)
+
+with writer.saving(fig, "TransformVectors2.gif", 100): #100 is the dpi
+  for tval in np.linspace(0,10,20):
+    writer.grab_frame() #grab frame of initial graph
+  for tval in np.linspace(0,10,50):                
+    #create an intermediate matrix transformation
+    percent = tval/10
+    IA = (1-percent)*np.identity(2)+(percent)*A 
+
+    #matrix multiply to find intermediate image of e1 and e2
+    IAe1 = np.matmul(IA,e1) #image of e1
+    IAe2 = np.matmul(IA,e2) #image of e2
+
+    plt.cla() #clear plot of previous vectors 
+    #plot intermediate transformed vectors 
+    ax.quiver(0,0,IAe1[0,0],IAe1[1,0],label='$A \\vec e_1$', color='salmon', angles='xy', scale_units='xy', scale=1)
+    ax.quiver(0,0,IAe2[0,0],IAe2[1,0],label='$A \\vec e_2$', color='teal', angles='xy', scale_units='xy', scale=1)                    
+    ax.set(title="Transformation of Standard Basis", xlim=(-2,5), ylim=(-2,5))
+    ax.legend() 
+    ax.grid()
+    
+    writer.grab_frame() #grab frame of current intermediate transformation
+</script></div></article><span class="incontext"><a class="internal" href="section-transformations.html#basisgiflinger">in-context</a></span>
+</body>
+</html>

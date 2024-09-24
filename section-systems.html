@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Solving and Graphing Systems of Linear Equations</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="An Introduction to Matrix Computations in Python">
+<meta property="book:author" content="Nicole Seaders and Claire Burke">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* div with class 'sagecell-python' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-python",
+  "linked": true,
+  "linkKey": "linked-python",
+  "autoeval": false,
+  "languages": [
+    "python"
+  ],
+  "evalButtonText": "Evaluate (Python)"
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/style_oscarlevin.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom.css">
+<style>
+#exercises-modules-1-2 { counter-set: exercises-modules-1-2 0; }
+#exercises-modules-1-2 > li::marker { content: "("counter(exercises-modules-1-2,lower-alpha)")"; }
+#exercises-modules-1-2 > li { counter-increment: exercises-modules-1-2; }
+#exercises-modules-1-4-1-1 { counter-set: exercises-modules-1-4-1-1 0; }
+#exercises-modules-1-4-1-1 > li::marker { content: "("counter(exercises-modules-1-4-1-1,lower-alpha)")"; }
+#exercises-modules-1-4-1-1 > li { counter-increment: exercises-modules-1-4-1-1; }
+#exercises-matplotlib3D-1-3-1 { counter-set: exercises-matplotlib3D-1-3-1 0; }
+#exercises-matplotlib3D-1-3-1 > li::marker { content: "("counter(exercises-matplotlib3D-1-3-1,lower-alpha)")"; }
+#exercises-matplotlib3D-1-3-1 > li { counter-increment: exercises-matplotlib3D-1-3-1; }
+#exercises-matplotlib3D-4-1-4 { counter-set: exercises-matplotlib3D-4-1-4 0; }
+#exercises-matplotlib3D-4-1-4 > li::marker { content: "("counter(exercises-matplotlib3D-4-1-4,lower-alpha)")"; }
+#exercises-matplotlib3D-4-1-4 > li { counter-increment: exercises-matplotlib3D-4-1-4; }
+#rref-15-1 { counter-set: rref-15-1 0; }
+#rref-15-1 > li::marker { content: ""counter(rref-15-1,decimal)"."; }
+#rref-15-1 > li { counter-increment: rref-15-1; }
+#subsec-Diagonalization-2-2-11 { counter-set: subsec-Diagonalization-2-2-11 0; }
+#subsec-Diagonalization-2-2-11 > li::marker { content: ""counter(subsec-Diagonalization-2-2-11,decimal)"."; }
+#subsec-Diagonalization-2-2-11 > li { counter-increment: subsec-Diagonalization-2-2-11; }
+#examples-5-2 { counter-set: examples-5-2 0; }
+#examples-5-2 > li::marker { content: ""counter(examples-5-2,decimal)"."; }
+#examples-5-2 > li { counter-increment: examples-5-2; }
+#examples-5-3 { counter-set: examples-5-3 0; }
+#examples-5-3 > li::marker { content: "("counter(examples-5-3,upper-alpha)")"; }
+#examples-5-3 > li { counter-increment: examples-5-3; }
+</style>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="Matrix-Computations.html"><span class="title">An Introduction to Matrix Computations in Python:</span> <span class="subtitle">Just the basics</span></a></h1>
+<p class="byline">Nicole Seaders and Claire Burke</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="chapter2.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="chapter2.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="section-matrices.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="prologue.html" class="internal"><span class="codenumber">0</span> <span class="title">Prologue</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chapter1.html" class="internal"><span class="codenumber">1</span> <span class="title">Basics, Modules, and Graphing</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-variables.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-variables.html#section-variables-4" class="internal"><span class="title"></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-variables.html#subsec-naming-variables" class="internal"><span class="title">Naming Variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-variables.html#subsec_comments_in_Python" class="internal"><span class="title">Arithmetic and Comments in Python</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-variables.html#subsec_more_vars" class="internal"><span class="title">More about Variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-variables.html#subsec_errors" class="internal"><span class="title">Syntax and Semantic errors</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-variables.html#exercises-variable" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-modules.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Python Packages and NumPy</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-4" class="internal"><span class="title">Importing the package NumPy</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-5" class="internal"><span class="title">Standard functions in NumPy</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-6" class="internal"><span class="title">NumPy arrays</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-modules.html#exercises-modules" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-matplotlib.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Matplotlib and 2D graphing</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib.html#subsec-figures" class="internal"><span class="title">Creating a graph or plot</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib.html#section-matplotlib-5" class="internal"><span class="title">Curves in 2D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib.html#subsec-scatterplots" class="internal"><span class="title">Scatter Plots in 2D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib.html#section-matplotlib-7" class="internal"><span class="title">Parametric Curves in 2D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib.html#labels" class="internal"><span class="title">Titles and Axes Labels</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib.html#custom-graphs" class="internal"><span class="title">Customizing</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib.html#subsec-Vectorsin2D" class="internal"><span class="title">Vectors in 2D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib.html#subsec-subplots" class="internal"><span class="title">Multiple plots in the same figure</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-matplotlib.html#exercises-matplotlib2D" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-matplotlib3d.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Matplotlib and 3D graphing</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib3d.html#subsec-3Daxes" class="internal"><span class="title">3D axes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib3d.html#subsec-3DParam" class="internal"><span class="title">Parametric Curves in 3D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib3d.html#subsec-Graphing-a-surface" class="internal"><span class="title">Surfaces and scatterplots in 3D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib3d.html#subsec-3DAxesandLabels" class="internal"><span class="title">Axes and Labels</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib3d.html#subsec-multiplesurfaces" class="internal"><span class="title">Plotting Multiple Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matplotlib3d.html#section-matplotlib3d-9" class="internal"><span class="title">Customizing</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-matplotlib3d.html#exercises-matplotlib3D" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-animation.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Basic Animation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-animation.html#section-animation-4" class="internal"><span class="title">Creating a .gif in Matplotlib</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-animation.html#subsec-interactive-slider" class="internal"><span class="title">Creating an interactive slider</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-animation.html#subsec-student-showcase" class="internal"><span class="title">Student Showcase</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-animation.html#exercises-animation" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="chapter2.html" class="internal"><span class="codenumber">2</span> <span class="title">Matrix Algebra in Python</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="section-systems.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Solving and Graphing Systems of Linear Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-systems.html#rref" class="internal"><span class="title">Row Reduction</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-systems.html#graphsolution" class="internal"><span class="title">Graphing solutions to systems of equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-systems.html#section-systems-6" class="internal"><span class="title">Graphing vector equations and their solutions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-systems.html#subsec-" class="internal"><span class="title">Converting between Numpy arrays and Sympy Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-systems.html#subsecRoundingErrorRref" class="internal"><span class="title">Round-off error in Sympy’s rref()</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-systems.html#exercises-systems" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-matrices.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix Arithmetic</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matrices.html#section-matrices-4" class="internal"><span class="title">NumPy vs SymPy</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matrices.html#subsec-BasicMatrices" class="internal"><span class="title">Basic Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matrices.html#subsec-MatrixArithmetic" class="internal"><span class="title">Matrix Arithmetic</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matrices.html#subsec-MatrixMultiplication" class="internal"><span class="title">Matrix Multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matrices.html#subsec-MatrixInverses" class="internal"><span class="title">Matrix Inverses</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matrices.html#subsec-solving-with-inverses" class="internal"><span class="title">Solving Matrix Equations via Inverses</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-matrices.html#subsec-ill-conditioned" class="internal"><span class="title">Ill-Conditioned Matrices</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-matrices.html#exercises-matrices" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-transformations.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Matrix Transformations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-transformations.html#subsec-ComputingMatrixTransformations" class="internal"><span class="title">Computing Matrix Transformations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-transformations.html#section-transformations-5" class="internal"><span class="title">Visualizing a Matrix Transformation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-transformations.html#section-transformations-6" class="internal"><span class="title">Animating Matrix Transformations</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-transformations.html#exercises-transformations" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-determinants.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Determinants</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-determinants.html#subsec-what-is-determinant" class="internal"><span class="title">What is the determinant?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-determinants.html#subsec-computing-determinant" class="internal"><span class="title">Computing the Determinant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-determinants.html#subsec-determinants-linear-systems" class="internal"><span class="title">Determinants and Systems of Linear Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-determinants.html#subsec-numerical-solve" class="internal"><span class="title">Numerically Solving System of Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-determinants.html#subsec-Ill-conditionedTransformations" class="internal"><span class="title">Ill-conditioned Matrices</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-determinants.html#exercises-determinants" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-eigenthings.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Eigenthings</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-eigenthings.html#subsec-computing-eigenthings" class="internal"><span class="title">Computing Eigenthings</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-eigenthings.html#subsec-visualizing-eigenthings" class="internal"><span class="title">Visualizing with Eigenthings</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-eigenthings.html#subsec-Diagonalization" class="internal"><span class="title">Diagonalization</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-eigenthings.html#subsec-complex-decomposition" class="internal"><span class="title">Complex Eigen-thing Decomposition</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-eigenthings.html#exercises-eigenthings" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="appendix.html" class="internal"><span class="codenumber">3</span> <span class="title">Appendix</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="examples.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Samples of various pretext formats</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="examples.html#examples-11" class="internal"><span class="title">What happens if I do this?</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="examples.html#examples-13" class="internal"><span class="title">Reading Questions</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-systems"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">2.1</span><span class="space"> </span><span class="title">Solving and Graphing Systems of Linear Equations</span>
+</h2>
+<section class="introduction" id="section-systems-2">Systems of linear equations can be solved using multiple methods. In this section we will learn how to solve systems of linear equations using a process called row reduction. <details class="ptx-footnote" aria-live="polite" id="section-systems-2-1"><summary class="ptx-footnote__number" title="Footnote 2.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="section-systems-2-1">Row reduction is sometimes called Gaussian elimination, after the mathematician Gauss, whose notation was adopted by . The method was actually popularized in Europe by Cambridge University who published notes of Newton. Soon algebra textbooks across Europe included the method. Long before Gauss or Newton, Chinese scholars demonstrated this method of solving systems of linear equations in chapter 8 of The Nine Chapters on the Mathematical Art.</div></details></section><article class="objectives goal-like" id="section-systems-3"><h3 class="heading"><span class="type">Objectives</span></h3>
+<ul class="disc" id="section-systems-3-1">
+<li id="section-systems-3-1-1"><div class="para" id="section-systems-3-1-1-1">Row reduce matrices representing systems of linear equations using the Python library Sympy.</div></li>
+<li id="section-systems-3-1-2"><div class="para" id="section-systems-3-1-2-1">Graph solutions to systems of linear equations of two or three variables.</div></li>
+<li id="section-systems-3-1-3"><div class="para" id="section-systems-3-1-3-1">Graph solutions to vector equations in <span class="process-math">\(\mathbb{R}^2\)</span> and <span class="process-math">\(\mathbb{R}^3\text{.}\)</span>
+</div></li>
+<li id="section-systems-3-1-4"><div class="para" id="section-systems-3-1-4-1">Use the pivots of a reduced augmented matrix to determine if a system has no solution, a unique solution, or infinitely many solutions</div></li>
+</ul></article><section class="subsection" id="rref"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Row Reduction</span>
+</h3>
+<div class="para" id="rref-2">Note that row reduction involves symbolic manipulation. Since Numpy is focused on number crunching, we will need a different Python library called Sympy to do the symbolic manipulation of row reduction to reduced echelon form and row reduced echelon form.</div>
+<div class="para" id="rref-3">In order to row reduce a system of linear equations we convert our system into an augmented matrix.</div>
+<article class="example example-like" id="augmatrix"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Augmented Matrix.</span>
+</h4>
+<div class="para logical" id="augmatrix-2-1">
+<div class="para">For example, the system</div>
+<div class="displaymath process-math" id="augmatrix-2-1-1">
+\begin{align*}
+2x \amp -3y \amp= 4 \\
+x \amp +4y \amp =2
+\end{align*}
+</div>
+<div class="para">becomes</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[
+\begin{matrix}
+2 \amp -3 \amp | \amp 4\\
+1 \amp 4 \amp | \amp 2
+\end{matrix}
+\right].
+\end{equation*}
+</div>
+</div></article><div class="para" id="rref-5">In Sympy, matrices are entered using the function <code class="code-inline tex2jax_ignore">Matrix</code>.</div>
+<div id="rref-6" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import sympy as sp
+
+#define your sympy matrix
+A = sp.Matrix([
+  [1,2,3],
+  [4,5,6]]) 
+
+print(A)
+</script></div>
+<article class="exercise exercise-like" id="rref-7"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.2</span><span class="period">.</span>
+</h4>
+<div class="para" id="rref-7-1">Edit the above code to print the augmented matrix for the system of linear equations in <a href="section-systems.html#augmatrix" class="xref" data-knowl="./knowl/xref/augmatrix.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.1: Augmented Matrix">Example 2.1</a>.</div></article><div class="para" id="rref-8">Note that sympy will automatically convert decimals to floating point numbers. Often it is helpful to keep fractions exact using sympy’s <code class="code-inline tex2jax_ignore">Rational(a,b)</code> command.</div>
+<article class="exercise exercise-like" id="rref-9"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.3</span><span class="period">.</span>
+</h4>
+<div class="para" id="rref-9-1">Edit the above code to print a matrix with decimals like <span class="process-math">\(0.9\)</span> or <span class="process-math">\(0.1\text{.}\)</span> Also print a matrix with fractions like <span class="process-math">\(\frac{9}{10}\)</span> and <span class="process-math">\(\frac{1}{10}\)</span> using sympy’s <code class="code-inline tex2jax_ignore">Rational(a,b)</code> command.</div>
+<details id="rref-9-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="rref-9-2-1">Note that <code class="code-inline tex2jax_ignore">Rational(a,b)</code> is not a Python command, but rather a command specific to Sympy.</div></div></details></article><div class="para" id="rref-10">The Sympy functions <code class="code-inline tex2jax_ignore">echelon_form()</code> and <code class="code-inline tex2jax_ignore">rref()</code> can be used to row reduce a matrix to reduced echelon form and row reduced echelon form, respectively. If you need a refresher on these two forms, read <a class="external" href="https://textbooks.math.gatech.edu/ila/row-reduction.html" target="_blank">Section 1.2</a><details class="ptx-footnote" aria-live="polite" id="rref-10-4"><summary class="ptx-footnote__number" title="Footnote 2.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="rref-10-4"><code class="code-inline tex2jax_ignore">Interactive Linear Algebra 1.2 Row Reduction</code></div></details> of Interactive Linear Algebra.</div>
+<article class="exercise exercise-like" id="rref-11"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.4</span><span class="period">.</span>
+</h4>
+<div class="para" id="rref-11-1">Edit the code below to print the reduced echelon form and the row reduced echelon form for the augmented matrix of the system of linear equations from <a href="section-systems.html#augmatrix" class="xref" data-knowl="./knowl/xref/augmatrix.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.1: Augmented Matrix">Example 2.1</a>.</div></article><div id="rref-12" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import sympy as sp
+
+#define your sympy matrix
+A = sp.Matrix([ [2,-3,4], [1,4,2]]) 
+
+print(A.echelon_form()) #print REF of A
+print(A.rref()) #print RREF of A
+</script></div>
+<div class="para" id="rref-13">Note that <code class="code-inline tex2jax_ignore">rref()</code> returns not only the row reduced echelon form of a matrix, but also a tuple that tells you which columns have leading values of 1 (where the left-most column is column 0). These columns are called pivot columns, and give you a quick way to see any free variables (which are non-pivot columns).</div>
+<article class="exercise exercise-like" id="rref-14"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.5</span><span class="period">.</span>
+</h4>
+<div class="para" id="rref-14-1">Edit the code above for various augmented matrices to see how the tuple returned by <code class="code-inline tex2jax_ignore">rref()</code> relates to the pivot columns.</div></article><div class="para logical" id="rref-15">
+<div class="para">Recall that a system of linear equations either has</div>
+<ol class="decimal" id="rref-15-1">
+<li id="rref-15-1-1"><div class="para" id="rref-15-1-1-1">no solution,</div></li>
+<li id="rref-15-1-2"><div class="para" id="rref-15-1-2-1">a unique solution, or</div></li>
+<li id="rref-15-1-3"><div class="para" id="rref-15-1-3-1">infinitely many solutions.</div></li>
+</ol>
+<div class="para">If you need a refresher on how to interpret the reduced echelon form of an augmented matrix to determine if there is no solution, write down the unique solution, or give the infinitely many solutions in parametric form, see MTH 264 class notes Lesson 3.</div>
+</div></section><section class="subsection" id="graphsolution"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Graphing solutions to systems of equations</span>
+</h3>
+<div class="para" id="graphsolution-2">In order to graph solutions to systems of linear equations with two or three variables you can graph the corresponding lines, planes, or coordinates.</div>
+<article class="example example-like" id="twodsolutions"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.6</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="twodsolutions-1">
+<div class="para">The system</div>
+<div class="displaymath process-math" id="twodsolutions-1-1">
+\begin{align*}
+x \amp +2y \amp= 6 \\
+\frac{1}{2}x \amp -y \amp =1
+\end{align*}
+</div>
+<div class="para">has solutions <span class="process-math">\(x=4\)</span> and <span class="process-math">\(y=1\text{.}\)</span>
+</div>
+</div> <div class="para" id="twodsolutions-2">Linear equations with two variables can be graphed as lines in the xy-plane, either by plotting two points on the line or solving for <span class="process-math">\(y\text{.}\)</span> The solution is one point in a scatter plot.</div> <div id="twodsolutions-3" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import matplotlib.pyplot as plt
+import numpy as np
+
+fig = plt.figure() #create a figure
+ax = plt.axes() #create an axis
+ax.grid() #add a grid
+
+X = np.linspace(0,10,num=100) #inputs
+Y1 = (6-X)/2 #outputs for first equation
+Y2 = 0.5*X-1 #outputs for second equation
+
+#label title and axes
+ax.set(title="Solutions to 2D System", xlabel="x", ylabel="y") 
+
+ax.plot(X,Y1,X,Y2) #plot both equations
+plt.show() #display result
+</script></div></article><article class="exercise exercise-like" id="graphsolution-4"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.7</span><span class="period">.</span>
+</h4>
+<div class="para" id="graphsolution-4-1">Edit the code in <a href="section-systems.html#twodsolutions" class="xref" data-knowl="./knowl/xref/twodsolutions.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.6">Example 2.6</a> to clearly indicate the solution <span class="process-math">\(x=4\)</span> and <span class="process-math">\(y=1\)</span> on the graph.</div></article><div class="para" id="graphsolution-5">Systems of equations with three variables must be graphed in 3D. As mentioned in <a href="section-matplotlib3d.html" class="internal" title="Section 1.4: Matplotlib and 3D graphing">Section 1.4</a>, Matplotlib paints 2D projections of each surface on top of the other which doesn’t adequately graph their relationships. We can partially fix this by making the surfaces transparent and explicitly plotting their intersections. The intersection of any two non-parallel planes is a line which can be found by solving the system of the two plane equations and writing the solution in parametric form.</div>
+<article class="example example-like" id="threedsolutions1"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.8</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="threedsolutions1-1">
+<div class="para">Graph solutions to the system</div>
+<div class="displaymath process-math" id="threedsolutions1-1-1">
+\begin{align*}
+x +y +z \amp= 1 \\
+-y +z \amp =1\\
+-x  +y -z\amp =0
+\end{align*}
+</div>
+<div class="para">by finding the equations of the lines of intersection of the planes and plotting the planes, the lines, and the point of intersection.</div>
+</div> <div class="para" id="threedsolutions1-2">Solution 1 walks through the process, followed by a Python implementation of the <code class="code-inline tex2jax_ignore">rref()</code>.</div> <details id="threedsolutions1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="threedsolutions1-3-1">First row reducing the augmented matrix for the system of all three equations we obtain a unique solution <span class="process-math">\(x=-1\text{,}\)</span> <span class="process-math">\(y=1/2\text{,}\)</span> <span class="process-math">\(z=3/2\text{.}\)</span>
+</div> <div class="para logical" id="threedsolutions1-3-2">
+<div class="para">Row reducing the augmented matrix for the first two equations we obtain</div>
+<div class="displaymath process-math" id="threedsolutions1-3-2-1">
+\begin{align*}
+x +2z \amp= 2 \\
+y -z \amp =-1
+\end{align*}
+</div>
+<div class="para">which can be written in parametric form,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[ \begin{matrix} x\\ y\\z \end{matrix} \right] =
+\left[\begin{matrix} 2-2z\\ -1+z\\z \end{matrix} \right]=
+\left[\begin{matrix} 2\\ -1\\0 \end{matrix} \right] +z\left[\begin{matrix} -2\\ 1\\1 \end{matrix} \right].
+\end{equation*}
+</div>
+</div> <div class="para logical" id="threedsolutions1-3-3">
+<div class="para">Row reducing the augmented matrix for the last two equations we obtain</div>
+<div class="displaymath process-math" id="threedsolutions1-3-3-1">
+\begin{align*}
+x \amp= -1 \\
+y -z \amp =-1
+\end{align*}
+</div>
+<div class="para">which can be written in parametric form,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[ \begin{matrix} x\\ y\\z \end{matrix} \right] =
+\left[\begin{matrix} -1\\ -1+z\\z \end{matrix} \right]=
+\left[\begin{matrix} -1\\ -1\\0 \end{matrix} \right] +z\left[\begin{matrix} 0\\ 1\\1 \end{matrix} \right].
+\end{equation*}
+</div>
+</div> <div class="para logical" id="threedsolutions1-3-4">
+<div class="para">Row reducing the augmented matrix for the first and last equations we obtain</div>
+<div class="displaymath process-math" id="threedsolutions1-3-4-1">
+\begin{align*}
+x +z\amp= 1/2 \\
+y  \amp =1/2
+\end{align*}
+</div>
+<div class="para">which can be written in parametric form,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[ \begin{matrix} x\\ y\\z \end{matrix} \right] =
+\left[\begin{matrix} 1/2-z\\ 1/2\\z \end{matrix} \right]=
+\left[\begin{matrix} 1/2\\ 1/2\\0 \end{matrix} \right] +z\left[\begin{matrix} -1\\ 0\\1 \end{matrix} \right].
+\end{equation*}
+</div>
+</div>
+</div></details> <div id="threedsolutions1-4" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import sympy as sp
+
+A = sp.Matrix([ [1,1,1,1], [0,-1,1,1],[-1,1,-1,0]
+]) #all three equations
+
+I1 = sp.Matrix([ [1,1,1,1], [0,-1,1,1]
+]) #intersection first two equations
+
+I2 = sp.Matrix([ [0,-1,1,1],[-1,1,-1,0]
+]) #intersection last two other equations
+
+I3 = sp.Matrix([ [1,1,1,1], [-1,1,-1,0]
+]) #intersection first and last equations
+
+print("A=", A.rref())
+print("I1=", I1.rref())
+print("I2=", I2.rref())
+print("I3=", I3.rref())
+</script></div> <div class="para" id="threedsolutions1-5">Next we will use Matplotlib to graph these results. First note that if we are careless with our input domains for the planes and lines, our graph will be inconsistent.</div> <div id="threedsolutions1-6" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import matplotlib.pyplot as plt
+import numpy as np
+
+fig = plt.figure() #create a figure
+ax = plt.axes(projection='3d') #add a 3D axis
+
+#plot the 3 plane equations, use alpha for transparency
+X = np.arange(-2,2,step=0.25) #1d x inputs
+Y = np.arange(-2,2,step=0.25) #1d y inputs
+X,Y = np.meshgrid(X,Y) #2D grid of inputs
+Z1 = 1-X-Y
+Z2 = 1+Y
+Z3 = Y-X
+ax.plot_surface(X,Y,Z1, alpha=0.5) 
+ax.plot_surface(X,Y,Z2, alpha=0.5)
+ax.plot_surface(X,Y,Z3, alpha=0.5)
+
+#plot the solution
+ax.scatter(-1,1/2,3/2)
+
+#plot the 3 line equations
+Z = np.arange(-2,2,step=0.25)
+X1 = 2-2*Z
+Y1 = -1+Z
+X2 = -1+0*Z
+Y2 = -1+Z
+X3 = 0.5-Z
+Y3 = 0.5+0*Z
+ax.plot(X1,Y1,Z)
+ax.plot(X2,Y2,Z)
+ax.plot(X3,Y3,Z)
+
+# Customize the view angle 
+#ax.view_init(elev=20, azim=30, roll=0)
+
+#set title and axes labels
+ax.set(title="Solutions to 3D System", xlabel="x", ylabel="y", zlabel="z")
+
+plt.show()
+</script></div> <div class="para" id="threedsolutions1-7">Note: you can change the viewing angle to try and get a better graph.</div> <div class="para" id="threedsolutions1-8">The real problem in the code above is that we graph our surfaces with domain <span class="process-math">\(-2\leq x \leq 2\)</span> and <span class="process-math">\(-2\leq y\leq 2\text{,}\)</span> but use <span class="process-math">\(-2\leq z\leq 2\)</span> for the parametric equation of our lines. There are several fixes for this.</div> <div class="para" id="threedsolutions1-9">One fix is to adjust the parametric input values for the lines to better match the planes. For example, you can make <span class="process-math">\(-1\leq z \leq 3\)</span> to get a more consistent graph. <em class="emphasis">Try several adjustments for the <span class="process-math">\(z\)</span> range in the above code.</em> To get a fully consistent graph, each line would need a different parametric domain that matches the domain of the planes.</div> <div class="para" id="threedsolutions1-10">Another fix is to solve each pair of equations for two points on the line in the domain of the planes. You can then plot the line between the two points.</div> <div class="para" id="threedsolutions1-11">Solution 2 walks through the process of finding the points, followed by an alternative Python implementation to graph the solutions.</div> <details id="threedsolutions1-12" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="threedsolutions1-12-1">
+<div class="para">Recall the first two equations intersect in the line</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[ \begin{matrix} x\\ y\\z \end{matrix} \right] =
+\left[\begin{matrix} 2-2z\\ -1+z\\z \end{matrix} \right]=
+\left[\begin{matrix} 2\\ -1\\0 \end{matrix} \right] +z\left[\begin{matrix} -2\\ 1\\1 \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">Solving for when <span class="process-math">\(x=2\text{,}\)</span> we see <span class="process-math">\(t=0\text{.}\)</span> Plugging <span class="process-math">\(t=0\)</span> into the parametric equation for the line we obtain the point <span class="process-math">\((2,-1,0)\text{.}\)</span> Similarly when <span class="process-math">\(x=-2\text{,}\)</span> we find <span class="process-math">\(t=2\text{,}\)</span> giving the point <span class="process-math">\((-2,1,2)\text{.}\)</span>
+</div>
+</div> <div class="para logical" id="threedsolutions1-12-2">
+<div class="para">The last two equations intersect in the line</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[ \begin{matrix} x\\ y\\z \end{matrix} \right] =
+\left[\begin{matrix} -1\\ -1+z\\z \end{matrix} \right]=
+\left[\begin{matrix} -1\\ -1\\0 \end{matrix} \right] +z\left[\begin{matrix} 0\\ 1\\1 \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">Here <span class="process-math">\(x\)</span> is always <span class="process-math">\(-1\text{.}\)</span> Instead we solve for when <span class="process-math">\(y=-2\)</span> and <span class="process-math">\(2\text{.}\)</span> We find <span class="process-math">\(t=-1\)</span> and <span class="process-math">\(3\text{,}\)</span> giving us the two points <span class="process-math">\((-1,2,-1)\)</span> and <span class="process-math">\((-1,2,3)\text{.}\)</span>
+</div>
+</div> <div class="para logical" id="threedsolutions1-12-3">
+<div class="para">The first and last equations intersect in the line</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[ \begin{matrix} x\\ y\\z \end{matrix} \right] =
+\left[\begin{matrix} 1/2-z\\ 1/2\\z \end{matrix} \right]=
+\left[\begin{matrix} 1/2\\ 1/2\\0 \end{matrix} \right] +z\left[\begin{matrix} -1\\ 0\\1 \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">Here <span class="process-math">\(x=-2,2\)</span> when <span class="process-math">\(t=5/2,-3/2\)</span> giving us the points <span class="process-math">\((-2,1/2,5/2)\)</span> and <span class="process-math">\((2,1/2,-3/2)\text{.}\)</span>
+</div>
+</div> <div class="para" id="threedsolutions1-12-4">Recall to plot the lines between two points we create arrays of the <span class="process-math">\(x\)</span>-values, <span class="process-math">\(y\)</span>-values, and <span class="process-math">\(z\)</span>-values, then plot the line between them.</div>
+</div></details> <div id="threedsolutions1-13" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import matplotlib.pyplot as plt
+import numpy as np
+
+fig = plt.figure() #create a figure
+ax = plt.axes(projection='3d') #add a 3D axis
+
+#plot the 3 plane equations, use alpha for transparency
+X = np.arange(-2,2,step=0.25) #1d x inputs
+Y = np.arange(-2,2,step=0.25) #1d y inputs
+X,Y = np.meshgrid(X,Y) #2D grid of inputs
+SurfZ1 = 1-X-Y
+SurfZ2 = 1+Y
+SurfZ3 = Y-X
+ax.plot_surface(X,Y,SurfZ1, color='cyan', alpha=0.5) 
+ax.plot_surface(X,Y,SurfZ2, color='orchid', alpha=0.5)
+ax.plot_surface(X,Y,SurfZ3, color='gold', alpha=0.5)
+
+#plot the solution
+ax.scatter(-1,1/2,3/2)
+
+#plot the 3 line equations using points
+Line1X = [-2,2] #xvalues for first line
+Line1Y = [1,-1] #yvalues for first line
+Line1Z = [2,0] #zvalues for first line
+Line2X = [-1,-1]
+Line2Y = [-2,2]
+Line2Z = [-1,3]
+Line3X = [-2,2]
+Line3Y = [1/2,1/2]
+Line3Z = [5/2,-3/2]
+ax.plot(Line1X,Line1Y,Line1Z, color='mediumpurple')
+ax.plot(Line2X,Line2Y,Line2Z, color='darkorange')
+ax.plot(Line3X,Line3Y,Line3Z, color='green')
+
+# Customize the view angle 
+#ax.view_init(elev=20, azim=30, roll=0)
+
+#set title and axes labels
+ax.set(title="Solutions to 3D System", xlabel="x", ylabel="y", zlabel="z")
+
+plt.show()
+</script></div> <div class="para" id="threedsolutions1-14">Can you find other fixes? <em class="emphasis">If so, share them so we can add them here.</em>
+</div></article></section><section class="subsection" id="section-systems-6"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Graphing vector equations and their solutions</span>
+</h3>
+<div class="para" id="section-systems-6-2">Recall that solving a vector equation is equivalent to solving a system of equations.</div>
+<article class="example example-like" id="section-systems-6-3"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.9</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="section-systems-6-3-1">
+<div class="para">For example the vector equation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/twodsolutions.html">
+\begin{equation*}
+x\left[ \begin{matrix} 1\\ 1/2 \end{matrix} \right] +
+y\left[\begin{matrix} 2\\-1 \end{matrix} \right]=
+\left[\begin{matrix} 6\\1 \end{matrix} \right]
+\end{equation*}
+</div>
+<div class="para">corresponds to the linear system found in <a href="section-systems.html#twodsolutions" class="xref" data-knowl="./knowl/xref/twodsolutions.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.6">Example 2.6</a> and still has solution <span class="process-math">\(x=4\)</span> and <span class="process-math">\(y=1\text{.}\)</span>
+</div>
+</div> <div class="para" id="section-systems-6-3-2">The solution to the vector equation can be graphed using linear combinations of vectors. That is, <span class="process-math">\(4\vec{u}+\vec{v}=\vec{b}.\)</span>
+</div> <div id="section-systems-6-3-3" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import matplotlib.pyplot as plt
+
+fig = plt.figure(figsize=(8,5)) #create a figure
+#create one row and two columns of plots
+ax1 = plt.subplot(1,2,1) #1 row, 2 columns, first graph
+ax2 = plt.subplot(1,2,2) #1 row, 2 columns, second graph
+
+# add original vectors to axes
+ax1.quiver(0,0,1,1/2,label='$\\vec u$',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1) 
+ax1.quiver(0,0,2,-1,label='$\\vec v$',color='deepskyblue', angles='xy', scale_units='xy', scale=1) 
+ax1.quiver(0,0,6,1,label='$\\vec b$',color='green', angles='xy', scale_units='xy', scale=1) 
+
+#add solution vectors to axes
+ax2.quiver(0,0,4,2,label='$4 \\vec u$',color='darkgoldenrod', angles='xy', scale_units='xy', scale=1, alpha=0.6) 
+ax2.quiver(4,2,2,-1,label='$\\vec v$', color='deepskyblue', angles='xy', scale_units='xy', scale=1)
+ax2.quiver(0,0,6,1,label='$\\vec b$',color='green', angles='xy', scale_units='xy', scale=1) 
+
+#annotate vectors option instead of legend
+ax1.annotate("$\\vec u$", xy=(0.25,0.25))
+ax1.annotate("$\\vec v$", xy=(0.5, -.65))
+ax1.annotate("$\\vec b$", xy=(3, 0.25))
+ax2.annotate("$4\\vec u$", xy=(2,1.2))
+ax2.annotate("$\\vec v$", xy=(5,1.65))
+ax2.annotate("$\\vec b$", xy=(3, 0.25))
+
+#set title and axes labels and limits, legend, axis, grid
+ax1.set(title="Vector Equation $x\\vec u+y\\vec v=\\vec b$")
+ax1.set(xlabel="x", ylabel="y")
+ax1.set(xlim=(-1,7), ylim=(-1.5,3.5))
+ax1.legend() 
+ax1.axhline(0, color='black')
+ax1.axvline(0, color='black')
+ax1.grid()
+
+#set title and axes labels and limits, legend, axis, grid
+ax2.set(title="Vector Equation Solutions", xlabel="x", ylabel="y")
+ax2.set(xlim=(-1,7), ylim=(-1.5,3.5))
+ax2.legend() 
+ax2.axhline(0, color='black')
+ax2.axvline(0, color='black')
+ax2.grid() 
+
+plt.show()
+</script></div></article></section><section class="subsection" id="subsec-"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Converting between Numpy arrays and Sympy Matrices</span>
+</h3>
+<div class="para" id="subsec--2">Since Numpy and Sympy are different libraries, we will need to either enter our augmented matrix as a Sympy matrix, or convert a numpy array into a sympy matrix in order to call the row reducing function in Sympy.</div>
+<div class="para" id="subsec--3">Note that Numpy matrices can be coded as 2D Numpy arrays.</div>
+<div id="subsec--4" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
+import sympy as sp
+
+npA = np.array([[1, 2], [3, 4]]) #Create a numpy array
+spA = sp.Matrix(npA) #convert to a sympy matrix
+
+RREF = spA.rref()[0] #Get RREF in sympy
+
+print(RREF) #print sympy rref
+print(np.array(RREF)) #print numpy rref, this doesn't always work to compute with
+print(np.array(RREF).astype(np.float64)) #specify float type, which will work
+</script></div></section><section class="subsection" id="subsecRoundingErrorRref"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Round-off error in Sympy’s rref()</span>
+</h3>
+<div class="para" id="subsecRoundingErrorRref-2">Whenever you use a computer to perform arithmetic you have to consider round-off error. Numbers in Python are either stored as an integer data type, a floating point number data type, or a complex number data type. Although <span class="process-math">\(0.1\)</span> has a finite decimal representation, in binary it requires an infinite repeating floating point representation which cannot be stored without being truncated or rounded.</div>
+<article class="example example-like" id="rounderror"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.10</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="rounderror-1">
+<div class="para">Consider the system of equations</div>
+<div class="displaymath process-math" id="rounderror-1-1">
+\begin{align*}
+0.8x -0.8y -0.4z \amp= 0 \\
+-0.3x +0.9y -0.4z \amp =0\\
+-0.4x -0.1y +0.8z\amp=0 
+\end{align*}
+</div>
+<div class="para">If you multiply both sides of each equation by 10, you don’t change the solutions to the equations.</div>
+<div class="displaymath process-math" id="rounderror-1-2">
+\begin{align*}
+8x -8y -4z \amp= 0 \\
+-3x +9y -4z \amp =0\\
+-4x -y +8z\amp=0 
+\end{align*}
+</div>
+<div class="para">If you use Sympy to row reduce the system, however, you get a different answer.</div>
+</div> <div id="rounderror-2" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import sympy as sp
+
+#system of linear equations
+S = sp.Matrix([
+[ 0.8,-0.8,-0.4 ,0],
+[-0.3, 0.9,-0.4, 0],
+[-0.5,-0.1, 0.8, 0]])
+
+#same system multiplied by 10
+disguised_S = sp.Matrix([
+[ 8,-8,-4 ,0],
+[-3, 9,-4, 0],
+[-5,-1, 8, 0]])
+
+print("Reduced with decimals:", S.rref())
+print("Reduced with whole numbers:", disguised_S.rref())
+</script></div> A possible fix for the floating point round-off error is to tell Sympy explicitly when to round to zero by making a user defined <code class="code-inline tex2jax_ignore">iszerofunc</code>. <div id="rounderror-4" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import sympy as sp
+
+#system of linear equations
+S = sp.Matrix([
+[ 0.8,-0.8,-0.4 ,0],
+[-0.3, 0.9,-0.4, 0],
+[-0.5,-0.1, 0.8, 0]])
+
+#same system multiplied by 10
+disguised_S = sp.Matrix([
+[ 8,-8,-4 ,0],
+[-3, 9,-4, 0],
+[-5,-1, 8, 0]])
+
+SRREF = S.rref(iszerofunc=lambda x: abs(x) < 1e-10)
+
+print("Reduced with decimals:", SRREF)
+print("Reduced with whole numbers:", disguised_S.rref())
+</script></div></article><article class="exercise exercise-like" id="subsecRoundingErrorRref-4"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">2.11</span><span class="period">.</span>
+</h4>
+<div class="para" id="subsecRoundingErrorRref-4-1">Sympy’s rational number data type stores fractions as two integers to avoid floating point representation. Fix the row reduction round-off error for the original system in <a href="section-systems.html#rounderror" class="xref" data-knowl="./knowl/xref/rounderror.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.10">Example 2.10</a> by using Sympy’s <code class="code-inline tex2jax_ignore">Rational()</code> function instead.</div></article></section><article class="assemblage assemblage-like" id="section-systems-9"><h3 class="heading"><span class="title">Summary.</span></h3>
+<div class="para logical" id="section-systems-9-2">
+<ul class="disc" id="section-systems-9-2-1"><li id="section-systems-9-2-1-1"><div class="para" id="section-systems-9-2-1-1-1">TBD</div></li></ul>
+<ul class="disc" id="section-systems-9-2-2"><li id="section-systems-9-2-2-1"><div class="para" id="section-systems-9-2-2-1-1">TBD</div></li></ul>
+</div></article><section class="exercises" id="exercises-systems"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exercises-systems-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para logical" id="exercises-systems-1-1">
+<div class="para">The system</div>
+<div class="displaymath process-math" id="exercises-systems-1-1-1">
+\begin{align*}
+x  +2y  +z \amp= 6 \\
+x  -y  \amp =3\\
+-x  +y  -z\amp =0
+\end{align*}
+</div>
+<div class="para">has a unique solution.</div>
+</div>
+<div class="para" id="exercises-systems-1-2">Use Python code to find the solution. Graph the system of equations and the solution using Matplot3D. Lable your axes. <em class="emphasis">Note: part of the challenge is making sure you have a good viewing window and perspective so the graph helps illuminate the solution.</em>
+</div></article><article class="exercise exercise-like" id="exercises-systems-2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para logical" id="exercises-systems-2-1">
+<div class="para">Consider the system</div>
+<div class="displaymath process-math" id="exercises-systems-2-1-1">
+\begin{align*}
+x  +2y  +z \amp= 6 \\
+x  -y  \amp =3\\
+-x  +y  -z\amp =0
+\end{align*}
+</div>
+<div class="para">Convert the system of linear equations to a vector equation.</div>
+</div>
+<div class="para" id="exercises-systems-2-2">Find the unique solution and graph your answer as a vector equation using Matplotlib3D. (That is, use vectors instead of planes to visualize the solution to this system.)</div></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="chapter2.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="section-matrices.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>
