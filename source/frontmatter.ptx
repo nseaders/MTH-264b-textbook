@@ -11,11 +11,13 @@
         <author>
           <personname>Nicole Seaders and Claire Burke</personname>
           <department>Mathematics Department</department>
-          <institution>Linn Benton Community College</institution>
+          <institution>Linn Benton Community College, CC BY-NC-SA 4.0</institution>
         </author>
         <date>
           <today />
         </date>
+  
+
       </titlepage>
 
       <colophon>
@@ -28,12 +30,18 @@
         </website>
 
         <copyright>
-          <year>2023<ndash />2026</year>
-          <holder>??</holder>
+          <!--year>2023<ndash />2026</year-->
+          <holder>Seaders, Burke and LBCC</holder>
           <shortlicense> 
-            This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit <url href="http://creativecommons.org/licenses/by-sa/4.0/" visual="creativecommons.org/licenses/by-sa/4.0"> CreativeCommons.org</url>
+            <q><em>An Introduction to Matrix Computations in Python: Just the basics</em></q> by Nicole Seaders, Claire Burke and LBCC
+            is licensed under the 
+            <url href="https://creativecommons.org/licenses/by-nc-sa/4.0/" visual="Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License"/>
+            <image source="figs/by-nc-sa.png"/>
+            <!--To view a copy of this license, visit <url href="https://creativecommons.org/licenses/by-nc-sa/4.0/" visual="creativecommons.org/licenses/by-sa/4.0"> CreativeCommons.org</url>-->
           </shortlicense>
         </copyright>
+
+        
       </colophon>
 
 
