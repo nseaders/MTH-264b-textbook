@@ -1,5 +1,9 @@
-Copyright (c)  2023  LBCC
+An Introduction to Matrix Computations in Python: Just the basics 
+by Nicole Seaders, Claire Burke and LBCC
+is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
 
-Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.2 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A copy of the license is included in the section entitled ``GNU Free Documentation License''.
-
-This means you may make copies of this work free of charge, and you may distribute copies.  You may also make modifications for your own use.  If you make modifications and distribute the modified version, you are subject to certain restrictions.  Principally, you must license the modified version under the same license.
+This license enables reusers to distribute, remix, adapt, and build upon the material in any medium or format for noncommercial purposes only, and only so long as attribution is given to the creator. If you remix, adapt, or build upon the material, you must license the modified material under identical terms. 
+CC BY-NC-SA includes the following elements:
+ BY: credit must be given to the creator.
+ NC: Only noncommercial uses of the work are permitted.
+ SA: Adaptations must be shared under the same terms.
