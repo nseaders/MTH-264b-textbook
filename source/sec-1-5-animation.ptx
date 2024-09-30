@@ -261,7 +261,7 @@
         </p>
 
         <example>
-          <title>Anonymous (Spring 2024)</title>
+          <title>Anonymous .gif (Spring 2024)</title>
           <sage language='python'>
             <input>
               #This code generates a Graph demonstrating the motion of a hypothetical falling Space Shark on numerous different planets and moons
@@ -318,7 +318,7 @@
         </example>
 
         <example>
-          <title>Luke Clark (Spring 2024)</title>
+          <title>Luke Clark interactive (Spring 2024)</title>
           <sage language='python'>
             <input>
               import matplotlib.pyplot as plt 
@@ -345,7 +345,57 @@
         </example>
 
         <example>
-          <title>Ben Cantarero (Spring 2024)</title>
+          <title>Jacob DeWilde interactive (Spring 2024)</title>
+          <sage language='python'>
+            <input>
+              # - Graphing the Partial Sums of the Alternating Series with an Interactive Slider - 
+              import numpy as np
+              import matplotlib.pyplot as plt
+              # import the essentials
+              n = np.linspace(1,100,100)
+              # Since we are graphing the sequence of partial sums and not just # the terms of the series, it is essential that the values of our
+              # index variable n matches up exactly with the series we're trying # to plot (the first element in our array should be the same number # that the index variable starts at, and each successive element
+              # should increment by 1).
+
+              An = ((-1)**(n+1))/(n)
+              # terms of the series ; this can be easily adjusted to graph other # infinite series
+              
+              Sn = np.cumsum(An)
+              # partial sums of the series ; Numpy's cumsum() command creates an # array where each element is the sum of the corresponding element # from An and all of the previous elements from An ; the result is
+              # an array where each element adds on one more term, giving us the # outputs to plot for our partial sums
+              
+              ln2 = np.log(2) + 0*n
+              # The alternating harmonic series is known to converge to the natural # log of 2, so the line f(x) = ln(2) is added here. I want an output
+              # array to pair with my input array n where each element is ln(2), so
+              # I can just add ln(2) to my n array scaled by 0 to create an array
+              # of identical size with the desired values.
+
+              def plot_data(current_n,current_An,current_Sn,current_ln2):
+                  fig = plt.figure()
+                  ax = plt.axes()
+                  ax.scatter(current_n,current_An,color='red',label='Terms of the Series') 
+                  ax.scatter(current_n,current_Sn,color='black',label='Partial Sums of the Series') 
+                  ax.plot(current_n,current_ln2,color='blue',label='f(x) = ln(2)') 
+                  ax.set(xlim=[0,100],ylim=[-0.75,1.25],xlabel='n',title="Partial Sums of the Alternating Harmonic Series") 
+                  ax.grid()
+                  ax.axhline(0,color='black') 
+                  ax.legend()
+                  plt.show()
+              
+              @interact()
+              def respond_to_user_input(frame=slider(1,100,1)):
+                  current_n = n[:frame]
+                  current_An = An[:frame]
+                  current_Sn = Sn[:frame]
+                  current_ln2 = ln2[:frame] 
+                  plot_data(current_n,current_An,current_Sn,current_ln2)
+            </input>
+          </sage>
+          
+        </example>
+
+        <example>
+          <title>Ben Cantarero .gif (Spring 2024)</title>
           
           <sage language='python'>
             <input>
