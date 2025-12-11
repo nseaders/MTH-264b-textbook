@@ -227,7 +227,7 @@
             second row the corresponding y-values. 
             NumPy has a <c>array.reshape(size)</c> function that allows us to reshape each 
             array of x-values and y-values from <c>meshgrid()</c> into rows.
-            We can then <c>row_stack()</c> those two rows to form the desired input matrix. 
+            We can then <c>vstack()</c> those two rows to form the desired input matrix. 
           </p>
 
           <sage language='python'>
@@ -247,7 +247,7 @@
               X1 = X.reshape((3**2,))#x-value row 
               Y1 = Y.reshape((3**2,)) #y-value row
               #stack the two so each column is a coordinate
-              xygrid = np.row_stack([X1, Y1]) 
+              xygrid = np.vstack([X1, Y1]) 
 
               #transform via matrix mult
               uvgrid = np.matmul(A,xygrid)
@@ -378,7 +378,7 @@
               #reshape into row of x and row of y
               X1 = X.reshape((NLines**2,))
               Y1 = Y.reshape((NLines**2,))
-              xygrid = np.row_stack([X1, Y1])
+              xygrid = np.vstack([X1, Y1])
 
               #transform via matrix mult
               uvgrid = np.matmul(A,xygrid)
@@ -501,7 +501,7 @@
               #reshape to x-row and y-row
               X1 = X.reshape((NLines**2,))
               Y1 = Y.reshape((NLines**2,))
-              xygrid = np.row_stack([X1, Y1])
+              xygrid = np.vstack([X1, Y1])
 
               uvgrid = np.matmul(A,xygrid)
               
@@ -785,7 +785,7 @@
                 #reshape to x-row and y-row
                 X1 = X.reshape((9**2,))
                 Y1 = Y.reshape((9**2,))
-                xygrid = np.row_stack([X1, Y1])
+                xygrid = np.vstack([X1, Y1])
 
                 #set up writer object to grab frames for a gif
                 writer = PillowWriter(fps=15)
