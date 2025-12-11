@@ -179,12 +179,50 @@
         
       </subsection>
 
+      <subsection> 
+        <title>Importing .csv files using the Pandas package</title>
+        <p>
+          Sometimes we want to import an array from a file or spreadsheet. 
+          The Python package, Pandas, was created to manipulate spreadsheet data. 
+          While the main object in NumPy is a NumPy array, the main object in the Pandas package is a Pandas dataframe, 
+          essentially a table with indexed rows and named columns.
+          More information about dataframe (table) manipulation in Pandas will be added to the appendix in 
+          future versions of this book.
+        </p>
+        <p> 
+          For now we will just use the Pandas package to import a .csv file as a Pandas dataframe, 
+          then convert it into a NumPy array so we can use the computational power of NumPy. 
+          Since we don't have a simple way to upload files into the online textbook, the 
+          following code must be used in Google Colab, with the file uploaded temporarily to Colab,
+          or on your local machine with a local version of Python. 
+        </p>
+
+        <sage language='python'>
+          <input>
+            import numpy as np
+            import pandas as pd
+
+            #import the file using pandas read_csv command
+            #the file path and filename should be in quotes
+            imported_file = pd.read_csv('/content/file.csv')
+
+            #convert the pandas dataframe into a numpy array
+            array = imported_file.to_numpy()
+          </input>
+        </sage>
+
+      </subsection>
+
 
 
       <conclusion>
         <p> You can find more information about the package NumPy at 
           <url href="https://numpy.org/" visual="numpy.org"/>. 
-          Python's wiki has a list of other commonly used <url href="https://wiki.python.org/moin/UsefulModules" visual="wiki.python.org/moin/UsefulModules">modules and packages</url>.
+          You can find more information about the package Pandas at 
+          <url href="https://pandas.pydata.org/" visual="pandas.pydata.org"/>.
+          Python's wiki has a list of other commonly used 
+          <url href="https://wiki.python.org/moin/UsefulModules" visual="wiki.python.org/moin/UsefulModules">modules 
+            and packages.</url>
         </p>
       </conclusion>
 
@@ -211,6 +249,13 @@
           <li>
             <p>
                 The Numpy functions <c>linspace()</c> and <c>arange()</c> set up an array of values over an interval.
+            </p>
+          </li>
+          <li>
+            <p>
+                You can use the Pandas function <c>read_csv</c> to import a .csv file as a 
+                Pandas dataframe then convert it into a NumPy array using
+                <c>array.to_numpy()</c>.
             </p>
           </li>
         </ul>
