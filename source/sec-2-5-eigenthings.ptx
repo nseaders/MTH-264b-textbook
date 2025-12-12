@@ -115,11 +115,11 @@
             display(P)
 
             #Find the eigenvalues
-            e1,e2 = A.eigenvals() #returns a tuple
-            #display(e1, e2)
+            eig1,eig2 = A.eigenvals() #returns a tuple
+            #display(eig1, eig2)
             #SymPy expressions can be converted to floating-point approximations using .evalf() or N()
-            #display(e1.evalf()) #floating point approximations
-            #display(e1.evalf(subs={x: 3.0}, n=25))#floating point up to a certain precision
+            #display(eig1.evalf()) #floating point approximations
+            #display(eig1.evalf(25))#floating point up to a certain precision
 
             #Find the eigenvectors
             display(A.eigenvects())
