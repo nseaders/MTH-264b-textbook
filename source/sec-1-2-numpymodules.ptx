@@ -167,7 +167,7 @@
         </sage>
 
         <p>
-          Note that the array gets cut off before the right endpoint of the interval if your stepsize doesn't divide the interval evenly. 
+          Note that the right endpoint of the interval in <c>arange</c> is always excluded (strictly less than).
         </p>
 
         <exercise>
