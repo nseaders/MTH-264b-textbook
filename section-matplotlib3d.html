@@ -205,6 +205,9 @@ sagecell.makeSagecell({
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-4" class="internal"><span class="title">Importing the package NumPy</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-5" class="internal"><span class="title">Standard functions in NumPy</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-6" class="internal"><span class="title">NumPy arrays</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-7" class="internal"><span class="title">Selecting and Using Part of an Array</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-8" class="internal"><span class="title">Selecting a Range of Entries in an Array</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-9" class="internal"><span class="title">Importing .csv files using the Pandas package</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-modules.html#exercises-modules" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -354,11 +357,11 @@ ax.plot(X,Y,Z)
 plt.show()
 </script></div>
 <article class="exercise exercise-like" id="subsec-3DParam-5"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.19</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.21</span><span class="period">.</span>
 </h4>
 <div class="para" id="subsec-3DParam-5-1">Edit the above code to graph the equation of a line between the points <span class="process-math">\((1,2,3)\)</span> and <span class="process-math">\((4,5,6)\text{.}\)</span>
 </div></article><article class="exercise exercise-like" id="subsec-3DParam-6"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.20</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.22</span><span class="period">.</span>
 </h4>
 <div class="para" id="subsec-3DParam-6-1">Edit the above code to add a third number to each numpy array. What happens? Can you explain what <code class="code-inline tex2jax_ignore">plot()</code> just graphed?</div></article><div class="para" id="subsec-3DParam-7">We can also graph curves by making coordinates dependent on another. For example, the curve below looks like a parabola in the <span class="process-math">\(z\)</span>-direction above the shadow <span class="process-math">\(y=x\)</span>
 </div>
@@ -399,7 +402,7 @@ ax.plot(X,Y,Z)
 plt.show()
 </script></div>
 <article class="exercise exercise-like" id="subsec-3DParam-12"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.21</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.23</span><span class="period">.</span>
 </h4>
 <div class="para" id="subsec-3DParam-12-1">Play with the above code for <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> and <span class="process-math">\(z\)</span> to see what other interesting curves you can create.</div>
 <div class="para logical" id="subsec-3DParam-12-2">
@@ -415,7 +418,7 @@ plt.show()
 <div class="para" id="subsec-Graphing-a-surface-2">To graph a surface or 3D scatterplot, we will need two-dimensional numpy arrays for all of our inputs and outputs. As a shortcut we can create 1D arrays for the <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> inputs first, then use NumPy’s function <code class="code-inline tex2jax_ignore">meshgrid()</code> to create a coordinate grid of inputs (two 2D arrays). Last we define our outputs on that coordinate grid.</div>
 <div class="para" id="subsec-Graphing-a-surface-3">The function <code class="code-inline tex2jax_ignore">scatter()</code> will plot a scatterplot just like in 2D. The function <code class="code-inline tex2jax_ignore">plot_surface()</code> plots the points and connect those dots with a surface. Just like we need enough points to get a curve that looks smooth, we will need enough points to get a surface that looks smooth.</div>
 <article class="exercise exercise-like" id="subsec-Graphing-a-surface-4"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.22</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.24</span><span class="period">.</span>
 </h4>
 <div class="para" id="subsec-Graphing-a-surface-4-1">Run the code below trying both the command <code class="code-inline tex2jax_ignore">plot_surface()</code> (current default) and <code class="code-inline tex2jax_ignore">scatter()</code> to see the difference.</div></article><div id="subsec-Graphing-a-surface-5" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
 import numpy as np 
@@ -431,13 +434,13 @@ ax.plot_surface(X,Y,Z) #plot surface
 plt.show() #display the result
 </script></div>
 <article class="exercise exercise-like" id="subsec-Graphing-a-surface-6"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.23</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.25</span><span class="period">.</span>
 </h4>
 <div class="para" id="subsec-Graphing-a-surface-6-1">For the surface, increase the step in each input and run the above code again. When does the surface start to look “polygonal” instead of smooth?</div></article><article class="exercise exercise-like" id="subsec-Graphing-a-surface-7"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.24</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.26</span><span class="period">.</span>
 </h4>
 <div class="para" id="subsec-Graphing-a-surface-7-1">Modify the above code to graph the surface <span class="process-math">\(z=sin(y)\text{.}\)</span> Choose a reasonable range of inputs that shows the important features of the graph.</div></article><article class="exercise exercise-like" id="subsec-Graphing-a-surface-8"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.25</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.27</span><span class="period">.</span>
 </h4>
 <div class="para" id="subsec-Graphing-a-surface-8-1">Change the surface to <span class="process-math">\(z=sin(xy)\text{.}\)</span> What step size is needed to make the input window [-2,2] and [-2,2] display a smooth surface?</div></article><div class="para" id="subsec-Graphing-a-surface-9">As in the 2D case, the function <code class="code-inline tex2jax_ignore">scatter()</code> plots the points without connecting the dots.</div></section><section class="subsection" id="subsec-3DAxesandLabels"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Axes and Labels</span>
@@ -461,11 +464,11 @@ ax.plot_surface(X,Y,Z) #plot surface
 plt.show() #display the result
 </script></div>
 <article class="exercise exercise-like" id="subsec-3DAxesandLabels-4"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.26</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.28</span><span class="period">.</span>
 </h4>
 <div class="para" id="subsec-3DAxesandLabels-4-1">In the above code, use parallel syntax to add a label to the <span class="process-math">\(z\)</span>-axis.</div></article><div class="para" id="subsec-3DAxesandLabels-5">Note that the default viewing window makes the <span class="process-math">\(x\)</span>-axis positive left to right and <span class="process-math">\(y\)</span>-axis positive front to back. Something new in the 3D setting, however, is the ability to choose our viewing angle for the 3D axes using <code class="code-inline tex2jax_ignore">view_init(elev= , azim=, roll=)</code>.</div>
 <article class="exercise exercise-like" id="subsec-3DAxesandLabels-6"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.27</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.29</span><span class="period">.</span>
 </h4>
 <div class="para" id="subsec-3DAxesandLabels-6-1">In the code below, play with the values for <code class="code-inline tex2jax_ignore">elev</code>, <code class="code-inline tex2jax_ignore">azim</code> and <code class="code-inline tex2jax_ignore">roll</code>.</div>
 <div class="para logical" id="subsec-3DAxesandLabels-6-2"><ul class="disc" id="subsec-3DAxesandLabels-6-2-1">
@@ -495,7 +498,7 @@ plt.show() #display the result
 </h3>
 <div class="para" id="subsec-multiplesurfaces-2">Unfortunately Matplotlib does NOT actually graph in 3D, but paints each surface in a 2D projection, one on top of the other, which can cause the resulting graphs to look weird. Sometimes it is enough to change the viewing angle.</div>
 <article class="exercise exercise-like" id="subsec-multiplesurfaces-3"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.28</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.30</span><span class="period">.</span>
 </h4>
 <div class="para logical" id="subsec-multiplesurfaces-3-1">
 <div class="para">In the above code add a second surface to your graph using <code class="code-inline tex2jax_ignore">Z2</code> for the new outputs and <code class="code-inline tex2jax_ignore">ax.plot_surface(X,Y,Z2)</code>.</div>
@@ -505,7 +508,7 @@ plt.show() #display the result
 </ul>
 </div></article><div class="para" id="subsec-multiplesurfaces-4">A possible workaround involves making the surfaces transparent and plotting their intersection as well. If you find another workaround that is fairly simple and doesn’t involve “dark magic and paying with programmer souls” as one stack overflow user suggested, let us know and we can include it in future iterations of this book.</div>
 <article class="exercise exercise-like" id="subsec-multiplesurfaces-5"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.29</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.31</span><span class="period">.</span>
 </h4>
 <div class="para" id="subsec-multiplesurfaces-5-1">Run the code below to see a Matplotlib 3D fail.</div></article><div id="subsec-multiplesurfaces-6" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
 import numpy as np 
@@ -530,7 +533,7 @@ plt.show() #display the result
 </script></div>
 <div class="para" id="subsec-multiplesurfaces-7">You can make your graphs transparent using the argument <code class="code-inline tex2jax_ignore">alpha = </code> inside <code class="code-inline tex2jax_ignore">plot_surface</code>.</div>
 <article class="exercise exercise-like" id="subsec-multiplesurfaces-8"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.30</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.32</span><span class="period">.</span>
 </h4>
 <div class="para" id="subsec-multiplesurfaces-8-1">In the code above add <code class="code-inline tex2jax_ignore">alpha=0.5</code> after each of Z1, Z2, and Z3 inside <code class="code-inline tex2jax_ignore">plot_surface</code> to see a partial fix. Play with values of alpha to see which transparency setting you prefer.</div>
 <div class="para" id="subsec-multiplesurfaces-8-2">You can also graph the lines of intersection for each plane, which we will do later in the term.</div></article></section><section class="subsection" id="section-matplotlib3d-9"><h3 class="heading hide-type">

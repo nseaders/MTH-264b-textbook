@@ -193,6 +193,9 @@ sagecell.makeSagecell({
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-4" class="internal"><span class="title">Importing the package NumPy</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-5" class="internal"><span class="title">Standard functions in NumPy</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-6" class="internal"><span class="title">NumPy arrays</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-7" class="internal"><span class="title">Selecting and Using Part of an Array</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-8" class="internal"><span class="title">Selecting a Range of Entries in an Array</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-9" class="internal"><span class="title">Importing .csv files using the Pandas package</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-modules.html#exercises-modules" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -410,7 +413,7 @@ plt.show() #display graph
 <div class="para" id="section-transformations-5-5-1">Edit the code in <a href="section-transformations.html#e1e2transform" class="xref" data-knowl="./knowl/xref/e1e2transform.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.23: Transformed Basis Vectors">Example 2.23</a> to consolidate the basis vectors into columns of one matrix instead. Then extract their images under <span class="process-math">\(A\)</span> from the resulting matrix product. What do you notice?</div></article><div class="para" id="section-transformations-5-6">To visualize how the rest of the space is transformed, we can use scalar multiples of the standard basis to grid out the space. Since the vector <span class="process-math">\(2\vec{e}_1 -\vec{e}_2\)</span> gets mapped to <span class="process-math">\(2A\vec{e}_1-A\vec{e_2}\text{,}\)</span> we can then visualize the result of the transformation using the transformed grid.</div>
 <article class="example example-like" id="pointgrid"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.25</span><span class="period">.</span><span class="space"> </span><span class="title">Transformed Point Grid.</span>
-</h4> <div class="para" id="pointgrid-2">We will first apply <span class="process-math">\(A\)</span> to a grid of coordinate dots. While NumPy’s <code class="code-inline tex2jax_ignore">meshgrid()</code> works great for plotting a grid of points, the arrays are not the right size to act as input vectors for the matrix-vector multiplication.</div> <div class="para" id="pointgrid-3">For matrix-vector multiplication we need column vectors, and if we want to compute the image of several vectors all at once we need a matrix where <em class="emphasis">each</em> column is one of our vectors. Here we want each column to be a coordinate, having top entry an x-value and bottom entry a corresponding y-value. In other words, we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a <code class="code-inline tex2jax_ignore">array.reshape(size)</code> function that allows us to reshape each array of x-values and y-values from <code class="code-inline tex2jax_ignore">meshgrid()</code> into rows. We can then <code class="code-inline tex2jax_ignore">row_stack()</code> those two rows to form the desired input matrix.</div> <div id="pointgrid-4" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
+</h4> <div class="para" id="pointgrid-2">We will first apply <span class="process-math">\(A\)</span> to a grid of coordinate dots. While NumPy’s <code class="code-inline tex2jax_ignore">meshgrid()</code> works great for plotting a grid of points, the arrays are not the right size to act as input vectors for the matrix-vector multiplication.</div> <div class="para" id="pointgrid-3">For matrix-vector multiplication we need column vectors, and if we want to compute the image of several vectors all at once we need a matrix where <em class="emphasis">each</em> column is one of our vectors. Here we want each column to be a coordinate, having top entry an x-value and bottom entry a corresponding y-value. In other words, we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a <code class="code-inline tex2jax_ignore">array.reshape(size)</code> function that allows us to reshape each array of x-values and y-values from <code class="code-inline tex2jax_ignore">meshgrid()</code> into rows. We can then <code class="code-inline tex2jax_ignore">vstack()</code> those two rows to form the desired input matrix.</div> <div id="pointgrid-4" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots() #create fig, axes
@@ -425,7 +428,7 @@ X,Y = np.meshgrid(Xvals, Yvals)
 X1 = X.reshape((3**2,))#x-value row 
 Y1 = Y.reshape((3**2,)) #y-value row
 #stack the two so each column is a coordinate
-xygrid = np.row_stack([X1, Y1]) 
+xygrid = np.vstack([X1, Y1]) 
 
 #transform via matrix mult
 uvgrid = np.matmul(A,xygrid)
@@ -492,7 +495,7 @@ X,Y = np.meshgrid(Xvals, Yvals)
 #reshape into row of x and row of y
 X1 = X.reshape((NLines**2,))
 Y1 = Y.reshape((NLines**2,))
-xygrid = np.row_stack([X1, Y1])
+xygrid = np.vstack([X1, Y1])
 
 #transform via matrix mult
 uvgrid = np.matmul(A,xygrid)
@@ -568,7 +571,7 @@ X,Y = np.meshgrid(Xvals, Yvals)
 #reshape to x-row and y-row
 X1 = X.reshape((NLines**2,))
 Y1 = Y.reshape((NLines**2,))
-xygrid = np.row_stack([X1, Y1])
+xygrid = np.vstack([X1, Y1])
 
 uvgrid = np.matmul(A,xygrid)
 
@@ -753,7 +756,7 @@ X,Y = np.meshgrid(Xvals, Yvals)
 #reshape to x-row and y-row
 X1 = X.reshape((9**2,))
 Y1 = Y.reshape((9**2,))
-xygrid = np.row_stack([X1, Y1])
+xygrid = np.vstack([X1, Y1])
 
 #set up writer object to grab frames for a gif
 writer = PillowWriter(fps=15)

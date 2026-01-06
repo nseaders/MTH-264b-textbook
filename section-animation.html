@@ -193,6 +193,9 @@ sagecell.makeSagecell({
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-4" class="internal"><span class="title">Importing the package NumPy</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-5" class="internal"><span class="title">Standard functions in NumPy</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-6" class="internal"><span class="title">NumPy arrays</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-7" class="internal"><span class="title">Selecting and Using Part of an Array</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-8" class="internal"><span class="title">Selecting a Range of Entries in an Array</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-9" class="internal"><span class="title">Importing .csv files using the Pandas package</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-modules.html#exercises-modules" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -344,13 +347,13 @@ with writer.saving(fig, "sinWave.gif", 100): #100 is the dpi
     writer.grab_frame() #grab current frame in figure for writer object
 </script></div>
 <article class="exercise exercise-like" id="section-animation-4-5"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.31</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.33</span><span class="period">.</span>
 </h4>
 <ul class="disc" id="section-animation-4-5-1">
 <li id="section-animation-4-5-1-1"><div class="para" id="section-animation-4-5-1-1-1">Play with various graph features and customizations.</div></li>
 <li id="section-animation-4-5-1-2"><div class="para" id="section-animation-4-5-1-2-1">Add a title and labels to your graph.</div></li>
 </ul></article><article class="exercise exercise-like" id="section-animation-4-6"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.32</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.34</span><span class="period">.</span>
 </h4>
 <ul class="disc" id="section-animation-4-6-1">
 <li id="section-animation-4-6-1-1"><div class="para" id="section-animation-4-6-1-1-1">Change the dpi and see how the .gif is affected.</div></li>
@@ -418,7 +421,7 @@ def respond_to_user_input(frame=slider(1,15,1)):
     plot_data(current_t, current_y)
 </script></div>
 <article class="exercise exercise-like" id="subsec-interactive-slider-4"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.33</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.35</span><span class="period">.</span>
 </h4>
 <ul class="disc" id="subsec-interactive-slider-4-1">
 <li id="subsec-interactive-slider-4-1-1"><div class="para" id="subsec-interactive-slider-4-1-1-1">Play with various graph features and customizations.</div></li>
@@ -461,7 +464,7 @@ def respond_to_user_input(time=slider(1,15,1)):
 </h3>
 <div class="para" id="subsec-student-showcase-2">Former students gave us permission to share some of their work as well.</div>
 <article class="example example-like" id="subsec-student-showcase-3"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.34</span><span class="period">.</span><span class="space"> </span><span class="title">Anonymous (Spring 2024).</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.36</span><span class="period">.</span><span class="space"> </span><span class="title">Anonymous .gif (Spring 2024).</span>
 </h4> <div id="subsec-student-showcase-3-2" class="ptx-sagecell sagecell-python"><script type="text/x-sage">#This code generates a Graph demonstrating the motion of a hypothetical falling Space Shark on numerous different planets and moons
 import numpy as np
 from matplotlib import pyplot as plt
@@ -511,7 +514,7 @@ with writer.saving(fig,"FallingShark.gif", 200):
     curve7.set_data(x,y7)
     writer.grab_frame()
 </script></div></article><article class="example example-like" id="subsec-student-showcase-4"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.35</span><span class="period">.</span><span class="space"> </span><span class="title">Luke Clark (Spring 2024).</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.37</span><span class="period">.</span><span class="space"> </span><span class="title">Luke Clark interactive (Spring 2024).</span>
 </h4> <div id="subsec-student-showcase-4-2" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import matplotlib.pyplot as plt 
 import numpy as np
 
@@ -530,8 +533,51 @@ def plot_gravitational_well(Mass=(100, 1000, 10)): #Tera grams
   ax.set(title="Gravitational Well of a object with variable Mass") 
   plt.show()
 </script></div></article><article class="example example-like" id="subsec-student-showcase-5"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.36</span><span class="period">.</span><span class="space"> </span><span class="title">Ben Cantarero (Spring 2024).</span>
-</h4> <div id="subsec-student-showcase-5-2" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import matplotlib.pyplot as plt
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.38</span><span class="period">.</span><span class="space"> </span><span class="title">Jacob DeWilde interactive (Spring 2024).</span>
+</h4> <div id="subsec-student-showcase-5-2" class="ptx-sagecell sagecell-python"><script type="text/x-sage"># - Graphing the Partial Sums of the Alternating Series with an Interactive Slider - 
+import numpy as np
+import matplotlib.pyplot as plt
+# import the essentials
+n = np.linspace(1,100,100)
+# Since we are graphing the sequence of partial sums and not just # the terms of the series, it is essential that the values of our
+# index variable n matches up exactly with the series we're trying # to plot (the first element in our array should be the same number # that the index variable starts at, and each successive element
+# should increment by 1).
+
+An = ((-1)**(n+1))/(n)
+# terms of the series ; this can be easily adjusted to graph other # infinite series
+
+Sn = np.cumsum(An)
+# partial sums of the series ; Numpy's cumsum() command creates an # array where each element is the sum of the corresponding element # from An and all of the previous elements from An ; the result is
+# an array where each element adds on one more term, giving us the # outputs to plot for our partial sums
+
+ln2 = np.log(2) + 0*n
+# The alternating harmonic series is known to converge to the natural # log of 2, so the line f(x) = ln(2) is added here. I want an output
+# array to pair with my input array n where each element is ln(2), so
+# I can just add ln(2) to my n array scaled by 0 to create an array
+# of identical size with the desired values.
+
+def plot_data(current_n,current_An,current_Sn,current_ln2):
+    fig = plt.figure()
+    ax = plt.axes()
+    ax.scatter(current_n,current_An,color='red',label='Terms of the Series') 
+    ax.scatter(current_n,current_Sn,color='black',label='Partial Sums of the Series') 
+    ax.plot(current_n,current_ln2,color='blue',label='f(x) = ln(2)') 
+    ax.set(xlim=[0,100],ylim=[-0.75,1.25],xlabel='n',title="Partial Sums of the Alternating Harmonic Series") 
+    ax.grid()
+    ax.axhline(0,color='black') 
+    ax.legend()
+    plt.show()
+
+@interact()
+def respond_to_user_input(frame=slider(1,100,1)):
+    current_n = n[:frame]
+    current_An = An[:frame]
+    current_Sn = Sn[:frame]
+    current_ln2 = ln2[:frame] 
+    plot_data(current_n,current_An,current_Sn,current_ln2)
+</script></div></article><article class="example example-like" id="subsec-student-showcase-6"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.39</span><span class="period">.</span><span class="space"> </span><span class="title">Ben Cantarero .gif (Spring 2024).</span>
+</h4> <div id="subsec-student-showcase-6-2" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.animation import FuncAnimation, PillowWriter
 

@@ -16,7 +16,7 @@ var ptx_lunr_docs = [
   "type": "Chapter",
   "number": "0",
   "title": "Prologue",
-  "body": " Prologue  This textbook is a work in progress, and is being written specifically for Mechanical Engineering majors at OSU to introduce just enough Python code to implement Matrix Algebra taught in MTH 264. You are currently reading an unfinished first draft. We expect some of our students to know more than we do, and hope, with their permission, to include their ideas and contributions to the textbook.  We hope to have a draft of each chapter that we will use to guide each class discussion. Note that instead of needing to install any software on your device we will use embedded SageMathCell. You will need a laptop (or tablet with a keyboard) for each class day, however. Laptops are available for checkout in the LBCC library.   "
+  "body": " Prologue  This textbook is a work in progress, and is being written specifically for Mechanical Engineering majors at OSU to introduce just enough Python code to implement Matrix Algebra taught in MTH 264. You are currently reading a first draft. We expect some of our students to know more than we do, and hope, with their permission, to include their ideas and contributions to the textbook.  Note that instead of needing to install any software on your device we will use embedded SageMathCell. You will need a laptop (or tablet with a keyboard) for each class day, however. Laptops are available for checkout in the LBCC library.   "
 },
 {
   "id": "section-variables",
@@ -88,7 +88,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.2",
   "title": "Python Packages and NumPy",
-  "body": " Python Packages and NumPy  Python packages and libraries are collections of functions and modules centered around a common theme. In this section we will learn how to import a Python package and use functions from that package.     Import a Python package or library (our example NumPy).    Use functions from a Python package.      Importing the package NumPy  NumPy is an open source scientific computing package that allows you to use standard mathematical functions and constants like sine or pi. NumPy also allows you to work with arrays of numbers so you can efficiently perform computations.   Note to call a function from an imported package you must use the syntax package.function . To avoid retyping the long name of a package every time, it is standard practice to rename the package as you import.  Rename the package numpy in the above code by replacing the import line with import numpy as np . Next use the new name of the package to call the function np.sin() and re-run.    Standard functions in NumPy  In addition to the standard trigonometric functions, NumPy also contains as exp() and natural log as log() , as well as the standard mathematical constants like pi and e .  Use the NumPy package to compute the area of a circle using pi. If you import numpy as np, you will use np.pi     NumPy arrays  NumPy arrays can help us efficiently do computations with a collection of numbers all at once. We can also represent vectors or matrices using NumPy arrays. Run the code below that calls the NumPy function array to see how it works.   NumPy also has built in functions to automatically create an array with certain conditions. For example linspace() takes a given interval and sets up an array of evenly spaced numbers on that interval.   Note that the array includes 5, so it takes 11 evenly spaced numbers to get numbers 0.5 apart. Note also that although the number values are evenly spaced, the printed array is not. Namely the default is to space out the entries by the maximum number of decimal places with blank spaces instead of extra zeroes.  Edit the above code to use linspace to create an array of numbers between 0 and 5 that are one-quarter apart. When you evaluate your code should print the list 0, 0.25, 0.5, 0.75, etc.  Another way to create an array of values for a given interval is arange() , which uses a step value to set up a sequence of numbers within that interval.   Note that the array gets cut off before the right endpoint of the interval if your stepsize doesn't divide the interval evenly.  Edit the above code to use arange to create an array of numbers between 0 and 5 that are one-quarter apart. When you evaluate your code should print the list 0, 0.25, 0.5, 0.75, etc.    You can find more information about the package NumPy at . Python's wiki has a list of other commonly used modules and packages .    Summary     You can import a Python package and rename it by using import package as name .    You can call a function from a package using packagename.function     Numpy arrays can help us efficiently do computations.    The Numpy functions linspace() and arange() set up an array of values over an interval.       Research NumPy   Look up how to efficiently create a 15 element array of all 's.    Use this to create a 15 element array of all 's.       There is more than one way to do this. One approach is to use the numpy function ones().     Once you have an array of all 1's, you can multiply it by any number you want.      The magnitude of an earthquake is measured using the Richter Scale, which is a logarithmic scale. The amount of energy in ergs an earthquake releases can be determined from the magnitude using the formula The USGS website lets you download magnitude data for the 30 most recent earthquakes in the world with magnitude . Use Numpy to determine how much energy has been released in the 30 most recent earthquakes. Note that you can copy and paste data from a csv file into SageMathCell. You will just need to then format that data for Numpy.    "
+  "body": " Python Packages and NumPy  Python packages and libraries are collections of functions and modules centered around a common theme. In this section we will learn how to import a Python package and use functions from that package.     Import a Python package or library (our example NumPy).    Use functions from a Python package.      Importing the package NumPy  NumPy is an open source scientific computing package that allows you to use standard mathematical functions and constants like sine or pi. NumPy also allows you to work with arrays of numbers so you can efficiently perform computations.   Note to call a function from an imported package you must use the syntax package.function . To avoid retyping the long name of a package every time, it is standard practice to rename the package as you import.  Rename the package numpy in the above code by replacing the import line with import numpy as np . Next use the new name of the package to call the function np.sin() and re-run.    Standard functions in NumPy  In addition to the standard trigonometric functions, NumPy also contains as exp() and natural log as log() , as well as the standard mathematical constants like pi and e .  Use the NumPy package to compute the area of a circle using pi. If you import numpy as np, you will use np.pi     NumPy arrays  NumPy arrays can help us efficiently do computations with a collection of numbers all at once. We can also represent vectors or matrices using NumPy arrays. Run the code below that calls the NumPy function array to see how it works.   NumPy also has built in functions to automatically create an array with certain conditions. For example linspace() takes a given interval and sets up an array of evenly spaced numbers on that interval.   Note that the array includes 5, so it takes 11 evenly spaced numbers to get numbers 0.5 apart. Note also that although the number values are evenly spaced, the printed array is not. Namely the default is to space out the entries by the maximum number of decimal places with blank spaces instead of extra zeroes.  Edit the above code to use linspace to create an array of numbers between 0 and 5 that are one-quarter apart. When you evaluate your code should print the list 0, 0.25, 0.5, 0.75, etc.  Another way to create an array of values for a given interval is arange() , which uses a step value to set up a sequence of numbers within that interval.   Note that the right endpoint of the interval in arange is always excluded (strictly less than).  Edit the above code to use arange to create an array of numbers between 0 and 5 that are one-quarter apart. When you evaluate your code should print the list 0, 0.25, 0.5, 0.75, etc.    Selecting and Using Part of an Array  At times you may want just a specific part of an array or to create a new array with part of a larger array. Python has the ability to access a single element by indexing or a range within the array by slicing.  Accessing a single element by indexing. We can access an specific element of the array using it's index by typing X[index number] . The index number is the position of the element in the array.    You Try It Use the indexing method to access and pring the 4th entry in the array X. Then access and print the 100th entry.      Selecting a Range of Entries in an Array  You can select a range of entries in an array using a method known as slicing. Instead of putting a single index number in the brackets we can select a range of values by placing a colon between the starting and stopping index values we want.    Create a new array out of the middle 50 values of the array.      Importing .csv files using the Pandas package  Sometimes we want to import an array from a file or spreadsheet. The Python package, Pandas, was created to manipulate spreadsheet data. While the main object in NumPy is a NumPy array, the main object in the Pandas package is a Pandas dataframe, essentially a table with indexed rows and named columns. More information about dataframe (table) manipulation in Pandas will be added to the appendix in future versions of this book.  For now we will just use the Pandas package to import a .csv file as a Pandas dataframe, then convert it into a NumPy array so we can use the computational power of NumPy. Since we don't have a simple way to upload files into the online textbook, the following code must be used in Google Colab, with the file uploaded temporarily to Colab, or on your local machine with a local version of Python.     You can find more information about the package NumPy at . You can find more information about the package Pandas at . Python's wiki has a list of other commonly used modules and packages.     Summary     You can import a Python package and rename it by using import package as name .    You can call a function from a package using packagename.function     Numpy arrays can help us efficiently do computations.    The Numpy functions linspace() and arange() set up an array of values over an interval.    Indexing and slicing a numpy array can be used to access a single entry or a range of entries.    You can use the Pandas function read_csv to import a .csv file as a Pandas dataframe then convert it into a NumPy array using array.to_numpy() .       Research NumPy   Look up how to efficiently create a 15 element array of all 's.    Use this to create a 15 element array of all 's.       There is more than one way to do this. One approach is to use the numpy function ones().     Once you have an array of all 1's, you can multiply it by any number you want.      The magnitude of an earthquake is measured using the Richter Scale, which is a logarithmic scale. The amount of energy in ergs an earthquake releases can be determined from the magnitude using the formula The USGS website lets you download magnitude data for the 30 most recent earthquakes in the world with magnitude . Use Numpy to determine how much energy has been released in the 30 most recent earthquakes. Note that you can copy and paste data from a csv file into SageMathCell. You will just need to then format that data for Numpy.    "
 },
 {
   "id": "section-modules-3",
@@ -136,6 +136,24 @@ var ptx_lunr_docs = [
   "body": "Edit the above code to use arange to create an array of numbers between 0 and 5 that are one-quarter apart. When you evaluate your code should print the list 0, 0.25, 0.5, 0.75, etc. "
 },
 {
+  "id": "section-modules-7-5",
+  "level": "2",
+  "url": "section-modules.html#section-modules-7-5",
+  "type": "You Try",
+  "number": "1.8",
+  "title": "",
+  "body": " You Try It Use the indexing method to access and pring the 4th entry in the array X. Then access and print the 100th entry.  "
+},
+{
+  "id": "section-modules-8-4",
+  "level": "2",
+  "url": "section-modules.html#section-modules-8-4",
+  "type": "You Try",
+  "number": "1.9",
+  "title": "",
+  "body": " Create a new array out of the middle 50 values of the array.  "
+},
+{
   "id": "exercises-modules-1",
   "level": "2",
   "url": "section-modules.html#exercises-modules-1",
@@ -176,7 +194,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matplotlib.html#section-matplotlib-5-7",
   "type": "You Try",
-  "number": "1.8",
+  "number": "1.10",
   "title": "",
   "body": "Change both of the above sets of code to whole number inputs from 0 to 6.   What happens to your line?    What happens to your sine curve?    "
 },
@@ -185,7 +203,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matplotlib.html#section-matplotlib-5-8",
   "type": "You Try",
-  "number": "1.9",
+  "number": "1.11",
   "title": "",
   "body": "Change the above code to use arange() instead of linspace() to set up your inputs. What is the smallest step size that makes the curve look smooth? "
 },
@@ -194,7 +212,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matplotlib.html#section-matplotlib-5-9",
   "type": "You Try",
-  "number": "1.10",
+  "number": "1.12",
   "title": "",
   "body": "Change the above code to graph with a traditional input window like [-10,10]. "
 },
@@ -203,7 +221,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matplotlib.html#section-matplotlib-5-12",
   "type": "You Try",
-  "number": "1.11",
+  "number": "1.13",
   "title": "",
   "body": "Notice that if you don't specify the inputs, pyplot uses a default set instead. Change the above code and remove the second call for the inputs X in graph.plot(). What is the default input window pyplot uses for Y2? "
 },
@@ -212,7 +230,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matplotlib.html#section-matplotlib-5-13",
   "type": "You Try",
-  "number": "1.12",
+  "number": "1.14",
   "title": "",
   "body": "Change the above code to add a third function on the same graph. "
 },
@@ -221,7 +239,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matplotlib.html#subsec-scatterplots-3",
   "type": "You Try",
-  "number": "1.13",
+  "number": "1.15",
   "title": "",
   "body": "Adjust the code in any plot above to make it into a scatter plot instead.  Replace ax.plot() with ax.scatter() in the code.  "
 },
@@ -230,7 +248,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matplotlib.html#section-matplotlib-7-6",
   "type": "You Try",
-  "number": "1.14",
+  "number": "1.16",
   "title": "",
   "body": "Note that the above code graphs the unit circle. Play with the above functions for and to see what other interesting curves you can graph. In particular, when you have the parameter , can you create  a line?  a different circle?  a parabola?   "
 },
@@ -239,7 +257,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matplotlib.html#labels-5",
   "type": "You Try",
-  "number": "1.15",
+  "number": "1.17",
   "title": "",
   "body": "Search online for a way to change the tick labels in Matplotlib. Try and adjust the \"Falling Body\" graph to have tickmarks every quarter of a second. "
 },
@@ -248,7 +266,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matplotlib.html#subsec-Vectorsin2D-4",
   "type": "You Try",
-  "number": "1.16",
+  "number": "1.18",
   "title": "",
   "body": "Try various viewing windows in the above code. What do you notice about the size of your arrow? "
 },
@@ -257,7 +275,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matplotlib.html#subsec-Vectorsin2D-7",
   "type": "You Try",
-  "number": "1.17",
+  "number": "1.19",
   "title": "",
   "body": "Try various vectors and viewing windows in the above code. "
 },
@@ -266,7 +284,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matplotlib.html#subsec-Vectorsin2D-10",
   "type": "You Try",
-  "number": "1.18",
+  "number": "1.20",
   "title": "",
   "body": "Try various vectors and viewing windows in the above code. Also add a horizontal and vertical axis at and using the code found in the second Customizing example. "
 },
@@ -320,7 +338,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matplotlib3d.html#subsec-3DParam-5",
   "type": "You Try",
-  "number": "1.19",
+  "number": "1.21",
   "title": "",
   "body": "Edit the above code to graph the equation of a line between the points and . "
 },
@@ -329,7 +347,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matplotlib3d.html#subsec-3DParam-6",
   "type": "You Try",
-  "number": "1.20",
+  "number": "1.22",
   "title": "",
   "body": "Edit the above code to add a third number to each numpy array. What happens? Can you explain what plot() just graphed? "
 },
@@ -338,7 +356,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matplotlib3d.html#subsec-3DParam-12",
   "type": "You Try",
-  "number": "1.21",
+  "number": "1.23",
   "title": "",
   "body": "Play with the above code for , , and to see what other interesting curves you can create. In 3-space can you graph  a line?  a spiral?  a different circle?   "
 },
@@ -347,7 +365,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matplotlib3d.html#subsec-Graphing-a-surface-4",
   "type": "You Try",
-  "number": "1.22",
+  "number": "1.24",
   "title": "",
   "body": "Run the code below trying both the command plot_surface() (current default) and scatter() to see the difference. "
 },
@@ -356,7 +374,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matplotlib3d.html#subsec-Graphing-a-surface-6",
   "type": "You Try",
-  "number": "1.23",
+  "number": "1.25",
   "title": "",
   "body": "For the surface, increase the step in each input and run the above code again. When does the surface start to look polygonal instead of smooth? "
 },
@@ -365,7 +383,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matplotlib3d.html#subsec-Graphing-a-surface-7",
   "type": "You Try",
-  "number": "1.24",
+  "number": "1.26",
   "title": "",
   "body": "Modify the above code to graph the surface . Choose a reasonable range of inputs that shows the important features of the graph. "
 },
@@ -374,7 +392,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matplotlib3d.html#subsec-Graphing-a-surface-8",
   "type": "You Try",
-  "number": "1.25",
+  "number": "1.27",
   "title": "",
   "body": "Change the surface to . What step size is needed to make the input window [-2,2] and [-2,2] display a smooth surface? "
 },
@@ -383,7 +401,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matplotlib3d.html#subsec-3DAxesandLabels-4",
   "type": "You Try",
-  "number": "1.26",
+  "number": "1.28",
   "title": "",
   "body": "In the above code, use parallel syntax to add a label to the -axis. "
 },
@@ -392,7 +410,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matplotlib3d.html#subsec-3DAxesandLabels-6",
   "type": "You Try",
-  "number": "1.27",
+  "number": "1.29",
   "title": "",
   "body": "In the code below, play with the values for elev , azim and roll .   What does each change?  What custom viewing angle do you think showcases this particular surface the best?   "
 },
@@ -401,7 +419,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matplotlib3d.html#subsec-multiplesurfaces-3",
   "type": "You Try",
-  "number": "1.28",
+  "number": "1.30",
   "title": "",
   "body": "In the above code add a second surface to your graph using Z2 for the new outputs and ax.plot_surface(X,Y,Z2) .   Can you find a viewing angle where both surfaces look good?    Can you find a viewing angle where they don't quite look right?    "
 },
@@ -410,7 +428,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matplotlib3d.html#subsec-multiplesurfaces-5",
   "type": "You Try",
-  "number": "1.29",
+  "number": "1.31",
   "title": "",
   "body": "Run the code below to see a Matplotlib 3D fail. "
 },
@@ -419,7 +437,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-matplotlib3d.html#subsec-multiplesurfaces-8",
   "type": "You Try",
-  "number": "1.30",
+  "number": "1.32",
   "title": "",
   "body": "In the code above add alpha=0.5 after each of Z1, Z2, and Z3 inside plot_surface to see a partial fix. Play with values of alpha to see which transparency setting you prefer. You can also graph the lines of intersection for each plane, which we will do later in the term. "
 },
@@ -466,7 +484,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.5",
   "title": "Basic Animation",
-  "body": " Basic Animation  In this section we will create some basic animations in Matplotlib. Static graphs convey a lot of information in one visual. The right animation can help you convey complicated information simply.     Create a gif animating a graph.    Create an interactive plot with a slider.      Creating a .gif in Matplotlib  Matplotlib has a module called animation with a FuncAnimation class that allows you easily make frames of a changing graph. Animation is basically a slideshow of pictures or frames. A class called PillowWriter allows you to grab frames and save them to a file to make gifs.  There are many ways to alter a graph over time. For these examples we will start with an empty graph and use NumPy's append to add points one at a time to our graph.     Play with various graph features and customizations.    Add a title and labels to your graph.      Change the dpi and see how the .gif is affected.    Change the frames per second and see how the .gif is affected.    Here is an example animating two curves on the same graph.     Creating an interactive slider  This second example uses interact to create a slider to plot one point at a time. We will need to create two user defined (computer science) functions: one that increments through the input points for the slider and another that plots the graph for just those input points.     Play with various graph features and customizations.    Change the number of frames to see how the interactive is affected.    Try aligning and misaligning the number of frames and the number of inputs plotted.   Here is the same interactive for projectile motion.     Student Showcase  Former students gave us permission to share some of their work as well.   Anonymous (Spring 2024)     Luke Clark (Spring 2024)     Ben Cantarero (Spring 2024)      Matplotlib allows you to not only graph, but make your graphs interactive. You can use interact to create interactive elements. The animation module can be used to animate your graphs. Hopefully this is enough to get you started.    Summary     The FuncAnimation class can be used to animate your graphs and PillowWriter saves those frames into a gif.      We can use interact to create a slider element and create two user defined functions: one that takes the slider information to create points and another that makes graphs for just those points.       Animate a 3D graph.  Showcase your skills from so far in the term to create an animated graph in Matplotlib for any other class (and using one feature we haven't learned in class).  What graph do you want to animate? Create it!   "
+  "body": " Basic Animation  In this section we will create some basic animations in Matplotlib. Static graphs convey a lot of information in one visual. The right animation can help you convey complicated information simply.     Create a gif animating a graph.    Create an interactive plot with a slider.      Creating a .gif in Matplotlib  Matplotlib has a module called animation with a FuncAnimation class that allows you easily make frames of a changing graph. Animation is basically a slideshow of pictures or frames. A class called PillowWriter allows you to grab frames and save them to a file to make gifs.  There are many ways to alter a graph over time. For these examples we will start with an empty graph and use NumPy's append to add points one at a time to our graph.     Play with various graph features and customizations.    Add a title and labels to your graph.      Change the dpi and see how the .gif is affected.    Change the frames per second and see how the .gif is affected.    Here is an example animating two curves on the same graph.     Creating an interactive slider  This second example uses interact to create a slider to plot one point at a time. We will need to create two user defined (computer science) functions: one that increments through the input points for the slider and another that plots the graph for just those input points.     Play with various graph features and customizations.    Change the number of frames to see how the interactive is affected.    Try aligning and misaligning the number of frames and the number of inputs plotted.   Here is the same interactive for projectile motion.     Student Showcase  Former students gave us permission to share some of their work as well.   Anonymous .gif (Spring 2024)     Luke Clark interactive (Spring 2024)     Jacob DeWilde interactive (Spring 2024)     Ben Cantarero .gif (Spring 2024)      Matplotlib allows you to not only graph, but make your graphs interactive. You can use interact to create interactive elements. The animation module can be used to animate your graphs. Hopefully this is enough to get you started.    Summary     The FuncAnimation class can be used to animate your graphs and PillowWriter saves those frames into a gif.      We can use interact to create a slider element and create two user defined functions: one that takes the slider information to create points and another that makes graphs for just those points.       Animate a 3D graph.  Showcase your skills from so far in the term to create an animated graph in Matplotlib for any other class (and using one feature we haven't learned in class).  What graph do you want to animate? Create it!   "
 },
 {
   "id": "section-animation-3",
@@ -482,7 +500,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-animation.html#section-animation-4-5",
   "type": "You Try",
-  "number": "1.31",
+  "number": "1.33",
   "title": "",
   "body": "  Play with various graph features and customizations.    Add a title and labels to your graph.   "
 },
@@ -491,7 +509,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-animation.html#section-animation-4-6",
   "type": "You Try",
-  "number": "1.32",
+  "number": "1.34",
   "title": "",
   "body": "  Change the dpi and see how the .gif is affected.    Change the frames per second and see how the .gif is affected.   "
 },
@@ -500,7 +518,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-animation.html#subsec-interactive-slider-4",
   "type": "You Try",
-  "number": "1.33",
+  "number": "1.35",
   "title": "",
   "body": "  Play with various graph features and customizations.    Change the number of frames to see how the interactive is affected.    Try aligning and misaligning the number of frames and the number of inputs plotted.  "
 },
@@ -509,27 +527,36 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-animation.html#subsec-student-showcase-3",
   "type": "Example",
-  "number": "1.34",
-  "title": "Anonymous (Spring 2024).",
-  "body": " Anonymous (Spring 2024)   "
+  "number": "1.36",
+  "title": "Anonymous .gif (Spring 2024).",
+  "body": " Anonymous .gif (Spring 2024)   "
 },
 {
   "id": "subsec-student-showcase-4",
   "level": "2",
   "url": "section-animation.html#subsec-student-showcase-4",
   "type": "Example",
-  "number": "1.35",
-  "title": "Luke Clark (Spring 2024).",
-  "body": " Luke Clark (Spring 2024)   "
+  "number": "1.37",
+  "title": "Luke Clark interactive (Spring 2024).",
+  "body": " Luke Clark interactive (Spring 2024)   "
 },
 {
   "id": "subsec-student-showcase-5",
   "level": "2",
   "url": "section-animation.html#subsec-student-showcase-5",
   "type": "Example",
-  "number": "1.36",
-  "title": "Ben Cantarero (Spring 2024).",
-  "body": " Ben Cantarero (Spring 2024)   "
+  "number": "1.38",
+  "title": "Jacob DeWilde interactive (Spring 2024).",
+  "body": " Jacob DeWilde interactive (Spring 2024)   "
+},
+{
+  "id": "subsec-student-showcase-6",
+  "level": "2",
+  "url": "section-animation.html#subsec-student-showcase-6",
+  "type": "Example",
+  "number": "1.39",
+  "title": "Ben Cantarero .gif (Spring 2024).",
+  "body": " Ben Cantarero .gif (Spring 2024)   "
 },
 {
   "id": "exercises-animation-1",
@@ -799,7 +826,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.3",
   "title": "Matrix Transformations",
-  "body": " Matrix Transformations   Matrix-vector multiplication can fundamentally be interpreted as linear transformations of a vector space. We can directly graph these transformations in and . We can usually generalize our understanding to even though we can't graph the higher dimensions.  Since we will graph in Matplotlib, which uses NumPy arrays, we will default to NumPy (instead of SymPy) for our matrix computations.  In this section we will learn how to      Compute a matrix transformation using NumPy.    Visualize a matrix transformation using basis vectors or a grid in Matplotlib.    Animate a visual of a Matrix Transformation.      Computing Matrix Transformations  We can compute the matrix transformation of a vector simply by using matrix-vector multiplication. Recall that in order to multiply a vector by a matrix, you need a column vector. You can use NumPy's transpose or .T function to convert if needed. Similarly you can use SymPy's Transpose() or .T to convert.    Note the above code throws an error. Use NumPy's transpose() function to make a column vector to fix the error.  You can use transpose(arrayname) , or arrayname.T    Recall that NumPy has an alternate command for matrix multiplication. Alter the above code to use the alternate command.  Because matrix multiplication extends matrix-vector multiplication linearly, we can find the image of multiple input vectors all at once. We simply use the vectors we want to transform as the columns of a matrix, then we can extract their image from the matrix product as the corresponding column.    Change the above code to select a different input vector and compare to the corresponding column of the matrix product.    Visualizing a Matrix Transformation  We can visualize the effect of a transformation by considering the transformed basis vectors. That is, the image of basis vectors under the transformation . We say is the image of the standard basis vector under the transformation . That is, the output of under the transformation, i.e. where gets mapped via . We can then picture the image of any linear combinations of basis vectors using scaling and adding tail to tip. Since every other vector is a linear combination of the basis vectors, that allows us to visualize the image of every vector in the space.  Note that for a square matrix, the image can be visualized in the same space as the domain. We will demonstrate for a transformation using the standard basis.   Transformed Basis Vectors  First we will visualize just the transformed basis vectors.    Edit the code in to consolidate the basis vectors into columns of one matrix instead. Then extract their images under from the resulting matrix product. What do you notice?  To visualize how the rest of the space is transformed, we can use scalar multiples of the standard basis to grid out the space. Since the vector gets mapped to , we can then visualize the result of the transformation using the transformed grid.   Transformed Point Grid  We will first apply to a grid of coordinate dots. While NumPy's meshgrid() works great for plotting a grid of points, the arrays are not the right size to act as input vectors for the matrix-vector multiplication.  For matrix-vector multiplication we need column vectors, and if we want to compute the image of several vectors all at once we need a matrix where each column is one of our vectors. Here we want each column to be a coordinate, having top entry an x-value and bottom entry a corresponding y-value. In other words, we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a array.reshape(size) function that allows us to reshape each array of x-values and y-values from meshgrid() into rows. We can then row_stack() those two rows to form the desired input matrix.    Edit the code in to print every array to see how the same arrays are reshaped, recombined, and transformed.  Print arrays so you can compare X to X1 and Y to Y1. Also compare xygrid to xygrid[i] and xygrid to uvgrid to see the difference.   Edit the code in to make a point grid instead. We used a grid at first so you could print the arrays to follow along. Now we want to generalize to more points.   Note: the argument c= inside scatter tells Matplotlib how to assign colors to our scatterplot. Here we assign colors according to the first array in xygrid. What happens if you assign colors according to the second array inside xygrid?  It can be easier to visualize a matrix transformation using a line grid (or coordinate grid) rather than a collection of points. To use our points to create a grid of lines instead, we need at least two points on each line and we will use plot instead of scatter . Note: horizontal lines have incrementing x-values and constant y-values, while vertical lines have incrementing y-values and constant x-values. We will need to think carefully about which arrays we pass into plot .   Transformed Line Grid  We will build up to the transformed grid a step at a time.  Step 1: First we will learn how to graph a basic grid of lines.   Step 2: Graph a transformed grid of lines.  Now we add in the matrix transformation. Note: in order to find the transformed line grid, we again .reshape() the X,Y grid into a row of x-values and a row of y-values so we can matrix multiply each point as a column of a matrix. We will then .reshape() back into a transformed meshgrid in order to graph our grid of transformed lines.    In the first step of , graphing the basic grid of lines, change the number of lines to 3. Now print each array to better see which array is used for each plot. Why do we need the transpose for our vertical lines?  In the second step of , graphing the transformed grid of lines, change the number of lines to 3. Now print each array to better see which array is used for each plot. What happens if you only increment through the X or the Y and not both?   Coloring the Transformed Line Grid  Unlike scatter which has an argument c=array that allows us to color code based on an x-coordinate or y-coordinate, plot does not. To better see the effects of a reflection, we will use a sequential color map to color our lines.  Step 1: Color a basic grid   Step 2: Color a transformed grid using corresponding coloring.  Below is the corresponding transformed grid with a sequential color map.    If instead the transformation maps higher dimensional vectors to lower dimensional vectors, or vice versa, we can still visualize the transformation.   One approach is to plot two graphs side-by-side color-coded to match: (1) the standard basis (or grid) in the domain and (2)the corresponding transformed basis (or transformed grid) in the co-domain.    Another approach is to embed everything in the higher dimensional space and animate the transformation there. Note: every matrix transformation, say can be extended to a matrix transformation by adding an zero column. (Respectively if we extend to and add a zero row).        Animating Matrix Transformations  What if we wanted to visualize the transformation as a gradual change?  We can think of where we start as applying the identity matrix Meanwhile we can think of where we end as applying the final transformation matrix . We can create intermediate transformation matrices between and by adding complimentary percentages of the identity transformation and our matrix transformation, . We obtain a sliding scale between the two by incrementing through our percentage from 0 to 1, starting with 100% of our identity transformation and ending with 100% of our matrix transformation.   Transformed Basis Vectors with Interactive Slider  First we create a slider that starts with the identity transformation on two basis vectors and gradually gives us the transformation by    Note that in this interactive, we only want the current frame, and not all the frames up to the current frame. Do you know why?   We can animate the gradual transformation using what we learned in . Using PillowWriter we will start with a somewhat simple .gif of the transformation, then add features.   Transformed Basis Vectors with PillowWriter .gif    Comment out plt.cla() in . What happens to your animation?  Add a title, grid, and legend to the animation in . Where do these need to be added in the code to show up in every frame?   Buffering a .gif  Note that the animation would look better visually if we started with the standard basis plot and lingered for a few seconds before beginning the transformation. We can add that by grabbing frames of the standard basis plot first.    Note that the .gif would also look better if the animation lingered for a few more seconds at the end where the transformation is complete.  Edit the code in so the animation pauses at the completed transformation. Where do you need to add the loop to grab the correct frames?  Animating a gradual transformation of our collection of points from the identity to the matrix transformation can be done similarly. We will include one example using a .gif animating the transformation of a grid of points and leave the slider and animating a grid of lines as an exercise for the reader.   Animated Point Grid Transformation .gif    Animate a gradual matrix transformation using the line grid.     Because linear transformations can be fully determined by a basis, we can visualize the transformation based on how a basis is transformed. We can visualize matrix transformations on vectors in using basis grids (points or lines) and in using basis vectors (and perhaps a point grid).    Summary     TBD      TBD       Visualize a linear transformation using similar methods on a point grid in in Matplotlib.  Animate a linear transformation on a line grid in Matplotlib.  Animate a linear transformation that goes up or down a dimension in Matplotlib. E.g. or all visualized or embedded inside .   "
+  "body": " Matrix Transformations   Matrix-vector multiplication can fundamentally be interpreted as linear transformations of a vector space. We can directly graph these transformations in and . We can usually generalize our understanding to even though we can't graph the higher dimensions.  Since we will graph in Matplotlib, which uses NumPy arrays, we will default to NumPy (instead of SymPy) for our matrix computations.  In this section we will learn how to      Compute a matrix transformation using NumPy.    Visualize a matrix transformation using basis vectors or a grid in Matplotlib.    Animate a visual of a Matrix Transformation.      Computing Matrix Transformations  We can compute the matrix transformation of a vector simply by using matrix-vector multiplication. Recall that in order to multiply a vector by a matrix, you need a column vector. You can use NumPy's transpose or .T function to convert if needed. Similarly you can use SymPy's Transpose() or .T to convert.    Note the above code throws an error. Use NumPy's transpose() function to make a column vector to fix the error.  You can use transpose(arrayname) , or arrayname.T    Recall that NumPy has an alternate command for matrix multiplication. Alter the above code to use the alternate command.  Because matrix multiplication extends matrix-vector multiplication linearly, we can find the image of multiple input vectors all at once. We simply use the vectors we want to transform as the columns of a matrix, then we can extract their image from the matrix product as the corresponding column.    Change the above code to select a different input vector and compare to the corresponding column of the matrix product.    Visualizing a Matrix Transformation  We can visualize the effect of a transformation by considering the transformed basis vectors. That is, the image of basis vectors under the transformation . We say is the image of the standard basis vector under the transformation . That is, the output of under the transformation, i.e. where gets mapped via . We can then picture the image of any linear combinations of basis vectors using scaling and adding tail to tip. Since every other vector is a linear combination of the basis vectors, that allows us to visualize the image of every vector in the space.  Note that for a square matrix, the image can be visualized in the same space as the domain. We will demonstrate for a transformation using the standard basis.   Transformed Basis Vectors  First we will visualize just the transformed basis vectors.    Edit the code in to consolidate the basis vectors into columns of one matrix instead. Then extract their images under from the resulting matrix product. What do you notice?  To visualize how the rest of the space is transformed, we can use scalar multiples of the standard basis to grid out the space. Since the vector gets mapped to , we can then visualize the result of the transformation using the transformed grid.   Transformed Point Grid  We will first apply to a grid of coordinate dots. While NumPy's meshgrid() works great for plotting a grid of points, the arrays are not the right size to act as input vectors for the matrix-vector multiplication.  For matrix-vector multiplication we need column vectors, and if we want to compute the image of several vectors all at once we need a matrix where each column is one of our vectors. Here we want each column to be a coordinate, having top entry an x-value and bottom entry a corresponding y-value. In other words, we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a array.reshape(size) function that allows us to reshape each array of x-values and y-values from meshgrid() into rows. We can then vstack() those two rows to form the desired input matrix.    Edit the code in to print every array to see how the same arrays are reshaped, recombined, and transformed.  Print arrays so you can compare X to X1 and Y to Y1. Also compare xygrid to xygrid[i] and xygrid to uvgrid to see the difference.   Edit the code in to make a point grid instead. We used a grid at first so you could print the arrays to follow along. Now we want to generalize to more points.   Note: the argument c= inside scatter tells Matplotlib how to assign colors to our scatterplot. Here we assign colors according to the first array in xygrid. What happens if you assign colors according to the second array inside xygrid?  It can be easier to visualize a matrix transformation using a line grid (or coordinate grid) rather than a collection of points. To use our points to create a grid of lines instead, we need at least two points on each line and we will use plot instead of scatter . Note: horizontal lines have incrementing x-values and constant y-values, while vertical lines have incrementing y-values and constant x-values. We will need to think carefully about which arrays we pass into plot .   Transformed Line Grid  We will build up to the transformed grid a step at a time.  Step 1: First we will learn how to graph a basic grid of lines.   Step 2: Graph a transformed grid of lines.  Now we add in the matrix transformation. Note: in order to find the transformed line grid, we again .reshape() the X,Y grid into a row of x-values and a row of y-values so we can matrix multiply each point as a column of a matrix. We will then .reshape() back into a transformed meshgrid in order to graph our grid of transformed lines.    In the first step of , graphing the basic grid of lines, change the number of lines to 3. Now print each array to better see which array is used for each plot. Why do we need the transpose for our vertical lines?  In the second step of , graphing the transformed grid of lines, change the number of lines to 3. Now print each array to better see which array is used for each plot. What happens if you only increment through the X or the Y and not both?   Coloring the Transformed Line Grid  Unlike scatter which has an argument c=array that allows us to color code based on an x-coordinate or y-coordinate, plot does not. To better see the effects of a reflection, we will use a sequential color map to color our lines.  Step 1: Color a basic grid   Step 2: Color a transformed grid using corresponding coloring.  Below is the corresponding transformed grid with a sequential color map.    If instead the transformation maps higher dimensional vectors to lower dimensional vectors, or vice versa, we can still visualize the transformation.   One approach is to plot two graphs side-by-side color-coded to match: (1) the standard basis (or grid) in the domain and (2)the corresponding transformed basis (or transformed grid) in the co-domain.    Another approach is to embed everything in the higher dimensional space and animate the transformation there. Note: every matrix transformation, say can be extended to a matrix transformation by adding an zero column. (Respectively if we extend to and add a zero row).        Animating Matrix Transformations  What if we wanted to visualize the transformation as a gradual change?  We can think of where we start as applying the identity matrix Meanwhile we can think of where we end as applying the final transformation matrix . We can create intermediate transformation matrices between and by adding complimentary percentages of the identity transformation and our matrix transformation, . We obtain a sliding scale between the two by incrementing through our percentage from 0 to 1, starting with 100% of our identity transformation and ending with 100% of our matrix transformation.   Transformed Basis Vectors with Interactive Slider  First we create a slider that starts with the identity transformation on two basis vectors and gradually gives us the transformation by    Note that in this interactive, we only want the current frame, and not all the frames up to the current frame. Do you know why?   We can animate the gradual transformation using what we learned in . Using PillowWriter we will start with a somewhat simple .gif of the transformation, then add features.   Transformed Basis Vectors with PillowWriter .gif    Comment out plt.cla() in . What happens to your animation?  Add a title, grid, and legend to the animation in . Where do these need to be added in the code to show up in every frame?   Buffering a .gif  Note that the animation would look better visually if we started with the standard basis plot and lingered for a few seconds before beginning the transformation. We can add that by grabbing frames of the standard basis plot first.    Note that the .gif would also look better if the animation lingered for a few more seconds at the end where the transformation is complete.  Edit the code in so the animation pauses at the completed transformation. Where do you need to add the loop to grab the correct frames?  Animating a gradual transformation of our collection of points from the identity to the matrix transformation can be done similarly. We will include one example using a .gif animating the transformation of a grid of points and leave the slider and animating a grid of lines as an exercise for the reader.   Animated Point Grid Transformation .gif    Animate a gradual matrix transformation using the line grid.     Because linear transformations can be fully determined by a basis, we can visualize the transformation based on how a basis is transformed. We can visualize matrix transformations on vectors in using basis grids (points or lines) and in using basis vectors (and perhaps a point grid).    Summary     TBD      TBD       Visualize a linear transformation using similar methods on a point grid in in Matplotlib.  Animate a linear transformation on a line grid in Matplotlib.  Animate a linear transformation that goes up or down a dimension in Matplotlib. E.g. or all visualized or embedded inside .   "
 },
 {
   "id": "section-transformations-3",
@@ -862,7 +889,7 @@ var ptx_lunr_docs = [
   "type": "Example",
   "number": "2.25",
   "title": "Transformed Point Grid.",
-  "body": " Transformed Point Grid  We will first apply to a grid of coordinate dots. While NumPy's meshgrid() works great for plotting a grid of points, the arrays are not the right size to act as input vectors for the matrix-vector multiplication.  For matrix-vector multiplication we need column vectors, and if we want to compute the image of several vectors all at once we need a matrix where each column is one of our vectors. Here we want each column to be a coordinate, having top entry an x-value and bottom entry a corresponding y-value. In other words, we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a array.reshape(size) function that allows us to reshape each array of x-values and y-values from meshgrid() into rows. We can then row_stack() those two rows to form the desired input matrix.   "
+  "body": " Transformed Point Grid  We will first apply to a grid of coordinate dots. While NumPy's meshgrid() works great for plotting a grid of points, the arrays are not the right size to act as input vectors for the matrix-vector multiplication.  For matrix-vector multiplication we need column vectors, and if we want to compute the image of several vectors all at once we need a matrix where each column is one of our vectors. Here we want each column to be a coordinate, having top entry an x-value and bottom entry a corresponding y-value. In other words, we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a array.reshape(size) function that allows us to reshape each array of x-values and y-values from meshgrid() into rows. We can then vstack() those two rows to form the desired input matrix.   "
 },
 {
   "id": "section-transformations-5-8",

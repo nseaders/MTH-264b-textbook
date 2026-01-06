@@ -42,7 +42,7 @@ X,Y = np.meshgrid(Xvals, Yvals)
 #reshape to x-row and y-row
 X1 = X.reshape((9**2,))
 Y1 = Y.reshape((9**2,))
-xygrid = np.row_stack([X1, Y1])
+xygrid = np.vstack([X1, Y1])
 
 #set up writer object to grab frames for a gif
 writer = PillowWriter(fps=15)

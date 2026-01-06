@@ -26,7 +26,7 @@ sagecell.makeSagecell({
 <body class="ignore-math">
 <article class="example example-like"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.25</span><span class="period">.</span><span class="space"> </span><span class="title">Transformed Point Grid.</span>
-</h4> <div class="para">We will first apply <span class="process-math">\(A\)</span> to a grid of coordinate dots. While NumPy’s <code class="code-inline tex2jax_ignore">meshgrid()</code> works great for plotting a grid of points, the arrays are not the right size to act as input vectors for the matrix-vector multiplication.</div> <div class="para">For matrix-vector multiplication we need column vectors, and if we want to compute the image of several vectors all at once we need a matrix where <em class="emphasis">each</em> column is one of our vectors. Here we want each column to be a coordinate, having top entry an x-value and bottom entry a corresponding y-value. In other words, we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a <code class="code-inline tex2jax_ignore">array.reshape(size)</code> function that allows us to reshape each array of x-values and y-values from <code class="code-inline tex2jax_ignore">meshgrid()</code> into rows. We can then <code class="code-inline tex2jax_ignore">row_stack()</code> those two rows to form the desired input matrix.</div> <div id="pointgrid-4" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
+</h4> <div class="para">We will first apply <span class="process-math">\(A\)</span> to a grid of coordinate dots. While NumPy’s <code class="code-inline tex2jax_ignore">meshgrid()</code> works great for plotting a grid of points, the arrays are not the right size to act as input vectors for the matrix-vector multiplication.</div> <div class="para">For matrix-vector multiplication we need column vectors, and if we want to compute the image of several vectors all at once we need a matrix where <em class="emphasis">each</em> column is one of our vectors. Here we want each column to be a coordinate, having top entry an x-value and bottom entry a corresponding y-value. In other words, we need a matrix with first row the x-values and second row the corresponding y-values. NumPy has a <code class="code-inline tex2jax_ignore">array.reshape(size)</code> function that allows us to reshape each array of x-values and y-values from <code class="code-inline tex2jax_ignore">meshgrid()</code> into rows. We can then <code class="code-inline tex2jax_ignore">vstack()</code> those two rows to form the desired input matrix.</div> <div id="pointgrid-4" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots() #create fig, axes
@@ -41,7 +41,7 @@ X,Y = np.meshgrid(Xvals, Yvals)
 X1 = X.reshape((3**2,))#x-value row 
 Y1 = Y.reshape((3**2,)) #y-value row
 #stack the two so each column is a coordinate
-xygrid = np.row_stack([X1, Y1]) 
+xygrid = np.vstack([X1, Y1]) 
 
 #transform via matrix mult
 uvgrid = np.matmul(A,xygrid)

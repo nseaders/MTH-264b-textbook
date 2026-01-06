@@ -65,7 +65,7 @@ X,Y = np.meshgrid(Xvals, Yvals)
 X1 = X.reshape((ndots**2,))#x-value row 
 Y1 = Y.reshape((ndots**2,)) #y-value row
 #stack the two so each column is a coordinate
-xygrid = np.row_stack([X1, Y1]) 
+xygrid = np.vstack([X1, Y1]) 
 
 #transform to eigengrid via matrix mult
 eigrid = np.matmul(E,xygrid) # can also use @
@@ -102,7 +102,7 @@ X,Y = np.meshgrid(Xvals, Yvals)
 X1 = X.reshape((ndots**2,))#x-value row 
 Y1 = Y.reshape((ndots**2,)) #y-value row
 #stack the two so each column is a coordinate
-xygrid = np.row_stack([X1, Y1]) 
+xygrid = np.vstack([X1, Y1]) 
 
 #transform to eigengrid 
 eigrid = np.matmul(E,xygrid) # can also use @

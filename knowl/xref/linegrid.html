@@ -67,7 +67,7 @@ X,Y = np.meshgrid(Xvals, Yvals)
 #reshape into row of x and row of y
 X1 = X.reshape((NLines**2,))
 Y1 = Y.reshape((NLines**2,))
-xygrid = np.row_stack([X1, Y1])
+xygrid = np.vstack([X1, Y1])
 
 #transform via matrix mult
 uvgrid = np.matmul(A,xygrid)

@@ -205,6 +205,9 @@ sagecell.makeSagecell({
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-4" class="internal"><span class="title">Importing the package NumPy</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-5" class="internal"><span class="title">Standard functions in NumPy</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-6" class="internal"><span class="title">NumPy arrays</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-7" class="internal"><span class="title">Selecting and Using Part of an Array</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-8" class="internal"><span class="title">Selecting a Range of Entries in an Array</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-9" class="internal"><span class="title">Importing .csv files using the Pandas package</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-modules.html#exercises-modules" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -375,7 +378,7 @@ plt.show() #display the result
 </script></div>
 <div class="para" id="section-matplotlib-5-6">Note when `connecting the dots’ you need enough points to get a smooth curve.</div>
 <article class="exercise exercise-like" id="section-matplotlib-5-7"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.8</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.10</span><span class="period">.</span>
 </h4>
 <div class="para logical" id="section-matplotlib-5-7-1">
 <div class="para">Change both of the above sets of code to whole number inputs from 0 to 6.</div>
@@ -384,10 +387,10 @@ plt.show() #display the result
 <li id="section-matplotlib-5-7-1-1-2"><div class="para" id="section-matplotlib-5-7-1-1-2-1">What happens to your sine curve?</div></li>
 </ul>
 </div></article><article class="exercise exercise-like" id="section-matplotlib-5-8"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.9</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.11</span><span class="period">.</span>
 </h4>
 <div class="para" id="section-matplotlib-5-8-1">Change the above code to use <code class="code-inline tex2jax_ignore">arange()</code> instead of <code class="code-inline tex2jax_ignore">linspace()</code> to set up your inputs. What is the smallest step size that makes the curve look smooth?</div></article><article class="exercise exercise-like" id="section-matplotlib-5-9"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.10</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.12</span><span class="period">.</span>
 </h4>
 <div class="para" id="section-matplotlib-5-9-1">Change the above code to graph <span class="process-math">\(y=x^2 \)</span> with a traditional input window like [-10,10].</div></article><div class="para" id="section-matplotlib-5-10">You can plot more than one curve on the same axes using the same inputs but more than one set of outputs. Run the code below to graph <span class="process-math">\(y_1 = \sin(x) \)</span> and <span class="process-math">\(y_2=\cos(x)\)</span> on the same graph.</div>
 <div id="section-matplotlib-5-11" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import matplotlib.pyplot as plt #import pyplot
@@ -402,17 +405,17 @@ ax.plot(X,Y1,X,Y2) #Note: list inputs for both
 plt.show() #display the result
 </script></div>
 <article class="exercise exercise-like" id="section-matplotlib-5-12"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.11</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.13</span><span class="period">.</span>
 </h4>
 <div class="para" id="section-matplotlib-5-12-1">Notice that if you don’t specify the inputs, pyplot uses a default set instead. Change the above code and remove the second call for the inputs X in graph.plot(). What is the default input window pyplot uses for Y2?</div></article><article class="exercise exercise-like" id="section-matplotlib-5-13"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.12</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.14</span><span class="period">.</span>
 </h4>
 <div class="para" id="section-matplotlib-5-13-1">Change the above code to add a third function on the same graph.</div></article></section><section class="subsection" id="subsec-scatterplots"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Scatter Plots in 2D</span>
 </h3>
 <div class="para" id="subsec-scatterplots-2">To graph a scatterplot, use the command <code class="code-inline tex2jax_ignore">scatter</code> instead of <code class="code-inline tex2jax_ignore">plot</code>.</div>
 <article class="exercise exercise-like" id="subsec-scatterplots-3"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.13</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.15</span><span class="period">.</span>
 </h4>
 <div class="para" id="subsec-scatterplots-3-1">Adjust the code in any plot above to make it into a scatter plot instead.</div>
 <details id="subsec-scatterplots-3-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="subsec-scatterplots-3-2-1">Replace <code class="code-inline tex2jax_ignore">ax.plot()</code> with <code class="code-inline tex2jax_ignore">ax.scatter()</code> in the code.</div></div></details></article><div class="para" id="subsec-scatterplots-4">For scatter plots sometimes you get the data from an experiment instead of a formula. As long as the outputs are given as a NumPy array, either from manipulating your input array, or by creating a completely new output array, Matplotlib will still connect the dots.</div>
@@ -460,7 +463,7 @@ ax.plot(X,Y)
 plt.show()
 </script></div>
 <article class="exercise exercise-like" id="section-matplotlib-7-6"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.14</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.16</span><span class="period">.</span>
 </h4>
 <div class="para" id="section-matplotlib-7-6-1">Note that the above code graphs the unit circle. Play with the above functions for <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> to see what other interesting curves you can graph.</div>
 <div class="para logical" id="section-matplotlib-7-6-2">
@@ -492,7 +495,7 @@ plt.show() #display the result
 </script></div>
 <div class="para" id="labels-4">You can also adjust the tick marks on the axes, but it takes a little more work, and there are multiple approaches.</div>
 <article class="exercise exercise-like" id="labels-5"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.15</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.17</span><span class="period">.</span>
 </h4>
 <div class="para" id="labels-5-1">Search online for a way to change the tick labels in Matplotlib. Try and adjust the "Falling Body" graph to have tickmarks every quarter of a second.</div></article></section><section class="subsection" id="custom-graphs"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Customizing</span>
@@ -538,7 +541,7 @@ ax.quiver(0,0,1,3) #vector(1,3)
 plt.show()
 </script></div>
 <article class="exercise exercise-like" id="subsec-Vectorsin2D-4"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.16</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.18</span><span class="period">.</span>
 </h4>
 <div class="para" id="subsec-Vectorsin2D-4-1">Try various viewing windows in the above code. What do you notice about the size of your arrow?</div></article><div class="para" id="subsec-Vectorsin2D-5">Since <code class="code-inline tex2jax_ignore">quiver</code> is typically used for vector fields, the size scales automatically based on other elements of the graph. Here we want to use the <span class="process-math">\(xy\)</span>-axes as a fixed scale to draw the vectors, and so will include the arguments <code class="code-inline tex2jax_ignore">angles='xy', scale_units='xy', scale=1</code> inside <code class="code-inline tex2jax_ignore">quiver</code>.</div>
 <div id="subsec-Vectorsin2D-6" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import matplotlib.pyplot as plt
@@ -553,7 +556,7 @@ ax.quiver(0,0,1,3,angles='xy', scale_units='xy', scale=1)
 plt.show()
 </script></div>
 <article class="exercise exercise-like" id="subsec-Vectorsin2D-7"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.17</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.19</span><span class="period">.</span>
 </h4>
 <div class="para" id="subsec-Vectorsin2D-7-1">Try various vectors and viewing windows in the above code.</div></article><div class="para" id="subsec-Vectorsin2D-8">For multiple vectors it can be helpful to color code and use pyplot’s <code class="code-inline tex2jax_ignore">grid()</code> and <code class="code-inline tex2jax_ignore">legend()</code> feature.</div>
 <div id="subsec-Vectorsin2D-9" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import matplotlib.pyplot as plt
@@ -573,7 +576,7 @@ ax.set_title("Vectors") #title
 plt.show()
 </script></div>
 <article class="exercise exercise-like" id="subsec-Vectorsin2D-10"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.18</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.20</span><span class="period">.</span>
 </h4>
 <div class="para" id="subsec-Vectorsin2D-10-1">Try various vectors and viewing windows in the above code. Also add a horizontal and vertical axis at <span class="process-math">\(x=0\)</span> and <span class="process-math">\(y=0\)</span> using the code found in the second Customizing example.</div></article></section><section class="subsection" id="subsec-subplots"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Multiple plots in the same figure</span>
