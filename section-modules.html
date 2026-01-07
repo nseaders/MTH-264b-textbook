@@ -193,9 +193,8 @@ sagecell.makeSagecell({
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-4" class="internal"><span class="title">Importing the package NumPy</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-5" class="internal"><span class="title">Standard functions in NumPy</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-6" class="internal"><span class="title">NumPy arrays</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-7" class="internal"><span class="title">Selecting and Using Part of an Array</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-8" class="internal"><span class="title">Selecting a Range of Entries in an Array</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-9" class="internal"><span class="title">Importing .csv files using the Pandas package</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-7" class="internal"><span class="title">Selecting and using part of an array</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-modules.html#section-modules-8" class="internal"><span class="title">Importing .csv files using the Pandas package</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-modules.html#exercises-modules" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
@@ -383,53 +382,40 @@ print(X)
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.7</span><span class="period">.</span>
 </h4>
 <div class="para" id="section-modules-6-11-1">Edit the above code to use <code class="code-inline tex2jax_ignore">arange</code> to create an array of numbers between 0 and 5 that are one-quarter apart. When you evaluate your code should print the list 0, 0.25, 0.5, 0.75, etc.</div></article></section><section class="subsection" id="section-modules-7"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Selecting and Using Part of an Array</span>
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Selecting and using part of an array</span>
 </h3>
-<div class="para" id="section-modules-7-2">At times you may want just a specific part of an array or to create a new array with part of a larger array. Python has the ability to access a single element by indexing or a range within the array by slicing.</div>
-<div class="para" id="section-modules-7-3">Accessing a single element by indexing. We can access an specific element of the array using it’s index by typing <code class="code-inline tex2jax_ignore">X[index number]</code>. The index number is the position of the element in the array.</div>
-<div id="section-modules-7-4" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
-#create array of 10 evenly spaced numbers between 0 and 5
-X = np.linspace(0,5,num=9)
-print(X)
+<div class="para" id="section-modules-7-2">We can access an entry of a one-dimensional array using it’s index with <code class="code-inline tex2jax_ignore">array_name[index number]</code>, where the index numbers the positions of the elements in the array starting with the number 0.</div>
+<div id="section-modules-7-3" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
+#create array of 101 evenly spaced numbers between 0 and 10
+X = np.linspace(0,10,num=101)
 
 #access the first element in the array X
 b=X[0]
 print(b)
 </script></div>
-<article class="exercise exercise-like" id="section-modules-7-5"><h4 class="heading">
+<article class="exercise exercise-like" id="section-modules-7-4"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.8</span><span class="period">.</span>
 </h4>
-<div class="para" id="section-modules-7-5-1-1">You Try It Use the indexing method to access and pring the 4th entry in the array X. Then access and print the 100th entry.</div></article><div id="section-modules-7-6" class="ptx-sagecell sagecell-python"><script type="text/x-sage">#create array of 110 evenly spaced numbers between 0 and 10
-X = np.linspace(0,10,num=110)
-print(X)
+<div class="para" id="section-modules-7-4-1-1">Edit the code above to access and print the 4th entry, the 100th entry, and the last entry in the array X.</div></article><div class="para" id="section-modules-7-5">Note: The last element of the array can also be accessed using index -1.</div>
+<div class="para" id="section-modules-7-6">For higher dimensional arrays, you need more than one index to access a single entry <code class="code-inline tex2jax_ignore">array_name[index 1, index 2, index 3]</code>. One index will access a sub-array corresponding to that index.</div>
+<div class="para" id="section-modules-7-7">Slicing selects a range of entries in an array by placing a colon between the desired start and stop index values. Note the entry at the stop index is not included.</div>
+<div id="section-modules-7-8" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
+#create array of 101 evenly spaced numbers between 0 and 10
+X = np.linspace(0,10,num=101)
 
-#access and print the 4th entry
-b=print(b)
-
-#access and print the 100th entry
-</script></div></section><section class="subsection" id="section-modules-8"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Selecting a Range of Entries in an Array</span>
-</h3>
-<div class="para" id="section-modules-8-2">You can select a range of entries in an array using a method known as slicing. Instead of putting a single index number in the brackets we can select a range of values by placing a colon between the starting and stopping index values we want.</div>
-<div id="section-modules-8-3" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
-#create array of 10 evenly spaced numbers between 0 and 5
-X = np.linspace(0,5,num=9)
-print(X)
 #select the first three values of the array X
 Y=X[0:3]
 print(Y)
 </script></div>
-<article class="exercise exercise-like" id="section-modules-8-4"><h4 class="heading">
+<article class="exercise exercise-like" id="section-modules-7-9"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.9</span><span class="period">.</span>
 </h4>
-<div class="para" id="section-modules-8-4-1-1">Create a new array out of the middle 50 values of the array.</div></article><div id="section-modules-8-5" class="ptx-sagecell sagecell-python"><script type="text/x-sage">#create array of 110 evenly spaced numbers between 0 and 10
-X = np.linspace(0,10,num=110)
-</script></div></section><section class="subsection" id="section-modules-9"><h3 class="heading hide-type">
+<div class="para" id="section-modules-7-9-1-1">Edit the above code to create a new array out of the middle 50 values of the given array.</div></article></section><section class="subsection" id="section-modules-8"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Importing .csv files using the Pandas package</span>
 </h3>
-<div class="para" id="section-modules-9-2">Sometimes we want to import an array from a file or spreadsheet. The Python package, Pandas, was created to manipulate spreadsheet data. While the main object in NumPy is a NumPy array, the main object in the Pandas package is a Pandas dataframe, essentially a table with indexed rows and named columns. More information about dataframe (table) manipulation in Pandas will be added to the appendix in future versions of this book.</div>
-<div class="para" id="section-modules-9-3">For now we will just use the Pandas package to import a .csv file as a Pandas dataframe, then convert it into a NumPy array so we can use the computational power of NumPy. Since we don’t have a simple way to upload files into the online textbook, the following code must be used in Google Colab, with the file uploaded temporarily to Colab, or on your local machine with a local version of Python.</div>
-<div id="section-modules-9-4" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
+<div class="para" id="section-modules-8-2">Sometimes we want to import an array from a file or spreadsheet. The Python package, Pandas, was created to manipulate spreadsheet data. While the main object in NumPy is a NumPy array, the main object in the Pandas package is a Pandas dataframe, essentially a table with indexed rows and named columns. More information about dataframe (table) manipulation in Pandas will be added to the appendix in future versions of this book.</div>
+<div class="para" id="section-modules-8-3">For now we will just use the Pandas package to import a .csv file as a Pandas dataframe, then convert it into a NumPy array so we can use the computational power of NumPy. Since we don’t have a simple way to upload files into the online textbook, the following code must be used in Google Colab, with the file uploaded temporarily to Colab, or on your local machine with a local version of Python.</div>
+<div id="section-modules-8-4" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
 import pandas as pd
 
 #import the file using pandas read_csv command
@@ -438,16 +424,16 @@ imported_file = pd.read_csv('/content/file.csv')
 
 #convert the pandas dataframe into a numpy array
 array = imported_file.to_numpy()
-</script></div></section><section class="conclusion" id="section-modules-10"><div class="para" id="section-modules-10-1">You can find more information about the package NumPy at <a class="external" href="https://numpy.org/" target="_blank"><code class="code-inline tex2jax_ignore">numpy.org</code></a>. You can find more information about the package Pandas at <a class="external" href="https://pandas.pydata.org/" target="_blank"><code class="code-inline tex2jax_ignore">pandas.pydata.org</code></a>. Python’s wiki has a list of other commonly used <a class="external" href="https://wiki.python.org/moin/UsefulModules" target="_blank">modules and packages.</a><details class="ptx-footnote" aria-live="polite" id="section-modules-10-1-4"><summary class="ptx-footnote__number" title="Footnote 1.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="section-modules-10-1-4"><code class="code-inline tex2jax_ignore">wiki.python.org/moin/UsefulModules</code></div></details>
-</div></section><article class="assemblage assemblage-like" id="section-modules-11"><h3 class="heading"><span class="title">Summary.</span></h3>
-<div class="para logical" id="section-modules-11-2"><ul class="disc" id="section-modules-11-2-1">
-<li id="section-modules-11-2-1-1"><div class="para" id="section-modules-11-2-1-1-1">You can import a Python package and rename it by using <code class="code-inline tex2jax_ignore">import package as name</code>.</div></li>
-<li id="section-modules-11-2-1-2"><div class="para" id="section-modules-11-2-1-2-1">You can call a function from a package using <code class="code-inline tex2jax_ignore">packagename.function</code>
+</script></div></section><section class="conclusion" id="section-modules-9"><div class="para" id="section-modules-9-1">You can find more information about the package NumPy at <a class="external" href="https://numpy.org/" target="_blank"><code class="code-inline tex2jax_ignore">numpy.org</code></a>. You can find more information about the package Pandas at <a class="external" href="https://pandas.pydata.org/" target="_blank"><code class="code-inline tex2jax_ignore">pandas.pydata.org</code></a>. Python’s wiki has a list of other commonly used <a class="external" href="https://wiki.python.org/moin/UsefulModules" target="_blank">modules and packages.</a><details class="ptx-footnote" aria-live="polite" id="section-modules-9-1-4"><summary class="ptx-footnote__number" title="Footnote 1.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="section-modules-9-1-4"><code class="code-inline tex2jax_ignore">wiki.python.org/moin/UsefulModules</code></div></details>
+</div></section><article class="assemblage assemblage-like" id="section-modules-10"><h3 class="heading"><span class="title">Summary.</span></h3>
+<div class="para logical" id="section-modules-10-2"><ul class="disc" id="section-modules-10-2-1">
+<li id="section-modules-10-2-1-1"><div class="para" id="section-modules-10-2-1-1-1">You can import a Python package and rename it by using <code class="code-inline tex2jax_ignore">import package as name</code>.</div></li>
+<li id="section-modules-10-2-1-2"><div class="para" id="section-modules-10-2-1-2-1">You can call a function from a package using <code class="code-inline tex2jax_ignore">packagename.function</code>
 </div></li>
-<li id="section-modules-11-2-1-3"><div class="para" id="section-modules-11-2-1-3-1">Numpy arrays can help us efficiently do computations.</div></li>
-<li id="section-modules-11-2-1-4"><div class="para" id="section-modules-11-2-1-4-1">The Numpy functions <code class="code-inline tex2jax_ignore">linspace()</code> and <code class="code-inline tex2jax_ignore">arange()</code> set up an array of values over an interval.</div></li>
-<li id="section-modules-11-2-1-5"><div class="para" id="section-modules-11-2-1-5-1">Indexing and slicing a numpy array can be used to access a single entry or a range of entries.</div></li>
-<li id="section-modules-11-2-1-6"><div class="para" id="section-modules-11-2-1-6-1">You can use the Pandas function <code class="code-inline tex2jax_ignore">read_csv</code> to import a .csv file as a Pandas dataframe then convert it into a NumPy array using <code class="code-inline tex2jax_ignore">array.to_numpy()</code>.</div></li>
+<li id="section-modules-10-2-1-3"><div class="para" id="section-modules-10-2-1-3-1">Numpy arrays can help us efficiently do computations.</div></li>
+<li id="section-modules-10-2-1-4"><div class="para" id="section-modules-10-2-1-4-1">The Numpy functions <code class="code-inline tex2jax_ignore">linspace()</code> and <code class="code-inline tex2jax_ignore">arange()</code> set up an array of values over an interval.</div></li>
+<li id="section-modules-10-2-1-5"><div class="para" id="section-modules-10-2-1-5-1">Indexing and slicing a numpy array can be used to access a single entry or a range of entries.</div></li>
+<li id="section-modules-10-2-1-6"><div class="para" id="section-modules-10-2-1-6-1">You can use the Pandas function <code class="code-inline tex2jax_ignore">read_csv</code> to import a .csv file as a Pandas dataframe then convert it into a NumPy array using <code class="code-inline tex2jax_ignore">array.to_numpy()</code>.</div></li>
 </ul></div></article><section class="exercises" id="exercises-modules"><h3 class="heading hide-type">
 <span class="type">Exercises</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Exercises</span>
 </h3>
