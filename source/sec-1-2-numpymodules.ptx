@@ -275,6 +275,11 @@
           </input>
         </sage>
 
+        <p>
+          Warning: <c>read_csv</c> defaults to reading in a table with headers (column names). 
+          Otherwise use <c>pd.read_csv('filepath.csv', header = None)</c>
+        </p>
+
       </subsection>
 
 
