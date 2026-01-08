@@ -172,7 +172,7 @@
           </input>
         </sage>
         <p>
-          Note that <c>print</c> will display comma separted items one right after the other. 
+          Note that <c>print</c> will display comma separated items one right after the other. 
           In the code above we first displayed the string <q>The area of a circle is</q> followed by the current value of our variable <c>circle_area</c>.
         </p>
         

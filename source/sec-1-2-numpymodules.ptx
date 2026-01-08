@@ -258,7 +258,7 @@
           then convert it into a NumPy array so we can use the computational power of NumPy. 
           Since we don't have a simple way to upload files into the online textbook, the 
           following code must be used in Google Colab, with the file uploaded temporarily to Colab,
-          or on your local machine with a local version of Python. 
+          or on your local machine with a local version of Python and the appropriate filepath. 
         </p>
 
         <sage language='python'>
