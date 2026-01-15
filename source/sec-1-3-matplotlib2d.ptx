@@ -258,7 +258,8 @@
       and write coordinates <m>x</m> and <m>y</m> in terms of that parameter.
       This is common for curves that are not functions of <m>x</m>, like circles or ellipses, or a nice way
       to model motion, where the <m>x</m> and <m>y</m> coordinate location of an object is the output at each input time <m>t</m>. 
-      If you haven't seen this in a Trigonometry class, or if you need a refresher, check out <em>insert appendix stuff here</em>. 
+      If you haven't seen this in a Trigonometry class, or if you need a refresher, check out 
+       <url href="https://activecalculus.org/multi/S-9-6-Vector-Valued-Functions.html" visual="Active Calculus' Vector-Valued Functions"/>.
      
       In mathematics these <em>parametric curves</em> or <em>space curves</em> are often written as a set of two parametric equations or a vector-valued function. 
     </p>
