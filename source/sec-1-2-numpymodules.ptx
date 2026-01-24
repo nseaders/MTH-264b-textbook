@@ -211,8 +211,7 @@
           </p>
           <p>
             For higher dimensional arrays, you need more than one index to access a single entry
-            <c>array_name[index 1, index 2, index 3]</c>.
-            One index will access a sub-array corresponding to that index. 
+            <c>array_name[index 1, index 2, index 3]</c>. 
           </p>
           <p>
             Slicing selects a range of entries in an array by placing a colon 

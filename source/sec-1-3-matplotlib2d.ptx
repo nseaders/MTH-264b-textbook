@@ -358,7 +358,7 @@
 
     <exercise>
       <p>Search online for a way to change the tick labels in Matplotlib. 
-        Try and adjust the "Falling Body" graph to have tickmarks every quarter of a second.  
+        Try and adjust the "Falling Body" graph to have tickmarks every half second.  
       </p>
     </exercise> 
     
