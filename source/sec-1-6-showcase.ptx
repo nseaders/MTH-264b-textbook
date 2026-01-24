@@ -7,11 +7,12 @@
 <!-- See the file copyright.txt for copying conditions. -->
 
 <section xml:id="section-showcase">
-    
     <title>Student Showcase</title>
-
+    
     <introduction>
-       
+        <p>
+            Former students gave us permission to share some of their work. 
+        </p>
     </introduction>
 
     <objectives>
@@ -22,84 +23,76 @@
             </p>
           </li>
         </ul>
-      </objectives>
+    </objectives>
 
-      
-
-      <subsection xml:id="subsec-student-showcase">
-        <title>Student Showcase</title>
-        <p>
-          Former students gave us permission to share some of their work.  
-        </p>
-
-        <example>
-          <title>Anonymous .gif (Spring 2024)</title>
-          <sage language='python'>
-            <input>
-              #This code generates a Graph demonstrating the motion of a hypothetical falling Space Shark on numerous different planets and moons
-              import numpy as np
-              from matplotlib import pyplot as plt
-              from matplotlib.animation import PillowWriter
-              
-              fig = plt.figure()
-              ax = plt.axes()
-              ax.minorticks_on()
-              
-              curve1, = ax.plot([],[], label='Position on Earth',color='green',linestyle='solid')
-              curve2, = ax.plot([],[],label='Position on Moon',color='gray', linestyle='dashed') 
-              curve3, = ax.plot([],[],label='Position on Mercury',color='indigo', linestyle='dashed') 
-              curve4, = ax.plot([],[],label='Position on Mars',color='darkorange', linestyle='dotted') 
-              curve5, = ax.plot([],[],label='Position on Jupiter',color='maroon', linestyle='dotted') 
-              curve6, = ax.plot([],[],label='Position on Neptune',color='magenta', linestyle='dashdot') 
-              curve7, = ax.plot([],[],label='Position on Pluto',color='blue', linestyle='dashdot')
-              
-              ax.set(xlim=(0,5), ylim = (0,150),xlabel='Time(s)',ylabel='Position (m)',title="Position of a falling Space Shark on different Planets and Moons Graph")
-              ax.legend()
-              
-              writer = PillowWriter(fps=15)
-              x = [] 
-              y1= [] 
-              y2 = [] 
-              y3= [] 
-              y4= [] 
-              y5= [] 
-              y6= [] 
-              y7= []
-              
-              with writer.saving(fig,"FallingShark.gif", 200): 
+    <example>
+        <title>Anonymous .gif (Spring 2024)</title>
+        
+        <sage language='python'>
+        <input>
+            #This code generates a Graph demonstrating the motion of a hypothetical falling Space Shark on numerous different planets and moons
+            import numpy as np
+            from matplotlib import pyplot as plt
+            from matplotlib.animation import PillowWriter
+            
+            fig = plt.figure()
+            ax = plt.axes()
+            ax.minorticks_on()
+            
+            curve1, = ax.plot([],[], label='Position on Earth',color='green',linestyle='solid')
+            curve2, = ax.plot([],[],label='Position on Moon',color='gray', linestyle='dashed') 
+            curve3, = ax.plot([],[],label='Position on Mercury',color='indigo', linestyle='dashed') 
+            curve4, = ax.plot([],[],label='Position on Mars',color='darkorange', linestyle='dotted') 
+            curve5, = ax.plot([],[],label='Position on Jupiter',color='maroon', linestyle='dotted') 
+            curve6, = ax.plot([],[],label='Position on Neptune',color='magenta', linestyle='dashdot') 
+            curve7, = ax.plot([],[],label='Position on Pluto',color='blue', linestyle='dashdot')
+            
+            ax.set(xlim=(0,5), ylim = (0,150),xlabel='Time(s)',ylabel='Position (m)',title="Position of a falling Space Shark on different Planets and Moons Graph")
+            ax.legend()
+            
+            writer = PillowWriter(fps=15)
+            x = [] 
+            y1= [] 
+            y2= [] 
+            y3= [] 
+            y4= [] 
+            y5= [] 
+            y6= [] 
+            y7= []
+            
+            with writer.saving(fig,"FallingShark.gif", 200): 
                 for xval in np.linspace(0,10,100):
-                  x.append(xval) 
-                  y1.append(9.81*((xval)**2)) 
-                  y2.append(1.6*((xval)**2))
-                  y3.append(3.7*((xval)**2)) 
-                  y4.append(3.72*((xval)**2)) 
-                  y5.append(23.1*((xval)**2)) 
-                  y6.append(11*((xval)**2)) 
-                  y7.append(.7*((xval)**2))
-                  curve1.set_data(x,y1) 
-                  curve2.set_data(x,y2) 
-                  curve3.set_data(x,y3) 
-                  curve4.set_data(x,y4) 
-                  curve5.set_data(x,y5) 
-                  curve6.set_data(x,y6) 
-                  curve7.set_data(x,y7)
-                  writer.grab_frame()
-            </input>
-          </sage>
-          
-        </example>
+                    x.append(xval) 
+                    y1.append(9.81*((xval)**2)) 
+                    y2.append(1.6*((xval)**2))
+                    y3.append(3.7*((xval)**2)) 
+                    y4.append(3.72*((xval)**2)) 
+                    y5.append(23.1*((xval)**2)) 
+                    y6.append(11*((xval)**2)) 
+                    y7.append(.7*((xval)**2))
+                    curve1.set_data(x,y1) 
+                    curve2.set_data(x,y2) 
+                    curve3.set_data(x,y3) 
+                    curve4.set_data(x,y4) 
+                    curve5.set_data(x,y5) 
+                    curve6.set_data(x,y6) 
+                    curve7.set_data(x,y7)
+                    writer.grab_frame()
+        </input>
+        </sage>
+    </example>
 
-        <example>
-          <title>Luke Clark interactive (Spring 2024)</title>
-          <sage language='python'>
-            <input>
-              import matplotlib.pyplot as plt 
-              import numpy as np
+    <example>
+        <title>Luke Clark interactive (Spring 2024)</title>
+        <sage language='python'>
+        <input>
+            import matplotlib.pyplot as plt 
+            import numpy as np
 
-              G = 6.67 * 10**-2 #Tera Grams
-              # the equation has to be factored down because it does't like really big numbers 
-              @interact
-              def plot_gravitational_well(Mass=(100, 1000, 10)): #Tera grams
+            G = 6.67 * 10**-2 #Tera Grams
+            # the equation has to be factored down because it does't like really big numbers 
+            @interact
+            def plot_gravitational_well(Mass=(100, 1000, 10)): #Tera grams
                 t = np.linspace(-20, 20, 100)
                 X, Y = np.meshgrid(t, t)
                 Z = -(Mass * G) / (np.sqrt((X**2) + (Y**2))) 
@@ -110,114 +103,113 @@
                 ax.set(xlabel=r'$X$ (Giga $m^2$)', ylabel=r'$Y$ (Giga $m^2$)', zlabel=r'Warping of space ($N/m^3$)')
                 ax.set(title="Gravitational Well of a object with variable Mass") 
                 plt.show()
-            </input>
-          </sage>
-          
-          
-        </example>
+        </input>
+        </sage>  
+        
+    </example>
 
-        <example>
-          <title>Jacob DeWilde interactive (Spring 2024)</title>
-          <sage language='python'>
-            <input>
-              # - Graphing the Partial Sums of the Alternating Series with an Interactive Slider - 
-              import numpy as np
-              import matplotlib.pyplot as plt
-              # import the essentials
-              n = np.linspace(1,100,100)
-              # Since we are graphing the sequence of partial sums and not just # the terms of the series, it is essential that the values of our
-              # index variable n matches up exactly with the series we're trying # to plot (the first element in our array should be the same number # that the index variable starts at, and each successive element
-              # should increment by 1).
+    <example>
+        <title>Jacob DeWilde interactive (Spring 2024)</title>
+        <sage language='python'>
+        <input>
+            # - Graphing the Partial Sums of the Alternating Series with an Interactive Slider - 
+            import numpy as np
+            import matplotlib.pyplot as plt
+            # import the essentials
+            n = np.linspace(1,100,100)
+            # Since we are graphing the sequence of partial sums and not just # the terms of the series, it is essential that the values of our
+            # index variable n matches up exactly with the series we're trying # to plot (the first element in our array should be the same number # that the index variable starts at, and each successive element
+            # should increment by 1).
 
-              An = ((-1)**(n+1))/(n)
-              # terms of the series ; this can be easily adjusted to graph other # infinite series
-              
-              Sn = np.cumsum(An)
-              # partial sums of the series ; Numpy's cumsum() command creates an # array where each element is the sum of the corresponding element # from An and all of the previous elements from An ; the result is
-              # an array where each element adds on one more term, giving us the # outputs to plot for our partial sums
-              
-              ln2 = np.log(2) + 0*n
-              # The alternating harmonic series is known to converge to the natural # log of 2, so the line f(x) = ln(2) is added here. I want an output
-              # array to pair with my input array n where each element is ln(2), so
-              # I can just add ln(2) to my n array scaled by 0 to create an array
-              # of identical size with the desired values.
+            An = ((-1)**(n+1))/(n)
+            # terms of the series ; this can be easily adjusted to graph other # infinite series
+            
+            Sn = np.cumsum(An)
+            # partial sums of the series ; Numpy's cumsum() command creates an # array where each element is the sum of the corresponding element # from An and all of the previous elements from An ; the result is
+            # an array where each element adds on one more term, giving us the # outputs to plot for our partial sums
+            
+            ln2 = np.log(2) + 0*n
+            # The alternating harmonic series is known to converge to the natural # log of 2, so the line f(x) = ln(2) is added here. I want an output
+            # array to pair with my input array n where each element is ln(2), so
+            # I can just add ln(2) to my n array scaled by 0 to create an array
+            # of identical size with the desired values.
 
-              def plot_data(current_n,current_An,current_Sn,current_ln2):
-                  fig = plt.figure()
-                  ax = plt.axes()
-                  ax.scatter(current_n,current_An,color='red',label='Terms of the Series') 
-                  ax.scatter(current_n,current_Sn,color='black',label='Partial Sums of the Series') 
-                  ax.plot(current_n,current_ln2,color='blue',label='f(x) = ln(2)') 
-                  ax.set(xlim=[0,100],ylim=[-0.75,1.25],xlabel='n',title="Partial Sums of the Alternating Harmonic Series") 
-                  ax.grid()
-                  ax.axhline(0,color='black') 
-                  ax.legend()
-                  plt.show()
-              
-              @interact()
-              def respond_to_user_input(frame=slider(1,100,1)):
-                  current_n = n[:frame]
-                  current_An = An[:frame]
-                  current_Sn = Sn[:frame]
-                  current_ln2 = ln2[:frame] 
-                  plot_data(current_n,current_An,current_Sn,current_ln2)
-            </input>
-          </sage>
-          
-        </example>
+            def plot_data(current_n,current_An,current_Sn,current_ln2):
+                fig = plt.figure()
+                ax = plt.axes()
+                ax.scatter(current_n,current_An,color='red',label='Terms of the Series') 
+                ax.scatter(current_n,current_Sn,color='black',label='Partial Sums of the Series') 
+                ax.plot(current_n,current_ln2,color='blue',label='f(x) = ln(2)') 
+                ax.set(xlim=[0,100],ylim=[-0.75,1.25],xlabel='n',title="Partial Sums of the Alternating Harmonic Series") 
+                ax.grid()
+                ax.axhline(0,color='black') 
+                ax.legend()
+                plt.show()
+            
+            @interact()
+            def respond_to_user_input(frame=slider(1,100,1)):
+                current_n = n[:frame]
+                current_An = An[:frame]
+                current_Sn = Sn[:frame]
+                current_ln2 = ln2[:frame] 
+                plot_data(current_n,current_An,current_Sn,current_ln2)
+        </input>
+        </sage>
+        
+    </example>
 
-        <example>
-          <title>Ben Cantarero .gif (Spring 2024)</title>
-          
-          <sage language='python'>
-            <input>
-              import matplotlib.pyplot as plt
-              import numpy as np
-              from matplotlib.animation import FuncAnimation, PillowWriter
+    <example>
+        <title>Ben Cantarero .gif (Spring 2024)</title>
+        
+        <sage language='python'>
+        <input>
+            import matplotlib.pyplot as plt
+            import numpy as np
+            from matplotlib.animation import FuncAnimation, PillowWriter
 
-              #size of the arrays, decrease for better performance
-              S = 50
+            #size of the arrays, decrease for better performance
+            S = 50
 
-              #number of frames in the animation, decrease for better performance
-              frames = 100
+            #number of frames in the animation, decrease for better performance
+            frames = 100
 
-              #maximum x, y and z values
-              mx = 10 
-              my = 10
-              mz = 7
+            #maximum x, y and z values
+            mx = 10 
+            my = 10
+            mz = 7
 
-              #set up grid arrays
-              x = np.linspace(-mx, mx, num=S)
-              y = np.linspace(-my, my, num=S)
-              x,y = np.meshgrid(x, y)
+            #set up grid arrays
+            x = np.linspace(-mx, mx, num=S)
+            y = np.linspace(-my, my, num=S)
+            x,y = np.meshgrid(x, y)
 
-              #set up 2D and 3D graphs
-              fig = plt.figure(figsize=(11, 6))
-              ax2D = fig.add_subplot(122)
-              ax3D = fig.add_subplot(121, projection = '3d') 
-              ax3D.set_xlim3d(-mx, my) 
-              ax3D.set_ylim3d(-my, my) 
-              ax3D.set_zlim3d(-mz, mz)
+            #set up 2D and 3D graphs
+            fig = plt.figure(figsize=(11, 6))
+            ax2D = fig.add_subplot(122)
+            ax3D = fig.add_subplot(121, projection = '3d') 
+            ax3D.set_xlim3d(-mx, my) 
+            ax3D.set_ylim3d(-my, my) 
+            ax3D.set_zlim3d(-mz, mz)
 
-              #increase space between graphs
-              plt.subplots_adjust(wspace = 1)
+            #increase space between graphs
+            plt.subplots_adjust(wspace = 1)
 
-              #arbitrary equation for 3D surface
-              wave = 2 * np.cos(y + x) + 2 * np.sin( -0.05 * y * x)
+            #arbitrary equation for 3D surface
+            wave = 2 * np.cos(y + x) + 2 * np.sin( -0.05 * y * x)
 
-              #function inputs a value corresponding to the position of the plane along the y-axis and updates the graphs accordingly
-              def update(planepos):
+            #function inputs a value corresponding to the position of the plane along the y-axis and updates the graphs accordingly
+            def update(planepos):
                 plane = np.full((S,S,),planepos)
-
+                
                 #plot plane and surface
                 ax3D.clear() 
                 ax3D.plot_surface(x, y, wave, alpha=0.75, cmap='plasma') 
                 ax3D.plot_surface(x, plane, y, alpha=0.25, color='b')
-
+                
                 #plot intersection of plane and surface
                 ax2D.clear()
                 ax2D.contour(x, wave, y, levels=[planepos], colors='b', linestyles='solid')
-
+                
                 #label graphs
                 ax2D.set_title('Intersection of Plane and Surface')
                 ax2D.set_xlabel('x')
@@ -227,24 +219,23 @@
                 ax3D.set_ylabel('y') 
                 ax3D.set_zlabel('z')
 
-              #create the animation and save it to a .gif file
-              ani = FuncAnimation(fig, update, frames=np.linspace(-my, my, num=frames))
-              ani.save('animation.gif', writer=PillowWriter(fps=24))
-              print("Animation successfully saved to animation.gif!")
-            </input>
-          </sage>
-        </example>
+            #create the animation and save it to a .gif file
+            ani = FuncAnimation(fig, update, frames=np.linspace(-my, my, num=frames))
+            ani.save('animation.gif', writer=PillowWriter(fps=24))
+            print("Animation successfully saved to animation.gif!")
+        </input>
+        </sage>
+    </example>
+                
         
-        
-      </subsection>
 
 
-      <conclusion>
+    <conclusion>
         <p>
           As the course has grown the book has improved, but students have been creating wonderful animations 
           from the start. 
         </p>
-      </conclusion>
+    </conclusion>
 
 
 </section>
