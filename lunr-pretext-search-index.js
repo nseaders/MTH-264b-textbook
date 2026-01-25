@@ -484,7 +484,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.5",
   "title": "Basic Animation",
-  "body": " Basic Animation  In this section we will create some basic animations in Matplotlib. Static graphs convey a lot of information in one visual. The right animation can help you convey complicated information simply. Matplotlib has a module called animation that makes frames of a changing graph. Animation is basically a slideshow of pictures or frames. First, however, will need to learn about for loops and user-defined functions to efficiently repeat and reuse code.     Create for loops and user-defined functions to repeat or reuse code.    Create a .gif animating a graph.    Create an .mp4 animating a graph.    Create an interactive plot with a slider.      Repeating blocks of code with for loops  A for loop repeats a block of code for each item in a sequence.   Note that we converted the Python list into a Numpy array before printing. NumPy also has an append function that effectively recreates the entire array before appending which is inefficient in a for loop.    Edit the code above and see what changes if you don't convert the list to a NumPy array.    Edit the code below to add up all the entries in the NumPy array.       Creating a gif in Matplotlib  We can use for loops as a simple way to animate by iterating through frames of an altered graph and writing each frame to a gif file using animation's class PillowWriter .  There are many ways to alter a graph over time. For this example we will start with an empty graph and draw the curve by adding points one at a time.     Play with various graph features and customizations.    Add a title and labels to your graph.      Change the dpi and see how the gif is affected.    Change the frames per second and see how the gif is affected.    Here is an example animating two curves on the same graph.     Reusing blocks of code with user-defined functions  A Python function accepts inputs as arguments and can output through a return statement. For example, numpy.sum() takes in an array and returns the sum of the values in that array (along an axis). When we want to reuse code in multiple places, we can create a user-defined function with def .  The user-defined function below takes in a radius and outputs the area of a circle.   The signature (first line) decides the name of the function and how many arguments the function requires. The next line documents what the function does, triple quoted so you can use multiple lines. Both are followed by the body of code the function runs when called. Once compiled, user defined functions can be called just like any other Python function.    Edit the code above to compute the area of a different circle.    Note that variables defined inside a function are local to that function. What error do you get if you try to print the value of the variable area?    User-defined functions organize code into more manageable chunks. If we find ourselves repeating blocks of code, we often should use a function instead.    Creating an mp4 in Matplotlib  In matplotlib's animation, a class called FuncAnimation can be used to create mp4s. FuncAnimation takes a matplotlib figure and iterates through a user-defined function that alters elements of the graph using frames, ultimately saving all the frames as an mp4.   The argument interval determines the delay between frames in milliseconds and blit chooses whether FuncAnimation recreates the entire figure every frame, or just updates the altered graph elements for efficiency.   Edit the code above to create an mp4 that draws both a sine wave and a cosine wave.   Creating an interactive slider  We can also use interact to create a slider to plot one point at a time. We will need to create two user-defined functions, one that increments through the input points for the slider and another that plots the graph for just those input points.     Play with various graph features and customizations.    Change the number of frames to see how the interactive is affected.    Try aligning and misaligning the number of frames and the number of inputs plotted.   Here is the same interactive for projectile motion.     Matplotlib allows you to not only graph, but make your graphs interactive. You can use interact to create interactive elements. The animation module can be used to animate your graphs. Hopefully this is enough to get you started.    Summary     For loops can be used to animate your graphs and PillowWriter saves those frames into a gif.    The FuncAnimation class and a user-defined function can be used to animate your graph and save frames to an mp4.      We can use interact to create a slider element and create two user defined functions: one that takes the slider information to create points and another that makes graphs for just those points.       Animate a 3D graph.  Showcase your skills from so far in the term to create an animated graph in Matplotlib for any other class (and using one feature we haven't learned in class).  What graph do you want to animate? Create it!   "
+  "body": " Basic Animation  In this section we will create some basic animations in Matplotlib. Static graphs convey a lot of information in one visual. The right animation can help you convey complicated information simply.     Create for loops and user-defined functions to repeat or reuse code.    Create a gif animating a graph.    Create an mp4 animating a graph.    Create an interactive plot with a slider.     Matplotlib has a module called animation that uses frames of a changing graph to create gif and mp4 files. First, however, we will need to learn about for loops and user-defined functions to efficiently repeat and reuse code. Animation is basically a slideshow of pictures or frames.    Repeating blocks of code with for loops  A for loop repeats a block of code for each item in a list or array. The code below uses a for loop to add elements to an array one at a time.   Note that we converted the Python list into a Numpy array before printing. NumPy also has an append function that effectively recreates the entire array before appending which is inefficient in a for loop.    Edit the code above and see what changes if you don't convert the list to a NumPy array.    Edit the code above to create an array of even numbers between 0 and 10 using a for loop.    You can change the value of a variable as you iterate through a for loop to repeatedly perform a computation.  Edit the code below to add up all the entries in the given NumPy array.     Creating a gif in Matplotlib  We can use for loops for a simple animation by iterating through frames of a changing graph and writing each frame to a gif file using animation 's class PillowWriter .  There are many ways to alter a graph over time. For this example we will start with an empty graph and draw the curve by adding points one at a time.   You might have noticed an oddly placed comma in the above code. Essentially ax.plot returns a list\/tuple with one element. The comma allows us to unpack the first element in the list and name it curve, which will be the plotted curve that gets modified in each frame.    Play with various graph features and customizations.    Add a title and labels to your graph.      Change the dpi and see how the gif is affected.    Change the frames per second and see how the gif is affected.    Here is an example animating two curves on the same axes object.     Reusing blocks of code with user-defined functions  A Python function accepts inputs as arguments and can output through a return statement. For example, numpy.sum() takes in an array and returns the sum of the values in that array (along an axis). When we want to reuse code in multiple places, we can create a user-defined function with def .  The user-defined function below takes in a radius and outputs the area of a circle.   The signature decides the name of the function and how many arguments the function requires. The next line documents what the function does, triple quoted so you can use multiple lines. Next is the body of code the function runs when called. Once compiled, user defined functions can be called just like any other Python function.    Edit the code above to compute the area of a different circle.    What error do you get if you add print(area) to the above code?    Note that variables defined inside a function are local to that function.   User-defined functions organize code into more manageable chunks. If we find ourselves repeating blocks of code, we should probably use a function instead.    Creating an mp4 in Matplotlib  In matplotlib's animation , a class called FuncAnimation can be used to create mp4s. FuncAnimation takes a matplotlib figure and uses frames to iterate through a user-defined function that alters elements of the graph, and saving as an mp4.   The argument frames is always iteratively passed into the user-defined function with a hidden for loop and can just be an integer. Meanwhile the argument interval determines the delay between frames in milliseconds and blit chooses whether FuncAnimation recreates the entire figure every frame, or just updates the altered graph elements for efficiency.   Edit the code above to create an mp4 that draws both a sine wave and a cosine wave.   Creating an interactive slider  We can also use interact to create a slider that plots one point at a time. We will need two user-defined functions, one that increments through the input points for the slider and another that plots the graph for just those input points.     Play with various graph features and customizations.    Change the number of frames to see how the interactive is affected.    Try aligning and misaligning the number of frames and the number of inputs plotted.   Here is the same interactive for projectile motion.     Matplotlib allows you to not only graph, but make your graphs interactive. You can use interact to create interactive elements. The animation module can be used to animate your graphs. Hopefully this is enough to get you started.    Summary     For loops can be used to animate your graphs and PillowWriter saves those frames into a gif.    The FuncAnimation class and a user-defined function can be used to animate your graph and save frames to an mp4.      We can use interact to create a slider element and create two user defined functions: one that takes the slider information to create points and another that makes graphs for just those points.       Animate a 3D graph.  Showcase your skills from so far in the term to create an animated graph in Matplotlib for any other class (and using one feature we haven't learned in class).  What graph do you want to animate? Create it!   "
 },
 {
   "id": "section-animation-3",
@@ -493,50 +493,59 @@ var ptx_lunr_docs = [
   "type": "Objectives",
   "number": "1.5",
   "title": "",
-  "body": "   Create for loops and user-defined functions to repeat or reuse code.    Create a .gif animating a graph.    Create an .mp4 animating a graph.    Create an interactive plot with a slider.    "
-},
-{
-  "id": "section-animation-4-5",
-  "level": "2",
-  "url": "section-animation.html#section-animation-4-5",
-  "type": "You Try",
-  "number": "1.33",
-  "title": "",
-  "body": "  Edit the code above and see what changes if you don't convert the list to a NumPy array.    Edit the code below to add up all the entries in the NumPy array.   "
+  "body": "   Create for loops and user-defined functions to repeat or reuse code.    Create a gif animating a graph.    Create an mp4 animating a graph.    Create an interactive plot with a slider.    "
 },
 {
   "id": "section-animation-5-5",
   "level": "2",
   "url": "section-animation.html#section-animation-5-5",
   "type": "You Try",
-  "number": "1.34",
+  "number": "1.33",
   "title": "",
-  "body": "  Play with various graph features and customizations.    Add a title and labels to your graph.   "
+  "body": "  Edit the code above and see what changes if you don't convert the list to a NumPy array.    Edit the code above to create an array of even numbers between 0 and 10 using a for loop.   "
 },
 {
-  "id": "section-animation-5-6",
+  "id": "section-animation-5-7",
   "level": "2",
-  "url": "section-animation.html#section-animation-5-6",
+  "url": "section-animation.html#section-animation-5-7",
   "type": "You Try",
-  "number": "1.35",
+  "number": "1.34",
   "title": "",
-  "body": "  Change the dpi and see how the gif is affected.    Change the frames per second and see how the gif is affected.   "
+  "body": "Edit the code below to add up all the entries in the given NumPy array. "
 },
 {
   "id": "section-animation-6-6",
   "level": "2",
   "url": "section-animation.html#section-animation-6-6",
   "type": "You Try",
-  "number": "1.36",
+  "number": "1.35",
   "title": "",
-  "body": "  Edit the code above to compute the area of a different circle.    Note that variables defined inside a function are local to that function. What error do you get if you try to print the value of the variable area?   "
+  "body": "  Play with various graph features and customizations.    Add a title and labels to your graph.   "
 },
 {
-  "id": "section-animation-8",
+  "id": "section-animation-6-7",
   "level": "2",
-  "url": "section-animation.html#section-animation-8",
+  "url": "section-animation.html#section-animation-6-7",
+  "type": "You Try",
+  "number": "1.36",
+  "title": "",
+  "body": "  Change the dpi and see how the gif is affected.    Change the frames per second and see how the gif is affected.   "
+},
+{
+  "id": "section-animation-7-6",
+  "level": "2",
+  "url": "section-animation.html#section-animation-7-6",
   "type": "You Try",
   "number": "1.37",
+  "title": "",
+  "body": "  Edit the code above to compute the area of a different circle.    What error do you get if you add print(area) to the above code?    Note that variables defined inside a function are local to that function.  "
+},
+{
+  "id": "section-animation-9",
+  "level": "2",
+  "url": "section-animation.html#section-animation-9",
+  "type": "You Try",
+  "number": "1.38",
   "title": "",
   "body": "Edit the code above to create an mp4 that draws both a sine wave and a cosine wave. "
 },
@@ -545,7 +554,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-animation.html#subsec-interactive-slider-4",
   "type": "You Try",
-  "number": "1.38",
+  "number": "1.39",
   "title": "",
   "body": "  Play with various graph features and customizations.    Change the number of frames to see how the interactive is affected.    Try aligning and misaligning the number of frames and the number of inputs plotted.  "
 },
@@ -583,7 +592,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.6",
   "title": "Student Showcase",
-  "body": " Student Showcase       Showcase student work and provide additional examples for future students.      Student Showcase  Former students gave us permission to share some of their work.   Anonymous .gif (Spring 2024)     Luke Clark interactive (Spring 2024)     Jacob DeWilde interactive (Spring 2024)     Ben Cantarero .gif (Spring 2024)      As the course has grown the book has improved, but students have been creating wonderful animations from the start.   "
+  "body": " Student Showcase   Former students gave us permission to share some of their work.      Showcase student work and provide additional examples for future students.      Anonymous .gif (Spring 2024)     Luke Clark interactive (Spring 2024)     Jacob DeWilde interactive (Spring 2024)     Ben Cantarero .gif (Spring 2024)     As the course has grown the book has improved, but students have been creating wonderful animations from the start.   "
 },
 {
   "id": "section-showcase-3",
@@ -595,38 +604,38 @@ var ptx_lunr_docs = [
   "body": "   Showcase student work and provide additional examples for future students.    "
 },
 {
-  "id": "subsec-student-showcase-3",
+  "id": "section-showcase-4",
   "level": "2",
-  "url": "section-showcase.html#subsec-student-showcase-3",
+  "url": "section-showcase.html#section-showcase-4",
   "type": "Example",
-  "number": "1.39",
+  "number": "1.40",
   "title": "Anonymous .gif (Spring 2024).",
   "body": " Anonymous .gif (Spring 2024)   "
 },
 {
-  "id": "subsec-student-showcase-4",
+  "id": "section-showcase-5",
   "level": "2",
-  "url": "section-showcase.html#subsec-student-showcase-4",
+  "url": "section-showcase.html#section-showcase-5",
   "type": "Example",
-  "number": "1.40",
+  "number": "1.41",
   "title": "Luke Clark interactive (Spring 2024).",
   "body": " Luke Clark interactive (Spring 2024)   "
 },
 {
-  "id": "subsec-student-showcase-5",
+  "id": "section-showcase-6",
   "level": "2",
-  "url": "section-showcase.html#subsec-student-showcase-5",
+  "url": "section-showcase.html#section-showcase-6",
   "type": "Example",
-  "number": "1.41",
+  "number": "1.42",
   "title": "Jacob DeWilde interactive (Spring 2024).",
   "body": " Jacob DeWilde interactive (Spring 2024)   "
 },
 {
-  "id": "subsec-student-showcase-6",
+  "id": "section-showcase-7",
   "level": "2",
-  "url": "section-showcase.html#subsec-student-showcase-6",
+  "url": "section-showcase.html#section-showcase-7",
   "type": "Example",
-  "number": "1.42",
+  "number": "1.43",
   "title": "Ben Cantarero .gif (Spring 2024).",
   "body": " Ben Cantarero .gif (Spring 2024)   "
 },

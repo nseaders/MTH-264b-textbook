@@ -239,18 +239,15 @@ sagecell.makeSagecell({
 <li class="toc-item toc-section active">
 <div class="toc-title-box"><a href="section-animation.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Basic Animation</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-animation.html#section-animation-4" class="internal"><span class="title">Repeating blocks of code with for loops</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-animation.html#section-animation-5" class="internal"><span class="title">Creating a gif in Matplotlib</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-animation.html#section-animation-6" class="internal"><span class="title">Reusing blocks of code with user-defined functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-animation.html#section-animation-5" class="internal"><span class="title">Repeating blocks of code with for loops</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-animation.html#section-animation-6" class="internal"><span class="title">Creating a gif in Matplotlib</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-animation.html#section-animation-7" class="internal"><span class="title">Reusing blocks of code with user-defined functions</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-animation.html#subsec-mp4" class="internal"><span class="title">Creating an mp4 in Matplotlib</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-animation.html#subsec-interactive-slider" class="internal"><span class="title">Creating an interactive slider</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-animation.html#exercises-animation" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section">
-<div class="toc-title-box"><a href="section-showcase.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Student Showcase</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-showcase.html#subsec-student-showcase" class="internal"><span class="title">Student Showcase</span></a></div></li></ul>
-</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-showcase.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Student Showcase</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -327,185 +324,196 @@ sagecell.makeSagecell({
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-animation"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">1.5</span><span class="space"> </span><span class="title">Basic Animation</span>
 </h2>
-<section class="introduction" id="section-animation-2">In this section we will create some basic animations in Matplotlib. Static graphs convey a lot of information in one visual. The right animation can help you convey complicated information simply. Matplotlib has a module called animation that makes frames of a changing graph.<details class="ptx-footnote" aria-live="polite" id="section-animation-2-2"><summary class="ptx-footnote__number" title="Footnote 1.4"><sup> 4 </sup></summary><div class="ptx-footnote__contents" id="section-animation-2-2">Animation is basically a slideshow of pictures or frames.</div></details> First, however, will need to learn about for loops and user-defined functions to efficiently repeat and reuse code.</section><article class="objectives goal-like" id="section-animation-3"><h3 class="heading"><span class="type">Objectives</span></h3>
+<section class="introduction" id="section-animation-2">In this section we will create some basic animations in Matplotlib. Static graphs convey a lot of information in one visual. The right animation can help you convey complicated information simply.</section><article class="objectives goal-like" id="section-animation-3"><h3 class="heading"><span class="type">Objectives</span></h3>
 <ul class="disc" id="section-animation-3-1">
 <li id="section-animation-3-1-1"><div class="para" id="section-animation-3-1-1-1">Create for loops and user-defined functions to repeat or reuse code.</div></li>
-<li id="section-animation-3-1-2"><div class="para" id="section-animation-3-1-2-1">Create a .gif animating a graph.</div></li>
-<li id="section-animation-3-1-3"><div class="para" id="section-animation-3-1-3-1">Create an .mp4 animating a graph.</div></li>
+<li id="section-animation-3-1-2"><div class="para" id="section-animation-3-1-2-1">Create a gif animating a graph.</div></li>
+<li id="section-animation-3-1-3"><div class="para" id="section-animation-3-1-3-1">Create an mp4 animating a graph.</div></li>
 <li id="section-animation-3-1-4"><div class="para" id="section-animation-3-1-4-1">Create an interactive plot with a slider.</div></li>
-</ul></article><section class="subsection" id="section-animation-4"><h3 class="heading hide-type">
+</ul></article><div class="para" id="section-animation-4">Matplotlib has a module called <em class="emphasis">animation</em> that uses frames of a changing graph to create gif and mp4 files. First, however, we will need to learn about for loops and user-defined functions to efficiently repeat and reuse code.<details class="ptx-footnote" aria-live="polite" id="section-animation-4-2"><summary class="ptx-footnote__number" title="Footnote 1.4"><sup> 4 </sup></summary><div class="ptx-footnote__contents" id="section-animation-4-2">Animation is basically a slideshow of pictures or frames.</div></details>
+</div>
+<section class="subsection" id="section-animation-5"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Repeating blocks of code with for loops</span>
 </h3>
-<div class="para" id="section-animation-4-2">A for loop repeats a block of code for each item in a sequence.</div>
-<div id="section-animation-4-3" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
+<div class="para" id="section-animation-5-2">A for loop repeats a block of code for each item in a list or array. The code below uses a for loop to add elements to an array one at a time.</div>
+<div id="section-animation-5-3" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
 
 list = [] #create an empty Python list
 
-for i in np.linspace(0,5,6): #for each number in this array 
-  list.append(i) #append to our list
+for i in np.linspace(0,5,6): #for each number in this array
+    list.append(i) #append to our list
 
 print(np.array(list)) #print list with appended values
 
 for tval in np.linspace(0,2*np.pi, 5):
-  list.append(tval)
+    list.append(tval)
 
 print(np.array(list)) #print list with additional appended values
 </script></div>
-<div class="para" id="section-animation-4-4">Note that we converted the Python list into a Numpy array before printing. NumPy also has an append function that effectively recreates the entire array before appending which is inefficient in a for loop.</div>
-<article class="exercise exercise-like" id="section-animation-4-5"><h4 class="heading">
+<div class="para" id="section-animation-5-4">Note that we converted the Python list into a Numpy array before printing. NumPy also has an append function that effectively recreates the entire array before appending which is inefficient in a for loop.</div>
+<article class="exercise exercise-like" id="section-animation-5-5"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.33</span><span class="period">.</span>
 </h4>
-<ul class="disc" id="section-animation-4-5-1">
-<li id="section-animation-4-5-1-1"><div class="para" id="section-animation-4-5-1-1-1">Edit the code above and see what changes if you don’t convert the list to a NumPy array.</div></li>
-<li id="section-animation-4-5-1-2"><div class="para" id="section-animation-4-5-1-2-1">Edit the code below to add up all the entries in the NumPy array.</div></li>
-</ul></article><div id="section-animation-4-6" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
+<ul class="disc" id="section-animation-5-5-1">
+<li id="section-animation-5-5-1-1"><div class="para" id="section-animation-5-5-1-1-1">Edit the code above and see what changes if you don’t convert the list to a NumPy array.</div></li>
+<li id="section-animation-5-5-1-2"><div class="para" id="section-animation-5-5-1-2-1">Edit the code above to create an array of even numbers between 0 and 10 using a for loop.</div></li>
+</ul></article><div class="para" id="section-animation-5-6">You can change the value of a variable as you iterate through a for loop to repeatedly perform a computation.</div>
+<article class="exercise exercise-like" id="section-animation-5-7"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.34</span><span class="period">.</span>
+</h4>
+<div class="para" id="section-animation-5-7-1">Edit the code below to add up all the entries in the given NumPy array.</div></article><div id="section-animation-5-8" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
 
 array = np.linspace(1,10, num=10)
 
 sum = 0 
 
 for val in array:
-  sum =  
+    sum =  
 
 print(sum)
-</script></div></section><section class="subsection" id="section-animation-5"><h3 class="heading hide-type">
+</script></div></section><section class="subsection" id="section-animation-6"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Creating a gif in Matplotlib</span>
 </h3>
-<div class="para" id="section-animation-5-2">We can use for loops as a simple way to animate by iterating through frames of an altered graph and writing each frame to a gif file using animation’s class <code class="code-inline tex2jax_ignore">PillowWriter</code>.</div>
-<div class="para" id="section-animation-5-3">There are many ways to alter a graph over time. For this example we will start with an empty graph and draw the curve by adding points one at a time.</div>
-<div id="section-animation-5-4" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
+<div class="para" id="section-animation-6-2">We can use for loops for a simple animation by iterating through frames of a changing graph and writing each frame to a gif file using <em class="emphasis">animation</em>’s class <code class="code-inline tex2jax_ignore">PillowWriter</code>.</div>
+<div class="para" id="section-animation-6-3">There are many ways to alter a graph over time. For this example we will start with an empty graph and draw the curve by adding points one at a time.</div>
+<div id="section-animation-6-4" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.animation import PillowWriter
-#PillowWriter used for creating gifs
 
 fig, ax = plt.subplots()
 
-#plot an empty curve that we will add to over time
-curve, = ax.plot([],[]) #create an empty graph to animate
-#note: ax.plot returns a list with one element 
-#here we grab the first item in the list and name it curve 
+#plot empty curve later added to frame by frame
+curve, = ax.plot([],[]) 
 
-#decide on a viewing window that doesn't change as the curve grows
+#decide on a viewing window 
 ax.set(xlim=(-5,5), ylim = (-5,5))
 
-#set up writer object to grab frames for a gif
+#set to 15 frames per second and shorten name
 writer = PillowWriter(fps=15)
 
 x = [] #empty start
 y = []
 
+#grab and save frames of changing graph
 with writer.saving(fig, "sinWave.gif", dpi = 100): #dpi = dots per inch
-  for xval in np.linspace(-5,5,100):
-    x.append(xval)
-    y.append(3*np.sin(xval))
+    for xval in np.linspace(-5,5,100):
+        x.append(xval)
+        y.append(3*np.sin(xval))
 
-    #update the x and y values in the plotted curve
-    curve.set_data(x,y)
+        #update the x and y values in the plotted curve
+        curve.set_data(x,y)
 
-    writer.grab_frame() #grab current frame in figure for writer object
+        writer.grab_frame() #grab current frame
 </script></div>
-<article class="exercise exercise-like" id="section-animation-5-5"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.34</span><span class="period">.</span>
-</h4>
-<ul class="disc" id="section-animation-5-5-1">
-<li id="section-animation-5-5-1-1"><div class="para" id="section-animation-5-5-1-1-1">Play with various graph features and customizations.</div></li>
-<li id="section-animation-5-5-1-2"><div class="para" id="section-animation-5-5-1-2-1">Add a title and labels to your graph.</div></li>
-</ul></article><article class="exercise exercise-like" id="section-animation-5-6"><h4 class="heading">
+<div class="para" id="section-animation-6-5">You might have noticed an oddly placed comma in the above code. Essentially <code class="code-inline tex2jax_ignore">ax.plot</code> returns a list/tuple with one element. The comma allows us to unpack the first element in the list and name it curve, which will be the plotted curve that gets modified in each frame.</div>
+<article class="exercise exercise-like" id="section-animation-6-6"><h4 class="heading">
 <span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.35</span><span class="period">.</span>
 </h4>
-<ul class="disc" id="section-animation-5-6-1">
-<li id="section-animation-5-6-1-1"><div class="para" id="section-animation-5-6-1-1-1">Change the dpi and see how the gif is affected.</div></li>
-<li id="section-animation-5-6-1-2"><div class="para" id="section-animation-5-6-1-2-1">Change the frames per second and see how the gif is affected.</div></li>
-</ul></article><div class="para" id="section-animation-5-7">Here is an example animating two curves on the same graph.</div>
-<div id="section-animation-5-8" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
+<ul class="disc" id="section-animation-6-6-1">
+<li id="section-animation-6-6-1-1"><div class="para" id="section-animation-6-6-1-1-1">Play with various graph features and customizations.</div></li>
+<li id="section-animation-6-6-1-2"><div class="para" id="section-animation-6-6-1-2-1">Add a title and labels to your graph.</div></li>
+</ul></article><article class="exercise exercise-like" id="section-animation-6-7"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.36</span><span class="period">.</span>
+</h4>
+<ul class="disc" id="section-animation-6-7-1">
+<li id="section-animation-6-7-1-1"><div class="para" id="section-animation-6-7-1-1-1">Change the dpi and see how the gif is affected.</div></li>
+<li id="section-animation-6-7-1-2"><div class="para" id="section-animation-6-7-1-2-1">Change the frames per second and see how the gif is affected.</div></li>
+</ul></article><div class="para" id="section-animation-6-8">Here is an example animating two curves on the same axes object.</div>
+<div id="section-animation-6-9" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.animation import PillowWriter
 
 fig, ax = plt.subplots()
-curve, = ax.plot([],[], label='sine') #create an empty graph to animate
+
+#plot empty curves later added to frame by frame
+curve, = ax.plot([],[], label='sine') 
 curve2, = ax.plot([],[],color='purple', linestyle='dashed', label='cosine')
 
 ax.set(xlim=[-5,5], ylim=[-5,5])
 ax.legend()
 
-#set up writer object to grab frames for a gif
+#set to 15 frames per second and shorten name
 writer = PillowWriter(fps=15)
 
 x = [] #empty start
 y = []
-y2 = []
+y2= []
 
 with writer.saving(fig, "sincosWave.gif", dpi = 100): 
-  for xval in np.linspace(-5,5,100):
-    x.append(xval)
-    y.append(3*np.sin(xval))
-    y2.append(3*np.cos(xval))
+    for xval in np.linspace(-5,5,100):
+        x.append(xval)
+        y.append(3*np.sin(xval))
+        y2.append(3*np.cos(xval))
 
-    curve.set_data(x,y)
-    curve2.set_data(x,y2)
+        curve.set_data(x,y)
+        curve2.set_data(x,y2)
 
-    writer.grab_frame() #grab current frame in figure for writer object
-</script></div></section><section class="subsection" id="section-animation-6"><h3 class="heading hide-type">
+        writer.grab_frame() #grab current frame
+</script></div></section><section class="subsection" id="section-animation-7"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Reusing blocks of code with user-defined functions</span>
 </h3>
-<div class="para" id="section-animation-6-2">A Python function accepts inputs as arguments and can output through a return statement. For example, <code class="code-inline tex2jax_ignore">numpy.sum()</code> takes in an array and returns the sum of the values in that array (along an axis). When we want to reuse code in multiple places, we can create a user-defined function with <code class="code-inline tex2jax_ignore">def</code>.</div>
-<div class="para" id="section-animation-6-3">The user-defined function below takes in a radius and outputs the area of a circle.</div>
-<div id="section-animation-6-4" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
+<div class="para" id="section-animation-7-2">A Python function accepts inputs as arguments and can output through a return statement. For example, <code class="code-inline tex2jax_ignore">numpy.sum()</code> takes in an array and returns the sum of the values in that array (along an axis). When we want to reuse code in multiple places, we can create a user-defined function with <code class="code-inline tex2jax_ignore">def</code>.</div>
+<div class="para" id="section-animation-7-3">The user-defined function below takes in a radius and outputs the area of a circle.</div>
+<div id="section-animation-7-4" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import numpy as np
 
 def circle_area(radius): #signature
-  #documentation
-  """Compute the area of a circle for a given radius""" 
+    """Compute the area of a circle for a given radius""" 
 
-  #body
-  area = np.pi * radius**2
-  return area
+    area = np.pi * radius**2
+    return area
 
 print(circle_area(3))
 </script></div>
-<div class="para" id="section-animation-6-5">The signature (first line) decides the name of the function and how many arguments the function requires. The next line documents what the function does, triple quoted so you can use multiple lines. Both are followed by the body of code the function runs when called. Once compiled, user defined functions can be called just like any other Python function.</div>
-<article class="exercise exercise-like" id="section-animation-6-6"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.36</span><span class="period">.</span>
+<div class="para" id="section-animation-7-5">The signature decides the name of the function and how many arguments the function requires. The next line documents what the function does, triple quoted so you can use multiple lines. Next is the body of code the function runs when called. Once compiled, user defined functions can be called just like any other Python function.</div>
+<article class="exercise exercise-like" id="section-animation-7-6"><h4 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.37</span><span class="period">.</span>
 </h4>
-<ul class="disc" id="section-animation-6-6-1">
-<li id="section-animation-6-6-1-1"><div class="para" id="section-animation-6-6-1-1-1">Edit the code above to compute the area of a different circle.</div></li>
-<li id="section-animation-6-6-1-2"><div class="para" id="section-animation-6-6-1-2-1">Note that variables defined inside a function are local to that function. What error do you get if you try to print the value of the variable area?</div></li>
-</ul></article><div class="para" id="section-animation-6-7">User-defined functions organize code into more manageable chunks. If we find ourselves repeating blocks of code, we often should use a function instead.</div></section><section class="subsection" id="subsec-mp4"><h3 class="heading hide-type">
+<ul class="disc" id="section-animation-7-6-1">
+<li id="section-animation-7-6-1-1"><div class="para" id="section-animation-7-6-1-1-1">Edit the code above to compute the area of a different circle.</div></li>
+<li id="section-animation-7-6-1-2"><div class="para" id="section-animation-7-6-1-2-1">What error do you get if you add <code class="code-inline tex2jax_ignore">print(area)</code> to the above code?</div></li>
+</ul>
+<details id="section-animation-7-6-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="section-animation-7-6-2-1">Note that variables defined inside a function are local to that function.</div></div></details></article><div class="para" id="section-animation-7-7">User-defined functions organize code into more manageable chunks. If we find ourselves repeating blocks of code, we should probably use a function instead.</div></section><section class="subsection" id="subsec-mp4"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Creating an mp4 in Matplotlib</span>
 </h3>
-<div class="para" id="subsec-mp4-2">In matplotlib’s animation, a class called FuncAnimation can be used to create mp4s. FuncAnimation takes a matplotlib figure and iterates through a user-defined function that alters elements of the graph using frames, ultimately saving all the frames as an mp4.</div>
+<div class="para" id="subsec-mp4-2">In matplotlib’s <em class="emphasis">animation</em>, a class called <em class="emphasis">FuncAnimation</em> can be used to create mp4s. <em class="emphasis">FuncAnimation</em> takes a matplotlib figure and uses frames to iterate through a user-defined function that alters elements of the graph, and saving as an mp4.</div>
 <div id="subsec-mp4-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
 fig, ax = plt.subplots()
 
-#decide on a viewing window so it doesn't change as the curve grows
+#choose a viewing window 
 ax.set(xlim=(-5,5), ylim=(-5,5))
 
+#set up frames to be our x-values
 frame_values = np.linspace(-5,5, num=100)
 
 X = []
 Y = []
-curve, = ax.plot([], [])
+curve, = ax.plot([], []) #empty curve 
 
-def animate(frame):
-  xval = frame
-  X.append(xval)
-  Y.append(np.sin(xval))
-  curve.set_data(X,Y)
+#function that modifies graph 
+def animate(frame): 
+    xval = frame
+    X.append(xval)
+    Y.append(np.sin(xval))
+    curve.set_data(X,Y)
+    return curve,
 
-  return curve,
-
-ani = FuncAnimation(fig, animate, frames = frame_values, interval = 20, blit=True)
+ani = FuncAnimation(fig, #fig
+                    animate, #user-defined function that modifies graph
+                    frames = frame_values, #iteratively pass into user-defined function
+                    interval = 20, #delay between frames in ms
+                    blit=True) #only update altered graph elements
 ani.save('sinewave.mp4')
 </script></div>
-<div class="para" id="subsec-mp4-4">The argument <code class="code-inline tex2jax_ignore">interval</code> determines the delay between frames in milliseconds and <code class="code-inline tex2jax_ignore">blit</code> chooses whether FuncAnimation recreates the entire figure every frame, or just updates the altered graph elements for efficiency.</div></section><article class="exercise exercise-like" id="section-animation-8"><h3 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.37</span><span class="period">.</span>
+<div class="para" id="subsec-mp4-4">The argument <code class="code-inline tex2jax_ignore">frames</code> is always iteratively passed into the user-defined function with a hidden for loop and can just be an integer. Meanwhile the argument <code class="code-inline tex2jax_ignore">interval</code> determines the delay between frames in milliseconds and <code class="code-inline tex2jax_ignore">blit</code> chooses whether FuncAnimation recreates the entire figure every frame, or just updates the altered graph elements for efficiency.</div></section><article class="exercise exercise-like" id="section-animation-9"><h3 class="heading">
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.38</span><span class="period">.</span>
 </h3>
-<div class="para" id="section-animation-8-1">Edit the code above to create an mp4 that draws both a sine wave and a cosine wave.</div></article><section class="subsection" id="subsec-interactive-slider"><h3 class="heading hide-type">
+<div class="para" id="section-animation-9-1">Edit the code above to create an mp4 that draws both a sine wave and a cosine wave.</div></article><section class="subsection" id="subsec-interactive-slider"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Creating an interactive slider</span>
 </h3>
-<div class="para" id="subsec-interactive-slider-2">We can also use <code class="code-inline tex2jax_ignore">interact</code> to create a slider to plot one point at a time. We will need to create two user-defined functions, one that increments through the input points for the slider and another that plots the graph for just those input points.</div>
+<div class="para" id="subsec-interactive-slider-2">We can also use <code class="code-inline tex2jax_ignore">interact</code> to create a slider that plots one point at a time. We will need two user-defined functions, one that increments through the input points for the slider and another that plots the graph for just those input points.</div>
 <div id="subsec-interactive-slider-3" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 
@@ -534,7 +542,7 @@ def respond_to_user_input(frame=slider(1,15,1)):
     plot_data(current_t, current_y)
 </script></div>
 <article class="exercise exercise-like" id="subsec-interactive-slider-4"><h4 class="heading">
-<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.38</span><span class="period">.</span>
+<span class="type">You Try</span><span class="space"> </span><span class="codenumber">1.39</span><span class="period">.</span>
 </h4>
 <ul class="disc" id="subsec-interactive-slider-4-1">
 <li id="subsec-interactive-slider-4-1-1"><div class="para" id="subsec-interactive-slider-4-1-1-1">Play with various graph features and customizations.</div></li>
@@ -572,13 +580,13 @@ def respond_to_user_input(time=slider(1,15,1)):
     current_y = y_range[:time]
     #Call our function that plots data       
     plot_data(current_t, current_y)
-</script></div></section><section class="conclusion" id="section-animation-10"><div class="para" id="section-animation-10-1">Matplotlib allows you to not only graph, but make your graphs interactive. You can use <code class="code-inline tex2jax_ignore">interact</code> to create interactive elements. The <code class="code-inline tex2jax_ignore">animation</code> module can be used to animate your graphs. Hopefully this is enough to get you started.</div></section><article class="assemblage assemblage-like" id="section-animation-11"><h3 class="heading"><span class="title">Summary.</span></h3>
-<div class="para logical" id="section-animation-11-2">
-<ul class="disc" id="section-animation-11-2-1">
-<li id="section-animation-11-2-1-1"><div class="para" id="section-animation-11-2-1-1-1">For loops can be used to animate your graphs and <code class="code-inline tex2jax_ignore">PillowWriter</code> saves those frames into a gif.</div></li>
-<li id="section-animation-11-2-1-2"><div class="para" id="section-animation-11-2-1-2-1">The <code class="code-inline tex2jax_ignore">FuncAnimation</code> class and a user-defined function can be used to animate your graph and save frames to an mp4.</div></li>
+</script></div></section><section class="conclusion" id="section-animation-11"><div class="para" id="section-animation-11-1">Matplotlib allows you to not only graph, but make your graphs interactive. You can use <code class="code-inline tex2jax_ignore">interact</code> to create interactive elements. The <code class="code-inline tex2jax_ignore">animation</code> module can be used to animate your graphs. Hopefully this is enough to get you started.</div></section><article class="assemblage assemblage-like" id="section-animation-12"><h3 class="heading"><span class="title">Summary.</span></h3>
+<div class="para logical" id="section-animation-12-2">
+<ul class="disc" id="section-animation-12-2-1">
+<li id="section-animation-12-2-1-1"><div class="para" id="section-animation-12-2-1-1-1">For loops can be used to animate your graphs and <code class="code-inline tex2jax_ignore">PillowWriter</code> saves those frames into a gif.</div></li>
+<li id="section-animation-12-2-1-2"><div class="para" id="section-animation-12-2-1-2-1">The <code class="code-inline tex2jax_ignore">FuncAnimation</code> class and a user-defined function can be used to animate your graph and save frames to an mp4.</div></li>
 </ul>
-<ul class="disc" id="section-animation-11-2-2"><li id="section-animation-11-2-2-1"><div class="para" id="section-animation-11-2-2-1-1">We can use <code class="code-inline tex2jax_ignore">interact</code> to create a slider element and create two user defined functions: one that takes the slider information to create points and another that makes graphs for just those points.</div></li></ul>
+<ul class="disc" id="section-animation-12-2-2"><li id="section-animation-12-2-2-1"><div class="para" id="section-animation-12-2-2-1-1">We can use <code class="code-inline tex2jax_ignore">interact</code> to create a slider element and create two user defined functions: one that takes the slider information to create points and another that makes graphs for just those points.</div></li></ul>
 </div></article><section class="exercises" id="exercises-animation"><h3 class="heading hide-type">
 <span class="type">Exercises</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Exercises</span>
 </h3>

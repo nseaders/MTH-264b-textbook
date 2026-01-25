@@ -227,18 +227,15 @@ sagecell.makeSagecell({
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="section-animation.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Basic Animation</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-animation.html#section-animation-4" class="internal"><span class="title">Repeating blocks of code with for loops</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-animation.html#section-animation-5" class="internal"><span class="title">Creating a gif in Matplotlib</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-animation.html#section-animation-6" class="internal"><span class="title">Reusing blocks of code with user-defined functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-animation.html#section-animation-5" class="internal"><span class="title">Repeating blocks of code with for loops</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-animation.html#section-animation-6" class="internal"><span class="title">Creating a gif in Matplotlib</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-animation.html#section-animation-7" class="internal"><span class="title">Reusing blocks of code with user-defined functions</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-animation.html#subsec-mp4" class="internal"><span class="title">Creating an mp4 in Matplotlib</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-animation.html#subsec-interactive-slider" class="internal"><span class="title">Creating an interactive slider</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-animation.html#exercises-animation" class="internal"><span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section active">
-<div class="toc-title-box"><a href="section-showcase.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Student Showcase</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-showcase.html#subsec-student-showcase" class="internal"><span class="title">Student Showcase</span></a></div></li></ul>
-</li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="section-showcase.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Student Showcase</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -315,14 +312,10 @@ sagecell.makeSagecell({
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-showcase"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">1.6</span><span class="space"> </span><span class="title">Student Showcase</span>
 </h2>
-<section class="introduction" id="section-showcase-2"></section><article class="objectives goal-like" id="section-showcase-3"><h3 class="heading"><span class="type">Objectives</span></h3>
-<ul class="disc" id="section-showcase-3-1"><li id="section-showcase-3-1-1"><div class="para" id="section-showcase-3-1-1-1">Showcase student work and provide additional examples for future students.</div></li></ul></article><section class="subsection" id="subsec-student-showcase"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Student Showcase</span>
-</h3>
-<div class="para" id="subsec-student-showcase-2">Former students gave us permission to share some of their work.</div>
-<article class="example example-like" id="subsec-student-showcase-3"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.39</span><span class="period">.</span><span class="space"> </span><span class="title">Anonymous .gif (Spring 2024).</span>
-</h4> <div id="subsec-student-showcase-3-2" class="ptx-sagecell sagecell-python"><script type="text/x-sage">#This code generates a Graph demonstrating the motion of a hypothetical falling Space Shark on numerous different planets and moons
+<section class="introduction" id="section-showcase-2"><div class="para" id="section-showcase-2-1">Former students gave us permission to share some of their work.</div></section><article class="objectives goal-like" id="section-showcase-3"><h3 class="heading"><span class="type">Objectives</span></h3>
+<ul class="disc" id="section-showcase-3-1"><li id="section-showcase-3-1-1"><div class="para" id="section-showcase-3-1-1-1">Showcase student work and provide additional examples for future students.</div></li></ul></article><article class="example example-like" id="section-showcase-4"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.40</span><span class="period">.</span><span class="space"> </span><span class="title">Anonymous .gif (Spring 2024).</span>
+</h3> <div id="section-showcase-4-2" class="ptx-sagecell sagecell-python"><script type="text/x-sage">#This code generates a Graph demonstrating the motion of a hypothetical falling Space Shark on numerous different planets and moons
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.animation import PillowWriter
@@ -345,53 +338,53 @@ ax.legend()
 writer = PillowWriter(fps=15)
 x = [] 
 y1= [] 
-y2 = [] 
-y3= [] 
-y4= [] 
+y2= [] 
+y3= []
+y4= []
 y5= [] 
 y6= [] 
 y7= []
 
-with writer.saving(fig,"FallingShark.gif", 200): 
-  for xval in np.linspace(0,10,100):
-    x.append(xval) 
-    y1.append(9.81*((xval)**2)) 
-    y2.append(1.6*((xval)**2))
-    y3.append(3.7*((xval)**2)) 
-    y4.append(3.72*((xval)**2)) 
-    y5.append(23.1*((xval)**2)) 
-    y6.append(11*((xval)**2)) 
-    y7.append(.7*((xval)**2))
-    curve1.set_data(x,y1) 
-    curve2.set_data(x,y2) 
-    curve3.set_data(x,y3) 
-    curve4.set_data(x,y4) 
-    curve5.set_data(x,y5) 
-    curve6.set_data(x,y6) 
-    curve7.set_data(x,y7)
-    writer.grab_frame()
-</script></div></article><article class="example example-like" id="subsec-student-showcase-4"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.40</span><span class="period">.</span><span class="space"> </span><span class="title">Luke Clark interactive (Spring 2024).</span>
-</h4> <div id="subsec-student-showcase-4-2" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import matplotlib.pyplot as plt 
+with writer.saving(fig,"FallingShark.gif", 200):
+    for xval in np.linspace(0,10,100):
+        x.append(xval)
+        y1.append(9.81*((xval)**2))
+        y2.append(1.6*((xval)**2))
+        y3.append(3.7*((xval)**2))
+        y4.append(3.72*((xval)**2))
+        y5.append(23.1*((xval)**2))
+        y6.append(11*((xval)**2))
+        y7.append(.7*((xval)**2))
+        curve1.set_data(x,y1)
+        curve2.set_data(x,y2)
+        curve3.set_data(x,y3)
+        curve4.set_data(x,y4)
+        curve5.set_data(x,y5)
+        curve6.set_data(x,y6)
+        curve7.set_data(x,y7)
+        writer.grab_frame()
+</script></div></article><article class="example example-like" id="section-showcase-5"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.41</span><span class="period">.</span><span class="space"> </span><span class="title">Luke Clark interactive (Spring 2024).</span>
+</h3> <div id="section-showcase-5-2" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import matplotlib.pyplot as plt 
 import numpy as np
 
 G = 6.67 * 10**-2 #Tera Grams
 # the equation has to be factored down because it does't like really big numbers 
 @interact
 def plot_gravitational_well(Mass=(100, 1000, 10)): #Tera grams
-  t = np.linspace(-20, 20, 100)
-  X, Y = np.meshgrid(t, t)
-  Z = -(Mass * G) / (np.sqrt((X**2) + (Y**2))) 
-  fig = plt.figure()
-  ax = fig.add_subplot(111, projection='3d')
-  ax.plot_surface(X, Y, Z)
-  ax.set(xlim=[-20, 20], ylim=[-20, 20], zlim=[-100, 100]) 
-  ax.set(xlabel=r'$X$ (Giga $m^2$)', ylabel=r'$Y$ (Giga $m^2$)', zlabel=r'Warping of space ($N/m^3$)')
-  ax.set(title="Gravitational Well of a object with variable Mass") 
-  plt.show()
-</script></div></article><article class="example example-like" id="subsec-student-showcase-5"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.41</span><span class="period">.</span><span class="space"> </span><span class="title">Jacob DeWilde interactive (Spring 2024).</span>
-</h4> <div id="subsec-student-showcase-5-2" class="ptx-sagecell sagecell-python"><script type="text/x-sage"># - Graphing the Partial Sums of the Alternating Series with an Interactive Slider - 
+    t = np.linspace(-20, 20, 100)
+    X, Y = np.meshgrid(t, t)
+    Z = -(Mass * G) / (np.sqrt((X**2) + (Y**2))) 
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
+    ax.plot_surface(X, Y, Z)
+    ax.set(xlim=[-20, 20], ylim=[-20, 20], zlim=[-100, 100]) 
+    ax.set(xlabel=r'$X$ (Giga $m^2$)', ylabel=r'$Y$ (Giga $m^2$)', zlabel=r'Warping of space ($N/m^3$)')
+    ax.set(title="Gravitational Well of a object with variable Mass") 
+    plt.show()
+</script></div></article><article class="example example-like" id="section-showcase-6"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.42</span><span class="period">.</span><span class="space"> </span><span class="title">Jacob DeWilde interactive (Spring 2024).</span>
+</h3> <div id="section-showcase-6-2" class="ptx-sagecell sagecell-python"><script type="text/x-sage"># - Graphing the Partial Sums of the Alternating Series with an Interactive Slider - 
 import numpy as np
 import matplotlib.pyplot as plt
 # import the essentials
@@ -432,9 +425,9 @@ def respond_to_user_input(frame=slider(1,100,1)):
     current_Sn = Sn[:frame]
     current_ln2 = ln2[:frame] 
     plot_data(current_n,current_An,current_Sn,current_ln2)
-</script></div></article><article class="example example-like" id="subsec-student-showcase-6"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.42</span><span class="period">.</span><span class="space"> </span><span class="title">Ben Cantarero .gif (Spring 2024).</span>
-</h4> <div id="subsec-student-showcase-6-2" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import matplotlib.pyplot as plt
+</script></div></article><article class="example example-like" id="section-showcase-7"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.43</span><span class="period">.</span><span class="space"> </span><span class="title">Ben Cantarero .gif (Spring 2024).</span>
+</h3> <div id="section-showcase-7-2" class="ptx-sagecell sagecell-python"><script type="text/x-sage">import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.animation import FuncAnimation, PillowWriter
 
@@ -445,7 +438,7 @@ S = 50
 frames = 100
 
 #maximum x, y and z values
-mx = 10 
+mx = 10
 my = 10
 mz = 7
 
@@ -457,9 +450,9 @@ x,y = np.meshgrid(x, y)
 #set up 2D and 3D graphs
 fig = plt.figure(figsize=(11, 6))
 ax2D = fig.add_subplot(122)
-ax3D = fig.add_subplot(121, projection = '3d') 
-ax3D.set_xlim3d(-mx, my) 
-ax3D.set_ylim3d(-my, my) 
+ax3D = fig.add_subplot(121, projection = '3d')
+ax3D.set_xlim3d(-mx, my)
+ax3D.set_ylim3d(-my, my)
 ax3D.set_zlim3d(-mz, mz)
 
 #increase space between graphs
@@ -470,31 +463,31 @@ wave = 2 * np.cos(y + x) + 2 * np.sin( -0.05 * y * x)
 
 #function inputs a value corresponding to the position of the plane along the y-axis and updates the graphs accordingly
 def update(planepos):
-  plane = np.full((S,S,),planepos)
-
-  #plot plane and surface
-  ax3D.clear() 
-  ax3D.plot_surface(x, y, wave, alpha=0.75, cmap='plasma') 
-  ax3D.plot_surface(x, plane, y, alpha=0.25, color='b')
-
-  #plot intersection of plane and surface
-  ax2D.clear()
-  ax2D.contour(x, wave, y, levels=[planepos], colors='b', linestyles='solid')
-
-  #label graphs
-  ax2D.set_title('Intersection of Plane and Surface')
-  ax2D.set_xlabel('x')
-  ax2D.set_ylabel('z') 
-  ax3D.set_title('3D Surface and Plane')
-  ax3D.set_xlabel('x') 
-  ax3D.set_ylabel('y') 
-  ax3D.set_zlabel('z')
-
+    plane = np.full((S,S,),planepos)
+    
+    #plot plane and surface
+    ax3D.clear()
+    ax3D.plot_surface(x, y, wave, alpha=0.75, cmap='plasma')
+    ax3D.plot_surface(x, plane, y, alpha=0.25, color='b')
+    
+    #plot intersection of plane and surface
+    ax2D.clear()
+    ax2D.contour(x, wave, y, levels=[planepos], colors='b', linestyles='solid')
+    
+    #label graphs
+    ax2D.set_title('Intersection of Plane and Surface')
+    ax2D.set_xlabel('x')
+    ax2D.set_ylabel('z')
+    ax3D.set_title('3D Surface and Plane')
+    ax3D.set_xlabel('x')
+    ax3D.set_ylabel('y')
+    ax3D.set_zlabel('z')
+    
 #create the animation and save it to a .gif file
 ani = FuncAnimation(fig, update, frames=np.linspace(-my, my, num=frames))
 ani.save('animation.gif', writer=PillowWriter(fps=24))
 print("Animation successfully saved to animation.gif!")
-</script></div></article></section><section class="conclusion" id="section-showcase-5"><div class="para" id="section-showcase-5-1">As the course has grown the book has improved, but students have been creating wonderful animations from the start.</div></section></section></div>
+</script></div></article><section class="conclusion" id="section-showcase-8"><div class="para" id="section-showcase-8-1">As the course has grown the book has improved, but students have been creating wonderful animations from the start.</div></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="section-animation.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="chapter2.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
