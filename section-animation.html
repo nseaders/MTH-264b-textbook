@@ -475,7 +475,7 @@ print(circle_area(3))
 <details id="section-animation-7-6-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="section-animation-7-6-2-1">Note that variables defined inside a function are local to that function.</div></div></details></article><div class="para" id="section-animation-7-7">User-defined functions organize code into more manageable chunks. If we find ourselves repeating blocks of code, we should probably use a function instead.</div></section><section class="subsection" id="subsec-mp4"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Creating an mp4 in Matplotlib</span>
 </h3>
-<div class="para" id="subsec-mp4-2">In matplotlib’s <em class="emphasis">animation</em>, a class called <em class="emphasis">FuncAnimation</em> can be used to create mp4s. <em class="emphasis">FuncAnimation</em> takes a matplotlib figure and uses frames to iterate through a user-defined function that alters elements of the graph, and saving as an mp4.</div>
+<div class="para" id="subsec-mp4-2">In matplotlib’s <em class="emphasis">animation</em>, a class called <em class="emphasis">FuncAnimation</em> can be used to create mp4s. <em class="emphasis">FuncAnimation</em> takes a matplotlib figure, uses frames to iterate through a user-defined function that alters elements of the graph, then saves as an mp4.</div>
 <div id="subsec-mp4-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
@@ -568,7 +568,7 @@ def plot_data(current_t, current_y):
     ax.set(xlim=[0,3], ylim=[-4,10], xlabel='Time (s)', ylabel='Height (m)', title="Projectile Motion")
 
     ax.grid(True) #show grid
-    ax.legend([f"v0 = {v0} m/s"]) #create legend
+    ax.legend([f"$v_0$ = {v0} m/s"]) #create legend
   
     plt.show()  #display graph
   
