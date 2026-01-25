@@ -14,12 +14,6 @@
         In this section we will create some basic animations in Matplotlib.
         Static graphs convey a lot of information in one visual. 
         The right animation can help you convey complicated information simply.
-        Matplotlib has a module called <emph>animation</emph> that makes 
-        frames of a changing graph.<fn>Animation
-            is basically a slideshow of pictures or frames.
-          </fn> 
-        First, however, will need to learn about for loops and user-defined functions 
-        to efficiently repeat and reuse code.
     </introduction>
 
     <objectives>
@@ -47,10 +41,19 @@
         </ul>
       </objectives>
 
+      <p>
+        Matplotlib has a module called <em>animation</em> that uses 
+        frames of a changing graph to create gif and mp4 files.
+        First, however, we will need to learn about for loops and user-defined functions 
+        to efficiently repeat and reuse code.<fn>Animation
+            is basically a slideshow of pictures or frames.</fn> 
+      </p>
+
       <subsection>
         <title>Repeating blocks of code with for loops</title>
         <p> 
-          A for loop repeats a block of code for each item in a sequence.  
+          A for loop repeats a block of code for each item in a list or array. 
+          The code below uses a for loop to add elements to an array one at a time. 
         </p>
 
         <sage language='python'>
@@ -59,13 +62,13 @@
 
             list = [] #create an empty Python list
 
-            for i in np.linspace(0,5,6): #for each number in this array 
-              list.append(i) #append to our list
+            for i in np.linspace(0,5,6): #for each number in this array
+                list.append(i) #append to our list
 
             print(np.array(list)) #print list with appended values
 
             for tval in np.linspace(0,2*np.pi, 5):
-              list.append(tval)
+                list.append(tval)
 
             print(np.array(list)) #print list with additional appended values
           </input>
@@ -85,11 +88,21 @@
             </li>
             <li>
               <p>
-                Edit the code below to add up all the entries in the NumPy array.  
+                Edit the code above to create an array of even numbers between 0 and 10 using a for loop. 
               </p>
             </li>
           </ul>
 
+        </exercise>
+
+        <p>
+          You can change the value of a variable as you iterate through a for loop to repeatedly perform a computation.
+        </p>
+
+        <exercise>
+          <p>
+            Edit the code below to add up all the entries in the given NumPy array.
+          </p>
         </exercise>
 
         <sage>
@@ -101,7 +114,7 @@
             sum = 0 
 
             for val in array:
-              sum =  
+                sum =  
 
             print(sum)
             
@@ -113,9 +126,9 @@
         <title>Creating a gif in Matplotlib</title>
 
         <p>
-          We can use for loops as a simple way to animate by
-          iterating through frames of an altered graph and 
-          writing each frame to a gif file using animation's class <c>PillowWriter</c>. 
+          We can use for loops for a simple animation by
+          iterating through frames of a changing graph and 
+          writing each frame to a gif file using <em>animation</em>'s class <c>PillowWriter</c>. 
         </p>
         <p>
           There are many ways to alter a graph over time. For this example we will 
@@ -127,36 +140,41 @@
             import numpy as np
             from matplotlib import pyplot as plt
             from matplotlib.animation import PillowWriter
-            #PillowWriter used for creating gifs
 
             fig, ax = plt.subplots()
 
-            #plot an empty curve that we will add to over time
-            curve, = ax.plot([],[]) #create an empty graph to animate
-            #note: ax.plot returns a list with one element 
-            #here we grab the first item in the list and name it curve 
+            #plot empty curve later added to frame by frame
+            curve, = ax.plot([],[]) 
 
-            #decide on a viewing window that doesn't change as the curve grows
+            #decide on a viewing window 
             ax.set(xlim=(-5,5), ylim = (-5,5))
 
-            #set up writer object to grab frames for a gif
+            #set to 15 frames per second and shorten name
             writer = PillowWriter(fps=15)
 
             x = [] #empty start
             y = []
 
+            #grab and save frames of changing graph
             with writer.saving(fig, "sinWave.gif", dpi = 100): #dpi = dots per inch
-              for xval in np.linspace(-5,5,100):
-                x.append(xval)
-                y.append(3*np.sin(xval))
+                for xval in np.linspace(-5,5,100):
+                    x.append(xval)
+                    y.append(3*np.sin(xval))
 
-                #update the x and y values in the plotted curve
-                curve.set_data(x,y)
+                    #update the x and y values in the plotted curve
+                    curve.set_data(x,y)
 
-                writer.grab_frame() #grab current frame in figure for writer object
+                    writer.grab_frame() #grab current frame
 
           </input> 
         </sage>
+
+        <p>
+          You might have noticed an oddly placed comma in the above code. Essentially
+          <c>ax.plot</c> returns a list/tuple with one element. 
+          The comma allows us to unpack the first element in the list and name it curve, 
+          which will be the plotted curve that gets modified in each frame. 
+        </p>
 
         <exercise>
           <ul>
@@ -189,7 +207,7 @@
         </exercise>
 
         <p>
-          Here is an example animating two curves on the same graph. 
+          Here is an example animating two curves on the same axes object. 
         </p>
 
         <sage language='python'>
@@ -199,33 +217,34 @@
             from matplotlib.animation import PillowWriter
 
             fig, ax = plt.subplots()
-            curve, = ax.plot([],[], label='sine') #create an empty graph to animate
+
+            #plot empty curves later added to frame by frame
+            curve, = ax.plot([],[], label='sine') 
             curve2, = ax.plot([],[],color='purple', linestyle='dashed', label='cosine')
 
             ax.set(xlim=[-5,5], ylim=[-5,5])
             ax.legend()
 
-            #set up writer object to grab frames for a gif
+            #set to 15 frames per second and shorten name
             writer = PillowWriter(fps=15)
 
             x = [] #empty start
             y = []
-            y2 = []
+            y2= []
 
             with writer.saving(fig, "sincosWave.gif", dpi = 100): 
-              for xval in np.linspace(-5,5,100):
-                x.append(xval)
-                y.append(3*np.sin(xval))
-                y2.append(3*np.cos(xval))
+                for xval in np.linspace(-5,5,100):
+                    x.append(xval)
+                    y.append(3*np.sin(xval))
+                    y2.append(3*np.cos(xval))
 
-                curve.set_data(x,y)
-                curve2.set_data(x,y2)
+                    curve.set_data(x,y)
+                    curve2.set_data(x,y2)
 
-                writer.grab_frame() #grab current frame in figure for writer object
+                    writer.grab_frame() #grab current frame
 
           </input> 
         </sage>
-
 
       </subsection>
 
@@ -246,12 +265,10 @@
             import numpy as np
 
             def circle_area(radius): #signature
-              #documentation
-              """Compute the area of a circle for a given radius""" 
+                """Compute the area of a circle for a given radius""" 
 
-              #body
-              area = np.pi * radius**2
-              return area
+                area = np.pi * radius**2
+                return area
 
             print(circle_area(3))
 
@@ -259,9 +276,9 @@
         </sage>
 
         <p>
-          The signature (first line) decides the name of the function and how many arguments the function requires. 
-          The next line documents what the function does, triple quoted so you can use multiple lines. Both are 
-          followed by the body of code the function runs when called. Once compiled, user defined functions
+          The signature decides the name of the function and how many arguments the function requires. 
+          The next line documents what the function does, triple quoted so you can use multiple lines. Next
+          is the body of code the function runs when called. Once compiled, user defined functions
           can be called just like any other Python function.
         </p>
 
@@ -274,16 +291,20 @@
             </li>
             <li>
               <p>
-                Note that variables defined inside a function are local to that function.
-                What error do you get if you try to print the value of the variable area?  
+                What error do you get if you add <c>print(area)</c> to the above code? 
               </p>
             </li>
           </ul>
+          <hint>
+            <p>
+              Note that variables defined inside a function are local to that function.
+            </p>
+          </hint>
         </exercise>
 
         <p>
           User-defined functions organize code into more manageable chunks. 
-          If we find ourselves repeating blocks of code, we often should use a function instead. 
+          If we find ourselves repeating blocks of code, we should probably use a function instead. 
         </p>
         
       </subsection>
@@ -292,10 +313,10 @@
         <title>Creating an mp4 in Matplotlib</title>
 
         <p>
-          In matplotlib's animation, a class called FuncAnimation can be used to create
-          mp4s. FuncAnimation takes a matplotlib figure and iterates through 
-          a user-defined function that alters elements of the graph using frames,
-          ultimately saving all the frames as an mp4.
+          In matplotlib's <em>animation</em>, a class called <em>FuncAnimation</em> can be used to create
+          mp4s. <em>FuncAnimation</em> takes a matplotlib figure and uses frames to iterate through 
+          a user-defined function that alters elements of the graph,
+          and saving as an mp4.
         </p>
 
         <sage>
@@ -306,24 +327,29 @@
 
             fig, ax = plt.subplots()
 
-            #decide on a viewing window so it doesn't change as the curve grows
+            #choose a viewing window 
             ax.set(xlim=(-5,5), ylim=(-5,5))
 
+            #set up frames to be our x-values
             frame_values = np.linspace(-5,5, num=100)
 
             X = []
             Y = []
-            curve, = ax.plot([], [])
+            curve, = ax.plot([], []) #empty curve 
 
-            def animate(frame):
-              xval = frame
-              X.append(xval)
-              Y.append(np.sin(xval))
-              curve.set_data(X,Y)
+            #function that modifies graph 
+            def animate(frame): 
+                xval = frame
+                X.append(xval)
+                Y.append(np.sin(xval))
+                curve.set_data(X,Y)
+                return curve,
 
-              return curve,
-
-            ani = FuncAnimation(fig, animate, frames = frame_values, interval = 20, blit=True)
+            ani = FuncAnimation(fig, #fig
+                                animate, #user-defined function that modifies graph
+                                frames = frame_values, #iteratively pass into user-defined function
+                                interval = 20, #delay between frames in ms
+                                blit=True) #only update altered graph elements
             ani.save('sinewave.mp4')
             
           </input>
@@ -331,7 +357,9 @@
         </sage>
 
         <p>
-          The argument <c>interval</c> determines the delay between frames in milliseconds and <c>blit</c> chooses
+          The argument <c>frames</c> is always iteratively passed into the 
+          user-defined function with a hidden for loop and can just be an integer.
+          Meanwhile the argument <c>interval</c> determines the delay between frames in milliseconds and <c>blit</c> chooses
           whether FuncAnimation recreates the entire figure every frame, or just updates the altered graph
           elements for efficiency.
         </p>
@@ -351,8 +379,8 @@
       <subsection xml:id="subsec-interactive-slider">
         <title>Creating an interactive slider</title>
         <p>
-          We can also use <c>interact</c> to create a slider to plot one point at a time. 
-          We will need to create two user-defined functions, 
+          We can also use <c>interact</c> to create a slider that plots one point at a time. 
+          We will need two user-defined functions, 
           one that increments through the input points for the slider and 
           another that plots the graph for just those input points. 
         </p>
