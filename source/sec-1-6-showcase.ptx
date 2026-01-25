@@ -54,28 +54,28 @@
             x = [] 
             y1= [] 
             y2= [] 
-            y3= [] 
-            y4= [] 
+            y3= []
+            y4= []
             y5= [] 
             y6= [] 
             y7= []
             
-            with writer.saving(fig,"FallingShark.gif", 200): 
+            with writer.saving(fig,"FallingShark.gif", 200):
                 for xval in np.linspace(0,10,100):
-                    x.append(xval) 
-                    y1.append(9.81*((xval)**2)) 
+                    x.append(xval)
+                    y1.append(9.81*((xval)**2))
                     y2.append(1.6*((xval)**2))
-                    y3.append(3.7*((xval)**2)) 
-                    y4.append(3.72*((xval)**2)) 
-                    y5.append(23.1*((xval)**2)) 
-                    y6.append(11*((xval)**2)) 
+                    y3.append(3.7*((xval)**2))
+                    y4.append(3.72*((xval)**2))
+                    y5.append(23.1*((xval)**2))
+                    y6.append(11*((xval)**2))
                     y7.append(.7*((xval)**2))
-                    curve1.set_data(x,y1) 
-                    curve2.set_data(x,y2) 
-                    curve3.set_data(x,y3) 
-                    curve4.set_data(x,y4) 
-                    curve5.set_data(x,y5) 
-                    curve6.set_data(x,y6) 
+                    curve1.set_data(x,y1)
+                    curve2.set_data(x,y2)
+                    curve3.set_data(x,y3)
+                    curve4.set_data(x,y4)
+                    curve5.set_data(x,y5)
+                    curve6.set_data(x,y6)
                     curve7.set_data(x,y7)
                     writer.grab_frame()
         </input>
@@ -88,7 +88,7 @@
         <input>
             import matplotlib.pyplot as plt 
             import numpy as np
-
+            
             G = 6.67 * 10**-2 #Tera Grams
             # the equation has to be factored down because it does't like really big numbers 
             @interact
@@ -166,44 +166,44 @@
             import matplotlib.pyplot as plt
             import numpy as np
             from matplotlib.animation import FuncAnimation, PillowWriter
-
+            
             #size of the arrays, decrease for better performance
             S = 50
-
+            
             #number of frames in the animation, decrease for better performance
             frames = 100
-
+            
             #maximum x, y and z values
-            mx = 10 
+            mx = 10
             my = 10
             mz = 7
-
+            
             #set up grid arrays
             x = np.linspace(-mx, mx, num=S)
             y = np.linspace(-my, my, num=S)
             x,y = np.meshgrid(x, y)
-
+            
             #set up 2D and 3D graphs
             fig = plt.figure(figsize=(11, 6))
             ax2D = fig.add_subplot(122)
-            ax3D = fig.add_subplot(121, projection = '3d') 
-            ax3D.set_xlim3d(-mx, my) 
-            ax3D.set_ylim3d(-my, my) 
+            ax3D = fig.add_subplot(121, projection = '3d')
+            ax3D.set_xlim3d(-mx, my)
+            ax3D.set_ylim3d(-my, my)
             ax3D.set_zlim3d(-mz, mz)
-
+            
             #increase space between graphs
             plt.subplots_adjust(wspace = 1)
-
+            
             #arbitrary equation for 3D surface
             wave = 2 * np.cos(y + x) + 2 * np.sin( -0.05 * y * x)
-
+            
             #function inputs a value corresponding to the position of the plane along the y-axis and updates the graphs accordingly
             def update(planepos):
                 plane = np.full((S,S,),planepos)
                 
                 #plot plane and surface
-                ax3D.clear() 
-                ax3D.plot_surface(x, y, wave, alpha=0.75, cmap='plasma') 
+                ax3D.clear()
+                ax3D.plot_surface(x, y, wave, alpha=0.75, cmap='plasma')
                 ax3D.plot_surface(x, plane, y, alpha=0.25, color='b')
                 
                 #plot intersection of plane and surface
@@ -213,12 +213,12 @@
                 #label graphs
                 ax2D.set_title('Intersection of Plane and Surface')
                 ax2D.set_xlabel('x')
-                ax2D.set_ylabel('z') 
+                ax2D.set_ylabel('z')
                 ax3D.set_title('3D Surface and Plane')
-                ax3D.set_xlabel('x') 
-                ax3D.set_ylabel('y') 
+                ax3D.set_xlabel('x')
+                ax3D.set_ylabel('y')
                 ax3D.set_zlabel('z')
-
+                
             #create the animation and save it to a .gif file
             ani = FuncAnimation(fig, update, frames=np.linspace(-my, my, num=frames))
             ani.save('animation.gif', writer=PillowWriter(fps=24))
