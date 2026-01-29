@@ -389,7 +389,10 @@
             import matplotlib.pyplot as plt
             import numpy as np
 
-            t = np.linspace(0, 6, 15) #inputs
+            #choose number of frames for slider
+            num_frames = 15
+
+            t = np.linspace(0, 6, num_frames) #inputs
             y = np.sin(t) #outputs           
 
             #define function that plots points up to user input
@@ -405,7 +408,7 @@
             
             #define function to create points based on user input
             @interact() #create interactive element, this one is a slider
-            def respond_to_user_input(frame=slider(1,15,1)): 
+            def respond_to_user_input(frame=slider(1,num_frames,1)): 
               
                 #Get points up to frame user chooses.
                 current_t = t[:frame]
@@ -445,7 +448,10 @@
             import matplotlib.pyplot as plt
             import numpy as np
 
-            t_range = np.linspace(0, 3, 15) #time inputs
+            #choose number of frames for slider
+            num_frames = 15
+
+            t_range = np.linspace(0, 3, num_frames) #time inputs
             #position based on initial velocity, gravity, and time elapsed
             g = -9.81 #approx gravity
             v0 = 12 #initial velocity
@@ -466,7 +472,7 @@
                 plt.show()  #display graph
               
             @interact() #create interactive element
-            def respond_to_user_input(time=slider(1,15,1)):
+            def respond_to_user_input(time=slider(1,num_frames,1)):
               
                 #Get data up to frame user chooses.
                 current_t = t_range[:time]
