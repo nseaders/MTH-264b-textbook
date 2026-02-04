@@ -1,3 +1,3 @@
-# My Great Book
+# An Introduction to Matrix Computations in Python
 
-Visit <https://pretextbook.org/documentation.html> to learn more.
+Visit <https://nseaders.github.io/MTH-264b-textbook/frontmatter-2.html> to learn more.
