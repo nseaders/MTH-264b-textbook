@@ -205,7 +205,7 @@
                 <md>
                   <mrow>0.8x -0.8y -0.4z \amp= 0 </mrow>
                   <mrow> -0.3x +0.9y -0.4z \amp =0</mrow>
-                  <mrow> -0.4x -0.1y +0.8z\amp=0 </mrow>
+                  <mrow> -0.5x -0.1y +0.8z\amp=0 </mrow>
                 </md>
           
           If you multiply both sides of each equation by 10, 
@@ -213,7 +213,7 @@
                 <md>
                   <mrow>8x -8y -4z \amp= 0 </mrow>
                   <mrow> -3x +9y -4z \amp =0</mrow>
-                  <mrow> -4x -y +8z\amp=0 </mrow>
+                  <mrow> -5x -y +8z\amp=0 </mrow>
                 </md>
           If you use Sympy to row reduce the system, however, you get a different answer.
         </p>
@@ -518,10 +518,9 @@
               Recall the first two equations intersect in the line 
               <me>
                 \left[ \begin{matrix} x\\ y\\z \end{matrix} \right] =
-                \left[\begin{matrix} 2-2z\\ -1+z\\z \end{matrix} \right]=
-                \left[\begin{matrix} 2\\ -1\\0 \end{matrix} \right] +z\left[\begin{matrix} -2\\ 1\\1 \end{matrix} \right].
+                \left[\begin{matrix} 2\\ -1\\0 \end{matrix} \right] +t\left[\begin{matrix} -2\\ 1\\1 \end{matrix} \right]
               </me> 
-              Solving for when <m>x=2</m>, we see <m>t=0</m>. 
+              where we have renamed the parameter <m>t</m> for clarity. Solving for when <m>x=2</m>, we see <m>t=0</m>. 
               Plugging <m>t=0</m> into the parametric equation for the line we obtain the point <m>(2,-1,0)</m>.
               Similarly when <m>x=-2</m>, we find <m>t=2</m>, giving the point <m>(-2,1,2)</m>.
             </p>
@@ -529,8 +528,7 @@
               The last two equations intersect in the line
               <me>
                 \left[ \begin{matrix} x\\ y\\z \end{matrix} \right] =
-                \left[\begin{matrix} -1\\ -1+z\\z \end{matrix} \right]=
-                \left[\begin{matrix} -1\\ -1\\0 \end{matrix} \right] +z\left[\begin{matrix} 0\\ 1\\1 \end{matrix} \right].
+                \left[\begin{matrix} -1\\ -1\\0 \end{matrix} \right] +t\left[\begin{matrix} 0\\ 1\\1 \end{matrix} \right].
               </me> 
               Here <m>x</m> is always <m>-1</m>. Instead we solve for when <m>y=-2</m> and <m>2</m>.
               We find <m>t=-1</m> and <m>3</m>, giving us the two points <m>(-1,2,-1)</m> and <m>(-1,2,3)</m>.
@@ -539,8 +537,7 @@
               The first and last equations intersect in the line
               <me>
                 \left[ \begin{matrix} x\\ y\\z \end{matrix} \right] =
-                \left[\begin{matrix} 1/2-z\\ 1/2\\z \end{matrix} \right]=
-                \left[\begin{matrix} 1/2\\ 1/2\\0 \end{matrix} \right] +z\left[\begin{matrix} -1\\ 0\\1 \end{matrix} \right].
+                \left[\begin{matrix} 1/2\\ 1/2\\0 \end{matrix} \right] +t\left[\begin{matrix} -1\\ 0\\1 \end{matrix} \right].
               </me> 
               Here <m>x=-2,2</m> when <m>t=5/2,-3/2</m> giving us the points <m>(-2,1/2,5/2)</m> and <m>(2,1/2,-3/2)</m>.
             </p>
@@ -559,8 +556,8 @@
               ax = plt.axes(projection='3d') #add a 3D axis
 
               #plot the 3 plane equations, use alpha for transparency
-              X = np.arange(-2,2,step=0.25) #1d x inputs
-              Y = np.arange(-2,2,step=0.25) #1d y inputs
+              X = np.arange(-2,2.25,step=0.25) #1d x inputs
+              Y = np.arange(-2,2.25,step=0.25) #1d y inputs
               X,Y = np.meshgrid(X,Y) #2D grid of inputs
               SurfZ1 = 1-X-Y
               SurfZ2 = 1+Y
@@ -584,7 +581,7 @@
               Line3Z = [5/2,-3/2]
               ax.plot(Line1X,Line1Y,Line1Z, color='mediumpurple')
               ax.plot(Line2X,Line2Y,Line2Z, color='darkorange')
-              ax.plot(Line3X,Line3Y,Line3Z, color='green')
+              ax.plot(Line3X,Line3Y,Line3Z, color='c')
 
               # Customize the view angle 
               #ax.view_init(elev=20, azim=30, roll=0)
