@@ -712,7 +712,7 @@
           </p>
           <p>
             Use Python code to find the solution. 
-            Graph the system of equations and the solution using Matplot3D. Lable your axes. 
+            Graph the system of equations and the solution using Matplot3D. Label your axes. 
             <em>Note: part of the challenge is making sure you have a good viewing window and perspective
               so the graph helps illuminate the solution.
             </em>
