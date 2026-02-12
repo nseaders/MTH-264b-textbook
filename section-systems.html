@@ -402,7 +402,7 @@ print(A.rref()) #print RREF of A
 \begin{align*}
 0.8x -0.8y -0.4z \amp= 0 \\
 -0.3x +0.9y -0.4z \amp =0\\
--0.4x -0.1y +0.8z\amp=0 
+-0.5x -0.1y +0.8z\amp=0 
 \end{align*}
 </div>
 <div class="para">If you multiply both sides of each equation by 10, you don’t change the solutions to the equations.</div>
@@ -410,7 +410,7 @@ print(A.rref()) #print RREF of A
 \begin{align*}
 8x -8y -4z \amp= 0 \\
 -3x +9y -4z \amp =0\\
--4x -y +8z\amp=0 
+-5x -y +8z\amp=0 
 \end{align*}
 </div>
 <div class="para">If you use Sympy to row reduce the system, however, you get a different answer.</div>
@@ -631,19 +631,17 @@ plt.show()
 <div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} x\\ y\\z \end{matrix} \right] =
-\left[\begin{matrix} 2-2z\\ -1+z\\z \end{matrix} \right]=
-\left[\begin{matrix} 2\\ -1\\0 \end{matrix} \right] +z\left[\begin{matrix} -2\\ 1\\1 \end{matrix} \right].
+\left[\begin{matrix} 2\\ -1\\0 \end{matrix} \right] +t\left[\begin{matrix} -2\\ 1\\1 \end{matrix} \right]
 \end{equation*}
 </div>
-<div class="para">Solving for when <span class="process-math">\(x=2\text{,}\)</span> we see <span class="process-math">\(t=0\text{.}\)</span> Plugging <span class="process-math">\(t=0\)</span> into the parametric equation for the line we obtain the point <span class="process-math">\((2,-1,0)\text{.}\)</span> Similarly when <span class="process-math">\(x=-2\text{,}\)</span> we find <span class="process-math">\(t=2\text{,}\)</span> giving the point <span class="process-math">\((-2,1,2)\text{.}\)</span>
+<div class="para">where we have renamed the parameter <span class="process-math">\(t\)</span> for clarity. Solving for when <span class="process-math">\(x=2\text{,}\)</span> we see <span class="process-math">\(t=0\text{.}\)</span> Plugging <span class="process-math">\(t=0\)</span> into the parametric equation for the line we obtain the point <span class="process-math">\((2,-1,0)\text{.}\)</span> Similarly when <span class="process-math">\(x=-2\text{,}\)</span> we find <span class="process-math">\(t=2\text{,}\)</span> giving the point <span class="process-math">\((-2,1,2)\text{.}\)</span>
 </div>
 </div> <div class="para logical" id="threedsolutions1-12-2">
 <div class="para">The last two equations intersect in the line</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} x\\ y\\z \end{matrix} \right] =
-\left[\begin{matrix} -1\\ -1+z\\z \end{matrix} \right]=
-\left[\begin{matrix} -1\\ -1\\0 \end{matrix} \right] +z\left[\begin{matrix} 0\\ 1\\1 \end{matrix} \right].
+\left[\begin{matrix} -1\\ -1\\0 \end{matrix} \right] +t\left[\begin{matrix} 0\\ 1\\1 \end{matrix} \right].
 \end{equation*}
 </div>
 <div class="para">Here <span class="process-math">\(x\)</span> is always <span class="process-math">\(-1\text{.}\)</span> Instead we solve for when <span class="process-math">\(y=-2\)</span> and <span class="process-math">\(2\text{.}\)</span> We find <span class="process-math">\(t=-1\)</span> and <span class="process-math">\(3\text{,}\)</span> giving us the two points <span class="process-math">\((-1,2,-1)\)</span> and <span class="process-math">\((-1,2,3)\text{.}\)</span>
@@ -653,8 +651,7 @@ plt.show()
 <div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} x\\ y\\z \end{matrix} \right] =
-\left[\begin{matrix} 1/2-z\\ 1/2\\z \end{matrix} \right]=
-\left[\begin{matrix} 1/2\\ 1/2\\0 \end{matrix} \right] +z\left[\begin{matrix} -1\\ 0\\1 \end{matrix} \right].
+\left[\begin{matrix} 1/2\\ 1/2\\0 \end{matrix} \right] +t\left[\begin{matrix} -1\\ 0\\1 \end{matrix} \right].
 \end{equation*}
 </div>
 <div class="para">Here <span class="process-math">\(x=-2,2\)</span> when <span class="process-math">\(t=5/2,-3/2\)</span> giving us the points <span class="process-math">\((-2,1/2,5/2)\)</span> and <span class="process-math">\((2,1/2,-3/2)\text{.}\)</span>
@@ -667,8 +664,8 @@ fig = plt.figure() #create a figure
 ax = plt.axes(projection='3d') #add a 3D axis
 
 #plot the 3 plane equations, use alpha for transparency
-X = np.arange(-2,2,step=0.25) #1d x inputs
-Y = np.arange(-2,2,step=0.25) #1d y inputs
+X = np.arange(-2,2.25,step=0.25) #1d x inputs
+Y = np.arange(-2,2.25,step=0.25) #1d y inputs
 X,Y = np.meshgrid(X,Y) #2D grid of inputs
 SurfZ1 = 1-X-Y
 SurfZ2 = 1+Y
@@ -692,7 +689,7 @@ Line3Y = [1/2,1/2]
 Line3Z = [5/2,-3/2]
 ax.plot(Line1X,Line1Y,Line1Z, color='mediumpurple')
 ax.plot(Line2X,Line2Y,Line2Z, color='darkorange')
-ax.plot(Line3X,Line3Y,Line3Z, color='green')
+ax.plot(Line3X,Line3Y,Line3Z, color='c')
 
 # Customize the view angle 
 #ax.view_init(elev=20, azim=30, roll=0)
