@@ -13,7 +13,7 @@
     <introduction>
         <p>
             Former students gave us permission to share some of their work. 
-            All of the following examples are also licensed CC-BY-NC-SA 4.0.
+            All of the following examples are also licensed CC-BY-NC-SA 4.0. 
         </p>
     </introduction>
 
@@ -27,7 +27,285 @@
         </ul>
     </objectives>
 
-    
+    <example>
+      <title>Launching a Bowling Ball .gif, by Gunner Fenerty</title>
+
+      <sage language='python'>
+        <input>
+          # launching a ball
+          #importing the important stuff
+          import numpy as np
+          from matplotlib import pyplot as plt
+          from matplotlib.animation import PillowWriter
+
+          #creating the figure
+          fig, ax = plt.subplots()
+
+          #creating variables
+          theta=20 #angle in degrees
+          g=9.81 #gravity on earth DONT HAVE IT BE NEGATIVE it flies up into the sky...
+          #enter these values to try other celestial bodies: moon=1.6,mars=3.7,venus=8.87,jupiter=24.5,the sun=275
+          v0=25 #meters/second
+          dt=0.01
+
+          #converting the degrees to radians :)
+          #this was a mistake i had that made it weird before
+          theta_rad=np.deg2rad(theta)
+
+          #plot those empty curves
+          curve, = ax.plot([],[],color='purple', linestyle='dashed', label='trajectory')
+
+          #maximum height and range so I can scale the limits
+          Hmax = (v0**2 * np.sin(theta_rad)**2) / (2 * g)
+          Rmax = (v0**2 * np.sin(2*theta_rad)) / g
+
+          #instead of hard limits i have variable limits so it will always be the proper size.
+          ax.set_xlim(0, Rmax*1.1)
+          ax.set_ylim(0, Hmax*1.1)
+          ax.set_aspect('equal', adjustable='box')
+
+          #housekeeping with them graphs
+          ax.set_title("launching a bowling ball",color="k",weight="bold")
+          ax.set_xlabel("range (m)")
+          ax.set_ylabel("height (m)")
+
+          # the Bowling Ball/whatever projectile as a point
+          ball, = ax.plot([], [], 'o', color='goldenrod', markersize=8, label='bowling ball')
+
+          #creating the legend
+          ax.legend()
+
+          #set to 15 frames per second
+          writer = PillowWriter(fps=15)
+
+          #empty start
+          x = []
+          y = []
+
+          with writer.saving(fig, "launched_bowling_ball.gif", dpi=100):
+              for xval in np.linspace(0, 100, 250):
+                  x.append(xval)
+                  #the evil equation of projectile motion
+                  yval = xval * np.tan(theta_rad) - (g * xval**2) / (2 * v0**2 * np.cos(theta_rad)**2)
+                  y.append(yval)
+
+                  curve.set_data(x, y) #update the trajectory
+                  ball.set_data([xval], [yval])  # update ball position
+                  writer.grab_frame()
+        </input>
+      </sage>
+
+    </example> 
+
+
+
+    <example>
+      <title>Marble on a Lissajous curve .mp4, by Tawina Kaunda</title>
+
+      <p>Note: This example was showcased with <c>len(Z)</c> frames, but the cloud version of sagemathcell within this textbook
+        would time out. With <c>n = 200</c> frames 
+        the marble does not run the entire curve, but should compile inside the textbook. 
+      </p>
+
+      <sage language='python'>
+        <input>
+          import matplotlib.pyplot as plt
+          import numpy as np
+          from matplotlib.animation import FuncAnimation
+          from mpl_toolkits.mplot3d import Axes3D
+
+          # referenced from an animation example from ENGR 103 and a coding website: https://mycoding.uk/a/interactive_lissajous_curves_with_matplotlib.html
+          # Make data for the lissajous curve
+          Z =  np.arange(0.0,2*np.pi,0.01)
+          n = 200 # number of frames, originally len(Z)
+          p = (np.pi)/2
+          a = 5
+          b = 5
+
+          #lissajous curves
+          x = a*np.sin(a*Z + p)
+          y = b*np.sin(b*Z)
+          z = np.cos(p*Z)
+
+          # Plot setup
+          fig = plt.figure(figsize=(10,10))
+          ax = plt.axes(projection='3d') #add 3D plot and axes
+          ax.plot(x, y, z, alpha = 0.4, lw=3, color='blue') # Show full path in background
+          ax.set_xlabel("X")
+          ax.set_ylabel("Y")
+          ax.set_zlabel("Z")
+          ax.set_title("Ball 3d trajectory in a lissajous curve")
+          ax.set(xticklabels=[], yticklabels=[], zticklabels=[])
+          # Customize the view angle
+          ax.view_init(elev=20, azim=5, roll=0)
+
+          #Create ball in 3d
+          loc, = ax.plot([x[0]], [y[0]], [z[0]], "bo", markersize= 20 ) # Current point
+          traj, = ax.plot([x[0]], [y[0]], [z[0]], "r--", lw=2) # Trailing line
+
+          def animate(i):
+              # Update X and Y
+              traj.set_data(x[:i+1], y[:i+1])
+              # Update Z separately for 3D plots
+              traj.set_3d_properties(z[:i+1])
+
+              loc.set_data([x[i]], [y[i]])
+              loc.set_3d_properties([z[i]])
+              return traj, loc
+
+          #plt.show()
+          anim = FuncAnimation(fig, animate, frames=n, interval=50, blit=True)
+          anim.save('3d ball trajectory.mp4')
+        </input> 
+      </sage> 
+    </example>
+
+    <example>
+      <title>Vector Field .mp4, by Samantha Miles</title>
+
+      <sage language='python'>
+        <input>
+          import numpy as np
+          import matplotlib.pyplot as plt
+          from matplotlib.animation import FuncAnimation, PillowWriter
+
+          #Grid for the Vector Field
+          x = np.linspace(-5,5,40)
+          y = np.linspace(-5,5,40)
+          x, y = np.meshgrid(x,y)
+
+          #Swirling Vector
+          def vector_field(x, y, t):
+              u = -np.sin(y+t)*np.cos(x+t) #controls the horizontal vectors
+              v = np.sin(x+t)*np.cos(y+t)  #controls the verticle vectors
+              return u, v
+
+          #Create Plot and labels
+          fig, ax = plt.subplots(figsize=(6,6))
+          ax.set_xlim(-6,6)
+          ax.set_ylim(-6,6)
+          ax.set_xlabel("x")
+          ax.set_ylabel("y")
+          ax.set_title("Moving Vectors on a Vector Field")
+
+          #Vector Field!
+          u, v = vector_field(x,y,0)
+          speed = np.sqrt(u**2 + v**2) #magnitude of the vector
+          quiv = ax.quiver(x,y,u,v, speed, cmap="managua")
+
+
+          #reference for vectors: https://matplotlib.org/stable/api/_as_gen/matplotlib.quiver.Quiver.html
+
+          #Update function for animation
+          def update(frame):
+              t = frame * 0.1 #change speed by making it less than 0.2 or greater than 0.2
+              u, v= vector_field(x,y,t)
+              quiv.set_UVC(u,v)
+              return quiv,
+
+
+          #Create animation
+          anim = FuncAnimation(fig, update, frames=100, interval=50, blit=True)
+
+          #Save as Gif
+          #anim.save("vector_field.gif", writer=PillowWriter(fps=20))
+
+          #Option: save as MP4
+          from matplotlib.animation import FFMpegWriter
+          anim.save("vector_field.mp4", writer= FFMpegWriter(fps=20))
+          
+        </input> 
+      </sage> 
+    </example>
+
+    <example>
+      <title>Jupiter and its Moons .gif, by Hunter Ross </title>
+
+      <p>Note: This example was showcased with 600 frames, but the cloud version of sagemathcell within this textbook
+        would time out. With <c>frames = 100</c> in
+         <c>FuncAnimation</c> the moons don't complete their orbits, but should compile in the textbook. 
+      </p>
+
+      <sage language='python'>
+        <input>
+          import numpy as np
+          import matplotlib.pyplot as plt
+          from matplotlib.animation import FuncAnimation #to animate
+          from matplotlib.animation import PillowWriter #to save the animation
+
+          #Jupiter
+          j_r = 71492000 #meters jupiter radius
+
+          #moons
+          moon_names = ['Io','Europa','Ganymede','Callisto'] #names of moon in a list
+          moon_colors = ['lightsteelblue','cornflowerblue','darkblue','rebeccapurple'] #picking the colors of each moon
+          orb_r = np.array([4.22e8,6.71e8,1.07e9,1.883e9]) #radius of orbit in order of moons listed above in meters
+          orb_T = np.array([1.769*24*3600,3.551*24*3600,7.155*24*3600,16.689*24*3600]) #converts moons orbits from days to seconds
+
+          #convert time/periods to omega
+          w = (2*np.pi)/orb_T #motion/angular velocity of moons (omegas)
+
+          #will return the largest orbit radius in otder to scale figure
+          max_orb = orb_r.max()
+          scale = max_orb / 4
+
+          #scales the real-life values to something we can visually see on the graph.
+          scaled_r = orb_r /scale
+          scaled_j_r = j_r /scale
+
+          #create figure and plot
+          fig, ax = plt.subplots()
+          ax.set_aspect('equal')
+          ax.set_xlim(-5,5) #setting the limits/boundaries of the ligure
+          ax.set_ylim(-5,5)
+          ax.set_title("Jupiter and its Moons",weight="bold",size=18) #figure title
+          ax.grid(True) #turn on the grid for the figure
+          plt.subplots_adjust(right=0.8)
+
+          #create objects
+          jupiter = ax.plot(0,0,'o',color='orange',markersize = 18,label='Jupiter')
+
+          moons = [] #stores all moons to plot later
+          for i,name in enumerate(moon_names): #gives the moon name list numbers values for each index
+              moon, = ax.plot([],[],'o',color=moon_colors[i],markersize=6,label=name) #creates the moon object, but doesn't automatically give it a position
+              moons.append(moon) #takes new plotted moon and stores in above empty list
+
+          #time and time interval
+          t_0 = 0
+          dt = 2*3600
+
+          #creates working legend
+          ax.legend(loc = 'upper right', frameon=True)#creates legend of the moons
+
+          #resets all poisitions/objects to zero beofre animation begins
+          def init():
+              for moon in moons:
+                  moon.set_data([],[])
+              return moons
+
+          #animation update
+          def update(frame):
+              t = t_0 + frame * dt
+
+              for i, moon in enumerate(moons):
+                  x = scaled_r[i] * np.cos(w[i] * t)
+                  y = scaled_r[i] * np.sin(w[i] * t)
+                  moon.set_data([x], [y])
+
+              return moons
+
+          #adds the dotted circular orbit paths
+          theta = np.linspace(0,2*np.pi,400)
+          for r in scaled_r:
+              ax.plot(r*np.cos(theta), r*np.sin(theta),linestyle = ':',lw=1,alpha = 0.6,color='gray')
+
+          #create and save animation
+          anim = FuncAnimation(fig, update, frames=100, init_func=init, blit=True, interval=30)
+          anim.save("jupiter_moons.gif", writer=PillowWriter(fps=20))
+
+        </input> 
+      </sage> 
+    </example> 
 
 
     <conclusion>
