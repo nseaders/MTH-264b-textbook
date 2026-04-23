@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- This file is part of the book                      -->
+<!--                                                    -->
+<!-- An Introduction to Matrix Computations in Python   -->
+<!--                                                    -->
+<!-- Copyright (C) 2024  LBCC                           -->
+<!-- See the file copyright.txt for copying conditions. -->
+
+<section xml:id="section-showcase2025">
+    
+    <title>Student Showcase 2025</title>
+
+    <introduction>
+        <p>
+            Former students gave us permission to share some of their work. 
+            All of the following examples are also licensed CC-BY-NC-SA 4.0.
+        </p>
+    </introduction>
+
+    <objectives>
+        <ul>
+          <li>
+            <p>
+              Showcase student work and provide additional examples for future students.
+            </p>
+          </li>
+        </ul>
+    </objectives>
+
+    
+
+
+    <conclusion>
+      <p>
+        Students found a variety of creative ways to showcase their animation skills
+        and NumPy experience. 
+      </p>
+    </conclusion>
+
+
+
+
+
+
+
+</section>
