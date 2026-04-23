@@ -586,20 +586,74 @@ var ptx_lunr_docs = [
   "body": "What graph do you want to animate? Create it! "
 },
 {
+  "id": "section-showcase2025",
+  "level": "1",
+  "url": "section-showcase2025.html",
+  "type": "Section",
+  "number": "1.6",
+  "title": "Student Showcase 2025",
+  "body": " Student Showcase 2025   Former students gave us permission to share some of their work. All of the following examples are also licensed CC-BY-NC-SA 4.0.      Showcase student work and provide additional examples for future students.      Launching a Bowling Ball .gif, by Gunner Fenerty     Marble on a Lissajous curve .mp4, by Tawina Kaunda  Note: This example was showcased with len(Z) frames, but the cloud version of sagemathcell within this textbook would time out. With n = 200 frames the marble does not run the entire curve, but should compile inside the textbook.     Vector Field .mp4, by Samantha Miles     Jupiter and its Moons .gif, by Hunter Ross  Note: This example was showcased with 600 frames, but the cloud version of sagemathcell within this textbook would time out. With frames = 100 in FuncAnimation the moons don't complete their orbits, but should compile in the textbook.     Students found a variety of creative ways to showcase their animation skills and NumPy experience.   "
+},
+{
+  "id": "section-showcase2025-3",
+  "level": "2",
+  "url": "section-showcase2025.html#section-showcase2025-3",
+  "type": "Objectives",
+  "number": "1.6",
+  "title": "",
+  "body": "   Showcase student work and provide additional examples for future students.    "
+},
+{
+  "id": "section-showcase2025-4",
+  "level": "2",
+  "url": "section-showcase2025.html#section-showcase2025-4",
+  "type": "Example",
+  "number": "1.40",
+  "title": "Launching a Bowling Ball .gif, by Gunner Fenerty.",
+  "body": " Launching a Bowling Ball .gif, by Gunner Fenerty   "
+},
+{
+  "id": "section-showcase2025-5",
+  "level": "2",
+  "url": "section-showcase2025.html#section-showcase2025-5",
+  "type": "Example",
+  "number": "1.41",
+  "title": "Marble on a Lissajous curve .mp4, by Tawina Kaunda.",
+  "body": " Marble on a Lissajous curve .mp4, by Tawina Kaunda  Note: This example was showcased with len(Z) frames, but the cloud version of sagemathcell within this textbook would time out. With n = 200 frames the marble does not run the entire curve, but should compile inside the textbook.   "
+},
+{
+  "id": "section-showcase2025-6",
+  "level": "2",
+  "url": "section-showcase2025.html#section-showcase2025-6",
+  "type": "Example",
+  "number": "1.42",
+  "title": "Vector Field .mp4, by Samantha Miles.",
+  "body": " Vector Field .mp4, by Samantha Miles   "
+},
+{
+  "id": "section-showcase2025-7",
+  "level": "2",
+  "url": "section-showcase2025.html#section-showcase2025-7",
+  "type": "Example",
+  "number": "1.43",
+  "title": "Jupiter and its Moons .gif, by Hunter Ross.",
+  "body": " Jupiter and its Moons .gif, by Hunter Ross  Note: This example was showcased with 600 frames, but the cloud version of sagemathcell within this textbook would time out. With frames = 100 in FuncAnimation the moons don't complete their orbits, but should compile in the textbook.   "
+},
+{
   "id": "section-showcase",
   "level": "1",
   "url": "section-showcase.html",
   "type": "Section",
-  "number": "1.6",
-  "title": "Student Showcase",
-  "body": " Student Showcase   Former students gave us permission to share some of their work. All of the following examples are also licensed CC-BY-NC-SA 4.0.      Showcase student work and provide additional examples for future students.      Anonymous .gif (Spring 2024)     Luke Clark interactive (Spring 2024)     Jacob DeWilde interactive (Spring 2024)     Ben Cantarero .gif (Spring 2024)     As the course has grown the book has improved, but students have been creating wonderful animations from the start.   "
+  "number": "1.7",
+  "title": "Student Showcase 2024",
+  "body": " Student Showcase 2024   Former students gave us permission to share some of their work. All of the following examples are also licensed CC-BY-NC-SA 4.0.      Showcase student work and provide additional examples for future students.      Anonymous .gif (Spring 2024)     Luke Clark interactive (Spring 2024)     Jacob DeWilde interactive (Spring 2024)     Ben Cantarero .gif (Spring 2024)     As the course has grown the book has improved, but students have been creating wonderful animations from the start.   "
 },
 {
   "id": "section-showcase-3",
   "level": "2",
   "url": "section-showcase.html#section-showcase-3",
   "type": "Objectives",
-  "number": "1.6",
+  "number": "1.7",
   "title": "",
   "body": "   Showcase student work and provide additional examples for future students.    "
 },
@@ -608,7 +662,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-showcase.html#section-showcase-4",
   "type": "Example",
-  "number": "1.40",
+  "number": "1.44",
   "title": "Anonymous .gif (Spring 2024).",
   "body": " Anonymous .gif (Spring 2024)   "
 },
@@ -617,7 +671,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-showcase.html#section-showcase-5",
   "type": "Example",
-  "number": "1.41",
+  "number": "1.45",
   "title": "Luke Clark interactive (Spring 2024).",
   "body": " Luke Clark interactive (Spring 2024)   "
 },
@@ -626,7 +680,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-showcase.html#section-showcase-6",
   "type": "Example",
-  "number": "1.42",
+  "number": "1.46",
   "title": "Jacob DeWilde interactive (Spring 2024).",
   "body": " Jacob DeWilde interactive (Spring 2024)   "
 },
@@ -635,7 +689,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-showcase.html#section-showcase-7",
   "type": "Example",
-  "number": "1.43",
+  "number": "1.47",
   "title": "Ben Cantarero .gif (Spring 2024).",
   "body": " Ben Cantarero .gif (Spring 2024)   "
 },
